@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Premium Social Media Image Resizer | TopWebTool</title>
+  <meta name="description" content="Crop and resize images client-side for major social media platforms like YouTube, Instagram, Facebook, and Twitter.">
+  <link rel="stylesheet" href="/styles.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f0f9ff',
+              100: '#e0f2fe',
+              500: '#0284c7',
+              600: '#0369a1',
+              700: '#075985',
+              900: '#0c4a6e',
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col pb-24">
+
+  <!-- Header -->
+  <header class="bg-white border-b border-slate-200 sticky top-0 z-40 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <a href="/" class="flex items-center space-x-2 group">
+        <svg class="w-8 h-8 text-brand-600 transition-transform group-hover:scale-105" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+        </svg>
+        <span class="font-extrabold text-2xl tracking-tight bg-gradient-to-r from-brand-700 to-brand-500 bg-clip-text text-transparent">TopWebTool</span>
+      </a>
+      <span class="text-xs font-semibold text-slate-400 uppercase tracking-widest hidden sm:inline-block">Image Resizer</span>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex-grow">
+
+    <!-- Ad Placement A -->
+    <div class="mb-6 flex justify-center">
+      <div class="bg-gray-100 border border-gray-200 rounded-lg flex flex-col justify-center items-center p-2 text-center w-full shadow-inner min-h-[50px] max-w-[320px] md:min-h-[90px] md:max-w-[728px]">
+        <span class="text-[10px] font-bold text-gray-400 tracking-wider uppercase mb-1">Advertisement</span>
+        <span class="text-xs md:text-sm font-semibold text-gray-500">AD PLACEMENT - TOP LEADERBOARD</span>
+      </div>
+    </div>
+
+    <!-- 2-Column Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+
+      <!-- Main Content -->
+      <div class="lg:col-span-3 space-y-8">
+
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+          <h1 class="text-3xl font-extrabold text-slate-900 tracking-tight sm:text-4xl">Social Media Image Resizer</h1>
+          <p class="mt-2 text-base text-slate-500">
+            Instant HTML5 Canvas image resizing. Upload your images and select sizing presets for YouTube, Facebook, and Instagram.
+          </p>
+        </div>
+
+        <!-- Calculator UI -->
+        <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-8 space-y-6">
+          <h2 class="text-lg font-bold text-slate-900 border-b border-slate-100 pb-3">Load & Configuration</h2>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label class="block text-sm font-semibold text-slate-700 mb-2">Select Image File</label>
+              <input type="file" id="input-file" accept="image/*" class="block w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-brand-50 file:text-brand-700 hover:file:bg-brand-100 cursor-pointer" onchange="loadImage(event)">
+            </div>
+            <div>
+              <label for="input-preset" class="block text-sm font-semibold text-slate-700 mb-2">Target Dimension Preset</label>
+              <select id="input-preset" class="block w-full px-3 py-2.5 border border-slate-300 rounded-lg bg-white font-semibold text-sm text-slate-950" onchange="resizeImage()">
+                <option value="1200x630">Facebook Share Link (1200x630)</option>
+                <option value="1080x1080" selected>Instagram Post (1080x1080)</option>
+                <option value="1280x720">YouTube Thumbnail (1280x720)</option>
+                <option value="1500x500">Twitter Header (1500x500)</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive Canvas Card -->
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col items-center space-y-4">
+          <h2 class="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2 w-full text-center">Output Canvas Preview</h2>
+          <div class="border border-dashed border-slate-300 rounded-xl bg-slate-50 flex items-center justify-center p-4 min-h-[220px] w-full max-w-[400px] overflow-hidden">
+            <canvas id="output-canvas" class="max-w-full h-auto border border-slate-200 shadow-sm rounded-lg" width="200" height="200"></canvas>
+          </div>
+          <button onclick="downloadImage()" class="px-5 py-2.5 bg-brand-600 text-white hover:bg-brand-700 transition-colors font-bold text-sm rounded-lg shadow-sm">
+            Download Resized Image
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Column 4 Sidebar -->
+      <div class="lg:col-span-1 space-y-6">
+
+        <!-- Discovery panel -->
+        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm">
+          <h2 class="text-base font-bold text-slate-900 tracking-tight flex items-center space-x-2 border-b border-slate-100 pb-3">
+            <span>Trending Utilities</span>
+          </h2>
+          <div class="mt-4 space-y-3 text-xs">
+            <a href="/utm-generator" class="block font-semibold text-slate-800 hover:text-brand-600 transition-colors">UTM Link Builder</a>
+            <a href="/roi-calculator" class="block font-semibold text-slate-800 hover:text-brand-600 transition-colors">Campaign ROI Calculator</a>
+            <a href="/cpm-calculator" class="block font-semibold text-slate-800 hover:text-brand-600 transition-colors">CPM Ad Calculator</a>
+            <a href="/headline-analyzer" class="block font-semibold text-slate-800 hover:text-brand-600 transition-colors">Headline Copy Score</a>
+          </div>
+        </div>
+
+        <!-- Ad Placement B -->
+        <div class="sticky top-20">
+          <div class="bg-gray-100 border border-gray-200 rounded-2xl flex flex-col justify-center items-center p-4 text-center shadow-inner min-h-[250px] md:min-h-[600px] max-w-[300px] mx-auto">
+            <span class="text-[10px] font-bold text-gray-400 tracking-wider uppercase mb-2">Advertisement</span>
+            <span class="text-sm font-semibold text-gray-500">AD PLACEMENT - HIGH RES VIEWABILITY BOX</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- Ad Placement C -->
+  <div class="fixed bottom-0 left-0 w-full z-50 bg-white border-t border-gray-200 shadow-lg flex justify-center items-center py-2">
+    <div class="w-full flex justify-center">
+      <div class="bg-gray-100 border border-gray-200 rounded flex flex-col justify-center items-center p-1 text-center w-full min-h-[50px] max-w-[320px] md:max-w-[728px]">
+        <span class="text-[8px] font-bold text-gray-400 tracking-wider uppercase">Advertisement</span>
+        <span class="text-xs font-semibold text-gray-500">AD PLACEMENT - STICKY FOOTER ANCHOR</span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let currentImage = null;
+
+    function loadImage(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        const img = new Image();
+        img.onload = function() {
+          currentImage = img;
+          resizeImage();
+        };
+        img.src = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function resizeImage() {
+      const canvas = document.getElementById('output-canvas');
+      const ctx = canvas.getContext('2d');
+      const presetValue = document.getElementById('input-preset').value;
+      const [targetW, targetH] = presetValue.split('x').map(Number);
+
+      canvas.width = targetW;
+      canvas.height = targetH;
+
+      // Draw blank white background
+      ctx.fillStyle = "#ffffff";
+      ctx.fillRect(0, 0, targetW, targetH);
+
+      if (currentImage) {
+        // Calculate ratio fits (cover mode)
+        const ratio = Math.max(targetW / currentImage.width, targetH / currentImage.height);
+        const drawW = currentImage.width * ratio;
+        const drawH = currentImage.height * ratio;
+        const xOffset = (targetW - drawW) / 2;
+        const yOffset = (targetH - drawH) / 2;
+
+        ctx.drawImage(currentImage, xOffset, yOffset, drawW, drawH);
+      } else {
+        // Draw helpful visual guide text if empty
+        ctx.fillStyle = "#cbd5e1";
+        ctx.font = "bold 20px sans-serif";
+        ctx.textAlign = "center";
+        ctx.textBaseline = "middle";
+        ctx.fillText("Upload image to preview", targetW / 2, targetH / 2);
+      }
+    }
+
+    function downloadImage() {
+      const canvas = document.getElementById('output-canvas');
+      const a = document.createElement('a');
+      a.href = canvas.toDataURL('image/jpeg', 0.9);
+      a.download = 'resized-social-media.jpg';
+      a.click();
+    }
+
+    window.addEventListener('DOMContentLoaded', resizeImage);
+  </script>
+</body>
+</html>

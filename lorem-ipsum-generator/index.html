@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Premium Lorem Ipsum Generator | TopWebTool</title>
+  <meta name="description" content="Generate custom filler paragraphs, words, or lists instantly for layout placeholder mockup designs.">
+  <link rel="stylesheet" href="/styles.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f0f9ff',
+              100: '#e0f2fe',
+              500: '#0284c7',
+              600: '#0369a1',
+              700: '#075985',
+              900: '#0c4a6e',
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col pb-24">
+
+  <!-- Header -->
+  <header class="bg-white border-b border-slate-200 sticky top-0 z-40 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <a href="/" class="flex items-center space-x-2 group">
+        <svg class="w-8 h-8 text-brand-600 transition-transform group-hover:scale-105" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 4a2 2 0 00-2-2h-3a2 2 0 00-2 2v3a2 2 0 002 2h3a2 2 0 002-2v-3z"></path>
+        </svg>
+        <span class="font-extrabold text-2xl tracking-tight bg-gradient-to-r from-brand-700 to-brand-500 bg-clip-text text-transparent">TopWebTool</span>
+      </a>
+      <span class="text-xs font-semibold text-slate-400 uppercase tracking-widest hidden sm:inline-block">Lorem Ipsum</span>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex-grow">
+
+    <!-- Ad Placement A -->
+    <div class="mb-6 flex justify-center">
+      <div class="bg-gray-100 border border-gray-200 rounded-lg flex flex-col justify-center items-center p-2 text-center w-full shadow-inner min-h-[50px] max-w-[320px] md:min-h-[90px] md:max-w-[728px]">
+        <span class="text-[10px] font-bold text-gray-400 tracking-wider uppercase mb-1">Advertisement</span>
+        <span class="text-xs md:text-sm font-semibold text-gray-500">AD PLACEMENT - TOP LEADERBOARD</span>
+      </div>
+    </div>
+
+    <!-- 2-Column Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+
+      <!-- Main Content -->
+      <div class="lg:col-span-3 space-y-8">
+
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+          <h1 class="text-3xl font-extrabold text-slate-900 tracking-tight sm:text-4xl">Lorem Ipsum Generator</h1>
+          <p class="mt-2 text-base text-slate-500">
+            Generate custom filler placeholder dummy text for design layout structures instantly. Custom quantities of paragraphs or lists completely client-side.
+          </p>
+        </div>
+
+        <!-- Calculator UI -->
+        <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-8 space-y-6">
+          <h2 class="text-lg font-bold text-slate-900 border-b border-slate-100 pb-3">Lorem Parameters</h2>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div>
+              <label for="input-count" class="block text-sm font-semibold text-slate-700 mb-2">Quantity count</label>
+              <input type="number" id="input-count" class="block w-full px-3 py-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-950 font-semibold text-sm" value="3" min="1" max="50" oninput="generateLorem()">
+            </div>
+            <div>
+              <label for="input-type" class="block text-sm font-semibold text-slate-700 mb-2">Structure Type</label>
+              <select id="input-type" class="block w-full px-3 py-2.5 border border-slate-300 rounded-lg bg-white font-semibold text-sm text-slate-950" onchange="generateLorem()">
+                <option value="paragraphs" selected>Paragraphs Block</option>
+                <option value="sentences">Sentences List</option>
+                <option value="words">Words Count</option>
+              </select>
+            </div>
+            <div class="flex items-center pt-6">
+              <label class="inline-flex items-center">
+                <input type="checkbox" id="check-start" class="rounded text-brand-600 focus:ring-brand-500 h-4 w-4" checked onchange="generateLorem()">
+                <span class="ml-2 text-sm font-semibold text-slate-700">Start with "Lorem ipsum dolor..."</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Output Cards -->
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-4">
+          <h2 class="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">Generated Placeholder Copy</h2>
+          <div class="bg-slate-50 border border-slate-200 text-slate-700 p-6 rounded-xl text-sm leading-relaxed whitespace-pre-wrap break-words" id="out-lorem">
+            ...
+          </div>
+          <div class="flex justify-end pt-2">
+            <button onclick="copyLorem()" id="btn-copy" class="px-5 py-2.5 bg-brand-600 text-white hover:bg-brand-700 transition-colors font-bold text-sm rounded-lg shadow-sm">
+              <span>Copy Text</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Column 4 Sidebar -->
+      <div class="lg:col-span-1 space-y-6">
+
+        <!-- Discovery panel -->
+        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm">
+          <h2 class="text-base font-bold text-slate-900 tracking-tight flex items-center space-x-2 border-b border-slate-100 pb-3">
+            <span>Trending Utilities</span>
+          </h2>
+          <div class="mt-4 space-y-3 text-xs">
+            <a href="/json-formatter-validator" class="block font-semibold text-slate-800 hover:text-brand-600 transition-colors">JSON Formatter & Validator</a>
+            <a href="/password-generator" class="block font-semibold text-slate-800 hover:text-brand-600 transition-colors">Secure Password Generator</a>
+            <a href="/base64-encoder-decoder" class="block font-semibold text-slate-800 hover:text-brand-600 transition-colors">Base64 Encoder & Decoder</a>
+            <a href="/word-character-counter" class="block font-semibold text-slate-800 hover:text-brand-600 transition-colors">Word Character Counter</a>
+          </div>
+        </div>
+
+        <!-- Ad Placement B -->
+        <div class="sticky top-20">
+          <div class="bg-gray-100 border border-gray-200 rounded-2xl flex flex-col justify-center items-center p-4 text-center shadow-inner min-h-[250px] md:min-h-[600px] max-w-[300px] mx-auto">
+            <span class="text-[10px] font-bold text-gray-400 tracking-wider uppercase mb-2">Advertisement</span>
+            <span class="text-sm font-semibold text-gray-500">AD PLACEMENT - HIGH RES VIEWABILITY BOX</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- Ad Placement C -->
+  <div class="fixed bottom-0 left-0 w-full z-50 bg-white border-t border-gray-200 shadow-lg flex justify-center items-center py-2">
+    <div class="w-full flex justify-center">
+      <div class="bg-gray-100 border border-gray-200 rounded flex flex-col justify-center items-center p-1 text-center w-full min-h-[50px] max-w-[320px] md:max-w-[728px]">
+        <span class="text-[8px] font-bold text-gray-400 tracking-wider uppercase">Advertisement</span>
+        <span class="text-xs font-semibold text-gray-500">AD PLACEMENT - STICKY FOOTER ANCHOR</span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const loremPhrases = [
+      "lorem ipsum dolor sit amet", "consectetur adipiscing elit", "sed do eiusmod tempor incididunt",
+      "ut labore et dolore magna aliqua", "ut enim ad minim veniam", "quis nostrud exercitation ullamco",
+      "laboris nisi ut aliquip ex ea commodo consequat", "duis aute irure dolor in reprehenderit",
+      "in voluptate velit esse cillum dolore", "eu fugiat nulla pariatur", "excepteur sint occaecat cupidatat non proident",
+      "sunt in culpa qui officia deserunt", "mollit anim id est laborum"
+    ];
+
+    function generateLorem() {
+      const count = parseInt(document.getElementById('input-count').value) || 3;
+      const type = document.getElementById('input-type').value;
+      const startsWithLorem = document.getElementById('check-start').checked;
+
+      let result = "";
+
+      if (type === 'paragraphs') {
+        let paragraphs = [];
+        for (let p = 0; p < count; p++) {
+          let sentences = [];
+          const sCount = 4 + Math.floor(Math.random() * 3);
+          for (let s = 0; s < sCount; s++) {
+            let sentence = "";
+            const pCount = 5 + Math.floor(Math.random() * 6);
+            for (let ph = 0; ph < pCount; ph++) {
+              sentence += (ph > 0 ? " " : "") + loremPhrases[Math.floor(Math.random() * loremPhrases.length)];
+            }
+            sentence = sentence.charAt(0).toUpperCase() + sentence.slice(1) + ".";
+            sentences.push(sentence);
+          }
+          if (p === 0 && startsWithLorem) {
+            sentences[0] = "Lorem ipsum dolor sit amet, " + sentences[0].charAt(0).toLowerCase() + sentences[0].slice(1);
+          }
+          paragraphs.push(sentences.join(" "));
+        }
+        result = paragraphs.join("\n\n");
+      } else if (type === 'sentences') {
+        let sentences = [];
+        for (let s = 0; s < count; s++) {
+          let sentence = "";
+          const pCount = 6 + Math.floor(Math.random() * 5);
+          for (let ph = 0; ph < pCount; ph++) {
+            sentence += (ph > 0 ? " " : "") + loremPhrases[Math.floor(Math.random() * loremPhrases.length)];
+          }
+          sentence = sentence.charAt(0).toUpperCase() + sentence.slice(1) + ".";
+          sentences.push(sentence);
+        }
+        if (startsWithLorem) {
+          sentences[0] = "Lorem ipsum dolor sit amet, " + sentences[0].charAt(0).toLowerCase() + sentences[0].slice(1);
+        }
+        result = sentences.join("\n");
+      } else {
+        // Words lists count
+        let words = [];
+        if (startsWithLorem) {
+          words = ["lorem", "ipsum", "dolor", "sit", "amet"];
+        }
+        while (words.length < count) {
+          const phrase = loremPhrases[Math.floor(Math.random() * loremPhrases.length)];
+          const split = phrase.split(" ");
+          words.push(...split);
+        }
+        result = words.slice(0, count).join(" ");
+        result = result.charAt(0).toUpperCase() + result.slice(1);
+      }
+
+      document.getElementById('out-lorem').textContent = result;
+    }
+
+    function copyLorem() {
+      const btn = document.getElementById('btn-copy');
+      const text = btn.querySelector('span');
+      const lorem = document.getElementById('out-lorem').textContent;
+      navigator.clipboard.writeText(lorem).then(() => {
+        text.textContent = 'Copied!';
+        setTimeout(() => { text.textContent = 'Copy Text'; }, 2000);
+      });
+    }
+
+    window.addEventListener('DOMContentLoaded', generateLorem);
+  </script>
+</body>
+</html>

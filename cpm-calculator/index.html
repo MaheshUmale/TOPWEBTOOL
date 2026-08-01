@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Premium CPM Campaign Ad Calculator | TopWebTool</title>
+  <meta name="description" content="Calculate ad Campaign Cost, Cost Per Mille (CPM), or Total Impressions dynamically inside your browser.">
+  <link rel="stylesheet" href="/styles.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f0f9ff',
+              100: '#e0f2fe',
+              500: '#0284c7',
+              600: '#0369a1',
+              700: '#075985',
+              900: '#0c4a6e',
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col pb-24">
+
+  <!-- Header -->
+  <header class="bg-white border-b border-slate-200 sticky top-0 z-40 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <a href="/" class="flex items-center space-x-2 group">
+        <svg class="w-8 h-8 text-brand-600 transition-transform group-hover:scale-105" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+        </svg>
+        <span class="font-extrabold text-2xl tracking-tight bg-gradient-to-r from-brand-700 to-brand-500 bg-clip-text text-transparent">TopWebTool</span>
+      </a>
+      <span class="text-xs font-semibold text-slate-400 uppercase tracking-widest hidden sm:inline-block">CPM Calculator</span>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex-grow">
+
+    <!-- Ad Placement A -->
+    <div class="mb-6 flex justify-center">
+      <div class="bg-gray-100 border border-gray-200 rounded-lg flex flex-col justify-center items-center p-2 text-center w-full shadow-inner min-h-[50px] max-w-[320px] md:min-h-[90px] md:max-w-[728px]">
+        <span class="text-[10px] font-bold text-gray-400 tracking-wider uppercase mb-1">Advertisement</span>
+        <span class="text-xs md:text-sm font-semibold text-gray-500">AD PLACEMENT - TOP LEADERBOARD</span>
+      </div>
+    </div>
+
+    <!-- 2-Column Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+
+      <!-- Main Content -->
+      <div class="lg:col-span-3 space-y-8">
+
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+          <h1 class="text-3xl font-extrabold text-slate-900 tracking-tight sm:text-4xl">CPM Ad Campaign Calculator</h1>
+          <p class="mt-2 text-base text-slate-500">
+            A dynamic three-way Cost Per Mille solver. Fill any two fields to automatically compute the third remaining parameter.
+          </p>
+        </div>
+
+        <!-- Calculator UI -->
+        <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-8 space-y-6">
+          <div class="flex justify-between items-center border-b border-slate-100 pb-3">
+            <h2 class="text-lg font-bold text-slate-900">Select Mode / Parameter to Solve For</h2>
+            <select id="input-mode" class="px-3 py-1.5 border border-slate-300 rounded-lg bg-white font-bold text-xs text-brand-700" onchange="switchMode()">
+              <option value="solve-cost" selected>Solve for Campaign Total Cost</option>
+              <option value="solve-cpm">Solve for Cost Per Mille (CPM)</option>
+              <option value="solve-impressions">Solve for Total Impressions</option>
+            </select>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div id="wrapper-cost">
+              <label for="input-cost" class="block text-sm font-semibold text-slate-700 mb-2">Total Campaign Cost ($)</label>
+              <input type="number" id="input-cost" class="block w-full px-3 py-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-950 font-semibold text-sm" value="150" oninput="solveCPM()">
+            </div>
+            <div id="wrapper-cpm">
+              <label for="input-cpm" class="block text-sm font-semibold text-slate-700 mb-2">CPM Rate ($)</label>
+              <input type="number" id="input-cpm" class="block w-full px-3 py-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-950 font-semibold text-sm" value="7.5" oninput="solveCPM()">
+            </div>
+            <div id="wrapper-impressions">
+              <label for="input-impressions" class="block text-sm font-semibold text-slate-700 mb-2">Total Impressions</label>
+              <input type="number" id="input-impressions" class="block w-full px-3 py-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-950 font-semibold text-sm" value="20000" oninput="solveCPM()">
+            </div>
+          </div>
+        </div>
+
+        <!-- Output Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="bg-gradient-to-br from-brand-600 to-brand-800 p-6 rounded-2xl text-white shadow-md">
+            <span class="text-xs uppercase font-bold tracking-wider opacity-85 block" id="out-lbl-total-cost">Total Ad Cost</span>
+            <span class="text-2xl font-extrabold mt-2 block" id="out-cost">$150.00</span>
+          </div>
+          <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+            <span class="text-xs uppercase font-bold tracking-wider text-slate-400 block" id="out-lbl-cpm">Calculated CPM Rate</span>
+            <span class="text-xl font-extrabold mt-2 text-slate-800 block" id="out-cpm">$7.50</span>
+          </div>
+          <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+            <span class="text-xs uppercase font-bold tracking-wider text-slate-400 block" id="out-lbl-impressions">Ad Impressions Target</span>
+            <span class="text-xl font-extrabold mt-2 text-slate-800 block" id="out-impressions">20,000</span>
+          </div>
+        </div>
+
+        <!-- Copy Summary -->
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex justify-between items-center">
+          <div>
+            <span class="text-sm font-semibold text-slate-700">Need to save these CPM figures?</span>
+            <p class="text-xs text-slate-400">Copy comprehensive reports to compare against budgets.</p>
+          </div>
+          <button onclick="copySummary()" id="btn-copy" class="px-4 py-2 bg-slate-100 text-slate-700 hover:bg-slate-200 transition-colors font-semibold text-xs rounded-lg">
+            <span>Copy CPM Metrics</span>
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Column 4 Sidebar -->
+      <div class="lg:col-span-1 space-y-6">
+
+        <!-- Discovery panel -->
+        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm">
+          <h2 class="text-base font-bold text-slate-900 tracking-tight flex items-center space-x-2 border-b border-slate-100 pb-3">
+            <span>Trending Utilities</span>
+          </h2>
+          <div class="mt-4 space-y-3 text-xs">
+            <a href="/utm-generator" class="block font-semibold text-slate-800 hover:text-brand-600 transition-colors">UTM Link Builder</a>
+            <a href="/roi-calculator" class="block font-semibold text-slate-800 hover:text-brand-600 transition-colors">Campaign ROI Calculator</a>
+            <a href="/headline-analyzer" class="block font-semibold text-slate-800 hover:text-brand-600 transition-colors">Headline Copy Score</a>
+            <a href="/qr-code-generator" class="block font-semibold text-slate-800 hover:text-brand-600 transition-colors">QR Code Generator</a>
+          </div>
+        </div>
+
+        <!-- Ad Placement B -->
+        <div class="sticky top-20">
+          <div class="bg-gray-100 border border-gray-200 rounded-2xl flex flex-col justify-center items-center p-4 text-center shadow-inner min-h-[250px] md:min-h-[600px] max-w-[300px] mx-auto">
+            <span class="text-[10px] font-bold text-gray-400 tracking-wider uppercase mb-2">Advertisement</span>
+            <span class="text-sm font-semibold text-gray-500">AD PLACEMENT - HIGH RES VIEWABILITY BOX</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- Ad Placement C -->
+  <div class="fixed bottom-0 left-0 w-full z-50 bg-white border-t border-gray-200 shadow-lg flex justify-center items-center py-2">
+    <div class="w-full flex justify-center">
+      <div class="bg-gray-100 border border-gray-200 rounded flex flex-col justify-center items-center p-1 text-center w-full min-h-[50px] max-w-[320px] md:max-w-[728px]">
+        <span class="text-[8px] font-bold text-gray-400 tracking-wider uppercase">Advertisement</span>
+        <span class="text-xs font-semibold text-gray-500">AD PLACEMENT - STICKY FOOTER ANCHOR</span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function switchMode() {
+      const mode = document.getElementById('input-mode').value;
+      const inputCost = document.getElementById('input-cost');
+      const inputCpm = document.getElementById('input-cpm');
+      const inputImpressions = document.getElementById('input-impressions');
+
+      // Clear read-only flags
+      inputCost.readOnly = false;
+      inputCpm.readOnly = false;
+      inputImpressions.readOnly = false;
+
+      // Dynamic styles
+      inputCost.className = "block w-full px-3 py-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-950 font-semibold text-sm";
+      inputCpm.className = "block w-full px-3 py-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-950 font-semibold text-sm";
+      inputImpressions.className = "block w-full px-3 py-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-950 font-semibold text-sm";
+
+      if (mode === 'solve-cost') {
+        inputCost.readOnly = true;
+        inputCost.className += " bg-slate-100 cursor-not-allowed";
+      } else if (mode === 'solve-cpm') {
+        inputCpm.readOnly = true;
+        inputCpm.className += " bg-slate-100 cursor-not-allowed";
+      } else if (mode === 'solve-impressions') {
+        inputImpressions.readOnly = true;
+        inputImpressions.className += " bg-slate-100 cursor-not-allowed";
+      }
+
+      solveCPM();
+    }
+
+    function solveCPM() {
+      const mode = document.getElementById('input-mode').value;
+      let cost = parseFloat(document.getElementById('input-cost').value) || 0;
+      let cpm = parseFloat(document.getElementById('input-cpm').value) || 0;
+      let impressions = parseFloat(document.getElementById('input-impressions').value) || 0;
+
+      if (mode === 'solve-cost') {
+        cost = (impressions / 1000) * cpm;
+        document.getElementById('input-cost').value = cost.toFixed(2);
+      } else if (mode === 'solve-cpm') {
+        cpm = impressions > 0 ? (cost / (impressions / 1000)) : 0;
+        document.getElementById('input-cpm').value = cpm.toFixed(2);
+      } else if (mode === 'solve-impressions') {
+        impressions = cpm > 0 ? (cost / cpm) * 1000 : 0;
+        document.getElementById('input-impressions').value = Math.round(impressions);
+      }
+
+      document.getElementById('out-cost').textContent = `$${cost.toFixed(2)}`;
+      document.getElementById('out-cpm').textContent = `$${cpm.toFixed(2)}`;
+      document.getElementById('out-impressions').textContent = Math.round(impressions).toLocaleString();
+    }
+
+    function copySummary() {
+      const btn = document.getElementById('btn-copy');
+      const text = btn.querySelector('span');
+      const cost = document.getElementById('out-cost').textContent;
+      const cpm = document.getElementById('out-cpm').textContent;
+      const imp = document.getElementById('out-impressions').textContent;
+      navigator.clipboard.writeText(`CPM Report:\nTotal Ad Spend: ${cost}\nCPM Rate: ${cpm}\nImpressions: ${imp}`).then(() => {
+        text.textContent = 'Copied!';
+        setTimeout(() => { text.textContent = 'Copy CPM Metrics'; }, 2000);
+      });
+    }
+
+    window.addEventListener('DOMContentLoaded', switchMode);
+  </script>
+</body>
+</html>

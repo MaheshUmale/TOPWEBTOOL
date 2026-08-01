@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Premium ROI & ROAS Campaign Calculator | TopWebTool</title>
+  <meta name="description" content="Calculate ad spend Return on Investment (ROI) and Return on Ad Spend (ROAS) dynamically based on clicks and conversions.">
+  <link rel="stylesheet" href="/styles.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f0f9ff',
+              100: '#e0f2fe',
+              500: '#0284c7',
+              600: '#0369a1',
+              700: '#075985',
+              900: '#0c4a6e',
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col pb-24">
+
+  <!-- Header -->
+  <header class="bg-white border-b border-slate-200 sticky top-0 z-40 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <a href="/" class="flex items-center space-x-2 group">
+        <svg class="w-8 h-8 text-brand-600 transition-transform group-hover:scale-105" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 002 2h2a2 2 0 002-2z"></path>
+        </svg>
+        <span class="font-extrabold text-2xl tracking-tight bg-gradient-to-r from-brand-700 to-brand-500 bg-clip-text text-transparent">TopWebTool</span>
+      </a>
+      <span class="text-xs font-semibold text-slate-400 uppercase tracking-widest hidden sm:inline-block">ROI Calculator</span>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex-grow">
+
+    <!-- Ad Placement A -->
+    <div class="mb-6 flex justify-center">
+      <div class="bg-gray-100 border border-gray-200 rounded-lg flex flex-col justify-center items-center p-2 text-center w-full shadow-inner min-h-[50px] max-w-[320px] md:min-h-[90px] md:max-w-[728px]">
+        <span class="text-[10px] font-bold text-gray-400 tracking-wider uppercase mb-1">Advertisement</span>
+        <span class="text-xs md:text-sm font-semibold text-gray-500">AD PLACEMENT - TOP LEADERBOARD</span>
+      </div>
+    </div>
+
+    <!-- 2-Column Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+
+      <!-- Main Content -->
+      <div class="lg:col-span-3 space-y-8">
+
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+          <h1 class="text-3xl font-extrabold text-slate-900 tracking-tight sm:text-4xl">Marketing ROI & ROAS Calculator</h1>
+          <p class="mt-2 text-base text-slate-500">
+            Determine standard investment return metrics across promotional channels. Compute dynamic net margins, CPC conversions, CPA, and ROAS ratios.
+          </p>
+        </div>
+
+        <!-- Calculator UI -->
+        <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-8 space-y-6">
+          <h2 class="text-lg font-bold text-slate-900 border-b border-slate-100 pb-3">Campaign metrics</h2>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label for="input-adspend" class="block text-sm font-semibold text-slate-700 mb-2">Total Budget/Ad Spend ($)</label>
+              <input type="number" id="input-adspend" class="block w-full px-3 py-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-950 font-semibold text-sm" value="5000" oninput="calculateROI()">
+            </div>
+            <div>
+              <label for="input-revenue" class="block text-sm font-semibold text-slate-700 mb-2">Total Revenue Generated ($)</label>
+              <input type="number" id="input-revenue" class="block w-full px-3 py-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-950 font-semibold text-sm" value="18000" oninput="calculateROI()">
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div>
+              <label for="input-clicks" class="block text-sm font-semibold text-slate-700 mb-2">Total Campaign Clicks</label>
+              <input type="number" id="input-clicks" class="block w-full px-3 py-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-950 font-semibold text-sm" value="10000" oninput="calculateROI()">
+            </div>
+            <div>
+              <label for="input-conversions" class="block text-sm font-semibold text-slate-700 mb-2">Conversions (Sales/leads)</label>
+              <input type="number" id="input-conversions" class="block w-full px-3 py-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-950 font-semibold text-sm" value="320" oninput="calculateROI()">
+            </div>
+            <div>
+              <label for="input-product-cost" class="block text-sm font-semibold text-slate-700 mb-2">COGS / Other Cost Basis ($)</label>
+              <input type="number" id="input-product-cost" class="block w-full px-3 py-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-950 font-semibold text-sm" value="4000" oninput="calculateROI()">
+            </div>
+          </div>
+        </div>
+
+        <!-- Output Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+          <div class="bg-gradient-to-br from-brand-600 to-brand-800 p-6 rounded-2xl text-white shadow-md">
+            <span class="text-xs uppercase font-bold tracking-wider opacity-85 block">Return on Investment (ROI)</span>
+            <span class="text-2xl font-extrabold mt-2 block" id="out-roi">100.00%</span>
+          </div>
+          <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+            <span class="text-xs uppercase font-bold tracking-wider text-slate-400 block">ROAS Multiplier</span>
+            <span class="text-xl font-extrabold mt-2 text-slate-800 block" id="out-roas">3.60x</span>
+          </div>
+          <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+            <span class="text-xs uppercase font-bold tracking-wider text-slate-400 block">Cost Per Acquisition (CPA)</span>
+            <span class="text-xl font-extrabold mt-2 text-slate-800 block" id="out-cpa">$15.63</span>
+          </div>
+          <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+            <span class="text-xs uppercase font-bold tracking-wider text-slate-400 block">Conversion Rate</span>
+            <span class="text-xl font-extrabold mt-2 text-slate-800 block" id="out-cr">3.20%</span>
+          </div>
+        </div>
+
+        <!-- Copy and Share Summary -->
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex justify-between items-center">
+          <div>
+            <span class="text-sm font-semibold text-slate-700">Need campaign performance data?</span>
+            <p class="text-xs text-slate-400">Copy comprehensive margins instantly.</p>
+          </div>
+          <button onclick="copySummary()" id="btn-copy" class="px-4 py-2 bg-slate-100 text-slate-700 hover:bg-slate-200 transition-colors font-semibold text-xs rounded-lg">
+            <span>Copy ROI Summary</span>
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Column 4 Sidebar -->
+      <div class="lg:col-span-1 space-y-6">
+
+        <!-- Discovery panel -->
+        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm">
+          <h2 class="text-base font-bold text-slate-900 tracking-tight flex items-center space-x-2 border-b border-slate-100 pb-3">
+            <span>Trending Utilities</span>
+          </h2>
+          <div class="mt-4 space-y-3 text-xs">
+            <a href="/utm-generator" class="block font-semibold text-slate-800 hover:text-brand-600 transition-colors">UTM Link Builder</a>
+            <a href="/cpm-calculator" class="block font-semibold text-slate-800 hover:text-brand-600 transition-colors">CPM Ad Calculator</a>
+            <a href="/headline-analyzer" class="block font-semibold text-slate-800 hover:text-brand-600 transition-colors">Headline Copy Score</a>
+            <a href="/qr-code-generator" class="block font-semibold text-slate-800 hover:text-brand-600 transition-colors">QR Code Generator</a>
+          </div>
+        </div>
+
+        <!-- Ad Placement B -->
+        <div class="sticky top-20">
+          <div class="bg-gray-100 border border-gray-200 rounded-2xl flex flex-col justify-center items-center p-4 text-center shadow-inner min-h-[250px] md:min-h-[600px] max-w-[300px] mx-auto">
+            <span class="text-[10px] font-bold text-gray-400 tracking-wider uppercase mb-2">Advertisement</span>
+            <span class="text-sm font-semibold text-gray-500">AD PLACEMENT - HIGH RES VIEWABILITY BOX</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- Ad Placement C -->
+  <div class="fixed bottom-0 left-0 w-full z-50 bg-white border-t border-gray-200 shadow-lg flex justify-center items-center py-2">
+    <div class="w-full flex justify-center">
+      <div class="bg-gray-100 border border-gray-200 rounded flex flex-col justify-center items-center p-1 text-center w-full min-h-[50px] max-w-[320px] md:max-w-[728px]">
+        <span class="text-[8px] font-bold text-gray-400 tracking-wider uppercase">Advertisement</span>
+        <span class="text-xs font-semibold text-gray-500">AD PLACEMENT - STICKY FOOTER ANCHOR</span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function calculateROI() {
+      const adspend = parseFloat(document.getElementById('input-adspend').value) || 0;
+      const revenue = parseFloat(document.getElementById('input-revenue').value) || 0;
+      const clicks = parseFloat(document.getElementById('input-clicks').value) || 0;
+      const conversions = parseFloat(document.getElementById('input-conversions').value) || 0;
+      const cogs = parseFloat(document.getElementById('input-product-cost').value) || 0;
+
+      const roas = adspend > 0 ? (revenue / adspend) : 0;
+      const netProfit = revenue - adspend - cogs;
+      const totalInvestment = adspend + cogs;
+      const roi = totalInvestment > 0 ? (netProfit / totalInvestment) * 100 : 0;
+
+      const cpa = conversions > 0 ? (adspend / conversions) : 0;
+      const cr = clicks > 0 ? (conversions / clicks) * 100 : 0;
+
+      document.getElementById('out-roi').textContent = `${roi.toFixed(2)}%`;
+      document.getElementById('out-roas').textContent = `${roas.toFixed(2)}x`;
+      document.getElementById('out-cpa').textContent = `$${cpa.toFixed(2)}`;
+      document.getElementById('out-cr').textContent = `${cr.toFixed(2)}%`;
+    }
+
+    function copySummary() {
+      const btn = document.getElementById('btn-copy');
+      const text = btn.querySelector('span');
+      const roi = document.getElementById('out-roi').textContent;
+      const roas = document.getElementById('out-roas').textContent;
+      navigator.clipboard.writeText(`Campaign Return Summary:\nTotal ROI: ${roi}\nROAS Multiplier: ${roas}`).then(() => {
+        text.textContent = 'Copied!';
+        setTimeout(() => { text.textContent = 'Copy ROI Summary'; }, 2000);
+      });
+    }
+
+    window.addEventListener('DOMContentLoaded', calculateROI);
+  </script>
+</body>
+</html>
