@@ -81,11 +81,19 @@
 
         <!-- QR Display Outputs Card -->
         <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm flex flex-col items-center space-y-4">
-          <h2 class="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2 w-full text-center">Your QR Code</h2>
-          <div id="qr-container" class="p-4 border border-slate-200 rounded-xl bg-slate-50 flex items-center justify-center min-h-[220px] w-full max-w-[220px]">
-            <!-- Rendered QR -->
+          <h2 class="text-lg font-bold text-slate-900 dark:text-white border-b border-slate-100 dark:border-slate-800 pb-2 w-full text-center">Your QR Code</h2>
+
+          <!-- Keep QR code background explicitly white for maximum scannability and scanner contrast -->
+          <div class="p-4 bg-white border border-slate-200 rounded-xl shadow-inner flex items-center justify-center min-h-[220px] w-full max-w-[220px]">
+            <div id="qr-container" class="flex items-center justify-center">
+              <!-- Rendered QR -->
+            </div>
           </div>
-          <div class="flex gap-4 pt-2">
+
+          <div class="flex flex-wrap gap-2 pt-2 justify-center">
+            <button onclick="generateQR()" class="px-4 py-2 bg-slate-800 text-white dark:bg-slate-200 dark:text-slate-900 hover:bg-slate-700 dark:hover:bg-slate-300 transition-all font-bold text-xs rounded-lg shadow-sm">
+              Refresh QR Code
+            </button>
             <button onclick="downloadPNG()" class="px-4 py-2 bg-brand-600 text-white hover:bg-brand-700 transition-colors font-bold text-xs rounded-lg shadow-sm">
               Download PNG
             </button>
@@ -148,42 +156,39 @@
     }
 
     function downloadPNG() {
-      // Find the generated canvas inside qr-container
-      const canvas = document.querySelector('#qr-container canvas');
-      if (canvas) {
-        try {
-          const url = canvas.toDataURL("image/png");
-          const a = document.createElement('a');
-          a.href = url;
-          a.download = 'qrcode.png';
-          a.click();
-        } catch (e) {
-          console.error("Canvas toDataURL failed, attempting image download", e);
-          downloadFromImage();
-        }
-      } else {
-        downloadFromImage();
-      }
-    }
-
-    function downloadFromImage() {
+      // Grab image source from generated img inside qr-container (highly robust base64 format)
       const img = document.querySelector('#qr-container img');
-      if (img && img.src) {
+      if (img && img.src && img.src.startsWith('data:image')) {
         const a = document.createElement('a');
         a.href = img.src;
         a.download = 'qrcode.png';
         a.click();
       } else {
-        alert("QR Code not fully loaded yet. Please wait a moment.");
+        // Fallback to canvas
+        const canvas = document.querySelector('#qr-container canvas');
+        if (canvas) {
+          try {
+            const url = canvas.toDataURL("image/png");
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'qrcode.png';
+            a.click();
+          } catch (e) {
+            alert("QR Code not fully loaded yet. Please input text or wait a moment.");
+          }
+        } else {
+          alert("QR Code not fully loaded yet. Please input text or wait a moment.");
+        }
       }
     }
 
     // Initialize on load
     window.addEventListener('DOMContentLoaded', () => {
       // Small timeout to ensure script loads completely
-      setTimeout(generateQR, 100);
+      setTimeout(generateQR, 150);
     });
   </script>
+  <footer id="global-footer"></footer>
   <script src="/global.js"></script>
 </body>
 </html>
