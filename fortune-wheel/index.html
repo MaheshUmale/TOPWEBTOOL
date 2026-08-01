@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Online Fortune Wheel | Dynamic Decision Spinner (No Sign-Up)</title>
+  <meta name="description" content="Free Online Fortune Wheel. Input custom labels or alternate Yes/No answers to spin and make decisions instantly. 100% Free, No Sign-Up Required.">
+  <link rel="stylesheet" href="/styles.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f0f9ff',
+              100: '#e0f2fe',
+              500: '#0284c7',
+              600: '#0369a1',
+              700: '#075985',
+              900: '#0c4a6e',
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 min-h-screen flex flex-col pb-24 transition-colors duration-200">
+
+  <!-- Header -->
+  <header id="global-header"></header>
+
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex-grow">
+
+    <!-- Ad Placement A -->
+    <div class="mb-4 flex justify-center">
+      <div class="bg-gray-100 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-lg flex flex-col justify-center items-center p-2 text-center w-full shadow-inner min-h-[50px] max-w-[320px] md:min-h-[90px] md:max-w-[728px]">
+        <span class="text-[10px] font-bold text-gray-400 tracking-wider uppercase mb-1">Advertisement</span>
+        <span class="text-xs md:text-sm font-semibold text-gray-500 dark:text-gray-400">AD PLACEMENT - TOP LEADERBOARD</span>
+      </div>
+    </div>
+
+    <!-- 2-Column Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-4 gap-4">
+
+      <!-- Main Content -->
+      <div class="lg:col-span-3 space-y-4">
+
+        <div class="bg-white dark:bg-slate-900 p-4 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+          <h1 class="text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight sm:text-4xl">Fortune Wheel - Decision Spinner</h1>
+          <p class="mt-2 text-base text-slate-500 dark:text-slate-400">
+            Having trouble making a decision? Create custom labels, alternate Yes/No configurations, or add list of names to instantly spin the physical-simulated fortune wheel!
+          </p>
+        </div>
+
+        <!-- Calculator / Wheel UI -->
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-4">
+
+          <!-- Left: Config inputs (5 Cols) -->
+          <div class="md:col-span-5 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-4 space-y-4 shadow-sm">
+            <h2 class="text-lg font-bold text-slate-900 dark:text-white border-b border-slate-100 dark:border-slate-800 pb-2">Wheel Setup</h2>
+
+            <!-- Quick Presets -->
+            <div class="space-y-2">
+              <label class="block text-xs font-bold text-slate-400 uppercase tracking-wider">Quick Presets</label>
+              <div class="flex flex-wrap gap-2">
+                <button onclick="applyPreset('yes-no')" class="px-2.5 py-1 text-xs font-semibold text-brand-700 bg-brand-50 hover:bg-brand-100 dark:bg-brand-900/20 dark:text-brand-400 rounded-lg transition-colors">Alternate Yes/No</button>
+                <button onclick="applyPreset('numbers')" class="px-2.5 py-1 text-xs font-semibold text-brand-700 bg-brand-50 hover:bg-brand-100 dark:bg-brand-900/20 dark:text-brand-400 rounded-lg transition-colors">Numbers (1-8)</button>
+                <button onclick="applyPreset('colors')" class="px-2.5 py-1 text-xs font-semibold text-brand-700 bg-brand-50 hover:bg-brand-100 dark:bg-brand-900/20 dark:text-brand-400 rounded-lg transition-colors">Rainbow Colors</button>
+              </div>
+            </div>
+
+            <!-- Custom List Area -->
+            <div>
+              <label for="input-options" class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1">Wheel Labels (One per line)</label>
+              <textarea id="input-options" rows="6" class="block w-full px-3 py-2 border border-slate-300 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-brand-500 text-slate-950 dark:text-slate-50 font-semibold text-xs transition-colors" placeholder="Enter names or choices..." oninput="updateWheelFromInputs()">Yes
+No
+Yes
+No
+Maybe
+Spin Again</textarea>
+              <p class="text-[10px] text-slate-400 mt-1">Include between 2 and 30 items for the perfect spinning balance.</p>
+            </div>
+          </div>
+
+          <!-- Right: Visual Canvas Wheel (7 Cols) -->
+          <div class="md:col-span-7 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-4 flex flex-col items-center justify-center relative shadow-sm">
+
+            <!-- Wheel Container -->
+            <div class="relative w-64 h-64 sm:w-80 sm:h-80 flex items-center justify-center">
+
+              <!-- Pointer Indicator -->
+              <div class="absolute -top-1 z-20">
+                <svg class="w-8 h-8 text-red-500 fill-current drop-shadow-md" viewBox="0 0 24 24">
+                  <path d="M12 21l-8-14h16z"></path>
+                </svg>
+              </div>
+
+              <!-- Canvas Wheel -->
+              <canvas id="wheel-canvas" width="400" height="400" class="w-full h-full transform transition-transform duration-1000 origin-center rounded-full shadow-md"></canvas>
+
+              <!-- Center Pin Button -->
+              <button onclick="spinWheel()" id="spin-btn" class="absolute z-10 w-16 h-16 bg-slate-900 dark:bg-slate-50 text-white dark:text-slate-900 rounded-full font-extrabold text-xs shadow-lg flex items-center justify-center hover:scale-110 active:scale-95 transition-transform border-4 border-white dark:border-slate-900 tracking-wider">SPIN</button>
+            </div>
+
+            <!-- Result Box -->
+            <div id="result-box" class="mt-4 p-3 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl w-full text-center hidden">
+              <span class="text-xs text-slate-400 block uppercase font-bold tracking-widest">Selected Result</span>
+              <span id="result-text" class="text-2xl font-black text-brand-600 block mt-1 animate-bounce">Yes</span>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- Copy/Amusement Block -->
+        <div class="bg-white dark:bg-slate-900 p-4 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm flex justify-between items-center">
+          <div>
+            <span class="text-sm font-semibold text-slate-700 dark:text-slate-300">Share your final decision?</span>
+            <p class="text-xs text-slate-400 dark:text-slate-500">Copy output value with reference to the wheel results.</p>
+          </div>
+          <button onclick="copyResult()" id="btn-copy" class="px-4 py-2 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors font-semibold text-xs rounded-lg">
+            <span>Copy Spinner Result</span>
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Column 4 Sidebar -->
+      <div class="lg:col-span-1 space-y-4">
+
+        <div id="trending-sidebar"></div>
+
+        <!-- Ad Placement B -->
+        <div class="sticky top-20">
+          <div class="bg-gray-100 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-2xl flex flex-col justify-center items-center p-4 text-center shadow-inner min-h-[250px] md:min-h-[600px] max-w-[300px] mx-auto">
+            <span class="text-[10px] font-bold text-gray-400 tracking-wider uppercase mb-2">Advertisement</span>
+            <span class="text-sm font-semibold text-gray-500 dark:text-gray-400">AD PLACEMENT - HIGH RES VIEWABILITY BOX</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- Ad Placement C -->
+  <div class="fixed bottom-0 left-0 w-full z-50 bg-white dark:bg-slate-900 border-t border-gray-200 dark:border-slate-800 shadow-lg flex justify-center items-center py-2">
+    <div class="w-full flex justify-center">
+      <div class="bg-gray-100 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded flex flex-col justify-center items-center p-1 text-center w-full min-h-[50px] max-w-[320px] md:max-w-[728px]">
+        <span class="text-[8px] font-bold text-gray-400 tracking-wider uppercase">Advertisement</span>
+        <span class="text-xs font-semibold text-gray-500 dark:text-gray-400">AD PLACEMENT - STICKY FOOTER ANCHOR</span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let options = [];
+    let startAngle = 0;
+    let arc = 0;
+    let spinTimeout = null;
+    let spinAngleStart = 10;
+    let spinTime = 0;
+    let spinTimeTotal = 0;
+    let ctx = null;
+
+    const colors = [
+      "#0284c7", "#3b82f6", "#10b981", "#f59e0b",
+      "#ec4899", "#8b5cf6", "#ef4444", "#14b8a6",
+      "#f97316", "#64748b"
+    ];
+
+    function applyPreset(type) {
+      const textarea = document.getElementById('input-options');
+      if (type === 'yes-no') {
+        textarea.value = "Yes\nNo\nYes\nNo\nYes\nNo";
+      } else if (type === 'numbers') {
+        textarea.value = "1\n2\n3\n4\n5\n6\n7\n8";
+      } else if (type === 'colors') {
+        textarea.value = "Red\nOrange\nYellow\nGreen\nBlue\nIndigo\nViolet";
+      }
+      updateWheelFromInputs();
+    }
+
+    function updateWheelFromInputs() {
+      const rawText = document.getElementById('input-options').value;
+      options = rawText.split('\n').map(x => x.trim()).filter(x => x.length > 0);
+      arc = Math.PI / (options.length / 2);
+      drawWheel();
+    }
+
+    function getColor(index) {
+      return colors[index % colors.length];
+    }
+
+    function drawWheel() {
+      const canvas = document.getElementById("wheel-canvas");
+      if (!canvas) return;
+      ctx = canvas.getContext("2d");
+      const r = 200;
+      ctx.clearRect(0, 0, 400, 400);
+
+      // Shadow border
+      ctx.strokeStyle = document.documentElement.classList.contains('dark') ? "#334155" : "#e2e8f0";
+      ctx.lineWidth = 4;
+
+      for (let i = 0; i < options.length; i++) {
+        const angle = startAngle + i * arc;
+        ctx.fillStyle = getColor(i);
+
+        ctx.beginPath();
+        ctx.arc(200, 200, r - 6, angle, angle + arc, false);
+        ctx.lineTo(200, 200);
+        ctx.fill();
+        ctx.stroke();
+
+        // Write slice label text
+        ctx.save();
+        ctx.fillStyle = "#ffffff";
+        ctx.translate(200 + Math.cos(angle + arc / 2) * (r - 60), 200 + Math.sin(angle + arc / 2) * (r - 60));
+        ctx.rotate(angle + arc / 2 + Math.PI / 2);
+
+        ctx.font = 'bold 13px sans-serif';
+        const text = options[i];
+        const textWidth = ctx.measureText(text).width;
+        ctx.fillText(text, -textWidth / 2, 0);
+        ctx.restore();
+      }
+    }
+
+    function spinWheel() {
+      if (options.length < 2) return;
+      const spinBtn = document.getElementById('spin-btn');
+      spinBtn.disabled = true;
+      spinBtn.classList.add('opacity-50', 'scale-90');
+
+      document.getElementById('result-box').classList.add('hidden');
+
+      spinAngleStart = Math.random() * 10 + 10;
+      spinTime = 0;
+      spinTimeTotal = Math.random() * 3000 + 4000;
+      rotateWheel();
+    }
+
+    function rotateWheel() {
+      spinTime += 30;
+      if (spinTime >= spinTimeTotal) {
+        stopRotateWheel();
+        return;
+      }
+      const spinAngle = spinAngleStart - easeOut(spinTime, 0, spinAngleStart, spinTimeTotal);
+      startAngle += (spinAngle * Math.PI / 180);
+      drawWheel();
+      spinTimeout = setTimeout(rotateWheel, 30);
+    }
+
+    function stopRotateWheel() {
+      clearTimeout(spinTimeout);
+      const spinBtn = document.getElementById('spin-btn');
+      spinBtn.disabled = false;
+      spinBtn.classList.remove('opacity-50', 'scale-90');
+
+      const degrees = startAngle * 180 / Math.PI + 90;
+      const arcd = arc * 180 / Math.PI;
+      const index = Math.floor((360 - (degrees % 360)) / arcd);
+
+      const winner = options[(index + options.length) % options.length];
+
+      const resultBox = document.getElementById('result-box');
+      const resultText = document.getElementById('result-text');
+      resultText.textContent = winner;
+      resultBox.classList.remove('hidden');
+    }
+
+    function easeOut(t, b, c, d) {
+      const ts = (t /= d) * t;
+      const tc = ts * t;
+      return b + c * (tc + -3 * ts + 3 * t);
+    }
+
+    function copyResult() {
+      const btn = document.getElementById('btn-copy');
+      const text = btn.querySelector('span');
+      const val = document.getElementById('result-text').textContent;
+      navigator.clipboard.writeText(`Fortune Wheel Spin Result: ${val}`).then(() => {
+        text.textContent = 'Copied!';
+        setTimeout(() => { text.textContent = 'Copy Spinner Result'; }, 2000);
+      });
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      updateWheelFromInputs();
+    });
+
+    // Handle theme trigger hook to adjust stroke styles
+    window.addEventListener('themechanged', () => {
+      drawWheel();
+    });
+  </script>
+  <script src="/global.js"></script>
+</body>
+</html>

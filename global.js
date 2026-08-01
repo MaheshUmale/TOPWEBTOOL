@@ -150,6 +150,20 @@ const UTILITIES_REGISTRY = [
     category: 'Developer Utilities',
     desc: 'Analyze content length, reading time, speaking duration, and sentence statistics.',
     icon: '🔢'
+  },
+  {
+    path: '/fortune-wheel',
+    name: 'Fortune Wheel',
+    category: 'Everyday & Niche Utilities',
+    desc: 'Interactive customized canvas fortune-wheel spinner to make fast decisions.',
+    icon: '☸️'
+  },
+  {
+    path: '/word-unscrambler',
+    name: 'Word Unscrambler Solver',
+    category: 'Everyday & Niche Utilities',
+    desc: 'Instantly turn scrambled letters into valid words with wildcard search options.',
+    icon: '🔡'
   }
 ];
 
