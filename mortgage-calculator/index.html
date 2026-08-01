@@ -8,8 +8,9 @@
   <link rel="stylesheet" href="/styles.css">
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <script>
+    <script>
     tailwind.config = {
+      darkMode: 'class',
       theme: {
         extend: {
           colors: {
@@ -50,20 +51,9 @@
     }
   </style>
 </head>
-<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col pb-24">
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 min-h-screen flex flex-col pb-24 transition-colors duration-200">
 
-  <!-- Clean Navigation Header -->
-  <header class="bg-white border-b border-slate-200 sticky top-0 z-40 shadow-sm">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-      <a href="/" class="flex items-center space-x-2 group">
-        <svg class="w-8 h-8 text-brand-600 transition-transform group-hover:scale-105" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
-        </svg>
-        <span class="font-extrabold text-2xl tracking-tight bg-gradient-to-r from-brand-700 to-brand-500 bg-clip-text text-transparent">TopWebTool</span>
-      </a>
-      <span class="text-xs font-semibold text-slate-400 uppercase tracking-widest hidden sm:inline-block">Free Financial Analytics</span>
-    </div>
-  </header>
+  <header id="global-header"></header>
 
   <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex-grow">
 
@@ -541,62 +531,7 @@
       <!-- Column 4: Sidebar with Sticky Programmatic Ad + Sidebar Discovery Panel (Trending Utilities) -->
       <div class="lg:col-span-1 space-y-4">
 
-        <!-- Sidebar Discovery Panel (Trending Utilities) -->
-        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm">
-          <h2 class="text-base font-bold text-slate-900 tracking-tight flex items-center space-x-2 border-b border-slate-100 pb-3">
-            <svg class="w-5 h-5 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
-            </svg>
-            <span>Trending Utilities</span>
-          </h2>
-          <div class="mt-4 space-y-3">
-            <a href="/car-lease-estimator" class="group flex items-center justify-between p-2.5 rounded-lg hover:bg-slate-50 transition-colors border border-transparent hover:border-slate-100">
-              <div class="flex flex-col">
-                <span class="text-xs font-bold text-slate-800 group-hover:text-brand-600 transition-colors">Car Lease Estimator</span>
-                <span class="text-[10px] text-slate-400">Monthly payments & residual value tracker</span>
-              </div>
-              <svg class="w-4 h-4 text-slate-300 group-hover:text-brand-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-              </svg>
-            </a>
-            <a href="/inflation-calculator" class="group flex items-center justify-between p-2.5 rounded-lg hover:bg-slate-50 transition-colors border border-transparent hover:border-slate-100">
-              <div class="flex flex-col">
-                <span class="text-xs font-bold text-slate-800 group-hover:text-brand-600 transition-colors">Inflation Calculator</span>
-                <span class="text-[10px] text-slate-400">CPI & purchasing power stats tool</span>
-              </div>
-              <svg class="w-4 h-4 text-slate-300 group-hover:text-brand-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-              </svg>
-            </a>
-            <a href="/hourly-to-salary-converter" class="group flex items-center justify-between p-2.5 rounded-lg hover:bg-slate-50 transition-colors border border-transparent hover:border-slate-100">
-              <div class="flex flex-col">
-                <span class="text-xs font-bold text-slate-800 group-hover:text-brand-600 transition-colors">Hourly to Salary</span>
-                <span class="text-[10px] text-slate-400">Convert wages to annual net incomes</span>
-              </div>
-              <svg class="w-4 h-4 text-slate-300 group-hover:text-brand-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-              </svg>
-            </a>
-            <a href="/roi-calculator" class="group flex items-center justify-between p-2.5 rounded-lg hover:bg-slate-50 transition-colors border border-transparent hover:border-slate-100">
-              <div class="flex flex-col">
-                <span class="text-xs font-bold text-slate-800 group-hover:text-brand-600 transition-colors">Ad ROI Calculator</span>
-                <span class="text-[10px] text-slate-400">Maximize campaign returns & ROAS</span>
-              </div>
-              <svg class="w-4 h-4 text-slate-300 group-hover:text-brand-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-              </svg>
-            </a>
-            <a href="/cpm-calculator" class="group flex items-center justify-between p-2.5 rounded-lg hover:bg-slate-50 transition-colors border border-transparent hover:border-slate-100">
-              <div class="flex flex-col">
-                <span class="text-xs font-bold text-slate-800 group-hover:text-brand-600 transition-colors">CPM Ad Calculator</span>
-                <span class="text-[10px] text-slate-400">Compute dynamic impressions & CPM metrics</span>
-              </div>
-              <svg class="w-4 h-4 text-slate-300 group-hover:text-brand-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-              </svg>
-            </a>
-          </div>
-        </div>
+        <div id="trending-sidebar"></div>
 
         <!-- Ad Placement B: Sidebar Box (Skyscraper) -->
         <div class="sticky top-20">
@@ -1188,5 +1123,6 @@
       }
     });
   </script>
+  <script src="/global.js"></script>
 </body>
 </html>

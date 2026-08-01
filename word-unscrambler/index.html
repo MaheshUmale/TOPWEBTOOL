@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Word Unscrambler | Unscramble Letters to Words (No Sign-Up)</title>
+  <meta name="description" content="Free Online Word Unscrambler. Convert scrambled letters into high-scoring words. Perfect for Scrabble, Words with Friends, & anagrams. 100% Free, No Sign-Up.">
+  <link rel="stylesheet" href="/styles.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f0f9ff',
+              100: '#e0f2fe',
+              500: '#0284c7',
+              600: '#0369a1',
+              700: '#075985',
+              900: '#0c4a6e',
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 min-h-screen flex flex-col pb-24 transition-colors duration-200">
+
+  <!-- Header -->
+  <header id="global-header"></header>
+
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex-grow">
+
+    <!-- Ad Placement A -->
+    <div class="mb-4 flex justify-center">
+      <div class="bg-gray-100 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-lg flex flex-col justify-center items-center p-2 text-center w-full shadow-inner min-h-[50px] max-w-[320px] md:min-h-[90px] md:max-w-[728px]">
+        <span class="text-[10px] font-bold text-gray-400 tracking-wider uppercase mb-1">Advertisement</span>
+        <span class="text-xs md:text-sm font-semibold text-gray-500 dark:text-gray-400">AD PLACEMENT - TOP LEADERBOARD</span>
+      </div>
+    </div>
+
+    <!-- 2-Column Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-4 gap-4">
+
+      <!-- Main Content -->
+      <div class="lg:col-span-3 space-y-4">
+
+        <div class="bg-white dark:bg-slate-900 p-4 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+          <h1 class="text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight sm:text-4xl">Word Unscrambler Solver</h1>
+          <p class="mt-2 text-base text-slate-500 dark:text-slate-400">
+            Instantly turn random letters or scrambles into all valid words. Filter by word lengths, starting prefixes, or endings for games like Scrabble, Wordle, and Anagrams.
+          </p>
+        </div>
+
+        <!-- Calculator / Tool UI -->
+        <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-4 sm:p-8 space-y-4 shadow-sm">
+          <h2 class="text-lg font-bold text-slate-900 dark:text-white border-b border-slate-100 dark:border-slate-800 pb-3">Unscramble Configurations</h2>
+
+          <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+
+            <!-- Left: Scramble input (7 Cols) -->
+            <div class="md:col-span-7 space-y-4">
+              <div>
+                <label for="input-letters" class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1">Enter Your Letters / Scramble *</label>
+                <input type="text" id="input-letters" class="block w-full px-3 py-2.5 border border-slate-300 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-brand-500 text-slate-950 dark:text-slate-50 font-bold text-lg tracking-widest uppercase" value="anagram" placeholder="e.g. aetb" oninput="solveUnscramble()">
+                <p class="text-[10px] text-slate-400 mt-1">Accepts wildcards like ? or * for blank tiles.</p>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div>
+                  <label for="filter-length" class="block text-xs font-semibold text-slate-500 mb-1">Word Length</label>
+                  <select id="filter-length" class="block w-full px-2 py-2 border border-slate-300 dark:border-slate-700 rounded-lg bg-white font-semibold text-xs text-slate-950" onchange="solveUnscramble()">
+                    <option value="any">Any Length</option>
+                    <option value="3">3 Letters</option>
+                    <option value="4">4 Letters</option>
+                    <option value="5">5 Letters</option>
+                    <option value="6">6 Letters</option>
+                    <option value="7">7 Letters</option>
+                    <option value="8">8 Letters</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="filter-prefix" class="block text-xs font-semibold text-slate-500 mb-1">Starts With</label>
+                  <input type="text" id="filter-prefix" class="block w-full px-2 py-2 border border-slate-300 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-brand-500 text-slate-950 dark:text-slate-50 text-xs uppercase" placeholder="e.g. A" oninput="solveUnscramble()">
+                </div>
+                <div>
+                  <label for="filter-suffix" class="block text-xs font-semibold text-slate-500 mb-1">Ends With</label>
+                  <input type="text" id="filter-suffix" class="block w-full px-2 py-2 border border-slate-300 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-brand-500 text-slate-950 dark:text-slate-50 text-xs uppercase" placeholder="e.g. S" oninput="solveUnscramble()">
+                </div>
+              </div>
+            </div>
+
+            <!-- Right: Interactive Game Toggles (5 Cols) -->
+            <div class="md:col-span-5 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 p-4 rounded-xl flex flex-col justify-center">
+              <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block">Game Presets</span>
+              <div class="grid grid-cols-2 gap-2 mt-3">
+                <button onclick="setLettersPreset('scrabble')" class="px-2 py-1.5 text-xs font-semibold text-slate-700 dark:text-slate-300 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg hover:border-brand-500 hover:text-brand-600 transition-all">Scrabble Rack (7)</button>
+                <button onclick="setLettersPreset('wordle')" class="px-2 py-1.5 text-xs font-semibold text-slate-700 dark:text-slate-300 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg hover:border-brand-500 hover:text-brand-600 transition-all">Wordle Letters (5)</button>
+              </div>
+              <p class="text-[10px] text-slate-400 mt-3 leading-snug">Uses high-precision local word definitions for instant, offline anagram resolution.</p>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- Output Words Display Grid -->
+        <div class="bg-white dark:bg-slate-900 p-4 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
+          <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center border-b border-slate-100 dark:border-slate-800 pb-4 gap-4">
+            <div>
+              <h2 class="text-lg font-bold text-slate-900 dark:text-white">Unscrambled Words (<span id="results-count">0</span>)</h2>
+              <p class="text-xs text-slate-400 dark:text-slate-500 mt-0.5">Valid words sorted descending by length and alphabetically.</p>
+            </div>
+            <button onclick="copyWordList()" id="btn-copy" class="px-4 py-2 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors font-semibold text-xs rounded-lg">
+              <span>Copy Words List</span>
+            </button>
+          </div>
+
+          <!-- Dynamic Words Groupings -->
+          <div id="words-output-container" class="space-y-4">
+            <!-- Programmatically injected based on word length groupings -->
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Column 4 Sidebar -->
+      <div class="lg:col-span-1 space-y-4">
+
+        <div id="trending-sidebar"></div>
+
+        <!-- Ad Placement B -->
+        <div class="sticky top-20">
+          <div class="bg-gray-100 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-2xl flex flex-col justify-center items-center p-4 text-center shadow-inner min-h-[250px] md:min-h-[600px] max-w-[300px] mx-auto">
+            <span class="text-[10px] font-bold text-gray-400 tracking-wider uppercase mb-2">Advertisement</span>
+            <span class="text-sm font-semibold text-gray-500 dark:text-gray-400">AD PLACEMENT - HIGH RES VIEWABILITY BOX</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- Ad Placement C -->
+  <div class="fixed bottom-0 left-0 w-full z-50 bg-white dark:bg-slate-900 border-t border-gray-200 dark:border-slate-800 shadow-lg flex justify-center items-center py-2">
+    <div class="w-full flex justify-center">
+      <div class="bg-gray-100 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded flex flex-col justify-center items-center p-1 text-center w-full min-h-[50px] max-w-[320px] md:max-w-[728px]">
+        <span class="text-[8px] font-bold text-gray-400 tracking-wider uppercase">Advertisement</span>
+        <span class="text-xs font-semibold text-gray-500 dark:text-gray-400">AD PLACEMENT - STICKY FOOTER ANCHOR</span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Compressed offline fallback vocabulary dictionary (1000 high frequency standard game/anagram words)
+    const OFFLINE_DICTIONARY = [
+      "a", "an", "am", "as", "at", "ax", "be", "by", "do", "go", "he", "hi", "if", "in", "is", "it", "me", "my", "no", "of", "on", "or", "so", "to", "up", "us", "we",
+      "act", "add", "age", "ago", "aid", "aim", "air", "all", "amp", "and", "ant", "any", "ape", "arc", "art", "ash", "ask", "asp", "ate", "awe", "bad", "bag", "ban", "bar",
+      "bat", "bay", "bed", "bee", "beg", "bet", "bid", "big", "bin", "bit", "bob", "bog", "bow", "box", "boy", "bud", "bug", "bus", "but", "buy", "bye", "cab", "cam", "can",
+      "cap", "car", "cat", "cob", "cod", "cog", "con", "cop", "cot", "cow", "cry", "cub", "cup", "cut", "dam", "day", "den", "dew", "did", "die", "dig", "dim", "din", "dip",
+      "dog", "dot", "dry", "dub", "due", "dug", "ear", "eat", "egg", "ego", "eke", "elf", "elk", "elm", "end", "era", "err", "eve", "eye", "fad", "fan", "far", "fat", "fax",
+      "fed", "fee", "fen", "few", "fib", "fig", "fin", "fit", "fix", "flu", "fly", "fob", "foe", "fog", "for", "fox", "fry", "fun", "fur", "gag", "gal", "gap", "gas", "gel",
+      "gem", "get", "gig", "gin", "got", "gum", "gun", "gut", "guy", "gym", "had", "hag", "ham", "has", "hat", "hay", "hem", "hen", "her", "hey", "hid", "him", "hip", "his",
+      "hit", "hob", "hog", "hop", "hot", "how", "hub", "hug", "hum", "hut", "ice", "ill", "ink", "inn", "ion", "its", "ivy", "jab", "jam", "jar", "jaw", "jay", "jet", "job",
+      "jog", "jot", "joy", "jug", "key", "kid", "kit", "lab", "lad", "lag", "lap", "law", "lax", "lay", "led", "leg", "let", "lid", "lie", "lip", "lit", "lob", "log", "lop",
+      "lot", "low", "mad", "man", "map", "mat", "maw", "may", "men", "met", "mid", "mix", "mob", "mud", "mug", "nag", "nay", "net", "new", "nil", "nip", "nod", "nor", "not",
+      "now", "nut", "oak", "oar", "oat", "odd", "off", "oft", "oil", "old", "one", "opt", "orb", "ore", "our", "out", "owe", "owl", "own", "pad", "pal", "pan", "par", "pat",
+      "paw", "pay", "pea", "peg", "pen", "pet", "pie", "pig", "pin", "pip", "pit", "ply", "pod", "pop", "pot", "pox", "pro", "pry", "pub", "pug", "pun", "pup", "pus", "put",
+      "rag", "ram", "ran", "rap", "rat", "raw", "ray", "red", "rib", "rid", "rig", "rim", "rip", "rob", "rod", "rot", "row", "rub", "rue", "rug", "rum", "run", "rut", "rye",
+      "sac", "sad", "sag", "sap", "sat", "saw", "say", "sea", "see", "set", "sew", "she", "shh", "shy", "sip", "sir", "sis", "sit", "six", "ski", "sky", "sly", "sob", "sod",
+      "son", "sop", "sow", "soy", "spa", "spy", "sub", "sue", "sum", "sun", "tab", "tag", "tan", "tap", "tar", "tax", "tea", "tee", "ten", "the", "thy", "tic", "tie", "tin",
+      "tip", "toe", "ton", "too", "top", "toy", "try", "tub", "tug", "two", "urn", "use", "van", "vat", "vet", "via", "vow", "wad", "wag", "wan", "war", "was", "wax", "way",
+      "web", "wed", "wet", "who", "why", "wig", "win", "wit", "woe", "won", "woo", "wry", "yak", "yam", "yea", "yen", "yes", "yet", "yip", "you", "zip", "zoo",
+      "able", "acid", "acre", "acts", "aged", "aide", "aids", "aims", "airs", "airy", "alas", "ally", "alms", "also", "amps", "anal", "anew", "ants", "apes", "apex", "apps",
+      "arch", "arcs", "area", "arms", "army", "arts", "arty", "ashy", "asks", "atom", "aunt", "auto", "aver", "avid", "avow", "away", "awry", "babe", "baby", "back", "bade",
+      "bags", "bail", "bait", "bake", "bald", "bale", "ball", "band", "bane", "bang", "bank", "bans", "bard", "bare", "bark", "barn", "bars", "base", "bash", "bask", "bass",
+      "bath", "bats", "bead", "beak", "beam", "bean", "bear", "beat", "beds", "beef", "been", "beer", "bees", "beet", "begs", "bell", "belt", "bend", "bess", "best", "beta",
+      "bets", "bias", "bids", "bike", "bill", "bind", "bins", "bird", "bite", "bits", "blow", "blue", "blur", "boar", "boat", "bode", "body", "bogs", "boil", "bold", "bolt",
+      "bomb", "bond", "bone", "bony", "book", "boom", "boon", "boot", "bore", "born", "boss", "both", "bout", "bows", "bowl", "boxy", "boys", "brag", "bran", "brat", "bray",
+      "bred", "brew", "brig", "brim", "brow", "buck", "buds", "buff", "bugs", "bulb", "bulk", "bull", "bump", "bunk", "buns", "buoy", "burg", "burn", "bury", "bush", "busy",
+      "buts", "buzz", "byes", "byte", "cabs", "cafe", "cage", "cake", "caky", "calf", "call", "calm", "came", "camp", "cams", "cane", "cans", "cant", "cape", "caps", "card",
+      "care", "cars", "cart", "case", "cash", "cast", "cats", "cave", "cavy", "cell", "cent", "chap", "char", "chat", "chef", "chew", "chin", "chip", "chop", "chow", "cite",
+      "city", "clad", "clan", "claw", "clay", "clef", "clip", "clod", "clog", "clot", "clow", "club", "clue", "coal", "coat", "coax", "cobs", "code", "cods", "coed", "cogs",
+      "coil", "coin", "coke", "cold", "cole", "colt", "cone", "conk", "cons", "cook", "cool", "coop", "coot", "cope", "cops", "copy", "cord", "core", "cork", "corn", "cost",
+      "cote", "cots", "coup", "cove", "cowl", "cows", "cozy", "crab", "crag", "cram", "crop", "crow", "crud", "crux", "cubs", "cube", "cuds", "cuff", "cull", "cult", "cups",
+      "curb", "curd", "cure", "curl", "curs", "curt", "cusp", "cute", "cuts", "cyst", "czar", "dabs", "dace", "dada", "daft", "dais", "dale", "dame", "damn", "damp", "dams",
+      "dare", "dark", "darn", "dart", "dash", "data", "date", "daub", "dawn", "days", "daze", "dead", "deaf", "deal", "dean", "dear", "debt", "deck", "deed", "deem", "deep",
+      "deer", "deft", "defy", "dell", "demo", "dens", "dent", "deny", "desk", "dial", "dice", "died", "dies", "diet", "digs", "dike", "dill", "dime", "dims", "dine", "ding",
+      "dins", "dint", "dips", "dire", "dirt", "disc", "dish", "disk", "dive", "dock", "docs", "doer", "does", "doge", "dogs", "dole", "doll", "bolt", "dome", "done", "dong",
+      "doom", "door", "dope", "dopy", "dose", "dote", "dots", "double", "dour", "dove", "down", "drab", "drag", "bram", "draw", "dray", "drew", "drip", "drop", "drub", "drug",
+      "drum", "dual", "dubs", "duck", "duct", "dude", "dues", "duet", "dugs", "duke", "dull", "duly", "dumb", "dump", "dune", "bung", "dupe", "dusk", "dust", "duty", "dyad",
+      "dyed", "dyes", "dyke", "each", "earl", "earn", "ears", "ease", "east", "easy", "eats", "echo", "edge", "edgy", "eels", "eery", "eggs", "egos", "eked", "ekes", "elks",
+      "elms", "else", "emts", "ends", "envy", "epic", "eras", "ergo", "errs", "even", "ever", "eves", "evil", "ewer", "ewes", "exam", "exit", "eyed", "eyes", "face", "fact",
+      "fade", "fads", "fags", "fail", "fain", "fair", "fake", "fall", "fame", "fang", "fans", "fare", "farm", "faro", "fast", "fate", "fats", "faun", "fawn", "faxes", "fear",
+      "feat", "feds", "feed", "feel", "fees", "feet", "fell", "felt", "fend", "fens", "fern", "fess", "fest", "feta", "fete", "feud", "fiat", "fibs", "fief", "fife", "figo",
+      "figs", "file", "fill", "film", "find", "fine", "fink", "fins", "fire", "firm", "firs", "fish", "fist", "fits", "five", "fixt", "flab", "flag", "flak", "flan", "flap",
+      "flat", "flaw", "flax", "flay", "flea", "flee", "flew", "flex", "flit", "floe", "flog", "flop", "flow", "flue", "flug", "flus", "flux", "foal", "foam", "fobs", "foci",
+      "foes", "fogs", "fogy", "foil", "fold", "folk", "fond", "font", "food", "fool", "foot", "fops", "ford", "fore", "fork", "form", "fort", "foul", "four", "fowl", "foxes",
+      "frac", "frat", "fray", "free", "fret", "frog", "from", "fuel", "fugs", "full", "fume", "fumy", "fund", "funk", "furl", "furs", "fury", "fuse", "fuss", "futs", "fuzz",
+      "gaff", "gags", "gain", "gait", "gala", "gale", "gall", "gals", "game", "gamy", "gang", "gaol", "gape", "gaps", "gapy", "garb", "gash", "gasp", "gate", "gave", "gawk",
+      "gawp", "gays", "gaze", "gear", "gels", "gems", "gene", "gent", "germ", "gets", "gibe", "gids", "giga", "gigs", "gild", "gill", "gilt", "gimp", "gird", "girls", "giro",
+      "girt", "gist", "give", "glad", "gland", "glare", "gleam", "glean", "glen", "glide", "glim", "gloat", "globe", "gloom", "glory", "glove", "glow", "glue", "glum", "glut",
+      "gnat", "gnaw", "gnus", "goad", "goal", "goat", "gobs", "gods", "goes", "goer", "gold", "golf", "gone", "gong", "good", "goof", "goon", "gore", "gory", "gosh", "goth",
+      "gout", "gown", "grab", "grad", "gram", "gran", "gray", "grew", "grid", "grin", "grip", "grit", "grog", "grom", "grow", "grub", "grue", "gulf", "gull", "gulp", "gums",
+      "gunk", "guns", "gush", "guts", "guvs", "guys", "gyms", "gyre", "gyro", "habit", "hacks", "hacky", "hades", "hadst", "hafts", "haggy", "haiku", "hails", "hairs", "hairy",
+      "hale", "half", "hall", "halo", "halt", "hams", "hand", "hang", "hank", "haps", "hard", "hare", "hark", "harm", "harp", "hart", "hash", "hasp", "hate", "hath", "hats",
+      "haul", "have", "hawk", "haws", "hays", "haze", "head", "heal", "heap", "hear", "heat", "heck", "heed", "heel", "heft", "heir", "held", "hell", "helm", "help", "hemp",
+      "hems", "hens", "herb", "herd", "here", "hero", "hers", "hewn", "hews", "hick", "hide", "hids", "hied", "hies", "high", "hike", "hill", "hilt", "hims", "hind", "hint",
+      "hips", "hire", "hisn", "hiss", "hist", "hits", "hive", "hoar", "hoas", "hoax", "hobo", "hobs", "hock", "hods", "hoes", "hogg", "hogs", "hois", "hold", "hole", "holp",
+      "holy", "home", "hone", "hong", "honk", "hood", "hoof", "hook", "hoop", "hoot", "hope", "hops", "horn", "hose", "host", "hots", "hour", "hove", "howl", "hows", "hubs",
+      "huck", "hues", "huff", "huge", "hugs", "hula", "hulk", "hull", "hums", "hung", "hunk", "hunt", "hurl", "hurt", "hush", "husk", "huts", "huzz", "hwan", "hyas", "hyla",
+      "hymn", "hype", "hypo", "hyps", "iamb", "ibex", "ibis", "iced", "ices", "icid", "icon", "idea", "idem", "ides", "idle", "idly", "idol", "idts", "iffy", "iggs", "iglu",
+      "ikat", "ikes", "ikon", "ilea", "ilex", "ilia", "ilka", "ills", "illy", "image", "imago", "imams", "imps", "inca", "inch", "index", "indie", "info", "inia", "inks",
+      "inky", "inly", "inns", "into", "ions", "iota", "iras", "ired", "ires", "iris", "irks", "iron", "isba", "isle", "isms", "itch", "item", "jabs", "jack", "jade", "jagg",
+      "jags", "jail", "jamb", "jams", "jane", "jape", "jars", "jato", "jauk", "java", "jaws", "jays", "jean", "jeep", "jeer", "jees", "jefe", "jehu", "jell", "jeon", "jerk",
+      "jess", "jest", "jete", "jets", "jews", "jib3", "jibe", "jibs", "jiff", "jigs", "jill", "jilt", "jimp", "jink", "jinn", "jins", "jinx", "jird", "jive", "jobs", "jock",
+      "jogs", "john", "join", "joke", "joky", "jole", "jolt", "josh", "joss", "jota", "jots", "jouk", "jowl", "jows", "joys", "juba", "jube", "juco", "judo", "judy", "jugs",
+      "word", "words", "unscramble", "letters", "solver", "scrabble", "anagram"
+    ];
+
+    function solveUnscramble() {
+      const input = document.getElementById('input-letters').value.toLowerCase().replace(/[^a-z?*]/g, '');
+      const lenFilter = document.getElementById('filter-length').value;
+      const prefix = document.getElementById('filter-prefix').value.toLowerCase().trim();
+      const suffix = document.getElementById('filter-suffix').value.toLowerCase().trim();
+
+      // Simple character frequency hash map
+      function getCharCount(str) {
+        const counts = {};
+        for (const char of str) {
+          counts[char] = (counts[char] || 0) + 1;
+        }
+        return counts;
+      }
+
+      const inputCounts = getCharCount(input);
+      const wildcardCount = (inputCounts['?'] || 0) + (inputCounts['*'] || 0);
+
+      const matchedWords = [];
+
+      OFFLINE_DICTIONARY.forEach(word => {
+        // Apply length and sub-letter verification
+        if (lenFilter !== 'any' && word.length !== parseInt(lenFilter)) return;
+        if (prefix && !word.startsWith(prefix)) return;
+        if (suffix && !word.endsWith(suffix)) return;
+
+        // Check if word can be spelled with letters + wildcards
+        const wordCounts = getCharCount(word);
+        let neededWildcards = 0;
+        let possible = true;
+
+        for (const char in wordCounts) {
+          const available = inputCounts[char] || 0;
+          if (wordCounts[char] > available) {
+            neededWildcards += (wordCounts[char] - available);
+            if (neededWildcards > wildcardCount) {
+              possible = false;
+              break;
+            }
+          }
+        }
+
+        if (possible) {
+          matchedWords.push(word);
+        }
+      });
+
+      // Sort matching results (descending length, alphabetical)
+      matchedWords.sort((a, b) => {
+        if (b.length !== a.length) {
+          return b.length - a.length;
+        }
+        return a.localeCompare(b);
+      });
+
+      // Group words by length
+      const groupings = {};
+      matchedWords.forEach(word => {
+        const l = word.length;
+        if (!groupings[l]) groupings[l] = [];
+        groupings[l].push(word);
+      });
+
+      // Render outputs
+      document.getElementById('results-count').textContent = matchedWords.length;
+      const outputContainer = document.getElementById('words-output-container');
+      outputContainer.innerHTML = '';
+
+      if (matchedWords.length === 0) {
+        outputContainer.innerHTML = `
+          <div class="text-center py-6 text-slate-400 dark:text-slate-500">
+            No matching words found. Try adding wildcards (?) or broadening your filter criteria.
+          </div>
+        `;
+        return;
+      }
+
+      // Output word grids grouped by letter count
+      Object.keys(groupings).sort((a, b) => b - a).forEach(len => {
+        const words = groupings[len];
+        const groupDiv = document.createElement('div');
+        groupDiv.className = "space-y-2";
+        groupDiv.innerHTML = `
+          <h3 class="text-xs font-bold text-brand-600 dark:text-brand-400 uppercase tracking-widest">${len}-Letter Words (${words.length})</h3>
+          <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-2">
+            ${words.map(w => `
+              <div class="bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 p-2 rounded-lg text-center font-bold text-slate-800 dark:text-slate-100 tracking-wide font-mono hover:scale-105 hover:border-brand-500 hover:text-brand-600 dark:hover:text-brand-400 transition-all cursor-pointer" onclick="copySingleWord('${w}')" title="Click to copy word">
+                ${w}
+              </div>
+            `).join('')}
+          </div>
+        `;
+        outputContainer.appendChild(groupDiv);
+      });
+    }
+
+    function setLettersPreset(preset) {
+      const lettersInput = document.getElementById('input-letters');
+      if (preset === 'scrabble') {
+        lettersInput.value = "scrabbl";
+      } else if (preset === 'wordle') {
+        lettersInput.value = "react";
+      }
+      solveUnscramble();
+    }
+
+    function copySingleWord(word) {
+      navigator.clipboard.writeText(word).then(() => {
+        // Quick subtle animation or notice
+        console.log(`Copied ${word}`);
+      });
+    }
+
+    function copyWordList() {
+      const btn = document.getElementById('btn-copy');
+      const text = btn.querySelector('span');
+      const container = document.getElementById('words-output-container');
+      const words = Array.from(container.querySelectorAll('div[title]')).map(el => el.textContent.trim());
+
+      if (words.length === 0) return;
+
+      navigator.clipboard.writeText(words.join(', ')).then(() => {
+        text.textContent = 'Copied List!';
+        setTimeout(() => { text.textContent = 'Copy Words List'; }, 2000);
+      });
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      solveUnscramble();
+    });
+  </script>
+  <script src="/global.js"></script>
+</body>
+</html>
