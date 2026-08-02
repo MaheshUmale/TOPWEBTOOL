@@ -471,22 +471,22 @@ function renderAdPlacements() {
 
   const isHomepage = window.location.pathname === '/' || window.location.pathname.endsWith('/index.html') || window.location.pathname === '';
 
-  // 1. AD A: TOP LEADERBOARD BANNER (Horizontal Ads)
+  // 1. AD A: TOP LEADERBOARD BANNER (Horizontal Ads) - Height Restricted for Frictionless UX
   const adA = document.createElement('div');
-  adA.className = "w-full mx-auto mb-6 p-3 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center transition-colors duration-200 text-center select-none";
+  adA.className = "w-full mx-auto mb-6 p-3 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center transition-colors duration-200 text-center select-none overflow-hidden";
   adA.style.maxWidth = "728px";
-  adA.style.minHeight = "90px";
+  adA.style.maxHeight = "135px";
 
   adA.innerHTML = `
-    <span class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-2">Advertisement</span>
-    <div class="w-full flex justify-center min-h-[90px]">
+    <span class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-1.5">Advertisement</span>
+    <div class="w-full flex justify-center" style="height:90px; max-height:90px; overflow:hidden;">
       <!-- HzAds -->
       <ins class="adsbygoogle"
-           style="display:block; width:100%; min-height:90px;"
+           style="display:inline-block; width:100%; height:90px; max-height:90px;"
            data-ad-client="ca-pub-3901061173891576"
            data-ad-slot="2894630336"
-           data-ad-format="auto"
-           data-full-width-responsive="true"></ins>
+           data-ad-format="horizontal"
+           data-full-width-responsive="false"></ins>
     </div>
   `;
 
@@ -561,10 +561,11 @@ function renderAdPlacements() {
     }
   }
 
-  // 3. AD C: STICKY BOTTOM VIEWPORT ANCHOR (Horizontal Ads)
+  // 3. AD C: STICKY BOTTOM VIEWPORT ANCHOR (Horizontal Ads) - Height Restricted for Frictionless UX
   const stickyFooter = document.createElement('div');
   stickyFooter.id = "sticky-footer-ad";
-  stickyFooter.className = "fixed bottom-0 left-0 w-full z-50 bg-white/95 dark:bg-slate-900/95 backdrop-blur border-t border-slate-200/80 dark:border-slate-800 shadow-lg flex flex-col items-center justify-center py-2 transition-colors duration-200 select-none";
+  stickyFooter.className = "fixed bottom-0 left-0 w-full z-50 bg-white/95 dark:bg-slate-900/95 backdrop-blur border-t border-slate-200/80 dark:border-slate-800 shadow-lg flex flex-col items-center justify-center py-2 transition-colors duration-200 select-none overflow-hidden";
+  stickyFooter.style.maxHeight = "95px";
 
   stickyFooter.innerHTML = `
     <!-- Close Button -->
@@ -575,14 +576,14 @@ function renderAdPlacements() {
     </button>
 
     <span class="text-[8px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-1">Sponsored Link</span>
-    <div class="w-full max-w-[320px] sm:max-w-[728px] px-4 flex justify-center min-h-[50px]">
+    <div class="w-full max-w-[320px] sm:max-w-[728px] px-4 flex justify-center" style="height:50px; max-height:50px; overflow:hidden;">
       <!-- HzAds in Sticky Footer -->
       <ins class="adsbygoogle"
-           style="display:block; width:100%; min-height:50px; height:50px;"
+           style="display:inline-block; width:100%; height:50px; max-height:50px;"
            data-ad-client="ca-pub-3901061173891576"
            data-ad-slot="2894630336"
-           data-ad-format="auto"
-           data-full-width-responsive="true"></ins>
+           data-ad-format="horizontal"
+           data-full-width-responsive="false"></ins>
     </div>
   `;
 
