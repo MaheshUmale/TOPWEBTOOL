@@ -3,51 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Free Car Lease Estimator with MSRP & Sales Tax (No Sign-Up)</title>
-  <meta name="description" content="Free Car Lease Estimator to calculate monthly payments using MSRP, money factor, and residual values. 100% free, no sign-up or registration required.">
+  <title>Free Car Lease Estimator | Auto Lease Monthly Payment Calculator</title>
+  <meta name="description" content="Calculate auto lease payments using MSRP, residual value, money factor, and trade-in. See complete depreciation & interest fee breakdowns instantly. 100% Free, No Sign-Up, No Email Required.">
   <link rel="stylesheet" href="/styles.css">
-  <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          colors: {
-            brand: {
-              50: '#f0f9ff',
-              100: '#e0f2fe',
-              500: '#0284c7',
-              600: '#0369a1',
-              700: '#075985',
-              900: '#0c4a6e',
-            }
-          }
-        }
-      }
-    }
-  </script>
+
+
 </head>
-<body class="bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 min-h-screen flex flex-col pb-24 transition-colors duration-200">
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 min-h-screen flex flex-col pb-4 transition-colors duration-200">
 
   <header id="global-header"></header>
 
-  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex-grow">
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex-grow">
 
-    <!-- Ad Placement A -->
-    <div class="mb-4 flex justify-center">
-      <div class="bg-gray-100 border border-gray-200 rounded-lg flex flex-col justify-center items-center p-2 text-center w-full shadow-inner min-h-[50px] max-w-[320px] md:min-h-[90px] md:max-w-[728px]">
-        <span class="text-[10px] font-bold text-gray-400 tracking-wider uppercase mb-1">Advertisement</span>
-        <span class="text-xs md:text-sm font-semibold text-gray-500">AD PLACEMENT - TOP LEADERBOARD</span>
-      </div>
-    </div>
+    <!-- AD A REMOVED -->
 
     <!-- 2-Column Grid -->
-    <div class="grid grid-cols-1 lg:grid-cols-4 gap-4">
+    <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
 
       <!-- Main Content -->
-      <div class="lg:col-span-3 space-y-4">
+      <div class="lg:col-span-3 space-y-8">
 
-        <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm">
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
           <h1 class="text-3xl font-extrabold text-slate-900 tracking-tight sm:text-4xl">Auto Lease Payment Estimator</h1>
           <p class="mt-2 text-base text-slate-500">
             Compare car leasing options dynamically. Input MSRP, trade-ins, and money factors to compute precise depreciation, finance, and monthly lease sales taxes.
@@ -55,7 +31,7 @@
         </div>
 
         <!-- Calculator UI -->
-        <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-4 sm:p-8 space-y-4">
+        <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-8 space-y-6">
           <h2 class="text-lg font-bold text-slate-900 border-b border-slate-100 pb-3">Lease Calculator Inputs</h2>
 
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -103,22 +79,22 @@
 
         <!-- Output Cards -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div class="bg-gradient-to-br from-brand-600 to-brand-800 p-4 rounded-2xl text-white shadow-md">
+          <div class="bg-gradient-to-br from-brand-600 to-brand-800 p-6 rounded-2xl text-white shadow-md">
             <span class="text-xs uppercase font-bold tracking-wider opacity-85 block">Total Monthly Payment</span>
             <span class="text-3xl font-extrabold mt-2 block" id="out-total-payment">$0.00</span>
           </div>
-          <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm">
+          <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
             <span class="text-xs uppercase font-bold tracking-wider text-slate-400 block">Monthly Depreciation</span>
             <span class="text-2xl font-extrabold mt-2 text-slate-800 block" id="out-monthly-dep">$0.00</span>
           </div>
-          <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm">
+          <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
             <span class="text-xs uppercase font-bold tracking-wider text-slate-400 block">Monthly Finance Charge</span>
             <span class="text-2xl font-extrabold mt-2 text-slate-800 block" id="out-monthly-fin">$0.00</span>
           </div>
         </div>
 
         <!-- Breakdown Block with Clipboard Action -->
-        <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm space-y-4">
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-4">
           <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center border-b border-slate-100 pb-4 gap-4">
             <div>
               <h2 class="text-lg font-bold text-slate-900">Lease Breakdown & Metrics</h2>
@@ -151,17 +127,11 @@
       </div>
 
       <!-- Column 4 Sidebar -->
-      <div class="lg:col-span-1 space-y-4">
+      <div class="lg:col-span-1 space-y-6">
 
         <div id="trending-sidebar"></div>
 
-        <!-- Ad Placement B -->
-        <div class="sticky top-20">
-          <div class="bg-gray-100 border border-gray-200 rounded-2xl flex flex-col justify-center items-center p-4 text-center shadow-inner min-h-[250px] md:min-h-[600px] max-w-[300px] mx-auto">
-            <span class="text-[10px] font-bold text-gray-400 tracking-wider uppercase mb-2">Advertisement</span>
-            <span class="text-sm font-semibold text-gray-500">AD PLACEMENT - HIGH RES VIEWABILITY BOX</span>
-          </div>
-        </div>
+        <!-- AD B REMOVED -->
 
       </div>
 
@@ -169,15 +139,7 @@
 
   </main>
 
-  <!-- Ad Placement C -->
-  <div class="fixed bottom-0 left-0 w-full z-50 bg-white border-t border-gray-200 shadow-lg flex justify-center items-center py-2">
-    <div class="w-full flex justify-center">
-      <div class="bg-gray-100 border border-gray-200 rounded flex flex-col justify-center items-center p-1 text-center w-full min-h-[50px] max-w-[320px] md:max-w-[728px]">
-        <span class="text-[8px] font-bold text-gray-400 tracking-wider uppercase">Advertisement</span>
-        <span class="text-xs font-semibold text-gray-500">AD PLACEMENT - STICKY FOOTER ANCHOR</span>
-      </div>
-    </div>
-  </div>
+  <!-- AD C REMOVED -->
 
   <script>
     function calculateLease() {

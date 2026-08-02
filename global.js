@@ -1,6 +1,6 @@
 /**
  * TopWebTool Global Core Engine
- * Manages uniform themes, headers, footers, and the 21-tool vertical scroller sidebar.
+ * Manages uniform themes, headers, footers, and the 23-tool vertical scroller sidebar.
  */
 
 const UTILITIES_REGISTRY = [
@@ -250,7 +250,7 @@ function renderFooter() {
 
 /**
  * Render the side vertically scrollable search/trending utilities sidebar (vscroll)
- * Shows all 21 tools in a beautiful container with an instant search.
+ * Shows all 23 tools in a beautiful container with an instant search.
  */
 function renderSidebarScroller() {
   const sidebarContainer = document.getElementById('trending-sidebar');

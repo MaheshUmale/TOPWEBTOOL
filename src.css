@@ -1,0 +1,125 @@
+@import "tailwindcss";
+
+/* TopWebTool Global Stylesheet Base */
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  transition-property: color, background-color, border-color;
+  transition-duration: 200ms;
+}
+
+/* Custom vertical scroll bar for Trending Utilities Scroller */
+.custom-vscroll-bar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.custom-vscroll-bar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-vscroll-bar::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
+
+.dark .custom-vscroll-bar::-webkit-scrollbar-thumb {
+  background: #475569;
+}
+
+.custom-vscroll-bar::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Custom dark/light mode override properties for form inputs and elements */
+.dark body {
+  background-color: #0f172a; /* Slate 900 */
+  color: #cbd5e1; /* Slate 300 */
+}
+
+/* Form input adjustments under dark mode */
+.dark input[type="text"],
+.dark input[type="number"],
+.dark select,
+.dark textarea {
+  background-color: #020617; /* Slate 950 */
+  border-color: #334155; /* Slate 700 */
+  color: #f8fafc; /* Slate 50 */
+}
+
+.dark input[type="text"]:focus,
+.dark input[type="number"]:focus,
+.dark select:focus,
+.dark textarea:focus {
+  border-color: #0284c7; /* Brand 500 */
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(2, 132, 199, 0.2);
+}
+
+.dark .bg-white {
+  background-color: #1e293b; /* Slate 800 */
+  color: #f1f5f9; /* Slate 100 */
+}
+
+.dark .border-slate-200 {
+  border-color: #334155; /* Slate 700 */
+}
+
+.dark .border-slate-100 {
+  border-color: #1e293b; /* Slate 800 */
+}
+
+.dark .bg-slate-50 {
+  background-color: #0f172a; /* Slate 900 */
+}
+
+.dark .text-slate-900 {
+  color: #f8fafc; /* Slate 50 */
+}
+
+.dark .text-slate-800 {
+  color: #cbd5e1; /* Slate 300 */
+}
+
+.dark .text-slate-700 {
+  color: #94a3b8; /* Slate 400 */
+}
+
+.dark .text-slate-600 {
+  color: #94a3b8; /* Slate 400 */
+}
+
+.dark .text-slate-500 {
+  color: #64748b; /* Slate 500 */
+}
+
+/* Range input slider thumb tweaks */
+.slider-thumb::-webkit-slider-thumb {
+  background: #0284c7;
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  -webkit-appearance: none;
+}
+
+.dark .slider-thumb::-webkit-slider-thumb {
+  background: #38bdf8;
+  border-color: #0f172a;
+}
+
+.slider-thumb::-moz-range-thumb {
+  background: #0284c7;
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.dark .slider-thumb::-moz-range-thumb {
+  background: #38bdf8;
+  border-color: #0f172a;
+}
