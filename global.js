@@ -178,6 +178,15 @@ const UTILITIES_REGISTRY = [
   }
 })();
 
+// Inject Google AdSense Auto Ads Script dynamically site-wide
+(function injectAdSense() {
+  const script = document.createElement('script');
+  script.async = true;
+  script.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7054803828918378";
+  script.crossOrigin = "anonymous";
+  document.head.appendChild(script);
+})();
+
 document.addEventListener('DOMContentLoaded', () => {
   // Inject Header
   renderHeader();
@@ -227,6 +236,10 @@ function renderHeader() {
 
   headerContainer.className = "bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 sticky top-0 z-40 shadow-sm transition-colors duration-200";
 
+  // Determine relative paths dynamic prefix
+  const isHomepage = window.location.pathname === '/' || window.location.pathname.endsWith('/index.html') || window.location.pathname === '';
+  const prefix = isHomepage ? './' : '../';
+
   // Group utilities by category
   const categories = {};
   UTILITIES_REGISTRY.forEach(tool => {
@@ -241,8 +254,8 @@ function renderHeader() {
   headerContainer.innerHTML = `
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="h-16 flex items-center justify-between">
-        <a href="/" class="flex items-center space-x-2 group">
-          <img src="/logo.svg" alt="TopWebTool Logo" class="w-8 h-8 text-brand-600 transition-transform group-hover:scale-105" />
+        <a href="${prefix}" class="flex items-center space-x-2 group">
+          <img src="${prefix}logo.svg" alt="TopWebTool Logo" class="w-8 h-8 text-brand-600 transition-transform group-hover:scale-105" />
           <span class="font-extrabold text-2xl tracking-tight bg-gradient-to-r from-blue-700 to-sky-500 bg-clip-text text-slate-900 dark:text-white" style="-webkit-background-clip: text; -webkit-text-fill-color: transparent;">TopWebTool</span>
         </a>
 
@@ -259,7 +272,7 @@ function renderHeader() {
                 </button>
                 <div class="absolute left-0 mt-1 w-64 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 z-50 p-2 space-y-1">
                   ${tools.map(tool => `
-                    <a href="${tool.path}" class="flex items-center space-x-2.5 px-3 py-2 text-xs font-bold rounded-lg text-slate-800 dark:text-slate-200 hover:bg-blue-50 dark:hover:bg-slate-800 hover:text-blue-700 dark:hover:text-sky-400 transition-colors">
+                    <a href="${prefix}${tool.path.replace(/^\//, '')}" class="flex items-center space-x-2.5 px-3 py-2 text-xs font-bold rounded-lg text-slate-800 dark:text-slate-200 hover:bg-blue-50 dark:hover:bg-slate-800 hover:text-blue-700 dark:hover:text-sky-400 transition-colors">
                       <span class="text-base shrink-0">${tool.icon}</span>
                       <span class="truncate">${tool.name}</span>
                     </a>
@@ -299,7 +312,7 @@ function renderHeader() {
               </button>
               <div class="hidden absolute left-0 mt-1 w-56 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl shadow-lg z-50 p-2 space-y-1">
                 ${tools.map(tool => `
-                  <a href="${tool.path}" class="flex items-center space-x-2 px-2.5 py-1.5 text-xs font-bold rounded-lg text-slate-800 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+                  <a href="${prefix}${tool.path.replace(/^\//, '')}" class="flex items-center space-x-2 px-2.5 py-1.5 text-xs font-bold rounded-lg text-slate-800 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
                     <span class="text-sm shrink-0">${tool.icon}</span>
                     <span class="truncate">${tool.name}</span>
                   </a>
@@ -346,6 +359,10 @@ function renderSidebarScroller() {
   // Add broad padding and explicit classes to support a wide, highly legible layout
   sidebarContainer.className = "bg-white dark:bg-slate-900 p-4 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col max-h-[700px] transition-colors duration-200 w-full";
 
+  // Determine prefix for relative navigation
+  const isHomepage = window.location.pathname === '/' || window.location.pathname.endsWith('/index.html') || window.location.pathname === '';
+  const prefix = isHomepage ? './' : '../';
+
   // Build items HTML
   const currentPath = window.location.pathname.replace(/\/$/, '');
 
@@ -368,9 +385,9 @@ function renderSidebarScroller() {
     <!-- Scrollable 2-Column Wide container -->
     <div id="sidebar-items-scroller" class="flex-grow overflow-y-auto pr-1 custom-vscroll-bar grid grid-cols-2 gap-1.5">
       ${UTILITIES_REGISTRY.map(tool => {
-        const isActive = currentPath === tool.path;
+        const isActive = currentPath === tool.path || currentPath + '/index.html' === tool.path;
         return `
-          <a href="${tool.path}" data-name="${tool.name.toLowerCase()}" data-category="${tool.category.toLowerCase()}" class="group flex items-center p-1.5 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-950 transition-colors border ${isActive ? 'border-blue-500 bg-blue-50/50 dark:bg-blue-900/20' : 'border-slate-100 dark:border-slate-800/80 hover:border-slate-200'}" title="${tool.name} - ${tool.desc}">
+          <a href="${prefix}${tool.path.replace(/^\//, '')}" data-name="${tool.name.toLowerCase()}" data-category="${tool.category.toLowerCase()}" class="group flex items-center p-1.5 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-950 transition-colors border ${isActive ? 'border-blue-500 bg-blue-50/50 dark:bg-blue-900/20' : 'border-slate-100 dark:border-slate-800/80 hover:border-slate-200'}" title="${tool.name} - ${tool.desc}">
             <div class="flex items-center space-x-1.5 min-w-0">
               <span class="text-base shrink-0">${tool.icon}</span>
               <div class="flex flex-col min-w-0">
