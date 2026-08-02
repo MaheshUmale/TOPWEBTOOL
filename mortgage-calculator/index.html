@@ -34,7 +34,7 @@
     }
   </style>
 </head>
-<body class="bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 min-h-screen flex flex-col pb-4 transition-colors duration-200">
+<body class="bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 min-h-screen flex flex-col pb-4 transition-colors duration-200">
 
   <header id="global-header"></header>
 
@@ -403,19 +403,19 @@
           </div>
 
           <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-2">
-            <div class="bg-slate-50 p-4 rounded-xl">
+            <div class="bg-white p-4 rounded-xl">
               <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Total Loan Amount</span>
               <span class="text-lg sm:text-xl font-extrabold text-slate-800 block mt-1" id="sum-loan-amount">$320,000</span>
             </div>
-            <div class="bg-slate-50 p-4 rounded-xl">
+            <div class="bg-white p-4 rounded-xl">
               <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Total Interest Paid</span>
               <span class="text-lg sm:text-xl font-extrabold text-slate-800 block mt-1" id="sum-total-interest">$408,349</span>
             </div>
-            <div class="bg-slate-50 p-4 rounded-xl">
+            <div class="bg-white p-4 rounded-xl">
               <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Total Payments (P&I)</span>
               <span class="text-lg sm:text-xl font-extrabold text-slate-800 block mt-1" id="sum-total-payments">$728,349</span>
             </div>
-            <div class="bg-slate-50 p-4 rounded-xl">
+            <div class="bg-white p-4 rounded-xl">
               <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Expected Payoff Date</span>
               <span class="text-lg sm:text-xl font-extrabold text-brand-700 block mt-1 animate-pulse" id="sum-payoff-year">Year 30</span>
             </div>
@@ -424,7 +424,7 @@
 
         <!-- Annual Amortization Table Card -->
         <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
-          <div class="p-6 sm:p-8 border-b border-slate-200 bg-slate-50 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+          <div class="p-6 sm:p-8 border-b border-slate-200 bg-white flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
             <div>
               <h2 class="text-lg font-bold text-slate-900">Annual Amortization Schedule</h2>
               <p class="text-xs text-slate-500 mt-0.5">Year-by-year projections with interest vs principal payouts and extra impact.</p>
@@ -461,7 +461,7 @@
           <!-- Amortization Table -->
           <div class="overflow-x-auto">
             <table class="min-w-full divide-y divide-slate-200 text-left">
-              <thead class="bg-slate-50">
+              <thead class="bg-white">
                 <tr>
                   <th scope="col" class="px-6 py-3 text-xs font-bold text-slate-500 uppercase tracking-wider">Year</th>
                   <th scope="col" class="px-6 py-3 text-xs font-bold text-slate-500 uppercase tracking-wider text-right">Start Balance</th>
@@ -885,7 +885,7 @@
 
       viewSchedule.forEach(item => {
         const tr = document.createElement('tr');
-        tr.className = "hover:bg-slate-50 transition-colors";
+        tr.className = "hover:bg-white transition-colors";
         tr.innerHTML = `
           <td class="px-6 py-3 font-semibold text-slate-900">Year ${item.year}</td>
           <td class="px-6 py-3 text-right text-slate-600 font-mono">$${Math.round(item.startBalance).toLocaleString()}</td>
