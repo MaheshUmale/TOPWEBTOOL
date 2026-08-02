@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Free Online Fortune Wheel | Custom Choice & Alternate Yes/No Spinner</title>
   <meta name="description" content="Spin the decision wheel. Input custom names, choice lists, or alternative Yes/No questions to resolve debates dynamically. 100% Free, No Sign-Up Required.">
+  <link rel="canonical" href="https://topwebtool.com/fortune-wheel/">
   <link rel="stylesheet" href="/styles.css">
 
 
@@ -146,7 +147,15 @@ Spin Again</textarea>
 
     function updateWheelFromInputs() {
       const rawText = document.getElementById('input-options').value;
-      options = rawText.split('\n').map(x => x.trim()).filter(x => x.length > 0);
+      const rawOptions = rawText.split('\n').map(x => x.trim()).filter(x => x.length > 0);
+
+      options = [...rawOptions];
+      if (options.length > 0) {
+        while (options.length < 4) {
+          options = options.concat(rawOptions);
+        }
+      }
+
       arc = Math.PI / (options.length / 2);
       drawWheel();
     }

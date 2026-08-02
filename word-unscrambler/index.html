@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Free Word Unscrambler | Unscramble Scrambled Letters & Wildcards Solver</title>
   <meta name="description" content="Unscramble letters into high-scoring words. Supports length limits, prefixes, suffixes, wildcards, and blank tiles. 100% Free, No Registration Required.">
+  <link rel="canonical" href="https://topwebtool.com/word-unscrambler/">
   <link rel="stylesheet" href="/styles.css">
 
 
@@ -49,7 +50,7 @@
               <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 <div>
                   <label for="filter-length" class="block text-xs font-semibold text-slate-500 mb-1">Word Length</label>
-                  <select id="filter-length" class="block w-full px-2 py-2 border border-slate-300 dark:border-slate-700 rounded-lg bg-white font-semibold text-xs text-slate-950" onchange="solveUnscramble()">
+                  <select id="filter-length" class="block w-full px-2 py-2 border border-slate-300 dark:border-slate-700 rounded-lg bg-white dark:bg-slate-950 font-semibold text-xs text-slate-950 dark:text-slate-50" onchange="solveUnscramble()">
                     <option value="any">Any Length</option>
                     <option value="3">3 Letters</option>
                     <option value="4">4 Letters</option>
@@ -57,6 +58,13 @@
                     <option value="6">6 Letters</option>
                     <option value="7">7 Letters</option>
                     <option value="8">8 Letters</option>
+                    <option value="9">9 Letters</option>
+                    <option value="10">10 Letters</option>
+                    <option value="11">11 Letters</option>
+                    <option value="12">12 Letters</option>
+                    <option value="13">13 Letters</option>
+                    <option value="14">14 Letters</option>
+                    <option value="15">15 Letters</option>
                   </select>
                 </div>
                 <div>
@@ -77,7 +85,16 @@
                 <button onclick="setLettersPreset('scrabble')" class="px-2 py-1.5 text-xs font-semibold text-slate-700 dark:text-slate-300 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg hover:border-brand-500 hover:text-brand-600 transition-all">Scrabble Rack (7)</button>
                 <button onclick="setLettersPreset('wordle')" class="px-2 py-1.5 text-xs font-semibold text-slate-700 dark:text-slate-300 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg hover:border-brand-500 hover:text-brand-600 transition-all">Wordle Letters (5)</button>
               </div>
-              <p class="text-[10px] text-slate-400 mt-3 leading-snug">Uses high-precision local word definitions for instant, offline anagram resolution.</p>
+
+              <div class="mt-4 pt-3 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between">
+                <div>
+                  <span class="text-xs font-bold text-slate-500 dark:text-slate-400 block">Dictionary Size</span>
+                  <span id="dict-status" class="text-[10px] text-slate-400">Offline Fallback (1,000 words)</span>
+                </div>
+                <button onclick="loadExpandedDictionary()" id="btn-load-dict" class="px-2.5 py-1.5 text-xs font-bold text-white bg-brand-600 hover:bg-brand-700 dark:bg-brand-700 dark:hover:bg-brand-600 rounded-lg transition-all flex items-center gap-1.5 shadow-sm">
+                  <span>⚡ Load 370k Words</span>
+                </button>
+              </div>
             </div>
 
           </div>
@@ -182,6 +199,8 @@
       "word", "words", "unscramble", "letters", "solver", "scrabble", "anagram"
     ];
 
+    let activeDictionary = [...OFFLINE_DICTIONARY];
+
     function solveUnscramble() {
       const input = document.getElementById('input-letters').value.toLowerCase().replace(/[^a-z?*]/g, '');
       const lenFilter = document.getElementById('filter-length').value;
@@ -202,7 +221,7 @@
 
       const matchedWords = [];
 
-      OFFLINE_DICTIONARY.forEach(word => {
+      activeDictionary.forEach(word => {
         // Apply length and sub-letter verification
         if (lenFilter !== 'any' && word.length !== parseInt(lenFilter)) return;
         if (prefix && !word.startsWith(prefix)) return;
@@ -252,7 +271,7 @@
 
       if (matchedWords.length === 0) {
         outputContainer.innerHTML = `
-          <div class="text-center py-6 text-slate-400 dark:text-slate-500">
+          <div class="text-center py-4 text-slate-400 dark:text-slate-500">
             No matching words found. Try adding wildcards (?) or broadening your filter criteria.
           </div>
         `;
@@ -278,6 +297,41 @@
       });
     }
 
+    async function loadExpandedDictionary() {
+      const btn = document.getElementById('btn-load-dict');
+      const statusSpan = document.getElementById('dict-status');
+
+      btn.disabled = true;
+      btn.innerHTML = '<span>⏳ Loading...</span>';
+      statusSpan.textContent = 'Fetching 370k wordlist...';
+
+      try {
+        const response = await fetch('https://raw.githubusercontent.com/dwyl/english-words/master/words_alpha.txt');
+        if (!response.ok) {
+          throw new Error('Network response not OK');
+        }
+        const text = await response.text();
+        const loadedWords = text.split(/\r?\n/).map(x => x.trim().toLowerCase()).filter(x => x.length > 0);
+
+        if (loadedWords.length > 100) {
+          activeDictionary = loadedWords;
+          statusSpan.textContent = `Expanded (${loadedWords.length.toLocaleString()} words)`;
+          btn.innerHTML = '<span>✅ Loaded!</span>';
+          btn.classList.remove('bg-brand-600', 'hover:bg-brand-700');
+          btn.classList.add('bg-emerald-600', 'dark:bg-emerald-700');
+          solveUnscramble();
+        } else {
+          throw new Error('Loaded wordlist is too small');
+        }
+      } catch (err) {
+        console.error('Failed to load online dictionary:', err);
+        statusSpan.textContent = 'Offline Fallback Active';
+        btn.innerHTML = '<span>❌ Fail - Retry</span>';
+        btn.disabled = false;
+        alert('Could not download the 370k word list (maybe offline or CORS restricted). Using standard 1,000 words offline list instead.');
+      }
+    }
+
     function setLettersPreset(preset) {
       const lettersInput = document.getElementById('input-letters');
       if (preset === 'scrabble') {
@@ -290,7 +344,6 @@
 
     function copySingleWord(word) {
       navigator.clipboard.writeText(word).then(() => {
-        // Quick subtle animation or notice
         console.log(`Copied ${word}`);
       });
     }
