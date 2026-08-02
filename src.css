@@ -23,6 +23,8 @@ body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   transition-property: color, background-color, border-color;
   transition-duration: 200ms;
+  background-color: #ffffff; /* Explicit pure white light background! */
+  color: #1e293b; /* Slate 800 light mode text color */
 }
 
 /* Custom vertical scroll bar for Trending Utilities Scroller */
