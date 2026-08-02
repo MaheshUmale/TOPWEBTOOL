@@ -178,11 +178,11 @@ const UTILITIES_REGISTRY = [
   }
 })();
 
-// Inject Google AdSense Auto Ads Script dynamically site-wide
+// Inject Google AdSense Script dynamically site-wide
 (function injectAdSense() {
   const script = document.createElement('script');
   script.async = true;
-  script.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7054803828918378";
+  script.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3901061173891576";
   script.crossOrigin = "anonymous";
   document.head.appendChild(script);
 })();
@@ -199,6 +199,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Setup theme toggle buttons
   setupThemeToggler();
+
+  // Inject Dynamic AdSense Placements (AD A, AD B, AD C)
+  renderAdPlacements();
 });
 
 // Mobile dropdown helper function
@@ -457,3 +460,147 @@ function setupThemeToggler() {
     window.dispatchEvent(new CustomEvent('themechanged'));
   });
 }
+
+/**
+ * Render Google AdSense placements (AD A, AD B, AD C) dynamically on pages.
+ * Fully optimized for Light/Dark mode color contrast and frictionless UX.
+ */
+function renderAdPlacements() {
+  const main = document.querySelector('main');
+  if (!main) return;
+
+  const isHomepage = window.location.pathname === '/' || window.location.pathname.endsWith('/index.html') || window.location.pathname === '';
+
+  // 1. AD A: TOP LEADERBOARD BANNER (Horizontal Ads)
+  const adA = document.createElement('div');
+  adA.className = "w-full mx-auto mb-6 p-3 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center transition-colors duration-200 text-center select-none";
+  adA.style.maxWidth = "728px";
+  adA.style.minHeight = "90px";
+
+  adA.innerHTML = `
+    <span class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-2">Advertisement</span>
+    <div class="w-full flex justify-center min-h-[90px]">
+      <!-- HzAds -->
+      <ins class="adsbygoogle"
+           style="display:block; width:100%; min-height:90px;"
+           data-ad-client="ca-pub-3901061173891576"
+           data-ad-slot="2894630336"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+    </div>
+  `;
+
+  if (isHomepage) {
+    // On homepage, insert after the hero/search section
+    const hero = main.querySelector('.text-center.mb-8');
+    if (hero) {
+      hero.parentNode.insertBefore(adA, hero.nextSibling);
+    } else {
+      main.insertBefore(adA, main.firstChild);
+    }
+  } else {
+    // On tool pages, insert as the very first child of main
+    main.insertBefore(adA, main.firstChild);
+  }
+
+  try {
+    (window.adsbygoogle = window.adsbygoogle || []).push({});
+  } catch (e) {
+    console.error("AdSense push error (AD A):", e);
+  }
+
+  // 2. AD B: SIDEBAR AD PLACEMENTS
+  const sidebar = document.getElementById('trending-sidebar');
+  if (sidebar) {
+    // A. SQUARE AD (SquareAds)
+    const squareAd = document.createElement('div');
+    squareAd.className = "w-full p-4 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center transition-colors duration-200 text-center mt-4 select-none";
+    squareAd.style.minHeight = "250px";
+    squareAd.innerHTML = `
+      <span class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-2">Sponsored</span>
+      <div class="w-full flex justify-center min-h-[250px]">
+        <!-- SquareAds -->
+        <ins class="adsbygoogle"
+             style="display:block; width:100%; min-height:250px;"
+             data-ad-client="ca-pub-3901061173891576"
+             data-ad-slot="6707430996"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+      </div>
+    `;
+    sidebar.parentNode.insertBefore(squareAd, sidebar.nextSibling);
+
+    try {
+      (window.adsbygoogle = window.adsbygoogle || []).push({});
+    } catch (e) {
+      console.error("AdSense push error (AD B Square):", e);
+    }
+
+    // B. VERTICAL AD (verticalAds) - Display on desktop only to avoid mobile clutter (UX-first!)
+    const verticalAd = document.createElement('div');
+    verticalAd.className = "w-full p-4 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center transition-colors duration-200 text-center mt-4 hidden lg:flex select-none";
+    verticalAd.style.minHeight = "600px";
+    verticalAd.innerHTML = `
+      <span class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-2">Advertisement</span>
+      <div class="w-full flex justify-center min-h-[600px]">
+        <!-- verticalAds -->
+        <ins class="adsbygoogle"
+             style="display:block; width:100%; min-height:600px;"
+             data-ad-client="ca-pub-3901061173891576"
+             data-ad-slot="1581548667"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+      </div>
+    `;
+    squareAd.parentNode.insertBefore(verticalAd, squareAd.nextSibling);
+
+    try {
+      (window.adsbygoogle = window.adsbygoogle || []).push({});
+    } catch (e) {
+      console.error("AdSense push error (AD B Vertical):", e);
+    }
+  }
+
+  // 3. AD C: STICKY BOTTOM VIEWPORT ANCHOR (Horizontal Ads)
+  const stickyFooter = document.createElement('div');
+  stickyFooter.id = "sticky-footer-ad";
+  stickyFooter.className = "fixed bottom-0 left-0 w-full z-50 bg-white/95 dark:bg-slate-900/95 backdrop-blur border-t border-slate-200/80 dark:border-slate-800 shadow-lg flex flex-col items-center justify-center py-2 transition-colors duration-200 select-none";
+
+  stickyFooter.innerHTML = `
+    <!-- Close Button -->
+    <button onclick="closeStickyFooter()" class="absolute -top-3.5 right-4 w-7 h-7 bg-white dark:bg-slate-800 border border-slate-200/85 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-full shadow-md flex items-center justify-center text-slate-500 dark:text-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-500 transition-colors cursor-pointer" title="Dismiss advertisement">
+      <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"></path>
+      </svg>
+    </button>
+
+    <span class="text-[8px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-1">Sponsored Link</span>
+    <div class="w-full max-w-[320px] sm:max-w-[728px] px-4 flex justify-center min-h-[50px]">
+      <!-- HzAds in Sticky Footer -->
+      <ins class="adsbygoogle"
+           style="display:block; width:100%; min-height:50px; height:50px;"
+           data-ad-client="ca-pub-3901061173891576"
+           data-ad-slot="2894630336"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+    </div>
+  `;
+
+  document.body.appendChild(stickyFooter);
+  document.body.classList.add('pb-24'); // Add bottom padding to body so sticky footer doesn't overlap actual content
+
+  try {
+    (window.adsbygoogle = window.adsbygoogle || []).push({});
+  } catch (e) {
+    console.error("AdSense push error (AD C):", e);
+  }
+}
+
+// Global dismiss action for the sticky footer
+window.closeStickyFooter = function() {
+  const el = document.getElementById('sticky-footer-ad');
+  if (el) {
+    el.style.display = 'none';
+    document.body.classList.remove('pb-24');
+  }
+};
