@@ -192,8 +192,34 @@ document.addEventListener('DOMContentLoaded', () => {
   setupThemeToggler();
 });
 
+// Mobile dropdown helper function
+window.toggleMobileNavDropdown = function(button) {
+  const container = button.nextElementSibling;
+  const isHidden = container.classList.contains('hidden');
+
+  // Close all other mobile dropdowns first
+  document.querySelectorAll('.mobile-nav-dropdown > div').forEach(el => {
+    el.classList.add('hidden');
+  });
+
+  if (isHidden) {
+    container.classList.remove('hidden');
+  } else {
+    container.classList.add('hidden');
+  }
+};
+
+// Close mobile dropdowns when clicking outside
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('.mobile-nav-dropdown')) {
+    document.querySelectorAll('.mobile-nav-dropdown > div').forEach(el => {
+      el.classList.add('hidden');
+    });
+  }
+});
+
 /**
- * Render standard navigation header
+ * Render standard navigation header with dynamic categories dropdown menu
  */
 function renderHeader() {
   const headerContainer = document.getElementById('global-header') || document.querySelector('header');
@@ -201,26 +227,87 @@ function renderHeader() {
 
   headerContainer.className = "bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 sticky top-0 z-40 shadow-sm transition-colors duration-200";
 
-  headerContainer.innerHTML = `
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-      <a href="/" class="flex items-center space-x-2 group">
-        <img src="/logo.svg" alt="TopWebTool Logo" class="w-8 h-8 text-brand-600 transition-transform group-hover:scale-105" />
-        <span class="font-extrabold text-2xl tracking-tight bg-gradient-to-r from-brand-700 to-brand-500 bg-clip-text text-transparent">TopWebTool</span>
-      </a>
+  // Group utilities by category
+  const categories = {};
+  UTILITIES_REGISTRY.forEach(tool => {
+    if (!categories[tool.category]) {
+      categories[tool.category] = [];
+    }
+    categories[tool.category].push(tool);
+  });
 
-      <div class="flex items-center space-x-4">
-        <!-- Unified Theme Toggle Button -->
-        <button id="theme-toggle-btn" class="p-2 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500 transition-all" title="Toggle Light/Dark Theme">
-          <!-- Moon Icon -->
-          <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
-          </svg>
-          <!-- Sun Icon -->
-          <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-            <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zm-5.05-1.414l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zm2.12-10.607a1 1 0 01-1.414 0l-.707-.707a1 1 0 011.414-1.414l.707.707a1 1 0 010 1.414zM4 11a1 1 0 100-2H3a1 1 0 100 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
-          </svg>
-        </button>
-        <span class="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-widest hidden sm:inline-block">100% Free & No Sign-up</span>
+  const categoryNames = Object.keys(categories);
+
+  headerContainer.innerHTML = `
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="h-16 flex items-center justify-between">
+        <a href="/" class="flex items-center space-x-2 group">
+          <img src="/logo.svg" alt="TopWebTool Logo" class="w-8 h-8 text-brand-600 transition-transform group-hover:scale-105" />
+          <span class="font-extrabold text-2xl tracking-tight bg-gradient-to-r from-blue-700 to-sky-500 bg-clip-text text-slate-900 dark:text-white" style="-webkit-background-clip: text; -webkit-text-fill-color: transparent;">TopWebTool</span>
+        </a>
+
+        <!-- Desktop Grouped Dropdown Navigation -->
+        <nav class="hidden lg:flex items-center space-x-2">
+          ${categoryNames.map(cat => {
+            const shortName = cat.split('&')[0].trim();
+            const tools = categories[cat];
+            return `
+              <div class="relative group">
+                <button class="flex items-center space-x-1 px-2.5 py-1.5 rounded-lg text-xs font-bold text-slate-700 dark:text-slate-200 hover:text-blue-600 dark:hover:text-sky-400 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+                  <span>${shortName}</span>
+                  <svg class="w-3.5 h-3.5 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                <div class="absolute left-0 mt-1 w-64 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 z-50 p-2 space-y-1">
+                  ${tools.map(tool => `
+                    <a href="${tool.path}" class="flex items-center space-x-2.5 px-3 py-2 text-xs font-bold rounded-lg text-slate-800 dark:text-slate-200 hover:bg-blue-50 dark:hover:bg-slate-800 hover:text-blue-700 dark:hover:text-sky-400 transition-colors">
+                      <span class="text-base shrink-0">${tool.icon}</span>
+                      <span class="truncate">${tool.name}</span>
+                    </a>
+                  `).join('')}
+                </div>
+              </div>
+            `;
+          }).join('')}
+        </nav>
+
+        <div class="flex items-center space-x-4">
+          <!-- Unified Theme Toggle Button -->
+          <button id="theme-toggle-btn" class="p-2 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500 transition-all" title="Toggle Light/Dark Theme">
+            <!-- Moon Icon -->
+            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+              <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+            </svg>
+            <!-- Sun Icon -->
+            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zm-5.05-1.414l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zm2.12-10.607a1 1 0 01-1.414 0l-.707-.707a1 1 0 011.414-1.414l.707.707a1 1 0 010 1.414zM4 11a1 1 0 100-2H3a1 1 0 100 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+            </svg>
+          </button>
+          <span class="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-widest hidden sm:inline-block">100% Free & No Sign-up</span>
+        </div>
+      </div>
+
+      <!-- Mobile Horizontally Scrollable Categories Menu -->
+      <div class="lg:hidden flex items-center space-x-2 overflow-x-auto pb-2.5 pt-0.5 border-t border-slate-100 dark:border-slate-800/80 scrollbar-none">
+        ${categoryNames.map(cat => {
+          const shortName = cat.split('&')[0].trim();
+          const tools = categories[cat];
+          return `
+            <div class="relative shrink-0 mobile-nav-dropdown">
+              <button onclick="toggleMobileNavDropdown(this)" class="flex items-center space-x-1 px-3 py-1.5 rounded-full text-[11px] font-bold bg-slate-50 hover:bg-slate-100 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 transition-colors">
+                <span>${shortName}</span>
+                <svg class="w-3 h-3 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+              </button>
+              <div class="hidden absolute left-0 mt-1 w-56 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl shadow-lg z-50 p-2 space-y-1">
+                ${tools.map(tool => `
+                  <a href="${tool.path}" class="flex items-center space-x-2 px-2.5 py-1.5 text-xs font-bold rounded-lg text-slate-800 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+                    <span class="text-sm shrink-0">${tool.icon}</span>
+                    <span class="truncate">${tool.name}</span>
+                  </a>
+                `).join('')}
+              </div>
+            </div>
+          `;
+        }).join('')}
       </div>
     </div>
   `;
@@ -250,20 +337,21 @@ function renderFooter() {
 
 /**
  * Render the side vertically scrollable search/trending utilities sidebar (vscroll)
- * Shows all 23 tools in a beautiful container with an instant search.
+ * Shows all 23 tools in a beautiful 2-column wide layout for fast access.
  */
 function renderSidebarScroller() {
   const sidebarContainer = document.getElementById('trending-sidebar');
   if (!sidebarContainer) return;
 
-  sidebarContainer.className = "bg-white dark:bg-slate-900 p-4 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col max-h-[500px] md:max-h-[600px] transition-colors duration-200";
+  // Add broad padding and explicit classes to support a wide, highly legible layout
+  sidebarContainer.className = "bg-white dark:bg-slate-900 p-4 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col max-h-[700px] transition-colors duration-200 w-full";
 
   // Build items HTML
   const currentPath = window.location.pathname.replace(/\/$/, '');
 
   sidebarContainer.innerHTML = `
     <h3 class="text-base font-bold text-slate-900 dark:text-white tracking-tight flex items-center space-x-2 border-b border-slate-100 dark:border-slate-800 pb-3 mb-3">
-      <svg class="w-5 h-5 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <svg class="w-5 h-5 text-blue-600 dark:text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
       </svg>
       <span>Trending Utilities (${UTILITIES_REGISTRY.length})</span>
@@ -277,22 +365,19 @@ function renderSidebarScroller() {
       </span>
     </div>
 
-    <!-- Scrollable container -->
-    <div id="sidebar-items-scroller" class="flex-grow overflow-y-auto space-y-2 pr-1 custom-vscroll-bar">
+    <!-- Scrollable 2-Column Wide container -->
+    <div id="sidebar-items-scroller" class="flex-grow overflow-y-auto pr-1 custom-vscroll-bar grid grid-cols-2 gap-1.5">
       ${UTILITIES_REGISTRY.map(tool => {
         const isActive = currentPath === tool.path;
         return `
-          <a href="${tool.path}" data-name="${tool.name.toLowerCase()}" data-category="${tool.category.toLowerCase()}" class="group flex items-center justify-between p-2 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-950 transition-colors border ${isActive ? 'border-brand-500 bg-brand-50/50 dark:bg-brand-900/20' : 'border-transparent hover:border-slate-100 dark:hover:border-slate-800'}">
-            <div class="flex items-center space-x-2.5 min-w-0">
-              <span class="text-lg shrink-0">${tool.icon}</span>
+          <a href="${tool.path}" data-name="${tool.name.toLowerCase()}" data-category="${tool.category.toLowerCase()}" class="group flex items-center p-1.5 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-950 transition-colors border ${isActive ? 'border-blue-500 bg-blue-50/50 dark:bg-blue-900/20' : 'border-slate-100 dark:border-slate-800/80 hover:border-slate-200'}" title="${tool.name} - ${tool.desc}">
+            <div class="flex items-center space-x-1.5 min-w-0">
+              <span class="text-base shrink-0">${tool.icon}</span>
               <div class="flex flex-col min-w-0">
-                <span class="text-xs font-bold text-slate-800 dark:text-slate-200 group-hover:text-brand-600 dark:group-hover:text-brand-500 transition-colors truncate">${tool.name}</span>
-                <span class="text-[9px] text-slate-400 dark:text-slate-500 truncate">${tool.category}</span>
+                <span class="text-[10px] font-bold text-slate-800 dark:text-slate-200 group-hover:text-blue-600 dark:group-hover:text-sky-400 transition-colors truncate">${tool.name}</span>
+                <span class="text-[8px] text-slate-400 dark:text-slate-500 truncate">${tool.category}</span>
               </div>
             </div>
-            <svg class="w-3 h-3 text-slate-300 group-hover:text-brand-600 dark:group-hover:text-brand-500 transition-colors shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-            </svg>
           </a>
         `;
       }).join('')}

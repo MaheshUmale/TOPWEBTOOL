@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Free AI Text Humanizer Helper | Redundancy & Robotic Pattern Detector</title>
   <meta name="description" content="Analyze copy text client-side to flag common repetitive patterns and robotic structures, helping edit towards natural voices. 100% Free, No Sign-Up Required.">
+  <link rel="canonical" href="https://topwebtool.com/ai-text-humanizer-helper/">
   <link rel="stylesheet" href="/styles.css">
 
 
@@ -13,31 +14,29 @@
 
   <header id="global-header"></header>
 
-  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex-grow">
-
-    <!-- AD A REMOVED -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex-grow">
 
     <!-- 2-Column Grid -->
-    <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+    <div class="grid grid-cols-1 lg:grid-cols-4 gap-4">
 
       <!-- Main Content -->
       <div class="lg:col-span-3 space-y-8">
 
-        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
-          <h1 class="text-3xl font-extrabold text-slate-900 tracking-tight sm:text-4xl">AI Text Pattern Helper</h1>
-          <p class="mt-2 text-base text-slate-500">
+        <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+          <h1 class="text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight sm:text-4xl">AI Text Pattern Helper</h1>
+          <p class="mt-2 text-base text-slate-500 dark:text-slate-400">
             Identify AI-like structures. Highlight highly predictable transitional phrases, vocabulary repetition, and overly formal structures.
           </p>
         </div>
 
         <!-- Calculator UI -->
-        <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-8 space-y-6">
-          <h2 class="text-lg font-bold text-slate-900 border-b border-slate-100 pb-3">Analyze Your Writing</h2>
+        <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm p-6 sm:p-8 space-y-6">
+          <h2 class="text-lg font-bold text-slate-900 dark:text-white border-b border-slate-100 dark:border-slate-800 pb-3">Analyze Your Writing</h2>
 
           <div class="space-y-4">
             <div>
-              <label for="input-text" class="block text-sm font-semibold text-slate-700 mb-2">Paste Copy Text</label>
-              <textarea id="input-text" rows="6" class="block w-full px-3 py-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-950 text-sm font-semibold" oninput="analyzeAI()">In conclusion, it is important to remember that we must delve deeper into the complex intricacies of this matter. Furthermore, let us explore the multifaceted dimensions.</textarea>
+              <label for="input-text" class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">Paste Copy Text</label>
+              <textarea id="input-text" rows="6" class="block w-full px-3 py-2.5 border border-slate-300 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-800 dark:text-slate-100 bg-white dark:bg-slate-950 text-sm font-semibold transition-colors" oninput="analyzeAI()">In conclusion, it is important to remember that we must delve deeper into the complex intricacies of this matter. Furthermore, let us explore the multifaceted dimensions.</textarea>
             </div>
           </div>
         </div>
@@ -48,20 +47,20 @@
             <span class="text-xs uppercase font-bold tracking-wider opacity-85 block">Robotic Density Score</span>
             <span class="text-2xl font-extrabold mt-2 block" id="out-density-score">Medium</span>
           </div>
-          <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
-            <span class="text-xs uppercase font-bold tracking-wider text-slate-400 block">AI Words Flagged</span>
-            <span class="text-xl font-extrabold mt-2 text-slate-800 block" id="out-flagged-count">0</span>
+          <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+            <span class="text-xs uppercase font-bold tracking-wider text-slate-400 dark:text-slate-500 block">AI Words Flagged</span>
+            <span class="text-xl font-extrabold mt-2 text-slate-800 dark:text-slate-100 block" id="out-flagged-count">0</span>
           </div>
-          <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
-            <span class="text-xs uppercase font-bold tracking-wider text-slate-400 block">Unique Vocabulary Ratio</span>
-            <span class="text-xl font-extrabold mt-2 text-slate-800 block" id="out-vocab-ratio">0%</span>
+          <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+            <span class="text-xs uppercase font-bold tracking-wider text-slate-400 dark:text-slate-500 block">Unique Vocabulary Ratio</span>
+            <span class="text-xl font-extrabold mt-2 text-slate-800 dark:text-slate-100 block" id="out-vocab-ratio">0%</span>
           </div>
         </div>
 
         <!-- Highlights & Flags -->
-        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-4">
-          <h2 class="text-lg font-bold text-slate-900 border-b border-slate-100 pb-3">Identified Robotic Patterns</h2>
-          <div class="text-sm leading-relaxed p-4 bg-slate-50 border border-slate-200 rounded-xl" id="out-highlighted-text">
+        <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
+          <h2 class="text-lg font-bold text-slate-900 dark:text-white border-b border-slate-100 dark:border-slate-800 pb-3">Identified Robotic Patterns</h2>
+          <div class="text-sm leading-relaxed p-4 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl text-slate-800 dark:text-slate-100" id="out-highlighted-text">
             ...
           </div>
         </div>
@@ -73,15 +72,11 @@
 
         <div id="trending-sidebar"></div>
 
-        <!-- AD B REMOVED -->
-
       </div>
 
     </div>
 
   </main>
-
-  <!-- AD C REMOVED -->
 
   <script>
     // List of typical structural transition phrases heavily associated with AI-generated outputs
@@ -95,7 +90,7 @@
         document.getElementById('out-density-score').textContent = "Empty Input";
         document.getElementById('out-flagged-count').textContent = "0";
         document.getElementById('out-vocab-ratio').textContent = "0%";
-        output.innerHTML = "No text provided to analyze.";
+        output.innerHTML = `<span class="text-slate-400 dark:text-slate-500 italic">No text provided to analyze.</span>`;
         return;
       }
 
@@ -107,13 +102,20 @@
       let count = 0;
       let highlighted = text;
 
+      // Escape special characters for HTML output
+      highlighted = highlighted
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;");
+
       aiIndicators.forEach(phrase => {
-        const regex = new RegExp(`\\b(${phrase})\\b`, 'gi');
-        const matches = text.match(regex);
+        const escapedPhrase = phrase.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
+        const regex = new RegExp(`\\b(${escapedPhrase})\\b`, 'gi');
+        const matches = highlighted.match(regex);
         if (matches) {
           count += matches.length;
-          // Highlight matches visually in HTML
-          highlighted = highlighted.replace(regex, `<mark class="bg-yellow-200 px-1 rounded font-bold text-slate-900">$1</mark>`);
+          // Highlight matches visually in HTML using custom distinct contrast badges
+          highlighted = highlighted.replace(regex, `<mark class="bg-amber-100 dark:bg-amber-950/80 text-amber-800 dark:text-amber-200 px-1.5 py-0.5 rounded-md font-bold border border-amber-200/50 dark:border-amber-800/50 shadow-sm">$1</mark>`);
         }
       });
 
