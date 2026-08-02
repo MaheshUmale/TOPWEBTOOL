@@ -205,7 +205,7 @@ function renderHeader() {
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
       <a href="/" class="flex items-center space-x-2 group">
         <img src="/logo.svg" alt="TopWebTool Logo" class="w-8 h-8 text-brand-600 transition-transform group-hover:scale-105" />
-        <span class="font-extrabold text-2xl tracking-tight bg-gradient-to-r from-brand-700 to-brand-500 bg-clip-text text-transparent">TopWebTool</span>
+        <span class="font-extrabold text-2xl tracking-tight bg-gradient-to-r from-blue-700 to-sky-500 bg-clip-text text-slate-900 dark:text-white" style="-webkit-background-clip: text; -webkit-text-fill-color: transparent;">TopWebTool</span>
       </a>
 
       <div class="flex items-center space-x-4">
