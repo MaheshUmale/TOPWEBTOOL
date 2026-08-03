@@ -1,0 +1,79 @@
+REF : https://pagespeed.web.dev/analysis/https-www-topwebtool-com-mortgage-calculator-index-html/2xmzvs25z2?hl=en_GB&form_factor=desktop
+
+
+Render-blocking requests Est savings of 310 ms
+Requests are blocking the page's initial render, which may delay LCP. Deferring or inlining can move these network requests out of the critical path.LCPFCPUnscored
+URL
+Transfer size
+Duration
+topwebtool.com First party
+19.0 KiB	120 ms
+/global.js(www.topwebtool.com)
+8.0 KiB
+120 ms
+/styles.css(www.topwebtool.com)
+11.0 KiB
+Google Fonts cdn 
+1.5 KiB	200 ms
+/css2?family=Inter:wght@300;400;500;600;700;800&display=swap(fonts.googleapis.com)
+1.5 KiB
+200 ms
+
+Layout shift culprits
+Layout shifts occur when elements move absent any user interaction. Investigate the causes of layout shifts, such as elements being added, removed or their fonts changing as the page loads.CLSUnscored
+
+
+Forced reflow
+A forced reflow occurs when JavaScript queries geometric properties (such as offsetWidth) after styles have been invalidated by a change to the DOM state. This can result in poor performance. Learn more about forced reflows and possible mitigations.Unscored
+
+
+
+Network dependency tree
+Avoid chaining critical requests by reducing the length of chains, reducing the download size of resources or deferring the download of unnecessary resources to improve page load.LCPUnscored
+Maximum critical path latency: 280 ms
+Initial Navigation
+/mortgage-calculator/(www.topwebtool.com) - 53 ms, 14.97 KiB
+/styles.css(www.topwebtool.com) - 195 ms, 10.96 KiB
+/css2?family=Inter:wght@300;400;500;600;700;800&display=swap(fonts.googleapis.com) - 203 ms, 1.54 KiB
+…v20/UcC73FwrK….woff2(fonts.gstatic.com) - 279 ms, 48.09 KiB
+/global.js(www.topwebtool.com) - 280 ms, 8.03 KiB
+/beacon.min.js/v4513226…(static.cloudflareinsights.com) - 67 ms, 11.44 KiB
+Preconnected origins
+preconnect hints help the browser establish a connection earlier in the page load, saving time when the first request for that origin is made. The following are the origins that the page preconnected to.
+no origins were preconnected
+Preconnect candidates
+Add preconnect hints to your most important origins, but try to use no more than 4.
+No additional origins are good candidates for preconnecting
+
+
+Names and labels
+Buttons do not have an accessible name
+When a button doesn't have an accessible name, screen readers announce it as 'button', making it unusable for users who rely on screen readers. Learn how to make buttons more accessible.
+Failing elements
+div.bg-white > div.p-6 > div.flex > button#btn-toggle-visual
+<button onclick="toggleVisualChart()" class="relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full bo…" id="btn-toggle-visual">
+
+
+Names and labels
+Buttons do not have an accessible name
+When a button doesn't have an accessible name, screen readers announce it as 'button', making it unusable for users who rely on screen readers. Learn how to make buttons more accessible.
+Failing elements
+div.bg-white > div.p-6 > div.flex > button#btn-toggle-visual
+<button onclick="toggleVisualChart()" class="relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full bo…" id="btn-toggle-visual">
+
+------------
+REF : https://pagespeed.web.dev/analysis/https-www-topwebtool-com-mortgage-calculator-index-html/2xmzvs25z2?hl=en_GB&form_factor=mobile
+Names and labels
+Buttons do not have an accessible name
+Form elements do not have associated labels
+These are opportunities to improve the semantics of the controls in your application. This may enhance the experience for users of assistive technology, such as a screen reader.
+Contrast
+Background and foreground colours do not have a sufficient contrast ratio.
+These are opportunities to improve the legibility of your content.
+
+Browser errors were logged to the console
+
+Agent accessibility
+Accessibility tree is not well-formed
+These audits highlight best practices for improving the accessibility of the website for AI agents.
+
