@@ -3,12 +3,11 @@
 <head>
   <meta charset="UTF-8">   <meta name="google-adsense-account" content="ca-pub-3901061173891576">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Free Client-Side QR Code Generator | Downloadable Vector SVG/PNG Codes</title>
+  <title>Free Client-Side QR Code Generator | Downloadable Vector SVG/PNG Codes | TopWebTool</title>
   <meta name="description" content="Generate high-precision downloadable custom QR codes client-side in SVG format instantly. Secure, offline-friendly. 100% Free, No Registration Required.">
   <link rel="canonical" href="https://topwebtool.com/qr-code-generator/">
   <link rel="stylesheet" href="../styles.css">
-
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
 </head>
 <body class="bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 min-h-screen flex flex-col pb-4 transition-colors duration-200">
 
@@ -27,7 +26,7 @@
         <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
           <h1 class="text-3xl font-extrabold text-slate-900 tracking-tight sm:text-4xl">Client-Side QR Code Generator</h1>
           <p class="mt-2 text-base text-slate-500">
-            Generate crisp SVG QR Codes client-side. Completely private, secure, and fast with no data sent over external networks.
+            Generate crisp QR Codes client-side. Completely private, secure, and fast with no data sent over external networks.
           </p>
         </div>
 
@@ -58,11 +57,11 @@
         <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col items-center space-y-4">
           <h2 class="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2 w-full text-center">Your QR Code</h2>
           <div id="qr-container" class="p-4 border border-slate-200 rounded-xl bg-white flex items-center justify-center min-h-[220px] w-full max-w-[220px]">
-            <!-- Render custom inline SVG QR -->
+            <!-- Render actual canvas QR -->
           </div>
           <div class="flex gap-4 pt-2">
-            <button onclick="downloadSVG()" class="px-4 py-2 bg-brand-600 text-white hover:bg-brand-700 transition-colors font-bold text-xs rounded-lg">
-              Download SVG
+            <button onclick="downloadPNG()" class="px-4 py-2 bg-brand-600 text-white hover:bg-brand-700 transition-colors font-bold text-xs rounded-lg cursor-pointer">
+              Download PNG
             </button>
           </div>
         </div>
@@ -118,8 +117,7 @@
   <!-- AD C REMOVED -->
 
   <script>
-    // A completely self-contained micro QR generator in pure client JS
-    // Drawing a simplified robust visual pattern simulating QR standards (3 positioning squares)
+    let qr = null;
     function generateQR() {
       const text = document.getElementById('input-qr-text').value.trim();
       const fg = document.getElementById('input-color-fg').value;
@@ -128,99 +126,33 @@
       const container = document.getElementById('qr-container');
       container.innerHTML = '';
 
-      // Generating a dynamic pseudo-QR with correct functional alignment markers using SVG
-      const size = 180;
-      const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-      svg.setAttribute('width', size);
-      svg.setAttribute('height', size);
-      svg.setAttribute('viewBox', `0 0 ${size} ${size}`);
-      svg.style.backgroundColor = bg;
+      const canvas = document.createElement('canvas');
+      canvas.id = 'qr-canvas';
+      canvas.className = 'max-w-full h-auto';
+      container.appendChild(canvas);
 
-      // Draw background
-      const rectBg = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
-      rectBg.setAttribute('width', size);
-      rectBg.setAttribute('height', size);
-      rectBg.setAttribute('fill', bg);
-      svg.appendChild(rectBg);
-
-      // Function to draw positioning anchors
-      function drawAnchor(x, y) {
-        const anchorSize = 35;
-        // Outer box
-        const rectOuter = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
-        rectOuter.setAttribute('x', x);
-        rectOuter.setAttribute('y', y);
-        rectOuter.setAttribute('width', anchorSize);
-        rectOuter.setAttribute('height', anchorSize);
-        rectOuter.setAttribute('fill', fg);
-        svg.appendChild(rectOuter);
-
-        // Inner space
-        const rectInnerBg = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
-        rectInnerBg.setAttribute('x', x + 5);
-        rectInnerBg.setAttribute('y', y + 5);
-        rectInnerBg.setAttribute('width', anchorSize - 10);
-        rectInnerBg.setAttribute('height', anchorSize - 10);
-        rectInnerBg.setAttribute('fill', bg);
-        svg.appendChild(rectInnerBg);
-
-        // Core box
-        const rectCore = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
-        rectCore.setAttribute('x', x + 10);
-        rectCore.setAttribute('y', y + 10);
-        rectCore.setAttribute('width', anchorSize - 20);
-        rectCore.setAttribute('height', anchorSize - 20);
-        rectCore.setAttribute('fill', fg);
-        svg.appendChild(rectCore);
+      try {
+        qr = new QRious({
+          element: canvas,
+          value: text || 'https://topwebtool.com',
+          size: 200,
+          background: bg,
+          foreground: fg,
+          level: 'H'
+        });
+      } catch (e) {
+        console.error("QR Code generation error:", e);
       }
-
-      // 3 Positioning markers
-      drawAnchor(10, 10);
-      drawAnchor(size - 45, 10);
-      drawAnchor(10, size - 45);
-
-      // Generating reproducible pattern of modules based on simple text hash
-      let hash = 0;
-      for (let i = 0; i < text.length; i++) {
-        hash = text.charCodeAt(i) + ((hash << 5) - hash);
-      }
-
-      const numGrid = 21;
-      const modSize = size / numGrid;
-
-      for (let r = 0; r < numGrid; r++) {
-        for (let c = 0; c < numGrid; c++) {
-          // Avoid overwriting anchoring positioning boundaries
-          if ((r < 6 && c < 6) || (r < 6 && c > numGrid - 7) || (r > numGrid - 7 && c < 6)) {
-            continue;
-          }
-
-          // Pseudo random noise module
-          const val = Math.abs(Math.sin(hash + r * 17 + c * 31));
-          if (val > 0.45) {
-            const rect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
-            rect.setAttribute('x', c * modSize);
-            rect.setAttribute('y', r * modSize);
-            rect.setAttribute('width', modSize + 0.1); // Add overlap
-            rect.setAttribute('height', modSize + 0.1);
-            rect.setAttribute('fill', fg);
-            svg.appendChild(rect);
-          }
-        }
-      }
-
-      container.appendChild(svg);
     }
 
-    function downloadSVG() {
-      const svg = document.getElementById('qr-container').innerHTML;
-      const blob = new Blob([svg], { type: 'image/svg+xml;charset=utf-8' });
-      const url = URL.createObjectURL(blob);
+    function downloadPNG() {
+      const canvas = document.getElementById('qr-canvas');
+      if (!canvas) return;
+      const url = canvas.toDataURL('image/png');
       const a = document.createElement('a');
       a.href = url;
-      a.download = 'qrcode.svg';
+      a.download = 'qrcode.png';
       a.click();
-      URL.revokeObjectURL(url);
     }
 
     window.addEventListener('DOMContentLoaded', generateQR);

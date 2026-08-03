@@ -195,6 +195,22 @@ body {
   border-color: #0f172a;
 }
 
+/* CodeMirror/Monaco Line Numbers Contrast and Mobile Viewport Overflow Overrides */
+.cm-gutterElement, .cm-lineNumbers {
+  color: #CBD5E1 !important; /* Achieves >= 4.5:1 contrast against #1E293B background (or standard dark gutters) */
+}
+
+/* Ensure editor scroller and containers shrink cleanly and don't cause horizontal overflow on mobile screens (< 480px) */
+.cm-editor, .CodeMirror, .monaco-editor, .jsoneditor {
+  max-width: 100% !important;
+  overflow: hidden !important;
+}
+
+.cm-scroller, .CodeMirror-scroll, .jsoneditor-menu + .jsoneditor-outer {
+  max-width: 100% !important;
+  overflow-x: auto !important;
+}
+
 .slider-thumb::-moz-range-thumb {
   background: #0284c7;
   border: 2px solid #ffffff;

@@ -378,7 +378,7 @@ function renderSidebarScroller() {
 
     <!-- Instant Search within Sidebar Scroller -->
     <div class="mb-3 relative">
-      <input type="text" id="sidebar-search" placeholder="Quick filter tools..." class="w-full pl-8 pr-3 py-1.5 text-xs border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 rounded-lg focus:ring-2 focus:ring-brand-500 focus:outline-none" />
+      <input type="search" id="sidebar-search" placeholder="Quick filter tools..." class="w-full pl-8 pr-3 py-1.5 text-xs border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 rounded-lg focus:ring-2 focus:ring-brand-500 focus:outline-none" />
       <span class="absolute left-2.5 top-2 text-slate-400">
         <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
       </span>
