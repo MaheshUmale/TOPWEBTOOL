@@ -167,11 +167,10 @@ const UTILITIES_REGISTRY = [
   }
 ];
 
-// Initialize theme as early as possible to prevent flashing
+// Initialize theme as early as possible to prevent flashing (Default strictly to Light Mode)
 (function initTheme() {
   const storedTheme = localStorage.getItem('theme');
-  const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  if (storedTheme === 'dark' || (!storedTheme && systemDark)) {
+  if (storedTheme === 'dark') {
     document.documentElement.classList.add('dark');
   } else {
     document.documentElement.classList.remove('dark');
