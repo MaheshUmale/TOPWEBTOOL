@@ -7,7 +7,7 @@
   <meta name="description" content="Generate high-precision downloadable custom QR codes client-side in SVG format instantly. Secure, offline-friendly. 100% Free, No Registration Required.">
   <link rel="canonical" href="https://topwebtool.com/qr-code-generator/">
   <link rel="stylesheet" href="../styles.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
 
   <script type="application/ld+json">
 {
@@ -193,11 +193,10 @@
   <!-- AD C REMOVED -->
 
   <script>
-    let qr = null;
     function generateQR() {
-      const text = document.getElementById('input-qr-text').value.trim();
-      const fg = document.getElementById('input-color-fg').value;
-      const bg = document.getElementById('input-color-bg').value;
+      const textInput = document.getElementById('input-qr-text').value;
+      const fgColor = document.getElementById('input-color-fg').value;
+      const bgColor = document.getElementById('input-color-bg').value;
 
       const container = document.getElementById('qr-container');
       container.innerHTML = '';
@@ -207,18 +206,28 @@
       canvas.className = 'max-w-full h-auto';
       container.appendChild(canvas);
 
-      try {
-        qr = new QRious({
-          element: canvas,
-          value: text || 'https://topwebtool.com',
-          size: 200,
-          background: bg,
-          foreground: fg,
-          level: 'H'
-        });
-      } catch (e) {
-        console.error("QR Code generation error:", e);
+      if (!textInput.trim()) {
+        // Render simple fallback visual
+        return;
       }
+
+      const options = {
+        width: 256,
+        margin: 2,
+        color: {
+          dark: fgColor,
+          light: bgColor
+        },
+        errorCorrectionLevel: 'H'
+      };
+
+      QRCode.toCanvas(canvas, textInput, options, function (error) {
+        if (error) {
+          console.error('QR Code generation failed:', error);
+        } else {
+          console.log('QR Code successfully generated!');
+        }
+      });
     }
 
     function downloadPNG() {
