@@ -1,0 +1,314 @@
+- generic [active] [ref=f10e1]:
+  - banner [ref=f10e2]:
+    - navigation "Main navigation" [ref=f10e3]:
+      - generic [ref=f10e5]:
+        - link "TopWebTool Logo TopWebTool" [ref=f10e6] [cursor=pointer]:
+          - /url: ../
+          - img "TopWebTool Logo" [ref=f10e7]
+          - generic [ref=f10e8]: TopWebTool
+        - navigation [ref=f10e9]:
+          - button "Finance" [ref=f10e11]
+          - button "Digital Marketing" [ref=f10e16]
+          - button "AI Prompt Engineering" [ref=f10e21]
+          - button "Developer Utilities" [ref=f10e26]
+          - button "Everyday" [ref=f10e31]
+        - generic [ref=f10e35]:
+          - button "Toggle Light/Dark Theme" [ref=f10e36]
+          - generic [ref=f10e39]: 100% Free & No Sign-up
+  - main [ref=f10e40]:
+    - generic [ref=f10e41]:
+      - generic [ref=f10e42]: Advertisement
+      - insertion [ref=f10e44]:
+        - iframe [ref=f10e46]:
+          
+    - generic [ref=f10e47]:
+      - generic [ref=f10e48]:
+        - generic [ref=f10e49]:
+          - heading "Client-Side QR Code Generator" [level=1] [ref=f10e50]
+          - paragraph [ref=f10e51]: Generate crisp QR Codes client-side. Completely private, secure, and fast with no data sent over external networks.
+        - generic [ref=f10e52]:
+          - heading "QR Parameters" [level=2] [ref=f10e53]
+          - generic [ref=f10e54]:
+            - generic [ref=f10e55]:
+              - generic [ref=f10e56]: QR Code Value / URL
+              - textbox "QR Code Value / URL" [ref=f10e57]: https://topwebtool.com
+            - generic [ref=f10e58]:
+              - generic [ref=f10e59]:
+                - generic [ref=f10e60]: Foreground Color
+                - textbox "Foreground Color" [ref=f10e61]: "#0f172a"
+              - generic [ref=f10e62]:
+                - generic [ref=f10e63]: Background Color
+                - textbox "Background Color" [ref=f10e64]: "#ffffff"
+        - generic [ref=f10e65]:
+          - heading "Your QR Code" [level=2] [ref=f10e66]
+          - button "Download PNG" [ref=f10e70] [cursor=pointer]
+        - generic [ref=f10e71]:
+          - heading "Informative Guides & Helper Articles" [level=2] [ref=f10e72]
+          - generic [ref=f10e73]:
+            - link "Ultimate Guide to Secure QR Code Generator A comprehensive, step-by-step guide explaining best practices, core concepts, and professional tips for Secure QR Code Generator. Read Article →" [ref=f10e74] [cursor=pointer]:
+              - /url: ./qr-code-generator-guide.html
+              - heading "Ultimate Guide to Secure QR Code Generator" [level=3] [ref=f10e75]
+              - paragraph [ref=f10e76]: A comprehensive, step-by-step guide explaining best practices, core concepts, and professional tips for Secure QR Code Generator.
+              - generic [ref=f10e77]: Read Article →
+            - link "Best Practices for Secure QR Code Generator Top professional tips and industry standards for maximizing efficiency, security, and output quality with Secure QR Code Generator. Read Article →" [ref=f10e78] [cursor=pointer]:
+              - /url: ./qr-code-generator-best-practices.html
+              - heading "Best Practices for Secure QR Code Generator" [level=3] [ref=f10e79]
+              - paragraph [ref=f10e80]: Top professional tips and industry standards for maximizing efficiency, security, and output quality with Secure QR Code Generator.
+              - generic [ref=f10e81]: Read Article →
+            - link "Common Errors in Secure QR Code Generator Learn how to identify, debug, and easily fix the most common mistakes and syntax errors with Secure QR Code Generator. Read Article →" [ref=f10e82] [cursor=pointer]:
+              - /url: ./qr-code-generator-common-errors.html
+              - heading "Common Errors in Secure QR Code Generator" [level=3] [ref=f10e83]
+              - paragraph [ref=f10e84]: Learn how to identify, debug, and easily fix the most common mistakes and syntax errors with Secure QR Code Generator.
+              - generic [ref=f10e85]: Read Article →
+            - link "Top Optimization Tips for Secure QR Code Generator Discover highly effective optimization strategies and advanced techniques to boost your Secure QR Code Generator performance. Read Article →" [ref=f10e86] [cursor=pointer]:
+              - /url: ./qr-code-generator-optimization-tips.html
+              - heading "Top Optimization Tips for Secure QR Code Generator" [level=3] [ref=f10e87]
+              - paragraph [ref=f10e88]: Discover highly effective optimization strategies and advanced techniques to boost your Secure QR Code Generator performance.
+              - generic [ref=f10e89]: Read Article →
+            - link "Future Trends in Secure QR Code Generator Explore emerging trends, technological shifts, and future industry predictions related to Secure QR Code Generator. Read Article →" [ref=f10e90] [cursor=pointer]:
+              - /url: ./qr-code-generator-future-trends.html
+              - heading "Future Trends in Secure QR Code Generator" [level=3] [ref=f10e91]
+              - paragraph [ref=f10e92]: Explore emerging trends, technological shifts, and future industry predictions related to Secure QR Code Generator.
+              - generic [ref=f10e93]: Read Article →
+        - generic [ref=f10e94]:
+          - generic [ref=f10e95]:
+            - heading "Professional Insights & Guide" [level=2] [ref=f10e96]
+            - paragraph [ref=f10e97]: Learn critical professional use cases, dynamic step-by-step instructions, and diagnostic failure point resolutions.
+          - generic [ref=f10e98]:
+            - generic [ref=f10e99]:
+              - heading "Core Use Case scenario" [level=3] [ref=f10e100]
+              - paragraph [ref=f10e101]: Event coordinators, restaurateurs, and marketing designers need to connect offline audiences to online destinations. Creating clean, high-resolution, and customizable QR codes client-side allows designers to print scan-friendly links without worrying about tracking redirections or expiration dates.
+            - generic [ref=f10e102]:
+              - heading "Troubleshooting & Edge-Case Failure Points" [level=3] [ref=f10e103]
+              - list [ref=f10e104]:
+                - listitem [ref=f10e105]: "Poor color contrast: Ensure a strong contrast between the dark data blocks and light background. Low-contrast codes are difficult for mobile cameras to scan."
+                - listitem [ref=f10e106]: "Complex URL sizes: Long URLs create dense QR patterns that can be hard to scan. Consider using clean, short URLs to keep the pattern simple."
+                - listitem [ref=f10e107]: "Safe zones: Leave a clean margin (quiet zone) around the QR code in your designs to help scanning apps isolate the code from other graphics."
+          - generic [ref=f10e108]:
+            - heading "Detailed Step-by-Step Instructions" [level=3] [ref=f10e109]
+            - list [ref=f10e110]:
+              - listitem [ref=f10e111]: Input your target URL, email address, or plain-text payload into the generator workspace.
+              - listitem [ref=f10e112]: Select custom colors for the QR background and data blocks to match your brand styling.
+              - listitem [ref=f10e113]: Set the error correction level to ensure scanning reliability, even if the printed code is slightly damaged.
+              - listitem [ref=f10e114]: Click download to save the final QR code image to your local device for print or digital layout.
+          - generic [ref=f10e115]:
+            - heading "Related Web Utilities (Silo Hub)" [level=3] [ref=f10e116]
+            - generic [ref=f10e117]:
+              - link "Advanced Mortgage Calculator" [ref=f10e118] [cursor=pointer]:
+                - /url: ../mortgage-calculator/
+              - link "Car Lease Estimator" [ref=f10e119] [cursor=pointer]:
+                - /url: ../car-lease-estimator/
+              - link "Inflation Calculator" [ref=f10e120] [cursor=pointer]:
+                - /url: ../inflation-calculator/
+              - link "Crypto Tax Estimator" [ref=f10e121] [cursor=pointer]:
+                - /url: ../crypto-tax-estimator/
+              - link "Hourly to Salary Converter" [ref=f10e122] [cursor=pointer]:
+                - /url: ../hourly-to-salary-converter/
+              - link "Dividend Reinvestment Calculator" [ref=f10e123] [cursor=pointer]:
+                - /url: ../dividend-reinvestment-calculator/
+              - link "Credit Card Payoff Planner" [ref=f10e124] [cursor=pointer]:
+                - /url: ../credit-card-payoff-planner/
+              - link "UTM Campaign Link Builder" [ref=f10e125] [cursor=pointer]:
+                - /url: ../utm-generator/
+              - link "ROI & ROAS Campaign Calculator" [ref=f10e126] [cursor=pointer]:
+                - /url: ../roi-calculator/
+              - link "CPM Campaign Ad Calculator" [ref=f10e127] [cursor=pointer]:
+                - /url: ../cpm-calculator/
+              - link "Copy Headline Sentiment Analyzer" [ref=f10e128] [cursor=pointer]:
+                - /url: ../headline-analyzer/
+              - link "Social Media Image Resizer" [ref=f10e129] [cursor=pointer]:
+                - /url: ../social-media-image-resizer/
+              - link "ChatGPT Prompt Optimizer" [ref=f10e130] [cursor=pointer]:
+                - /url: ../chatgpt-prompt-optimizer/
+              - link "Midjourney Parameter Builder" [ref=f10e131] [cursor=pointer]:
+                - /url: ../midjourney-command-builder/
+              - link "Fortune Wheel Spinner" [ref=f10e132] [cursor=pointer]:
+                - /url: ../fortune-wheel/
+      - generic [ref=f10e133]:
+        - generic [ref=f10e134]:
+          - heading "Trending Utilities (23)" [level=3] [ref=f10e135]
+          - searchbox "Quick filter tools..." [ref=f10e140]
+          - generic [ref=f10e144]:
+            - link "🏡 Mortgage Calculator Finance & Real Estate" [ref=f10e145] [cursor=pointer]:
+              - /url: ../mortgage-calculator
+              - generic [ref=f10e146]:
+                - generic [ref=f10e147]: 🏡
+                - generic [ref=f10e148]:
+                  - generic [ref=f10e149]: Mortgage Calculator
+                  - generic [ref=f10e150]: Finance & Real Estate
+            - link "🚗 Car Lease Estimator Finance & Real Estate" [ref=f10e151] [cursor=pointer]:
+              - /url: ../car-lease-estimator
+              - generic [ref=f10e152]:
+                - generic [ref=f10e153]: 🚗
+                - generic [ref=f10e154]:
+                  - generic [ref=f10e155]: Car Lease Estimator
+                  - generic [ref=f10e156]: Finance & Real Estate
+            - link "📈 Inflation Calculator Finance & Real Estate" [ref=f10e157] [cursor=pointer]:
+              - /url: ../inflation-calculator
+              - generic [ref=f10e158]:
+                - generic [ref=f10e159]: 📈
+                - generic [ref=f10e160]:
+                  - generic [ref=f10e161]: Inflation Calculator
+                  - generic [ref=f10e162]: Finance & Real Estate
+            - link "🪙 Crypto Tax Estimator Finance & Real Estate" [ref=f10e163] [cursor=pointer]:
+              - /url: ../crypto-tax-estimator
+              - generic [ref=f10e164]:
+                - generic [ref=f10e165]: 🪙
+                - generic [ref=f10e166]:
+                  - generic [ref=f10e167]: Crypto Tax Estimator
+                  - generic [ref=f10e168]: Finance & Real Estate
+            - link "💼 Hourly to Salary Converter Finance & Real Estate" [ref=f10e169] [cursor=pointer]:
+              - /url: ../hourly-to-salary-converter
+              - generic [ref=f10e170]:
+                - generic [ref=f10e171]: 💼
+                - generic [ref=f10e172]:
+                  - generic [ref=f10e173]: Hourly to Salary Converter
+                  - generic [ref=f10e174]: Finance & Real Estate
+            - link "📊 Dividend Reinvestment (DRIP) Finance & Real Estate" [ref=f10e175] [cursor=pointer]:
+              - /url: ../dividend-reinvestment-calculator
+              - generic [ref=f10e176]:
+                - generic [ref=f10e177]: 📊
+                - generic [ref=f10e178]:
+                  - generic [ref=f10e179]: Dividend Reinvestment (DRIP)
+                  - generic [ref=f10e180]: Finance & Real Estate
+            - link "💳 Credit Card Payoff Planner Finance & Real Estate" [ref=f10e181] [cursor=pointer]:
+              - /url: ../credit-card-payoff-planner
+              - generic [ref=f10e182]:
+                - generic [ref=f10e183]: 💳
+                - generic [ref=f10e184]:
+                  - generic [ref=f10e185]: Credit Card Payoff Planner
+                  - generic [ref=f10e186]: Finance & Real Estate
+            - link "🔗 UTM Campaign Link Builder Digital Marketing" [ref=f10e187] [cursor=pointer]:
+              - /url: ../utm-generator
+              - generic [ref=f10e188]:
+                - generic [ref=f10e189]: 🔗
+                - generic [ref=f10e190]:
+                  - generic [ref=f10e191]: UTM Campaign Link Builder
+                  - generic [ref=f10e192]: Digital Marketing
+            - link "💰 ROI & ROAS Calculator Digital Marketing" [ref=f10e193] [cursor=pointer]:
+              - /url: ../roi-calculator
+              - generic [ref=f10e194]:
+                - generic [ref=f10e195]: 💰
+                - generic [ref=f10e196]:
+                  - generic [ref=f10e197]: ROI & ROAS Calculator
+                  - generic [ref=f10e198]: Digital Marketing
+            - link "📢 CPM Campaign Ad Calculator Digital Marketing" [ref=f10e199] [cursor=pointer]:
+              - /url: ../cpm-calculator
+              - generic [ref=f10e200]:
+                - generic [ref=f10e201]: 📢
+                - generic [ref=f10e202]:
+                  - generic [ref=f10e203]: CPM Campaign Ad Calculator
+                  - generic [ref=f10e204]: Digital Marketing
+            - link "✍️ Copy Headline Analyzer Digital Marketing" [ref=f10e205] [cursor=pointer]:
+              - /url: ../headline-analyzer
+              - generic [ref=f10e206]:
+                - generic [ref=f10e207]: ✍️
+                - generic [ref=f10e208]:
+                  - generic [ref=f10e209]: Copy Headline Analyzer
+                  - generic [ref=f10e210]: Digital Marketing
+            - link "📱 Secure QR Code Generator Digital Marketing" [ref=f10e211] [cursor=pointer]:
+              - /url: ../qr-code-generator
+              - generic [ref=f10e212]:
+                - generic [ref=f10e213]: 📱
+                - generic [ref=f10e214]:
+                  - generic [ref=f10e215]: Secure QR Code Generator
+                  - generic [ref=f10e216]: Digital Marketing
+            - link "🖼️ Social Image Resizer Digital Marketing" [ref=f10e217] [cursor=pointer]:
+              - /url: ../social-media-image-resizer
+              - generic [ref=f10e218]:
+                - generic [ref=f10e219]: 🖼️
+                - generic [ref=f10e220]:
+                  - generic [ref=f10e221]: Social Image Resizer
+                  - generic [ref=f10e222]: Digital Marketing
+            - link "🤖 ChatGPT Prompt Optimizer AI Prompt Engineering" [ref=f10e223] [cursor=pointer]:
+              - /url: ../chatgpt-prompt-optimizer
+              - generic [ref=f10e224]:
+                - generic [ref=f10e225]: 🤖
+                - generic [ref=f10e226]:
+                  - generic [ref=f10e227]: ChatGPT Prompt Optimizer
+                  - generic [ref=f10e228]: AI Prompt Engineering
+            - link "🎨 Midjourney Prompt Builder AI Prompt Engineering" [ref=f10e229] [cursor=pointer]:
+              - /url: ../midjourney-command-builder
+              - generic [ref=f10e230]:
+                - generic [ref=f10e231]: 🎨
+                - generic [ref=f10e232]:
+                  - generic [ref=f10e233]: Midjourney Prompt Builder
+                  - generic [ref=f10e234]: AI Prompt Engineering
+            - link "🧠 AI Text Humanizer Helper AI Prompt Engineering" [ref=f10e235] [cursor=pointer]:
+              - /url: ../ai-text-humanizer-helper
+              - generic [ref=f10e236]:
+                - generic [ref=f10e237]: 🧠
+                - generic [ref=f10e238]:
+                  - generic [ref=f10e239]: AI Text Humanizer Helper
+                  - generic [ref=f10e240]: AI Prompt Engineering
+            - link "⚙️ JSON Formatter & Validator Developer Utilities" [ref=f10e241] [cursor=pointer]:
+              - /url: ../json-formatter-validator
+              - generic [ref=f10e242]:
+                - generic [ref=f10e243]: ⚙️
+                - generic [ref=f10e244]:
+                  - generic [ref=f10e245]: JSON Formatter & Validator
+                  - generic [ref=f10e246]: Developer Utilities
+            - link "🔑 Secure Password Generator Developer Utilities" [ref=f10e247] [cursor=pointer]:
+              - /url: ../password-generator
+              - generic [ref=f10e248]:
+                - generic [ref=f10e249]: 🔑
+                - generic [ref=f10e250]:
+                  - generic [ref=f10e251]: Secure Password Generator
+                  - generic [ref=f10e252]: Developer Utilities
+            - link "📝 Lorem Ipsum Generator Developer Utilities" [ref=f10e253] [cursor=pointer]:
+              - /url: ../lorem-ipsum-generator
+              - generic [ref=f10e254]:
+                - generic [ref=f10e255]: 📝
+                - generic [ref=f10e256]:
+                  - generic [ref=f10e257]: Lorem Ipsum Generator
+                  - generic [ref=f10e258]: Developer Utilities
+            - link "🔣 Base64 Encoder & Decoder Developer Utilities" [ref=f10e259] [cursor=pointer]:
+              - /url: ../base64-encoder-decoder
+              - generic [ref=f10e260]:
+                - generic [ref=f10e261]: 🔣
+                - generic [ref=f10e262]:
+                  - generic [ref=f10e263]: Base64 Encoder & Decoder
+                  - generic [ref=f10e264]: Developer Utilities
+            - link "🔢 Word & Character Counter Developer Utilities" [ref=f10e265] [cursor=pointer]:
+              - /url: ../word-character-counter
+              - generic [ref=f10e266]:
+                - generic [ref=f10e267]: 🔢
+                - generic [ref=f10e268]:
+                  - generic [ref=f10e269]: Word & Character Counter
+                  - generic [ref=f10e270]: Developer Utilities
+            - link "☸️ Fortune Wheel Everyday & Niche Utilities" [ref=f10e271] [cursor=pointer]:
+              - /url: ../fortune-wheel
+              - generic [ref=f10e272]:
+                - generic [ref=f10e273]: ☸️
+                - generic [ref=f10e274]:
+                  - generic [ref=f10e275]: Fortune Wheel
+                  - generic [ref=f10e276]: Everyday & Niche Utilities
+            - link "🔡 Word Unscrambler Solver Everyday & Niche Utilities" [ref=f10e277] [cursor=pointer]:
+              - /url: ../word-unscrambler
+              - generic [ref=f10e278]:
+                - generic [ref=f10e279]: 🔡
+                - generic [ref=f10e280]:
+                  - generic [ref=f10e281]: Word Unscrambler Solver
+                  - generic [ref=f10e282]: Everyday & Niche Utilities
+        - generic [ref=f10e283]:
+          - generic [ref=f10e284]: Sponsored
+          - insertion [ref=f10e286]:
+            - iframe [ref=f10e288]:
+              
+        - generic [ref=f10e289]:
+          - generic [ref=f10e290]: Advertisement
+          - insertion [ref=f10e292]:
+            - iframe [ref=f10e294]:
+              
+  - contentinfo [ref=f10e295]:
+    - generic [ref=f10e296]:
+      - generic [ref=f10e297]:
+        - generic [ref=f10e298]: TopWebTool
+        - generic [ref=f10e299]: © 2025. All rights reserved.
+      - generic [ref=f10e300]: Premium High-CPM Single-Page Utilities Directory
+  - generic [ref=f10e302]:
+    - button "Dismiss advertisement" [ref=f10e303] [cursor=pointer]
+    - generic [ref=f10e306]: Sponsored Link
+    - insertion [ref=f10e308]:
+      - iframe [ref=f10e310]:
+        
