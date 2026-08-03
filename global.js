@@ -254,11 +254,12 @@ function renderHeader() {
   const categoryNames = Object.keys(categories);
 
   headerContainer.innerHTML = `
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <nav aria-label="Main navigation">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="h-16 flex items-center justify-between">
         <a href="${prefix}" class="flex items-center space-x-2 group">
           <img src="${prefix}logo.svg" alt="TopWebTool Logo" class="w-8 h-8 text-brand-600 transition-transform group-hover:scale-105" />
-          <span class="font-extrabold text-2xl tracking-tight bg-gradient-to-r from-blue-700 to-sky-500 bg-clip-text text-slate-900 dark:text-white" style="-webkit-background-clip: text; -webkit-text-fill-color: transparent;">TopWebTool</span>
+          <span class="font-extrabold text-2xl tracking-tight bg-gradient-to-r from-blue-700 to-sky-500 bg-clip-text text-slate-900 dark:text-black" style="-webkit-background-clip: text; -webkit-text-fill-color: transparent;">TopWebTool</span>
         </a>
 
         <!-- Desktop Grouped Dropdown Navigation -->
@@ -325,12 +326,13 @@ function renderHeader() {
         }).join('')}
       </div>
     </div>
+    </nav>
   `;
 }
 
 /**
  * Render standard navigation footer
- */
+*/
 function renderFooter() {
   const footerContainer = document.getElementById('global-footer') || document.querySelector('footer');
   if (!footerContainer) return;
@@ -369,7 +371,7 @@ function renderSidebarScroller() {
   const currentPath = window.location.pathname.replace(/\/$/, '');
 
   sidebarContainer.innerHTML = `
-    <h3 class="text-base font-bold text-slate-900 dark:text-white tracking-tight flex items-center space-x-2 border-b border-slate-100 dark:border-slate-800 pb-3 mb-3">
+    <h3 class="text-base font-bold text-slate-900 dark:text-black tracking-tight flex items-center space-x-2 border-b border-slate-100 dark:border-slate-800 pb-3 mb-3">
       <svg class="w-5 h-5 text-blue-600 dark:text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
       </svg>
