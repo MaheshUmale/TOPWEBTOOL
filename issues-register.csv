@@ -1,1 +1,15 @@
-﻿
+Page/Component,Issue Description,Category,Severity,Status,Fix Applied
+global.js,Main logo text and trending sidebar headers used 'dark:text-black' which rendered them completely black and invisible in dark mode,Contrast / Monetization,High,Fixed,"Replaced 'dark:text-black' with 'dark:text-slate-100' or appropriate gradients to guarantee WCAG compliance."
+global.js,Category dropdown buttons used text-slate-700 which had slightly low contrast against white nav backgrounds,Contrast / Accessibility,Medium,Fixed,"Replaced text-slate-700 with text-slate-800/900 in light mode and dark:text-slate-100 in dark mode."
+global.js,Missing 8 SEO Tools registration in UTILITIES_REGISTRY causing complete omission from navigation sidebars and headers,SEO / Site Architecture,High,Fixed,"Added registration objects for all 8 SEO tool subdirectories inside UTILITIES_REGISTRY."
+index.html,Missing card widgets for 8 SEO tools preventing users from discovering the SEO section from the home page dashboard,SEO / Thin Content,High,Fixed,"Appended Category 6 section 'SEO & Domain Utilities' containing custom styled card widgets for all 8 tools."
+All Tool Pages,Empty AdSense comments (e.g. <!-- AD B REMOVED -->) present in DOM which trigger 'thin content' policy rejections from Google review bots,AdSense Compliance,High,Fixed,"Scanned all pages and stripped empty ad comments from DOM."
+da-pa-checker/index.html,Missing registration in global UTILITIES_REGISTRY and index.html,SEO / Indexation,High,Fixed,"Registered in global registry and added to home page widget list."
+domain-age-checker/index.html,Missing registration in global UTILITIES_REGISTRY and index.html,SEO / Indexation,High,Fixed,"Registered in global registry and added to home page widget list."
+domain-authority-checker/index.html,Missing registration in global UTILITIES_REGISTRY and index.html,SEO / Indexation,High,Fixed,"Registered in global registry and added to home page widget list."
+google-cache-checker/index.html,Missing registration in global UTILITIES_REGISTRY and index.html,SEO / Indexation,High,Fixed,"Registered in global registry and added to home page widget list."
+google-index-checker/index.html,Missing registration in global UTILITIES_REGISTRY and index.html,SEO / Indexation,High,Fixed,"Registered in global registry and added to home page widget list."
+moz-rank-checker/index.html,Missing registration in global UTILITIES_REGISTRY and index.html,SEO / Indexation,High,Fixed,"Registered in global registry and added to home page widget list."
+page-authority-checker/index.html,Missing registration in global UTILITIES_REGISTRY and index.html,SEO / Indexation,High,Fixed,"Registered in global registry and added to home page widget list."
+whois-domain-lookup/index.html,Missing registration in global UTILITIES_REGISTRY and index.html,SEO / Indexation,High,Fixed,"Registered in global registry and added to home page widget list."
+mortgage-calculator/index.html,Missing accessible name on visual toggle switch button btn-toggle-visual,Accessibility (a11y),High,Fixed,"Validated that btn-toggle-visual button is equipped with aria-label='Toggle visual chart' to satisfy PageSpeed criteria."

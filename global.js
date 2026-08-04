@@ -164,6 +164,62 @@ const UTILITIES_REGISTRY = [
     category: 'Everyday & Niche Utilities',
     desc: 'Instantly turn scrambled letters into valid words with wildcard search options.',
     icon: '🔡'
+  },
+  {
+    path: '/da-pa-checker',
+    name: 'DA PA Checker',
+    category: 'SEO Tools',
+    desc: 'Check domain authority (DA) and page authority (PA) scores client-side.',
+    icon: '📊'
+  },
+  {
+    path: '/domain-age-checker',
+    name: 'Domain Age Checker',
+    category: 'SEO Tools',
+    desc: 'Determine the exact age, creation date, and registration history of any domain.',
+    icon: '⌛'
+  },
+  {
+    path: '/domain-authority-checker',
+    name: 'Domain Authority Checker',
+    category: 'SEO Tools',
+    desc: 'Measure the absolute ranking strength and authority profile of root domains.',
+    icon: '🔍'
+  },
+  {
+    path: '/google-cache-checker',
+    name: 'Google Cache Checker',
+    category: 'SEO Tools',
+    desc: 'Instantly check Google Cache page archives and retrieval timestamps.',
+    icon: '💾'
+  },
+  {
+    path: '/google-index-checker',
+    name: 'Google Index Checker',
+    category: 'SEO Tools',
+    desc: 'Verify if your website URLs are indexed in Google search results database.',
+    icon: '🌐'
+  },
+  {
+    path: '/moz-rank-checker',
+    name: 'Moz Rank Checker',
+    category: 'SEO Tools',
+    desc: 'Compute official MozRank and link metric dimensions fully client-side.',
+    icon: '📈'
+  },
+  {
+    path: '/page-authority-checker',
+    name: 'Page Authority Checker',
+    category: 'SEO Tools',
+    desc: 'Determine the specific page-level authority metric for individual URLs.',
+    icon: '📄'
+  },
+  {
+    path: '/whois-domain-lookup',
+    name: 'Whois Domain Lookup',
+    category: 'SEO Tools',
+    desc: 'Lookup registrar records, DNS servers, contact details, and WHOIS status.',
+    icon: '🔎'
   }
 ];
 
@@ -203,28 +259,52 @@ document.addEventListener('DOMContentLoaded', () => {
   renderAdPlacements();
 });
 
-// Mobile dropdown helper function
-window.toggleMobileNavDropdown = function(button) {
-  const container = button.nextElementSibling;
-  const isHidden = container.classList.contains('hidden');
+// Mobile navigation category toggle helper
+window.toggleMobileNavCategory = function(categoryName, btn) {
+  const panel = document.getElementById('mobile-submenu-panel');
+  const itemsContainer = document.getElementById('mobile-submenu-items');
+  if (!panel || !itemsContainer) return;
 
-  // Close all other mobile dropdowns first
-  document.querySelectorAll('.mobile-nav-dropdown > div').forEach(el => {
-    el.classList.add('hidden');
+  const isAlreadyActive = btn.classList.contains('bg-blue-600') || btn.classList.contains('dark:bg-blue-600');
+
+  // Reset all mobile category buttons style
+  document.querySelectorAll('.mobile-cat-btn').forEach(b => {
+    b.className = "mobile-cat-btn flex items-center space-x-1 px-3 py-1.5 rounded-full text-[11px] font-bold bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-100 transition-colors shrink-0";
   });
 
-  if (isHidden) {
-    container.classList.remove('hidden');
+  if (isAlreadyActive) {
+    panel.classList.add('hidden');
   } else {
-    container.classList.add('hidden');
+    // Activate clicked button
+    btn.className = "mobile-cat-btn flex items-center space-x-1 px-3 py-1.5 rounded-full text-[11px] font-bold bg-blue-600 dark:bg-blue-600 text-white transition-colors shrink-0";
+
+    // Filter registry for tools in this category
+    const tools = UTILITIES_REGISTRY.filter(t => t.category === categoryName);
+
+    // Determine relative paths prefix
+    const isHomepage = window.location.pathname === '/' || window.location.pathname.endsWith('/index.html') || window.location.pathname === '';
+    const prefix = isHomepage ? './' : '../';
+
+    itemsContainer.innerHTML = tools.map(tool => `
+      <a href="${prefix}${tool.path.replace(/^\//, '')}" class="flex items-center space-x-2 px-2.5 py-2 text-xs font-bold rounded-lg bg-white dark:bg-slate-900 border border-slate-200/60 dark:border-slate-800 text-slate-800 dark:text-slate-200 hover:bg-blue-50 dark:hover:bg-slate-800 transition-colors">
+        <span class="text-sm shrink-0">${tool.icon}</span>
+        <span class="truncate">${tool.name}</span>
+      </a>
+    `).join('');
+
+    panel.classList.remove('hidden');
   }
 };
 
-// Close mobile dropdowns when clicking outside
+// Close mobile submenu when clicking outside the entire header main navigation
 document.addEventListener('click', (e) => {
-  if (!e.target.closest('.mobile-nav-dropdown')) {
-    document.querySelectorAll('.mobile-nav-dropdown > div').forEach(el => {
-      el.classList.add('hidden');
+  if (!e.target.closest('#global-header') && !e.target.closest('header')) {
+    const panel = document.getElementById('mobile-submenu-panel');
+    if (panel) {
+      panel.classList.add('hidden');
+    }
+    document.querySelectorAll('.mobile-cat-btn').forEach(b => {
+      b.className = "mobile-cat-btn flex items-center space-x-1 px-3 py-1.5 rounded-full text-[11px] font-bold bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-100 transition-colors shrink-0";
     });
   }
 });
@@ -259,7 +339,7 @@ function renderHeader() {
       <div class="h-16 flex items-center justify-between">
         <a href="${prefix}" class="flex items-center space-x-2 group">
           <img src="${prefix}logo.svg" alt="TopWebTool Logo" class="w-8 h-8 text-brand-600 transition-transform group-hover:scale-105" />
-          <span class="font-extrabold text-2xl tracking-tight bg-gradient-to-r from-blue-700 to-sky-500 bg-clip-text text-slate-900 dark:text-black" style="-webkit-background-clip: text; -webkit-text-fill-color: transparent;">TopWebTool</span>
+          <span class="font-extrabold text-2xl tracking-tight bg-gradient-to-r from-blue-700 to-sky-500 dark:from-blue-400 dark:to-sky-300 bg-clip-text text-slate-900 dark:text-slate-100" style="-webkit-background-clip: text; -webkit-text-fill-color: transparent;">TopWebTool</span>
         </a>
 
         <!-- Desktop Grouped Dropdown Navigation -->
@@ -269,7 +349,7 @@ function renderHeader() {
             const tools = categories[cat];
             return `
               <div class="relative group">
-                <button class="flex items-center space-x-1 px-2.5 py-1.5 rounded-lg text-xs font-bold text-slate-700 dark:text-slate-200 hover:text-blue-600 dark:hover:text-sky-400 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+                <button class="flex items-center space-x-1 px-2.5 py-1.5 rounded-lg text-xs font-bold text-slate-800 dark:text-slate-100 hover:text-blue-600 dark:hover:text-sky-400 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
                   <span>${shortName}</span>
                   <svg class="w-3.5 h-3.5 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                 </button>
@@ -298,32 +378,26 @@ function renderHeader() {
               <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zm-5.05-1.414l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zm2.12-10.607a1 1 0 01-1.414 0l-.707-.707a1 1 0 011.414-1.414l.707.707a1 1 0 010 1.414zM4 11a1 1 0 100-2H3a1 1 0 100 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
             </svg>
           </button>
-          <span class="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-widest hidden sm:inline-block">100% Free & No Sign-up</span>
+          <span class="text-xs font-semibold text-slate-600 dark:text-slate-400 uppercase tracking-widest hidden sm:inline-block">100% Free & No Sign-up</span>
         </div>
       </div>
 
       <!-- Mobile Horizontally Scrollable Categories Menu -->
-      <div class="lg:hidden flex items-center space-x-2 overflow-x-auto pb-2.5 pt-0.5 border-t border-slate-100 dark:border-slate-800/80 scrollbar-none">
+      <div class="lg:hidden flex items-center space-x-2 overflow-x-auto pb-2.5 pt-0.5 border-t border-slate-100 dark:border-slate-800/80 scrollbar-none px-4">
         ${categoryNames.map(cat => {
           const shortName = cat.split('&')[0].trim();
-          const tools = categories[cat];
           return `
-            <div class="relative shrink-0 mobile-nav-dropdown">
-              <button onclick="toggleMobileNavDropdown(this)" class="flex items-center space-x-1 px-3 py-1.5 rounded-full text-[11px] font-bold bg-slate-50 hover:bg-slate-100 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 transition-colors">
-                <span>${shortName}</span>
-                <svg class="w-3 h-3 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-              </button>
-              <div class="hidden absolute left-0 mt-1 w-56 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl shadow-lg z-50 p-2 space-y-1">
-                ${tools.map(tool => `
-                  <a href="${prefix}${tool.path.replace(/^\//, '')}" class="flex items-center space-x-2 px-2.5 py-1.5 text-xs font-bold rounded-lg text-slate-800 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
-                    <span class="text-sm shrink-0">${tool.icon}</span>
-                    <span class="truncate">${tool.name}</span>
-                  </a>
-                `).join('')}
-              </div>
-            </div>
+            <button onclick="toggleMobileNavCategory('${cat}', this)" class="mobile-cat-btn flex items-center space-x-1 px-3 py-1.5 rounded-full text-[11px] font-bold bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-100 transition-colors shrink-0">
+              <span>${shortName}</span>
+              <svg class="w-3 h-3 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </button>
           `;
         }).join('')}
+      </div>
+
+      <!-- Mobile Submenu Panel (Non-clipping, full width drop-down container) -->
+      <div id="mobile-submenu-panel" class="lg:hidden hidden border-t border-slate-100 dark:border-slate-800/80 bg-slate-50 dark:bg-slate-950 px-4 py-3 shadow-inner">
+        <div id="mobile-submenu-items" class="grid grid-cols-2 gap-2"></div>
       </div>
     </div>
     </nav>
@@ -371,7 +445,7 @@ function renderSidebarScroller() {
   const currentPath = window.location.pathname.replace(/\/$/, '');
 
   sidebarContainer.innerHTML = `
-    <h3 class="text-base font-bold text-slate-900 dark:text-black tracking-tight flex items-center space-x-2 border-b border-slate-100 dark:border-slate-800 pb-3 mb-3">
+    <h3 class="text-base font-bold text-slate-900 dark:text-slate-100 tracking-tight flex items-center space-x-2 border-b border-slate-100 dark:border-slate-800 pb-3 mb-3">
       <svg class="w-5 h-5 text-blue-600 dark:text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
       </svg>
@@ -474,7 +548,7 @@ function renderAdPlacements() {
 
   // 1. AD A: TOP LEADERBOARD BANNER (Horizontal Ads) - Height Restricted for Frictionless UX
   const adA = document.createElement('div');
-  adA.className = "w-full mx-auto mb-6 p-3 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center transition-colors duration-200 text-center select-none overflow-hidden";
+  adA.className = "w-full mx-auto mb-6 p-3 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center transition-colors duration-200 text-center select-none overflow-hidden min-h-[90px]";
   adA.style.maxWidth = "728px";
   adA.style.maxHeight = "135px";
 
@@ -515,7 +589,7 @@ function renderAdPlacements() {
   if (sidebar) {
     // A. SQUARE AD (SquareAds)
     const squareAd = document.createElement('div');
-    squareAd.className = "w-full p-4 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center transition-colors duration-200 text-center mt-4 select-none";
+    squareAd.className = "w-full p-4 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center transition-colors duration-200 text-center mt-4 select-none min-h-[250px] overflow-hidden";
     squareAd.style.minHeight = "250px";
     squareAd.innerHTML = `
       <span class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-2">Sponsored</span>
@@ -539,7 +613,7 @@ function renderAdPlacements() {
 
     // B. VERTICAL AD (verticalAds) - Display on desktop only to avoid mobile clutter (UX-first!)
     const verticalAd = document.createElement('div');
-    verticalAd.className = "w-full p-4 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center transition-colors duration-200 text-center mt-4 hidden lg:flex select-none";
+    verticalAd.className = "w-full p-4 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center transition-colors duration-200 text-center mt-4 hidden lg:flex select-none min-h-[600px] overflow-hidden";
     verticalAd.style.minHeight = "600px";
     verticalAd.innerHTML = `
       <span class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-2">Advertisement</span>
@@ -565,7 +639,7 @@ function renderAdPlacements() {
   // 3. AD C: STICKY BOTTOM VIEWPORT ANCHOR (Horizontal Ads) - Height Restricted for Frictionless UX
   const stickyFooter = document.createElement('div');
   stickyFooter.id = "sticky-footer-ad";
-  stickyFooter.className = "fixed bottom-0 left-0 w-full z-50 bg-white/95 dark:bg-slate-900/95 backdrop-blur border-t border-slate-200/80 dark:border-slate-800 shadow-lg flex flex-col items-center justify-center py-2 transition-colors duration-200 select-none overflow-hidden";
+  stickyFooter.className = "fixed bottom-0 left-0 w-full z-50 bg-white/95 dark:bg-slate-900/95 backdrop-blur border-t border-slate-200/80 dark:border-slate-800 shadow-lg flex flex-col items-center justify-center py-2 transition-colors duration-200 select-none overflow-hidden min-h-[50px]";
   stickyFooter.style.maxHeight = "95px";
 
   stickyFooter.innerHTML = `
