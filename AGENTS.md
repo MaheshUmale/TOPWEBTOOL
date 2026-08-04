@@ -88,12 +88,8 @@ When the user requests a durable behavior change, record it here or in the relev
 - `cpm-calculator/` - CPM calculator
 - `credit-card-payoff-planner/` - Credit card payoff planner
 - `crypto-tax-estimator/` - Crypto tax estimation tool
-- `da-pa-checker/` - DA PA Checker utility
 - `dividend-reinvestment-calculator/` - Dividend reinvestment calculator
-- `domain-age-checker/` - Domain Age Checker utility
-- `domain-authority-checker/` - Domain Authority Checker utility
 - `fortune-wheel/` - Fortune wheel / random picker tool
-- `google-cache-checker/` - Google Cache Checker utility
 - `headline-analyzer/` - Headline analysis tool
 - `hourly-to-salary-converter/` - Hourly to salary converter
 - `inflation-calculator/` - Inflation calculator
@@ -101,14 +97,11 @@ When the user requests a durable behavior change, record it here or in the relev
 - `lorem-ipsum-generator/` - Lorem ipsum generator
 - `midjourney-command-builder/` - Midjourney command builder
 - `mortgage-calculator/` - Mortgage calculator
-- `moz-rank-checker/` - Moz Rank Checker utility
-- `page-authority-checker/` - Page Authority Checker utility
 - `password-generator/` - Password generator
 - `qr-code-generator/` - QR code generator
 - `roi-calculator/` - ROI calculator
 - `social-media-image-resizer/` - Social media image resizer
 - `utm-generator/` - UTM generator
-- `whois-domain-lookup/` - Whois Domain Lookup utility
 - `word-character-counter/` - Word and character counter
 - `word-unscrambler/` - Word unscrambler
 
