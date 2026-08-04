@@ -59,6 +59,27 @@
             <button onclick="analyzeSEO()" class="px-4 py-2 bg-brand-600 text-white hover:bg-brand-700 transition-colors font-bold text-xs rounded-lg cursor-pointer" aria-label="Analyze SEO">
               Analyze Now
             </button>
+
+            <!-- Optional Moz API Credentials (Expandable) -->
+            <div class="border-t border-slate-100 pt-4 mt-4">
+              <button onclick="toggleMozSettings()" class="flex items-center space-x-2 text-brand-600 hover:text-brand-700 font-bold text-xs focus:outline-none focus:ring-2 focus:ring-brand-500 rounded py-1">
+                <svg id="moz-toggle-icon" class="w-4 h-4 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path>
+                </svg>
+                <span>🔑 Optional: Configure Live Moz API v2 Credentials</span>
+              </button>
+
+              <div id="moz-credentials-section" class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-3 hidden">
+                <div>
+                  <label for="moz-access-id" class="block text-xs font-semibold text-slate-600 mb-1">Moz Access ID</label>
+                  <input type="text" id="moz-access-id" class="block w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-950 text-xs font-mono" placeholder="member-...">
+                </div>
+                <div>
+                  <label for="moz-secret-key" class="block text-xs font-semibold text-slate-600 mb-1">Moz Secret Key</label>
+                  <input type="password" id="moz-secret-key" class="block w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-950 text-xs font-mono" placeholder="key_...">
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -271,6 +292,18 @@
           </div>
         </div>
       `;
+    }
+
+    function toggleMozSettings() {
+      const el = document.getElementById('moz-credentials-section');
+      const icon = document.getElementById('moz-toggle-icon');
+      if (el.classList.contains('hidden')) {
+        el.classList.remove('hidden');
+        icon.classList.add('rotate-180');
+      } else {
+        el.classList.add('hidden');
+        icon.classList.remove('rotate-180');
+      }
     }
 
     window.addEventListener('DOMContentLoaded', function() {});
