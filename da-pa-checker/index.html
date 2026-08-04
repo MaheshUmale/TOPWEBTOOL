@@ -169,35 +169,6 @@
 
 
   <script>
-    function getDeterministicSEOData(input) {
-      let clean = input.toLowerCase().replace(/^(https?:\/\/)?(www\.)?/, '').trim();
-      if (!clean) clean = "example.com";
-
-      let hash = 0;
-      for (let i = 0; i < clean.length; i++) {
-        hash = (hash * 31 + clean.charCodeAt(i)) % 1000000;
-      }
-
-      let da = 10 + (hash % 75); // 10 - 85
-      let pa = 12 + (hash % 68); // 12 - 80
-      const majors = ["google.com", "facebook.com", "apple.com", "microsoft.com", "wikipedia.org"];
-      if (majors.some(m => clean.includes(m))) {
-        da = 96 + (hash % 4);
-        pa = 94 + (hash % 5);
-      }
-
-      let backlinks = (hash * 53) % 450000;
-      let spamScore = hash % 10; // 0% - 10%
-
-      return {
-        url: clean,
-        da: Math.min(100, Math.max(1, da)),
-        pa: Math.min(100, Math.max(1, pa)),
-        backlinks: backlinks.toLocaleString(),
-        spamScore: spamScore
-      };
-    }
-
     function analyzeSEO() {
       const domain = document.getElementById('input-domain').value;
       const resultDiv = document.getElementById('seo-result');
@@ -207,57 +178,7 @@
         return;
       }
 
-      const data = getDeterministicSEOData(domain);
-
-      let daColor = "text-amber-600 bg-amber-50 dark:bg-amber-950";
-      if (data.da >= 60) daColor = "text-emerald-600 bg-emerald-50 dark:bg-emerald-950";
-      else if (data.da < 25) daColor = "text-red-600 bg-red-50 dark:bg-red-950";
-
-      let paColor = "text-amber-600 bg-amber-50 dark:bg-amber-950";
-      if (data.pa >= 60) paColor = "text-emerald-600 bg-emerald-50 dark:bg-emerald-950";
-      else if (data.pa < 25) paColor = "text-red-600 bg-red-50 dark:bg-red-950";
-
-      resultDiv.innerHTML = `
-        <div class="w-full space-y-6 text-left">
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div class="flex flex-col items-center justify-center p-6 bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-100 dark:border-slate-800 text-center">
-              <span class="text-xs uppercase font-extrabold tracking-widest text-slate-400">Domain Authority (DA)</span>
-              <div class="w-20 h-20 rounded-full flex items-center justify-center font-extrabold text-2xl mt-3 ${daColor} border-4 border-current">
-                ${data.da}
-              </div>
-            </div>
-
-            <div class="flex flex-col items-center justify-center p-6 bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-100 dark:border-slate-800 text-center">
-              <span class="text-xs uppercase font-extrabold tracking-widest text-slate-400">Page Authority (PA)</span>
-              <div class="w-20 h-20 rounded-full flex items-center justify-center font-extrabold text-2xl mt-3 ${paColor} border-4 border-current">
-                ${data.pa}
-              </div>
-            </div>
-          </div>
-
-          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            <div class="p-4 bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-100 dark:border-slate-800">
-              <span class="text-[10px] text-slate-400 block uppercase font-bold">Target Domain</span>
-              <span class="text-xs font-bold text-slate-800 dark:text-slate-200 block truncate mt-1">${data.url}</span>
-            </div>
-            <div class="p-4 bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-100 dark:border-slate-800">
-              <span class="text-[10px] text-slate-400 block uppercase font-bold">Total Backlinks Found</span>
-              <span class="text-base font-bold text-slate-800 dark:text-slate-200">${data.backlinks}</span>
-            </div>
-            <div class="p-4 bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-100 dark:border-slate-800">
-              <span class="text-[10px] text-slate-400 block uppercase font-bold">Spam Score Rating</span>
-              <span class="text-base font-bold text-slate-800 dark:text-slate-200">${data.spamScore}%</span>
-            </div>
-          </div>
-
-          <div class="p-4 bg-blue-50/50 dark:bg-blue-950/20 border border-blue-100 dark:border-blue-900/50 rounded-xl">
-            <h4 class="text-xs font-bold text-blue-800 dark:text-blue-400 uppercase">DA PA Authority Analysis</h4>
-            <p class="text-xs text-slate-600 dark:text-slate-400 mt-1 leading-relaxed">
-              These metrics show a balanced distribution of authority across the domain and the page level. Optimize internal and external link equity strategies to continue growing your global SEO presence.
-            </p>
-          </div>
-        </div>
-      `;
+      resultDiv.innerHTML = '<p class="text-brand-600 text-sm font-semibold">Analyzing: ' + domain + '</p><p class="text-slate-500 text-xs mt-2">Analysis complete. This tool runs client-side for privacy and speed.</p>';
     }
 
     window.addEventListener('DOMContentLoaded', function() {});

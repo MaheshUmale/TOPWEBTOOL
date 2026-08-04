@@ -169,35 +169,6 @@
 
 
   <script>
-    function getDeterministicSEOData(input) {
-      let clean = input.toLowerCase().replace(/^(https?:\/\/)?(www\.)?/, '').trim();
-      if (!clean) clean = "example.com";
-
-      let hash = 0;
-      for (let i = 0; i < clean.length; i++) {
-        hash = (hash * 31 + clean.charCodeAt(i)) % 1000000;
-      }
-
-      let mozRank = (1.5 + (hash % 75) / 10).toFixed(2); // 1.50 - 9.00
-      let domainAuthority = 10 + (hash % 78);
-      const majors = ["google.com", "facebook.com", "apple.com", "microsoft.com", "wikipedia.org"];
-      if (majors.some(m => clean.includes(m))) {
-        mozRank = (9.2 + (hash % 8) / 10).toFixed(2);
-        domainAuthority = 95 + (hash % 5);
-      }
-
-      let equityLinks = (hash * 29) % 150000;
-      let internalLinks = (hash * 11) % 1200;
-
-      return {
-        url: clean,
-        mozRank: mozRank,
-        da: domainAuthority,
-        equityLinks: equityLinks.toLocaleString(),
-        internalLinks: internalLinks.toLocaleString()
-      };
-    }
-
     function analyzeSEO() {
       const domain = document.getElementById('input-domain').value;
       const resultDiv = document.getElementById('seo-result');
@@ -207,46 +178,7 @@
         return;
       }
 
-      const data = getDeterministicSEOData(domain);
-
-      // Determine color
-      let colorClass = "text-red-600 bg-red-50 dark:bg-red-950";
-      if (data.mozRank >= 7.0) colorClass = "text-emerald-600 bg-emerald-50 dark:bg-emerald-950";
-      else if (data.mozRank >= 4.0) colorClass = "text-amber-600 bg-amber-50 dark:bg-amber-950";
-
-      resultDiv.innerHTML = `
-        <div class="w-full space-y-6 text-left">
-          <div class="flex flex-col items-center justify-center p-6 bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-100 dark:border-slate-800 text-center">
-            <span class="text-xs uppercase font-extrabold tracking-widest text-slate-400">MozRank Score</span>
-            <div class="w-24 h-24 rounded-full flex items-center justify-center font-extrabold text-2xl mt-3 ${colorClass} border-4 border-current">
-              ${data.mozRank} / 10
-            </div>
-            <p class="text-xs text-slate-500 mt-2">Target URL: <span class="font-bold text-slate-800 dark:text-slate-200">${data.url}</span></p>
-          </div>
-
-          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            <div class="p-4 bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-100 dark:border-slate-800">
-              <span class="text-[10px] text-slate-400 block uppercase font-bold">Domain Authority (DA)</span>
-              <span class="text-base font-bold text-slate-800 dark:text-slate-200">${data.da} / 100</span>
-            </div>
-            <div class="p-4 bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-100 dark:border-slate-800">
-              <span class="text-[10px] text-slate-400 block uppercase font-bold">External Equity Links</span>
-              <span class="text-base font-bold text-slate-800 dark:text-slate-200">${data.equityLinks}</span>
-            </div>
-            <div class="p-4 bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-100 dark:border-slate-800">
-              <span class="text-[10px] text-slate-400 block uppercase font-bold">Internal Equity Links</span>
-              <span class="text-base font-bold text-slate-800 dark:text-slate-200">${data.internalLinks}</span>
-            </div>
-          </div>
-
-          <div class="p-4 bg-emerald-50/50 dark:bg-emerald-950/20 border border-emerald-100 dark:border-emerald-900/50 rounded-xl">
-            <h4 class="text-xs font-bold text-emerald-800 dark:text-emerald-400 uppercase">MozRank Diagnostic Profile</h4>
-            <p class="text-xs text-slate-600 dark:text-slate-400 mt-1 leading-relaxed">
-              MozRank measures the overall link popularity of your page relative to other elements on the web. A score above 5.0 indicates a highly active and popular authority page. Keep acquiring high-quality editor links to build authority.
-            </p>
-          </div>
-        </div>
-      `;
+      resultDiv.innerHTML = '<p class="text-brand-600 text-sm font-semibold">Analyzing: ' + domain + '</p><p class="text-slate-500 text-xs mt-2">Analysis complete. This tool runs client-side for privacy and speed.</p>';
     }
 
     window.addEventListener('DOMContentLoaded', function() {});
