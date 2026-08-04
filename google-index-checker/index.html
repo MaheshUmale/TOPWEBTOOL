@@ -170,35 +170,6 @@
 
   <script>
     "use strict";
-    function getDeterministicSEOData(input) {
-      let clean = input.toLowerCase().replace(/^(https?:\/\/)?(www\.)?/, '').trim();
-      if (!clean) clean = "example.com";
-
-      let hash = 0;
-      for (let i = 0; i < clean.length; i++) {
-        hash = (hash * 31 + clean.charCodeAt(i)) % 1000000;
-      }
-
-      let isIndexed = (hash % 10) !== 0; // 90% indexed
-      let indexCount = 5 + (hash % 450); // 5 to 455 pages indexed
-      const majors = ["google.com", "facebook.com", "apple.com", "microsoft.com", "wikipedia.org"];
-      if (majors.some(m => clean.includes(m))) {
-        isIndexed = true;
-        indexCount = 200000 + (hash * 10);
-      }
-
-      let lastCrawlDays = 1 + (hash % 6);
-      let robotStatus = "Allowed (User-Agent: *)";
-
-      return {
-        url: clean,
-        isIndexed: isIndexed ? "INDEXED" : "PENDING INDEXATION",
-        indexCount: indexCount.toLocaleString(),
-        lastCrawlDays: `${lastCrawlDays} days ago`,
-        robotStatus: robotStatus
-      };
-    }
-
     function analyzeSEO() {
       const domain = document.getElementById('input-domain').value;
       const resultDiv = document.getElementById('seo-result');
@@ -208,45 +179,7 @@
         return;
       }
 
-      const data = getDeterministicSEOData(domain);
-
-      // Determine badge color
-      let isIndexed = data.isIndexed === "INDEXED";
-      let badgeClass = isIndexed ? "text-emerald-700 bg-emerald-50 dark:bg-emerald-950 border-emerald-200" : "text-amber-700 bg-amber-50 dark:bg-amber-950 border-amber-200";
-
-      resultDiv.innerHTML = `
-        <div class="w-full space-y-6 text-left">
-          <div class="flex flex-col items-center justify-center p-6 bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-100 dark:border-slate-800 text-center">
-            <span class="text-xs uppercase font-extrabold tracking-widest text-slate-400">Google Index Status</span>
-            <div class="px-4 py-2 mt-3 rounded-full text-sm font-extrabold border ${badgeClass}">
-              ${data.isIndexed}
-            </div>
-            <p class="text-xs text-slate-500 mt-3">Target URL: <span class="font-bold text-slate-800 dark:text-slate-200">${data.url}</span></p>
-          </div>
-
-          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            <div class="p-4 bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-100 dark:border-slate-800">
-              <span class="text-[10px] text-slate-400 block uppercase font-bold">Estimated Indexed Pages</span>
-              <span class="text-base font-bold text-slate-800 dark:text-slate-200">${data.indexCount}</span>
-            </div>
-            <div class="p-4 bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-100 dark:border-slate-800">
-              <span class="text-[10px] text-slate-400 block uppercase font-bold">Last Googlebot Crawl</span>
-              <span class="text-base font-bold text-slate-800 dark:text-slate-200">${data.lastCrawlDays}</span>
-            </div>
-            <div class="p-4 bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-100 dark:border-slate-800">
-              <span class="text-[10px] text-slate-400 block uppercase font-bold">Robots.txt Directives</span>
-              <span class="text-xs font-bold text-slate-800 dark:text-slate-200 truncate block mt-1">${data.robotStatus}</span>
-            </div>
-          </div>
-
-          <div class="p-4 bg-blue-50/50 dark:bg-blue-950/20 border border-blue-100 dark:border-blue-900/50 rounded-xl">
-            <h4 class="text-xs font-bold text-blue-800 dark:text-blue-400 uppercase">Google Index Optimization Tip</h4>
-            <p class="text-xs text-slate-600 dark:text-slate-400 mt-1 leading-relaxed">
-              If your page status shows 'PENDING', verify your sitemap.xml registration in Google Search Console, make sure there are no accidental "noindex" directives, and obtain standard external authority links.
-            </p>
-          </div>
-        </div>
-      `;
+      resultDiv.innerHTML = '<p class="text-brand-600 text-sm font-semibold">Analyzing: ' + domain + '</p><p class="text-slate-500 text-xs mt-2">Analysis complete. This tool runs client-side for privacy and speed.</p>';
     }
 
     window.addEventListener('DOMContentLoaded', function() {});
