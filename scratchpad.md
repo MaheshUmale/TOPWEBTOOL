@@ -25,5 +25,6 @@
 
 ## Meta Notes
 
+
 - Title tag must be ≤600px width; the current title exceeds this limit and may not display in full.
 - Meta description must fit within 3 lines for mobile view. Current description exceeds the limit.
