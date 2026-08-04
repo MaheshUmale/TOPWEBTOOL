@@ -131,3 +131,7 @@ When the user requests a durable behavior change, record it here or in the relev
 - `verification_files.txt` - Verification artifacts
 - `styles_search.txt` - Search styles configuration
 - `AD_UNITS CONFIG.txt` - AdSense unit configuration
+- `scratchpad.md` - Working notes and strategic observations
+- `FEATURE_TO_DO_LIST.md` - Structured todo list of all tool ideas with implementation status
+- `SKILLS.md` - Reusable prompt templates, agent instructions, and skill definitions
+- `IMPLEMENTATION_PLAN.md` - Phased rollout strategy and quality gates
