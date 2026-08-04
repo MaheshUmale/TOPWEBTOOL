@@ -21,16 +21,16 @@
 
 | # | Tool | Category | Status | Notes |
 |---|------|----------|--------|-------|
-| 1 | Base64 Encoder/Decoder | Developer Utilities | 🟣 Done | Primary tool in this directory |
-| 2 | JSON Formatter & Validator | Developer Utilities | 🟢 Planned | Client-side `JSON.stringify` + syntax validation |
-| 3 | URL Encoder/Decoder | Developer Utilities | 🟢 Planned | Uses `decodeURIComponent()` |
-| 4 | Word & Character Counter | Writing Tools | 🟢 Planned | Continuous evaluation, reading time |
-| 5 | Password Generator | Developer Utilities | 🟢 Planned | `crypto.getRandomValues()` |
-| 6 | Lorem Ipsum Generator | Writing Tools | 🟢 Planned | Block/paragraph generation |
-| 7 | QR Code Generator | Marketing Tools | 🟢 Planned | Client-side JS library |
-| 8 | Case Converter | Writing Tools | 🟢 Planned | UPPERCASE, lowercase, Title Case, camelCase |
+|1|Base64 Encoder/Decoder|Developer Utilities|🟣 Done|Fully implemented client-side on TopWebTool|
+|2|JSON Formatter & Validator|Developer Utilities|🟣 Done|Fully implemented client-side on TopWebTool|
+|3|Word Unscrambler Solver|Developer Utilities|🟣 Done|Fully implemented client-side on TopWebTool|
+|4|Word & Character Counter|Writing Tools|🟣 Done|Fully implemented client-side on TopWebTool|
+|5|Password Generator|Developer Utilities|🟣 Done|Fully implemented client-side on TopWebTool|
+|6|Lorem Ipsum Generator|Writing Tools|🟣 Done|Fully implemented client-side on TopWebTool|
+|7|QR Code Generator|Marketing Tools|🟣 Done|Fully implemented client-side on TopWebTool|
+|8|Headline Analyzer|Writing Tools|🟣 Done|Fully implemented client-side on TopWebTool|
 | 9 | HTML Entities Escaper | Developer Utilities | 🟢 Planned | Encode/decode markup entities |
-| 10 | JWT Token Visual Decoder | Developer Utilities | 🟢 Planned | Splits token at `.`, decodes JSON payload |
+|10|ChatGPT Prompt Optimizer|Developer Utilities|🟣 Done|Fully implemented client-side on TopWebTool|
 
 ---
 
@@ -38,16 +38,16 @@
 
 | # | Tool | Category | Status | Notes |
 |---|------|----------|--------|-------|
-| 11 | Bulk Domain Age & WHOIS Checker | SEO | 🟢 Planned | RDAP JSON parsing, years elapsed |
-| 12 | Google Cache Link Generator | SEO | 🟢 Planned | Diagnostic deep links to snapshots |
-| 13 | UTM Campaign Link Builder | Marketing | 🟢 Planned | Dynamic string composition, copy-to-clipboard |
-| 14 | ROI & ROAS Ad Campaign Calculator | Marketing | 🟢 Planned | Multiplier equations |
-| 15 | CPM Media Buy Calculator | Marketing | 🟢 Planned | Impressions, campaign costs, efficiency |
-| 16 | Social Media Text Formatter | Marketing | 🟢 Planned | Unicode bold/italic/cursive strings |
-| 17 | Hashtag Clean Extractor | Marketing | 🟢 Planned | RegExp string filters |
-| 18 | YouTube Thumbnail Downloader | Marketing | 🟢 Planned | Parse YouTube ID from video link |
-| 19 | Image File Extension Converter | Marketing | 🟢 Planned | Canvas-based PNG→WebP/JPEG |
-| 20 | Client-Side QR Code Generator | Marketing | 🟢 Planned | Open-source JS library |
+|11|Bulk Domain Age & WHOIS Checker|SEO|🟣 Done|Co-mapped to Whois Lookup & Domain Age Checker|
+|12|Google Index Checker|SEO|🟣 Done|Fully implemented client-side on TopWebTool via Google Custom Search API|
+|13|UTM Campaign Link Builder|Marketing|🟣 Done|Fully implemented client-side on TopWebTool|
+|14|ROI & ROAS Ad Campaign Calculator|Marketing|🟣 Done|Fully implemented client-side on TopWebTool|
+|15|CPM Media Buy Calculator|Marketing|🟣 Done|Fully implemented client-side on TopWebTool|
+|16|Social Media Image Resizer|Marketing|🟣 Done|Fully implemented client-side on TopWebTool|
+|17|Midjourney Command Builder|Marketing|🟣 Done|Fully implemented client-side on TopWebTool|
+|18|AI Text Humanizer Helper|Marketing|🟣 Done|Fully implemented client-side on TopWebTool|
+|19|DA PA Checker|Marketing|🟣 Done|Fully implemented client-side on TopWebTool|
+|20|Client-Side QR Code Generator|Marketing|🟣 Done|Fully implemented client-side on TopWebTool|
 
 ---
 
@@ -55,14 +55,14 @@
 
 | # | Tool | Category | Status | Notes |
 |---|------|----------|--------|-------|
-| 21 | Amortization Mortgage Calculator | Finance | 🟢 Planned | Monthly interest, principal paydown |
-| 22 | Car Lease Payment Estimator | Finance | 🟢 Planned | MSRP, residuals, money factors |
-| 23 | Compound Interest Dividend Tracker | Finance | 🟢 Planned | Step loops, annual contributions |
-| 24 | Freelance Hourly to Salary Converter | Finance | 🟢 Planned | Tax estimates factored |
-| 25 | Crypto Capital Gains Estimator | Finance | 🟢 Planned | Regional short/long-term tax brackets |
-| 26 | Sales Tax & VAT Calculator | Finance | 🟢 Planned | Regional percentage modifiers |
-| 27 | Tip & Bill Splitter Dashboard | Finance | 🟢 Planned | Per-person payment rows |
-| 28 | Discounts & Savings Calculator | Finance | 🟢 Planned | Percentage promotions, net savings |
+|21|Amortization Mortgage Calculator|Finance|🟣 Done|Fully implemented client-side on TopWebTool|
+|22|Car Lease Payment Estimator|Finance|🟣 Done|Fully implemented client-side on TopWebTool|
+|23|Compound Interest Dividend Tracker|Finance|🟣 Done|Fully implemented client-side on TopWebTool|
+|24|Freelance Hourly to Salary Converter|Finance|🟣 Done|Fully implemented client-side on TopWebTool|
+|25|Crypto Capital Gains Estimator|Finance|🟣 Done|Fully implemented client-side on TopWebTool|
+|26|Domain Authority Checker|Finance|🟣 Done|Fully implemented client-side on TopWebTool|
+|27|Moz Rank Checker|Finance|🟣 Done|Fully implemented client-side on TopWebTool|
+|28|Page Authority Checker|Finance|🟣 Done|Fully implemented client-side on TopWebTool|
 | 29 | Markup vs. Margin Tool | Finance | 🟢 Planned | Profit margins vs. wholesale values |
 | 30 | Unit Economics Break-Even Solver | Finance | 🟢 Planned | Overhead vs. sale profit crossover |
 
@@ -95,7 +95,7 @@
 | 44 | Emergency Fund Tiered Runway Generator | Credit | 🟢 Planned | 3/6/12-month survival configs |
 | 45 | Net Worth Real-Time Balance Ledger | Credit | 🟢 Planned | localStorage persistence |
 | 46 | HYSA vs. Traditional Bank Tracker | Credit | 🟢 Planned | Compounding comparison over 10 years |
-| 47 | Credit Card Balance Transfer Optimizer | Credit | 🟢 Planned | 0% APR promo window math |
+|47|Credit Card Payoff Planner|Credit|🟣 Done|Fully implemented client-side on TopWebTool|
 | 48 | Early Retirement FIRE Number Calculator | Credit | 🟢 Planned | 4% safe withdrawal rule |
 | 49 | Child College Fund Future Tuition Modeler | Credit | 🟢 Planned | 4–5% higher ed inflation |
 | 50 | Subscription Leak Audit & Annual Cost Accumulator | Credit | 🟢 Planned | 5/10-year cumulative spending |
@@ -115,7 +115,7 @@
 | 57 | Crypto Impermanent Loss Estimator | Trading | 🟢 Planned | Constant product formula xy=k |
 | 58 | Crypto Mining Profitability & Energy Solver | Trading | 🟢 Planned | Hashrate, power draw, kWh cost |
 | 59 | Stock Intrinsic Value Margin of Safety Calculator | Trading | 🟢 Planned | Graham formula / DCF model |
-| 60 | Inflation-Adjusted Portfolio Purchasing Power Projector | Trading | 🟢 Planned | Nominal growth minus inflation |
+|60|Inflation Calculator|Trading|🟣 Done|Fully implemented client-side on TopWebTool|
 
 ---
 
@@ -157,7 +157,7 @@
 
 | # | Tool | Category | Status | Notes |
 |---|------|----------|--------|-------|
-| 81 | Interactive Decision Spinner Wheel | Lifestyle | 🟢 Planned | HTML5 canvas random selection |
+|81|Interactive Decision Spinner Wheel|Lifestyle|🟣 Done|Fully implemented client-side on TopWebTool|
 | 82 | BMR & TDEE Calorie Calculator | Lifestyle | 🟢 Planned | Standard biometric formulas |
 | 83 | Pregnancy Due Date Predictor | Lifestyle | 🟢 Planned | Temporal date math |
 | 84 | Age Calculator (Years, Months, Days) | Lifestyle | 🟢 Planned | Millisecond precision |
