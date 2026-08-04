@@ -164,55 +164,6 @@ const UTILITIES_REGISTRY = [
     category: 'Everyday & Niche Utilities',
     desc: 'Instantly turn scrambled letters into valid words with wildcard search options.',
     icon: '🔡'
-  },
-  {
-    path: '/da-pa-checker',
-    name: 'DA PA Checker',
-    category: 'SEO Tools',
-    desc: 'Check domain authority (DA) and page authority (PA) scores client-side.',
-    icon: '📊'
-  },
-  {
-    path: '/domain-age-checker',
-    name: 'Domain Age Checker',
-    category: 'SEO Tools',
-    desc: 'Determine the exact age, creation date, and registration history of any domain.',
-    icon: '⌛'
-  },
-  {
-    path: '/domain-authority-checker',
-    name: 'Domain Authority Checker',
-    category: 'SEO Tools',
-    desc: 'Measure the absolute ranking strength and authority profile of root domains.',
-    icon: '🔍'
-  },
-  {
-    path: '/google-cache-checker',
-    name: 'Google Cache Checker',
-    category: 'SEO Tools',
-    desc: 'Instantly check Google Cache page archives and retrieval timestamps.',
-    icon: '💾'
-  },
-  {
-    path: '/moz-rank-checker',
-    name: 'Moz Rank Checker',
-    category: 'SEO Tools',
-    desc: 'Compute official MozRank and link metric dimensions fully client-side.',
-    icon: '📈'
-  },
-  {
-    path: '/page-authority-checker',
-    name: 'Page Authority Checker',
-    category: 'SEO Tools',
-    desc: 'Determine the specific page-level authority metric for individual URLs.',
-    icon: '📄'
-  },
-  {
-    path: '/whois-domain-lookup',
-    name: 'Whois Domain Lookup',
-    category: 'SEO Tools',
-    desc: 'Lookup registrar records, DNS servers, contact details, and WHOIS status.',
-    icon: '🔎'
   }
 ];
 
