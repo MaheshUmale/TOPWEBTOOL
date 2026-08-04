@@ -126,7 +126,7 @@ body {
   background-color: #032233; /* Deep brand blue base */
 }
 
-.dark .hover\\:bg-brand-100:hover {
+.dark .hover\:bg-brand-100:hover {
   background-color: #075985; /* Brand 700 */
 }
 

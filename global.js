@@ -194,13 +194,6 @@ const UTILITIES_REGISTRY = [
     icon: '💾'
   },
   {
-    path: '/google-index-checker',
-    name: 'Google Index Checker',
-    category: 'SEO Tools',
-    desc: 'Verify if your website URLs are indexed in Google search results database.',
-    icon: '🌐'
-  },
-  {
     path: '/moz-rank-checker',
     name: 'Moz Rank Checker',
     category: 'SEO Tools',

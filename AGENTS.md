@@ -94,7 +94,6 @@ When the user requests a durable behavior change, record it here or in the relev
 - `domain-authority-checker/` - Domain Authority Checker utility
 - `fortune-wheel/` - Fortune wheel / random picker tool
 - `google-cache-checker/` - Google Cache Checker utility
-- `google-index-checker/` - Google Index Checker utility
 - `headline-analyzer/` - Headline analysis tool
 - `hourly-to-salary-converter/` - Hourly to salary converter
 - `inflation-calculator/` - Inflation calculator
