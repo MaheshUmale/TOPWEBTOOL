@@ -621,4 +621,70 @@ window.closeStickyFooter = function() {
   if (el) {
     el.style.display = 'none';
   }
-};
+
+// Dynamic WebMCP Agent-Ready Layer for all 23 Utilities
+document.addEventListener("DOMContentLoaded", () => {
+  if (window.navigator?.modelContext?.registerTool) {
+    const mainForm = document.querySelector("form");
+    if (!mainForm) return;
+
+    const toolName = mainForm.getAttribute("id") || window.location.pathname.split('/').filter(Boolean).pop() || "webUtility";
+    const inputs = mainForm.querySelectorAll("input, select, textarea");
+    
+    const properties = {};
+    const requiredFields = [];
+
+    inputs.forEach(input => {
+      if (input.id && input.type !== "submit" && input.type !== "button") {
+        const labelText = document.querySelector('label[for="' + input.id + '"]')?.innerText || input.name || input.id;
+        properties[input.id] = {
+          type: input.type === "number" ? "number" : "string",
+          description: input.getAttribute("urm-description") || 'Input field for ' + labelText
+        };
+        if (input.hasAttribute("required")) {
+          requiredFields.push(input.id);
+        }
+      }
+    });
+
+    window.navigator.modelContext.registerTool({
+      name: 'execute_' + toolName.replace(/[^a-zA-Z0-9]/g, '_'),
+      description: 'Programmatically executes the client-side ' + toolName + ' utility on TopWebTool using structured parameters.',
+      parameters: {
+        type: "object",
+        properties: properties,
+        required: requiredFields
+      },
+      execute: async (args) => {
+        try {
+          Object.keys(args).forEach(key => {
+            const el = document.getElementById(key);
+            if (el) {
+              el.value = args[key];
+              el.dispatchEvent(new Event('input', { bubbles: true }));
+              el.dispatchEvent(new Event('change', { bubbles: true }));
+            }
+          });
+
+          const calcBtn = mainForm.querySelector('button[type="submit"]') || document.getElementById("calculate-btn") || mainForm.querySelector('.btn-primary');
+          if (calcBtn) {
+            calcBtn.click();
+          }
+
+          await new Promise(resolve => setTimeout(resolve, 80));
+
+          const outputElements = document.querySelectorAll('[id*="output"], [id*="result"], [class*="result-box"]');
+          const resultsPayload = {};
+          outputElements.forEach(el => {
+            if (el.id) resultsPayload[el.id] = el.innerText || el.value;
+          });
+
+          return { status: "success", data: resultsPayload };
+        } catch (err) {
+          return { status: "error", message: err.toString() };
+        }
+      }
+    });
+    console.log('WebMCP tool dynamically bound for utility: ' + toolName);
+  }
+});

@@ -1,3 +1,10 @@
+# LOCAL DEVELOPER AGENTS RULE
+
+- This AGENTS.md belongs strictly to the local developer agent (Agent Zero / DOX).
+- It must NOT be exposed, served, or accessible as a public user instruction asset.
+- This file governs local development workflows, DOX compliance, and agent-internal contracts only.
+- Do not reference this file in public-facing documentation, llms.txt, or sitemap.xml.
+
 # DOX framework
 
 - DOX is highly performant AGENTS.md hierarchy installed here
@@ -127,3 +134,4 @@ When the user requests a durable behavior change, record it here or in the relev
 - `FEATURE_TO_DO_LIST.md` - Structured todo list of all tool ideas with implementation status
 - `SKILLS.md` - Reusable prompt templates, agent instructions, and skill definitions
 - `IMPLEMENTATION_PLAN.md` - Phased rollout strategy and quality gates
+
