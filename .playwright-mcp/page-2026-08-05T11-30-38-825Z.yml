@@ -1,0 +1,331 @@
+- generic [active] [ref=f106e1]:
+  - banner [ref=f106e2]:
+    - navigation "Main navigation" [ref=f106e3]:
+      - generic [ref=f106e5]:
+        - link "TopWebTool Logo TopWebTool" [ref=f106e6] [cursor=pointer]:
+          - /url: ../
+          - img "TopWebTool Logo" [ref=f106e7]
+          - generic [ref=f106e8]: TopWebTool
+        - navigation [ref=f106e9]:
+          - button "Finance" [ref=f106e11]
+          - button "Digital Marketing" [ref=f106e16]
+          - button "AI Prompt Engineering" [ref=f106e21]
+          - button "Developer Utilities" [ref=f106e26]
+          - button "Everyday" [ref=f106e31]
+        - generic [ref=f106e35]:
+          - button "Toggle Light/Dark Theme" [ref=f106e36]
+          - generic [ref=f106e39]: 100% Free & No Sign-up
+  - main [ref=f106e40]:
+    - generic [ref=f106e41]:
+      - generic [ref=f106e42]: Advertisement
+      - insertion [ref=f106e44]:
+        - iframe [ref=f106e46]:
+          
+    - generic [ref=f106e48]:
+      - generic [ref=f106e49]:
+        - heading "Inflation & Purchasing Power Calculator" [level=1] [ref=f106e50]
+        - paragraph [ref=f106e51]: Compare purchasing power changes across years using historical US CPI indexes and standard Eurostat baselines. See exactly how inflation erodes value over time.
+      - generic [ref=f106e52]:
+        - heading "Configure Inflation Projections" [level=2] [ref=f106e53]
+        - generic [ref=f106e54]:
+          - generic [ref=f106e55]:
+            - generic [ref=f106e56]: Starting Value ($/€)
+            - spinbutton "Starting Value ($/€)" [ref=f106e57]: "100"
+          - generic [ref=f106e58]:
+            - generic [ref=f106e59]: From Year
+            - combobox "From Year" [ref=f106e60]:
+              - option "2000"
+              - option "2010" [selected]
+              - option "2015"
+              - option "2020"
+          - generic [ref=f106e61]:
+            - generic [ref=f106e62]: To Year
+            - combobox "To Year" [ref=f106e63]:
+              - option "2020"
+              - option "2023" [selected]
+              - option "2024"
+          - generic [ref=f106e64]:
+            - generic [ref=f106e65]:
+              - generic [ref=f106e66]: Data Baseline
+              - combobox "Data Baseline" [ref=f106e67]:
+                - option "US CPI (Consumer Price Index)" [selected]
+                - option "Eurostat HICP (Euro Area)"
+            - generic [ref=f106e68]:
+              - generic [ref=f106e69]: Alternative Custom Constant Rate (%)
+              - spinbutton "Alternative Custom Constant Rate (%)" [ref=f106e70]: "3.5"
+          - generic [ref=f106e71]:
+            - generic [ref=f106e72]:
+              - generic [ref=f106e73]: Equivalent Purchasing Power Value
+              - generic [ref=f106e74]: $156.40
+            - generic [ref=f106e75]:
+              - generic [ref=f106e76]: Total Inflation Rate
+              - generic [ref=f106e77]: 56.4%
+          - generic [ref=f106e78]:
+            - generic [ref=f106e79]:
+              - text: Need to save these results?
+              - paragraph [ref=f106e80]: Copy a clean textual summary instantly.
+            - button "Copy Summary" [ref=f106e81]
+          - generic [ref=f106e82]:
+            - heading "Informative Guides & Helper Articles" [level=2] [ref=f106e83]
+            - generic [ref=f106e84]:
+              - link "Understanding the Consumer Price Index (CPI) Learn how CPI tracks cost of living and historical inflation shifts. Read Article →" [ref=f106e85] [cursor=pointer]:
+                - /url: ./what-is-cpi-index.html
+                - heading "Understanding the Consumer Price Index (CPI)" [level=3] [ref=f106e86]
+                - paragraph [ref=f106e87]: Learn how CPI tracks cost of living and historical inflation shifts.
+                - generic [ref=f106e88]: Read Article →
+              - link "How Inflation Erodes Your Buying Power Discover how currency inflation decays cash values over decades. Read Article →" [ref=f106e89] [cursor=pointer]:
+                - /url: ./how-inflation-affects-buying-power.html
+                - heading "How Inflation Erodes Your Buying Power" [level=3] [ref=f106e90]
+                - paragraph [ref=f106e91]: Discover how currency inflation decays cash values over decades.
+                - generic [ref=f106e92]: Read Article →
+              - link "Historical US Inflation Trends Analyze major US inflation peaks, valleys, and economic events. Read Article →" [ref=f106e93] [cursor=pointer]:
+                - /url: ./historical-us-inflation-trends.html
+                - heading "Historical US Inflation Trends" [level=3] [ref=f106e94]
+                - paragraph [ref=f106e95]: Analyze major US inflation peaks, valleys, and economic events.
+                - generic [ref=f106e96]: Read Article →
+              - link "How Eurostat Measures European Inflation Understanding the Harmonised Index of Consumer Prices (HICP). Read Article →" [ref=f106e97] [cursor=pointer]:
+                - /url: ./eurostat-inflation-explained.html
+                - heading "How Eurostat Measures European Inflation" [level=3] [ref=f106e98]
+                - paragraph [ref=f106e99]: Understanding the Harmonised Index of Consumer Prices (HICP).
+                - generic [ref=f106e100]: Read Article →
+              - link "How to Protect Your Savings from Inflation Best inflation-resistant investment asset classes to secure wealth. Read Article →" [ref=f106e101] [cursor=pointer]:
+                - /url: ./how-to-protect-savings-from-inflation.html
+                - heading "How to Protect Your Savings from Inflation" [level=3] [ref=f106e102]
+                - paragraph [ref=f106e103]: Best inflation-resistant investment asset classes to secure wealth.
+                - generic [ref=f106e104]: Read Article →
+          - generic [ref=f106e105]:
+            - generic [ref=f106e106]:
+              - heading "Professional Insights & Guide" [level=2] [ref=f106e107]
+              - paragraph [ref=f106e108]: Learn critical professional use cases, dynamic step-by-step instructions, and diagnostic failure point resolutions.
+            - generic [ref=f106e109]:
+              - generic [ref=f106e110]:
+                - heading "Core Use Case scenario" [level=3] [ref=f106e111]
+                - paragraph [ref=f106e112]: Financial analysts, economists, historical researchers, and savers need to track changes in purchasing power over time. Comparing inflation data across major currencies (like US Dollar, Euro, or British Pound) shows how consumer baskets and cash values evolve over the decades.
+              - generic [ref=f106e113]:
+                - heading "Troubleshooting & Edge-Case Failure Points" [level=3] [ref=f106e114]
+                - list [ref=f106e115]:
+                  - listitem [ref=f106e116]: "Future date boundaries: Database calculations use verified historical indexes; estimations beyond the current year are models based on recent averages."
+                  - listitem [ref=f106e117]: "CPI basket updates: The consumer price index basket periodically adjusts definition metrics; historical calculations reflect officially compiled timelines."
+                  - listitem [ref=f106e118]: "Regional variance: Inflation numbers track national averages; local metropolitan prices may rise faster than national CPI index rates."
+            - generic [ref=f106e119]:
+              - heading "Detailed Step-by-Step Instructions" [level=3] [ref=f106e120]
+              - list [ref=f106e121]:
+                - listitem [ref=f106e122]: Enter your starting cash value in the primary amount field.
+                - listitem [ref=f106e123]: Select the origin year and target year to compare purchasing power across eras.
+                - listitem [ref=f106e124]: Choose the currency index standard (e.g., US CPI, Eurostat) for the calculation.
+                - listitem [ref=f106e125]: Review the calculated compound inflation rate, absolute purchasing power decline, and historical timeline charts.
+            - generic [ref=f106e126]:
+              - heading "Related Web Utilities (Silo Hub)" [level=3] [ref=f106e127]
+              - generic [ref=f106e128]:
+                - link "Advanced Mortgage Calculator" [ref=f106e129] [cursor=pointer]:
+                  - /url: ../mortgage-calculator/
+                - link "Car Lease Estimator" [ref=f106e130] [cursor=pointer]:
+                  - /url: ../car-lease-estimator/
+                - link "Crypto Tax Estimator" [ref=f106e131] [cursor=pointer]:
+                  - /url: ../crypto-tax-estimator/
+                - link "Hourly to Salary Converter" [ref=f106e132] [cursor=pointer]:
+                  - /url: ../hourly-to-salary-converter/
+                - link "Dividend Reinvestment Calculator" [ref=f106e133] [cursor=pointer]:
+                  - /url: ../dividend-reinvestment-calculator/
+                - link "Credit Card Payoff Planner" [ref=f106e134] [cursor=pointer]:
+                  - /url: ../credit-card-payoff-planner/
+                - link "UTM Campaign Link Builder" [ref=f106e135] [cursor=pointer]:
+                  - /url: ../utm-generator/
+                - link "ROI & ROAS Campaign Calculator" [ref=f106e136] [cursor=pointer]:
+                  - /url: ../roi-calculator/
+                - link "CPM Campaign Ad Calculator" [ref=f106e137] [cursor=pointer]:
+                  - /url: ../cpm-calculator/
+                - link "Copy Headline Sentiment Analyzer" [ref=f106e138] [cursor=pointer]:
+                  - /url: ../headline-analyzer/
+                - link "Secure QR Code Generator" [ref=f106e139] [cursor=pointer]:
+                  - /url: ../qr-code-generator/
+                - link "Social Media Image Resizer" [ref=f106e140] [cursor=pointer]:
+                  - /url: ../social-media-image-resizer/
+                - link "ChatGPT Prompt Optimizer" [ref=f106e141] [cursor=pointer]:
+                  - /url: ../chatgpt-prompt-optimizer/
+                - link "Midjourney Parameter Builder" [ref=f106e142] [cursor=pointer]:
+                  - /url: ../midjourney-command-builder/
+                - link "Fortune Wheel Spinner" [ref=f106e143] [cursor=pointer]:
+                  - /url: ../fortune-wheel/
+      - generic [ref=f106e144]:
+        - generic [ref=f106e145]:
+          - heading "Trending Utilities (23)" [level=3] [ref=f106e146]
+          - searchbox "Quick filter tools..." [ref=f106e151]
+          - generic [ref=f106e155]:
+            - link "🏡 Mortgage Calculator Finance & Real Estate" [ref=f106e156] [cursor=pointer]:
+              - /url: ../mortgage-calculator
+              - generic [ref=f106e157]:
+                - generic [ref=f106e158]: 🏡
+                - generic [ref=f106e159]:
+                  - generic [ref=f106e160]: Mortgage Calculator
+                  - generic [ref=f106e161]: Finance & Real Estate
+            - link "🚗 Car Lease Estimator Finance & Real Estate" [ref=f106e162] [cursor=pointer]:
+              - /url: ../car-lease-estimator
+              - generic [ref=f106e163]:
+                - generic [ref=f106e164]: 🚗
+                - generic [ref=f106e165]:
+                  - generic [ref=f106e166]: Car Lease Estimator
+                  - generic [ref=f106e167]: Finance & Real Estate
+            - link "📈 Inflation Calculator Finance & Real Estate" [ref=f106e168] [cursor=pointer]:
+              - /url: ../inflation-calculator
+              - generic [ref=f106e169]:
+                - generic [ref=f106e170]: 📈
+                - generic [ref=f106e171]:
+                  - generic [ref=f106e172]: Inflation Calculator
+                  - generic [ref=f106e173]: Finance & Real Estate
+            - link "🪙 Crypto Tax Estimator Finance & Real Estate" [ref=f106e174] [cursor=pointer]:
+              - /url: ../crypto-tax-estimator
+              - generic [ref=f106e175]:
+                - generic [ref=f106e176]: 🪙
+                - generic [ref=f106e177]:
+                  - generic [ref=f106e178]: Crypto Tax Estimator
+                  - generic [ref=f106e179]: Finance & Real Estate
+            - link "💼 Hourly to Salary Converter Finance & Real Estate" [ref=f106e180] [cursor=pointer]:
+              - /url: ../hourly-to-salary-converter
+              - generic [ref=f106e181]:
+                - generic [ref=f106e182]: 💼
+                - generic [ref=f106e183]:
+                  - generic [ref=f106e184]: Hourly to Salary Converter
+                  - generic [ref=f106e185]: Finance & Real Estate
+            - link "📊 Dividend Reinvestment (DRIP) Finance & Real Estate" [ref=f106e186] [cursor=pointer]:
+              - /url: ../dividend-reinvestment-calculator
+              - generic [ref=f106e187]:
+                - generic [ref=f106e188]: 📊
+                - generic [ref=f106e189]:
+                  - generic [ref=f106e190]: Dividend Reinvestment (DRIP)
+                  - generic [ref=f106e191]: Finance & Real Estate
+            - link "💳 Credit Card Payoff Planner Finance & Real Estate" [ref=f106e192] [cursor=pointer]:
+              - /url: ../credit-card-payoff-planner
+              - generic [ref=f106e193]:
+                - generic [ref=f106e194]: 💳
+                - generic [ref=f106e195]:
+                  - generic [ref=f106e196]: Credit Card Payoff Planner
+                  - generic [ref=f106e197]: Finance & Real Estate
+            - link "🔗 UTM Campaign Link Builder Digital Marketing" [ref=f106e198] [cursor=pointer]:
+              - /url: ../utm-generator
+              - generic [ref=f106e199]:
+                - generic [ref=f106e200]: 🔗
+                - generic [ref=f106e201]:
+                  - generic [ref=f106e202]: UTM Campaign Link Builder
+                  - generic [ref=f106e203]: Digital Marketing
+            - link "💰 ROI & ROAS Calculator Digital Marketing" [ref=f106e204] [cursor=pointer]:
+              - /url: ../roi-calculator
+              - generic [ref=f106e205]:
+                - generic [ref=f106e206]: 💰
+                - generic [ref=f106e207]:
+                  - generic [ref=f106e208]: ROI & ROAS Calculator
+                  - generic [ref=f106e209]: Digital Marketing
+            - link "📢 CPM Campaign Ad Calculator Digital Marketing" [ref=f106e210] [cursor=pointer]:
+              - /url: ../cpm-calculator
+              - generic [ref=f106e211]:
+                - generic [ref=f106e212]: 📢
+                - generic [ref=f106e213]:
+                  - generic [ref=f106e214]: CPM Campaign Ad Calculator
+                  - generic [ref=f106e215]: Digital Marketing
+            - link "✍️ Copy Headline Analyzer Digital Marketing" [ref=f106e216] [cursor=pointer]:
+              - /url: ../headline-analyzer
+              - generic [ref=f106e217]:
+                - generic [ref=f106e218]: ✍️
+                - generic [ref=f106e219]:
+                  - generic [ref=f106e220]: Copy Headline Analyzer
+                  - generic [ref=f106e221]: Digital Marketing
+            - link "📱 Secure QR Code Generator Digital Marketing" [ref=f106e222] [cursor=pointer]:
+              - /url: ../qr-code-generator
+              - generic [ref=f106e223]:
+                - generic [ref=f106e224]: 📱
+                - generic [ref=f106e225]:
+                  - generic [ref=f106e226]: Secure QR Code Generator
+                  - generic [ref=f106e227]: Digital Marketing
+            - link "🖼️ Social Image Resizer Digital Marketing" [ref=f106e228] [cursor=pointer]:
+              - /url: ../social-media-image-resizer
+              - generic [ref=f106e229]:
+                - generic [ref=f106e230]: 🖼️
+                - generic [ref=f106e231]:
+                  - generic [ref=f106e232]: Social Image Resizer
+                  - generic [ref=f106e233]: Digital Marketing
+            - link "🤖 ChatGPT Prompt Optimizer AI Prompt Engineering" [ref=f106e234] [cursor=pointer]:
+              - /url: ../chatgpt-prompt-optimizer
+              - generic [ref=f106e235]:
+                - generic [ref=f106e236]: 🤖
+                - generic [ref=f106e237]:
+                  - generic [ref=f106e238]: ChatGPT Prompt Optimizer
+                  - generic [ref=f106e239]: AI Prompt Engineering
+            - link "🎨 Midjourney Prompt Builder AI Prompt Engineering" [ref=f106e240] [cursor=pointer]:
+              - /url: ../midjourney-command-builder
+              - generic [ref=f106e241]:
+                - generic [ref=f106e242]: 🎨
+                - generic [ref=f106e243]:
+                  - generic [ref=f106e244]: Midjourney Prompt Builder
+                  - generic [ref=f106e245]: AI Prompt Engineering
+            - link "🧠 AI Text Humanizer Helper AI Prompt Engineering" [ref=f106e246] [cursor=pointer]:
+              - /url: ../ai-text-humanizer-helper
+              - generic [ref=f106e247]:
+                - generic [ref=f106e248]: 🧠
+                - generic [ref=f106e249]:
+                  - generic [ref=f106e250]: AI Text Humanizer Helper
+                  - generic [ref=f106e251]: AI Prompt Engineering
+            - link "⚙️ JSON Formatter & Validator Developer Utilities" [ref=f106e252] [cursor=pointer]:
+              - /url: ../json-formatter-validator
+              - generic [ref=f106e253]:
+                - generic [ref=f106e254]: ⚙️
+                - generic [ref=f106e255]:
+                  - generic [ref=f106e256]: JSON Formatter & Validator
+                  - generic [ref=f106e257]: Developer Utilities
+            - link "🔑 Secure Password Generator Developer Utilities" [ref=f106e258] [cursor=pointer]:
+              - /url: ../password-generator
+              - generic [ref=f106e259]:
+                - generic [ref=f106e260]: 🔑
+                - generic [ref=f106e261]:
+                  - generic [ref=f106e262]: Secure Password Generator
+                  - generic [ref=f106e263]: Developer Utilities
+            - link "📝 Lorem Ipsum Generator Developer Utilities" [ref=f106e264] [cursor=pointer]:
+              - /url: ../lorem-ipsum-generator
+              - generic [ref=f106e265]:
+                - generic [ref=f106e266]: 📝
+                - generic [ref=f106e267]:
+                  - generic [ref=f106e268]: Lorem Ipsum Generator
+                  - generic [ref=f106e269]: Developer Utilities
+            - link "🔣 Base64 Encoder & Decoder Developer Utilities" [ref=f106e270] [cursor=pointer]:
+              - /url: ../base64-encoder-decoder
+              - generic [ref=f106e271]:
+                - generic [ref=f106e272]: 🔣
+                - generic [ref=f106e273]:
+                  - generic [ref=f106e274]: Base64 Encoder & Decoder
+                  - generic [ref=f106e275]: Developer Utilities
+            - link "🔢 Word & Character Counter Developer Utilities" [ref=f106e276] [cursor=pointer]:
+              - /url: ../word-character-counter
+              - generic [ref=f106e277]:
+                - generic [ref=f106e278]: 🔢
+                - generic [ref=f106e279]:
+                  - generic [ref=f106e280]: Word & Character Counter
+                  - generic [ref=f106e281]: Developer Utilities
+            - link "☸️ Fortune Wheel Everyday & Niche Utilities" [ref=f106e282] [cursor=pointer]:
+              - /url: ../fortune-wheel
+              - generic [ref=f106e283]:
+                - generic [ref=f106e284]: ☸️
+                - generic [ref=f106e285]:
+                  - generic [ref=f106e286]: Fortune Wheel
+                  - generic [ref=f106e287]: Everyday & Niche Utilities
+            - link "🔡 Word Unscrambler Solver Everyday & Niche Utilities" [ref=f106e288] [cursor=pointer]:
+              - /url: ../word-unscrambler
+              - generic [ref=f106e289]:
+                - generic [ref=f106e290]: 🔡
+                - generic [ref=f106e291]:
+                  - generic [ref=f106e292]: Word Unscrambler Solver
+                  - generic [ref=f106e293]: Everyday & Niche Utilities
+        - generic [ref=f106e294]:
+          - generic [ref=f106e295]: Sponsored
+          - insertion [ref=f106e297]
+        - generic [ref=f106e299]:
+          - generic [ref=f106e300]: Advertisement
+          - insertion [ref=f106e302]
+  - contentinfo [ref=f106e304]:
+    - generic [ref=f106e305]:
+      - generic [ref=f106e306]:
+        - generic [ref=f106e307]: TopWebTool
+        - generic [ref=f106e308]: © 2025. All rights reserved.
+      - generic [ref=f106e309]: Premium High-CPM Single-Page Utilities Directory
+  - generic [ref=f106e311]:
+    - button "Dismiss advertisement" [ref=f106e312] [cursor=pointer]
+    - generic [ref=f106e315]: Sponsored Link
+    - insertion [ref=f106e317]

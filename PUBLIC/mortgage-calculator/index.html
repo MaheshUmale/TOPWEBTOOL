@@ -1,10 +1,11 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <meta charset="UTF-8">   <meta name="google-adsense-account" content="ca-pub-3901061173891576">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <title>Free UK/US Mortgage Calculator with PMI and Property Tax Sliders | TopWebTool</title>
   <meta name="description" content="Free online Mortgage Calculator with dynamic PMI, home insurance, annual amortization schedule charts, and extra payment trackers. 100% Free, No Sign-Up, No Registration Required.">
   <link rel="canonical" href="https://topwebtool.com/mortgage-calculator/">
@@ -54,6 +55,7 @@
   }
 }
   </script>
+  <link rel="stylesheet" href="../styles.css">
 </head>
 <body class="bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 min-h-screen flex flex-col">
 
@@ -83,11 +85,11 @@
         </div>
 
         <!-- Calculator UI Card -->
-        <form id="form-mortgage-calculator" form-id="form-mortgage-calculator" tool-name="Mortgage Calculator" tool-description="Compute monthly house payments, taxes, and PMI with dynamic amortization schedule breakdowns." class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+        <form onsubmit="return false;" id="form-mortgage-calculator" form-id="form-mortgage-calculator" tool-name="Mortgage Calculator" tool-description="Compute monthly house payments, taxes, and PMI with dynamic amortization schedule breakdowns." class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
           <div class="p-6 sm:p-8 bg-gradient-to-r from-brand-900 to-brand-700 text-white">
             <h2 class="text-xl font-bold">Mortgage Configuration & Key Inputs</h2>
             <p class="text-xs text-brand-100 opacity-90 mt-1">Adjust parameters below to see calculations update in real-time.</p>
-          </div>
+
 
           <div class="p-6 sm:p-8 space-y-8">
 
@@ -240,7 +242,7 @@
                 <svg id="extra-toggle-icon" class="w-5 h-5 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path>
                 </svg>
-                <span>ðŸš€ Shave Years Off: Add Extra Payments</span>
+                <span>🚀 Shave Years Off: Add Extra Payments</span>
               </button>
 
               <div id="extra-payments-section" class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-4 hidden">
@@ -291,7 +293,7 @@
             </div>
 
           </div>
-        </div>
+        </form>
 
         <!-- Live Calculation Results Dashboard -->
         <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-stretch">
@@ -444,7 +446,7 @@
         </div>
 
         <!-- Annual Amortization Table Card -->
-        <form id="form-mortgage-calculator" form-id="form-mortgage-calculator" tool-name="Mortgage Calculator" tool-description="Compute monthly house payments, taxes, and PMI with dynamic amortization schedule breakdowns." class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+        <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
           <div class="p-6 sm:p-8 border-b border-slate-200 bg-white flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
             <div>
               <h2 class="text-lg font-bold text-slate-900">Annual Amortization Schedule</h2>
@@ -1161,14 +1163,14 @@
 
       const summaryText = `TopWebTool Mortgage Calculation Summary:\n` +
                           `-------------------------------------------\n` +
-                          `ðŸ¡ Home Price: $${Number(hp).toLocaleString()}\n` +
-                          `ðŸ’° Down Payment: $${Number(dp).toLocaleString()}\n` +
-                          `ðŸ“ˆ Interest Rate: ${rate}%\n` +
-                          `ðŸ“… Term: ${term} Years\n` +
+                          `🏡 Home Price: $${Number(hp).toLocaleString()}\n` +
+                          `💰 Down Payment: $${Number(dp).toLocaleString()}\n` +
+                          `📈 Interest Rate: ${rate}%\n` +
+                          `📅 Term: ${term} Years\n` +
                           `-------------------------------------------\n` +
-                          `ðŸ’µ Estimated Monthly Total: ${monthlyTotal}\n` +
-                          `ðŸš€ Interest Saved with Extras: ${interestSaved}\n` +
-                          `â±ï¸ Term Reduction: ${yearsSaved}\n` +
+                          `💵 Estimated Monthly Total: ${monthlyTotal}\n` +
+                          `🚀 Interest Saved with Extras: ${interestSaved}\n` +
+                          `⏱️ Term Reduction: ${yearsSaved}\n` +
                           `Calculate yours free at: ${window.location.href}`;
 
       navigator.clipboard.writeText(summaryText).then(() => {

@@ -1,10 +1,11 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <meta charset="UTF-8">   <meta name="google-adsense-account" content="ca-pub-3901061173891576">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <title>Free Hourly to Salary Converter | Gross & Net Wage Projections | TopWebTool</title>
   <meta name="description" content="Convert hourly pay rates instantly to annual salary projections with US & EU standard baseline tax baselines. Offline-secure tool. 100% Free, No Sign-Up, No Registration.">
   <link rel="canonical" href="https://topwebtool.com/hourly-to-salary-converter/">
@@ -30,6 +31,7 @@
   }
 }
   </script>
+  <link rel="stylesheet" href="../styles.css">
 </head>
 <body class="bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 min-h-screen flex flex-col">
 
@@ -53,12 +55,12 @@
         </div>
 
         <!-- Calculator UI -->
-        <form id="form-hourly-to-salary-converter" form-id="form-hourly-to-salary-converter" tool-name="Hourly to Salary Converter" tool-description="Convert hourly wages to annual gross and net income based on standard US/EU tax baselines." class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-8 space-y-6">
+        <form onsubmit="return false;" id="form-hourly-to-salary-converter" form-id="form-hourly-to-salary-converter" tool-name="Hourly to Salary Converter" tool-description="Convert hourly wages to annual gross and net income based on standard US/EU tax baselines." class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-8 space-y-6">
           <h2 class="text-lg font-bold text-slate-900 border-b border-slate-100 pb-3">Wage Parameters</h2>
 
           <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div>
-              <label for="input-hourly-pay" class="block text-sm font-semibold text-slate-700 mb-2">Hourly Rate ($/â‚¬)</label>
+              <label for="input-hourly-pay" class="block text-sm font-semibold text-slate-700 mb-2">Hourly Rate ($/€)</label>
               <input type="number" id="input-hourly-pay" required class="block w-full px-3 py-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-950 font-semibold text-sm" value="35" oninput="convertWage()">
             </div>
             <div>
@@ -69,7 +71,7 @@
               <label for="input-unpaid-weeks" class="block text-sm font-semibold text-slate-700 mb-2">Unpaid Weeks Off / Year</label>
               <input type="number" id="input-unpaid-weeks" required class="block w-full px-3 py-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-950 font-semibold text-sm" value="2" oninput="convertWage()">
             </div>
-          </div>
+
 
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
@@ -88,7 +90,7 @@
               </select>
             </div>
           </div>
-        </div>
+        </form>
 
         <!-- Output Cards -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -263,7 +265,7 @@
       const netWeekly = netYearly / workingWeeks;
       const netDaily = netWeekly / 5;
 
-      const prefix = taxRegion === 'EU' ? 'â‚¬' : '$';
+      const prefix = taxRegion === 'EU' ? '€' : '$';
 
       document.getElementById('out-gross-salary').textContent = `${prefix}${grossYearly.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
       document.getElementById('out-monthly-gross').textContent = `${prefix}${grossMonthly.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;

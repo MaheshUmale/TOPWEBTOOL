@@ -5,6 +5,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <meta charset="UTF-8">   <meta name="google-adsense-account" content="ca-pub-3901061173891576">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <title>Free Online Fortune Wheel | Custom Choice & Alternate Yes/No Spinner | TopWebTool</title>
   <meta name="description" content="Spin the decision wheel. Input custom names, choice lists, or alternative Yes/No questions to resolve debates dynamically. 100% Free, No Sign-Up Required.">
   <link rel="canonical" href="https://topwebtool.com/fortune-wheel/">
@@ -30,6 +31,7 @@
   }
 }
   </script>
+  <link rel="stylesheet" href="../styles.css">
 </head>
 <body class="bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 min-h-screen flex flex-col">
 
@@ -52,7 +54,7 @@
         </div>
 
         <!-- Calculator / Wheel UI -->
-        <form id="form-fortune-wheel" form-id="form-fortune-wheel" tool-name="Fortune Wheel" tool-description="Interactive customized canvas fortune-wheel spinner to make fast decisions." class="grid grid-cols-1 md:grid-cols-12 gap-4">
+        <form onsubmit="return false;" id="form-fortune-wheel" form-id="form-fortune-wheel" tool-name="Fortune Wheel" tool-description="Interactive customized canvas fortune-wheel spinner to make fast decisions." class="grid grid-cols-1 md:grid-cols-12 gap-4">
 
           <!-- Left: Config inputs (5 Cols) -->
           <div class="md:col-span-5 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-4 space-y-4 shadow-sm">
@@ -109,7 +111,7 @@ Spin Again</textarea>
 
           </div>
 
-        </form>
+
 
         <!-- Copy/Amusement Block -->
         <div class="bg-white dark:bg-slate-900 p-4 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm flex justify-between items-center">
@@ -120,7 +122,7 @@ Spin Again</textarea>
 <button onclick="copyResult()" id="btn-copy" class="px-4 py-2 bg-brand-600 text-white hover:bg-brand-700 transition-colors font-bold text-xs rounded-lg shadow-sm">
               <span>Copy Spinner Result</span>
             </button>
-        </div>
+        </form>
 
 
         <!-- Informative Articles & Guides Section -->

@@ -226,7 +226,7 @@ window.toggleMobileNavCategory = function(categoryName, btn) {
     const tools = UTILITIES_REGISTRY.filter(t => t.category === categoryName);
 
     // Determine relative paths prefix
-    const isHomepage = window.location.pathname === '/' || window.location.pathname.endsWith('/index.html') || window.location.pathname === '';
+    const isHomepage = window.location.pathname === '/' || window.location.pathname === '/index.html' || window.location.pathname === '';
     const prefix = isHomepage ? './' : '../';
 
     itemsContainer.innerHTML = tools.map(tool => `
@@ -263,7 +263,7 @@ function renderHeader() {
   headerContainer.className = "bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 sticky top-0 z-40 shadow-sm";
 
   // Determine relative paths dynamic prefix
-  const isHomepage = window.location.pathname === '/' || window.location.pathname.endsWith('/index.html') || window.location.pathname === '';
+  const isHomepage = window.location.pathname === '/' || window.location.pathname === '/index.html' || window.location.pathname === '';
   const prefix = isHomepage ? './' : '../';
 
   // Group utilities by category
@@ -382,7 +382,7 @@ function renderSidebarScroller() {
   sidebarContainer.className = "bg-white dark:bg-slate-900 p-4 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col max-h-[700px] w-full";
 
   // Determine prefix for relative navigation
-  const isHomepage = window.location.pathname === '/' || window.location.pathname.endsWith('/index.html') || window.location.pathname === '';
+  const isHomepage = window.location.pathname === '/' || window.location.pathname === '/index.html' || window.location.pathname === '';
   const prefix = isHomepage ? './' : '../';
 
   // Build items HTML
@@ -488,7 +488,7 @@ function renderAdPlacements() {
   const main = document.querySelector('main');
   if (!main) return;
 
-  const isHomepage = window.location.pathname === '/' || window.location.pathname.endsWith('/index.html') || window.location.pathname === '';
+  const isHomepage = window.location.pathname === '/' || window.location.pathname === '/index.html' || window.location.pathname === '';
 
   // 1. AD A: TOP LEADERBOARD BANNER (Horizontal Ads) - Height Restricted for Frictionless UX
   const adA = document.createElement('div');

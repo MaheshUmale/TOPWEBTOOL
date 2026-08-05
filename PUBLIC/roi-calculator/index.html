@@ -1,10 +1,11 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <meta charset="UTF-8">   <meta name="google-adsense-account" content="ca-pub-3901061173891576">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <title>Free ROI & ROAS Campaign Calculator | Digital Marketing Ad Spend Calculator | TopWebTool</title>
   <meta name="description" content="Calculate digital campaign Return on Investment (ROI) and Return on Ad Spend (ROAS) based on spend, clicks, conversions, and order values. 100% Free, No Login.">
   <link rel="canonical" href="https://topwebtool.com/roi-calculator/">
@@ -30,6 +31,7 @@
   }
 }
   </script>
+  <link rel="stylesheet" href="../styles.css">
 </head>
 <body class="bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 min-h-screen flex flex-col">
 
@@ -53,7 +55,7 @@
         </div>
 
         <!-- Calculator UI -->
-        <form id="form-roi-calculator" form-id="form-roi-calculator" tool-name="ROI Calculator" tool-description="Calculate campaign Return on Investment and Return on Ad Spend dynamically." class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-8 space-y-6">
+        <form onsubmit="return false;" id="form-roi-calculator" form-id="form-roi-calculator" tool-name="ROI Calculator" tool-description="Calculate campaign Return on Investment and Return on Ad Spend dynamically." class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-8 space-y-6">
           <h2 class="text-lg font-bold text-slate-900 border-b border-slate-100 pb-3">Campaign metrics</h2>
 
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -65,7 +67,7 @@
               <label for="input-revenue" class="block text-sm font-semibold text-slate-700 mb-2">Total Revenue Generated ($)</label>
               <input type="number" id="input-revenue" required class="block w-full px-3 py-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-950 font-semibold text-sm" value="18000" oninput="calculateROI()">
             </div>
-          </div>
+
 
           <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div>
@@ -81,7 +83,7 @@
               <input type="number" id="input-product-cost" required class="block w-full px-3 py-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-950 font-semibold text-sm" value="4000" oninput="calculateROI()">
             </div>
           </div>
-        </div>
+        </form>
 
         <!-- Output Cards -->
         <div class="grid grid-cols-1 md:grid-cols-4 gap-6">

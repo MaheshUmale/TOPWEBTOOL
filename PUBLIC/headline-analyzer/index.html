@@ -1,10 +1,11 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <meta charset="UTF-8">   <meta name="google-adsense-account" content="ca-pub-3901061173891576">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <title>Free Copy Headline Analyzer | Readability, Emotional Weight, & CTR Score | TopWebTool</title>
   <meta name="description" content="Analyze copywriting headlines for sentiment, length, emotional words, and readability metrics to boost search and ad CTR. 100% Free, No Sign-Up.">
   <link rel="canonical" href="https://topwebtool.com/headline-analyzer/">
@@ -30,6 +31,7 @@
   }
 }
   </script>
+  <link rel="stylesheet" href="../styles.css">
 </head>
 <body class="bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 min-h-screen flex flex-col">
 
@@ -53,7 +55,7 @@
         </div>
 
         <!-- Calculator UI -->
-        <form id="form-headline-analyzer" form-id="form-headline-analyzer" tool-name="Headline Analyzer" tool-description="Score headlines based on emotional word weight, readability, and character length." class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-8 space-y-6">
+        <form onsubmit="return false;" id="form-headline-analyzer" form-id="form-headline-analyzer" tool-name="Headline Analyzer" tool-description="Score headlines based on emotional word weight, readability, and character length." class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-8 space-y-6">
           <h2 class="text-lg font-bold text-slate-900 border-b border-slate-100 pb-3">Input Copy Headline</h2>
 
           <div class="space-y-4">
@@ -61,8 +63,8 @@
               <label for="input-headline" class="block text-sm font-semibold text-slate-700 mb-2">Your Proposed Headline</label>
               <input type="text" id="input-headline" class="block w-full px-3 py-3.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-950 font-bold text-base sm:text-lg shadow-sm" value="10 Revolutionary Ways To Triple Your Digital Marketing Conversion Rates Today!" oninput="analyzeHeadline()">
             </div>
-          </div>
-        </div>
+
+        </form>
 
         <!-- Output Cards -->
         <div class="grid grid-cols-1 md:grid-cols-4 gap-6">

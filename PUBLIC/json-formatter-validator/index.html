@@ -1,10 +1,11 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <meta charset="UTF-8">   <meta name="google-adsense-account" content="ca-pub-3901061173891576">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <title>Free Secure JSON Formatter & Validator | Beautify & Parse JSON Errors | TopWebTool</title>
   <meta name="description" content="Beautify, compress, format, and validate raw JSON code arrays offline. 100% secure client-side parsing. No data leaves your machine. 100% Free, No Sign-Up.">
   <link rel="canonical" href="https://topwebtool.com/json-formatter-validator/">
@@ -30,6 +31,7 @@
   }
 }
   </script>
+  <link rel="stylesheet" href="../styles.css">
 </head>
 <body class="bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 min-h-screen flex flex-col">
 
@@ -53,7 +55,7 @@
         </div>
 
         <!-- Calculator UI -->
-        <form id="form-json-formatter-validator" form-id="form-json-formatter-validator" tool-name="JSON Formatter & Validator" tool-description="Beautify, compress, validate, and parse raw JSON strings securely offline." class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-8 space-y-6">
+        <form onsubmit="return false;" id="form-json-formatter-validator" form-id="form-json-formatter-validator" tool-name="JSON Formatter & Validator" tool-description="Beautify, compress, validate, and parse raw JSON strings securely offline." class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-8 space-y-6">
           <h2 class="text-lg font-bold text-slate-900 border-b border-slate-100 pb-3">Raw JSON Input</h2>
 
           <div class="space-y-4">
@@ -63,8 +65,8 @@
               <button onclick="beautifyJSON()" class="px-4 py-2 bg-brand-600 text-white hover:bg-brand-700 transition-colors font-bold text-xs rounded-lg">Beautify (Format)</button>
               <button onclick="minifyJSON()" class="px-4 py-2 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors font-semibold text-xs rounded-lg">Minify (Compress)</button>
             </div>
-          </div>
-        </div>
+
+        </form>
 
         <!-- Output Cards -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">

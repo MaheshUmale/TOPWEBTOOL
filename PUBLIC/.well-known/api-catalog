@@ -1,16 +1,14 @@
-# TopWebTool — Public Index (llms.txt)
+# TopWebTool API Catalog
 
-## Site Overview
+TopWebTool is a 100% client-side web utility directory. Every tool below is
+invokable by an AI agent two ways:
 
-TopWebTool is a 100% client-side web utility directory offering 23 free online tools across Finance, Marketing, AI, and Developer categories. All tools run entirely in the browser with no server-side processing.
+1. **WebMCP** — in a browser agent runtime, register the tool's `<form>` inputs
+   and trigger its existing button handler. No server round-trip required.
+2. **HTML form** — each tool page exposes a semantic `<form id="form-<tool>">`
+   with `tool-name` and `tool-description` attributes.
 
-## Public Assets
-
-- [Homepage](/index.html) — Main tool directory with search and category grid
-- [Global Script](/global.js) — Shared JS for themes, header, footer, sidebar, and ad placements
-- [Stylesheet](/styles.css) — Global CSS with dark/light mode support
-
-## Sub-Tool Directories
+## Tools
 
 - [Free AI Text Humanizer Helper](/ai-text-humanizer-helper/index.html)
 - [Free Secure Base64 Encoder & Decoder](/base64-encoder-decoder/index.html)
@@ -36,6 +34,7 @@ TopWebTool is a 100% client-side web utility directory offering 23 free online t
 - [Free Word & Character Copy Counter](/word-character-counter/index.html)
 - [Free Word Unscrambler](/word-unscrambler/index.html)
 
-## WebMCP Support
+## Discovery
 
-All client-side tools on TopWebTool support native browser invocation via WebMCP. AI browsing agents can interact with any tool by registering the tool's form inputs and triggering the existing button click handlers programmatically.
+- Machine-readable index: `/llms.txt`
+- Agent header: `Link: </.well-known/api-catalog>; rel="api-catalog", </llms.txt>; rel="llms.txt"`

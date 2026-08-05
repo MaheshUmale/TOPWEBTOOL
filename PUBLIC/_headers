@@ -1,4 +1,6 @@
-/*
+/*.html
   Link: </.well-known/api-catalog>; rel="api-catalog", </llms.txt>; rel="llms.txt"
   Vary: Accept
-*/
+
+/.well-known/api-catalog
+  Content-Type: text/markdown; charset=utf-8

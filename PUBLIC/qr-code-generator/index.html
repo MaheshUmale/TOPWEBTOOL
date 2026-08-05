@@ -1,10 +1,11 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <meta charset="UTF-8">   <meta name="google-adsense-account" content="ca-pub-3901061173891576">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <title>Free Client-Side QR Code Generator | Downloadable Vector SVG/PNG Codes | TopWebTool</title>
   <meta name="description" content="Generate high-precision downloadable custom QR codes client-side in SVG format instantly. Secure, offline-friendly. 100% Free, No Registration Required.">
   <link rel="canonical" href="https://topwebtool.com/qr-code-generator/">
@@ -29,6 +30,7 @@
   }
 }
   </script>
+  <link rel="stylesheet" href="../styles.css">
 </head>
 <body class="bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 min-h-screen flex flex-col">
 
@@ -52,7 +54,7 @@
         </div>
 
         <!-- Calculator UI -->
-        <form tool-name="qr-code-generator" tool-description="Generate customizable QR codes with adjustable colors and error correction levels" class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-8 space-y-6">
+        <form onsubmit="return false;" tool-name="qr-code-generator" tool-description="Generate customizable QR codes with adjustable colors and error correction levels" class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-8 space-y-6">
           <h2 class="text-lg font-bold text-slate-900 border-b border-slate-100 pb-3">QR Parameters</h2>
 
           <div class="space-y-4">
@@ -72,7 +74,7 @@
               </div>
             </div>
           </div>
-        </form>
+
 
         <!-- QR Display Outputs Card -->
         <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col items-center space-y-4">
@@ -85,7 +87,7 @@
               Download PNG
             </button>
           </div>
-        </div>
+        </form>
 
 
         <!-- Informative Articles & Guides Section -->

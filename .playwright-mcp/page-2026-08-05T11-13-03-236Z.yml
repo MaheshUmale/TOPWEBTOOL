@@ -1,0 +1,644 @@
+- generic [active] [ref=f45e1]:
+  - banner [ref=f45e2]:
+    - navigation "Main navigation" [ref=f45e3]:
+      - generic [ref=f45e4]:
+        - generic [ref=f45e5]:
+          - link [ref=f45e6] [cursor=pointer]:
+            - /url: ../
+            - img "TopWebTool Logo" [ref=f45e7]
+            - text: TopWebTool
+          - navigation [ref=f45e8]:
+            - generic [ref=f45e9]:
+              - button "Finance" [ref=f45e10]
+              - generic [ref=f45e13]:
+                - link "🏡 Mortgage Calculator" [ref=f45e14] [cursor=pointer]:
+                  - /url: ../mortgage-calculator
+                - link "🚗 Car Lease Estimator" [ref=f45e15] [cursor=pointer]:
+                  - /url: ../car-lease-estimator
+                - link "📈 Inflation Calculator" [ref=f45e16] [cursor=pointer]:
+                  - /url: ../inflation-calculator
+                - link "🪙 Crypto Tax Estimator" [ref=f45e17] [cursor=pointer]:
+                  - /url: ../crypto-tax-estimator
+                - link "💼 Hourly to Salary Converter" [ref=f45e18] [cursor=pointer]:
+                  - /url: ../hourly-to-salary-converter
+                - link "📊 Dividend Reinvestment (DRIP)" [ref=f45e19] [cursor=pointer]:
+                  - /url: ../dividend-reinvestment-calculator
+                - link "💳 Credit Card Payoff Planner" [ref=f45e20] [cursor=pointer]:
+                  - /url: ../credit-card-payoff-planner
+            - generic [ref=f45e21]:
+              - button "Digital Marketing" [ref=f45e22]
+              - generic [ref=f45e25]:
+                - link "🔗 UTM Campaign Link Builder" [ref=f45e26] [cursor=pointer]:
+                  - /url: ../utm-generator
+                - link "💰 ROI & ROAS Calculator" [ref=f45e27] [cursor=pointer]:
+                  - /url: ../roi-calculator
+                - link "📢 CPM Campaign Ad Calculator" [ref=f45e28] [cursor=pointer]:
+                  - /url: ../cpm-calculator
+                - link "✍️ Copy Headline Analyzer" [ref=f45e29] [cursor=pointer]:
+                  - /url: ../headline-analyzer
+                - link "📱 Secure QR Code Generator" [ref=f45e30] [cursor=pointer]:
+                  - /url: ../qr-code-generator
+                - link "🖼️ Social Image Resizer" [ref=f45e31] [cursor=pointer]:
+                  - /url: ../social-media-image-resizer
+            - generic [ref=f45e32]:
+              - button "AI Prompt Engineering" [ref=f45e33]
+              - generic [ref=f45e36]:
+                - link "🤖 ChatGPT Prompt Optimizer" [ref=f45e37] [cursor=pointer]:
+                  - /url: ../chatgpt-prompt-optimizer
+                - link "🎨 Midjourney Prompt Builder" [ref=f45e38] [cursor=pointer]:
+                  - /url: ../midjourney-command-builder
+                - link "🧠 AI Text Humanizer Helper" [ref=f45e39] [cursor=pointer]:
+                  - /url: ../ai-text-humanizer-helper
+            - generic [ref=f45e40]:
+              - button "Developer Utilities" [ref=f45e41]
+              - generic [ref=f45e44]:
+                - link "⚙️ JSON Formatter & Validator" [ref=f45e45] [cursor=pointer]:
+                  - /url: ../json-formatter-validator
+                - link "🔑 Secure Password Generator" [ref=f45e46] [cursor=pointer]:
+                  - /url: ../password-generator
+                - link "📝 Lorem Ipsum Generator" [ref=f45e47] [cursor=pointer]:
+                  - /url: ../lorem-ipsum-generator
+                - link "🔣 Base64 Encoder & Decoder" [ref=f45e48] [cursor=pointer]:
+                  - /url: ../base64-encoder-decoder
+                - link "🔢 Word & Character Counter" [ref=f45e49] [cursor=pointer]:
+                  - /url: ../word-character-counter
+            - generic [ref=f45e50]:
+              - button "Everyday" [ref=f45e51]
+              - generic [ref=f45e54]:
+                - link "☸️ Fortune Wheel" [ref=f45e55] [cursor=pointer]:
+                  - /url: ../fortune-wheel
+                - link "🔡 Word Unscrambler Solver" [ref=f45e56] [cursor=pointer]:
+                  - /url: ../word-unscrambler
+          - generic [ref=f45e57]:
+            - button "Toggle Light/Dark Theme" [ref=f45e58]
+            - text: 100% Free & No Sign-up
+        - generic [ref=f45e63]:
+          - button "Finance" [ref=f45e64]
+          - button "Digital Marketing" [ref=f45e67]
+          - button "AI Prompt Engineering" [ref=f45e70]
+          - button "Developer Utilities" [ref=f45e73]
+          - button "Everyday" [ref=f45e76]
+  - main [ref=f45e79]:
+    - generic [ref=f45e80]:
+      - text: Advertisement
+      - insertion [ref=f45e82]:
+        - iframe [ref=f45e84]:
+          
+    - generic [ref=f45e86]:
+      - generic [ref=f45e87]:
+        - heading "Advanced Mortgage Calculator" [level=1] [ref=f45e88]
+        - paragraph [ref=f45e89]: Estimate your true monthly house payments instantly. Account for taxes, insurance, dynamic HOA fees, and automatic high-precision PMI updates. See how extra principal payments can slash your term and save tens of thousands in interest.
+        - generic [ref=f45e90]:
+          - button "US Median Preset ($300k)" [ref=f45e91]
+          - button "Premium Metro Preset ($500k)" [ref=f45e92]
+          - button "Luxury Suburb Preset ($800k)" [ref=f45e93]
+      - generic [ref=f45e95]:
+        - heading "Mortgage Configuration & Key Inputs" [level=2] [ref=f45e96]
+        - paragraph [ref=f45e97]: Adjust parameters below to see calculations update in real-time.
+        - generic [ref=f45e98]:
+          - generic [ref=f45e99]:
+            - generic [ref=f45e100]:
+              - generic [ref=f45e101]: Home Price ($) Invalid amount
+              - generic [ref=f45e102]:
+                - generic [ref=f45e103]: $
+                - spinbutton "Home Price ($)" [ref=f45e104]: "400000"
+              - slider [ref=f45e105]: "400000"
+            - generic [ref=f45e106]:
+              - generic [ref=f45e107]: Down Payment Must be < Home Price
+              - generic [ref=f45e108]:
+                - generic [ref=f45e109]:
+                  - generic [ref=f45e110]: $
+                  - spinbutton "Down Payment" [ref=f45e111]: "80000"
+                - generic [ref=f45e112]:
+                  - spinbutton [ref=f45e113]: "20"
+                  - generic [ref=f45e114]: "%"
+              - slider [ref=f45e115]: "80000"
+          - generic [ref=f45e116]:
+            - generic [ref=f45e117]:
+              - generic [ref=f45e118]: Annual Interest Rate (%) Must be > 0
+              - generic [ref=f45e119]:
+                - spinbutton "Annual Interest Rate (%)" [ref=f45e120]: "6.5"
+                - generic [ref=f45e121]: "%"
+              - slider [ref=f45e122]: "6.5"
+            - generic [ref=f45e123]:
+              - text: Loan Term (Years)
+              - combobox "Loan Term (Years)" [ref=f45e125]:
+                - option "30 Years Fixed" [selected]
+                - option "20 Years Fixed"
+                - option "15 Years Fixed"
+                - option "10 Years Fixed"
+            - generic [ref=f45e126]:
+              - generic [ref=f45e127]: HOA Fees ($/month) Invalid fee
+              - generic [ref=f45e128]:
+                - generic [ref=f45e129]: $
+                - spinbutton "HOA Fees ($/month)" [ref=f45e130]: "150"
+          - generic [ref=f45e131]:
+            - button "Taxes, Home Insurance & PMI Options" [ref=f45e132]
+            - generic [ref=f45e135]:
+              - generic [ref=f45e136]:
+                - text: Annual Property Tax Rate (%)
+                - generic [ref=f45e137]:
+                  - spinbutton "Annual Property Tax Rate (%)" [ref=f45e138]: "1.2"
+                  - generic [ref=f45e139]: "%"
+                - paragraph [ref=f45e140]: "Estimated: $4,800/yr"
+              - generic [ref=f45e141]:
+                - text: Annual Home Insurance ($)
+                - generic [ref=f45e142]:
+                  - generic [ref=f45e143]: $
+                  - spinbutton "Annual Home Insurance ($)" [ref=f45e144]: "1200"
+                - paragraph [ref=f45e145]: Average US rate is approx. $1,200/yr
+              - generic [ref=f45e146]:
+                - generic [ref=f45e147]: Annual PMI Rate (%) PMI Avoided (20% Down)
+                - generic [ref=f45e148]:
+                  - spinbutton "Annual PMI Rate (%)" [ref=f45e149]: "0.75"
+                  - generic [ref=f45e150]: "%"
+                - paragraph [ref=f45e151]: "Estimated: $0/yr"
+          - generic [ref=f45e152]:
+            - 'button "🚀 Shave Years Off: Add Extra Payments" [ref=f45e153]'
+            - generic [ref=f45e156]:
+              - generic [ref=f45e157]:
+                - text: Extra Monthly Payment ($)
+                - generic [ref=f45e158]:
+                  - generic [ref=f45e159]: $
+                  - spinbutton "Extra Monthly Payment ($)" [ref=f45e160]: "200"
+                - paragraph [ref=f45e161]: Paid on top of monthly payment
+              - generic [ref=f45e162]:
+                - text: Extra Annual Payment ($)
+                - generic [ref=f45e163]:
+                  - generic [ref=f45e164]: $
+                  - spinbutton "Extra Annual Payment ($)" [ref=f45e165]: "0"
+                - paragraph [ref=f45e166]: Paid once a year, every year
+              - generic [ref=f45e167]:
+                - generic [ref=f45e168]: "One-Time Payment ($) At Month #"
+                - generic [ref=f45e169]:
+                  - generic [ref=f45e170]:
+                    - generic [ref=f45e171]: $
+                    - spinbutton "One-Time Payment ($)" [ref=f45e172]: "0"
+                  - spinbutton [ref=f45e173]: "12"
+                - paragraph [ref=f45e174]: Single payout on specified month
+        - generic [ref=f45e175]:
+          - generic [ref=f45e176]:
+            - generic [ref=f45e177]:
+              - text: Estimated Monthly Payment $2,673
+              - generic [ref=f45e178]:
+                - generic [ref=f45e179]: "Principal & Interest: $2,023"
+                - generic [ref=f45e180]: "Taxes & Insurance: $500"
+                - generic [ref=f45e181]: "HOA Fees: $150"
+            - generic [ref=f45e182]:
+              - generic [ref=f45e183]: Extra Payment Impact
+              - generic [ref=f45e186]:
+                - generic [ref=f45e187]: "Interest Saved: $105,429"
+                - generic [ref=f45e188]: "Years Shaved Off: 6.6 Years"
+          - generic [ref=f45e189]:
+            - generic [ref=f45e190]: Monthly $2,673
+            - generic [ref=f45e199]:
+              - heading "Payment Breakdown" [level=3] [ref=f45e200]
+              - generic [ref=f45e201]:
+                - generic [ref=f45e202]:
+                  - generic [ref=f45e203]: Principal & Interest
+                  - text: $2,023 (76%)
+                - generic [ref=f45e204]:
+                  - generic [ref=f45e205]: Property Taxes
+                  - text: $400 (15%)
+                - generic [ref=f45e206]:
+                  - generic [ref=f45e207]: Home Insurance
+                  - text: $100 (4%)
+                - generic [ref=f45e208]:
+                  - generic [ref=f45e209]: PMI
+                  - text: $0 (0%)
+                - generic [ref=f45e210]:
+                  - generic [ref=f45e211]: HOA Fees
+                  - text: $150 (6%)
+        - generic [ref=f45e212]:
+          - generic [ref=f45e213]:
+            - generic [ref=f45e214]:
+              - heading "True Cost of Ownership Summary" [level=2] [ref=f45e215]
+              - paragraph [ref=f45e216]: Calculated over the life of the mortgage loan.
+            - button "Copy Shareable Summary" [ref=f45e217]
+          - generic [ref=f45e220]:
+            - generic [ref=f45e221]: Total Loan Amount $320,000
+            - generic [ref=f45e222]: Total Interest Paid $302,714
+            - generic [ref=f45e223]: Total Payments (P&I) $622,714
+            - generic [ref=f45e224]: Expected Payoff Date Year 24
+        - generic [ref=f45e225]:
+          - generic [ref=f45e226]:
+            - generic [ref=f45e227]:
+              - heading "Annual Amortization Schedule" [level=2] [ref=f45e228]
+              - paragraph [ref=f45e229]: Year-by-year projections with interest vs principal payouts and extra impact.
+            - generic [ref=f45e230]:
+              - text: Toggle Payments Chart
+              - button "Toggle visual chart" [ref=f45e231]
+          - generic [ref=f45e232]:
+            - heading "Mortgage Balance Projection Over Time" [level=3] [ref=f45e233]
+            - generic [ref=f45e236]:
+              - generic [ref=f45e237]: Principal Balance
+              - generic [ref=f45e238]: Cumulative Extra Payments
+          - table [ref=f45e240]:
+            - rowgroup [ref=f45e241]:
+              - row [ref=f45e242]:
+                - columnheader "Year" [ref=f45e243]
+                - columnheader "Start Balance" [ref=f45e244]
+                - columnheader "Interest Paid" [ref=f45e245]
+                - columnheader "Principal Paid" [ref=f45e246]
+                - columnheader "Extra Principal" [ref=f45e247]
+                - columnheader "Ending Balance" [ref=f45e248]
+            - rowgroup [ref=f45e249]:
+              - row [ref=f45e250]:
+                - cell "Year 1" [ref=f45e251]
+                - cell "$314,989" [ref=f45e252]
+                - cell "$20,622" [ref=f45e253]
+                - cell "$3,650" [ref=f45e254]
+                - cell "$2,400" [ref=f45e255]
+                - cell "$313,950" [ref=f45e256]
+              - row [ref=f45e257]:
+                - cell "Year 2" [ref=f45e258]
+                - cell "$308,604" [ref=f45e259]
+                - cell "$20,217" [ref=f45e260]
+                - cell "$4,055" [ref=f45e261]
+                - cell "$2,400" [ref=f45e262]
+                - cell "$307,496" [ref=f45e263]
+              - row [ref=f45e264]:
+                - cell "Year 3" [ref=f45e265]
+                - cell "$301,791" [ref=f45e266]
+                - cell "$19,784" [ref=f45e267]
+                - cell "$4,487" [ref=f45e268]
+                - cell "$2,400" [ref=f45e269]
+                - cell "$300,609" [ref=f45e270]
+              - row [ref=f45e271]:
+                - cell "Year 4" [ref=f45e272]
+                - cell "$294,522" [ref=f45e273]
+                - cell "$19,323" [ref=f45e274]
+                - cell "$4,948" [ref=f45e275]
+                - cell "$2,400" [ref=f45e276]
+                - cell "$293,261" [ref=f45e277]
+              - row [ref=f45e278]:
+                - cell "Year 5" [ref=f45e279]
+                - cell "$286,766" [ref=f45e280]
+                - cell "$18,831" [ref=f45e281]
+                - cell "$5,440" [ref=f45e282]
+                - cell "$2,400" [ref=f45e283]
+                - cell "$285,420" [ref=f45e284]
+              - row [ref=f45e285]:
+                - cell "Year 6" [ref=f45e286]
+                - cell "$278,491" [ref=f45e287]
+                - cell "$18,306" [ref=f45e288]
+                - cell "$5,965" [ref=f45e289]
+                - cell "$2,400" [ref=f45e290]
+                - cell "$277,055" [ref=f45e291]
+              - row [ref=f45e292]:
+                - cell "Year 7" [ref=f45e293]
+                - cell "$269,662" [ref=f45e294]
+                - cell "$17,746" [ref=f45e295]
+                - cell "$6,526" [ref=f45e296]
+                - cell "$2,400" [ref=f45e297]
+                - cell "$268,129" [ref=f45e298]
+              - row [ref=f45e299]:
+                - cell "Year 8" [ref=f45e300]
+                - cell "$260,241" [ref=f45e301]
+                - cell "$17,148" [ref=f45e302]
+                - cell "$7,123" [ref=f45e303]
+                - cell "$2,400" [ref=f45e304]
+                - cell "$258,606" [ref=f45e305]
+              - row [ref=f45e306]:
+                - cell "Year 9" [ref=f45e307]
+                - cell "$250,189" [ref=f45e308]
+                - cell "$16,510" [ref=f45e309]
+                - cell "$7,761" [ref=f45e310]
+                - cell "$2,400" [ref=f45e311]
+                - cell "$248,445" [ref=f45e312]
+              - row [ref=f45e313]:
+                - cell "Year 10" [ref=f45e314]
+                - cell "$239,464" [ref=f45e315]
+                - cell "$15,830" [ref=f45e316]
+                - cell "$8,442" [ref=f45e317]
+                - cell "$2,400" [ref=f45e318]
+                - cell "$237,603" [ref=f45e319]
+              - row [ref=f45e320]:
+                - cell "Year 11" [ref=f45e321]
+                - cell "$228,021" [ref=f45e322]
+                - cell "$15,104" [ref=f45e323]
+                - cell "$9,168" [ref=f45e324]
+                - cell "$2,400" [ref=f45e325]
+                - cell "$226,035" [ref=f45e326]
+              - row [ref=f45e327]:
+                - cell "Year 12" [ref=f45e328]
+                - cell "$215,811" [ref=f45e329]
+                - cell "$14,329" [ref=f45e330]
+                - cell "$9,943" [ref=f45e331]
+                - cell "$2,400" [ref=f45e332]
+                - cell "$213,693" [ref=f45e333]
+              - row [ref=f45e334]:
+                - cell "Year 13" [ref=f45e335]
+                - cell "$202,784" [ref=f45e336]
+                - cell "$13,502" [ref=f45e337]
+                - cell "$10,769" [ref=f45e338]
+                - cell "$2,400" [ref=f45e339]
+                - cell "$200,524" [ref=f45e340]
+              - row [ref=f45e341]:
+                - cell "Year 14" [ref=f45e342]
+                - cell "$188,884" [ref=f45e343]
+                - cell "$12,620" [ref=f45e344]
+                - cell "$11,651" [ref=f45e345]
+                - cell "$2,400" [ref=f45e346]
+                - cell "$186,472" [ref=f45e347]
+              - row [ref=f45e348]:
+                - cell "Year 15" [ref=f45e349]
+                - cell "$174,054" [ref=f45e350]
+                - cell "$11,679" [ref=f45e351]
+                - cell "$12,592" [ref=f45e352]
+                - cell "$2,400" [ref=f45e353]
+                - cell "$171,480" [ref=f45e354]
+              - row [ref=f45e355]:
+                - cell "Year 16" [ref=f45e356]
+                - cell "$158,230" [ref=f45e357]
+                - cell "$10,675" [ref=f45e358]
+                - cell "$13,596" [ref=f45e359]
+                - cell "$2,400" [ref=f45e360]
+                - cell "$155,484" [ref=f45e361]
+              - row [ref=f45e362]:
+                - cell "Year 17" [ref=f45e363]
+                - cell "$141,347" [ref=f45e364]
+                - cell "$9,604" [ref=f45e365]
+                - cell "$14,667" [ref=f45e366]
+                - cell "$2,400" [ref=f45e367]
+                - cell "$138,417" [ref=f45e368]
+              - row [ref=f45e369]:
+                - cell "Year 18" [ref=f45e370]
+                - cell "$123,332" [ref=f45e371]
+                - cell "$8,461" [ref=f45e372]
+                - cell "$15,811" [ref=f45e373]
+                - cell "$2,400" [ref=f45e374]
+                - cell "$120,206" [ref=f45e375]
+              - row [ref=f45e376]:
+                - cell "Year 19" [ref=f45e377]
+                - cell "$104,112" [ref=f45e378]
+                - cell "$7,241" [ref=f45e379]
+                - cell "$17,030" [ref=f45e380]
+                - cell "$2,400" [ref=f45e381]
+                - cell "$100,776" [ref=f45e382]
+              - row [ref=f45e383]:
+                - cell "Year 20" [ref=f45e384]
+                - cell "$83,604" [ref=f45e385]
+                - cell "$5,940" [ref=f45e386]
+                - cell "$18,331" [ref=f45e387]
+                - cell "$2,400" [ref=f45e388]
+                - cell "$80,045" [ref=f45e389]
+              - row [ref=f45e390]:
+                - cell "Year 21" [ref=f45e391]
+                - cell "$61,722" [ref=f45e392]
+                - cell "$4,552" [ref=f45e393]
+                - cell "$19,720" [ref=f45e394]
+                - cell "$2,400" [ref=f45e395]
+                - cell "$57,925" [ref=f45e396]
+              - row [ref=f45e397]:
+                - cell "Year 22" [ref=f45e398]
+                - cell "$38,375" [ref=f45e399]
+                - cell "$3,070" [ref=f45e400]
+                - cell "$21,201" [ref=f45e401]
+                - cell "$2,400" [ref=f45e402]
+                - cell "$34,324" [ref=f45e403]
+              - row [ref=f45e404]:
+                - cell "Year 23" [ref=f45e405]
+                - cell "$13,465" [ref=f45e406]
+                - cell "$1,490" [ref=f45e407]
+                - cell "$22,782" [ref=f45e408]
+                - cell "$2,400" [ref=f45e409]
+                - cell "$9,142" [ref=f45e410]
+              - row [ref=f45e411]:
+                - cell "Year 24" [ref=f45e412]
+                - cell "$757" [ref=f45e413]
+                - cell "$129" [ref=f45e414]
+                - cell "$8,342" [ref=f45e415]
+                - cell "$800" [ref=f45e416]
+                - cell "$0" [ref=f45e417]
+        - generic [ref=f45e418]:
+          - heading "Understanding the Real Costs of Homeownership" [level=2] [ref=f45e419]
+          - generic [ref=f45e420]:
+            - generic [ref=f45e421]:
+              - heading "What is Principal & Interest (P&I)?" [level=3] [ref=f45e422]
+              - paragraph [ref=f45e423]: Principal is the actual cash balance of your loan that you payback to the bank. Interest is the fee charged by the lender for borrowing the money. At the beginning of your term, the majority of your monthly checkout payments go towards servicing interest. As the balance decreases over time, a larger portion is allocated directly to lowering the principal balance.
+            - generic [ref=f45e424]:
+              - heading "How is Property Tax & Home Insurance Handled?" [level=3] [ref=f45e425]
+              - paragraph [ref=f45e426]: Typically, lenders establish an escrow account. They collect 1/12th of your annual property taxes and homeowners insurance premiums each month, then pay the local municipality and insurer directly when the bills are due.
+            - generic [ref=f45e427]:
+              - heading "What triggers Private Mortgage Insurance (PMI)?" [level=3] [ref=f45e428]
+              - paragraph [ref=f45e429]: If you purchase a home and pay less than a 20% down payment, lenders view the loan as higher risk. To protect themselves, they require you to purchase PMI. This premium is added to your monthly costs, typically costing between 0.5% and 1.5% of the initial loan amount annually. Once your loan-to-value (LTV) ratio hits 80%, you can request to have PMI removed.
+            - generic [ref=f45e430]:
+              - heading "How Do Extra Payments Accelerate Wealth?" [level=3] [ref=f45e431]
+              - paragraph [ref=f45e432]: Any extra payments made directly to the loan's principal balance lower the outstanding debt immediately. This means that in all following months, interest is calculated on a lower amount, speeding up the compounding rate at which you build equity, shaving years off your mortgage and saving vast amounts of cash.
+        - generic [ref=f45e433]:
+          - heading "Informative Guides & Helper Articles" [level=2] [ref=f45e434]
+          - generic [ref=f45e435]:
+            - link [ref=f45e436] [cursor=pointer]:
+              - /url: ./how-to-calculate-mortgage.html
+              - heading "Manual Mortgage Calculation Guide" [level=3] [ref=f45e437]
+              - paragraph [ref=f45e438]: Learn how to calculate mortgage payments manually using standard financial formulas.
+              - text: Read Article →
+            - link [ref=f45e439] [cursor=pointer]:
+              - /url: ./understanding-pmi.html
+              - heading "Understanding Private Mortgage Insurance (PMI)" [level=3] [ref=f45e440]
+              - paragraph [ref=f45e441]: What is Private Mortgage Insurance (PMI)? Learn how to avoid or cancel it.
+              - text: Read Article →
+            - link [ref=f45e442] [cursor=pointer]:
+              - /url: ./amortization-schedule-explained.html
+              - heading "The Amortization Schedule Explained" [level=3] [ref=f45e443]
+              - paragraph [ref=f45e444]: Learn how principal and interest ratios shift over your mortgage term.
+              - text: Read Article →
+            - link [ref=f45e445] [cursor=pointer]:
+              - /url: ./extra-payments-savings.html
+              - heading "How Extra Principal Payments Save Thousands" [level=3] [ref=f45e446]
+              - paragraph [ref=f45e447]: Learn how extra payments slash your term and save interest.
+              - text: Read Article →
+            - link [ref=f45e448] [cursor=pointer]:
+              - /url: ./property-tax-insurance-guide.html
+              - heading "Property Taxes & Homeowners Insurance Guide" [level=3] [ref=f45e449]
+              - paragraph [ref=f45e450]: Understanding escrow assessments and how they affect your payment.
+              - text: Read Article →
+        - generic [ref=f45e451]:
+          - generic [ref=f45e452]:
+            - heading "Professional Insights & Guide" [level=2] [ref=f45e453]
+            - paragraph [ref=f45e454]: Learn critical professional use cases, dynamic step-by-step instructions, and diagnostic failure point resolutions.
+          - generic [ref=f45e455]:
+            - generic [ref=f45e456]:
+              - heading "Core Use Case scenario" [level=3] [ref=f45e457]
+              - paragraph [ref=f45e458]: Homebuyers, real estate agents, and mortgage brokers require instant, clear projections of monthly house costs. This calculator accounts for variables like home prices, down payment structures, local property tax percentages, home insurance, and Private Mortgage Insurance (PMI) to help users evaluate financial options before bidding.
+            - generic [ref=f45e459]:
+              - heading "Troubleshooting & Edge-Case Failure Points" [level=3] [ref=f45e460]
+              - list [ref=f45e461]:
+                - listitem [ref=f45e462]: "PMI calculation changes: PMI automatically triggers if down payments fall below 20%. Ensure your down payment figures are correct to see this charge adjust."
+                - listitem [ref=f45e463]: "Interest slider limits: High interest inputs (e.g., above 15%) may require typing rates manually rather than sliding."
+                - listitem [ref=f45e464]: "Amortization schedule rounding: Slight differences from lender estimates can occur due to local compounding intervals; use our tools as high-precision guide rails."
+          - generic [ref=f45e465]:
+            - heading "Detailed Step-by-Step Instructions" [level=3] [ref=f45e466]
+            - list [ref=f45e467]:
+              - listitem [ref=f45e468]: Input the overall home price using the slider or precise number entry field.
+              - listitem [ref=f45e469]: Configure your down payment as a raw currency amount or dynamic percentage.
+              - listitem [ref=f45e470]: Toggle annual interest rates, loan terms (e.g., 30, 20, 15 years), and add estimates for tax, insurance, or HOA fees.
+              - listitem [ref=f45e471]: Review the color-coded monthly payment breakdown, amortization chart, and lifetime costs, then copy the shareable summary.
+          - generic [ref=f45e472]:
+            - heading "Related Web Utilities (Silo Hub)" [level=3] [ref=f45e473]
+            - generic [ref=f45e474]:
+              - link "Car Lease Estimator" [ref=f45e475] [cursor=pointer]:
+                - /url: ../car-lease-estimator/
+              - link "Inflation Calculator" [ref=f45e476] [cursor=pointer]:
+                - /url: ../inflation-calculator/
+              - link "Crypto Tax Estimator" [ref=f45e477] [cursor=pointer]:
+                - /url: ../crypto-tax-estimator/
+              - link "Hourly to Salary Converter" [ref=f45e478] [cursor=pointer]:
+                - /url: ../hourly-to-salary-converter/
+              - link "Dividend Reinvestment Calculator" [ref=f45e479] [cursor=pointer]:
+                - /url: ../dividend-reinvestment-calculator/
+              - link "Credit Card Payoff Planner" [ref=f45e480] [cursor=pointer]:
+                - /url: ../credit-card-payoff-planner/
+              - link "UTM Campaign Link Builder" [ref=f45e481] [cursor=pointer]:
+                - /url: ../utm-generator/
+              - link "ROI & ROAS Campaign Calculator" [ref=f45e482] [cursor=pointer]:
+                - /url: ../roi-calculator/
+              - link "CPM Campaign Ad Calculator" [ref=f45e483] [cursor=pointer]:
+                - /url: ../cpm-calculator/
+              - link "Copy Headline Sentiment Analyzer" [ref=f45e484] [cursor=pointer]:
+                - /url: ../headline-analyzer/
+              - link "Secure QR Code Generator" [ref=f45e485] [cursor=pointer]:
+                - /url: ../qr-code-generator/
+              - link "Social Media Image Resizer" [ref=f45e486] [cursor=pointer]:
+                - /url: ../social-media-image-resizer/
+              - link "ChatGPT Prompt Optimizer" [ref=f45e487] [cursor=pointer]:
+                - /url: ../chatgpt-prompt-optimizer/
+              - link "Midjourney Parameter Builder" [ref=f45e488] [cursor=pointer]:
+                - /url: ../midjourney-command-builder/
+              - link "Fortune Wheel Spinner" [ref=f45e489] [cursor=pointer]:
+                - /url: ../fortune-wheel/
+      - generic [ref=f45e490]:
+        - generic [ref=f45e491]:
+          - heading "Trending Utilities (23)" [level=3] [ref=f45e492]
+          - searchbox "Quick filter tools..." [ref=f45e496]
+          - generic [ref=f45e500]:
+            - link "🏡 Mortgage Calculator Finance & Real Estate" [ref=f45e501] [cursor=pointer]:
+              - /url: ../mortgage-calculator
+              - generic [ref=f45e502]:
+                - text: 🏡
+                - generic [ref=f45e503]: Mortgage Calculator Finance & Real Estate
+            - link "🚗 Car Lease Estimator Finance & Real Estate" [ref=f45e504] [cursor=pointer]:
+              - /url: ../car-lease-estimator
+              - generic [ref=f45e505]:
+                - text: 🚗
+                - generic [ref=f45e506]: Car Lease Estimator Finance & Real Estate
+            - link "📈 Inflation Calculator Finance & Real Estate" [ref=f45e507] [cursor=pointer]:
+              - /url: ../inflation-calculator
+              - generic [ref=f45e508]:
+                - text: 📈
+                - generic [ref=f45e509]: Inflation Calculator Finance & Real Estate
+            - link "🪙 Crypto Tax Estimator Finance & Real Estate" [ref=f45e510] [cursor=pointer]:
+              - /url: ../crypto-tax-estimator
+              - generic [ref=f45e511]:
+                - text: 🪙
+                - generic [ref=f45e512]: Crypto Tax Estimator Finance & Real Estate
+            - link "💼 Hourly to Salary Converter Finance & Real Estate" [ref=f45e513] [cursor=pointer]:
+              - /url: ../hourly-to-salary-converter
+              - generic [ref=f45e514]:
+                - text: 💼
+                - generic [ref=f45e515]: Hourly to Salary Converter Finance & Real Estate
+            - link "📊 Dividend Reinvestment (DRIP) Finance & Real Estate" [ref=f45e516] [cursor=pointer]:
+              - /url: ../dividend-reinvestment-calculator
+              - generic [ref=f45e517]:
+                - text: 📊
+                - generic [ref=f45e518]: Dividend Reinvestment (DRIP) Finance & Real Estate
+            - link "💳 Credit Card Payoff Planner Finance & Real Estate" [ref=f45e519] [cursor=pointer]:
+              - /url: ../credit-card-payoff-planner
+              - generic [ref=f45e520]:
+                - text: 💳
+                - generic [ref=f45e521]: Credit Card Payoff Planner Finance & Real Estate
+            - link "🔗 UTM Campaign Link Builder Digital Marketing" [ref=f45e522] [cursor=pointer]:
+              - /url: ../utm-generator
+              - generic [ref=f45e523]:
+                - text: 🔗
+                - generic [ref=f45e524]: UTM Campaign Link Builder Digital Marketing
+            - link "💰 ROI & ROAS Calculator Digital Marketing" [ref=f45e525] [cursor=pointer]:
+              - /url: ../roi-calculator
+              - generic [ref=f45e526]:
+                - text: 💰
+                - generic [ref=f45e527]: ROI & ROAS Calculator Digital Marketing
+            - link "📢 CPM Campaign Ad Calculator Digital Marketing" [ref=f45e528] [cursor=pointer]:
+              - /url: ../cpm-calculator
+              - generic [ref=f45e529]:
+                - text: 📢
+                - generic [ref=f45e530]: CPM Campaign Ad Calculator Digital Marketing
+            - link "✍️ Copy Headline Analyzer Digital Marketing" [ref=f45e531] [cursor=pointer]:
+              - /url: ../headline-analyzer
+              - generic [ref=f45e532]:
+                - text: ✍️
+                - generic [ref=f45e533]: Copy Headline Analyzer Digital Marketing
+            - link "📱 Secure QR Code Generator Digital Marketing" [ref=f45e534] [cursor=pointer]:
+              - /url: ../qr-code-generator
+              - generic [ref=f45e535]:
+                - text: 📱
+                - generic [ref=f45e536]: Secure QR Code Generator Digital Marketing
+            - link "🖼️ Social Image Resizer Digital Marketing" [ref=f45e537] [cursor=pointer]:
+              - /url: ../social-media-image-resizer
+              - generic [ref=f45e538]:
+                - text: 🖼️
+                - generic [ref=f45e539]: Social Image Resizer Digital Marketing
+            - link "🤖 ChatGPT Prompt Optimizer AI Prompt Engineering" [ref=f45e540] [cursor=pointer]:
+              - /url: ../chatgpt-prompt-optimizer
+              - generic [ref=f45e541]:
+                - text: 🤖
+                - generic [ref=f45e542]: ChatGPT Prompt Optimizer AI Prompt Engineering
+            - link "🎨 Midjourney Prompt Builder AI Prompt Engineering" [ref=f45e543] [cursor=pointer]:
+              - /url: ../midjourney-command-builder
+              - generic [ref=f45e544]:
+                - text: 🎨
+                - generic [ref=f45e545]: Midjourney Prompt Builder AI Prompt Engineering
+            - link "🧠 AI Text Humanizer Helper AI Prompt Engineering" [ref=f45e546] [cursor=pointer]:
+              - /url: ../ai-text-humanizer-helper
+              - generic [ref=f45e547]:
+                - text: 🧠
+                - generic [ref=f45e548]: AI Text Humanizer Helper AI Prompt Engineering
+            - link "⚙️ JSON Formatter & Validator Developer Utilities" [ref=f45e549] [cursor=pointer]:
+              - /url: ../json-formatter-validator
+              - generic [ref=f45e550]:
+                - text: ⚙️
+                - generic [ref=f45e551]: JSON Formatter & Validator Developer Utilities
+            - link "🔑 Secure Password Generator Developer Utilities" [ref=f45e552] [cursor=pointer]:
+              - /url: ../password-generator
+              - generic [ref=f45e553]:
+                - text: 🔑
+                - generic [ref=f45e554]: Secure Password Generator Developer Utilities
+            - link "📝 Lorem Ipsum Generator Developer Utilities" [ref=f45e555] [cursor=pointer]:
+              - /url: ../lorem-ipsum-generator
+              - generic [ref=f45e556]:
+                - text: 📝
+                - generic [ref=f45e557]: Lorem Ipsum Generator Developer Utilities
+            - link "🔣 Base64 Encoder & Decoder Developer Utilities" [ref=f45e558] [cursor=pointer]:
+              - /url: ../base64-encoder-decoder
+              - generic [ref=f45e559]:
+                - text: 🔣
+                - generic [ref=f45e560]: Base64 Encoder & Decoder Developer Utilities
+            - link "🔢 Word & Character Counter Developer Utilities" [ref=f45e561] [cursor=pointer]:
+              - /url: ../word-character-counter
+              - generic [ref=f45e562]:
+                - text: 🔢
+                - generic [ref=f45e563]: Word & Character Counter Developer Utilities
+            - link "☸️ Fortune Wheel Everyday & Niche Utilities" [ref=f45e564] [cursor=pointer]:
+              - /url: ../fortune-wheel
+              - generic [ref=f45e565]:
+                - text: ☸️
+                - generic [ref=f45e566]: Fortune Wheel Everyday & Niche Utilities
+            - link "🔡 Word Unscrambler Solver Everyday & Niche Utilities" [ref=f45e567] [cursor=pointer]:
+              - /url: ../word-unscrambler
+              - generic [ref=f45e568]:
+                - text: 🔡
+                - generic [ref=f45e569]: Word Unscrambler Solver Everyday & Niche Utilities
+        - generic [ref=f45e570]:
+          - text: Sponsored
+          - insertion [ref=f45e572]
+        - generic [ref=f45e574]:
+          - text: Advertisement
+          - insertion [ref=f45e576]
+  - contentinfo [ref=f45e578]:
+    - generic [ref=f45e579]:
+      - generic [ref=f45e580]: TopWebTool © 2025. All rights reserved.
+      - generic [ref=f45e581]: Premium High-CPM Single-Page Utilities Directory
+  - generic [ref=f45e582]:
+    - button "Dismiss advertisement" [ref=f45e583]
+    - text: Sponsored Link
+    - insertion [ref=f45e586]
