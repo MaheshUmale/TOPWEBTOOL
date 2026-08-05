@@ -203,52 +203,48 @@ document.addEventListener('DOMContentLoaded', () => {
   renderAdPlacements();
 });
 
-// Mobile navigation category toggle helper
-window.toggleMobileNavCategory = function(categoryName, btn) {
-  const panel = document.getElementById('mobile-submenu-panel');
-  const itemsContainer = document.getElementById('mobile-submenu-items');
-  if (!panel || !itemsContainer) return;
-
-  const isAlreadyActive = btn.classList.contains('bg-blue-600') || btn.classList.contains('dark:bg-blue-600');
-
-  // Reset all mobile category buttons style
-  document.querySelectorAll('.mobile-cat-btn').forEach(b => {
-    b.className = "mobile-cat-btn flex items-center space-x-1 px-3 py-1.5 rounded-full text-[11px] font-bold bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-100 transition-colors shrink-0";
+// Unified interactive Dropdown Toggle for Single Component DOM Navigation
+window.toggleCategoryDropdown = function(btn) {
+  const dropdown = btn.nextElementSibling;
+  const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+  
+  // Close all other dropdowns
+  document.querySelectorAll('.nav-dropdown-menu').forEach(menu => {
+    if (menu !== dropdown) {
+      menu.classList.add('hidden');
+      menu.classList.remove('block');
+      const otherBtn = menu.previousElementSibling;
+      if (otherBtn) {
+        otherBtn.setAttribute('aria-expanded', 'false');
+        otherBtn.classList.remove('bg-slate-200', 'dark:bg-slate-700');
+      }
+    }
   });
 
-  if (isAlreadyActive) {
-    panel.classList.add('hidden');
+  if (isExpanded) {
+    dropdown.classList.add('hidden');
+    dropdown.classList.remove('block');
+    btn.setAttribute('aria-expanded', 'false');
+    btn.classList.remove('bg-slate-200', 'dark:bg-slate-700');
   } else {
-    // Activate clicked button
-    btn.className = "mobile-cat-btn flex items-center space-x-1 px-3 py-1.5 rounded-full text-[11px] font-bold bg-blue-600 dark:bg-blue-600 text-white transition-colors shrink-0";
-
-    // Filter registry for tools in this category
-    const tools = UTILITIES_REGISTRY.filter(t => t.category === categoryName);
-
-    // Determine relative paths prefix
-    const isHomepage = window.location.pathname === '/' || window.location.pathname.endsWith('/index.html') || window.location.pathname === '';
-    const prefix = isHomepage ? './' : '../';
-
-    itemsContainer.innerHTML = tools.map(tool => `
-      <a href="${prefix}${tool.path.replace(/^\//, '')}" class="flex items-center space-x-2 px-2.5 py-2 text-xs font-bold rounded-lg bg-white dark:bg-slate-900 border border-slate-200/60 dark:border-slate-800 text-slate-800 dark:text-slate-200 hover:bg-blue-50 dark:hover:bg-slate-800 transition-colors">
-        <span class="text-sm shrink-0">${tool.icon}</span>
-        <span class="truncate">${tool.name}</span>
-      </a>
-    `).join('');
-
-    panel.classList.remove('hidden');
+    dropdown.classList.remove('hidden');
+    dropdown.classList.add('block');
+    btn.setAttribute('aria-expanded', 'true');
+    btn.classList.add('bg-slate-200', 'dark:bg-slate-700');
   }
 };
 
-// Close mobile submenu when clicking outside the entire header main navigation
+// Close unified dropdowns when clicking outside
 document.addEventListener('click', (e) => {
-  if (!e.target.closest('#global-header') && !e.target.closest('header')) {
-    const panel = document.getElementById('mobile-submenu-panel');
-    if (panel) {
-      panel.classList.add('hidden');
-    }
-    document.querySelectorAll('.mobile-cat-btn').forEach(b => {
-      b.className = "mobile-cat-btn flex items-center space-x-1 px-3 py-1.5 rounded-full text-[11px] font-bold bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-100 transition-colors shrink-0";
+  if (!e.target.closest('.nav-dropdown-group')) {
+    document.querySelectorAll('.nav-dropdown-menu').forEach(menu => {
+      menu.classList.add('hidden');
+      menu.classList.remove('block');
+      const btn = menu.previousElementSibling;
+      if (btn) {
+        btn.setAttribute('aria-expanded', 'false');
+        btn.classList.remove('bg-slate-200', 'dark:bg-slate-700');
+      }
     });
   }
 });
@@ -278,29 +274,28 @@ function renderHeader() {
   const categoryNames = Object.keys(categories);
 
   headerContainer.innerHTML = `
-    <nav aria-label="Main navigation">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="h-16 flex items-center justify-between">
-        <a href="${prefix}" class="flex items-center space-x-2 group">
-          <img src="${prefix}logo.svg" alt="TopWebTool Logo" class="w-8 h-8 text-brand-600 transition-transform group-hover:scale-105" width="32" height="32" />
-          <span class="font-extrabold text-2xl tracking-tight bg-gradient-to-r from-blue-700 to-sky-500 dark:from-blue-400 dark:to-sky-300 bg-clip-text text-slate-900 dark:text-slate-100" style="-webkit-background-clip: text; -webkit-text-fill-color: transparent;">TopWebTool</span>
+    <nav aria-label="Main Navigation" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="py-4 md:h-16 flex flex-col md:flex-row items-center justify-between gap-4">
+        <a href="${prefix}" class="flex items-center space-x-2 group focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:outline-none rounded-lg p-1" aria-label="TopWebTool Homepage">
+          <img src="${prefix}logo.svg" alt="TopWebTool Brand Logo" class="w-8 h-8 text-indigo-600 transition-transform group-hover:scale-105" width="32" height="32" loading="eager" decoding="async" />
+          <span class="font-extrabold text-2xl tracking-tight bg-gradient-to-r from-indigo-600 to-violet-500 dark:from-indigo-400 dark:to-sky-300 bg-clip-text text-slate-900 dark:text-slate-100" style="-webkit-background-clip: text; -webkit-text-fill-color: transparent;">TopWebTool</span>
         </a>
 
-        <!-- Desktop Grouped Dropdown Navigation -->
-        <nav class="hidden lg:flex items-center space-x-2">
-          ${categoryNames.map(cat => {
+        <!-- Single Component Responsive DOM Navigation Bar (Zero Duplication between mobile/desktop) -->
+        <div class="flex flex-wrap items-center gap-1.5 justify-center md:justify-end w-full md:w-auto">
+          ${categoryNames.map((cat, idx) => {
             const shortName = cat.split('&')[0].trim();
             const tools = categories[cat];
             return `
-              <div class="relative group">
-                <button class="flex items-center space-x-1 px-2.5 py-1.5 rounded-lg text-xs font-bold text-slate-800 dark:text-slate-100 hover:text-blue-600 dark:hover:text-sky-400 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+              <div class="relative nav-dropdown-group">
+                <button onclick="toggleCategoryDropdown(this)" class="flex items-center space-x-1 px-3 py-1.5 rounded-lg text-xs font-bold text-slate-700 dark:text-slate-200 bg-slate-50 hover:bg-slate-100 dark:bg-slate-800 dark:hover:bg-slate-700 transition-colors focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:outline-none" aria-haspopup="true" aria-expanded="false" aria-controls="dropdown-menu-${idx}">
                   <span>${shortName}</span>
-                  <svg class="w-3.5 h-3.5 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                  <svg class="w-3.5 h-3.5 opacity-60 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
                 </button>
-                <div class="absolute left-0 mt-1 w-64 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 z-50 p-2 space-y-1">
+                <div id="dropdown-menu-${idx}" class="nav-dropdown-menu absolute left-0 md:left-auto md:right-0 mt-1.5 w-64 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl shadow-lg hidden z-50 p-2 space-y-1">
                   ${tools.map(tool => `
-                    <a href="${prefix}${tool.path.replace(/^\//, '')}" class="flex items-center space-x-2.5 px-3 py-2 text-xs font-bold rounded-lg text-slate-800 dark:text-slate-200 hover:bg-blue-50 dark:hover:bg-slate-800 hover:text-blue-700 dark:hover:text-sky-400 transition-colors">
-                      <span class="text-base shrink-0">${tool.icon}</span>
+                    <a href="${prefix}${tool.path.replace(/^\//, '')}" class="flex items-center space-x-2.5 px-3 py-2 text-xs font-semibold rounded-lg text-slate-800 dark:text-slate-200 hover:bg-indigo-50 dark:hover:bg-slate-800 hover:text-indigo-600 dark:hover:text-indigo-400 focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:outline-none transition-colors">
+                      <span class="text-sm shrink-0" aria-hidden="true">${tool.icon}</span>
                       <span class="truncate">${tool.name}</span>
                     </a>
                   `).join('')}
@@ -308,42 +303,25 @@ function renderHeader() {
               </div>
             `;
           }).join('')}
-        </nav>
 
-        <div class="flex items-center space-x-4">
-          <!-- Unified Theme Toggle Button -->
-          <button id="theme-toggle-btn" class="p-2 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500 transition-all" title="Toggle Light/Dark Theme">
-            <!-- Moon Icon -->
-            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-              <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
-            </svg>
-            <!-- Sun Icon -->
-            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-              <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zm-5.05-1.414l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zm2.12-10.607a1 1 0 01-1.414 0l-.707-.707a1 1 0 011.414-1.414l.707.707a1 1 0 010 1.414zM4 11a1 1 0 100-2H3a1 1 0 100 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
-            </svg>
-          </button>
-          <span class="text-xs font-semibold text-slate-600 dark:text-slate-400 uppercase tracking-widest hidden sm:inline-block">100% Free & No Sign-up</span>
+          <div class="h-6 w-px bg-slate-200 dark:bg-slate-800 mx-1 hidden sm:block" aria-hidden="true"></div>
+
+          <!-- Theme Toggle & Status Info -->
+          <div class="flex items-center space-x-2">
+            <button id="theme-toggle-btn" class="p-2 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all" aria-label="Toggle Light/Dark Theme">
+              <!-- Moon Icon -->
+              <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+              </svg>
+              <!-- Sun Icon -->
+              <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zm-5.05-1.414l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zm2.12-10.607a1 1 0 01-1.414 0l-.707-.707a1 1 0 011.414-1.414l.707.707a1 1 0 010 1.414zM4 11a1 1 0 100-2H3a1 1 0 100 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+              </svg>
+            </button>
+            <span class="text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider hidden lg:inline-block">100% Free & No Sign-up</span>
+          </div>
         </div>
       </div>
-
-      <!-- Mobile Horizontally Scrollable Categories Menu -->
-      <div class="lg:hidden flex items-center space-x-2 overflow-x-auto pb-2.5 pt-0.5 border-t border-slate-100 dark:border-slate-800/80 scrollbar-none px-4">
-        ${categoryNames.map(cat => {
-          const shortName = cat.split('&')[0].trim();
-          return `
-            <button onclick="toggleMobileNavCategory('${cat}', this)" class="mobile-cat-btn flex items-center space-x-1 px-3 py-1.5 rounded-full text-[11px] font-bold bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-100 transition-colors shrink-0">
-              <span>${shortName}</span>
-              <svg class="w-3 h-3 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-            </button>
-          `;
-        }).join('')}
-      </div>
-
-      <!-- Mobile Submenu Panel (Non-clipping, full width drop-down container) -->
-      <div id="mobile-submenu-panel" class="lg:hidden hidden border-t border-slate-100 dark:border-slate-800/80 bg-slate-50 dark:bg-slate-950 px-4 py-3 shadow-inner">
-        <div id="mobile-submenu-items" class="grid grid-cols-2 gap-2"></div>
-      </div>
-    </div>
     </nav>
   `;
 }
@@ -390,17 +368,17 @@ function renderSidebarScroller() {
 
   sidebarContainer.innerHTML = `
     <h3 class="text-base font-bold text-slate-900 dark:text-slate-100 tracking-tight flex items-center space-x-2 border-b border-slate-100 dark:border-slate-800 pb-3 mb-3">
-      <svg class="w-5 h-5 text-blue-600 dark:text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+      <svg class="w-5 h-5 text-indigo-600 dark:text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
       </svg>
       <span>Trending Utilities (${UTILITIES_REGISTRY.length})</span>
     </h3>
 
     <!-- Instant Search within Sidebar Scroller -->
     <div class="mb-3 relative">
-      <input type="search" id="sidebar-search" placeholder="Quick filter tools..." class="w-full pl-8 pr-3 py-1.5 text-xs border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 rounded-lg focus:ring-2 focus:ring-brand-500 focus:outline-none" />
+      <input type="search" id="sidebar-search" placeholder="Quick filter tools..." class="w-full pl-8 pr-3 py-1.5 text-xs border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none" />
       <span class="absolute left-2.5 top-2 text-slate-400">
-        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
       </span>
     </div>
 
@@ -409,11 +387,11 @@ function renderSidebarScroller() {
       ${UTILITIES_REGISTRY.map(tool => {
         const isActive = currentPath === tool.path || currentPath + '/index.html' === tool.path;
         return `
-          <a href="${prefix}${tool.path.replace(/^\//, '')}" data-name="${tool.name.toLowerCase()}" data-category="${tool.category.toLowerCase()}" class="group flex items-center p-1.5 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-950 transition-colors border ${isActive ? 'border-blue-500 bg-blue-50/50 dark:bg-blue-900/20' : 'border-slate-100 dark:border-slate-800/80 hover:border-slate-200'}" title="${tool.name} - ${tool.desc}">
+          <a href="${prefix}${tool.path.replace(/^\//, '')}" data-name="${tool.name.toLowerCase()}" data-category="${tool.category.toLowerCase()}" class="group flex items-center p-1.5 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-950 transition-colors border ${isActive ? 'border-indigo-500 bg-indigo-50/50 dark:bg-indigo-950/20' : 'border-slate-100 dark:border-slate-800/80 hover:border-slate-200'} focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:outline-none" title="${tool.name} - ${tool.desc}">
             <div class="flex items-center space-x-1.5 min-w-0">
-              <span class="text-base shrink-0">${tool.icon}</span>
+              <span class="text-base shrink-0" aria-hidden="true">${tool.icon}</span>
               <div class="flex flex-col min-w-0">
-                <span class="text-[10px] font-bold text-slate-800 dark:text-slate-200 group-hover:text-blue-600 dark:group-hover:text-sky-400 transition-colors truncate">${tool.name}</span>
+                <span class="text-[10px] font-bold text-slate-800 dark:text-slate-200 group-hover:text-indigo-600 dark:group-hover:text-sky-400 transition-colors truncate">${tool.name}</span>
                 <span class="text-[8px] text-slate-400 dark:text-slate-500 truncate">${tool.category}</span>
               </div>
             </div>
@@ -588,8 +566,8 @@ function renderAdPlacements() {
 
   stickyFooter.innerHTML = `
     <!-- Close Button -->
-    <button onclick="closeStickyFooter()" class="absolute -top-3.5 right-4 w-7 h-7 bg-white dark:bg-slate-800 border border-slate-200/85 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-full shadow-md flex items-center justify-center text-slate-500 dark:text-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-500 transition-colors cursor-pointer" title="Dismiss advertisement">
-      <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <button onclick="closeStickyFooter()" class="absolute -top-3.5 right-4 w-7 h-7 bg-white dark:bg-slate-800 border border-slate-200/85 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-full shadow-md flex items-center justify-center text-slate-500 dark:text-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-colors cursor-pointer" title="Dismiss advertisement">
+      <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"></path>
       </svg>
     </button>
