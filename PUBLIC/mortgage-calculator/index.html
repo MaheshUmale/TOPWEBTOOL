@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
@@ -83,7 +83,7 @@
         </div>
 
         <!-- Calculator UI Card -->
-        <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+        <form id="form-mortgage-calculator" form-id="form-mortgage-calculator" tool-name="Mortgage Calculator" tool-description="Compute monthly house payments, taxes, and PMI with dynamic amortization schedule breakdowns." class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
           <div class="p-6 sm:p-8 bg-gradient-to-r from-brand-900 to-brand-700 text-white">
             <h2 class="text-xl font-bold">Mortgage Configuration & Key Inputs</h2>
             <p class="text-xs text-brand-100 opacity-90 mt-1">Adjust parameters below to see calculations update in real-time.</p>
@@ -104,7 +104,7 @@
                   <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                     <span class="text-slate-400 sm:text-sm">$</span>
                   </div>
-                  <input type="number" id="input-home-price" class="block w-full pl-8 pr-3 py-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-950 font-semibold sm:text-sm" value="400000" min="10000" step="5000" oninput="validateAndRecalculate()">
+                  <input type="number" id="input-home-price" required class="block w-full pl-8 pr-3 py-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-950 font-semibold sm:text-sm" value="400000" min="10000" step="5000" oninput="validateAndRecalculate()">
                 </div>
                 <input type="range" id="slider-home-price" class="w-full h-1.5 bg-slate-200 rounded-lg appearance-none cursor-pointer slider-thumb mt-3" min="50000" max="1500000" step="5000" value="400000" oninput="syncSliderToInput('home-price')">
               </div>
@@ -120,10 +120,10 @@
                     <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                       <span class="text-slate-400 sm:text-sm">$</span>
                     </div>
-                    <input type="number" id="input-down-payment" class="block w-full pl-8 pr-3 py-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-950 font-semibold sm:text-sm" value="80000" min="0" step="1000" oninput="onDownPaymentAmountChange()">
+                    <input type="number" id="input-down-payment" required class="block w-full pl-8 pr-3 py-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-950 font-semibold sm:text-sm" value="80000" min="0" step="1000" oninput="onDownPaymentAmountChange()">
                   </div>
                   <div class="relative rounded-lg shadow-sm col-span-1">
-                    <input type="number" id="input-down-payment-pct" class="block w-full px-2 py-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-950 font-semibold sm:text-sm text-right" value="20" min="0" max="100" step="0.5" oninput="onDownPaymentPctChange()">
+                    <input type="number" id="input-down-payment-pct" required class="block w-full px-2 py-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-950 font-semibold sm:text-sm text-right" value="20" min="0" max="100" step="0.5" oninput="onDownPaymentPctChange()">
                     <div class="absolute inset-y-0 right-0 pr-2.5 flex items-center pointer-events-none">
                       <span class="text-slate-400 sm:text-sm">%</span>
                     </div>
@@ -144,7 +144,7 @@
                   <span id="error-interest-rate" class="text-xs text-red-500 font-medium hidden">Must be &gt; 0</span>
                 </div>
                 <div class="relative rounded-lg shadow-sm">
-                  <input type="number" id="input-interest-rate" class="block w-full px-3 py-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-950 font-semibold sm:text-sm" value="6.5" min="0.1" max="25" step="0.01" oninput="validateAndRecalculate()">
+                  <input type="number" id="input-interest-rate" required class="block w-full px-3 py-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-950 font-semibold sm:text-sm" value="6.5" min="0.1" max="25" step="0.01" oninput="validateAndRecalculate()">
                   <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
                     <span class="text-slate-400 sm:text-sm">%</span>
                   </div>
@@ -175,7 +175,7 @@
                   <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                     <span class="text-slate-400 sm:text-sm">$</span>
                   </div>
-                  <input type="number" id="input-hoa" class="block w-full pl-8 pr-3 py-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-950 font-semibold sm:text-sm" value="150" min="0" step="10" oninput="validateAndRecalculate()">
+                  <input type="number" id="input-hoa" required class="block w-full pl-8 pr-3 py-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-950 font-semibold sm:text-sm" value="150" min="0" step="10" oninput="validateAndRecalculate()">
                 </div>
               </div>
 
@@ -196,7 +196,7 @@
                 <div>
                   <label for="input-tax-rate" class="block text-sm font-semibold text-slate-700 mb-1">Annual Property Tax Rate (%)</label>
                   <div class="relative rounded-lg shadow-sm">
-                    <input type="number" id="input-tax-rate" class="block w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-950 font-semibold sm:text-sm" value="1.2" min="0" max="10" step="0.05" oninput="validateAndRecalculate()">
+                    <input type="number" id="input-tax-rate" required class="block w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-950 font-semibold sm:text-sm" value="1.2" min="0" max="10" step="0.05" oninput="validateAndRecalculate()">
                     <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
                       <span class="text-slate-400 sm:text-sm">%</span>
                     </div>
@@ -211,7 +211,7 @@
                     <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                       <span class="text-slate-400 sm:text-sm">$</span>
                     </div>
-                    <input type="number" id="input-insurance" class="block w-full pl-8 pr-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-950 font-semibold sm:text-sm" value="1200" min="0" step="50" oninput="validateAndRecalculate()">
+                    <input type="number" id="input-insurance" required class="block w-full pl-8 pr-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-950 font-semibold sm:text-sm" value="1200" min="0" step="50" oninput="validateAndRecalculate()">
                   </div>
                   <p class="text-[11px] text-slate-400 mt-1">Average US rate is approx. $1,200/yr</p>
                 </div>
@@ -223,7 +223,7 @@
                   <span id="pmi-auto-badge" class="px-1.5 py-0.5 text-[10px] bg-yellow-100 text-yellow-800 font-bold rounded">Triggered (&lt;20%)</span>
                   </div>
                   <div class="relative rounded-lg shadow-sm">
-                    <input type="number" id="input-pmi-rate" class="block w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-950 font-semibold sm:text-sm" value="0.75" min="0" max="5" step="0.05" oninput="validateAndRecalculate()">
+                    <input type="number" id="input-pmi-rate" required class="block w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-950 font-semibold sm:text-sm" value="0.75" min="0" max="5" step="0.05" oninput="validateAndRecalculate()">
                     <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
                       <span class="text-slate-400 sm:text-sm">%</span>
                     </div>
@@ -240,7 +240,7 @@
                 <svg id="extra-toggle-icon" class="w-5 h-5 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path>
                 </svg>
-                <span>🚀 Shave Years Off: Add Extra Payments</span>
+                <span>ðŸš€ Shave Years Off: Add Extra Payments</span>
               </button>
 
               <div id="extra-payments-section" class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-4 hidden">
@@ -252,7 +252,7 @@
                     <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                       <span class="text-slate-400 sm:text-sm">$</span>
                     </div>
-                    <input type="number" id="input-extra-monthly" class="block w-full pl-8 pr-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 text-slate-950 font-semibold sm:text-sm" value="200" min="0" step="25" oninput="validateAndRecalculate()">
+                    <input type="number" id="input-extra-monthly" required class="block w-full pl-8 pr-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 text-slate-950 font-semibold sm:text-sm" value="200" min="0" step="25" oninput="validateAndRecalculate()">
                   </div>
                   <p class="text-[11px] text-slate-400 mt-1">Paid on top of monthly payment</p>
                 </div>
@@ -264,7 +264,7 @@
                     <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                       <span class="text-slate-400 sm:text-sm">$</span>
                     </div>
-                    <input type="number" id="input-extra-yearly" class="block w-full pl-8 pr-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 text-slate-950 font-semibold sm:text-sm" value="0" min="0" step="100" oninput="validateAndRecalculate()">
+                    <input type="number" id="input-extra-yearly" required class="block w-full pl-8 pr-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 text-slate-950 font-semibold sm:text-sm" value="0" min="0" step="100" oninput="validateAndRecalculate()">
                   </div>
                   <p class="text-[11px] text-slate-400 mt-1">Paid once a year, every year</p>
                 </div>
@@ -280,9 +280,9 @@
                       <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                         <span class="text-slate-400 sm:text-sm">$</span>
                       </div>
-                      <input type="number" id="input-extra-onetime" class="block w-full pl-8 pr-2 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 text-slate-950 font-semibold sm:text-sm" value="0" min="0" step="500" oninput="validateAndRecalculate()">
+                      <input type="number" id="input-extra-onetime" required class="block w-full pl-8 pr-2 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 text-slate-950 font-semibold sm:text-sm" value="0" min="0" step="500" oninput="validateAndRecalculate()">
                     </div>
-                    <input type="number" id="input-onetime-month" class="block w-full px-2 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 text-slate-950 font-semibold sm:text-sm" value="12" min="1" max="360" oninput="validateAndRecalculate()">
+                    <input type="number" id="input-onetime-month" required class="block w-full px-2 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 text-slate-950 font-semibold sm:text-sm" value="12" min="1" max="360" oninput="validateAndRecalculate()">
                   </div>
                   <p class="text-[11px] text-slate-400 mt-1">Single payout on specified month</p>
                 </div>
@@ -444,7 +444,7 @@
         </div>
 
         <!-- Annual Amortization Table Card -->
-        <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+        <form id="form-mortgage-calculator" form-id="form-mortgage-calculator" tool-name="Mortgage Calculator" tool-description="Compute monthly house payments, taxes, and PMI with dynamic amortization schedule breakdowns." class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
           <div class="p-6 sm:p-8 border-b border-slate-200 bg-white flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
             <div>
               <h2 class="text-lg font-bold text-slate-900">Annual Amortization Schedule</h2>
@@ -1161,14 +1161,14 @@
 
       const summaryText = `TopWebTool Mortgage Calculation Summary:\n` +
                           `-------------------------------------------\n` +
-                          `🏡 Home Price: $${Number(hp).toLocaleString()}\n` +
-                          `💰 Down Payment: $${Number(dp).toLocaleString()}\n` +
-                          `📈 Interest Rate: ${rate}%\n` +
-                          `📅 Term: ${term} Years\n` +
+                          `ðŸ¡ Home Price: $${Number(hp).toLocaleString()}\n` +
+                          `ðŸ’° Down Payment: $${Number(dp).toLocaleString()}\n` +
+                          `ðŸ“ˆ Interest Rate: ${rate}%\n` +
+                          `ðŸ“… Term: ${term} Years\n` +
                           `-------------------------------------------\n` +
-                          `💵 Estimated Monthly Total: ${monthlyTotal}\n` +
-                          `🚀 Interest Saved with Extras: ${interestSaved}\n` +
-                          `⏱️ Term Reduction: ${yearsSaved}\n` +
+                          `ðŸ’µ Estimated Monthly Total: ${monthlyTotal}\n` +
+                          `ðŸš€ Interest Saved with Extras: ${interestSaved}\n` +
+                          `â±ï¸ Term Reduction: ${yearsSaved}\n` +
                           `Calculate yours free at: ${window.location.href}`;
 
       navigator.clipboard.writeText(summaryText).then(() => {

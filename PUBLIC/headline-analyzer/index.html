@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
@@ -53,7 +53,7 @@
         </div>
 
         <!-- Calculator UI -->
-        <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-8 space-y-6">
+        <form id="form-headline-analyzer" form-id="form-headline-analyzer" tool-name="Headline Analyzer" tool-description="Score headlines based on emotional word weight, readability, and character length." class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-8 space-y-6">
           <h2 class="text-lg font-bold text-slate-900 border-b border-slate-100 pb-3">Input Copy Headline</h2>
 
           <div class="space-y-4">
@@ -68,26 +68,26 @@
         <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
           <div class="bg-gradient-to-br from-brand-600 to-brand-800 p-6 rounded-2xl text-white shadow-md">
             <span class="text-xs uppercase font-bold tracking-wider opacity-85 block">Overall Quality Score</span>
-            <span class="text-3xl font-extrabold mt-2 block" id="out-score">0 / 100</span>
+            <span class="text-3xl font-extrabold mt-2 block" id="out-score" form-output="true">0 / 100</span>
           </div>
           <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
             <span class="text-xs uppercase font-bold tracking-wider text-slate-400 block">Length Optimization</span>
-            <span class="text-lg font-extrabold mt-2 text-slate-800 block" id="out-length-rating">Too Long</span>
+            <span class="text-lg font-extrabold mt-2 text-slate-800 block" id="out-length-rating" form-output="true">Too Long</span>
           </div>
           <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
             <span class="text-xs uppercase font-bold tracking-wider text-slate-400 block">Emotional Word Weight</span>
-            <span class="text-lg font-extrabold mt-2 text-slate-800 block" id="out-emotional-rating">0%</span>
+            <span class="text-lg font-extrabold mt-2 text-slate-800 block" id="out-emotional-rating" form-output="true">0%</span>
           </div>
           <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
             <span class="text-xs uppercase font-bold tracking-wider text-slate-400 block">Power Word Indicator</span>
-            <span class="text-lg font-extrabold mt-2 text-slate-800 block" id="out-power-rating">Found 0</span>
+            <span class="text-lg font-extrabold mt-2 text-slate-800 block" id="out-power-rating" form-output="true">Found 0</span>
           </div>
         </div>
 
         <!-- Feedback Tips List -->
         <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-4">
           <h2 class="text-lg font-bold text-slate-900 border-b border-slate-100 pb-3">Actionable Improvements</h2>
-          <ul class="space-y-2 text-sm text-slate-600 list-disc list-inside" id="out-tips">
+          <ul class="space-y-2 text-sm text-slate-600 list-disc list-inside" id="out-tips" form-output="true">
             <li>Keep headlines between 50-60 characters for high SEO viewability.</li>
             <li>Incorporate more power verbs or emotional adjectives.</li>
           </ul>

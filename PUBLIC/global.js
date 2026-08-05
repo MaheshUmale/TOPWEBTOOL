@@ -621,6 +621,7 @@ window.closeStickyFooter = function() {
   if (el) {
     el.style.display = 'none';
   }
+};
 
 // Dynamic WebMCP Agent-Ready Layer for all 23 Utilities
 document.addEventListener("DOMContentLoaded", () => {

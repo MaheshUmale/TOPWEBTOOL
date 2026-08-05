@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
@@ -53,7 +53,7 @@
         </div>
 
         <!-- Calculator UI -->
-        <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-8 space-y-6">
+        <form id="form-midjourney-command-builder" form-id="form-midjourney-command-builder" tool-name="Midjourney Command Builder" tool-description="Select parameters, version toggles, and aspect ratios to construct precise Midjourney commands." class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-8 space-y-6">
           <h2 class="text-lg font-bold text-slate-900 border-b border-slate-100 pb-3">Prompt Parameters</h2>
 
           <div class="space-y-4">
@@ -85,11 +85,11 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div>
                 <label for="input-stylize" class="block text-sm font-semibold text-slate-700 mb-2">Stylize Weight (--s)</label>
-                <input type="number" id="input-stylize" class="block w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-950 font-semibold text-sm" value="100" min="0" max="1000" oninput="buildPrompt()">
+                <input type="number" id="input-stylize" required class="block w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-950 font-semibold text-sm" value="100" min="0" max="1000" oninput="buildPrompt()">
               </div>
               <div>
                 <label for="input-chaos" class="block text-sm font-semibold text-slate-700 mb-2">Chaos Rating (--c)</label>
-                <input type="number" id="input-chaos" class="block w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-950 font-semibold text-sm" value="0" min="0" max="100" oninput="buildPrompt()">
+                <input type="number" id="input-chaos" required class="block w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-950 font-semibold text-sm" value="0" min="0" max="100" oninput="buildPrompt()">
               </div>
               <div>
                 <label for="input-no" class="block text-sm font-semibold text-slate-700 mb-2">Negative Prompts (--no)</label>
@@ -102,7 +102,7 @@
         <!-- Output Cards -->
         <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-4">
           <h2 class="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">Completed Command Syntax</h2>
-          <div class="bg-slate-950 text-slate-200 p-4 rounded-xl font-mono text-xs break-all shadow-inner" id="out-command">
+          <div class="bg-slate-950 text-slate-200 p-4 rounded-xl font-mono text-xs break-all shadow-inner" id="out-command" form-output="true">
             /imagine prompt: A cyberpunk city skyline at night... --ar 16:9 --v 6.0 --s 100 --no blurry
           </div>
           <div class="flex justify-end pt-2">

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
@@ -53,32 +53,32 @@
         </div>
 
         <!-- Calculator UI -->
-        <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-8 space-y-6">
+        <form id="form-dividend-reinvestment-calculator" form-id="form-dividend-reinvestment-calculator" tool-name="Dividend Reinvestment Calculator" tool-description="Project compounding stock growth assuming recurring dividend reinvestment schedules." class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-8 space-y-6">
           <h2 class="text-lg font-bold text-slate-900 border-b border-slate-100 pb-3">Investment parameters</h2>
 
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
               <label for="input-init" class="block text-sm font-semibold text-slate-700 mb-2">Initial Principal ($)</label>
-              <input type="number" id="input-init" class="block w-full px-3 py-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-950 font-semibold text-sm" value="10000" oninput="calculateDRIP()">
+              <input type="number" id="input-init" required class="block w-full px-3 py-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-950 font-semibold text-sm" value="10000" oninput="calculateDRIP()">
             </div>
             <div>
               <label for="input-contrib" class="block text-sm font-semibold text-slate-700 mb-2">Annual Contributions ($)</label>
-              <input type="number" id="input-contrib" class="block w-full px-3 py-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-950 font-semibold text-sm" value="1200" oninput="calculateDRIP()">
+              <input type="number" id="input-contrib" required class="block w-full px-3 py-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-950 font-semibold text-sm" value="1200" oninput="calculateDRIP()">
             </div>
           </div>
 
           <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div>
               <label for="input-yield" class="block text-sm font-semibold text-slate-700 mb-2">Annual Dividend Yield (%)</label>
-              <input type="number" id="input-yield" class="block w-full px-3 py-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-950 font-semibold text-sm" value="4.5" step="0.1" oninput="calculateDRIP()">
+              <input type="number" id="input-yield" required class="block w-full px-3 py-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-950 font-semibold text-sm" value="4.5" step="0.1" oninput="calculateDRIP()">
             </div>
             <div>
               <label for="input-stock-growth" class="block text-sm font-semibold text-slate-700 mb-2">Share Price Growth Rate (%)</label>
-              <input type="number" id="input-stock-growth" class="block w-full px-3 py-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-950 font-semibold text-sm" value="5" step="0.1" oninput="calculateDRIP()">
+              <input type="number" id="input-stock-growth" required class="block w-full px-3 py-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-950 font-semibold text-sm" value="5" step="0.1" oninput="calculateDRIP()">
             </div>
             <div>
               <label for="input-horizon" class="block text-sm font-semibold text-slate-700 mb-2">Investment Horizon (Years)</label>
-              <input type="number" id="input-horizon" class="block w-full px-3 py-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-950 font-semibold text-sm" value="20" min="1" max="50" oninput="calculateDRIP()">
+              <input type="number" id="input-horizon" required class="block w-full px-3 py-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-950 font-semibold text-sm" value="20" min="1" max="50" oninput="calculateDRIP()">
             </div>
           </div>
 
@@ -92,7 +92,7 @@
             </div>
             <div>
               <label for="input-share-price" class="block text-sm font-semibold text-slate-700 mb-2">Starting Share Price ($)</label>
-              <input type="number" id="input-share-price" class="block w-full px-3 py-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-950 font-semibold text-sm" value="50" oninput="calculateDRIP()">
+              <input type="number" id="input-share-price" required class="block w-full px-3 py-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-950 font-semibold text-sm" value="50" oninput="calculateDRIP()">
             </div>
           </div>
         </div>
@@ -101,15 +101,15 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div class="bg-gradient-to-br from-brand-600 to-brand-800 p-6 rounded-2xl text-white shadow-md">
             <span class="text-xs uppercase font-bold tracking-wider opacity-85 block">Ending Portfolio Value</span>
-            <span class="text-2xl font-extrabold mt-2 block" id="out-ending-value">$0.00</span>
+            <span class="text-2xl font-extrabold mt-2 block" id="out-ending-value" form-output="true">$0.00</span>
           </div>
           <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
             <span class="text-xs uppercase font-bold tracking-wider text-slate-400 block">Total Shares Accumulated</span>
-            <span class="text-xl font-extrabold mt-2 text-slate-800 block" id="out-ending-shares">0.00</span>
+            <span class="text-xl font-extrabold mt-2 text-slate-800 block" id="out-ending-shares" form-output="true">0.00</span>
           </div>
           <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
             <span class="text-xs uppercase font-bold tracking-wider text-slate-400 block">Cumulative Income Paid</span>
-            <span class="text-xl font-extrabold mt-2 text-slate-800 block" id="out-total-income">$0.00</span>
+            <span class="text-xl font-extrabold mt-2 text-slate-800 block" id="out-total-income" form-output="true">$0.00</span>
           </div>
         </div>
 

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
@@ -53,7 +53,7 @@
         </div>
 
         <!-- Calculator UI -->
-        <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-8 space-y-6">
+        <form id="form-chatgpt-prompt-optimizer" form-id="form-chatgpt-prompt-optimizer" tool-name="ChatGPT Prompt Optimizer" tool-description="Inject personas, variables, and formatting constraints into basic raw prompt strings." class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-8 space-y-6">
           <h2 class="text-lg font-bold text-slate-900 border-b border-slate-100 pb-3">Prompt Configuration</h2>
 
           <div class="space-y-4">
@@ -96,7 +96,7 @@
         <!-- Output Cards -->
         <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-4">
           <h2 class="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">Optimized System Prompt Output</h2>
-          <div class="bg-slate-950 text-slate-200 p-4 rounded-xl font-mono text-xs whitespace-pre-wrap break-words shadow-inner" id="out-optimized">
+          <div class="bg-slate-950 text-slate-200 p-4 rounded-xl font-mono text-xs whitespace-pre-wrap break-words shadow-inner" id="out-optimized" form-output="true">
             ...
           </div>
           <div class="flex justify-end pt-2">

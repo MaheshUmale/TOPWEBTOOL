@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
@@ -51,7 +51,7 @@
         </div>
 
         <!-- Calculator UI -->
-        <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm p-6 sm:p-8 space-y-6">
+        <form id="form-ai-text-humanizer-helper" form-id="form-ai-text-humanizer-helper" tool-name="AI Text Humanizer Helper" tool-description="Detect robotic structures and optimize copy flow to humanize AI-generated text output." class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm p-6 sm:p-8 space-y-6">
           <h2 class="text-lg font-bold text-slate-900 dark:text-white border-b border-slate-100 dark:border-slate-800 pb-3">Analyze Your Writing</h2>
 
           <div class="space-y-4">
@@ -66,22 +66,22 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div class="bg-gradient-to-br from-brand-600 to-brand-800 p-6 rounded-2xl text-white shadow-md">
             <span class="text-xs uppercase font-bold tracking-wider opacity-85 block">Robotic Density Score</span>
-            <span class="text-2xl font-extrabold mt-2 block" id="out-density-score">Medium</span>
+            <span class="text-2xl font-extrabold mt-2 block" id="out-density-score" form-output="true">Medium</span>
           </div>
           <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
             <span class="text-xs uppercase font-bold tracking-wider text-slate-400 dark:text-slate-500 block">AI Words Flagged</span>
-            <span class="text-xl font-extrabold mt-2 text-slate-800 dark:text-slate-100 block" id="out-flagged-count">0</span>
+            <span class="text-xl font-extrabold mt-2 text-slate-800 dark:text-slate-100 block" id="out-flagged-count" form-output="true">0</span>
           </div>
           <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
             <span class="text-xs uppercase font-bold tracking-wider text-slate-400 dark:text-slate-500 block">Unique Vocabulary Ratio</span>
-            <span class="text-xl font-extrabold mt-2 text-slate-800 dark:text-slate-100 block" id="out-vocab-ratio">0%</span>
+            <span class="text-xl font-extrabold mt-2 text-slate-800 dark:text-slate-100 block" id="out-vocab-ratio" form-output="true">0%</span>
           </div>
         </div>
 
         <!-- Highlights & Flags -->
         <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
           <h2 class="text-lg font-bold text-slate-900 dark:text-white border-b border-slate-100 dark:border-slate-800 pb-3">Identified Robotic Patterns</h2>
-          <div class="text-sm leading-relaxed p-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl text-slate-800 dark:text-slate-100" id="out-highlighted-text">
+          <div class="text-sm leading-relaxed p-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl text-slate-800 dark:text-slate-100" id="out-highlighted-text" form-output="true">
             ...
           </div>
         </div>

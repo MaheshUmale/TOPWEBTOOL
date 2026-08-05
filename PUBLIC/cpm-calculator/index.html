@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
@@ -53,7 +53,7 @@
         </div>
 
         <!-- Calculator UI -->
-        <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-8 space-y-6">
+        <form id="form-cpm-calculator" form-id="form-cpm-calculator" tool-name="CPM Calculator" tool-description="Compute campaign cost, target CPM, or required impressions instantly." class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-8 space-y-6">
           <div class="flex justify-between items-center border-b border-slate-100 pb-3">
             <h2 class="text-lg font-bold text-slate-900">Select Mode / Parameter to Solve For</h2>
             <select id="input-mode" class="px-3 py-1.5 border border-slate-300 rounded-lg bg-white font-bold text-xs text-brand-700" onchange="switchMode()">
@@ -66,15 +66,15 @@
           <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div id="wrapper-cost">
               <label for="input-cost" class="block text-sm font-semibold text-slate-700 mb-2">Total Campaign Cost ($)</label>
-              <input type="number" id="input-cost" class="block w-full px-3 py-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-950 font-semibold text-sm" value="150" oninput="solveCPM()">
+              <input type="number" id="input-cost" required class="block w-full px-3 py-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-950 font-semibold text-sm" value="150" oninput="solveCPM()">
             </div>
             <div id="wrapper-cpm">
               <label for="input-cpm" class="block text-sm font-semibold text-slate-700 mb-2">CPM Rate ($)</label>
-              <input type="number" id="input-cpm" class="block w-full px-3 py-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-950 font-semibold text-sm" value="7.5" oninput="solveCPM()">
+              <input type="number" id="input-cpm" required class="block w-full px-3 py-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-950 font-semibold text-sm" value="7.5" oninput="solveCPM()">
             </div>
             <div id="wrapper-impressions">
               <label for="input-impressions" class="block text-sm font-semibold text-slate-700 mb-2">Total Impressions</label>
-              <input type="number" id="input-impressions" class="block w-full px-3 py-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-950 font-semibold text-sm" value="20000" oninput="solveCPM()">
+              <input type="number" id="input-impressions" required class="block w-full px-3 py-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-950 font-semibold text-sm" value="20000" oninput="solveCPM()">
             </div>
           </div>
         </div>
@@ -82,16 +82,16 @@
         <!-- Output Cards -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div class="bg-gradient-to-br from-brand-600 to-brand-800 p-6 rounded-2xl text-white shadow-md">
-            <span class="text-xs uppercase font-bold tracking-wider opacity-85 block" id="out-lbl-total-cost">Total Ad Cost</span>
-            <span class="text-2xl font-extrabold mt-2 block" id="out-cost">$150.00</span>
+            <span class="text-xs uppercase font-bold tracking-wider opacity-85 block" id="out-lbl-total-cost" form-output="true">Total Ad Cost</span>
+            <span class="text-2xl font-extrabold mt-2 block" id="out-cost" form-output="true">$150.00</span>
           </div>
           <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
-            <span class="text-xs uppercase font-bold tracking-wider text-slate-400 block" id="out-lbl-cpm">Calculated CPM Rate</span>
-            <span class="text-xl font-extrabold mt-2 text-slate-800 block" id="out-cpm">$7.50</span>
+            <span class="text-xs uppercase font-bold tracking-wider text-slate-400 block" id="out-lbl-cpm" form-output="true">Calculated CPM Rate</span>
+            <span class="text-xl font-extrabold mt-2 text-slate-800 block" id="out-cpm" form-output="true">$7.50</span>
           </div>
           <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
-            <span class="text-xs uppercase font-bold tracking-wider text-slate-400 block" id="out-lbl-impressions">Ad Impressions Target</span>
-            <span class="text-xl font-extrabold mt-2 text-slate-800 block" id="out-impressions">20,000</span>
+            <span class="text-xs uppercase font-bold tracking-wider text-slate-400 block" id="out-lbl-impressions" form-output="true">Ad Impressions Target</span>
+            <span class="text-xl font-extrabold mt-2 text-slate-800 block" id="out-impressions" form-output="true">20,000</span>
           </div>
         </div>
 

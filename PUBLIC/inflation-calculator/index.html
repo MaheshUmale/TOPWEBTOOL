@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
@@ -53,13 +53,13 @@
         </div>
 
         <!-- Calculator UI -->
-        <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-8 space-y-6">
+        <form id="form-inflation-calculator" form-id="form-inflation-calculator" tool-name="Inflation Calculator" tool-description="Track and compare historical buying power changes using US CPI & Eurostat inflation metrics." class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-8 space-y-6">
           <h2 class="text-lg font-bold text-slate-900 border-b border-slate-100 pb-3">Configure Inflation Projections</h2>
 
           <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div>
-              <label for="input-amount" class="block text-sm font-semibold text-slate-700 mb-2">Starting Value ($/€)</label>
-              <input type="number" id="input-amount" class="block w-full px-3 py-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-950 font-semibold text-sm" value="100" oninput="calculateInflation()">
+              <label for="input-amount" class="block text-sm font-semibold text-slate-700 mb-2">Starting Value ($/â‚¬)</label>
+              <input type="number" id="input-amount" required class="block w-full px-3 py-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-950 font-semibold text-sm" value="100" oninput="calculateInflation()">
             </div>
             <div>
               <label for="input-start-year" class="block text-sm font-semibold text-slate-700 mb-2">From Year</label>
@@ -90,7 +90,7 @@
             </div>
             <div>
               <label for="input-manual-rate" class="block text-sm font-semibold text-slate-700 mb-2">Alternative Custom Constant Rate (%)</label>
-              <input type="number" id="input-manual-rate" class="block w-full px-3 py-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-950 font-semibold text-sm" value="3.5" step="0.1" oninput="calculateInflation()">
+              <input type="number" id="input-manual-rate" required class="block w-full px-3 py-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-950 font-semibold text-sm" value="3.5" step="0.1" oninput="calculateInflation()">
             </div>
           </div>
         </div>
@@ -99,11 +99,11 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div class="bg-gradient-to-br from-brand-600 to-brand-800 p-6 rounded-2xl text-white shadow-md">
             <span class="text-xs uppercase font-bold tracking-wider opacity-85 block">Equivalent Purchasing Power Value</span>
-            <span class="text-3xl font-extrabold mt-2 block" id="out-eq-amount">$137.40</span>
+            <span class="text-3xl font-extrabold mt-2 block" id="out-eq-amount" form-output="true">$137.40</span>
           </div>
           <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
             <span class="text-xs uppercase font-bold tracking-wider text-slate-400 block">Total Inflation Rate</span>
-            <span class="text-2xl font-extrabold mt-2 text-slate-800 block" id="out-cumulative-inflation">37.4%</span>
+            <span class="text-2xl font-extrabold mt-2 text-slate-800 block" id="out-cumulative-inflation" form-output="true">37.4%</span>
           </div>
         </div>
 
@@ -268,7 +268,7 @@
         equivalent = amount * (indexEnd / indexStart);
       }
 
-      const prefix = dataset === 'US' ? '$' : '€';
+      const prefix = dataset === 'US' ? '$' : 'â‚¬';
       document.getElementById('out-eq-amount').textContent = `${prefix}${equivalent.toFixed(2)}`;
       document.getElementById('out-cumulative-inflation').textContent = `${totalRate.toFixed(1)}%`;
     }

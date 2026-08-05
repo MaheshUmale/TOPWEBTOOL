@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
@@ -53,7 +53,7 @@
         </div>
 
         <!-- Calculator UI -->
-        <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-8 space-y-6">
+        <form id="form-word-character-counter" form-id="form-word-character-counter" tool-name="Word & Character Counter" tool-description="Analyze content length, reading time, speaking duration, and sentence statistics." class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-8 space-y-6">
           <h2 class="text-lg font-bold text-slate-900 border-b border-slate-100 pb-3">Paste Copy Content</h2>
 
           <div class="space-y-4">
@@ -65,19 +65,19 @@
         <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
           <div class="bg-gradient-to-br from-brand-600 to-brand-800 p-6 rounded-2xl text-white shadow-md">
             <span class="text-xs uppercase font-bold tracking-wider opacity-85 block">Total Words</span>
-            <span class="text-2xl font-extrabold mt-2 block" id="out-words">0</span>
+            <span class="text-2xl font-extrabold mt-2 block" id="out-words" form-output="true">0</span>
           </div>
           <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
             <span class="text-xs uppercase font-bold tracking-wider text-slate-400 block">Total Characters</span>
-            <span class="text-xl font-extrabold mt-2 text-slate-800 block" id="out-chars">0</span>
+            <span class="text-xl font-extrabold mt-2 text-slate-800 block" id="out-chars" form-output="true">0</span>
           </div>
           <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
             <span class="text-xs uppercase font-bold tracking-wider text-slate-400 block">Est. Reading Time</span>
-            <span class="text-xl font-extrabold mt-2 text-slate-800 block" id="out-read">0 min</span>
+            <span class="text-xl font-extrabold mt-2 text-slate-800 block" id="out-read" form-output="true">0 min</span>
           </div>
           <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
             <span class="text-xs uppercase font-bold tracking-wider text-slate-400 block">Est. Speaking Time</span>
-            <span class="text-xl font-extrabold mt-2 text-slate-800 block" id="out-speak">0 min</span>
+            <span class="text-xl font-extrabold mt-2 text-slate-800 block" id="out-speak" form-output="true">0 min</span>
           </div>
         </div>
 
