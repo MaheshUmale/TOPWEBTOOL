@@ -260,7 +260,7 @@ function renderHeader() {
   const headerContainer = document.getElementById('global-header') || document.querySelector('header');
   if (!headerContainer) return;
 
-  headerContainer.className = "bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 sticky top-0 z-40 shadow-sm transition-colors duration-200";
+  headerContainer.className = "bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 sticky top-0 z-40 shadow-sm";
 
   // Determine relative paths dynamic prefix
   const isHomepage = window.location.pathname === '/' || window.location.pathname.endsWith('/index.html') || window.location.pathname === '';
@@ -282,7 +282,7 @@ function renderHeader() {
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="h-16 flex items-center justify-between">
         <a href="${prefix}" class="flex items-center space-x-2 group">
-          <img src="${prefix}logo.svg" alt="TopWebTool Logo" class="w-8 h-8 text-brand-600 transition-transform group-hover:scale-105" />
+          <img src="${prefix}logo.svg" alt="TopWebTool Logo" class="w-8 h-8 text-brand-600 transition-transform group-hover:scale-105" width="32" height="32" />
           <span class="font-extrabold text-2xl tracking-tight bg-gradient-to-r from-blue-700 to-sky-500 dark:from-blue-400 dark:to-sky-300 bg-clip-text text-slate-900 dark:text-slate-100" style="-webkit-background-clip: text; -webkit-text-fill-color: transparent;">TopWebTool</span>
         </a>
 
@@ -355,7 +355,7 @@ function renderFooter() {
   const footerContainer = document.getElementById('global-footer') || document.querySelector('footer');
   if (!footerContainer) return;
 
-  footerContainer.className = "bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 mt-8 py-4 transition-colors duration-200";
+  footerContainer.className = "bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 mt-8 py-4";
 
   footerContainer.innerHTML = `
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center text-slate-500 dark:text-slate-400 text-sm">
@@ -379,7 +379,7 @@ function renderSidebarScroller() {
   if (!sidebarContainer) return;
 
   // Add broad padding and explicit classes to support a wide, highly legible layout
-  sidebarContainer.className = "bg-white dark:bg-slate-900 p-4 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col max-h-[700px] transition-colors duration-200 w-full";
+  sidebarContainer.className = "bg-white dark:bg-slate-900 p-4 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col max-h-[700px] w-full";
 
   // Determine prefix for relative navigation
   const isHomepage = window.location.pathname === '/' || window.location.pathname.endsWith('/index.html') || window.location.pathname === '';
@@ -492,7 +492,7 @@ function renderAdPlacements() {
 
   // 1. AD A: TOP LEADERBOARD BANNER (Horizontal Ads) - Height Restricted for Frictionless UX
   const adA = document.createElement('div');
-  adA.className = "w-full mx-auto mb-6 p-3 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center transition-colors duration-200 text-center select-none overflow-hidden min-h-[90px]";
+  adA.className = "w-full mx-auto mb-6 p-3 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center select-none overflow-hidden min-h-[90px]";
   adA.style.maxWidth = "728px";
   adA.style.maxHeight = "135px";
 
@@ -533,7 +533,7 @@ function renderAdPlacements() {
   if (sidebar) {
     // A. SQUARE AD (SquareAds)
     const squareAd = document.createElement('div');
-    squareAd.className = "w-full p-4 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center transition-colors duration-200 text-center mt-4 select-none min-h-[250px] overflow-hidden";
+    squareAd.className = "w-full p-4 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center mt-4 select-none min-h-[250px] overflow-hidden";
     squareAd.style.minHeight = "250px";
     squareAd.innerHTML = `
       <span class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-2">Sponsored</span>
@@ -557,7 +557,7 @@ function renderAdPlacements() {
 
     // B. VERTICAL AD (verticalAds) - Display on desktop only to avoid mobile clutter (UX-first!)
     const verticalAd = document.createElement('div');
-    verticalAd.className = "w-full p-4 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center transition-colors duration-200 text-center mt-4 hidden lg:flex select-none min-h-[600px] overflow-hidden";
+    verticalAd.className = "w-full p-4 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center mt-4 hidden lg:flex select-none min-h-[600px] overflow-hidden";
     verticalAd.style.minHeight = "600px";
     verticalAd.innerHTML = `
       <span class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-2">Advertisement</span>
@@ -583,7 +583,7 @@ function renderAdPlacements() {
   // 3. AD C: STICKY BOTTOM VIEWPORT ANCHOR (Horizontal Ads) - Height Restricted for Frictionless UX
   const stickyFooter = document.createElement('div');
   stickyFooter.id = "sticky-footer-ad";
-  stickyFooter.className = "fixed bottom-0 left-0 w-full z-50 bg-white/95 dark:bg-slate-900/95 backdrop-blur border-t border-slate-200/80 dark:border-slate-800 shadow-lg flex flex-col items-center justify-center py-2 transition-colors duration-200 select-none overflow-hidden min-h-[50px]";
+  stickyFooter.className = "fixed bottom-0 left-0 w-full z-50 bg-white/95 dark:bg-slate-900/95 backdrop-blur border-t border-slate-200/80 dark:border-slate-800 shadow-lg flex flex-col items-center justify-center py-2 select-none overflow-hidden min-h-[50px]";
   stickyFooter.style.maxHeight = "95px";
 
   stickyFooter.innerHTML = `
@@ -607,7 +607,6 @@ function renderAdPlacements() {
   `;
 
   document.body.appendChild(stickyFooter);
-  document.body.classList.add('pb-24'); // Add bottom padding to body so sticky footer doesn't overlap actual content
 
   try {
     (window.adsbygoogle = window.adsbygoogle || []).push({});
@@ -621,6 +620,5 @@ window.closeStickyFooter = function() {
   const el = document.getElementById('sticky-footer-ad');
   if (el) {
     el.style.display = 'none';
-    document.body.classList.remove('pb-24');
   }
 };
