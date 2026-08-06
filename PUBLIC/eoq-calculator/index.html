@@ -1,0 +1,354 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>
+    (function() {
+      try {
+        const theme = localStorage.getItem('theme');
+        if (theme === 'dark') {
+          document.documentElement.classList.add('dark');
+          document.documentElement.classList.remove('light');
+        } else {
+          document.documentElement.classList.remove('dark');
+          document.documentElement.classList.add('light');
+        }
+      } catch (e) {}
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+  <meta charset="UTF-8">   <meta name="google-adsense-account" content="ca-pub-3901061173891576">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EOQ Calculator - Economic Order Quantity Optimizer | TopWebTool</title>
+  <meta name="description" content="Calculate optimal Economic Order Quantity (EOQ) to minimize inventory costs. Free inventory optimization tool for supply chain management.">
+  <link rel="canonical" href="https://topwebtool.com/eoq-calculator/">
+  <style>html{background-color:#fff}html.dark{background-color:#0f172a}body{padding-bottom:6rem}main.flex-grow{min-height:60vh}#global-header{min-height:65px}#global-footer{min-height:85px}#trending-sidebar{min-height:700px}@media (max-width:767px){#global-header{min-height:200px}#global-footer{min-height:120px}}.category-section{content-visibility:auto;contain-intrinsic-size:auto 500px}.tool-card{contain:layout style paint}img[width][height]{aspect-ratio:attr(width)/attr(height)}</style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "EOQ Calculator - Economic Order Quantity Optimizer | TopWebTool",
+    "url": "https://topwebtool.com/eoq-calculator/",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Windows, macOS, Linux, Android, iOS",
+    "browserRequirements": "Requires HTML5 compatible web browser",
+    "description": "Calculate optimal Economic Order Quantity (EOQ) to minimize inventory costs. Free inventory optimization tool for supply chain management.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="../global.css">
+</head>
+<body class="bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 min-h-screen flex flex-col">
+
+  <header id="global-header"></header>
+
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex-grow">
+    <div id="ad-slot-a" class="w-full mx-auto mb-6 p-3 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center select-none overflow-hidden min-h-[90px]" style="max-width:728px; min-height:90px; max-height:135px;">
+      <span class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-1.5">Advertisement</span>
+      <div class="w-full flex justify-center" style="height:90px; max-height:90px; overflow:hidden;">
+        <ins class="adsbygoogle" style="display:inline-block; width:100%; height:90px; max-height:90px;" data-ad-client="ca-pub-3901061173891576" data-ad-slot="2894630336" data-ad-format="horizontal" data-full-width-responsive="false"></ins>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-4 gap-4">
+      <div class="lg:col-span-3 space-y-8">
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+          <h1 class="text-3xl font-extrabold text-slate-900 tracking-tight sm:text-4xl">EOQ Calculator - Economic Order Quantity Optimizer</h1>
+          <p class="mt-2 text-base text-slate-500">
+            Calculate the optimal Economic Order Quantity (EOQ) to minimize total inventory costs including ordering and holding costs. Free supply chain optimization tool for inventory management.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+          <div class="p-6 sm:p-8 bg-gradient-to-r from-brand-900 to-brand-700 text-white">
+            <h2 class="text-xl font-bold">Inventory Parameters</h2>
+            <p class="text-xs text-brand-100 opacity-90 mt-1">Enter your demand, cost, and lead time data to calculate optimal order quantity.</p>
+          </div>
+
+          <div class="p-6 sm:p-8 space-y-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <div class="flex justify-between items-center mb-2">
+                  <label for="input-annual-demand" class="block text-sm font-semibold text-slate-700">Annual Demand / Usage (units)</label>
+                </div>
+                <div class="relative rounded-lg shadow-sm">
+                  <input type="number" id="input-annual-demand" class="block w-full px-3 py-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-950 font-semibold sm:text-sm" value="10000" min="0" step="100" oninput="calculateEOQ()">
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between items-center mb-2">
+                  <label for="input-order-cost" class="block text-sm font-semibold text-slate-700">Order Cost Per Order ($)</label>
+                </div>
+                <div class="relative rounded-lg shadow-sm">
+                  <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                    <span class="text-slate-400 sm:text-sm">$</span>
+                  </div>
+                  <input type="number" id="input-order-cost" class="block w-full pl-8 pr-3 py-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-950 font-semibold sm:text-sm" value="50" min="0" step="1" oninput="calculateEOQ()">
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between items-center mb-2">
+                  <label for="input-holding-cost" class="block text-sm font-semibold text-slate-700">Holding Cost Per Unit Per Year ($)</label>
+                </div>
+                <div class="relative rounded-lg shadow-sm">
+                  <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                    <span class="text-slate-400 sm:text-sm">$</span>
+                  </div>
+                  <input type="number" id="input-holding-cost" class="block w-full pl-8 pr-3 py-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-950 font-semibold sm:text-sm" value="5" min="0" step="0.1" oninput="calculateEOQ()">
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between items-center mb-2">
+                  <label for="input-current-order-qty" class="block text-sm font-semibold text-slate-700">Current Order Quantity (optional)</label>
+                </div>
+                <div class="relative rounded-lg shadow-sm">
+                  <input type="number" id="input-current-order-qty" class="block w-full px-3 py-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-950 font-semibold sm:text-sm" value="" min="0" step="1" placeholder="Leave blank to skip comparison" oninput="calculateEOQ()">
+                </div>
+              </div>
+
+              <div class="md:col-span-2">
+                <div class="flex justify-between items-center mb-2">
+                  <label for="input-lead-time" class="block text-sm font-semibold text-slate-700">Lead Time (days, optional)</label>
+                </div>
+                <div class="relative rounded-lg shadow-sm">
+                  <input type="number" id="input-lead-time" class="block w-full px-3 py-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-950 font-semibold sm:text-sm" value="" min="0" step="1" placeholder="Leave blank to skip reorder point" oninput="calculateEOQ()">
+                </div>
+              </div>
+            </div>
+
+            <div id="validation-error" class="hidden bg-red-50 border border-red-200 text-red-700 rounded-xl p-4 text-sm"></div>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+          <div class="p-6 sm:p-8 bg-gradient-to-r from-emerald-900 to-emerald-700 text-white">
+            <h2 class="text-xl font-bold">Optimization Results</h2>
+          </div>
+          <div class="p-6 sm:p-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div class="bg-slate-50 rounded-xl p-4 border border-slate-200">
+                <p class="text-sm font-medium text-slate-500">Optimal EOQ</p>
+                <p class="text-2xl font-bold text-slate-900 mt-1" id="result-eoq">0</p>
+                <p class="text-xs text-slate-400 mt-1">units per order</p>
+              </div>
+              <div class="bg-slate-50 rounded-xl p-4 border border-slate-200">
+                <p class="text-sm font-medium text-slate-500">Number of Orders Per Year</p>
+                <p class="text-2xl font-bold text-slate-900 mt-1" id="result-orders">0</p>
+                <p class="text-xs text-slate-400 mt-1">orders annually</p>
+              </div>
+              <div class="bg-slate-50 rounded-xl p-4 border border-slate-200">
+                <p class="text-sm font-medium text-slate-500">Order Cycle</p>
+                <p class="text-2xl font-bold text-slate-900 mt-1" id="result-cycle">0</p>
+                <p class="text-xs text-slate-400 mt-1">days between orders</p>
+              </div>
+              <div class="bg-slate-50 rounded-xl p-4 border border-slate-200">
+                <p class="text-sm font-medium text-slate-500">Total Annual Inventory Cost</p>
+                <p class="text-2xl font-bold text-slate-900 mt-1" id="result-total-cost">$0</p>
+                <p class="text-xs text-slate-400 mt-1">ordering + holding</p>
+              </div>
+              <div class="bg-slate-50 rounded-xl p-4 border border-slate-200">
+                <p class="text-sm font-medium text-slate-500">Total Ordering Cost</p>
+                <p class="text-2xl font-bold text-slate-900 mt-1" id="result-ordering-cost">$0</p>
+                <p class="text-xs text-slate-400 mt-1">per year</p>
+              </div>
+              <div class="bg-slate-50 rounded-xl p-4 border border-slate-200">
+                <p class="text-sm font-medium text-slate-500">Total Holding Cost</p>
+                <p class="text-2xl font-bold text-slate-900 mt-1" id="result-holding-cost">$0</p>
+                <p class="text-xs text-slate-400 mt-1">per year</p>
+              </div>
+              <div class="bg-slate-50 rounded-xl p-4 border border-slate-200 md:col-span-2" id="reorder-point-container">
+                <p class="text-sm font-medium text-slate-500">Reorder Point</p>
+                <p class="text-2xl font-bold text-slate-900 mt-1" id="result-reorder-point">0</p>
+                <p class="text-xs text-slate-400 mt-1">units (based on lead time)</p>
+              </div>
+              <div class="bg-emerald-50 rounded-xl p-4 border border-emerald-200 md:col-span-2" id="comparison-container" style="display:none;">
+                <p class="text-sm font-medium text-emerald-700">Annual Savings vs Current Order Quantity</p>
+                <p class="text-2xl font-bold text-emerald-900 mt-1" id="result-savings">$0</p>
+                <p class="text-xs text-emerald-600 mt-1">By switching to optimal EOQ</p>
+              </div>
+            </div>
+            <div class="mt-6 flex gap-3">
+              <button onclick="copyResults()" class="px-4 py-2 bg-brand-600 text-white rounded-lg hover:bg-brand-700 transition-colors text-sm font-semibold">Copy Results</button>
+              <button onclick="resetForm()" class="px-4 py-2 bg-slate-200 text-slate-700 rounded-lg hover:bg-slate-300 transition-colors text-sm font-semibold">Reset</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="lg:col-span-1">
+        
+        <div id="trending-sidebar"></div>
+        <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sticky top-4">
+          <h3 class="text-lg font-bold text-slate-900 mb-4">Related Tools</h3>
+          <ul class="space-y-2">
+            <li><a href="/freight-dimensional-weight/" class="text-brand-600 hover:text-brand-700 text-sm">Freight Dimensional Weight</a></li>
+            <li><a href="/ltv-cac-calculator/" class="text-brand-600 hover:text-brand-700 text-sm">LTV / CAC Calculator</a></li>
+            <li><a href="/markup-margin-tool/" class="text-brand-600 hover:text-brand-700 text-sm">Markup & Margin Tool</a></li>
+            <li><a href="/dso-tracker/" class="text-brand-600 hover:text-brand-700 text-sm">DSO Tracker</a></li>
+            <li><a href="/retainer-profitability/" class="text-brand-600 hover:text-brand-700 text-sm">Retainer Profitability</a></li>
+          </ul>
+        </div>
+        <div id="ad-slot-square" class="w-full p-4 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center mt-4 select-none min-h-[250px] overflow-hidden" style="min-height:250px;">
+          <span class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-2">Sponsored</span>
+          <div class="w-full flex justify-center" style="height:250px; max-height:250px; overflow:hidden;">
+            <ins class="adsbygoogle" style="display:block; width:100%; min-height:250px; max-height:250px;" data-ad-client="ca-pub-3901061173891576" data-ad-slot="6707430996" data-ad-format="rectangle" data-full-width-responsive="false"></ins>
+          </div>
+        </div>
+        <div id="ad-slot-vertical" class="w-full p-4 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center mt-4 hidden lg:flex select-none min-h-[600px] overflow-hidden" style="min-height:600px;">
+          <span class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-2">Advertisement</span>
+          <div class="w-full flex justify-center" style="height:600px; max-height:600px; overflow:hidden;">
+            <ins class="adsbygoogle" style="display:block; width:100%; min-height:600px; max-height:600px;" data-ad-client="ca-pub-3901061173891576" data-ad-slot="1581548667" data-ad-format="auto" data-full-width-responsive="true"></ins>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer id="global-footer"></footer>
+
+  <script>
+    function formatCurrency(amount) {
+      return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(amount);
+    }
+
+    function formatNumber(num, decimals) {
+      return num.toLocaleString('en-US', { minimumFractionDigits: decimals, maximumFractionDigits: decimals });
+    }
+
+    function showError(message) {
+      const el = document.getElementById('validation-error');
+      el.textContent = message;
+      el.classList.remove('hidden');
+    }
+
+    function hideError() {
+      const el = document.getElementById('validation-error');
+      el.classList.add('hidden');
+    }
+
+    function calculateEOQ() {
+      hideError();
+
+      const annualDemand = parseFloat(document.getElementById('input-annual-demand').value);
+      const orderCost = parseFloat(document.getElementById('input-order-cost').value);
+      const holdingCost = parseFloat(document.getElementById('input-holding-cost').value);
+      const currentOrderQty = parseFloat(document.getElementById('input-current-order-qty').value);
+      const leadTime = parseFloat(document.getElementById('input-lead-time').value);
+
+      if (isNaN(annualDemand) || isNaN(orderCost) || isNaN(holdingCost)) {
+        showError('Please fill in all required fields: Annual Demand, Order Cost, and Holding Cost.');
+        return;
+      }
+
+      if (annualDemand <= 0) {
+        showError('Annual Demand must be greater than 0.');
+        return;
+      }
+
+      if (orderCost <= 0) {
+        showError('Order Cost must be greater than 0.');
+        return;
+      }
+
+      if (holdingCost <= 0) {
+        showError('Holding Cost must be greater than 0.');
+        return;
+      }
+
+      if (document.getElementById('input-lead-time').value !== '' && isNaN(leadTime)) {
+        showError('Lead Time must be a valid number or left blank.');
+        return;
+      }
+
+      if (document.getElementById('input-current-order-qty').value !== '' && isNaN(currentOrderQty)) {
+        showError('Current Order Quantity must be a valid number or left blank.');
+        return;
+      }
+
+      const eoq = Math.sqrt((2 * annualDemand * orderCost) / holdingCost);
+      const numOrders = annualDemand / eoq;
+      const orderCycle = 365 / numOrders;
+      const totalOrderingCost = numOrders * orderCost;
+      const totalHoldingCost = (eoq / 2) * holdingCost;
+      const totalAnnualCost = totalOrderingCost + totalHoldingCost;
+
+      document.getElementById('result-eoq').textContent = formatNumber(Math.round(eoq), 0);
+      document.getElementById('result-orders').textContent = formatNumber(numOrders, 2);
+      document.getElementById('result-cycle').textContent = formatNumber(orderCycle, 1);
+      document.getElementById('result-total-cost').textContent = formatCurrency(totalAnnualCost);
+      document.getElementById('result-ordering-cost').textContent = formatCurrency(totalOrderingCost);
+      document.getElementById('result-holding-cost').textContent = formatCurrency(totalHoldingCost);
+
+      if (document.getElementById('input-lead-time').value !== '' && !isNaN(leadTime) && leadTime >= 0) {
+        const reorderPoint = (annualDemand / 365) * leadTime;
+        document.getElementById('result-reorder-point').textContent = formatNumber(Math.round(reorderPoint), 0);
+        document.getElementById('reorder-point-container').style.display = 'block';
+      } else {
+        document.getElementById('reorder-point-container').style.display = 'none';
+      }
+
+      if (document.getElementById('input-current-order-qty').value !== '' && !isNaN(currentOrderQty) && currentOrderQty > 0) {
+        const currentOrderingCost = (annualDemand / currentOrderQty) * orderCost;
+        const currentHoldingCost = (currentOrderQty / 2) * holdingCost;
+        const currentTotalCost = currentOrderingCost + currentHoldingCost;
+        const savings = currentTotalCost - totalAnnualCost;
+        document.getElementById('result-savings').textContent = formatCurrency(Math.max(0, savings));
+        document.getElementById('comparison-container').style.display = 'block';
+      } else {
+        document.getElementById('comparison-container').style.display = 'none';
+      }
+    }
+
+    function copyResults() {
+      const eoq = document.getElementById('result-eoq').textContent;
+      const orders = document.getElementById('result-orders').textContent;
+      const cycle = document.getElementById('result-cycle').textContent;
+      const totalCost = document.getElementById('result-total-cost').textContent;
+      const orderingCost = document.getElementById('result-ordering-cost').textContent;
+      const holdingCost = document.getElementById('result-holding-cost').textContent;
+      const reorderPoint = document.getElementById('result-reorder-point').textContent;
+      const savings = document.getElementById('result-savings').textContent;
+
+      let text = `EOQ Calculator Results\nOptimal EOQ: ${eoq} units\nOrders Per Year: ${orders}\nOrder Cycle: ${cycle} days\nTotal Annual Cost: ${totalCost}\nOrdering Cost: ${orderingCost}\nHolding Cost: ${holdingCost}`;
+
+      if (document.getElementById('reorder-point-container').style.display !== 'none') {
+        text += `\nReorder Point: ${reorderPoint} units`;
+      }
+
+      if (document.getElementById('comparison-container').style.display !== 'none') {
+        text += `\nAnnual Savings: ${savings}`;
+      }
+
+      navigator.clipboard.writeText(text).then(() => {
+        const btn = event.target;
+        const originalText = btn.textContent;
+        btn.textContent = 'Copied!';
+        setTimeout(() => btn.textContent = originalText, 2000);
+      });
+    }
+
+    function resetForm() {
+      document.getElementById('input-annual-demand').value = 10000;
+      document.getElementById('input-order-cost').value = 50;
+      document.getElementById('input-holding-cost').value = 5;
+      document.getElementById('input-current-order-qty').value = '';
+      document.getElementById('input-lead-time').value = '';
+      hideError();
+      calculateEOQ();
+    }
+
+    document.addEventListener('DOMContentLoaded', calculateEOQ);
+  </script>
+</body>
+</html>
+

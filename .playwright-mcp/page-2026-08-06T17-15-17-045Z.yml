@@ -1,0 +1,94 @@
+- generic [active] [ref=f46e1]:
+  - banner [ref=f46e2]
+  - main [ref=f46e3]:
+    - generic [ref=f46e4]:
+      - generic [ref=f46e5]: Advertisement
+      - insertion [ref=f46e7]
+    - generic [ref=f46e8]:
+      - generic [ref=f46e9]:
+        - generic [ref=f46e10]:
+          - heading "Merchant Account Fee Calculator" [level=1] [ref=f46e11]
+          - paragraph [ref=f46e12]: Compare credit card processing fees between flat rate and interchange-plus pricing. Discover which pricing model saves your small business more money each month.
+        - generic [ref=f46e13]:
+          - generic [ref=f46e14]:
+            - heading "Business & Pricing Details" [level=2] [ref=f46e15]
+            - paragraph [ref=f46e16]: Enter your transaction data to compare flat rate versus interchange-plus pricing.
+          - generic [ref=f46e18]:
+            - generic [ref=f46e19]:
+              - generic [ref=f46e20]: Monthly Credit Card Volume ($)
+              - generic [ref=f46e22]:
+                - generic: $
+                - spinbutton "Monthly Credit Card Volume ($)" [ref=f46e23]: "50000"
+            - generic [ref=f46e24]:
+              - generic [ref=f46e25]: Average Ticket Size ($)
+              - generic [ref=f46e27]:
+                - generic: $
+                - spinbutton "Average Ticket Size ($)" [ref=f46e28]: "75"
+            - generic [ref=f46e29]:
+              - generic [ref=f46e30]: Current Flat Rate (%)
+              - generic [ref=f46e32]:
+                - spinbutton "Current Flat Rate (%)" [ref=f46e33]: "2.9"
+                - generic: "%"
+            - generic [ref=f46e34]:
+              - generic [ref=f46e35]: Interchange-Plus %
+              - generic [ref=f46e37]:
+                - spinbutton "Interchange-Plus %" [ref=f46e38]: "0.15"
+                - generic: "%"
+            - generic [ref=f46e39]:
+              - generic [ref=f46e40]: Fixed Fee Per Transaction ($)
+              - generic [ref=f46e42]:
+                - generic: $
+                - spinbutton "Fixed Fee Per Transaction ($)" [ref=f46e43]: "0.10"
+            - generic [ref=f46e44]:
+              - generic [ref=f46e45]: Monthly Transactions
+              - spinbutton "Monthly Transactions" [ref=f46e48]: "667"
+        - generic [ref=f46e49]:
+          - heading "Fee Comparison Results" [level=2] [ref=f46e51]
+          - generic [ref=f46e52]:
+            - generic [ref=f46e53]:
+              - generic [ref=f46e54]:
+                - paragraph [ref=f46e55]: Flat Rate Monthly Fee
+                - paragraph [ref=f46e56]: $1,450.00
+                - paragraph [ref=f46e57]: 2.90% of volume
+              - generic [ref=f46e58]:
+                - paragraph [ref=f46e59]: Interchange-Plus Monthly Fee
+                - paragraph [ref=f46e60]: $141.70
+                - paragraph [ref=f46e61]: 0.15% + $0.10 per transaction
+              - generic [ref=f46e62]:
+                - paragraph [ref=f46e63]: Cheaper Method
+                - paragraph [ref=f46e64]: Interchange-Plus
+                - paragraph [ref=f46e65]: Based on monthly volume
+              - generic [ref=f46e66]:
+                - paragraph [ref=f46e67]: Monthly Savings
+                - paragraph [ref=f46e68]: $1,308.30
+                - paragraph [ref=f46e69]: Per month
+              - generic [ref=f46e70]:
+                - paragraph [ref=f46e71]: Annual Savings
+                - paragraph [ref=f46e72]: $15,699.60
+                - paragraph [ref=f46e73]: Projected yearly savings
+              - generic [ref=f46e74]:
+                - paragraph [ref=f46e75]: Effective Rate Comparison
+                - paragraph [ref=f46e76]: 0.28%
+                - paragraph [ref=f46e77]: Overall processing rate
+            - generic [ref=f46e78]:
+              - button "Copy Results" [ref=f46e79]
+              - button "Reset" [ref=f46e80]
+      - generic [ref=f46e82]:
+        - heading "Related Tools" [level=3] [ref=f46e83]
+        - list [ref=f46e84]:
+          - listitem [ref=f46e85]:
+            - link "LTV/CAC Calculator" [ref=f46e86] [cursor=pointer]:
+              - /url: /ltv-cac-calculator/
+          - listitem [ref=f46e87]:
+            - link "Cash Burn Runway" [ref=f46e88] [cursor=pointer]:
+              - /url: /cash-burn-runway/
+          - listitem [ref=f46e89]:
+            - link "DSO Tracker" [ref=f46e90] [cursor=pointer]:
+              - /url: /dso-tracker/
+          - listitem [ref=f46e91]:
+            - link "Retainer Profitability" [ref=f46e92] [cursor=pointer]:
+              - /url: /retainer-profitability/
+          - listitem [ref=f46e93]:
+            - link "EOQ Calculator" [ref=f46e94] [cursor=pointer]:
+              - /url: /eoq-calculator/
+  - contentinfo [ref=f46e95]

@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
+  <script>
+    (function() {
+      try {
+        const theme = localStorage.getItem('theme');
+        if (theme === 'dark') {
+          document.documentElement.classList.add('dark');
+          document.documentElement.classList.remove('light');
+        } else {
+          document.documentElement.classList.remove('dark');
+          document.documentElement.classList.add('light');
+        }
+      } catch (e) {}
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+  <meta charset="UTF-8">   <meta name="google-adsense-account" content="ca-pub-3901061173891576">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Multi-Agent System Topology Harness | TopWebTool</title>
+  <meta name="description" content="Design multi-agent AI systems visually: add agent nodes with role, model and temperature, connect sequential, parallel and conditional edges, and export topology text plus Python skeletons.">
+  <link rel="canonical" href="https://topwebtool.com/ai-system-topology/">
+  <style>html{background-color:#fff}html.dark{background-color:#0f172a}body{padding-bottom:6rem}main.flex-grow{min-height:60vh}#global-header{min-height:65px}#global-footer{min-height:85px}#trending-sidebar{min-height:700px}@media (max-width:767px){#global-header{min-height:200px}#global-footer{min-height:120px}}.category-section{content-visibility:auto;contain-intrinsic-size:auto 500px}.tool-card{contain:layout style paint}img[width][height]{aspect-ratio:attr(width)/attr(height)}</style>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Multi-Agent System Topology Harness | TopWebTool",
+  "url": "https://topwebtool.com/ai-system-topology/",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "Windows, macOS, Linux, Android, iOS",
+  "browserRequirements": "Requires HTML5 compatible web browser",
+  "description": "Design multi-agent AI systems visually: add agent nodes with role, model and temperature, connect sequential, parallel and conditional edges, and export topology text plus Python skeletons.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  }
+}
+  </script>
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="../global.css">
+</head>
+<body class="bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 min-h-screen flex flex-col">
+
+  <header id="global-header"></header>
+
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex-grow">
+<!-- Reserved Leaderboard Ad Slot (CLS-safe) -->
+    <div id="ad-slot-a" class="w-full mx-auto mb-6 p-3 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center select-none overflow-hidden min-h-[90px]" style="max-width:728px; min-height:90px; max-height:135px;">
+      <span class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-1.5">Advertisement</span>
+      <div class="w-full flex justify-center" style="height:90px; max-height:90px; overflow:hidden;">
+        <!-- HzAds -->
+        <ins class="adsbygoogle" style="display:inline-block; width:100%; height:90px; max-height:90px;" data-ad-client="ca-pub-3901061173891576" data-ad-slot="2894630336" data-ad-format="horizontal" data-full-width-responsive="false"></ins>
+      </div>
+    </div>
+
+    <!-- 2-Column Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-4 gap-4">
+
+      <!-- Main Content -->
+      <div class="lg:col-span-3 space-y-8">
+
+        <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+          <h1 class="text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight sm:text-4xl">Multi-Agent System Topology Harness</h1>
+          <p class="mt-2 text-base text-slate-500 dark:text-slate-400">
+            Visually compose agent graphs: add agent nodes, wire sequential, parallel and conditional edges, drag to rearrange, then export a formatted topology and a Python skeleton.
+          </p>
+        </div>
+
+        <!-- Tool UI -->
+        <form tool-name="ai-system-topology" tool-description="Design multi-agent system topologies visually: add agent nodes with role, model and temperature, connect sequential, parallel or conditional edges, drag to rearrange, and export topology text plus Python pseudo-skeletons." onsubmit="return false;" class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm p-6 sm:p-8 space-y-6">
+
+          <div id="topo-msg"></div>
+
+          <div class="flex justify-between items-center border-b border-slate-100 dark:border-slate-800 pb-3">
+            <h2 class="text-lg font-bold text-slate-900 dark:text-white">Agent Nodes</h2>
+            <span class="text-xs font-bold text-slate-500 dark:text-slate-400" id="node-count">0 nodes</span>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div>
+              <label for="inp-nname" class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">Agent Name</label>
+              <input type="text" id="inp-nname" value="planner" urm-description="Unique identifier for this agent node" class="block w-full px-3 py-2.5 border border-slate-300 dark:border-slate-700 rounded-lg bg-white dark:bg-slate-950 text-slate-950 dark:text-slate-100 text-sm font-semibold">
+            </div>
+            <div>
+              <label for="inp-nrole" class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">Role</label>
+              <input type="text" id="inp-nrole" value="Orchestrator" urm-description="What this agent is responsible for in the pipeline" class="block w-full px-3 py-2.5 border border-slate-300 dark:border-slate-700 rounded-lg bg-white dark:bg-slate-950 text-slate-950 dark:text-slate-100 text-sm font-semibold">
+            </div>
+            <div>
+              <label for="inp-nmodel" class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">Model</label>
+              <input type="text" id="inp-nmodel" value="gpt-4o" urm-description="LLM identifier used by this agent" class="block w-full px-3 py-2.5 border border-slate-300 dark:border-slate-700 rounded-lg bg-white dark:bg-slate-950 text-slate-950 dark:text-slate-100 text-sm font-semibold">
+            </div>
+            <div>
+              <label for="inp-ntemp" class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">Temperature (0–2)</label>
+              <input type="number" id="inp-ntemp" min="0" max="2" step="0.1" value="0.2" urm-description="Sampling temperature between 0 and 2" class="block w-full px-3 py-2.5 border border-slate-300 dark:border-slate-700 rounded-lg bg-white dark:bg-slate-950 text-slate-950 dark:text-slate-100 text-sm font-semibold">
+            </div>
+          </div>
+
+          <div class="flex flex-wrap gap-2">
+            <button type="button" id="btn-save-node" class="px-5 py-3 bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm rounded-lg shadow-sm transition-colors" style="min-height:48px;">Add Node</button>
+            <button type="button" id="btn-del-node" class="px-5 py-3 border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 font-bold text-sm rounded-lg transition-colors" style="min-height:48px;">Delete Selected</button>
+            <button type="button" id="btn-reset" class="px-5 py-3 border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 font-bold text-sm rounded-lg transition-colors" style="min-height:48px;">Reset Demo</button>
+            <button type="button" id="btn-clear" class="px-5 py-3 border border-red-300 dark:border-red-800 text-red-600 dark:text-red-400 hover:bg-slate-100 dark:hover:bg-slate-800 font-bold text-sm rounded-lg transition-colors" style="min-height:48px;">Clear All</button>
+          </div>
+
+          <div class="flex justify-between items-center border-b border-slate-100 dark:border-slate-800 pb-3 pt-2">
+            <h2 class="text-lg font-bold text-slate-900 dark:text-white">Edges</h2>
+            <span class="text-xs font-bold text-slate-500 dark:text-slate-400" id="edge-count">0 edges</span>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div>
+              <label for="sel-esrc" class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">Source Agent</label>
+              <select id="sel-esrc" class="block w-full px-3 py-2.5 border border-slate-300 dark:border-slate-700 rounded-lg bg-white dark:bg-slate-950 text-slate-950 dark:text-slate-100 text-sm font-semibold"></select>
+            </div>
+            <div>
+              <label for="sel-etarget" class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">Target Agent</label>
+              <select id="sel-etarget" class="block w-full px-3 py-2.5 border border-slate-300 dark:border-slate-700 rounded-lg bg-white dark:bg-slate-950 text-slate-950 dark:text-slate-100 text-sm font-semibold"></select>
+            </div>
+            <div>
+              <label for="sel-etype" class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">Edge Type</label>
+              <select id="sel-etype" class="block w-full px-3 py-2.5 border border-slate-300 dark:border-slate-700 rounded-lg bg-white dark:bg-slate-950 text-slate-950 dark:text-slate-100 text-sm font-semibold">
+                <option value="sequential">Sequential (A → then B)</option>
+                <option value="parallel">Parallel (run in parallel)</option>
+                <option value="conditional">Conditional (branch)</option>
+              </select>
+            </div>
+          </div>
+          <div class="flex flex-wrap items-center gap-3">
+            <button type="button" id="btn-add-edge" class="px-5 py-3 bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm rounded-lg shadow-sm transition-colors" style="min-height:48px;">Add Edge</button>
+            <div id="edge-list" class="flex flex-wrap gap-2"></div>
+          </div>
+
+          <div class="border-b border-slate-100 dark:border-slate-800 pb-3 pt-2">
+            <h2 class="text-lg font-bold text-slate-900 dark:text-white">Graph Canvas</h2>
+          </div>
+          <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">Click empty canvas to place a new node from the form values. Click a node to edit it. Drag any node to reposition it.</p>
+          <div id="canvas-wrap" class="relative rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950/60 overflow-hidden select-none" style="height:480px;">
+            <svg id="svg-canvas" width="100%" height="480" role="img" aria-label="Interactive multi-agent topology graph canvas" class="block w-full h-full touch-none" style="touch-action:none;"></svg>
+          </div>
+
+          <div class="border-b border-slate-100 dark:border-slate-800 pb-3 pt-2">
+            <h2 class="text-lg font-bold text-slate-900 dark:text-white">Topology Export</h2>
+          </div>
+
+          <div class="space-y-3">
+            <div class="flex justify-between items-center">
+              <h3 class="text-sm font-bold text-slate-800 dark:text-slate-200">Formatted Topology Text</h3>
+              <button type="button" id="btn-copy-text" class="px-4 py-2.5 bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs rounded-lg shadow-sm transition-colors" style="min-height:44px;"><span>Copy Text</span></button>
+            </div>
+            <pre id="out-text" class="bg-slate-950 text-emerald-400 p-4 rounded-xl font-mono text-xs overflow-x-auto break-all shadow-inner whitespace-pre-wrap">Building…</pre>
+          </div>
+
+          <div class="space-y-3">
+            <div class="flex justify-between items-center">
+              <h3 class="text-sm font-bold text-slate-800 dark:text-slate-200">Python Pseudo-Skeleton</h3>
+              <button type="button" id="btn-copy-py" class="px-4 py-2.5 bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs rounded-lg shadow-sm transition-colors" style="min-height:44px;"><span>Copy Python</span></button>
+            </div>
+            <pre id="out-py" class="bg-slate-950 text-emerald-400 p-4 rounded-xl font-mono text-xs overflow-x-auto break-all shadow-inner whitespace-pre-wrap">Building…</pre>
+          </div>
+
+        </form>
+
+        <!-- Informative Articles & Guides Section -->
+        <div class="bg-white dark:bg-slate-900 p-6 sm:p-8 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm space-y-4 mt-6">
+          <h2 class="text-xl font-bold text-slate-900 dark:text-white border-b border-slate-100 dark:border-slate-800 pb-3">Informative Guides & Helper Articles</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <a href="./ai-system-topology-guide.html" class="block p-4 rounded-xl border border-slate-100 dark:border-slate-800 hover:border-brand-500 dark:hover:border-brand-500 hover:bg-slate-50/50 dark:hover:bg-slate-950/30 transition-all group">
+              <h3 class="text-sm font-bold text-slate-800 dark:text-slate-200 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">Ultimate Guide to Multi-Agent System Topology</h3>
+              <p class="text-xs text-slate-400 dark:text-slate-500 mt-1">How topology shapes agent systems: node roles, sequential vs. parallel vs. conditional edges, and when each wiring pattern wins.</p>
+              <span class="text-xs font-semibold text-brand-600 dark:text-brand-400 mt-3 inline-block group-hover:translate-x-1 transition-transform">Read Article &rarr;</span>
+            </a>
+            <a href="./ai-system-topology-best-practices.html" class="block p-4 rounded-xl border border-slate-100 dark:border-slate-800 hover:border-brand-500 dark:hover:border-brand-500 hover:bg-slate-50/50 dark:hover:bg-slate-950/30 transition-all group">
+              <h3 class="text-sm font-bold text-slate-800 dark:text-slate-200 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">Best Practices for Multi-Agent Topology Harness</h3>
+              <p class="text-xs text-slate-400 dark:text-slate-500 mt-1">Naming conventions, edge discipline, temperature policies, and dependency hygiene for readable agent graphs.</p>
+              <span class="text-xs font-semibold text-brand-600 dark:text-brand-400 mt-3 inline-block group-hover:translate-x-1 transition-transform">Read Article &rarr;</span>
+            </a>
+            <a href="./ai-system-topology-common-errors.html" class="block p-4 rounded-xl border border-slate-100 dark:border-slate-800 hover:border-brand-500 dark:hover:border-brand-500 hover:bg-slate-50/50 dark:hover:bg-slate-950/30 transition-all group">
+              <h3 class="text-sm font-bold text-slate-800 dark:text-slate-200 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">Common Errors in Multi-Agent System Topology</h3>
+              <p class="text-xs text-slate-400 dark:text-slate-500 mt-1">Self-referencing edges, orphan agents, parallel fan-out mistakes, and dead-end branches that stall pipelines.</p>
+              <span class="text-xs font-semibold text-brand-600 dark:text-brand-400 mt-3 inline-block group-hover:translate-x-1 transition-transform">Read Article &rarr;</span>
+            </a>
+            <a href="./ai-system-topology-optimization-tips.html" class="block p-4 rounded-xl border border-slate-100 dark:border-slate-800 hover:border-brand-500 dark:hover:border-brand-500 hover:bg-slate-50/50 dark:hover:bg-slate-950/30 transition-all group">
+              <h3 class="text-sm font-bold text-slate-800 dark:text-slate-200 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">Top Optimization Tips for Multi-Agent Topology</h3>
+              <p class="text-xs text-slate-400 dark:text-slate-500 mt-1">Cut redundant hops, parallelize independent tasks, and size context hand-offs to trim cost and latency.</p>
+              <span class="text-xs font-semibold text-brand-600 dark:text-brand-400 mt-3 inline-block group-hover:translate-x-1 transition-transform">Read Article &rarr;</span>
+            </a>
+            <a href="./ai-system-topology-future-trends.html" class="block p-4 rounded-xl border border-slate-100 dark:border-slate-800 hover:border-brand-500 dark:hover:border-brand-500 hover:bg-slate-50/50 dark:hover:bg-slate-950/30 transition-all group">
+              <h3 class="text-sm font-bold text-slate-800 dark:text-slate-200 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">Future Trends in Multi-Agent System Topology</h3>
+              <p class="text-xs text-slate-400 dark:text-slate-500 mt-1">Graph-native orchestration, dynamic routing, self-healing topologies, and visual agent blueprints.</p>
+              <span class="text-xs font-semibold text-brand-600 dark:text-brand-400 mt-3 inline-block group-hover:translate-x-1 transition-transform">Read Article &rarr;</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Semantic SEO Instructional Hub -->
+        <section id="seo-instructional-hub" class="mt-8 p-6 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-lg shadow-sm space-y-6">
+          <div class="border-b border-slate-200 dark:border-slate-800">
+            <h2 class="text-2xl font-extrabold text-slate-900 dark:text-white tracking-tight">Professional Insights & Guide</h2>
+            <p class="text-sm text-slate-600 dark:text-slate-300 mt-1">The graph-theory and orchestration logic behind multi-agent topologies, with worked wiring patterns and failure points.</p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
+            <div>
+              <h3 class="font-bold text-slate-900 dark:text-white mb-2">Core Use Case scenario</h3>
+              <p class="text-slate-600 dark:text-slate-300 leading-relaxed">A multi-agent system is a directed graph: each agent is a node carrying a name, role, model, and temperature, and each edge is a hand-off. A sequential edge means B starts only after A returns. A parallel edge means several downstream agents run concurrently on the same context, trading latency for fan-out. A conditional edge routes to one of two targets based on a flag or score, which is how you build decision trees such as retry-on-failure or route-by-language.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-slate-900 dark:text-white mb-2">Troubleshooting & Edge-Case Failure Points</h3>
+              <ul class="list-disc pl-5 space-y-2 text-slate-600 dark:text-slate-300 leading-relaxed">
+            <li>Self-referencing edges create infinite loops — a source must never equal its own target.</li>
+            <li>Orphan agents (no incoming edge) never receive context, so their output never reaches the pipeline.</li>
+            <li>Parallel fan-out without a join step produces multiple streams that downstream sequential steps cannot consume atomically.</li>
+            <li>Dead-end branches (no path to a terminal node) silently drop work and inflate token spend.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="pt-4 border-t border-slate-200 dark:border-slate-800">
+            <h3 class="font-bold text-slate-900 dark:text-white mb-2">Detailed Step-by-Step Instructions</h3>
+            <ol class="list-decimal pl-5 space-y-2 text-slate-600 dark:text-slate-300 leading-relaxed">
+            <li>Fill the Agent Nodes form with a name, role, model, and temperature, then press Add Node or click directly on the canvas to place it.</li>
+            <li>Select a node on the canvas to load its values back into the form for editing, or press Delete Selected to remove it.</li>
+            <li>Pick a source, target, and edge type, then press Add Edge to wire a hand-off between agents.</li>
+            <li>Drag nodes to lay out the graph so edges stay readable; the canvas re-clamps nodes inside the viewport automatically.</li>
+            <li>Review the formatted topology text and Python skeleton, then use the copy buttons to paste them into your orchestration codebase.</li>
+            </ol>
+          </div>
+
+          <div class="pt-4 border-t border-slate-200 dark:border-slate-800">
+            <h3 class="font-bold text-slate-900 dark:text-white mb-2">Topology Rules Used</h3>
+            <pre class="bg-slate-950 text-emerald-400 p-4 rounded-xl font-mono text-xs overflow-x-auto break-all shadow-inner">
+edge(A, B, sequential)   -> B runs only after A completes
+edge(A, {B, C}, parallel) -> B and C run concurrently on A's context
+edge(A, B|C, conditional) -> branch on a flag/score from A's output
+in-degree 0  -> orphan agent (never receives context)
+out-degree 0 -> sink node (terminal output)
+cycles       -> reject self-loops; guard long chains</pre>
+          </div>
+
+        <!-- Semantic SEO Related Tool Matrix Silo -->
+        <div class="mt-6 pt-6 border-t border-slate-200 dark:border-slate-800">
+          <h3 class="text-sm font-bold text-slate-900 dark:text-white mb-3 uppercase tracking-wider">Related Web Utilities (Silo Hub)</h3>
+          <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2">
+            <a href="../rag-chunking-simulator/" class="text-xs font-semibold text-brand-600 hover:text-brand-800 dark:text-brand-400 dark:hover:text-brand-300 transition-colors bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 px-3 py-2 rounded-lg text-center block">RAG Vector Chunking Simulator</a>
+            <a href="../prompt-chain-debugger/" class="text-xs font-semibold text-brand-600 hover:text-brand-800 dark:text-brand-400 dark:hover:text-brand-300 transition-colors bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 px-3 py-2 rounded-lg text-center block">Prompt Chain Debugger</a>
+            <a href="../agent-prompt-builder/" class="text-xs font-semibold text-brand-600 hover:text-brand-800 dark:text-brand-400 dark:hover:text-brand-300 transition-colors bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 px-3 py-2 rounded-lg text-center block">System Prompt &amp; Tool Builder</a>
+            <a href="../prompt-injection-guardrail/" class="text-xs font-semibold text-brand-600 hover:text-brand-800 dark:text-brand-400 dark:hover:text-brand-300 transition-colors bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 px-3 py-2 rounded-lg text-center block">Prompt Injection Guardrail</a>
+            <a href="../chatgpt-prompt-optimizer/" class="text-xs font-semibold text-brand-600 hover:text-brand-800 dark:text-brand-400 dark:hover:text-brand-300 transition-colors bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 px-3 py-2 rounded-lg text-center block">ChatGPT Prompt Optimizer</a>
+            <a href="../json-formatter-validator/" class="text-xs font-semibold text-brand-600 hover:text-brand-800 dark:text-brand-400 dark:hover:text-brand-300 transition-colors bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 px-3 py-2 rounded-lg text-center block">JSON Formatter &amp; Validator</a>
+          </div>
+        </div>
+
+        </section>
+
+      </div>
+
+      <!-- Sidebar -->
+      <div class="lg:col-span-1 space-y-6">
+
+        <div id="trending-sidebar"></div>
+<!-- Reserved Square Ad Slot (CLS-safe) -->
+        <div id="ad-slot-square" class="w-full p-4 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center mt-4 select-none min-h-[250px] overflow-hidden" style="min-height:250px;">
+          <span class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-2">Sponsored</span>
+          <div class="w-full flex justify-center" style="height:250px; max-height:250px; overflow:hidden;">
+            <!-- SquareAds -->
+            <ins class="adsbygoogle" style="display:block; width:100%; min-height:250px; max-height:250px;" data-ad-client="ca-pub-3901061173891576" data-ad-slot="6707430996" data-ad-format="rectangle" data-full-width-responsive="false"></ins>
+          </div>
+        </div>
+
+        <!-- Reserved Vertical Ad Slot (CLS-safe, desktop only) -->
+        <div id="ad-slot-vertical" class="w-full p-4 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center mt-4 hidden lg:flex select-none min-h-[600px] overflow-hidden" style="min-height:600px;">
+          <span class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-2">Advertisement</span>
+          <div class="w-full flex justify-center" style="height:600px; max-height:600px; overflow:hidden;">
+            <!-- verticalAds -->
+            <ins class="adsbygoogle" style="display:block; width:100%; min-height:600px; max-height:600px;" data-ad-client="ca-pub-3901061173891576" data-ad-slot="1581548667" data-ad-format="auto" data-full-width-responsive="true"></ins>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+  <script>
+    const NS = 'http://www.w3.org/2000/svg';
+    const SVG_NS = NS;
+    const EDGE_META = {
+      sequential: { color: '#0284c7', label: 'SEQ' },
+      parallel:   { color: '#059669', label: 'PAR' },
+      conditional:{ color: '#d97706', label: 'COND' }
+    };
+    const NODE_W = 172;
+    const NODE_H = 92;
+    const CANVAS_H = 480;
+
+    let nodes = [];
+    let edges = [];
+    let selectedId = null;
+    let dragState = null;
+    let idCounter = 0;
+
+    function nextId(prefix) { idCounter += 1; return prefix + '_' + idCounter; }
+
+    function demoTopology() {
+      nodes = [
+        { id: nextId('n'), name: 'planner',   role: 'Orchestrator',     model: 'gpt-4o',            temperature: 0.2, cx: 170, cy: 130 },
+        { id: nextId('n'), name: 'researcher',role: 'Web Research',     model: 'gpt-4o-mini',       temperature: 0.4, cx: 470, cy: 120 },
+        { id: nextId('n'), name: 'writer',    role: 'Content Composer', model: 'claude-3-5-sonnet', temperature: 0.7, cx: 320, cy: 310 }
+      ];
+      edges = [
+        { id: nextId('e'), source: nodes[0].id, target: nodes[1].id, type: 'sequential' },
+        { id: nextId('e'), source: nodes[1].id, target: nodes[2].id, type: 'sequential' },
+        { id: nextId('e'), source: nodes[0].id, target: nodes[2].id, type: 'parallel' }
+      ];
+      selectedId = null;
+      resetNodeForm();
+    }
+
+    function num(id) { return parseFloat(document.getElementById(id).value); }
+
+    function clamp(v, lo, hi) { return Math.min(Math.max(v, lo), hi); }
+
+    function trunc(txt, n) { return txt.length > n ? txt.slice(0, n - 1) + '…' : txt; }
+
+    function resetNodeForm() {
+      document.getElementById('inp-nname').value = '';
+      document.getElementById('inp-nrole').value = '';
+      document.getElementById('inp-nmodel').value = 'gpt-4o';
+      document.getElementById('inp-ntemp').value = '0.3';
+      document.getElementById('btn-save-node').querySelector('span').textContent = 'Add Node';
+      selectedId = null;
+    }
+
+    function showMsg(text, kind) {
+      const el = document.getElementById('topo-msg');
+      if (!text) { el.innerHTML = ''; return; }
+      const cls = kind === 'err'
+        ? 'bg-red-100 dark:bg-red-950/40 border-red-200 dark:border-red-800 text-red-700 dark:text-red-400'
+        : 'bg-emerald-50 dark:bg-emerald-950/40 border-emerald-200 dark:border-emerald-800 text-emerald-700 dark:text-emerald-400';
+      el.innerHTML = '<p role="alert" class="p-3 border rounded-lg text-xs font-semibold ' + cls + '">' + text + '</p>';
+    }
+
+    function createNS(tag, attrs) {
+      const el = document.createElementNS(SVG_NS, tag);
+      for (const k in attrs) el.setAttribute(k, attrs[k]);
+      return el;
+    }
+
+    function svgPoint(e) {
+      const svg = document.getElementById('svg-canvas');
+      const rect = svg.getBoundingClientRect();
+      const vb = svg.viewBox.baseVal;
+      const sx = vb.width > 0 && rect.width > 0 ? vb.width / rect.width : 1;
+      const sy = vb.height > 0 && rect.height > 0 ? vb.height / rect.height : 1;
+      return { x: (e.clientX - rect.left) * sx, y: (e.clientY - rect.top) * sy };
+    }
+
+    function render() {
+      const svg = document.getElementById('svg-canvas');
+      const wrap = document.getElementById('canvas-wrap');
+      const W = Math.max(320, wrap.clientWidth || 640);
+      svg.setAttribute('viewBox', '0 0 ' + W + ' ' + CANVAS_H);
+
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+
+      nodes.forEach(n => {
+        n.cx = clamp(n.cx, NODE_W / 2 + 8, W - NODE_W / 2 - 8);
+        n.cy = clamp(n.cy, NODE_H / 2 + 8, CANVAS_H - NODE_H / 2 - 8);
+      });
+
+      const defs = createNS('defs', {});
+      edges.forEach(e => {
+        const meta = EDGE_META[e.type];
+        const marker = createNS('marker', {
+          id: 'arrow-' + e.type,
+          markerWidth: 8, markerHeight: 8, refX: 7, refY: 4,
+          orient: 'auto', markerUnits: 'strokeWidth'
+        });
+        marker.appendChild(createNS('path', { d: 'M0,0 L8,4 L0,8 z', fill: meta.color }));
+        defs.appendChild(marker);
+      });
+      svg.appendChild(defs);
+
+      const nodeById = {};
+      nodes.forEach(n => { nodeById[n.id] = n; });
+
+      edges.forEach(e => {
+        const a = nodeById[e.source];
+        const b = nodeById[e.target];
+        if (!a || !b) return;
+        const meta = EDGE_META[e.type];
+        const x1 = a.cx, y1 = a.cy + NODE_H / 2 - 4;
+        const x2 = b.cx, y2 = b.cy - NODE_H / 2 + 4;
+        const line = createNS('line', {
+          x1: x1, y1: y1, x2: x2, y2: y2,
+          stroke: meta.color, 'stroke-width': 1.8, opacity: 0.85,
+          'marker-end': 'url(#arrow-' + e.type + ')'
+        });
+        svg.appendChild(line);
+        const mx = (x1 + x2) / 2, my = (y1 + y2) / 2;
+        const lab = createNS('text', {
+          x: mx, y: my - 6, 'text-anchor': 'middle',
+          'font-size': 9, 'font-weight': 700, fill: meta.color
+        });
+        lab.appendChild(document.createTextNode(meta.label));
+        svg.appendChild(lab);
+      });
+
+      nodes.forEach(n => {
+        const selected = n.id === selectedId;
+        const g = createNS('g', { 'data-id': n.id, style: 'cursor:pointer;' });
+        const rect = createNS('rect', {
+          x: n.cx - NODE_W / 2, y: n.cy - NODE_H / 2,
+          width: NODE_W, height: NODE_H, rx: 12,
+          class: 'fill-white dark:fill-slate-800',
+          stroke: selected ? '#0284c7' : '#cbd5e1',
+          'stroke-width': selected ? 2.5 : 1.2
+        });
+        g.appendChild(rect);
+        const t1 = createNS('text', {
+          x: n.cx, y: n.cy - 20, 'text-anchor': 'middle',
+          'font-size': 13, 'font-weight': 700,
+          class: 'fill-slate-900 dark:fill-slate-100', 'pointer-events': 'none'
+        });
+        t1.appendChild(document.createTextNode(trunc(n.name, 24)));
+        const t2 = createNS('text', {
+          x: n.cx, y: n.cy + 2, 'text-anchor': 'middle',
+          'font-size': 10, class: 'fill-slate-500 dark:fill-slate-400', 'pointer-events': 'none'
+        });
+        t2.appendChild(document.createTextNode(trunc(n.role, 28)));
+        const t3 = createNS('text', {
+          x: n.cx, y: n.cy + 22, 'text-anchor': 'middle',
+          'font-size': 9, class: 'fill-slate-400 dark:fill-slate-500', 'pointer-events': 'none'
+        });
+        t3.appendChild(document.createTextNode(trunc(n.model, 22) + ' • T=' + Number(n.temperature).toFixed(1)));
+        g.appendChild(t1); g.appendChild(t2); g.appendChild(t3);
+        svg.appendChild(g);
+      });
+
+      updateEdgeSelects();
+      updateEdgeList();
+      updateCounts();
+      buildExports();
+    }
+
+    function updateCounts() {
+      document.getElementById('node-count').textContent = nodes.length + ' node' + (nodes.length === 1 ? '' : 's');
+      document.getElementById('edge-count').textContent = edges.length + ' edge' + (edges.length === 1 ? '' : 's');
+    }
+
+    function updateEdgeSelects() {
+      const opts = nodes.map(n => '<option value="' + n.id + '">' + n.name + ' (' + n.role + ')</option>').join('');
+      const s1 = document.getElementById('sel-esrc');
+      const s2 = document.getElementById('sel-etarget');
+      const v1 = s1.value, v2 = s2.value;
+      s1.innerHTML = opts; s2.innerHTML = opts;
+      if (nodes.some(n => n.id === v1)) s1.value = v1;
+      if (nodes.some(n => n.id === v2)) s2.value = v2;
+    }
+
+    function updateEdgeList() {
+      const byId = {};
+      nodes.forEach(n => { byId[n.id] = n; });
+      const el = document.getElementById('edge-list');
+      if (!edges.length) { el.innerHTML = ''; return; }
+      el.innerHTML = edges.map(e => {
+        const a = byId[e.source], b = byId[e.target];
+        if (!a || !b) return '';
+        return '<button type="button" data-edge="' + e.id + '" class="edge-chip px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 text-[11px] font-bold text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" style="min-height:44px;" title="Remove edge">' + a.name + ' → ' + b.name + ' [' + e.type + '] ✕</button>';
+      }).join('');
+      el.querySelectorAll('.edge-chip').forEach(chip => {
+        chip.addEventListener('click', () => {
+          edges = edges.filter(e => e.id !== chip.getAttribute('data-edge'));
+          render();
+        });
+      });
+    }
+
+    function buildExports() {
+      const byId = {};
+      nodes.forEach(n => { byId[n.id] = n; });
+
+      let text = '# Multi-Agent Topology — ai-system-topology\n';
+      text += 'Nodes (' + nodes.length + ')\n';
+      nodes.forEach((n, i) => {
+        text += (i + 1) + '. ' + n.name + ' — Role: ' + n.role + ' | Model: ' + n.model + ' | Temp: ' + n.temperature + '\n';
+      });
+      text += 'Edges (' + edges.length + ')\n';
+      edges.forEach((e, i) => {
+        const a = byId[e.source], b = byId[e.target];
+        text += (i + 1) + '. ' + (a ? a.name : '?') + ' -> ' + (b ? b.name : '?') + ' [' + e.type + ']\n';
+      });
+      document.getElementById('out-text').textContent = text || '(empty topology)';
+
+      let py = '# Multi-Agent System Topology — Python pseudo-skeleton\n';
+      py += '# Generated by TopWebTool Multi-Agent System Topology Harness\n\n';
+      py += 'class Agent:\n';
+      py += '    def __init__(self, name: str, role: str, model: str, temperature: float = 0.3):\n';
+      py += '        self.name = name\n        self.role = role\n        self.model = model\n        self.temperature = temperature\n\n';
+      py += '    def run(self, context: dict) -> dict:\n';
+      py += '        # Insert your model call or tool loop here.\n';
+      py += '        return context\n\n';
+      py += 'AGENTS = {\n';
+      nodes.forEach(n => {
+        py += '    ' + JSON.stringify(n.name) + ': Agent(name=' + JSON.stringify(n.name) + ', role=' + JSON.stringify(n.role) + ', model=' + JSON.stringify(n.model) + ', temperature=' + Number(n.temperature) + '),\n';
+      });
+      py += '}\n\n';
+      py += 'def run_sequential(a: str, b: str, context: dict) -> dict:\n';
+      py += '    context = AGENTS[a].run(context)\n    context = AGENTS[b].run(context)\n    return context\n\n';
+      py += 'def run_parallel(steps: list, context: dict) -> dict:\n';
+      py += '    for s in steps:\n        context = AGENTS[s].run(context)\n    return context\n\n';
+      py += 'def run_conditional(step: str, on_true: str, on_false: str, flag: str, context: dict) -> dict:\n';
+      py += '    return AGENTS[on_true if context.get(flag) else on_false].run(context)\n\n';
+      py += 'if __name__ == "__main__":\n';
+      py += '    context = {"task": "Your pipeline task"}\n';
+      const seq = edges.filter(e => e.type === 'sequential').slice(0, 4);
+      seq.forEach(e => {
+        const a = byId[e.source], b = byId[e.target];
+        if (a && b) py += '    context = run_sequential(' + JSON.stringify(a.name) + ', ' + JSON.stringify(b.name) + ', context)\n';
+      });
+      const par = edges.filter(e => e.type === 'parallel').slice(0, 2);
+      par.forEach(e => {
+        const a = byId[e.source], b = byId[e.target];
+        if (a && b) py += '    context = run_parallel([' + JSON.stringify(a.name) + ', ' + JSON.stringify(b.name) + '], context)\n';
+      });
+      document.getElementById('out-py').textContent = py;
+
+      window.__topoText = text;
+      window.__topoPy = py;
+    }
+
+    function selectNode(id) {
+      selectedId = id;
+      const n = nodes.find(x => x.id === id);
+      if (n) {
+        document.getElementById('inp-nname').value = n.name;
+        document.getElementById('inp-nrole').value = n.role;
+        document.getElementById('inp-nmodel').value = n.model;
+        document.getElementById('inp-ntemp').value = n.temperature;
+        document.getElementById('btn-save-node').querySelector('span').textContent = 'Update Node';
+      } else {
+        resetNodeForm();
+      }
+      render();
+    }
+
+    function readNodeForm() {
+      const name = document.getElementById('inp-nname').value.trim();
+      const role = document.getElementById('inp-nrole').value.trim();
+      const model = document.getElementById('inp-nmodel').value.trim();
+      const temp = num('inp-ntemp');
+      return { name, role, model, temp };
+    }
+
+    function validateNodeForm(f) {
+      if (!f.name) { showMsg('Give the agent a non-empty name before saving.', 'err'); return false; }
+      if (!f.model) { showMsg('Specify a model identifier (e.g. gpt-4o).', 'err'); return false; }
+      if (!isFinite(f.temp) || f.temp < 0 || f.temp > 2) { showMsg('Temperature must be a number between 0 and 2.', 'err'); return false; }
+      return true;
+    }
+
+    function saveNode() {
+      const f = readNodeForm();
+      if (!validateNodeForm(f)) return;
+      const name = f.name.toLowerCase().replace(/\s+/g, '_').replace(/[^a-z0-9_]/g, '') || f.name;
+      if (selectedId) {
+        const n = nodes.find(x => x.id === selectedId);
+        if (n) {
+          if (edges.some(e => (e.source === n.id || e.target === n.id)) && edges.some(e => (e.source === name || e.target === name)) ) { /* allow rename */ }
+          n.name = name; n.role = f.role || 'Assistant'; n.model = f.model; n.temperature = f.temp;
+        }
+        showMsg('Agent <b>' + name + '</b> updated.', 'ok');
+      } else {
+        nodes.push({ id: nextId('n'), name: name, role: f.role || 'Assistant', model: f.model, temperature: f.temp, cx: 150 + (nodes.length % 5) * 70, cy: 120 + (nodes.length % 4) * 100 });
+        showMsg('Agent <b>' + name + '</b> added to the canvas.', 'ok');
+      }
+      resetNodeForm();
+      render();
+    }
+
+    function addNodeAt(cx, cy) {
+      const f = readNodeForm();
+      if (f.name && !validateNodeForm(f)) return;
+      const name = (f.name || ('agent_' + (nodes.length + 1))).toLowerCase().replace(/\s+/g, '_').replace(/[^a-z0-9_]/g, '');
+      nodes.push({ id: nextId('n'), name: name, role: f.role || 'Assistant', model: f.model || 'gpt-4o', temperature: isFinite(f.temp) ? f.temp : 0.3, cx: cx, cy: cy });
+      showMsg('Agent <b>' + name + '</b> placed on the canvas.', 'ok');
+      render();
+    }
+
+    function addEdge() {
+      const s = document.getElementById('sel-esrc').value;
+      const t = document.getElementById('sel-etarget').value;
+      const type = document.getElementById('sel-etype').value;
+      if (!s || !t) { showMsg('Add at least two nodes before wiring an edge.', 'err'); return; }
+      if (s === t) { showMsg('An edge cannot connect a node to itself — that creates an infinite loop.', 'err'); return; }
+      if (edges.some(e => e.source === s && e.target === t)) { showMsg('That edge already exists.', 'err'); return; }
+      edges.push({ id: nextId('e'), source: s, target: t, type: type });
+      showMsg('Edge added: ' + type + '.', 'ok');
+      render();
+    }
+
+    function deleteSelected() {
+      if (!selectedId) { showMsg('Select a node on the canvas first.', 'err'); return; }
+      edges = edges.filter(e => e.source !== selectedId && e.target !== selectedId);
+      nodes = nodes.filter(n => n.id !== selectedId);
+      showMsg('Node deleted along with its edges.', 'ok');
+      resetNodeForm();
+      render();
+    }
+
+    function clearAll() {
+      nodes = []; edges = []; selectedId = null;
+      resetNodeForm();
+      showMsg('Canvas cleared.', 'ok');
+      render();
+    }
+
+    function setupCanvas() {
+      const svg = document.getElementById('svg-canvas');
+
+      svg.addEventListener('pointerdown', (e) => {
+        const g = e.target.closest ? e.target.closest('g[data-id]') : null;
+        if (g) {
+          const id = g.getAttribute('data-id');
+          const node = nodes.find(n => n.id === id);
+          const pt = svgPoint(e);
+          dragState = { id: id, startX: pt.x, startY: pt.y, moved: false };
+          selectNode(id);
+          svg.setPointerCapture(e.pointerId);
+          e.preventDefault();
+        } else {
+          const pt = svgPoint(e);
+          selectNode(null);
+          addNodeAt(pt.x, pt.y);
+        }
+      });
+
+      svg.addEventListener('pointermove', (e) => {
+        if (!dragState) return;
+        const pt = svgPoint(e);
+        const dx = pt.x - dragState.startX;
+        const dy = pt.y - dragState.startY;
+        if (Math.abs(dx) + Math.abs(dy) > 4) dragState.moved = true;
+        if (dragState.moved) {
+          const node = nodes.find(n => n.id === dragState.id);
+          if (node) {
+            node.cx += dx; node.cy += dy;
+            dragState.startX = pt.x; dragState.startY = pt.y;
+            render();
+          }
+        }
+      });
+
+      svg.addEventListener('pointerup', () => { dragState = null; });
+      svg.addEventListener('pointercancel', () => { dragState = null; });
+
+      window.addEventListener('resize', render);
+      window.addEventListener('themechanged', render);
+    }
+
+    function setupCopy(btnId, getText, label) {
+      document.getElementById(btnId).addEventListener('click', () => {
+        const btn = document.getElementById(btnId);
+        const span = btn.querySelector('span');
+        navigator.clipboard.writeText(getText()).then(() => {
+          span.textContent = 'Copied!';
+          setTimeout(() => { span.textContent = label; }, 2000);
+        });
+      });
+    }
+
+    document.getElementById('btn-save-node').addEventListener('click', saveNode);
+    document.getElementById('btn-del-node').addEventListener('click', deleteSelected);
+    document.getElementById('btn-reset').addEventListener('click', () => { demoTopology(); showMsg('Demo topology restored.', 'ok'); render(); });
+    document.getElementById('btn-clear').addEventListener('click', clearAll);
+    document.getElementById('btn-add-edge').addEventListener('click', addEdge);
+
+    setupCopy('btn-copy-text', () => window.__topoText || '', 'Copy Text');
+    setupCopy('btn-copy-py', () => window.__topoPy || '', 'Copy Python');
+
+    demoTopology();
+    setupCanvas();
+    window.addEventListener('DOMContentLoaded', render);
+  </script>
+  <footer id="global-footer"></footer>
+  <script src="../global.js" defer></script>
+</body>
+</html>

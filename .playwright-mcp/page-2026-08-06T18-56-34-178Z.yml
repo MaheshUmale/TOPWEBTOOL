@@ -1,0 +1,90 @@
+- generic [active] [ref=f55e1]:
+  - banner [ref=f55e2]
+  - main [ref=f55e3]:
+    - generic [ref=f55e4]:
+      - generic [ref=f55e5]: Advertisement
+      - insertion [ref=f55e7]
+    - generic [ref=f55e8]:
+      - generic [ref=f55e9]:
+        - generic [ref=f55e10]:
+          - heading "Biweekly Mortgage Calculator" [level=1] [ref=f55e11]
+          - paragraph [ref=f55e12]: Compare monthly versus biweekly mortgage payments. Discover how switching to biweekly payments can save you thousands in interest and years on your loan term.
+        - generic [ref=f55e13]:
+          - generic [ref=f55e14]:
+            - heading "Mortgage Details" [level=2] [ref=f55e15]
+            - paragraph [ref=f55e16]: Enter your loan information to compare payment schedules.
+          - generic [ref=f55e18]:
+            - generic [ref=f55e19]:
+              - generic [ref=f55e20]: Loan Amount ($)
+              - generic [ref=f55e22]:
+                - generic: $
+                - spinbutton "Loan Amount ($)" [ref=f55e23]: "400000"
+            - generic [ref=f55e24]:
+              - generic [ref=f55e25]: Interest Rate (%)
+              - generic [ref=f55e27]:
+                - spinbutton "Interest Rate (%)" [ref=f55e28]: "6.5"
+                - generic: "%"
+            - generic [ref=f55e29]:
+              - generic [ref=f55e30]: Loan Term (Years)
+              - combobox "Loan Term (Years)" [ref=f55e33]:
+                - option "30 Years" [selected]
+                - option "20 Years"
+                - option "15 Years"
+                - option "10 Years"
+            - generic [ref=f55e34]:
+              - generic [ref=f55e35]: First Payment Date
+              - textbox "First Payment Date" [ref=f55e38]
+        - generic [ref=f55e39]:
+          - heading "Comparison Results" [level=2] [ref=f55e41]
+          - generic [ref=f55e42]:
+            - generic [ref=f55e43]:
+              - generic [ref=f55e44]:
+                - paragraph [ref=f55e45]: Monthly Payment
+                - paragraph [ref=f55e46]: $2,528
+                - paragraph [ref=f55e47]: 12 payments per year
+              - generic [ref=f55e48]:
+                - paragraph [ref=f55e49]: Biweekly Payment
+                - paragraph [ref=f55e50]: $1,264
+                - paragraph [ref=f55e51]: 26 payments per year (13 monthly equiv.)
+              - generic [ref=f55e52]:
+                - paragraph [ref=f55e53]: Total Interest (Monthly)
+                - paragraph [ref=f55e54]: $510,178
+                - paragraph [ref=f55e55]: Over full loan term
+              - generic [ref=f55e56]:
+                - paragraph [ref=f55e57]: Total Interest (Biweekly)
+                - paragraph [ref=f55e58]: $392,682
+                - paragraph [ref=f55e59]: Over full loan term
+              - generic [ref=f55e60]:
+                - paragraph [ref=f55e61]: Interest Savings
+                - paragraph [ref=f55e62]: $117,496
+                - paragraph [ref=f55e63]: By switching to biweekly
+              - generic [ref=f55e64]:
+                - paragraph [ref=f55e65]: Years Saved
+                - paragraph [ref=f55e66]: "0.0"
+                - paragraph [ref=f55e67]: Off loan term
+            - generic [ref=f55e68]:
+              - button "Copy Results" [ref=f55e69]
+              - button "Reset" [ref=f55e70]
+      - generic [ref=f55e71]:
+        - generic [ref=f55e72]:
+          - heading "Related Tools" [level=3] [ref=f55e73]
+          - list [ref=f55e74]:
+            - listitem [ref=f55e75]:
+              - link "Mortgage Calculator" [ref=f55e76] [cursor=pointer]:
+                - /url: /mortgage-calculator/
+            - listitem [ref=f55e77]:
+              - link "Rental Cash Flow Calculator" [ref=f55e78] [cursor=pointer]:
+                - /url: /rental-cash-flow-calculator/
+            - listitem [ref=f55e79]:
+              - link "Refinance Break-Even" [ref=f55e80] [cursor=pointer]:
+                - /url: /refinance-break-even/
+            - listitem [ref=f55e81]:
+              - link "ROI Calculator" [ref=f55e82] [cursor=pointer]:
+                - /url: /roi-calculator/
+        - generic [ref=f55e84]:
+          - generic [ref=f55e85]: Sponsored
+          - insertion [ref=f55e87]
+        - generic [ref=f55e88]:
+          - generic [ref=f55e89]: Advertisement
+          - insertion [ref=f55e91]
+  - contentinfo [ref=f55e92]

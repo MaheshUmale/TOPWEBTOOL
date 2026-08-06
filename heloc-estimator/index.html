@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>
+    (function() {
+      try {
+        const theme = localStorage.getItem('theme');
+        if (theme === 'dark') {
+          document.documentElement.classList.add('dark');
+          document.documentElement.classList.remove('light');
+        } else {
+          document.documentElement.classList.remove('dark');
+          document.documentElement.classList.add('light');
+        }
+      } catch (e) {}
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+  <meta charset="UTF-8">   <meta name="google-adsense-account" content="ca-pub-3901061173891576">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HELOC Calculator - Home Equity Line of Credit Estimator | TopWebTool</title>
+  <meta name="description" content="Calculate your HELOC borrowing limit and monthly payments. Estimate home equity line of credit amounts based on LTV and current mortgage balance.">
+  <link rel="canonical" href="https://topwebtool.com/heloc-estimator/">
+  <style>html{background-color:#fff}html.dark{background-color:#0f172a}body{padding-bottom:6rem}main.flex-grow{min-height:60vh}#global-header{min-height:65px}#global-footer{min-height:85px}#trending-sidebar{min-height:700px}@media (max-width:767px){#global-header{min-height:200px}#global-footer{min-height:120px}}.category-section{content-visibility:auto;contain-intrinsic-size:auto 500px}.tool-card{contain:layout style paint}img[width][height]{aspect-ratio:attr(width)/attr(height)}</style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "HELOC Calculator - Home Equity Line of Credit Estimator | TopWebTool",
+    "url": "https://topwebtool.com/heloc-estimator/",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Windows, macOS, Linux, Android, iOS",
+    "browserRequirements": "Requires HTML5 compatible web browser",
+    "description": "Calculate your HELOC borrowing limit and monthly payments. Estimate home equity line of credit amounts based on LTV and current mortgage balance.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="../global.css">
+</head>
+<body class="bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 min-h-screen flex flex-col">
+
+  <header id="global-header"></header>
+
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex-grow">
+    <div id="ad-slot-a" class="w-full mx-auto mb-6 p-3 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center select-none overflow-hidden min-h-[90px]" style="max-width:728px; min-height:90px; max-height:135px;">
+      <span class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-1.5">Advertisement</span>
+      <div class="w-full flex justify-center" style="height:90px; max-height:90px; overflow:hidden;">
+        <ins class="adsbygoogle" style="display:inline-block; width:100%; height:90px; max-height:90px;" data-ad-client="ca-pub-3901061173891576" data-ad-slot="2894630336" data-ad-format="horizontal" data-full-width-responsive="false"></ins>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-4 gap-4">
+      <div class="lg:col-span-3 space-y-8">
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+          <h1 class="text-3xl font-extrabold text-slate-900 tracking-tight sm:text-4xl">HELOC Calculator</h1>
+          <p class="mt-2 text-base text-slate-500">
+            Estimate your home equity line of credit limit and monthly payments. Calculate available HELOC funds based on your home value and mortgage balance.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+          <div class="p-6 sm:p-8 bg-gradient-to-r from-brand-900 to-brand-700 text-white">
+            <h2 class="text-xl font-bold">Property & Mortgage Details</h2>
+            <p class="text-xs text-brand-100 opacity-90 mt-1">Enter your home value, mortgage balance, and desired HELOC terms.</p>
+          </div>
+
+          <div class="p-6 sm:p-8 space-y-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <div class="flex justify-between items-center mb-2">
+                  <label for="input-home-value" class="block text-sm font-semibold text-slate-700">Current Home Value ($)</label>
+                </div>
+                <div class="relative rounded-lg shadow-sm">
+                  <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                    <span class="text-slate-400 sm:text-sm">$</span>
+                  </div>
+                  <input type="number" id="input-home-value" class="block w-full pl-8 pr-3 py-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-950 font-semibold sm:text-sm" value="500000" min="0" step="1000" oninput="calculateHELOC()">
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between items-center mb-2">
+                  <label for="input-mortgage-balance" class="block text-sm font-semibold text-slate-700">Current Mortgage Balance ($)</label>
+                </div>
+                <div class="relative rounded-lg shadow-sm">
+                  <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                    <span class="text-slate-400 sm:text-sm">$</span>
+                  </div>
+                  <input type="number" id="input-mortgage-balance" class="block w-full pl-8 pr-3 py-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-950 font-semibold sm:text-sm" value="300000" min="0" step="1000" oninput="calculateHELOC()">
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between items-center mb-2">
+                  <label for="input-ltv" class="block text-sm font-semibold text-slate-700">Combined LTV (%)</label>
+                </div>
+                <div class="relative rounded-lg shadow-sm">
+                  <input type="number" id="input-ltv" class="block w-full px-3 py-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-950 font-semibold sm:text-sm" value="85" min="0" max="100" step="1" oninput="calculateHELOC()">
+                  <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+                    <span class="text-slate-400 sm:text-sm">%</span>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between items-center mb-2">
+                  <label for="input-heloc-rate" class="block text-sm font-semibold text-slate-700">HELOC Interest Rate (%)</label>
+                </div>
+                <div class="relative rounded-lg shadow-sm">
+                  <input type="number" id="input-heloc-rate" class="block w-full px-3 py-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-950 font-semibold sm:text-sm" value="8.5" min="0" max="20" step="0.1" oninput="calculateHELOC()">
+                  <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+                    <span class="text-slate-400 sm:text-sm">%</span>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between items-center mb-2">
+                  <label for="input-heloc-term" class="block text-sm font-semibold text-slate-700">Draw Period (Years)</label>
+                </div>
+                <div class="relative rounded-lg shadow-sm">
+                  <select id="input-heloc-term" class="block w-full px-3 py-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-950 font-semibold sm:text-sm bg-white" onchange="calculateHELOC()">
+                    <option value="10">10 Years</option>
+                    <option value="15" selected>15 Years</option>
+                    <option value="20">20 Years</option>
+                  </select>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between items-center mb-2">
+                  <label for="input-heloc-amount" class="block text-sm font-semibold text-slate-700">Requested HELOC Amount ($)</label>
+                </div>
+                <div class="relative rounded-lg shadow-sm">
+                  <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                    <span class="text-slate-400 sm:text-sm">$</span>
+                  </div>
+                  <input type="number" id="input-heloc-amount" class="block w-full pl-8 pr-3 py-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-950 font-semibold sm:text-sm" value="50000" min="0" step="1000" oninput="calculateHELOC()">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+          <div class="p-6 sm:p-8 bg-gradient-to-r from-emerald-900 to-emerald-700 text-white">
+            <h2 class="text-xl font-bold">HELOC Results</h2>
+          </div>
+          <div class="p-6 sm:p-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div class="bg-slate-50 rounded-xl p-4 border border-slate-200">
+                <p class="text-sm font-medium text-slate-500">Max HELOC Limit</p>
+                <p class="text-2xl font-bold text-slate-900 mt-1" id="result-max-heloc">$0</p>
+                <p class="text-xs text-slate-400 mt-1">Based on combined LTV</p>
+              </div>
+              <div class="bg-slate-50 rounded-xl p-4 border border-slate-200">
+                <p class="text-sm font-medium text-slate-500">Available Credit</p>
+                <p class="text-2xl font-bold text-slate-900 mt-1" id="result-available">$0</p>
+                <p class="text-xs text-slate-400 mt-1">After existing mortgage</p>
+              </div>
+              <div class="bg-slate-50 rounded-xl p-4 border border-slate-200">
+                <p class="text-sm font-semibold text-slate-700">Interest-Only Monthly Payment</p>
+                <p class="text-2xl font-bold text-slate-900 mt-1" id="result-interest-only">$0</p>
+                <p class="text-xs text-slate-400 mt-1">During draw period</p>
+              </div>
+              <div class="bg-slate-50 rounded-xl p-4 border border-slate-200">
+                <p class="text-sm font-semibold text-slate-700">Repayment Monthly Payment</p>
+                <p class="text-2xl font-bold text-slate-900 mt-1" id="result-repayment">$0</p>
+                <p class="text-xs text-slate-400 mt-1">During repayment period</p>
+              </div>
+              <div class="bg-emerald-50 rounded-xl p-4 border border-emerald-200">
+                <p class="text-sm font-medium text-emerald-700">Equity Position</p>
+                <p class="text-2xl font-bold text-emerald-900 mt-1" id="result-equity">$0</p>
+                <p class="text-xs text-emerald-600 mt-1">Current home equity</p>
+              </div>
+              <div class="bg-emerald-50 rounded-xl p-4 border border-emerald-200">
+                <p class="text-sm font-medium text-emerald-700">Combined Loan Balance</p>
+                <p class="text-2xl font-bold text-emerald-900 mt-1" id="result-combined">$0</p>
+                <p class="text-xs text-emerald-600 mt-1">Mortgage plus HELOC</p>
+              </div>
+            </div>
+            <div class="mt-6 flex gap-3">
+              <button onclick="copyResults()" class="px-4 py-2 bg-brand-600 text-white rounded-lg hover:bg-brand-700 transition-colors text-sm font-semibold">Copy Results</button>
+              <button onclick="resetForm()" class="px-4 py-2 bg-slate-200 text-slate-700 rounded-lg hover:bg-slate-300 transition-colors text-sm font-semibold">Reset</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="lg:col-span-1">
+        
+        <div id="trending-sidebar"></div>
+        <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sticky top-4">
+          <h3 class="text-lg font-bold text-slate-900 mb-4">Related Tools</h3>
+          <ul class="space-y-2">
+            <li><a href="/mortgage-calculator/" class="text-brand-600 hover:text-brand-700 text-sm">Mortgage Calculator</a></li>
+            <li><a href="/rental-cash-flow-calculator/" class="text-brand-600 hover:text-brand-700 text-sm">Rental Cash Flow Calculator</a></li>
+            <li><a href="/home-affordability-calculator/" class="text-brand-600 hover:text-brand-700 text-sm">Home Affordability Calculator</a></li>
+            <li><a href="/roi-calculator/" class="text-brand-600 hover:text-brand-700 text-sm">ROI Calculator</a></li>
+          </ul>
+        </div>
+        <div id="ad-slot-square" class="w-full p-4 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center mt-4 select-none min-h-[250px] overflow-hidden" style="min-height:250px;">
+          <span class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-2">Sponsored</span>
+          <div class="w-full flex justify-center" style="height:250px; max-height:250px; overflow:hidden;">
+            <ins class="adsbygoogle" style="display:block; width:100%; min-height:250px; max-height:250px;" data-ad-client="ca-pub-3901061173891576" data-ad-slot="6707430996" data-ad-format="rectangle" data-full-width-responsive="false"></ins>
+          </div>
+        </div>
+        <div id="ad-slot-vertical" class="w-full p-4 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center mt-4 hidden lg:flex select-none min-h-[600px] overflow-hidden" style="min-height:600px;">
+          <span class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-2">Advertisement</span>
+          <div class="w-full flex justify-center" style="height:600px; max-height:600px; overflow:hidden;">
+            <ins class="adsbygoogle" style="display:block; width:100%; min-height:600px; max-height:600px;" data-ad-client="ca-pub-3901061173891576" data-ad-slot="1581548667" data-ad-format="auto" data-full-width-responsive="true"></ins>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer id="global-footer"></footer>
+
+  <script>
+    function formatCurrency(amount) {
+      return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(amount);
+    }
+
+    function calculateHELOC() {
+      const homeValue = parseFloat(document.getElementById('input-home-value').value) || 0;
+      const mortgageBalance = parseFloat(document.getElementById('input-mortgage-balance').value) || 0;
+      const ltv = parseFloat(document.getElementById('input-ltv').value) || 0;
+      const helocRate = parseFloat(document.getElementById('input-heloc-rate').value) || 0;
+      const drawPeriod = parseInt(document.getElementById('input-heloc-term').value) || 15;
+      const helocAmount = parseFloat(document.getElementById('input-heloc-amount').value) || 0;
+
+      const maxCombined = homeValue * (ltv / 100);
+      const maxHELOC = Math.max(0, maxCombined - mortgageBalance);
+      const availableCredit = maxHELOC;
+      const equity = homeValue - mortgageBalance;
+      const combinedLoan = mortgageBalance + helocAmount;
+
+      const monthlyRate = helocRate / 100 / 12;
+      const interestOnly = helocAmount * monthlyRate;
+      const repaymentTerm = drawPeriod;
+      let repaymentPayment = 0;
+      if (monthlyRate > 0 && repaymentTerm > 0) {
+        repaymentPayment = helocAmount * (monthlyRate * Math.pow(1 + monthlyRate, repaymentTerm * 12)) / (Math.pow(1 + monthlyRate, repaymentTerm * 12) - 1);
+      }
+
+      document.getElementById('result-max-heloc').textContent = formatCurrency(maxHELOC);
+      document.getElementById('result-available').textContent = formatCurrency(availableCredit);
+      document.getElementById('result-interest-only').textContent = formatCurrency(interestOnly);
+      document.getElementById('result-repayment').textContent = formatCurrency(repaymentPayment);
+      document.getElementById('result-equity').textContent = formatCurrency(equity);
+      document.getElementById('result-combined').textContent = formatCurrency(combinedLoan);
+    }
+
+    function copyResults() {
+      const maxHELOC = document.getElementById('result-max-heloc').textContent;
+      const available = document.getElementById('result-available').textContent;
+      const interestOnly = document.getElementById('result-interest-only').textContent;
+      const repayment = document.getElementById('result-repayment').textContent;
+      const equity = document.getElementById('result-equity').textContent;
+      const text = `HELOC Analysis\nMax HELOC Limit: ${maxHELOC}\nAvailable Credit: ${available}\nInterest-Only Payment: ${interestOnly}\nRepayment Payment: ${repayment}\nCurrent Equity: ${equity}`;
+      navigator.clipboard.writeText(text).then(() => {
+        const btn = event.target;
+        const originalText = btn.textContent;
+        btn.textContent = 'Copied!';
+        setTimeout(() => btn.textContent = originalText, 2000);
+      });
+    }
+
+    function resetForm() {
+      document.getElementById('input-home-value').value = 500000;
+      document.getElementById('input-mortgage-balance').value = 300000;
+      document.getElementById('input-ltv').value = 85;
+      document.getElementById('input-heloc-rate').value = 8.5;
+      document.getElementById('input-heloc-term').value = '15';
+      document.getElementById('input-heloc-amount').value = 50000;
+      calculateHELOC();
+    }
+
+    document.addEventListener('DOMContentLoaded', calculateHELOC);
+  </script>
+  <script src="../global.js"></script>
+</body>
+</html>
+

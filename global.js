@@ -47,6 +47,20 @@ const UTILITIES_REGISTRY = [
     icon: '📊'
   },
   {
+    path: '/ltv-cac-calculator',
+    name: 'LTV CAC Calculator',
+    category: 'Finance & Real Estate',
+    desc: 'Calculate Customer Lifetime Value, Acquisition Cost, and LTV:CAC ratio for SaaS startups.',
+    icon: '📊'
+  },
+  {
+    path: '/dso-tracker',
+    name: 'DSO Tracker',
+    category: 'Finance & Real Estate',
+    desc: 'Calculate Days Sales Outstanding and track accounts receivable efficiency for small business cash flow.',
+    icon: '📅'
+  },
+  {
     path: '/credit-card-payoff-planner',
     name: 'Credit Card Payoff Planner',
     category: 'Finance & Real Estate',
@@ -164,6 +178,433 @@ const UTILITIES_REGISTRY = [
     category: 'Everyday & Niche Utilities',
     desc: 'Instantly turn scrambled letters into valid words with wildcard search options.',
     icon: '🔡'
+  },
+  {
+    path: '/acoustic-room-analyzer',
+    name: 'Acoustic Room Mode & Standing Wave Calculator',
+    category: 'Industrial & Engineering',
+    desc: 'Compute axial, tangential, and oblique room modes from the resonance formula, flag problematic low frequencies, and check Bolt-area room ratios.',
+    icon: '⚙️'
+  },
+  {
+    path: '/age-calculator',
+    name: 'Age Calculator (Years, Months, Days)',
+    category: 'Health & Lifestyle',
+    desc: 'Compute an exact age in years, months, and days between any two dates with total days, next birthday countdown, and the weekday you were born, leap-year safe.',
+    icon: '🏃'
+  },
+  {
+    path: '/agent-cron-scheduler',
+    name: 'Free Cron-Job & Automation Scheduler Builder',
+    category: 'AI & Automation',
+    desc: 'Build a valid 5-field crontab expression from visual presets and custom fields, preview the next 5 run times, and copy it instantly. 100% Free, No Email.',
+    icon: '🤖'
+  },
+  {
+    path: '/agent-eval-engine',
+    name: 'AI Eval Matrix Engine - Compare AI Outputs',
+    category: 'AI & Automation',
+    desc: 'Score AI outputs against a gold reference: Levenshtein distance, similarity percent, BLEU-1/2 precision, keyword overlap and character counts. 100% client-side.',
+    icon: '🤖'
+  },
+  {
+    path: '/agent-hitl-planner',
+    name: 'Human-in-the-Loop HITL Planner for AI Agents',
+    category: 'AI & Automation',
+    desc: 'Design human-in-the-loop approval gates: pick agent steps, set approve/reject/edit types, timeouts and fallbacks, and export an interception plan with a flowchart.',
+    icon: '🤖'
+  },
+  {
+    path: '/agent-memory-matrix',
+    name: 'LLM Context Window Token Budget Planner',
+    category: 'AI & Automation',
+    desc: 'Plan your LLM context-window budget: system prompt, conversation turns, memory/RAG content, and reserved output tokens. Utilization, remaining budget, warnings.',
+    icon: '🤖'
+  },
+  {
+    path: '/agent-prompt-builder',
+    name: 'System Prompt & Tool-Calling Builder',
+    category: 'AI & Automation',
+    desc: 'Compose production-ready agent system prompts with persona, goal, context, constraints and output format, and emit function-calling JSON tool schemas.',
+    icon: '🤖'
+  },
+  {
+    path: '/agent-state-router',
+    name: 'Agent State-Machine Router Evaluator',
+    category: 'AI & Automation',
+    desc: 'Model agent states and transitions, then auto-detect unreachable states, duplicate routes, infinite loops, and dead-ends. Exports DOT-style graphs. Free.',
+    icon: '🤖'
+  },
+  {
+    path: '/ai-system-topology',
+    name: 'Multi-Agent System Topology Harness',
+    category: 'AI & Automation',
+    desc: 'Design multi-agent AI systems visually: add agent nodes with role, model and temperature, connect sequential, parallel and conditional edges, and export topology text plus Python skeletons.',
+    icon: '🤖'
+  },
+  {
+    path: '/autogen-yaml-designer',
+    name: 'CrewAI / AutoGen YAML Designer',
+    category: 'AI & Automation',
+    desc: 'Design agents, goals, tools, and tasks in a visual builder and generate valid, properly indented CrewAI, AutoGen, or custom YAML config. Copy or download.',
+    icon: '🤖'
+  },
+  {
+    path: '/battery-busbar-calculator',
+    name: 'Battery Pack Busbar & Heat-Dissipation Modeler',
+    category: 'Industrial & Engineering',
+    desc: 'Size EV battery pack busbars: current per cell group, required copper or nickel cross-section from current density, voltage drop, and temperature rise.',
+    icon: '⚙️'
+  },
+  {
+    path: '/binary-decimal-converter',
+    name: 'Free Binary to Decimal Converter',
+    category: 'Developer Utilities',
+    desc: 'Convert binary, octal, decimal, and hex numbers in real time with exact BigInt math. Live cross-base results with step-by-step details. Free, 100% client-side.',
+    icon: '💻'
+  },
+  {
+    path: '/biweekly-mortgage-calculator',
+    name: 'Biweekly Mortgage Calculator - Payoff Accelerator',
+    category: 'Finance & Real Estate',
+    desc: 'Compare monthly vs biweekly mortgage payments. See how making 13 payments per year can shave years off your loan and save thousands in interest.',
+    icon: '💰'
+  },
+  {
+    path: '/bmr-tdee-calculator',
+    name: 'BMR & TDEE Calorie Calculator',
+    category: 'Health & Lifestyle',
+    desc: 'Calculate Basal Metabolic Rate and Total Daily Energy Expenditure with the Mifflin-St Jeor equation, plus cutting and bulking calorie targets. Free, offline, client-side.',
+    icon: '🏃'
+  },
+  {
+    path: '/cash-burn-runway',
+    name: 'Cash Burn Runway Calculator - Startup Run Rate Planner',
+    category: 'B2B Business',
+    desc: 'Calculate how long your startup can operate before running out of cash. Track monthly burn rate, run rate, and runway with our free planner.',
+    icon: '📊'
+  },
+  {
+    path: '/chatgpt-prompt-optimizer',
+    name: 'Free ChatGPT Prompt Optimizer | Persona, Formatting, & Context Injections',
+    category: 'AI & Automation',
+    desc: 'Convert basic ideas into professional AI prompts. Auto-inject personas, constraints, variables, and markdown output configurations. 100% Free, No Email Needed.',
+    icon: '🤖'
+  },
+  {
+    path: '/cnc-feeds-speeds',
+    name: 'CNC Feeds & Speeds Calculator: RPM & Chip Load',
+    category: 'Industrial & Engineering',
+    desc: 'Calculate CNC spindle RPM, feed rate, and material removal rate from surface speed and embedded chip-load tables for aluminum, titanium, steel, and more.',
+    icon: '⚙️'
+  },
+  {
+    path: '/composite-laminate-calculator',
+    name: 'Composite Laminate Calculator: Layup, Weight & More',
+    category: 'Industrial & Engineering',
+    desc: 'Calculate laminate thickness, areal weight, fiber volume fraction, and structural cost for carbon, glass, and kevlar composite layups.',
+    icon: '⚙️'
+  },
+  {
+    path: '/connector-pinout-mapper',
+    name: 'Mil-Spec Connector Pinout Mapper',
+    category: 'Industrial & Engineering',
+    desc: 'Map Mil-Spec D38999 connector pinouts: pick shell size and insert arrangement, assign signal names to pins, and export a wire list as CSV.',
+    icon: '⚙️'
+  },
+  {
+    path: '/crypto-position-size',
+    name: 'Crypto Position Size & Risk Management',
+    category: 'Trading & Crypto',
+    desc: 'Crypto position sizing and risk calculator using the 1-2% account rule with entry, stop-loss, take-profit and leverage inputs. 100% free, client-side.',
+    icon: '📈'
+  },
+  {
+    path: '/depreciation-schedule',
+    name: 'Depreciation Schedule Calculator - Straight-Line & DDB',
+    category: 'B2B Business',
+    desc: 'Generate business equipment depreciation schedules. Compare straight-line vs double-declining balance methods with full annual tables.',
+    icon: '📊'
+  },
+  {
+    path: '/down-payment-savings',
+    name: 'Home Down Payment Savings Calculator',
+    category: 'Finance & Real Estate',
+    desc: 'Calculate how long it will take to save for a home down payment. Plan your savings timeline with HYSA yield projections.',
+    icon: '💰'
+  },
+  {
+    path: '/enclosure-thermal-solver',
+    name: 'Industrial Enclosure Thermal Solver',
+    category: 'Industrial & Engineering',
+    desc: 'Compute internal temperature rise of sealed or vented electrical enclosures from heat dissipation, surface area, material, and required fan CFM.',
+    icon: '⚙️'
+  },
+  {
+    path: '/eoq-calculator',
+    name: 'EOQ Calculator - Economic Order Quantity Optimizer',
+    category: 'B2B Business',
+    desc: 'Calculate optimal Economic Order Quantity (EOQ) to minimize inventory costs. Free inventory optimization tool for supply chain management.',
+    icon: '📊'
+  },
+  {
+    path: '/fortune-wheel',
+    name: 'Free Online Fortune Wheel | Custom Choice & Alternate Yes/No Spinner',
+    category: 'Health & Lifestyle',
+    desc: 'Spin the decision wheel. Input custom names, choice lists, or alternative Yes/No questions to resolve debates dynamically. 100% Free, No Sign-Up Required.',
+    icon: '🎰'
+  },
+  {
+    path: '/freight-dimensional-weight',
+    name: 'Dimensional Weight Calculator - Freight Shipping Cost Tool',
+    category: 'B2B Business',
+    desc: 'Calculate freight dimensional weight for UPS, FedEx, DHL, USPS, and general carriers. Optimize shipping costs with accurate billable weight calculations.',
+    icon: '📊'
+  },
+  {
+    path: '/gear-tooth-generator',
+    name: 'Gear Tooth Generator: Involute Calculator',
+    category: 'Industrial & Engineering',
+    desc: 'Generate involute gear tooth geometry - pitch, addendum, dedendum, outside and base circles - from module or diametral pitch with live drawing.',
+    icon: '⚙️'
+  },
+  {
+    path: '/harness-diameter-modeler',
+    name: 'Wiring Harness Bundle Diameter Modeler',
+    category: 'Industrial & Engineering',
+    desc: 'Model aerospace wiring harness bundle diameter and weight from AWG inputs. Packing density 1.2-1.25x, live canvas cross-section, per-meter conductor mass.',
+    icon: '⚙️'
+  },
+  {
+    path: '/heloc-estimator',
+    name: 'HELOC Calculator - Home Equity Line of Credit Estimator',
+    category: 'Finance & Real Estate',
+    desc: 'Calculate your HELOC borrowing limit and monthly payments. Estimate home equity line of credit amounts based on LTV and current mortgage balance.',
+    icon: '💰'
+  },
+  {
+    path: '/hex-rgba-converter',
+    name: 'HEX to RGBA Color Converter',
+    category: 'Developer Utilities',
+    desc: 'Parse HEX, RGB, RGBA, HSL, or named colors and convert to HEX, RGBA, and HSL instantly. Live swatch preview and WCAG contrast ratios. Free.',
+    icon: '💻'
+  },
+  {
+    path: '/home-affordability-calculator',
+    name: 'Home Affordability Calculator - How Much House Can You Afford?',
+    category: 'Finance & Real Estate',
+    desc: 'Calculate how much house you can afford based on income, debts, and DTI ratio. Free home affordability calculator with 28/36 rule analysis.',
+    icon: '💰'
+  },
+  {
+    path: '/hydraulic-pressure-drop',
+    name: 'Hydraulic Pressure Drop & Flow Calculator',
+    category: 'Industrial & Engineering',
+    desc: 'Model pressure loss through pipe with Reynolds number, Darcy-Weisbach friction factor, and fluid presets for water, oil, and glycol.',
+    icon: '⚙️'
+  },
+  {
+    path: '/injection-molding-estimator',
+    name: 'Injection Molding Cycle Time & Clamp Force',
+    category: 'Industrial & Engineering',
+    desc: 'Estimate injection molding clamp tonnage from projected area and cavity pressure, estimate cycle time from wall thickness, and part weight for nine common resins.',
+    icon: '⚙️'
+  },
+  {
+    path: '/lap-timer',
+    name: 'Chronometer Split Lap Timer',
+    category: 'Health & Lifestyle',
+    desc: 'A precision stopwatch and split lap timer using high-resolution timing, with best, worst, and average laps plus one-click CSV export. Works fully offline.',
+    icon: '⏱️'
+  },
+  {
+    path: '/macro-diet-planner',
+    name: 'Macro Nutrient Flexible Diet Planner',
+    category: 'Health & Lifestyle',
+    desc: 'Calculate TDEE with the Mifflin-St Jeor equation and split daily calories into flexible protein, fat, and carb targets with a meal-split table. Free, client-side.',
+    icon: '🥗'
+  },
+  {
+    path: '/markup-margin-tool',
+    name: 'Markup vs. Margin Tool & Calculator',
+    category: 'Finance & Real Estate',
+    desc: 'Convert markup and margin percentages instantly. Enter your product cost plus markup, margin, or sale price to see all four pricing metrics and profit.',
+    icon: '💰'
+  },
+  {
+    path: '/merchant-account-fee-matrix',
+    name: 'Merchant Account Fee Calculator - Interchange Plus vs Flat Rate',
+    category: 'B2B Business',
+    desc: 'Compare credit card processing fees between flat rate and interchange-plus pricing. Calculate monthly costs, annual savings, and effective rates for small business merchant accounts.',
+    icon: '📊'
+  },
+  {
+    path: '/moving-cost-calculator',
+    name: 'Moving Cost Calculator - Estimate Your Moving Expenses',
+    category: 'Finance & Real Estate',
+    desc: 'Calculate moving costs with our inventory volume and distance estimator. Plan your relocation budget with accurate moving expense estimates.',
+    icon: '💰'
+  },
+  {
+    path: '/openapi-tool-converter',
+    name: 'OpenAPI to Agent Tool Definition Converter',
+    category: 'AI & Automation',
+    desc: 'Convert OpenAPI 3.x JSON specs into OpenAI function definitions and Anthropic tool arrays. Handles GET/POST, path/query params, JSON body schemas. Free.',
+    icon: '🤖'
+  },
+  {
+    path: '/pcb-impedance-calculator',
+    name: 'PCB Microstrip Impedance Modeler',
+    category: 'Industrial & Engineering',
+    desc: 'Model FR4 PCB microstrip impedance: compute characteristic impedance, propagation delay, and capacitance per length from trace width and stackup geometry.',
+    icon: '⚙️'
+  },
+  {
+    path: '/playwright-script-generator',
+    name: 'Playwright & Puppeteer Script Generator',
+    category: 'AI & Automation',
+    desc: 'Visually build browser-automation flows (goto, click, type, assert, screenshot) and generate runnable Playwright or Puppeteer scripts in JS or Python. Free.',
+    icon: '🤖'
+  },
+  {
+    path: '/pomodoro-timer',
+    name: 'Free Online Pomodoro Timer with Daily Session History',
+    category: 'Health & Lifestyle',
+    desc: 'Free Pomodoro Timer: configurable focus and break intervals, auto-advancing sessions, and a local daily history tracker. No sign-up required.',
+    icon: '🍅'
+  },
+  {
+    path: '/pregnancy-due-date',
+    name: 'Pregnancy Due Date Predictor',
+    category: 'Health & Lifestyle',
+    desc: 'Predict your estimated due date with Naegele\'s rule from your last menstrual period or conception date, with gestational age, trimester, and milestone tracking.',
+    icon: '🤰'
+  },
+  {
+    path: '/prompt-chain-debugger',
+    name: 'Prompt Chain Debugger & Variable Injector',
+    category: 'AI & Automation',
+    desc: 'Debug multi-step prompt chains: inject {{variables}}, see interpolated output per step, spot unresolved placeholders, and map step-to-variable dependencies.',
+    icon: '🤖'
+  },
+  {
+    path: '/prompt-injection-guardrail',
+    name: 'Prompt Injection Guardrail Matrix',
+    category: 'AI & Automation',
+    desc: 'Scan prompts for injection patterns: instruction override, jailbreak, system-prompt leak, delimiter breaking and data exfiltration, with a 0-100 risk score.',
+    icon: '🤖'
+  },
+  {
+    path: '/property-tax-projector',
+    name: 'Property Tax Escalation Projector',
+    category: 'Finance & Real Estate',
+    desc: 'Project property tax increases over 20 years with compound growth. Estimate future tax bills and budget for homeownership costs.',
+    icon: '💰'
+  },
+  {
+    path: '/pump-selection-tdh',
+    name: 'Pump Selection & TDH Calculator',
+    category: 'Industrial & Engineering',
+    desc: 'Calculate total dynamic head and pump horsepower from static, friction, pressure, and velocity head with embedded fitting K-factor data.',
+    icon: '⚙️'
+  },
+  {
+    path: '/pydantic-schema-generator',
+    name: 'JSON-Schema Generator (Pydantic)',
+    category: 'AI & Automation',
+    desc: 'Build fields visually and generate both the Pydantic v2 model class and the equivalent JSON Schema draft-07 side by side, then validate sample JSON. Free.',
+    icon: '🤖'
+  },
+  {
+    path: '/rag-chunking-simulator',
+    name: 'RAG Vector Chunking Simulator',
+    category: 'AI & Automation',
+    desc: 'Simulate RAG text chunking: fixed-size, overlapping sliding window, or semantic paragraph chunking with char counts, total chunks and token estimates.',
+    icon: '🤖'
+  },
+  {
+    path: '/random-picker',
+    name: 'Free Random Number & Group Picker',
+    category: 'Health & Lifestyle',
+    desc: 'Generate random numbers with optional no-repeat and seeded PRNG, or split a name list into random balanced teams. Instant, client-side, free.',
+    icon: '🎲'
+  },
+  {
+    path: '/refinance-break-even',
+    name: 'Mortgage Refinance Break-Even Calculator',
+    category: 'Finance & Real Estate',
+    desc: 'Calculate your mortgage refinance break-even point. Compare closing costs vs monthly savings to determine if refinancing is worth it.',
+    icon: '💰'
+  },
+  {
+    path: '/rent-vs-buy-calculator',
+    name: 'Rent vs Buy Calculator 30-Year Comparison',
+    category: 'Finance & Real Estate',
+    desc: 'Compare renting vs buying a home over 30 years. Project net worth for both paths with appreciation, investment returns, and crossover analysis.',
+    icon: '💰'
+  },
+  {
+    path: '/rental-cash-flow-calculator',
+    name: 'Rental Property Cash Flow Calculator',
+    category: 'Finance & Real Estate',
+    desc: 'Calculate rental property cash flow, NOI, cap rate, and cash-on-cash return. Free landlord investment analysis tool.',
+    icon: '💰'
+  },
+  {
+    path: '/rental-yield-calculator',
+    name: 'Rental Yield & ROI Calculator',
+    category: 'Finance & Real Estate',
+    desc: 'Calculate rental yield, net yield, cash-on-cash return, and IRR for investment properties. Free real estate ROI analysis tool.',
+    icon: '💰'
+  },
+  {
+    path: '/retainer-profitability',
+    name: 'Retainer Profitability Calculator - Project Margin Analyzer',
+    category: 'B2B Business',
+    desc: 'Analyze retainer project profitability. Calculate gross profit margins, break-even hours, effective cost per hour, and annual returns for agency retainers.',
+    icon: '📊'
+  },
+  {
+    path: '/rigging-tension-solver',
+    name: 'Rigging & Bridle Sling Tension Calculator',
+    category: 'Industrial & Engineering',
+    desc: 'Solve per-leg tension in bridle slings from load weight, leg count, and sling angle, with angle derating and capacity checks.',
+    icon: '⚙️'
+  },
+  {
+    path: '/sheet-metal-unfolder',
+    name: 'Sheet Metal Bend Allowance Calculator',
+    category: 'Industrial & Engineering',
+    desc: 'Unfold sheet metal flat-pattern lengths from K-factor and bend allowance formulas. Supports multi-bend parts with per-bend breakdowns.',
+    icon: '⚙️'
+  },
+  {
+    path: '/sound-frequency-generator',
+    name: 'Sound Frequency Generator & Tone Tester',
+    category: 'Health & Lifestyle',
+    desc: 'Generate sine, square, sawtooth, or triangle tones from 20-20,000 Hz with volume control and tuning presets. Start on click, safe defaults.',
+    icon: '🔊'
+  },
+  {
+    path: '/student-loan-idr',
+    name: 'Student Loan IDR Engine & Payment Calculator',
+    category: 'Finance & Real Estate',
+    desc: 'Estimate SAVE, IBR, and PAYE income-driven repayment plan payments using federal poverty guidelines. See 20/25-year forgiveness and total cost.',
+    icon: '💰'
+  },
+  {
+    path: '/thermocouple-calculator',
+    name: 'Thermocouple Calculator: mV to °C & °C to mV',
+    category: 'Industrial & Engineering',
+    desc: 'Convert thermocouple millivolts to temperature and back for types J, K, and T using embedded NIST ITS-90 coefficients, plus Pt100 RTD.',
+    icon: '🌡️'
+  },
+  {
+    path: '/w2-vs-1099-comparator',
+    name: 'W2 vs 1099 Calculator - Compare Employee vs Contractor Pay',
+    category: 'B2B Business',
+    desc: 'Compare W2 employee take-home pay versus 1099 independent contractor earnings. Calculate taxes, benefits, and hourly rates side by side.',
+    icon: '📊'
   }
 ];
 
@@ -310,7 +751,7 @@ function renderHeader() {
         </a>
 
         <!-- Single Component Responsive DOM Navigation Bar (Zero Duplication between mobile/desktop) -->
-        <div class="flex flex-wrap items-center gap-1.5 justify-center md:justify-end w-full md:w-auto">
+        <div class="flex items-center gap-1.5 justify-center md:justify-end w-full md:w-auto overflow-x-auto pb-1">
           ${categoryNames.map((cat, idx) => {
             const shortName = cat.split('&')[0].trim();
             const tools = categories[cat];
