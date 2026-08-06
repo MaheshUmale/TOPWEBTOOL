@@ -644,6 +644,7 @@ document.addEventListener('DOMContentLoaded', () => {
   (function enforceAdSizeCaps() {
     const caps = {
       'ad-slot-a': ['max-height:138px', 'overflow:hidden'],
+      'ad-slot-b': ['max-height:138px', 'overflow:hidden'],
       'ad-slot-square': ['max-height:308px', 'overflow:hidden'],
       'ad-slot-vertical': ['max-height:660px', 'overflow:hidden'],
       'sticky-footer-ad': ['height:85px', 'max-height:85px', 'overflow:hidden']
@@ -671,54 +672,100 @@ document.addEventListener('DOMContentLoaded', () => {
   renderAdPlacements();
 });
 
-// Unified interactive Dropdown Toggle for Single Component DOM Navigation
-window.toggleCategoryDropdown = function(btn) {
-  const dropdown = btn.nextElementSibling;
-  const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+// Mobile Drawer Controls
+window.openMobileDrawer = function() {
+  const drawer = document.getElementById('mobile-nav-drawer');
+  const overlay = document.getElementById('mobile-nav-overlay');
+  if (!drawer || !overlay) return;
   
-  // Close all other dropdowns
-  document.querySelectorAll('.nav-dropdown-menu').forEach(menu => {
-    if (menu !== dropdown) {
-      menu.classList.add('hidden');
-      menu.classList.remove('block');
-      const otherBtn = menu.previousElementSibling;
-      if (otherBtn) {
-        otherBtn.setAttribute('aria-expanded', 'false');
-        otherBtn.classList.remove('bg-slate-200', 'dark:bg-slate-700');
-      }
-    }
+  drawer.classList.remove('translate-x-full');
+  overlay.classList.remove('hidden');
+  requestAnimationFrame(() => {
+    overlay.classList.remove('opacity-0');
+    overlay.classList.add('opacity-100');
   });
+  
+  document.body.style.overflow = 'hidden';
+};
 
+window.closeMobileDrawer = function() {
+  const drawer = document.getElementById('mobile-nav-drawer');
+  const overlay = document.getElementById('mobile-nav-overlay');
+  if (!drawer || !overlay) return;
+  
+  drawer.classList.add('translate-x-full');
+  overlay.classList.remove('opacity-100');
+  overlay.classList.add('opacity-0');
+  
+  setTimeout(() => {
+    overlay.classList.add('hidden');
+  }, 300);
+  
+  document.body.style.overflow = '';
+};
+
+// Mobile Accordion Toggle (arrow button only; category link navigates to landing page)
+window.toggleMobileCategory = function(btn) {
+  const group = btn.closest('.mobile-category-group');
+  const submenu = group.querySelector('.mobile-submenu');
+  const chevron = btn.querySelector('.mobile-chevron');
+  const isExpanded = !submenu.classList.contains('hidden');
+  
   if (isExpanded) {
-    dropdown.classList.add('hidden');
-    dropdown.classList.remove('block');
+    submenu.classList.add('hidden');
+    chevron.classList.remove('rotate-180');
     btn.setAttribute('aria-expanded', 'false');
-    btn.classList.remove('bg-slate-200', 'dark:bg-slate-700');
   } else {
-    dropdown.classList.remove('hidden');
-    dropdown.classList.add('block');
+    submenu.classList.remove('hidden');
+    chevron.classList.add('rotate-180');
     btn.setAttribute('aria-expanded', 'true');
-    btn.classList.add('bg-slate-200', 'dark:bg-slate-700');
   }
 };
 
-// Close unified dropdowns when clicking outside
-document.addEventListener('click', (e) => {
-  if (!e.target.closest('.nav-dropdown-group')) {
-    document.querySelectorAll('.nav-dropdown-menu').forEach(menu => {
-      menu.classList.add('hidden');
-      menu.classList.remove('block');
-      const btn = menu.previousElementSibling;
-      if (btn) {
-        btn.setAttribute('aria-expanded', 'false');
-        btn.classList.remove('bg-slate-200', 'dark:bg-slate-700');
+// Mobile Search Filter with live highlighting and empty-state hiding
+window.filterMobileNav = function(query) {
+  const q = query.toLowerCase().trim();
+  const groups = document.querySelectorAll('.mobile-category-group');
+  const searchInput = document.getElementById('mobile-nav-search');
+  
+  groups.forEach(group => {
+    const links = group.querySelectorAll('.mobile-nav-link');
+    const categoryLink = group.querySelector('.mobile-category-link');
+    let hasMatch = false;
+    
+    links.forEach(link => {
+      const text = link.textContent.toLowerCase();
+      if (text.includes(q)) {
+        link.classList.remove('hidden');
+        hasMatch = true;
+      } else {
+        link.classList.add('hidden');
       }
     });
-  }
-});
+    
+    if (hasMatch) {
+      group.classList.remove('hidden');
+      if (q) {
+        const submenu = group.querySelector('.mobile-submenu');
+        const chevron = group.querySelector('.mobile-chevron');
+        submenu.classList.remove('hidden');
+        chevron.classList.add('rotate-180');
+        if (categoryLink) categoryLink.classList.add('hidden');
+      } else {
+        const submenu = group.querySelector('.mobile-submenu');
+        const chevron = group.querySelector('.mobile-chevron');
+        submenu.classList.add('hidden');
+        chevron.classList.remove('rotate-180');
+        if (categoryLink) categoryLink.classList.remove('hidden');
+      }
+    } else {
+      group.classList.add('hidden');
+    }
+  });
+};
 
 /**
- * Render standard navigation header with dynamic categories dropdown menu
+ * Render standard navigation header with desktop hover dropdowns and mobile right-side drawer
  */
 function renderHeader() {
   const headerContainer = document.getElementById('global-header') || document.querySelector('header');
@@ -750,48 +797,98 @@ function renderHeader() {
           <span class="font-extrabold text-2xl tracking-tight bg-gradient-to-r from-indigo-600 to-violet-500 dark:from-indigo-400 dark:to-sky-300 bg-clip-text text-slate-900 dark:text-slate-100" style="-webkit-background-clip: text; -webkit-text-fill-color: transparent;">TopWebTool</span>
         </a>
 
-        <!-- Single Component Responsive DOM Navigation Bar (Zero Duplication between mobile/desktop) -->
-        <div class="flex items-center gap-1.5 justify-center md:justify-end w-full md:w-auto overflow-x-auto pb-1">
-          ${categoryNames.map((cat, idx) => {
-            const shortName = cat.split('&')[0].trim();
-            const tools = categories[cat];
-            return `
-              <div class="relative nav-dropdown-group">
-                <button onclick="toggleCategoryDropdown(this)" class="flex items-center space-x-1 px-3 py-1.5 rounded-lg text-xs font-bold text-slate-700 dark:text-slate-200 bg-slate-50 hover:bg-slate-100 dark:bg-slate-800 dark:hover:bg-slate-700 transition-colors focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:outline-none" aria-haspopup="true" aria-expanded="false" aria-controls="dropdown-menu-${idx}">
-                  <span>${shortName}</span>
-                  <svg class="w-3.5 h-3.5 opacity-60 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
-                </button>
-                <div id="dropdown-menu-${idx}" class="nav-dropdown-menu absolute left-0 md:left-auto md:right-0 mt-1.5 w-64 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl shadow-lg hidden z-50 p-2 space-y-1">
-                  ${tools.map(tool => `
-                    <a href="${prefix}${tool.path.replace(/^\//, '')}" class="flex items-center space-x-2.5 px-3 py-2 text-xs font-semibold rounded-lg text-slate-800 dark:text-slate-200 hover:bg-indigo-50 dark:hover:bg-slate-800 hover:text-indigo-600 dark:hover:text-indigo-400 focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:outline-none transition-colors">
-                      <span class="text-sm shrink-0" aria-hidden="true">${tool.icon}</span>
-                      <span class="truncate">${tool.name}</span>
-                    </a>
-                  `).join('')}
+        <div class="flex items-center gap-2">
+          <!-- Desktop Navigation (hidden on mobile) -->
+          <div class="hidden md:flex items-center gap-1.5">
+            ${categoryNames.map((cat, idx) => {
+              const shortName = cat.split('&')[0].trim();
+              const tools = categories[cat];
+              return `
+                <div class="relative group nav-dropdown-group">
+                  <button class="flex items-center space-x-1 px-3 py-1.5 rounded-lg text-xs font-bold text-slate-700 dark:text-slate-200 bg-slate-50 hover:bg-slate-100 dark:bg-slate-800 dark:hover:bg-slate-700 transition-colors focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:outline-none">
+                    <span>${shortName}</span>
+                    <svg class="w-3.5 h-3.5 opacity-60 transition-transform duration-200 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
+                  </button>
+                  <div class="absolute left-0 md:left-auto md:right-0 mt-1.5 w-64 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl shadow-lg hidden group-hover:block z-[9999] p-2 space-y-1 max-h-[70vh] overflow-y-auto">
+                    ${tools.map(tool => `
+                      <a href="${prefix}${tool.path.replace(/^\//, '')}" class="flex items-center space-x-2.5 px-3 py-2 text-xs font-semibold rounded-lg text-slate-800 dark:text-slate-200 hover:bg-indigo-50 dark:hover:bg-slate-800 hover:text-indigo-600 dark:hover:text-indigo-400 focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:outline-none transition-colors">
+                        <span class="text-sm shrink-0" aria-hidden="true">${tool.icon}</span>
+                        <span class="truncate">${tool.name}</span>
+                      </a>
+                    `).join('')}
+                  </div>
                 </div>
-              </div>
-            `;
-          }).join('')}
-
-          <div class="h-6 w-px bg-slate-200 dark:bg-slate-800 mx-1 hidden sm:block" aria-hidden="true"></div>
-
-          <!-- Theme Toggle & Status Info -->
-          <div class="flex items-center space-x-2">
-            <button id="theme-toggle-btn" class="p-2 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all" aria-label="Toggle Light/Dark Theme">
-              <!-- Moon Icon -->
-              <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
-              </svg>
-              <!-- Sun Icon -->
-              <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zm-5.05-1.414l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zm2.12-10.607a1 1 0 01-1.414 0l-.707-.707a1 1 0 011.414-1.414l.707.707a1 1 0 010 1.414zM4 11a1 1 0 100-2H3a1 1 0 100 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
-              </svg>
-            </button>
-            <span class="text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider hidden lg:inline-block">100% Free & No Sign-up</span>
+              `;
+            }).join('')}
           </div>
+
+          <!-- Theme Toggle -->
+          <button id="theme-toggle-btn" class="p-2 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all" aria-label="Toggle Light/Dark Theme">
+            <!-- Moon Icon -->
+            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+            </svg>
+            <!-- Sun Icon -->
+            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zm-5.05-1.414l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zm2.12-10.607a1 1 0 01-1.414 0l-.707-.707a1 1 0 011.414-1.414l.707.707a1 1 0 010 1.414zM4 11a1 1 0 100-2H3a1 1 0 100 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+            </svg>
+          </button>
+
+          <!-- Mobile Hamburger (hidden on desktop) -->
+          <button id="mobile-menu-btn" onclick="openMobileDrawer()" class="md:hidden p-2 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all" aria-label="Open Menu">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+          </button>
         </div>
       </div>
     </nav>
+
+    <!-- Mobile Drawer Overlay -->
+    <div id="mobile-nav-overlay" class="fixed inset-0 bg-black/50 z-[9998] hidden opacity-0 transition-opacity duration-300" onclick="closeMobileDrawer()"></div>
+
+    <!-- Mobile Right-Side Drawer -->
+    <div id="mobile-nav-drawer" class="fixed right-0 top-0 h-full w-80 bg-white dark:bg-slate-900 border-l border-slate-200 dark:border-slate-800 z-[9999] transform translate-x-full transition-transform duration-300 flex flex-col">
+      <div class="p-4 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between">
+        <span class="font-extrabold text-lg text-slate-900 dark:text-slate-100">Menu</span>
+        <button onclick="closeMobileDrawer()" class="p-2 text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors" aria-label="Close Menu">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+      <div class="p-4 border-b border-slate-200 dark:border-slate-800">
+        <input type="search" id="mobile-nav-search" placeholder="Search through all 83 pages..." oninput="filterMobileNav(this.value)" class="w-full px-3 py-2.5 text-sm border border-slate-300 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none" />
+      </div>
+      <div id="mobile-nav-categories" class="flex-1 overflow-y-auto">
+        ${categoryNames.map(cat => {
+          const tools = categories[cat];
+          const slug = cat.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+          return `
+            <div class="mobile-category-group border-b border-slate-100 dark:border-slate-800" data-category="${cat}">
+              <div class="flex items-center">
+                <a href="./#category-title-${slug}" class="mobile-category-link flex-1 px-4 py-3.5 min-h-[48px] flex items-center text-sm font-bold text-slate-800 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors truncate">
+                  ${cat}
+                </a>
+                <button onclick="toggleMobileCategory(this)" class="p-3.5 min-h-[48px] flex items-center justify-center text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" aria-label="Toggle ${cat}" aria-expanded="false">
+                  <svg class="w-4 h-4 transition-transform duration-200 mobile-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path>
+                  </svg>
+                </button>
+              </div>
+              <div class="mobile-submenu hidden">
+                ${tools.map(tool => `
+                  <a href="${prefix}${tool.path.replace(/^\//, '')}" class="mobile-nav-link flex items-center space-x-2.5 px-4 py-3.5 min-h-[48px] text-sm text-slate-700 dark:text-slate-300 hover:bg-indigo-50 dark:hover:bg-slate-800 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors truncate">
+                    <span class="text-sm shrink-0" aria-hidden="true">${tool.icon}</span>
+                    <span class="truncate">${tool.name}</span>
+                  </a>
+                `).join('')}
+              </div>
+            </div>
+          `;
+        }).join('')}
+      </div>
+    </div>
   `;
 }
 
@@ -926,8 +1023,10 @@ function setupThemeToggler() {
 }
 
 /**
- * Render Google AdSense placements (AD A, AD B, AD C) dynamically on pages.
+ * Render Google AdSense placements (Unit A, Unit B, Unit C) dynamically on pages.
  * Fully optimized for Light/Dark mode color contrast and frictionless UX.
+ * All ad containers include explicit min-height and 25px safety margins to prevent CLS
+ * and accidental misclicks on interactive controls.
  */
 function renderAdPlacements() {
   const main = document.querySelector('main');
@@ -936,20 +1035,15 @@ function renderAdPlacements() {
   const p = window.location.pathname;
   const isHomepage = p === '/' || p === '/index.html' || p === '';
 
-  // 1. AD A: TOP LEADERBOARD BANNER (Horizontal Ads) - Height Restricted for Frictionless UX
-  // Use the pre-rendered CLS-safe reserved slot when present; otherwise inject dynamically.
+  // ===== UNIT A: TOP HEADER BANNER =====
   let adA = document.getElementById('ad-slot-a');
   if (!adA) {
     adA = document.createElement('div');
     adA.id = 'ad-slot-a';
-    adA.className = "w-full mx-auto mb-6 p-3 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center select-none overflow-hidden min-h-[90px]";
-    adA.style.maxWidth = "728px";
-    adA.style.maxHeight = "135px";
-
+    adA.className = "ads-banner-top ads-safety-wrap";
     adA.innerHTML = `
-      <span class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-1.5">Advertisement</span>
+      <span class="ads-label">Advertisement</span>
       <div class="w-full flex justify-center" style="height:90px; max-height:90px; overflow:hidden;">
-        <!-- HzAds -->
         <ins class="adsbygoogle"
              style="display:inline-block; width:100%; height:90px; max-height:90px;"
              data-ad-client="ca-pub-3901061173891576"
@@ -960,7 +1054,6 @@ function renderAdPlacements() {
     `;
 
     if (isHomepage) {
-      // On homepage, insert after the hero/search section
       const hero = main.querySelector('.text-center.mb-8');
       if (hero) {
         hero.parentNode.insertBefore(adA, hero.nextSibling);
@@ -968,7 +1061,6 @@ function renderAdPlacements() {
         main.insertBefore(adA, main.firstChild);
       }
     } else {
-      // On tool pages, insert as the very first child of main
       main.insertBefore(adA, main.firstChild);
     }
   }
@@ -976,101 +1068,106 @@ function renderAdPlacements() {
   try {
     (window.adsbygoogle = window.adsbygoogle || []).push({});
   } catch (e) {
-    console.error("AdSense push error (AD A):", e);
+    console.error("AdSense push error (Unit A):", e);
   }
 
-  // 2. AD B: SIDEBAR AD PLACEMENTS
+  // ===== UNIT B: MID-PAGE SEPARATOR BANNER =====
+  // Insert between interactive tool frame and SEO article text
+  let adB = document.getElementById('ad-slot-b');
+  if (!adB) {
+    adB = document.createElement('div');
+    adB.id = 'ad-slot-b';
+    adB.className = "ads-separator ads-safety-wrap";
+    adB.innerHTML = `
+      <span class="ads-label">Sponsored</span>
+      <div class="w-full flex justify-center" style="height:90px; max-height:90px; overflow:hidden;">
+        <ins class="adsbygoogle"
+             style="display:block; width:100%; height:90px; max-height:90px;"
+             data-ad-client="ca-pub-3901061173891576"
+             data-ad-slot="2894630336"
+             data-ad-format="horizontal"
+             data-full-width-responsive="false"></ins>
+      </div>
+    `;
+
+    // Try to insert after the primary tool container (form/calculator) and before article
+    const article = main.querySelector('article');
+    const toolForm = main.querySelector('form[onsubmit="return false;"]');
+    if (article && toolForm) {
+      toolForm.parentNode.insertBefore(adB, article);
+    } else if (toolForm) {
+      toolForm.parentNode.insertBefore(adB, toolForm.nextSibling);
+    } else {
+      main.insertBefore(adB, main.children[1] || null);
+    }
+  }
+
+  try {
+    (window.adsbygoogle = window.adsbygoogle || []).push({});
+  } catch (e) {
+    console.error("AdSense push error (Unit B):", e);
+  }
+
+  // ===== UNIT C: SIDEBAR VERTICAL DISPLAY RAIL =====
   const sidebar = document.getElementById('trending-sidebar');
   if (sidebar) {
-    // A. SQUARE AD (SquareAds) - use pre-rendered reserved slot when present
-    let squareAd = document.getElementById('ad-slot-square');
-    if (!squareAd) {
-      squareAd = document.createElement('div');
-      squareAd.id = 'ad-slot-square';
-      squareAd.className = "w-full p-4 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center mt-4 select-none min-h-[250px] overflow-hidden";
-      squareAd.style.minHeight = "250px";
-      squareAd.innerHTML = `
-        <span class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-2">Sponsored</span>
-        <div class="w-full flex justify-center" style="height:250px; max-height:250px; overflow:hidden;">
-          <!-- SquareAds -->
-          <ins class="adsbygoogle"
-               style="display:block; width:100%; min-height:250px; max-height:250px;"
-               data-ad-client="ca-pub-3901061173891576"
-               data-ad-slot="6707430996"
-               data-ad-format="rectangle"
-               data-full-width-responsive="false"></ins>
-        </div>
-      `;
-      sidebar.parentNode.insertBefore(squareAd, sidebar.nextSibling);
-    }
-
-    try {
-      (window.adsbygoogle = window.adsbygoogle || []).push({});
-    } catch (e) {
-      console.error("AdSense push error (AD B Square):", e);
-    }
-
-    // B. VERTICAL AD (verticalAds) - Display on desktop only to avoid mobile clutter (UX-first!)
     let verticalAd = document.getElementById('ad-slot-vertical');
     if (!verticalAd) {
       verticalAd = document.createElement('div');
       verticalAd.id = 'ad-slot-vertical';
-      verticalAd.className = "w-full p-4 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center mt-4 hidden lg:flex select-none min-h-[600px] overflow-hidden";
-      verticalAd.style.minHeight = "600px";
+      verticalAd.className = "ads-sidebar ads-sidebar-skyscraper ads-safety-wrap hidden lg:flex";
       verticalAd.innerHTML = `
-        <span class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-2">Advertisement</span>
+        <span class="ads-label">Advertisement</span>
         <div class="w-full flex justify-center" style="height:600px; max-height:600px; overflow:hidden;">
-          <!-- verticalAds -->
           <ins class="adsbygoogle"
-               style="display:block; width:100%; min-height:600px; max-height:600px;"
+               style="display:block; width:100%; height:600px; max-height:600px;"
                data-ad-client="ca-pub-3901061173891576"
                data-ad-slot="1581548667"
                data-ad-format="auto"
                data-full-width-responsive="true"></ins>
         </div>
       `;
-      squareAd.parentNode.insertBefore(verticalAd, squareAd.nextSibling);
+      sidebar.parentNode.insertBefore(verticalAd, sidebar.nextSibling);
     }
 
     try {
       (window.adsbygoogle = window.adsbygoogle || []).push({});
     } catch (e) {
-      console.error("AdSense push error (AD B Vertical):", e);
+      console.error("AdSense push error (Unit C):", e);
     }
   }
 
-  // 3. AD C: STICKY BOTTOM VIEWPORT ANCHOR (Horizontal Ads) - Height Restricted for Frictionless UX
-  const stickyFooter = document.createElement('div');
-  stickyFooter.id = "sticky-footer-ad";
-  stickyFooter.className = "fixed bottom-0 left-0 w-full z-50 bg-white/95 dark:bg-slate-900/95 backdrop-blur border-t border-slate-200/80 dark:border-slate-800 shadow-lg flex flex-col items-center justify-center py-2 select-none overflow-hidden min-h-[50px]";
-  stickyFooter.style.maxHeight = "95px";
+  // ===== STICKY FOOTER AD (Optional extra unit) =====
+  if (!document.getElementById('sticky-footer-ad')) {
+    const stickyFooter = document.createElement('div');
+    stickyFooter.id = "sticky-footer-ad";
+    stickyFooter.className = "fixed bottom-0 left-0 w-full z-50 bg-white/95 dark:bg-slate-900/95 backdrop-blur border-t border-slate-200/80 dark:border-slate-800 shadow-lg flex flex-col items-center justify-center py-2 select-none overflow-hidden min-h-[50px]";
+    stickyFooter.style.maxHeight = "95px";
 
-  stickyFooter.innerHTML = `
-    <!-- Close Button -->
-    <button onclick="closeStickyFooter()" class="absolute -top-3.5 right-4 w-7 h-7 bg-white dark:bg-slate-800 border border-slate-200/85 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-full shadow-md flex items-center justify-center text-slate-500 dark:text-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-colors cursor-pointer" title="Dismiss advertisement">
-      <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"></path>
-      </svg>
-    </button>
+    stickyFooter.innerHTML = `
+      <button onclick="closeStickyFooter()" class="absolute -top-3.5 right-4 w-7 h-7 bg-white dark:bg-slate-800 border border-slate-200/85 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-full shadow-md flex items-center justify-center text-slate-500 dark:text-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-colors cursor-pointer" title="Dismiss advertisement">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+      <span class="text-[8px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-1">Sponsored Link</span>
+      <div class="w-full max-w-[320px] sm:max-w-[728px] px-4 flex justify-center" style="height:50px; max-height:50px; overflow:hidden;">
+        <ins class="adsbygoogle"
+             style="display:inline-block; width:100%; height:50px; max-height:50px;"
+             data-ad-client="ca-pub-3901061173891576"
+             data-ad-slot="2894630336"
+             data-ad-format="horizontal"
+             data-full-width-responsive="false"></ins>
+      </div>
+    `;
 
-    <span class="text-[8px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-1">Sponsored Link</span>
-    <div class="w-full max-w-[320px] sm:max-w-[728px] px-4 flex justify-center" style="height:50px; max-height:50px; overflow:hidden;">
-      <!-- HzAds in Sticky Footer -->
-      <ins class="adsbygoogle"
-           style="display:inline-block; width:100%; height:50px; max-height:50px;"
-           data-ad-client="ca-pub-3901061173891576"
-           data-ad-slot="2894630336"
-           data-ad-format="horizontal"
-           data-full-width-responsive="false"></ins>
-    </div>
-  `;
+    document.body.appendChild(stickyFooter);
 
-  document.body.appendChild(stickyFooter);
-
-  try {
-    (window.adsbygoogle = window.adsbygoogle || []).push({});
-  } catch (e) {
-    console.error("AdSense push error (AD C):", e);
+    try {
+      (window.adsbygoogle = window.adsbygoogle || []).push({});
+    } catch (e) {
+      console.error("AdSense push error (Sticky Footer):", e);
+    }
   }
 }
 

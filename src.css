@@ -16,6 +16,16 @@
   --color-brand-950: #032233;
 }
 
+/* Ensure translate scale utilities are available for mobile drawer transitions */
+@utility translate-x-full {
+  --tw-translate-x: 100%;
+  translate: var(--tw-translate-x) var(--tw-translate-y);
+}
+.translate-y-full {
+  --tw-translate-y: 100%;
+  translate: var(--tw-translate-x) var(--tw-translate-y);
+}
+
 /* TopWebTool Global Stylesheet Base */
 body {
   margin: 0;

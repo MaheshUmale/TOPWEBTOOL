@@ -21,7 +21,6 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
   <meta charset="UTF-8">   <meta name="google-adsense-account" content="ca-pub-3901061173891576">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <title>Free Interactive Social Media Image Resizer | Crop, Move, Zoom Canvas Editor | TopWebTool</title>
   <meta name="description" content="Move, zoom, rotate, and crop images client-side for Instagram, LinkedIn, YouTube, and X templates with high-resolution download. 100% Free, No Sign-Up.">
   <link rel="canonical" href="https://topwebtool.com/social-media-image-resizer/">
@@ -48,7 +47,7 @@
 }
   </script>
   <link rel="stylesheet" href="../styles.css">
-  <link rel="stylesheet" href="../../global.css">
+  <link rel="stylesheet" href="../global.css">
 </head>
 <body class="bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 min-h-screen flex flex-col">
 
@@ -80,7 +79,7 @@
         </div>
 
         <!-- Calculator/Editor UI -->
-        <form onsubmit="return false;" id="form-social-media-image-resizer" form-id="form-social-media-image-resizer" tool-name="Social Media Image Resizer" tool-description="Crop and scale assets client-side for Instagram, LinkedIn, YouTube, and X." class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-4 sm:p-8 space-y-4 shadow-sm">
+        <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-4 sm:p-8 space-y-4 shadow-sm">
           <h2 class="text-lg font-bold text-slate-900 dark:text-white border-b border-slate-100 dark:border-slate-800 pb-3">Load & Configuration</h2>
 
           <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -118,7 +117,7 @@
               <input type="number" id="custom-h" class="block w-full px-3 py-1.5 border border-slate-300 dark:border-slate-700 rounded-lg text-xs" value="600" oninput="applyCustomDimension()">
             </div>
           </div>
-
+        </div>
 
         <!-- Interactive Photo Workspace -->
         <div class="bg-white dark:bg-slate-900 p-4 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col md:flex-row gap-6">
@@ -177,7 +176,7 @@
 
           </div>
 
-        </form>
+        </div>
 
 
         <!-- Informative Articles & Guides Section -->
