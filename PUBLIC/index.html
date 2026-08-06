@@ -1,6 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
+  <script>
+    (function() {
+      try {
+        const theme = localStorage.getItem('theme');
+        if (theme === 'dark') {
+          document.documentElement.classList.add('dark');
+          document.documentElement.classList.remove('light');
+        } else {
+          document.documentElement.classList.remove('dark');
+          document.documentElement.classList.add('light');
+        }
+      } catch (e) {}
+    })();
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <meta charset="UTF-8">
@@ -10,6 +25,7 @@
   <meta name="description" content="Access 23 premium client-side web tools. Free online calculators, B2B digital marketing helpers, AI prompt engines, and developer utilities. 100% Free, No Sign-Up, No Email, No Registration Required.">
   <link rel="canonical" href="https://topwebtool.com/">
   <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="../global.css">
   <style>html{background-color:#fff}html.dark{background-color:#0f172a}body{padding-bottom:6rem}main.flex-grow{min-height:60vh}#global-header{min-height:4rem}#global-footer{min-height:3rem}#trending-sidebar{min-height:400px}.category-section{content-visibility:auto;contain-intrinsic-size:auto 500px}.tool-card{contain:layout style paint}img[width][height]{aspect-ratio:attr(width)/attr(height)}</style>
 
   <script type="application/ld+json">
@@ -390,7 +406,7 @@
   <!-- Footer -->
   <footer id="global-footer"></footer>
 
-  <script src="./global.js"></script>
+  <script src="./global.js" defer></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const searchInput = document.getElementById('directory-search');
