@@ -1,63 +1,38 @@
-import os, re, urllib.request, urllib.error
-from concurrent.futures import ThreadPoolExecutor, as_completed
+#!/usr/bin/env python3
+"""Quick link checker for PUBLIC tool pages."""
+import os
+import re
+import urllib.parse
 
-BASE = 'http://localhost:8000'
-tool_dirs = sorted([d for d in os.listdir('PUBLIC') if os.path.isdir(os.path.join('PUBLIC', d)) and not d.startswith('.')])
+PUBLIC = "PUBLIC"
+tool_dirs = sorted([d for d in os.listdir(PUBLIC) if os.path.isdir(os.path.join(PUBLIC, d)) and not d.startswith('.')])
 
-href_pattern = re.compile(r'href=["\']([^"\']+)["\']', re.IGNORECASE)
-src_pattern = re.compile(r'src=["\']([^"\']+)["\']', re.IGNORECASE)
+broken = []
+checked = 0
 
-def find_links(tool):
-    url = f'{BASE}/{tool}/'
-    try:
-        req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
-        with urllib.request.urlopen(req, timeout=10) as resp:
-            content = resp.read(100000).decode('utf-8', errors='ignore')
-    except Exception as e:
-        return tool, [], [f'Failed to load: {e}']
-    
-    links = href_pattern.findall(content) + src_pattern.findall(content)
-    links = [l for l in links if l and not l.startswith(('http://', 'https://', '//', 'data:', '#'))]
-    
-    broken = []
-    for link in set(links):
-        if link.startswith('/'):
-            check_url = f'{BASE}{link}'
-        elif link.startswith('./'):
-            check_url = f'{BASE}/{tool}/{link[2:]}'
-        elif link.startswith('../'):
-            parts = tool.split('/')
-            up = link.count('../')
-            base = '/'.join(parts[:-up]) if up < len(parts) else ''
-            check_url = f'{BASE}/{base}/{link.replace("../", "")}'
-        else:
-            check_url = f'{BASE}/{tool}/{link}'
-        try:
-            req = urllib.request.Request(check_url, headers={'User-Agent': 'Mozilla/5.0'})
-            with urllib.request.urlopen(req, timeout=5) as resp:
-                if resp.status >= 400:
-                    broken.append((link, resp.status))
-        except urllib.error.HTTPError as e:
-            broken.append((link, e.code))
-        except Exception as e:
-            broken.append((link, str(e)[:50]))
-    
-    return tool, links, broken
+for tool in tool_dirs:
+    tool_path = os.path.join(PUBLIC, tool)
+    html_files = [f for f in os.listdir(tool_path) if f.endswith('.html')]
+    for html_file in html_files:
+        filepath = os.path.join(tool_path, html_file)
+        with open(filepath, 'r', encoding='utf-8', errors='ignore') as f:
+            content = f.read()
+        links = re.findall(r'href="([^"]+)"', content)
+        for link in links:
+            if link.startswith('http') or link.startswith('//') or link.startswith('#'):
+                continue
+            if link.startswith('/'):
+                target = os.path.normpath(os.path.join(PUBLIC, link.lstrip('/')))
+            else:
+                target = os.path.normpath(os.path.join(os.path.dirname(filepath), link))
+            if not os.path.exists(target):
+                broken.append((filepath, link, target))
+        checked += 1
 
-issues = []
-with ThreadPoolExecutor(max_workers=8) as executor:
-    futures = {executor.submit(find_links, t): t for t in tool_dirs}
-    for future in as_completed(futures):
-        tool, links, broken = future.result()
-        if broken:
-            issues.append((tool, broken[:10]))
-
-print(f'Checked {len(tool_dirs)} tool pages')
-if issues:
-    print(f'Pages with broken links: {len(issues)}')
-    for tool, broken in issues[:15]:
-        print(f'  {tool}: {len(broken)} broken')
-        for link, err in broken[:5]:
-            print(f'    - {link} ({err})')
+print(f"Checked {checked} HTML files across {len(tool_dirs)} tools.")
+if broken:
+    print(f"BROKEN LINKS: {len(broken)}")
+    for src, link, target in broken[:20]:
+        print(f"  {src} -> {link} (expected: {target})")
 else:
-    print('No broken internal links found.')
+    print("No broken internal links found.")

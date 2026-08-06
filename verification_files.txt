@@ -1,8 +1,0 @@
-total 28
-drwxrwxr-x 4 jules jules 4096 Aug  3 03:33 .
-drwxr-x--- 1 jules jules 4096 Aug  2 16:37 ..
-drwxrwxr-x 2 jules jules 4096 Aug  3 03:33 screenshots
--rw-rw-r-- 1 jules jules 2160 Aug  2 16:36 verify_ads.py
--rw-rw-r-- 1 jules jules 1862 Aug  3 03:41 verify_ads_contrast.py
--rw-rw-r-- 1 jules jules 2359 Aug  2 20:36 verify_contrast.py
-drwxrwxr-x 2 jules jules 4096 Aug  3 03:41 videos
