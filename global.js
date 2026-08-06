@@ -196,6 +196,36 @@ document.addEventListener('DOMContentLoaded', () => {
   // Setup theme toggle buttons
   setupThemeToggler();
 
+  // Hard-cap ad container sizes so the AdSense SDK cannot inflate them and
+  // cause CLS. The SDK rewrites inline styles with `height/max-height:auto/none
+  // !important`, which beats stylesheet rules, so a MutationObserver re-asserts
+  // the caps (inline !important) after every SDK style write.
+  (function enforceAdSizeCaps() {
+    const caps = {
+      'ad-slot-a': ['max-height:138px', 'overflow:hidden'],
+      'ad-slot-square': ['max-height:308px', 'overflow:hidden'],
+      'ad-slot-vertical': ['max-height:660px', 'overflow:hidden'],
+      'sticky-footer-ad': ['height:85px', 'max-height:85px', 'overflow:hidden']
+    };
+    const apply = () => {
+      for (const [id, decls] of Object.entries(caps)) {
+        const el = document.getElementById(id);
+        if (!el) continue;
+        for (const d of decls) {
+          const i = d.indexOf(':');
+          const prop = d.slice(0, i);
+          const val = d.slice(i + 1);
+          if (getComputedStyle(el)[prop] !== val) {
+            el.style.setProperty(prop, val, 'important');
+          }
+        }
+      }
+    };
+    const observer = new MutationObserver(apply);
+    observer.observe(document.body, { subtree: true, attributes: true, attributeFilter: ['style', 'class'] });
+    apply();
+  })();
+
   // Inject Dynamic AdSense Placements (AD A, AD B, AD C)
   renderAdPlacements();
 });
@@ -463,35 +493,40 @@ function renderAdPlacements() {
   const isHomepage = window.location.pathname === '/' || window.location.pathname.endsWith('/index.html') || window.location.pathname === '';
 
   // 1. AD A: TOP LEADERBOARD BANNER (Horizontal Ads) - Height Restricted for Frictionless UX
-  const adA = document.createElement('div');
-  adA.className = "w-full mx-auto mb-6 p-3 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center select-none overflow-hidden min-h-[90px]";
-  adA.style.maxWidth = "728px";
-  adA.style.maxHeight = "135px";
+  // Use the pre-rendered CLS-safe reserved slot when present; otherwise inject dynamically.
+  let adA = document.getElementById('ad-slot-a');
+  if (!adA) {
+    adA = document.createElement('div');
+    adA.id = 'ad-slot-a';
+    adA.className = "w-full mx-auto mb-6 p-3 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center select-none overflow-hidden min-h-[90px]";
+    adA.style.maxWidth = "728px";
+    adA.style.maxHeight = "135px";
 
-  adA.innerHTML = `
-    <span class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-1.5">Advertisement</span>
-    <div class="w-full flex justify-center" style="height:90px; max-height:90px; overflow:hidden;">
-      <!-- HzAds -->
-      <ins class="adsbygoogle"
-           style="display:inline-block; width:100%; height:90px; max-height:90px;"
-           data-ad-client="ca-pub-3901061173891576"
-           data-ad-slot="2894630336"
-           data-ad-format="horizontal"
-           data-full-width-responsive="false"></ins>
-    </div>
-  `;
+    adA.innerHTML = `
+      <span class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-1.5">Advertisement</span>
+      <div class="w-full flex justify-center" style="height:90px; max-height:90px; overflow:hidden;">
+        <!-- HzAds -->
+        <ins class="adsbygoogle"
+             style="display:inline-block; width:100%; height:90px; max-height:90px;"
+             data-ad-client="ca-pub-3901061173891576"
+             data-ad-slot="2894630336"
+             data-ad-format="horizontal"
+             data-full-width-responsive="false"></ins>
+      </div>
+    `;
 
-  if (isHomepage) {
-    // On homepage, insert after the hero/search section
-    const hero = main.querySelector('.text-center.mb-8');
-    if (hero) {
-      hero.parentNode.insertBefore(adA, hero.nextSibling);
+    if (isHomepage) {
+      // On homepage, insert after the hero/search section
+      const hero = main.querySelector('.text-center.mb-8');
+      if (hero) {
+        hero.parentNode.insertBefore(adA, hero.nextSibling);
+      } else {
+        main.insertBefore(adA, main.firstChild);
+      }
     } else {
+      // On tool pages, insert as the very first child of main
       main.insertBefore(adA, main.firstChild);
     }
-  } else {
-    // On tool pages, insert as the very first child of main
-    main.insertBefore(adA, main.firstChild);
   }
 
   try {
@@ -503,23 +538,27 @@ function renderAdPlacements() {
   // 2. AD B: SIDEBAR AD PLACEMENTS
   const sidebar = document.getElementById('trending-sidebar');
   if (sidebar) {
-    // A. SQUARE AD (SquareAds)
-    const squareAd = document.createElement('div');
-    squareAd.className = "w-full p-4 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center mt-4 select-none min-h-[250px] overflow-hidden";
-    squareAd.style.minHeight = "250px";
-    squareAd.innerHTML = `
-      <span class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-2">Sponsored</span>
-      <div class="w-full flex justify-center min-h-[250px]">
-        <!-- SquareAds -->
-        <ins class="adsbygoogle"
-             style="display:block; width:100%; min-height:250px;"
-             data-ad-client="ca-pub-3901061173891576"
-             data-ad-slot="6707430996"
-             data-ad-format="auto"
-             data-full-width-responsive="true"></ins>
-      </div>
-    `;
-    sidebar.parentNode.insertBefore(squareAd, sidebar.nextSibling);
+    // A. SQUARE AD (SquareAds) - use pre-rendered reserved slot when present
+    let squareAd = document.getElementById('ad-slot-square');
+    if (!squareAd) {
+      squareAd = document.createElement('div');
+      squareAd.id = 'ad-slot-square';
+      squareAd.className = "w-full p-4 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center mt-4 select-none min-h-[250px] overflow-hidden";
+      squareAd.style.minHeight = "250px";
+      squareAd.innerHTML = `
+        <span class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-2">Sponsored</span>
+        <div class="w-full flex justify-center" style="height:250px; max-height:250px; overflow:hidden;">
+          <!-- SquareAds -->
+          <ins class="adsbygoogle"
+               style="display:block; width:100%; min-height:250px; max-height:250px;"
+               data-ad-client="ca-pub-3901061173891576"
+               data-ad-slot="6707430996"
+               data-ad-format="rectangle"
+               data-full-width-responsive="false"></ins>
+        </div>
+      `;
+      sidebar.parentNode.insertBefore(squareAd, sidebar.nextSibling);
+    }
 
     try {
       (window.adsbygoogle = window.adsbygoogle || []).push({});
@@ -528,22 +567,26 @@ function renderAdPlacements() {
     }
 
     // B. VERTICAL AD (verticalAds) - Display on desktop only to avoid mobile clutter (UX-first!)
-    const verticalAd = document.createElement('div');
-    verticalAd.className = "w-full p-4 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center mt-4 hidden lg:flex select-none min-h-[600px] overflow-hidden";
-    verticalAd.style.minHeight = "600px";
-    verticalAd.innerHTML = `
-      <span class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-2">Advertisement</span>
-      <div class="w-full flex justify-center min-h-[600px]">
-        <!-- verticalAds -->
-        <ins class="adsbygoogle"
-             style="display:block; width:100%; min-height:600px;"
-             data-ad-client="ca-pub-3901061173891576"
-             data-ad-slot="1581548667"
-             data-ad-format="auto"
-             data-full-width-responsive="true"></ins>
-      </div>
-    `;
-    squareAd.parentNode.insertBefore(verticalAd, squareAd.nextSibling);
+    let verticalAd = document.getElementById('ad-slot-vertical');
+    if (!verticalAd) {
+      verticalAd = document.createElement('div');
+      verticalAd.id = 'ad-slot-vertical';
+      verticalAd.className = "w-full p-4 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center mt-4 hidden lg:flex select-none min-h-[600px] overflow-hidden";
+      verticalAd.style.minHeight = "600px";
+      verticalAd.innerHTML = `
+        <span class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-2">Advertisement</span>
+        <div class="w-full flex justify-center" style="height:600px; max-height:600px; overflow:hidden;">
+          <!-- verticalAds -->
+          <ins class="adsbygoogle"
+               style="display:block; width:100%; min-height:600px; max-height:600px;"
+               data-ad-client="ca-pub-3901061173891576"
+               data-ad-slot="1581548667"
+               data-ad-format="auto"
+               data-full-width-responsive="true"></ins>
+        </div>
+      `;
+      squareAd.parentNode.insertBefore(verticalAd, squareAd.nextSibling);
+    }
 
     try {
       (window.adsbygoogle = window.adsbygoogle || []).push({});
