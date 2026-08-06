@@ -286,7 +286,8 @@ function renderHeader() {
   headerContainer.className = "bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 sticky top-0 z-40 shadow-sm";
 
   // Determine relative paths dynamic prefix
-  const isHomepage = window.location.pathname === '/' || window.location.pathname.endsWith('/index.html') || window.location.pathname === '';
+  const p = window.location.pathname;
+  const isHomepage = p === '/' || p === '/index.html' || p === '';
   const prefix = isHomepage ? './' : '../';
 
   // Group utilities by category
@@ -304,7 +305,7 @@ function renderHeader() {
     <nav aria-label="Main Navigation" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="py-4 md:h-16 flex flex-col md:flex-row items-center justify-between gap-4">
         <a href="${prefix}" class="flex items-center space-x-2 group focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:outline-none rounded-lg p-1" aria-label="TopWebTool Homepage">
-          <img src="${prefix}logo.svg" alt="TopWebTool Brand Logo" class="w-8 h-8 text-indigo-600 transition-transform group-hover:scale-105" width="32" height="32" loading="eager" decoding="async" />
+          <svg class="w-8 h-8 transition-transform group-hover:scale-105 shrink-0" role="img" aria-label="TopWebTool Brand Logo" width="32" height="32" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><linearGradient id="brandGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#0369a1"/><stop offset="100%" stop-color="#0284c7"/></linearGradient></defs><circle cx="50" cy="50" r="46" fill="url(#brandGrad)"/><path d="M30 40 L50 20 L70 40 L70 75 L30 75 Z" fill="#ffffff"/><path d="M50 20 L50 75" stroke="#e2e8f0" stroke-width="2"/><circle cx="50" cy="50" r="10" fill="#f59e0b"/></svg>
           <span class="font-extrabold text-2xl tracking-tight bg-gradient-to-r from-indigo-600 to-violet-500 dark:from-indigo-400 dark:to-sky-300 bg-clip-text text-slate-900 dark:text-slate-100" style="-webkit-background-clip: text; -webkit-text-fill-color: transparent;">TopWebTool</span>
         </a>
 
@@ -387,7 +388,8 @@ function renderSidebarScroller() {
   sidebarContainer.className = "bg-white dark:bg-slate-900 p-4 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col max-h-[700px] w-full";
 
   // Determine prefix for relative navigation
-  const isHomepage = window.location.pathname === '/' || window.location.pathname.endsWith('/index.html') || window.location.pathname === '';
+  const p = window.location.pathname;
+  const isHomepage = p === '/' || p === '/index.html' || p === '';
   const prefix = isHomepage ? './' : '../';
 
   // Build items HTML
@@ -490,7 +492,8 @@ function renderAdPlacements() {
   const main = document.querySelector('main');
   if (!main) return;
 
-  const isHomepage = window.location.pathname === '/' || window.location.pathname.endsWith('/index.html') || window.location.pathname === '';
+  const p = window.location.pathname;
+  const isHomepage = p === '/' || p === '/index.html' || p === '';
 
   // 1. AD A: TOP LEADERBOARD BANNER (Horizontal Ads) - Height Restricted for Frictionless UX
   // Use the pre-rendered CLS-safe reserved slot when present; otherwise inject dynamically.
