@@ -1,3 +1,7 @@
 node_modules/
 .DS_Store
 *.log
+
+# Binary build/deploy artifacts and verification screenshots (regenerate as needed)
+*.zip
+*.png
