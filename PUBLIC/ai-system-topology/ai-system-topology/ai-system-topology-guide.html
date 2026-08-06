@@ -1,4 +1,4 @@
-ï»¿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
@@ -55,15 +55,15 @@
 
     <div class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4">
   <span>Published: August 2026</span>
-  <span>â€¢</span>
+  <span>•</span>
   <span>Category: AI Agent & Automation</span>
-  <span>â€¢</span>
+  <span>•</span>
   <span class="text-emerald-600 dark:text-emerald-400">No Sign-Up / 100% Free / No Registration</span>
     </div>
 
     <!-- Body Content -->
     <div class="text-slate-600 dark:text-slate-300 space-y-4 leading-relaxed text-sm">
-  <p class="mb-4">Multi-agent system topology is the structure that decides how autonomous AI agents collaborate on a single task. At its core, a topology is a directed graph: every agent is a node, and every hand-off between agents is an edge. The shape of that graph â€” which agents talk to which, and in what order â€” has a larger effect on latency, token cost, and output quality than almost any individual prompt inside the agents themselves.</p>
+  <p class="mb-4">Multi-agent system topology is the structure that decides how autonomous AI agents collaborate on a single task. At its core, a topology is a directed graph: every agent is a node, and every hand-off between agents is an edge. The shape of that graph — which agents talk to which, and in what order — has a larger effect on latency, token cost, and output quality than almost any individual prompt inside the agents themselves.</p>
 <p class="mb-4">Every node in a topology carries four essential attributes. The name is a stable identifier that other edges reference. The role declares what the agent is responsible for, such as orchestrating, researching, drafting, or reviewing. The model field records which language model the agent uses, which matters because a fast, cheap model is often enough for extraction while a frontier model handles synthesis. The temperature setting controls determinism: low values near 0.0 produce consistent, factual output, while values above 1.0 add creative variance that is useful for ideation but risky for structured work.</p>
 <p class="mb-4">Sequential edges are the backbone of agent pipelines. A sequential edge from agent A to agent B guarantees that B starts only after A returns its result. This is the right wiring for stages that depend on one another, such as planning followed by research followed by writing. Sequential pipelines are easy to reason about because every step has exactly one predecessor and one successor, but they serialize work, so a chain of five slow agents is five times slower than a single call.</p>
 <p class="mb-4">Parallel edges let several downstream agents consume the same context at the same time. A router agent that fans work out to a research agent, a data agent, and a copy agent shortens wall-clock time dramatically because all three execute concurrently. The trade-off is the join: whatever downstream step consumes the parallel results must be able to merge multiple outputs, and those outputs must agree on a shared context format or the pipeline fragments.</p>

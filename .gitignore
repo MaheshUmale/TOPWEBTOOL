@@ -7,3 +7,5 @@ node_modules/
 *.png
 *.yml
 .playwright-mcp/
+.kilo/
+.agent_state/

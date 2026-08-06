@@ -1,4 +1,4 @@
-ï»¿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
@@ -55,9 +55,9 @@
 
     <div class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4">
   <span>Published: August 2026</span>
-  <span>â€¢</span>
+  <span>•</span>
   <span>Category: AI Agent & Automation</span>
-  <span>â€¢</span>
+  <span>•</span>
   <span class="text-emerald-600 dark:text-emerald-400">No Sign-Up / 100% Free / No Registration</span>
     </div>
 
@@ -67,7 +67,7 @@
 
   <p class="mb-4">Design your dataset to cover failure modes, not just happy paths. Include at least a handful of deliberately tricky cases: a candidate that hallucinates a price, one that drops a required caveat, one that is correct but twice as long as it should be, and one that reorders all the information correctly. These edge entries are what teach you how the metric mix responds. A matrix that only sees perfect answers tells you nothing about which thresholds catch real regressions.</p>
 
-  <p class="mb-4">Normalisation is the single most important practice for stable scores. Decide once how case, punctuation, whitespace, and hyphenation are handled, then apply the same rules to every reference and every candidate. The eval matrix engine lower-cases both strings before computing edit distance and n-grams, which prevents a model that capitalises a heading differently from being unfairly punished. If your domain involves numbers, agree on formatting too: "5-7 days" and "5 â€“ 7 days" should not be treated as meaningfully different text.</p>
+  <p class="mb-4">Normalisation is the single most important practice for stable scores. Decide once how case, punctuation, whitespace, and hyphenation are handled, then apply the same rules to every reference and every candidate. The eval matrix engine lower-cases both strings before computing edit distance and n-grams, which prevents a model that capitalises a heading differently from being unfairly punished. If your domain involves numbers, agree on formatting too: "5-7 days" and "5 – 7 days" should not be treated as meaningfully different text.</p>
 
   <p class="mb-4">Treat the four metric families as complementary evidence rather than substitutes. Use Levenshtein similarity for exactness-sensitive tasks such as extraction, codes, and structured fields, where every character matters. Lean on BLEU-1 and BLEU-2 for summarisation and instruction-following, where the model should reuse the reference vocabulary and sentence structure. Use keyword overlap as a safety net that flags concept drift even when the model paraphrases cleanly. When all four move in the same direction, you can be confident; when they disagree, investigate before trusting any of them.</p>
 

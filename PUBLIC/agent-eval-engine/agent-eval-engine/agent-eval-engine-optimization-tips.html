@@ -1,4 +1,4 @@
-ï»¿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
@@ -55,15 +55,15 @@
 
     <div class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4">
   <span>Published: August 2026</span>
-  <span>â€¢</span>
+  <span>•</span>
   <span>Category: AI Agent & Automation</span>
-  <span>â€¢</span>
+  <span>•</span>
   <span class="text-emerald-600 dark:text-emerald-400">No Sign-Up / 100% Free / No Registration</span>
     </div>
 
     <!-- Body Content -->
     <div class="text-slate-600 dark:text-slate-300 space-y-4 leading-relaxed text-sm">
-  <p class="mb-4">The biggest performance lever in an eval matrix engine is the Levenshtein implementation. The naive approach builds a full two-dimensional table of size m by n, which is fine for short strings but wasteful for the long paragraphs that LLMs produce. Optimize by keeping only two rows of the dynamic-programming table in memory, the previous row and the current row. This drops memory usage from O(m Ã— n) to O(n) while producing exactly the same distance, and the browser's garbage collector stays happy even when you score hundreds of paragraph-length pairs in one session.</p>
+  <p class="mb-4">The biggest performance lever in an eval matrix engine is the Levenshtein implementation. The naive approach builds a full two-dimensional table of size m by n, which is fine for short strings but wasteful for the long paragraphs that LLMs produce. Optimize by keeping only two rows of the dynamic-programming table in memory, the previous row and the current row. This drops memory usage from O(m × n) to O(n) while producing exactly the same distance, and the browser's garbage collector stays happy even when you score hundreds of paragraph-length pairs in one session.</p>
 
   <p class="mb-4">Add cheap short-circuits before the dynamic programming ever runs. If the two strings are identical, return zero immediately. If either is empty, return the length of the other. These early returns are free and skip the entire table for the most common cases in evaluation pipelines, where a candidate often reproduces a reference verbatim. Checking string equality with a single comparison is dramatically faster than allocating rows and filling cells.</p>
 
@@ -73,7 +73,7 @@
 
   <p class="mb-4">Pre-filter the stopword set before you build keyword sets. The engine's keyword filter discards tokens shorter than three characters and anything in a fixed stopword list. Optimize your own copy of this logic by building the stopword list once as a Set or hash map rather than an array, because membership tests against a Set are O(1) while array scans are O(n). For a pipeline scoring thousands of pairs, the difference in wall-clock time is substantial.</p>
 
-  <p class="mb-4">Design a weighted composite score only after you understand the individual metrics. A composite such as 0.5 Ã— similarity + 0.3 Ã— BLEU-1 + 0.2 Ã— keyword overlap can be useful as a single release gate, but its weights must be tuned against your own golden data. Score every reference pair individually first, look at where the bad outputs cluster, then set weights so the composite separates good from bad cleanly. Do not copy weights from another team's task, evaluation behaviour does not transfer that cleanly.</p>
+  <p class="mb-4">Design a weighted composite score only after you understand the individual metrics. A composite such as 0.5 × similarity + 0.3 × BLEU-1 + 0.2 × keyword overlap can be useful as a single release gate, but its weights must be tuned against your own golden data. Score every reference pair individually first, look at where the bad outputs cluster, then set weights so the composite separates good from bad cleanly. Do not copy weights from another team's task, evaluation behaviour does not transfer that cleanly.</p>
 
   <p class="mb-4">Cache reference statistics for batched evaluation. If one gold answer is scored against fifty candidate generations, the reference's token list, n-gram counts, and keyword set are identical every time. Computing them fifty times is pure waste. Compute them once per reference, store the results, and reuse them for every candidate in the batch. This single habit turns a slow batch into an interactive one and is exactly how the client-side engine stays responsive.</p>
 

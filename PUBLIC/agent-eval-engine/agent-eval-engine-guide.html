@@ -1,4 +1,4 @@
-ï»¿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
@@ -55,9 +55,9 @@
 
     <div class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4">
   <span>Published: August 2026</span>
-  <span>â€¢</span>
+  <span>•</span>
   <span>Category: AI Agent & Automation</span>
-  <span>â€¢</span>
+  <span>•</span>
   <span class="text-emerald-600 dark:text-emerald-400">No Sign-Up / 100% Free / No Registration</span>
     </div>
 
@@ -67,7 +67,7 @@
 
   <p class="mb-4">The heart of the engine is the Levenshtein distance, an edit distance that counts the smallest number of single-character insertions, deletions, or substitutions required to transform one string into the other. For example, changing "cats" into "cots" needs exactly one substitution, so the distance is one. The algorithm finds this number with dynamic programming: it fills a matrix where each cell represents the cost of converting a prefix of the first string into a prefix of the second, and the final corner of the matrix holds the answer. Levenshtein is character-precise, which makes it ideal for detecting small factual slips such as a wrong digit in an order number or a misspelled city name.</p>
 
-  <p class="mb-4">Because a raw edit distance is hard to interpret on its own, the engine converts it into a similarity percentage using the formula 100 Ã— (1 âˆ’ distance Ã· max(reference length, candidate length)). A score of 100% means the two strings are identical, while 0% signals that every single character had to be replaced. This normalisation is important because a distance of twelve means something completely different for a twenty-character string than for a two-thousand-character paragraph. Dividing by the longer string's length keeps the percentage comparable regardless of scale.</p>
+  <p class="mb-4">Because a raw edit distance is hard to interpret on its own, the engine converts it into a similarity percentage using the formula 100 × (1 - distance ÷ max(reference length, candidate length)). A score of 100% means the two strings are identical, while 0% signals that every single character had to be replaced. This normalisation is important because a distance of twelve means something completely different for a twenty-character string than for a two-thousand-character paragraph. Dividing by the longer string's length keeps the percentage comparable regardless of scale.</p>
 
   <p class="mb-4">Text generators rarely match a reference word-for-word, so the engine also computes BLEU-style precision scores over n-grams. BLEU-1 measures how many candidate word unigrams appear in the reference, clipped so a repeated word cannot be counted more times than it occurs in the reference. BLEU-2 does the same for consecutive word pairs, or bigrams. These scores capture lexical coverage: a candidate that reuses the key words and short phrases of the gold answer scores highly even when it rearranges them grammatically. Bigrams are stricter than unigrams because they require the same ordering, which makes BLEU-2 a better proxy for fluency and structure.</p>
 

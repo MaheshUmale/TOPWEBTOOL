@@ -627,6 +627,7 @@ const UTILITIES_REGISTRY = [
 document.addEventListener('DOMContentLoaded', () => {
   // Inject Header
   renderHeader();
+  setupDesktopDropdowns();
 
   // Inject Footer
   renderFooter();
@@ -809,7 +810,7 @@ function renderHeader() {
                     <span>${shortName}</span>
                     <svg class="w-3.5 h-3.5 opacity-60 transition-transform duration-200 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
                   </button>
-                  <div class="absolute left-0 md:left-auto md:right-0 mt-1.5 w-64 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl shadow-lg hidden group-hover:block z-[9999] p-2 space-y-1 max-h-[70vh] overflow-y-auto">
+                  <div class="absolute left-0 md:left-auto md:right-0 mt-1.5 w-64 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl shadow-lg dropdown-menu hidden z-[9999] p-2 space-y-1 max-h-[70vh] overflow-y-auto">
                     ${tools.map(tool => `
                       <a href="${prefix}${tool.path.replace(/^\//, '')}" class="flex items-center space-x-2.5 px-3 py-2 text-xs font-semibold rounded-lg text-slate-800 dark:text-slate-200 hover:bg-indigo-50 dark:hover:bg-slate-800 hover:text-indigo-600 dark:hover:text-indigo-400 focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:outline-none transition-colors">
                         <span class="text-sm shrink-0" aria-hidden="true">${tool.icon}</span>
@@ -890,6 +891,26 @@ function renderHeader() {
       </div>
     </div>
   `;
+}
+
+/**
+ * Setup desktop dropdown hover with JS to prevent flicker when moving
+ * between category button and dropdown menu.
+ */
+function setupDesktopDropdowns() {
+  const groups = document.querySelectorAll('.nav-dropdown-group');
+  groups.forEach(group => {
+    const menu = group.querySelector('.dropdown-menu');
+    if (!menu) return;
+
+    group.addEventListener('mouseenter', () => {
+      menu.classList.remove('hidden');
+    });
+
+    group.addEventListener('mouseleave', () => {
+      menu.classList.add('hidden');
+    });
+  });
 }
 
 /**
@@ -1079,7 +1100,7 @@ function renderAdPlacements() {
     adB.id = 'ad-slot-b';
     adB.className = "ads-separator ads-safety-wrap";
     adB.innerHTML = `
-      <span class="ads-label">Sponsored</span>
+      <span class="ads-label">Advertisement</span>
       <div class="w-full flex justify-center" style="height:90px; max-height:90px; overflow:hidden;">
         <ins class="adsbygoogle"
              style="display:block; width:100%; height:90px; max-height:90px;"
@@ -1150,7 +1171,7 @@ function renderAdPlacements() {
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"></path>
         </svg>
       </button>
-      <span class="text-[8px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-1">Sponsored Link</span>
+      <span class="text-[8px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-1">Advertisement</span>
       <div class="w-full max-w-[320px] sm:max-w-[728px] px-4 flex justify-center" style="height:50px; max-height:50px; overflow:hidden;">
         <ins class="adsbygoogle"
              style="display:inline-block; width:100%; height:50px; max-height:50px;"

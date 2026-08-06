@@ -1,4 +1,4 @@
-ï»¿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
@@ -54,9 +54,9 @@
 
     <div class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4">
   <span>Published: August 2026</span>
-  <span>â€¢</span>
+  <span>•</span>
   <span>Category: Industrial &amp; Engineering</span>
-  <span>â€¢</span>
+  <span>•</span>
   <span class="text-emerald-600 dark:text-emerald-400">No Sign-Up / 100% Free / No Registration</span>
     </div>
 
@@ -65,7 +65,7 @@
   <p class="mb-4">The highest-leverage lever is insulation thickness. Conductor diameter is fixed by the gauge, but the wire outside diameter is dominated by the insulation wall. Switching from a standard aerospace wire like M22759/16 with its heavier cross-linked wall to a thin-wall spec such as M22759/32 or the extended-thin-wall M22759/34 cuts the insulation factor from roughly 1.25 to 1.10 for the same gauge and current rating. Because bundle area scales with the square of diameter, a 15% reduction in every wire's diameter produces a bundle diameter reduction of roughly ten percent and a weight saving from the thinner jacket too.</p>
   <p class="mb-4">Consolidate grounds before you size anything. Return conductors are the easiest wires to over-specify because each system is designed in isolation and each designer adds its own return path. A single appropriately sized ground wire shared by several loads at the same chassis potential removes three or four redundant conductors from the bundle. Run the modeler once with the redundant grounds and once without, and the diameter difference will justify the coordination meeting it takes to agree on the shared return.</p>
   <p class="mb-4">Use twisted pairs instead of individual shielded runs. When a sensitive signal must be protected, the instinct is to shield each conductor, and the shield's three-times diameter penalty bloats the bundle. A twisted shielded pair carries two signals in one shield and a twisted unshielded pair rejects common-mode noise without any shield at all. Replacing two separately shielded singles with one twisted shielded pair removes a full shield's worth of diameter from the cross-section while preserving signal integrity.</p>
-  <p class="mb-4">Right-size the gauge instead of defaulting to the house standard. Many drawing sets specify AWG 20 for every discrete signal simply because that is the template default. A low-current sensor line at a few milliamps is physically fine at AWG 26 or 28, which occupies roughly a third of the area. The modeler makes the trade visible: swapping ten AWG 20 wires for AWG 24 drops their combined area from 5.18 mmÂ² to 2.05 mmÂ². That single housekeeping change is often the cheapest diameter optimization available.</p>
+  <p class="mb-4">Right-size the gauge instead of defaulting to the house standard. Many drawing sets specify AWG 20 for every discrete signal simply because that is the template default. A low-current sensor line at a few milliamps is physically fine at AWG 26 or 28, which occupies roughly a third of the area. The modeler makes the trade visible: swapping ten AWG 20 wires for AWG 24 drops their combined area from 5.18 mm² to 2.05 mm². That single housekeeping change is often the cheapest diameter optimization available.</p>
   <p class="mb-4">Group by function before you bundle. A harness that routes power, PWM motor drives, and millivolt sensors in one tight bundle needs shields and separation that inflate the diameter. Splitting the physical architecture into a power bundle and a signal bundle, routed a few centimeters apart, usually yields two smaller bundles whose combined cross-section is less than the single shielded mass, and it simplifies clamp selection and fault isolation for the whole vehicle.</p>
   <p class="mb-4">Evaluate aluminum for the heavy feeders. For long power runs, aluminum conductors at the same current rating need a larger gauge, but they weigh roughly seventy percent less than copper for the same resistance. The modeler's aluminum material toggle instantly shows the weight consequence of the trade. On weight-critical platforms, a 14 AWG aluminum feeder that weighs 0.42 g/m versus 1.25 g/m for the equivalent copper run is a meaningful saving across a full harness, provided the larger diameter is acceptable in the routing space.</p>
   <p class="mb-4">Reduce the packing factor where the bundle is controlled. A bundle that is laced with waxed cord, tied with ty-raps at tight intervals, or pulled through a rigid conduit packs significantly better than a free-routed bundle. If your installation controls the fill, setting the packing density toward the 1.20 end of the range, rather than 1.25, reflects reality and wins you back a few percent of diameter. Just make sure the drawing documents the assumption so nobody re-routes the bundle loosely later.</p>

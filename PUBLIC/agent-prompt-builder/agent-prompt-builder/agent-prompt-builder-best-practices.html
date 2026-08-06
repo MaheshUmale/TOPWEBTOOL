@@ -1,4 +1,4 @@
-ï»¿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
@@ -55,23 +55,23 @@
 
     <div class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4">
   <span>Published: August 2026</span>
-  <span>â€¢</span>
+  <span>•</span>
   <span>Category: AI Agent & Automation</span>
-  <span>â€¢</span>
+  <span>•</span>
   <span class="text-emerald-600 dark:text-emerald-400">No Sign-Up / 100% Free / No Registration</span>
     </div>
 
     <!-- Body Content -->
     <div class="text-slate-600 dark:text-slate-300 space-y-4 leading-relaxed text-sm">
-  <p class="mb-4">Good system prompts look effortless. They read like a short, clear memo, and the model follows them almost without prompting. That polish is the result of a handful of repeatable practices â€” none of them about clever phrasing, all of them about structure and discipline.</p>
+  <p class="mb-4">Good system prompts look effortless. They read like a short, clear memo, and the model follows them almost without prompting. That polish is the result of a handful of repeatable practices — none of them about clever phrasing, all of them about structure and discipline.</p>
 <p class="mb-4">Keep the role concrete, not theatrical. "You are a billing clerk that validates invoice line items" tells the model exactly what standards to apply. "You are a meticulous financial wizard" tells it nothing it can act on. Personas work only when they map to behavior; write the behavior, and the persona takes care of itself.</p>
-<p class="mb-4">Put the most important instruction first. Models weight early context more heavily, so the goal should appear before the constraints and the role should appear first of all. If you find yourself burying the actual objective on line twenty, restructure â€” the ordering is part of the design.</p>
+<p class="mb-4">Put the most important instruction first. Models weight early context more heavily, so the goal should appear before the constraints and the role should appear first of all. If you find yourself burying the actual objective on line twenty, restructure — the ordering is part of the design.</p>
 <p class="mb-4">Separate constraints from instructions. Instructions are things to do; constraints are boundaries not to cross. Mixing them dilutes both. Keep a short "Guidelines" section and a short "Do not" section, and read the negative list out loud: every rule in it should be enforceable and necessary. A constraint you cannot enforce is dead weight.</p>
-<p class="mb-4">Write tool descriptions in terms of outcome. The model decides whether to call a tool by matching the user's need against the description, so "looks up a customer's open orders by email, returns order numbers and statuses" is far more useful than "takes an email string and returns a list." Include what the tool returns and when to use it â€” the when is the part models get wrong most often.</p>
+<p class="mb-4">Write tool descriptions in terms of outcome. The model decides whether to call a tool by matching the user's need against the description, so "looks up a customer's open orders by email, returns order numbers and statuses" is far more useful than "takes an email string and returns a list." Include what the tool returns and when to use it — the when is the part models get wrong most often.</p>
 <p class="mb-4">Keep parameter schemas minimal and exact. Every parameter you declare invites the model to populate it, and every default you add invites reliance on it. Declare only the parameters your handler can actually process, and make types and enumerations precise so the model has no room to guess. A schema that is a constraint on the model's output is a gift to your code.</p>
-<p class="mb-4">Show, don't only tell, the output format. A single valid example of the expected output trains the model more reliably than a paragraph of description. If your agent must emit JSON, show the JSON â€” complete with braces â€” and keep the example in sync with your schema.</p>
+<p class="mb-4">Show, don't only tell, the output format. A single valid example of the expected output trains the model more reliably than a paragraph of description. If your agent must emit JSON, show the JSON — complete with braces — and keep the example in sync with your schema.</p>
 <p class="mb-4">Version every prompt and every tools array. Keep old versions around so you can diff behavior after a change, and test changes against a fixed set of representative requests before shipping. Because agents are nondeterministic, an A/B test against a stored transcript is the only honest way to judge whether a prompt edit actually helped.</p>
-<p class="mb-4">Review the assembled prompt as a whole, not section by section. Sections written in isolation can contradict each other â€” a constraint in the role, an exception in the output format â€” and those contradictions only surface in the full text. The builder on this page assembles everything into one document for exactly this reason: the whole prompt is what the model reads, and the whole prompt is what you must review.</p>
+<p class="mb-4">Review the assembled prompt as a whole, not section by section. Sections written in isolation can contradict each other — a constraint in the role, an exception in the output format — and those contradictions only surface in the full text. The builder on this page assembles everything into one document for exactly this reason: the whole prompt is what the model reads, and the whole prompt is what you must review.</p>
 <p class="mb-4">Finally, expect to iterate. The first version of a system prompt is a hypothesis. Ship it, watch it, trim the rules it never triggers, add the one it keeps forgetting, and treat the prompt as a living artifact with the same change discipline you apply to code.</p>
     </div>
 
