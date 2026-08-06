@@ -1,0 +1,732 @@
+- generic [active] [ref=f59e1]:
+  - banner [ref=f59e2]:
+    - navigation "Main Navigation" [ref=f59e3]:
+      - generic [ref=f59e4]:
+        - link "TopWebTool Homepage" [ref=f59e5] [cursor=pointer]:
+          - /url: ../
+          - generic [ref=f59e10]: TopWebTool
+        - generic [ref=f59e11]:
+          - button "Finance" [ref=f59e13]
+          - button "Digital Marketing" [ref=f59e18]
+          - button "AI Prompt Engineering" [ref=f59e23]
+          - button "Developer Utilities" [ref=f59e28]
+          - button "Everyday" [ref=f59e33]
+          - button "Industrial" [ref=f59e38]
+          - button "Health" [ref=f59e43]
+          - button "AI" [ref=f59e48]
+          - button "B2B Business" [ref=f59e53]
+          - button "Trading" [ref=f59e58]
+          - generic [ref=f59e63]:
+            - button "Toggle Light/Dark Theme" [ref=f59e64]
+            - generic [ref=f59e67]: 100% Free & No Sign-up
+  - main [ref=f59e68]:
+    - generic [ref=f59e69]:
+      - generic [ref=f59e70]: Advertisement
+      - insertion [ref=f59e72]:
+        - iframe [ref=f59e74]:
+          
+    - generic [ref=f59e75]:
+      - generic [ref=f59e76]:
+        - generic [ref=f59e77]:
+          - heading "Biweekly Mortgage Calculator" [level=1] [ref=f59e78]
+          - paragraph [ref=f59e79]: Compare monthly versus biweekly mortgage payments. Discover how switching to biweekly payments can save you thousands in interest and years on your loan term.
+        - generic [ref=f59e80]:
+          - generic [ref=f59e81]:
+            - heading "Mortgage Details" [level=2] [ref=f59e82]
+            - paragraph [ref=f59e83]: Enter your loan information to compare payment schedules.
+          - generic [ref=f59e85]:
+            - generic [ref=f59e86]:
+              - generic [ref=f59e87]: Loan Amount ($)
+              - generic [ref=f59e89]:
+                - generic: $
+                - spinbutton "Loan Amount ($)" [ref=f59e90]: "400000"
+            - generic [ref=f59e91]:
+              - generic [ref=f59e92]: Interest Rate (%)
+              - generic [ref=f59e94]:
+                - spinbutton "Interest Rate (%)" [ref=f59e95]: "6.5"
+                - generic: "%"
+            - generic [ref=f59e96]:
+              - generic [ref=f59e97]: Loan Term (Years)
+              - combobox "Loan Term (Years)" [ref=f59e100]:
+                - option "30 Years" [selected]
+                - option "20 Years"
+                - option "15 Years"
+                - option "10 Years"
+            - generic [ref=f59e101]:
+              - generic [ref=f59e102]: First Payment Date
+              - textbox "First Payment Date" [ref=f59e105]
+        - generic [ref=f59e106]:
+          - heading "Comparison Results" [level=2] [ref=f59e108]
+          - generic [ref=f59e109]:
+            - generic [ref=f59e110]:
+              - generic [ref=f59e111]:
+                - paragraph [ref=f59e112]: Monthly Payment
+                - paragraph [ref=f59e113]: $2,528
+                - paragraph [ref=f59e114]: 12 payments per year
+              - generic [ref=f59e115]:
+                - paragraph [ref=f59e116]: Biweekly Payment
+                - paragraph [ref=f59e117]: $1,264
+                - paragraph [ref=f59e118]: 26 payments per year (13 monthly equiv.)
+              - generic [ref=f59e119]:
+                - paragraph [ref=f59e120]: Total Interest (Monthly)
+                - paragraph [ref=f59e121]: $510,178
+                - paragraph [ref=f59e122]: Over full loan term
+              - generic [ref=f59e123]:
+                - paragraph [ref=f59e124]: Total Interest (Biweekly)
+                - paragraph [ref=f59e125]: $392,682
+                - paragraph [ref=f59e126]: Over full loan term
+              - generic [ref=f59e127]:
+                - paragraph [ref=f59e128]: Interest Savings
+                - paragraph [ref=f59e129]: $117,496
+                - paragraph [ref=f59e130]: By switching to biweekly
+              - generic [ref=f59e131]:
+                - paragraph [ref=f59e132]: Years Saved
+                - paragraph [ref=f59e133]: "0.0"
+                - paragraph [ref=f59e134]: Off loan term
+            - generic [ref=f59e135]:
+              - button "Copy Results" [ref=f59e136]
+              - button "Reset" [ref=f59e137]
+      - generic [ref=f59e138]:
+        - generic [ref=f59e139]:
+          - heading "Related Tools" [level=3] [ref=f59e140]
+          - list [ref=f59e141]:
+            - listitem [ref=f59e142]:
+              - link "Mortgage Calculator" [ref=f59e143] [cursor=pointer]:
+                - /url: /mortgage-calculator/
+            - listitem [ref=f59e144]:
+              - link "Rental Cash Flow Calculator" [ref=f59e145] [cursor=pointer]:
+                - /url: /rental-cash-flow-calculator/
+            - listitem [ref=f59e146]:
+              - link "Refinance Break-Even" [ref=f59e147] [cursor=pointer]:
+                - /url: /refinance-break-even/
+            - listitem [ref=f59e148]:
+              - link "ROI Calculator" [ref=f59e149] [cursor=pointer]:
+                - /url: /roi-calculator/
+        - generic [ref=f59e150]:
+          - heading "Trending Utilities (86)" [level=3] [ref=f59e151]
+          - searchbox "Quick filter tools..." [ref=f59e156]
+          - generic [ref=f59e160]:
+            - link "Mortgage Calculator Finance & Real Estate" [ref=f59e161] [cursor=pointer]:
+              - /url: ../mortgage-calculator
+              - generic [ref=f59e162]:
+                - generic [ref=f59e163]: 🏡
+                - generic [ref=f59e164]:
+                  - generic [ref=f59e165]: Mortgage Calculator
+                  - generic [ref=f59e166]: Finance & Real Estate
+            - link "Car Lease Estimator Finance & Real Estate" [ref=f59e167] [cursor=pointer]:
+              - /url: ../car-lease-estimator
+              - generic [ref=f59e168]:
+                - generic [ref=f59e169]: 🚗
+                - generic [ref=f59e170]:
+                  - generic [ref=f59e171]: Car Lease Estimator
+                  - generic [ref=f59e172]: Finance & Real Estate
+            - link "Inflation Calculator Finance & Real Estate" [ref=f59e173] [cursor=pointer]:
+              - /url: ../inflation-calculator
+              - generic [ref=f59e174]:
+                - generic [ref=f59e175]: 📈
+                - generic [ref=f59e176]:
+                  - generic [ref=f59e177]: Inflation Calculator
+                  - generic [ref=f59e178]: Finance & Real Estate
+            - link "Crypto Tax Estimator Finance & Real Estate" [ref=f59e179] [cursor=pointer]:
+              - /url: ../crypto-tax-estimator
+              - generic [ref=f59e180]:
+                - generic [ref=f59e181]: 🪙
+                - generic [ref=f59e182]:
+                  - generic [ref=f59e183]: Crypto Tax Estimator
+                  - generic [ref=f59e184]: Finance & Real Estate
+            - link "Hourly to Salary Converter Finance & Real Estate" [ref=f59e185] [cursor=pointer]:
+              - /url: ../hourly-to-salary-converter
+              - generic [ref=f59e186]:
+                - generic [ref=f59e187]: 💼
+                - generic [ref=f59e188]:
+                  - generic [ref=f59e189]: Hourly to Salary Converter
+                  - generic [ref=f59e190]: Finance & Real Estate
+            - link "Dividend Reinvestment (DRIP) Finance & Real Estate" [ref=f59e191] [cursor=pointer]:
+              - /url: ../dividend-reinvestment-calculator
+              - generic [ref=f59e192]:
+                - generic [ref=f59e193]: 📊
+                - generic [ref=f59e194]:
+                  - generic [ref=f59e195]: Dividend Reinvestment (DRIP)
+                  - generic [ref=f59e196]: Finance & Real Estate
+            - link "LTV CAC Calculator Finance & Real Estate" [ref=f59e197] [cursor=pointer]:
+              - /url: ../ltv-cac-calculator
+              - generic [ref=f59e198]:
+                - generic [ref=f59e199]: 📊
+                - generic [ref=f59e200]:
+                  - generic [ref=f59e201]: LTV CAC Calculator
+                  - generic [ref=f59e202]: Finance & Real Estate
+            - link "DSO Tracker Finance & Real Estate" [ref=f59e203] [cursor=pointer]:
+              - /url: ../dso-tracker
+              - generic [ref=f59e204]:
+                - generic [ref=f59e205]: 📅
+                - generic [ref=f59e206]:
+                  - generic [ref=f59e207]: DSO Tracker
+                  - generic [ref=f59e208]: Finance & Real Estate
+            - link "Credit Card Payoff Planner Finance & Real Estate" [ref=f59e209] [cursor=pointer]:
+              - /url: ../credit-card-payoff-planner
+              - generic [ref=f59e210]:
+                - generic [ref=f59e211]: 💳
+                - generic [ref=f59e212]:
+                  - generic [ref=f59e213]: Credit Card Payoff Planner
+                  - generic [ref=f59e214]: Finance & Real Estate
+            - link "UTM Campaign Link Builder Digital Marketing" [ref=f59e215] [cursor=pointer]:
+              - /url: ../utm-generator
+              - generic [ref=f59e216]:
+                - generic [ref=f59e217]: 🔗
+                - generic [ref=f59e218]:
+                  - generic [ref=f59e219]: UTM Campaign Link Builder
+                  - generic [ref=f59e220]: Digital Marketing
+            - link "ROI & ROAS Calculator Digital Marketing" [ref=f59e221] [cursor=pointer]:
+              - /url: ../roi-calculator
+              - generic [ref=f59e222]:
+                - generic [ref=f59e223]: 💰
+                - generic [ref=f59e224]:
+                  - generic [ref=f59e225]: ROI & ROAS Calculator
+                  - generic [ref=f59e226]: Digital Marketing
+            - link "CPM Campaign Ad Calculator Digital Marketing" [ref=f59e227] [cursor=pointer]:
+              - /url: ../cpm-calculator
+              - generic [ref=f59e228]:
+                - generic [ref=f59e229]: 📢
+                - generic [ref=f59e230]:
+                  - generic [ref=f59e231]: CPM Campaign Ad Calculator
+                  - generic [ref=f59e232]: Digital Marketing
+            - link "Copy Headline Analyzer Digital Marketing" [ref=f59e233] [cursor=pointer]:
+              - /url: ../headline-analyzer
+              - generic [ref=f59e234]:
+                - generic [ref=f59e235]: ✍️
+                - generic [ref=f59e236]:
+                  - generic [ref=f59e237]: Copy Headline Analyzer
+                  - generic [ref=f59e238]: Digital Marketing
+            - link "Secure QR Code Generator Digital Marketing" [ref=f59e239] [cursor=pointer]:
+              - /url: ../qr-code-generator
+              - generic [ref=f59e240]:
+                - generic [ref=f59e241]: 📱
+                - generic [ref=f59e242]:
+                  - generic [ref=f59e243]: Secure QR Code Generator
+                  - generic [ref=f59e244]: Digital Marketing
+            - link "Social Image Resizer Digital Marketing" [ref=f59e245] [cursor=pointer]:
+              - /url: ../social-media-image-resizer
+              - generic [ref=f59e246]:
+                - generic [ref=f59e247]: 🖼️
+                - generic [ref=f59e248]:
+                  - generic [ref=f59e249]: Social Image Resizer
+                  - generic [ref=f59e250]: Digital Marketing
+            - link "ChatGPT Prompt Optimizer AI Prompt Engineering" [ref=f59e251] [cursor=pointer]:
+              - /url: ../chatgpt-prompt-optimizer
+              - generic [ref=f59e252]:
+                - generic [ref=f59e253]: 🤖
+                - generic [ref=f59e254]:
+                  - generic [ref=f59e255]: ChatGPT Prompt Optimizer
+                  - generic [ref=f59e256]: AI Prompt Engineering
+            - link "Midjourney Prompt Builder AI Prompt Engineering" [ref=f59e257] [cursor=pointer]:
+              - /url: ../midjourney-command-builder
+              - generic [ref=f59e258]:
+                - generic [ref=f59e259]: 🎨
+                - generic [ref=f59e260]:
+                  - generic [ref=f59e261]: Midjourney Prompt Builder
+                  - generic [ref=f59e262]: AI Prompt Engineering
+            - link "AI Text Humanizer Helper AI Prompt Engineering" [ref=f59e263] [cursor=pointer]:
+              - /url: ../ai-text-humanizer-helper
+              - generic [ref=f59e264]:
+                - generic [ref=f59e265]: 🧠
+                - generic [ref=f59e266]:
+                  - generic [ref=f59e267]: AI Text Humanizer Helper
+                  - generic [ref=f59e268]: AI Prompt Engineering
+            - link "JSON Formatter & Validator Developer Utilities" [ref=f59e269] [cursor=pointer]:
+              - /url: ../json-formatter-validator
+              - generic [ref=f59e270]:
+                - generic [ref=f59e271]: ⚙️
+                - generic [ref=f59e272]:
+                  - generic [ref=f59e273]: JSON Formatter & Validator
+                  - generic [ref=f59e274]: Developer Utilities
+            - link "Secure Password Generator Developer Utilities" [ref=f59e275] [cursor=pointer]:
+              - /url: ../password-generator
+              - generic [ref=f59e276]:
+                - generic [ref=f59e277]: 🔑
+                - generic [ref=f59e278]:
+                  - generic [ref=f59e279]: Secure Password Generator
+                  - generic [ref=f59e280]: Developer Utilities
+            - link "Lorem Ipsum Generator Developer Utilities" [ref=f59e281] [cursor=pointer]:
+              - /url: ../lorem-ipsum-generator
+              - generic [ref=f59e282]:
+                - generic [ref=f59e283]: 📝
+                - generic [ref=f59e284]:
+                  - generic [ref=f59e285]: Lorem Ipsum Generator
+                  - generic [ref=f59e286]: Developer Utilities
+            - link "Base64 Encoder & Decoder Developer Utilities" [ref=f59e287] [cursor=pointer]:
+              - /url: ../base64-encoder-decoder
+              - generic [ref=f59e288]:
+                - generic [ref=f59e289]: 🔣
+                - generic [ref=f59e290]:
+                  - generic [ref=f59e291]: Base64 Encoder & Decoder
+                  - generic [ref=f59e292]: Developer Utilities
+            - link "Word & Character Counter Developer Utilities" [ref=f59e293] [cursor=pointer]:
+              - /url: ../word-character-counter
+              - generic [ref=f59e294]:
+                - generic [ref=f59e295]: 🔢
+                - generic [ref=f59e296]:
+                  - generic [ref=f59e297]: Word & Character Counter
+                  - generic [ref=f59e298]: Developer Utilities
+            - link "Fortune Wheel Everyday & Niche Utilities" [ref=f59e299] [cursor=pointer]:
+              - /url: ../fortune-wheel
+              - generic [ref=f59e300]:
+                - generic [ref=f59e301]: ☸️
+                - generic [ref=f59e302]:
+                  - generic [ref=f59e303]: Fortune Wheel
+                  - generic [ref=f59e304]: Everyday & Niche Utilities
+            - link "Word Unscrambler Solver Everyday & Niche Utilities" [ref=f59e305] [cursor=pointer]:
+              - /url: ../word-unscrambler
+              - generic [ref=f59e306]:
+                - generic [ref=f59e307]: 🔡
+                - generic [ref=f59e308]:
+                  - generic [ref=f59e309]: Word Unscrambler Solver
+                  - generic [ref=f59e310]: Everyday & Niche Utilities
+            - link "Acoustic Room Mode & Standing Wave Calculator Industrial & Engineering" [ref=f59e311] [cursor=pointer]:
+              - /url: ../acoustic-room-analyzer
+              - generic [ref=f59e312]:
+                - generic [ref=f59e313]: ⚙️
+                - generic [ref=f59e314]:
+                  - generic [ref=f59e315]: Acoustic Room Mode & Standing Wave Calculator
+                  - generic [ref=f59e316]: Industrial & Engineering
+            - link "Age Calculator (Years, Months, Days) Health & Lifestyle" [ref=f59e317] [cursor=pointer]:
+              - /url: ../age-calculator
+              - generic [ref=f59e318]:
+                - generic [ref=f59e319]: 🏃
+                - generic [ref=f59e320]:
+                  - generic [ref=f59e321]: Age Calculator (Years, Months, Days)
+                  - generic [ref=f59e322]: Health & Lifestyle
+            - link "Free Cron-Job & Automation Scheduler Builder AI & Automation" [ref=f59e323] [cursor=pointer]:
+              - /url: ../agent-cron-scheduler
+              - generic [ref=f59e324]:
+                - generic [ref=f59e325]: 🤖
+                - generic [ref=f59e326]:
+                  - generic [ref=f59e327]: Free Cron-Job & Automation Scheduler Builder
+                  - generic [ref=f59e328]: AI & Automation
+            - link "AI Eval Matrix Engine - Compare AI Outputs AI & Automation" [ref=f59e329] [cursor=pointer]:
+              - /url: ../agent-eval-engine
+              - generic [ref=f59e330]:
+                - generic [ref=f59e331]: 🤖
+                - generic [ref=f59e332]:
+                  - generic [ref=f59e333]: AI Eval Matrix Engine - Compare AI Outputs
+                  - generic [ref=f59e334]: AI & Automation
+            - link "Human-in-the-Loop HITL Planner for AI Agents AI & Automation" [ref=f59e335] [cursor=pointer]:
+              - /url: ../agent-hitl-planner
+              - generic [ref=f59e336]:
+                - generic [ref=f59e337]: 🤖
+                - generic [ref=f59e338]:
+                  - generic [ref=f59e339]: Human-in-the-Loop HITL Planner for AI Agents
+                  - generic [ref=f59e340]: AI & Automation
+            - link "LLM Context Window Token Budget Planner AI & Automation" [ref=f59e341] [cursor=pointer]:
+              - /url: ../agent-memory-matrix
+              - generic [ref=f59e342]:
+                - generic [ref=f59e343]: 🤖
+                - generic [ref=f59e344]:
+                  - generic [ref=f59e345]: LLM Context Window Token Budget Planner
+                  - generic [ref=f59e346]: AI & Automation
+            - link "System Prompt & Tool-Calling Builder AI & Automation" [ref=f59e347] [cursor=pointer]:
+              - /url: ../agent-prompt-builder
+              - generic [ref=f59e348]:
+                - generic [ref=f59e349]: 🤖
+                - generic [ref=f59e350]:
+                  - generic [ref=f59e351]: System Prompt & Tool-Calling Builder
+                  - generic [ref=f59e352]: AI & Automation
+            - link "Agent State-Machine Router Evaluator AI & Automation" [ref=f59e353] [cursor=pointer]:
+              - /url: ../agent-state-router
+              - generic [ref=f59e354]:
+                - generic [ref=f59e355]: 🤖
+                - generic [ref=f59e356]:
+                  - generic [ref=f59e357]: Agent State-Machine Router Evaluator
+                  - generic [ref=f59e358]: AI & Automation
+            - link "Multi-Agent System Topology Harness AI & Automation" [ref=f59e359] [cursor=pointer]:
+              - /url: ../ai-system-topology
+              - generic [ref=f59e360]:
+                - generic [ref=f59e361]: 🤖
+                - generic [ref=f59e362]:
+                  - generic [ref=f59e363]: Multi-Agent System Topology Harness
+                  - generic [ref=f59e364]: AI & Automation
+            - link "CrewAI / AutoGen YAML Designer AI & Automation" [ref=f59e365] [cursor=pointer]:
+              - /url: ../autogen-yaml-designer
+              - generic [ref=f59e366]:
+                - generic [ref=f59e367]: 🤖
+                - generic [ref=f59e368]:
+                  - generic [ref=f59e369]: CrewAI / AutoGen YAML Designer
+                  - generic [ref=f59e370]: AI & Automation
+            - link "Battery Pack Busbar & Heat-Dissipation Modeler Industrial & Engineering" [ref=f59e371] [cursor=pointer]:
+              - /url: ../battery-busbar-calculator
+              - generic [ref=f59e372]:
+                - generic [ref=f59e373]: ⚙️
+                - generic [ref=f59e374]:
+                  - generic [ref=f59e375]: Battery Pack Busbar & Heat-Dissipation Modeler
+                  - generic [ref=f59e376]: Industrial & Engineering
+            - link "Free Binary to Decimal Converter Developer Utilities" [ref=f59e377] [cursor=pointer]:
+              - /url: ../binary-decimal-converter
+              - generic [ref=f59e378]:
+                - generic [ref=f59e379]: 💻
+                - generic [ref=f59e380]:
+                  - generic [ref=f59e381]: Free Binary to Decimal Converter
+                  - generic [ref=f59e382]: Developer Utilities
+            - link "Biweekly Mortgage Calculator - Payoff Accelerator Finance & Real Estate" [ref=f59e383] [cursor=pointer]:
+              - /url: ../biweekly-mortgage-calculator
+              - generic [ref=f59e384]:
+                - generic [ref=f59e385]: 💰
+                - generic [ref=f59e386]:
+                  - generic [ref=f59e387]: Biweekly Mortgage Calculator - Payoff Accelerator
+                  - generic [ref=f59e388]: Finance & Real Estate
+            - link "BMR & TDEE Calorie Calculator Health & Lifestyle" [ref=f59e389] [cursor=pointer]:
+              - /url: ../bmr-tdee-calculator
+              - generic [ref=f59e390]:
+                - generic [ref=f59e391]: 🏃
+                - generic [ref=f59e392]:
+                  - generic [ref=f59e393]: BMR & TDEE Calorie Calculator
+                  - generic [ref=f59e394]: Health & Lifestyle
+            - link "Cash Burn Runway Calculator - Startup Run Rate Planner B2B Business" [ref=f59e395] [cursor=pointer]:
+              - /url: ../cash-burn-runway
+              - generic [ref=f59e396]:
+                - generic [ref=f59e397]: 📊
+                - generic [ref=f59e398]:
+                  - generic [ref=f59e399]: Cash Burn Runway Calculator - Startup Run Rate Planner
+                  - generic [ref=f59e400]: B2B Business
+            - link "Free ChatGPT Prompt Optimizer | Persona, Formatting, & Context Injections AI & Automation" [ref=f59e401] [cursor=pointer]:
+              - /url: ../chatgpt-prompt-optimizer
+              - generic [ref=f59e402]:
+                - generic [ref=f59e403]: 🤖
+                - generic [ref=f59e404]:
+                  - generic [ref=f59e405]: Free ChatGPT Prompt Optimizer | Persona, Formatting, & Context Injections
+                  - generic [ref=f59e406]: AI & Automation
+            - 'link "CNC Feeds & Speeds Calculator: RPM & Chip Load Industrial & Engineering" [ref=f59e407] [cursor=pointer]':
+              - /url: ../cnc-feeds-speeds
+              - generic [ref=f59e408]:
+                - generic [ref=f59e409]: ⚙️
+                - generic [ref=f59e410]:
+                  - generic [ref=f59e411]: "CNC Feeds & Speeds Calculator: RPM & Chip Load"
+                  - generic [ref=f59e412]: Industrial & Engineering
+            - 'link "Composite Laminate Calculator: Layup, Weight & More Industrial & Engineering" [ref=f59e413] [cursor=pointer]':
+              - /url: ../composite-laminate-calculator
+              - generic [ref=f59e414]:
+                - generic [ref=f59e415]: ⚙️
+                - generic [ref=f59e416]:
+                  - generic [ref=f59e417]: "Composite Laminate Calculator: Layup, Weight & More"
+                  - generic [ref=f59e418]: Industrial & Engineering
+            - link "Mil-Spec Connector Pinout Mapper Industrial & Engineering" [ref=f59e419] [cursor=pointer]:
+              - /url: ../connector-pinout-mapper
+              - generic [ref=f59e420]:
+                - generic [ref=f59e421]: ⚙️
+                - generic [ref=f59e422]:
+                  - generic [ref=f59e423]: Mil-Spec Connector Pinout Mapper
+                  - generic [ref=f59e424]: Industrial & Engineering
+            - link "Crypto Position Size & Risk Management Trading & Crypto" [ref=f59e425] [cursor=pointer]:
+              - /url: ../crypto-position-size
+              - generic [ref=f59e426]:
+                - generic [ref=f59e427]: 📈
+                - generic [ref=f59e428]:
+                  - generic [ref=f59e429]: Crypto Position Size & Risk Management
+                  - generic [ref=f59e430]: Trading & Crypto
+            - link "Depreciation Schedule Calculator - Straight-Line & DDB B2B Business" [ref=f59e431] [cursor=pointer]:
+              - /url: ../depreciation-schedule
+              - generic [ref=f59e432]:
+                - generic [ref=f59e433]: 📊
+                - generic [ref=f59e434]:
+                  - generic [ref=f59e435]: Depreciation Schedule Calculator - Straight-Line & DDB
+                  - generic [ref=f59e436]: B2B Business
+            - link "Home Down Payment Savings Calculator Finance & Real Estate" [ref=f59e437] [cursor=pointer]:
+              - /url: ../down-payment-savings
+              - generic [ref=f59e438]:
+                - generic [ref=f59e439]: 💰
+                - generic [ref=f59e440]:
+                  - generic [ref=f59e441]: Home Down Payment Savings Calculator
+                  - generic [ref=f59e442]: Finance & Real Estate
+            - link "Industrial Enclosure Thermal Solver Industrial & Engineering" [ref=f59e443] [cursor=pointer]:
+              - /url: ../enclosure-thermal-solver
+              - generic [ref=f59e444]:
+                - generic [ref=f59e445]: ⚙️
+                - generic [ref=f59e446]:
+                  - generic [ref=f59e447]: Industrial Enclosure Thermal Solver
+                  - generic [ref=f59e448]: Industrial & Engineering
+            - link "EOQ Calculator - Economic Order Quantity Optimizer B2B Business" [ref=f59e449] [cursor=pointer]:
+              - /url: ../eoq-calculator
+              - generic [ref=f59e450]:
+                - generic [ref=f59e451]: 📊
+                - generic [ref=f59e452]:
+                  - generic [ref=f59e453]: EOQ Calculator - Economic Order Quantity Optimizer
+                  - generic [ref=f59e454]: B2B Business
+            - link "Free Online Fortune Wheel | Custom Choice & Alternate Yes/No Spinner Health & Lifestyle" [ref=f59e455] [cursor=pointer]:
+              - /url: ../fortune-wheel
+              - generic [ref=f59e456]:
+                - generic [ref=f59e457]: 🎰
+                - generic [ref=f59e458]:
+                  - generic [ref=f59e459]: Free Online Fortune Wheel | Custom Choice & Alternate Yes/No Spinner
+                  - generic [ref=f59e460]: Health & Lifestyle
+            - link "Dimensional Weight Calculator - Freight Shipping Cost Tool B2B Business" [ref=f59e461] [cursor=pointer]:
+              - /url: ../freight-dimensional-weight
+              - generic [ref=f59e462]:
+                - generic [ref=f59e463]: 📊
+                - generic [ref=f59e464]:
+                  - generic [ref=f59e465]: Dimensional Weight Calculator - Freight Shipping Cost Tool
+                  - generic [ref=f59e466]: B2B Business
+            - 'link "Gear Tooth Generator: Involute Calculator Industrial & Engineering" [ref=f59e467] [cursor=pointer]':
+              - /url: ../gear-tooth-generator
+              - generic [ref=f59e468]:
+                - generic [ref=f59e469]: ⚙️
+                - generic [ref=f59e470]:
+                  - generic [ref=f59e471]: "Gear Tooth Generator: Involute Calculator"
+                  - generic [ref=f59e472]: Industrial & Engineering
+            - link "Wiring Harness Bundle Diameter Modeler Industrial & Engineering" [ref=f59e473] [cursor=pointer]:
+              - /url: ../harness-diameter-modeler
+              - generic [ref=f59e474]:
+                - generic [ref=f59e475]: ⚙️
+                - generic [ref=f59e476]:
+                  - generic [ref=f59e477]: Wiring Harness Bundle Diameter Modeler
+                  - generic [ref=f59e478]: Industrial & Engineering
+            - link "HELOC Calculator - Home Equity Line of Credit Estimator Finance & Real Estate" [ref=f59e479] [cursor=pointer]:
+              - /url: ../heloc-estimator
+              - generic [ref=f59e480]:
+                - generic [ref=f59e481]: 💰
+                - generic [ref=f59e482]:
+                  - generic [ref=f59e483]: HELOC Calculator - Home Equity Line of Credit Estimator
+                  - generic [ref=f59e484]: Finance & Real Estate
+            - link "HEX to RGBA Color Converter Developer Utilities" [ref=f59e485] [cursor=pointer]:
+              - /url: ../hex-rgba-converter
+              - generic [ref=f59e486]:
+                - generic [ref=f59e487]: 💻
+                - generic [ref=f59e488]:
+                  - generic [ref=f59e489]: HEX to RGBA Color Converter
+                  - generic [ref=f59e490]: Developer Utilities
+            - link "Home Affordability Calculator - How Much House Can You Afford? Finance & Real Estate" [ref=f59e491] [cursor=pointer]:
+              - /url: ../home-affordability-calculator
+              - generic [ref=f59e492]:
+                - generic [ref=f59e493]: 💰
+                - generic [ref=f59e494]:
+                  - generic [ref=f59e495]: Home Affordability Calculator - How Much House Can You Afford?
+                  - generic [ref=f59e496]: Finance & Real Estate
+            - link "Hydraulic Pressure Drop & Flow Calculator Industrial & Engineering" [ref=f59e497] [cursor=pointer]:
+              - /url: ../hydraulic-pressure-drop
+              - generic [ref=f59e498]:
+                - generic [ref=f59e499]: ⚙️
+                - generic [ref=f59e500]:
+                  - generic [ref=f59e501]: Hydraulic Pressure Drop & Flow Calculator
+                  - generic [ref=f59e502]: Industrial & Engineering
+            - link "Injection Molding Cycle Time & Clamp Force Industrial & Engineering" [ref=f59e503] [cursor=pointer]:
+              - /url: ../injection-molding-estimator
+              - generic [ref=f59e504]:
+                - generic [ref=f59e505]: ⚙️
+                - generic [ref=f59e506]:
+                  - generic [ref=f59e507]: Injection Molding Cycle Time & Clamp Force
+                  - generic [ref=f59e508]: Industrial & Engineering
+            - link "Chronometer Split Lap Timer Health & Lifestyle" [ref=f59e509] [cursor=pointer]:
+              - /url: ../lap-timer
+              - generic [ref=f59e510]:
+                - generic [ref=f59e511]: ⏱️
+                - generic [ref=f59e512]:
+                  - generic [ref=f59e513]: Chronometer Split Lap Timer
+                  - generic [ref=f59e514]: Health & Lifestyle
+            - link "Macro Nutrient Flexible Diet Planner Health & Lifestyle" [ref=f59e515] [cursor=pointer]:
+              - /url: ../macro-diet-planner
+              - generic [ref=f59e516]:
+                - generic [ref=f59e517]: 🥗
+                - generic [ref=f59e518]:
+                  - generic [ref=f59e519]: Macro Nutrient Flexible Diet Planner
+                  - generic [ref=f59e520]: Health & Lifestyle
+            - link "Markup vs. Margin Tool & Calculator Finance & Real Estate" [ref=f59e521] [cursor=pointer]:
+              - /url: ../markup-margin-tool
+              - generic [ref=f59e522]:
+                - generic [ref=f59e523]: 💰
+                - generic [ref=f59e524]:
+                  - generic [ref=f59e525]: Markup vs. Margin Tool & Calculator
+                  - generic [ref=f59e526]: Finance & Real Estate
+            - link "Merchant Account Fee Calculator - Interchange Plus vs Flat Rate B2B Business" [ref=f59e527] [cursor=pointer]:
+              - /url: ../merchant-account-fee-matrix
+              - generic [ref=f59e528]:
+                - generic [ref=f59e529]: 📊
+                - generic [ref=f59e530]:
+                  - generic [ref=f59e531]: Merchant Account Fee Calculator - Interchange Plus vs Flat Rate
+                  - generic [ref=f59e532]: B2B Business
+            - link "Moving Cost Calculator - Estimate Your Moving Expenses Finance & Real Estate" [ref=f59e533] [cursor=pointer]:
+              - /url: ../moving-cost-calculator
+              - generic [ref=f59e534]:
+                - generic [ref=f59e535]: 💰
+                - generic [ref=f59e536]:
+                  - generic [ref=f59e537]: Moving Cost Calculator - Estimate Your Moving Expenses
+                  - generic [ref=f59e538]: Finance & Real Estate
+            - link "OpenAPI to Agent Tool Definition Converter AI & Automation" [ref=f59e539] [cursor=pointer]:
+              - /url: ../openapi-tool-converter
+              - generic [ref=f59e540]:
+                - generic [ref=f59e541]: 🤖
+                - generic [ref=f59e542]:
+                  - generic [ref=f59e543]: OpenAPI to Agent Tool Definition Converter
+                  - generic [ref=f59e544]: AI & Automation
+            - link "PCB Microstrip Impedance Modeler Industrial & Engineering" [ref=f59e545] [cursor=pointer]:
+              - /url: ../pcb-impedance-calculator
+              - generic [ref=f59e546]:
+                - generic [ref=f59e547]: ⚙️
+                - generic [ref=f59e548]:
+                  - generic [ref=f59e549]: PCB Microstrip Impedance Modeler
+                  - generic [ref=f59e550]: Industrial & Engineering
+            - link "Playwright & Puppeteer Script Generator AI & Automation" [ref=f59e551] [cursor=pointer]:
+              - /url: ../playwright-script-generator
+              - generic [ref=f59e552]:
+                - generic [ref=f59e553]: 🤖
+                - generic [ref=f59e554]:
+                  - generic [ref=f59e555]: Playwright & Puppeteer Script Generator
+                  - generic [ref=f59e556]: AI & Automation
+            - link "Free Online Pomodoro Timer with Daily Session History Health & Lifestyle" [ref=f59e557] [cursor=pointer]:
+              - /url: ../pomodoro-timer
+              - generic [ref=f59e558]:
+                - generic [ref=f59e559]: 🍅
+                - generic [ref=f59e560]:
+                  - generic [ref=f59e561]: Free Online Pomodoro Timer with Daily Session History
+                  - generic [ref=f59e562]: Health & Lifestyle
+            - link "Pregnancy Due Date Predictor Health & Lifestyle" [ref=f59e563] [cursor=pointer]:
+              - /url: ../pregnancy-due-date
+              - generic [ref=f59e564]:
+                - generic [ref=f59e565]: 🤰
+                - generic [ref=f59e566]:
+                  - generic [ref=f59e567]: Pregnancy Due Date Predictor
+                  - generic [ref=f59e568]: Health & Lifestyle
+            - link "Prompt Chain Debugger & Variable Injector AI & Automation" [ref=f59e569] [cursor=pointer]:
+              - /url: ../prompt-chain-debugger
+              - generic [ref=f59e570]:
+                - generic [ref=f59e571]: 🤖
+                - generic [ref=f59e572]:
+                  - generic [ref=f59e573]: Prompt Chain Debugger & Variable Injector
+                  - generic [ref=f59e574]: AI & Automation
+            - link "Prompt Injection Guardrail Matrix AI & Automation" [ref=f59e575] [cursor=pointer]:
+              - /url: ../prompt-injection-guardrail
+              - generic [ref=f59e576]:
+                - generic [ref=f59e577]: 🤖
+                - generic [ref=f59e578]:
+                  - generic [ref=f59e579]: Prompt Injection Guardrail Matrix
+                  - generic [ref=f59e580]: AI & Automation
+            - link "Property Tax Escalation Projector Finance & Real Estate" [ref=f59e581] [cursor=pointer]:
+              - /url: ../property-tax-projector
+              - generic [ref=f59e582]:
+                - generic [ref=f59e583]: 💰
+                - generic [ref=f59e584]:
+                  - generic [ref=f59e585]: Property Tax Escalation Projector
+                  - generic [ref=f59e586]: Finance & Real Estate
+            - link "Pump Selection & TDH Calculator Industrial & Engineering" [ref=f59e587] [cursor=pointer]:
+              - /url: ../pump-selection-tdh
+              - generic [ref=f59e588]:
+                - generic [ref=f59e589]: ⚙️
+                - generic [ref=f59e590]:
+                  - generic [ref=f59e591]: Pump Selection & TDH Calculator
+                  - generic [ref=f59e592]: Industrial & Engineering
+            - link "JSON-Schema Generator (Pydantic) AI & Automation" [ref=f59e593] [cursor=pointer]:
+              - /url: ../pydantic-schema-generator
+              - generic [ref=f59e594]:
+                - generic [ref=f59e595]: 🤖
+                - generic [ref=f59e596]:
+                  - generic [ref=f59e597]: JSON-Schema Generator (Pydantic)
+                  - generic [ref=f59e598]: AI & Automation
+            - link "RAG Vector Chunking Simulator AI & Automation" [ref=f59e599] [cursor=pointer]:
+              - /url: ../rag-chunking-simulator
+              - generic [ref=f59e600]:
+                - generic [ref=f59e601]: 🤖
+                - generic [ref=f59e602]:
+                  - generic [ref=f59e603]: RAG Vector Chunking Simulator
+                  - generic [ref=f59e604]: AI & Automation
+            - link "Free Random Number & Group Picker Health & Lifestyle" [ref=f59e605] [cursor=pointer]:
+              - /url: ../random-picker
+              - generic [ref=f59e606]:
+                - generic [ref=f59e607]: 🎲
+                - generic [ref=f59e608]:
+                  - generic [ref=f59e609]: Free Random Number & Group Picker
+                  - generic [ref=f59e610]: Health & Lifestyle
+            - link "Mortgage Refinance Break-Even Calculator Finance & Real Estate" [ref=f59e611] [cursor=pointer]:
+              - /url: ../refinance-break-even
+              - generic [ref=f59e612]:
+                - generic [ref=f59e613]: 💰
+                - generic [ref=f59e614]:
+                  - generic [ref=f59e615]: Mortgage Refinance Break-Even Calculator
+                  - generic [ref=f59e616]: Finance & Real Estate
+            - link "Rent vs Buy Calculator 30-Year Comparison Finance & Real Estate" [ref=f59e617] [cursor=pointer]:
+              - /url: ../rent-vs-buy-calculator
+              - generic [ref=f59e618]:
+                - generic [ref=f59e619]: 💰
+                - generic [ref=f59e620]:
+                  - generic [ref=f59e621]: Rent vs Buy Calculator 30-Year Comparison
+                  - generic [ref=f59e622]: Finance & Real Estate
+            - link "Rental Property Cash Flow Calculator Finance & Real Estate" [ref=f59e623] [cursor=pointer]:
+              - /url: ../rental-cash-flow-calculator
+              - generic [ref=f59e624]:
+                - generic [ref=f59e625]: 💰
+                - generic [ref=f59e626]:
+                  - generic [ref=f59e627]: Rental Property Cash Flow Calculator
+                  - generic [ref=f59e628]: Finance & Real Estate
+            - link "Rental Yield & ROI Calculator Finance & Real Estate" [ref=f59e629] [cursor=pointer]:
+              - /url: ../rental-yield-calculator
+              - generic [ref=f59e630]:
+                - generic [ref=f59e631]: 💰
+                - generic [ref=f59e632]:
+                  - generic [ref=f59e633]: Rental Yield & ROI Calculator
+                  - generic [ref=f59e634]: Finance & Real Estate
+            - link "Retainer Profitability Calculator - Project Margin Analyzer B2B Business" [ref=f59e635] [cursor=pointer]:
+              - /url: ../retainer-profitability
+              - generic [ref=f59e636]:
+                - generic [ref=f59e637]: 📊
+                - generic [ref=f59e638]:
+                  - generic [ref=f59e639]: Retainer Profitability Calculator - Project Margin Analyzer
+                  - generic [ref=f59e640]: B2B Business
+            - link "Rigging & Bridle Sling Tension Calculator Industrial & Engineering" [ref=f59e641] [cursor=pointer]:
+              - /url: ../rigging-tension-solver
+              - generic [ref=f59e642]:
+                - generic [ref=f59e643]: ⚙️
+                - generic [ref=f59e644]:
+                  - generic [ref=f59e645]: Rigging & Bridle Sling Tension Calculator
+                  - generic [ref=f59e646]: Industrial & Engineering
+            - link "Sheet Metal Bend Allowance Calculator Industrial & Engineering" [ref=f59e647] [cursor=pointer]:
+              - /url: ../sheet-metal-unfolder
+              - generic [ref=f59e648]:
+                - generic [ref=f59e649]: ⚙️
+                - generic [ref=f59e650]:
+                  - generic [ref=f59e651]: Sheet Metal Bend Allowance Calculator
+                  - generic [ref=f59e652]: Industrial & Engineering
+            - link "Sound Frequency Generator & Tone Tester Health & Lifestyle" [ref=f59e653] [cursor=pointer]:
+              - /url: ../sound-frequency-generator
+              - generic [ref=f59e654]:
+                - generic [ref=f59e655]: 🔊
+                - generic [ref=f59e656]:
+                  - generic [ref=f59e657]: Sound Frequency Generator & Tone Tester
+                  - generic [ref=f59e658]: Health & Lifestyle
+            - link "Student Loan IDR Engine & Payment Calculator Finance & Real Estate" [ref=f59e659] [cursor=pointer]:
+              - /url: ../student-loan-idr
+              - generic [ref=f59e660]:
+                - generic [ref=f59e661]: 💰
+                - generic [ref=f59e662]:
+                  - generic [ref=f59e663]: Student Loan IDR Engine & Payment Calculator
+                  - generic [ref=f59e664]: Finance & Real Estate
+            - 'link "Thermocouple Calculator: mV to °C & °C to mV Industrial & Engineering" [ref=f59e665] [cursor=pointer]':
+              - /url: ../thermocouple-calculator
+              - generic [ref=f59e666]:
+                - generic [ref=f59e667]: 🌡️
+                - generic [ref=f59e668]:
+                  - generic [ref=f59e669]: "Thermocouple Calculator: mV to °C & °C to mV"
+                  - generic [ref=f59e670]: Industrial & Engineering
+            - link "W2 vs 1099 Calculator - Compare Employee vs Contractor Pay B2B Business" [ref=f59e671] [cursor=pointer]:
+              - /url: ../w2-vs-1099-comparator
+              - generic [ref=f59e672]:
+                - generic [ref=f59e673]: 📊
+                - generic [ref=f59e674]:
+                  - generic [ref=f59e675]: W2 vs 1099 Calculator - Compare Employee vs Contractor Pay
+                  - generic [ref=f59e676]: B2B Business
+        - generic [ref=f59e677]:
+          - generic [ref=f59e678]: Sponsored
+          - insertion [ref=f59e680]:
+            - iframe [ref=f59e682]:
+              
+        - generic [ref=f59e683]:
+          - generic [ref=f59e684]: Advertisement
+          - insertion [ref=f59e686]:
+            - iframe [ref=f59e688]:
+              
+  - contentinfo [ref=f59e689]:
+    - generic [ref=f59e690]:
+      - generic [ref=f59e691]:
+        - generic [ref=f59e692]: TopWebTool
+        - generic [ref=f59e693]: © 2025. All rights reserved.
+      - generic [ref=f59e694]: Premium High-CPM Single-Page Utilities Directory
+  - generic [ref=f59e696]:
+    - button "Dismiss advertisement" [ref=f59e697] [cursor=pointer]
+    - generic [ref=f59e700]: Sponsored Link
+    - insertion [ref=f59e702]:
+      - iframe [ref=f59e704]:
+        

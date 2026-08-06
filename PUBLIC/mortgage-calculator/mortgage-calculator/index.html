@@ -1,0 +1,1252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
+  <script>
+    (function() {
+      try {
+        const theme = localStorage.getItem('theme');
+        if (theme === 'dark') {
+          document.documentElement.classList.add('dark');
+          document.documentElement.classList.remove('light');
+        } else {
+          document.documentElement.classList.remove('dark');
+          document.documentElement.classList.add('light');
+        }
+      } catch (e) {}
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+  <meta charset="UTF-8">   <meta name="google-adsense-account" content="ca-pub-3901061173891576">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free UK/US Mortgage Calculator with PMI and Property Tax Sliders | TopWebTool</title>
+  <meta name="description" content="Free online Mortgage Calculator with dynamic PMI, home insurance, annual amortization schedule charts, and extra payment trackers. 100% Free, No Sign-Up, No Registration Required.">
+  <link rel="canonical" href="https://topwebtool.com/mortgage-calculator/">
+  <style>html{background-color:#fff}html.dark{background-color:#0f172a}body{padding-bottom:6rem}main.flex-grow{min-height:60vh}#global-header{min-height:65px}#global-footer{min-height:85px}#trending-sidebar{min-height:700px}@media (max-width:767px){#global-header{min-height:200px}#global-footer{min-height:120px}}.category-section{content-visibility:auto;contain-intrinsic-size:auto 500px}.tool-card{contain:layout style paint}img[width][height]{aspect-ratio:attr(width)/attr(height)}</style>
+  
+  <!-- Tailwind CSS CDN -->
+
+
+  <style>
+    /* Styling for premium feel */
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+    .slider-thumb::-webkit-slider-thumb {
+      background: #0284c7;
+      border: 2px solid #ffffff;
+      border-radius: 50%;
+      width: 18px;
+      height: 18px;
+      cursor: pointer;
+      -webkit-appearance: none;
+    }
+    .slider-thumb::-moz-range-thumb {
+      background: #0284c7;
+      border: 2px solid #ffffff;
+      border-radius: 50%;
+      width: 18px;
+      height: 18px;
+      cursor: pointer;
+    }
+  </style>
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Free UK/US Mortgage Calculator with PMI and Property Tax Sliders | TopWebTool",
+  "url": "https://topwebtool.com/mortgage-calculator/",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Windows, macOS, Linux, Android, iOS",
+  "browserRequirements": "Requires HTML5 compatible web browser",
+  "description": "Free online Mortgage Calculator with dynamic PMI, home insurance, annual amortization schedule charts, and extra payment trackers. 100% Free, No Sign-Up, No ...",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  }
+}
+  </script>
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="../global.css">
+</head>
+<body class="bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 min-h-screen flex flex-col">
+
+  <header id="global-header"></header>
+
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex-grow">
+<!-- Reserved Leaderboard Ad Slot (CLS-safe) -->
+    <div id="ad-slot-a" class="w-full mx-auto mb-6 p-3 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center select-none overflow-hidden min-h-[90px]" style="max-width:728px; min-height:90px; max-height:135px;">
+      <span class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-1.5">Advertisement</span>
+      <div class="w-full flex justify-center" style="height:90px; max-height:90px; overflow:hidden;">
+        <!-- HzAds -->
+        <ins class="adsbygoogle" style="display:inline-block; width:100%; height:90px; max-height:90px;" data-ad-client="ca-pub-3901061173891576" data-ad-slot="2894630336" data-ad-format="horizontal" data-full-width-responsive="false"></ins>
+      </div>
+    </div>
+
+    
+
+    <!-- Layout Grid: 2-Columns (Main Tool Content / Sidebar) -->
+    <div class="grid grid-cols-1 lg:grid-cols-4 gap-4">
+
+      <!-- Column 1, 2, 3: Interactive Functional Core (Wide Column) -->
+      <div class="lg:col-span-3 space-y-8">
+
+        <!-- Header & Description -->
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+          <h1 class="text-3xl font-extrabold text-slate-900 tracking-tight sm:text-4xl">Advanced Mortgage Calculator</h1>
+          <p class="mt-2 text-base text-slate-500">
+            Estimate your true monthly house payments instantly. Account for taxes, insurance, dynamic HOA fees, and automatic high-precision PMI updates. See how extra principal payments can slash your term and save tens of thousands in interest.
+          </p>
+          <div class="mt-4 flex flex-wrap gap-2">
+            <button onclick="setHomePricePreset(300000)" class="px-3  py-1.5 text-xs font-semibold text-brand-700 bg-brand-50 rounded-lg hover:bg-brand-100 transition-colors">US Median Preset ($300k)</button>
+            <button onclick="setHomePricePreset(500000)" class="px-3  py-1.5 text-xs font-semibold text-brand-700 bg-brand-50 rounded-lg hover:bg-brand-100 transition-colors">Premium Metro Preset ($500k)</button>
+            <button onclick="setHomePricePreset(800000)" class="px-3  py-1.5 text-xs font-semibold text-brand-700 bg-brand-50 rounded-lg hover:bg-brand-100 transition-colors">Luxury Suburb Preset ($800k)</button>
+          </div>
+        </div>
+
+        <!-- Calculator UI Card -->
+        <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+          <div class="p-6 sm:p-8 bg-gradient-to-r from-brand-900 to-brand-700 text-white">
+            <h2 class="text-xl font-bold">Mortgage Configuration & Key Inputs</h2>
+            <p class="text-xs text-brand-100 opacity-90 mt-1">Adjust parameters below to see calculations update in real-time.</p>
+          </div>
+
+          <div class="p-6 sm:p-8 space-y-8">
+
+            <!-- Principal Inputs Row -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+              <!-- Home Price Input -->
+              <div>
+                <div class="flex justify-between items-center mb-2">
+                  <label for="input-home-price" class="block text-sm font-semibold text-slate-700">Home Price ($)</label>
+                  <span id="error-home-price" class="text-xs text-red-500 font-medium hidden">Invalid amount</span>
+                </div>
+                <div class="relative rounded-lg shadow-sm">
+                  <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                    <span class="text-slate-400 sm:text-sm">$</span>
+                  </div>
+                  <input type="number" id="input-home-price" class="block w-full pl-8 pr-3 py-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-950 font-semibold sm:text-sm" value="400000" min="10000" step="5000" oninput="validateAndRecalculate()">
+                </div>
+                <input type="range" id="slider-home-price" class="w-full h-1.5 bg-slate-200 rounded-lg appearance-none cursor-pointer slider-thumb mt-3" min="50000" max="1500000" step="5000" value="400000" oninput="syncSliderToInput('home-price')">
+              </div>
+
+              <!-- Down Payment Input -->
+              <div>
+                <div class="flex justify-between items-center mb-2">
+                  <label for="input-down-payment" class="block text-sm font-semibold text-slate-700">Down Payment</label>
+                  <span id="error-down-payment" class="text-xs text-red-500 font-medium hidden">Must be &lt; Home Price</span>
+                </div>
+                <div class="grid grid-cols-3 gap-2">
+                  <div class="relative rounded-lg shadow-sm col-span-2">
+                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                      <span class="text-slate-400 sm:text-sm">$</span>
+                    </div>
+                    <input type="number" id="input-down-payment" class="block w-full pl-8 pr-3 py-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-950 font-semibold sm:text-sm" value="80000" min="0" step="1000" oninput="onDownPaymentAmountChange()">
+                  </div>
+                  <div class="relative rounded-lg shadow-sm col-span-1">
+                    <input type="number" id="input-down-payment-pct" class="block w-full px-2 py-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-950 font-semibold sm:text-sm text-right" value="20" min="0" max="100" step="0.5" oninput="onDownPaymentPctChange()">
+                    <div class="absolute inset-y-0 right-0 pr-2.5 flex items-center pointer-events-none">
+                      <span class="text-slate-400 sm:text-sm">%</span>
+                    </div>
+                  </div>
+                </div>
+                <input type="range" id="slider-down-payment" class="w-full h-1.5 bg-slate-200 rounded-lg appearance-none cursor-pointer slider-thumb mt-3" min="0" max="300000" step="1000" value="80000" oninput="syncSliderToInput('down-payment')">
+              </div>
+
+            </div>
+
+            <!-- Loan and Rate Inputs Row -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+              <!-- Interest Rate Input -->
+              <div>
+                <div class="flex justify-between items-center mb-2">
+                  <label for="input-interest-rate" class="block text-sm font-semibold text-slate-700">Annual Interest Rate (%)</label>
+                  <span id="error-interest-rate" class="text-xs text-red-500 font-medium hidden">Must be &gt; 0</span>
+                </div>
+                <div class="relative rounded-lg shadow-sm">
+                  <input type="number" id="input-interest-rate" class="block w-full px-3 py-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-950 font-semibold sm:text-sm" value="6.5" min="0.1" max="25" step="0.01" oninput="validateAndRecalculate()">
+                  <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+                    <span class="text-slate-400 sm:text-sm">%</span>
+                  </div>
+                </div>
+                <input type="range" id="slider-interest-rate" class="w-full h-1.5 bg-slate-200 rounded-lg appearance-none cursor-pointer slider-thumb mt-3" min="1" max="15" step="0.1" value="6.5" oninput="syncSliderToInput('interest-rate')">
+              </div>
+
+              <!-- Loan Term Selector -->
+              <div>
+                <label for="input-loan-term" class="block text-sm font-semibold text-slate-700 mb-2">Loan Term (Years)</label>
+                <div class="relative rounded-lg shadow-sm">
+                  <select id="input-loan-term" class="block w-full px-3 py-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-950 font-semibold sm:text-sm bg-white" onchange="validateAndRecalculate()">
+                    <option value="30" selected>30 Years Fixed</option>
+                    <option value="20">20 Years Fixed</option>
+                    <option value="15">15 Years Fixed</option>
+                    <option value="10">10 Years Fixed</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- HOA Fees Input -->
+              <div>
+                <div class="flex justify-between items-center mb-2">
+                  <label for="input-hoa" class="block text-sm font-semibold text-slate-700">HOA Fees ($/month)</label>
+                  <span id="error-hoa" class="text-xs text-red-500 font-medium hidden">Invalid fee</span>
+                </div>
+                <div class="relative rounded-lg shadow-sm">
+                  <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                    <span class="text-slate-400 sm:text-sm">$</span>
+                  </div>
+                  <input type="number" id="input-hoa" class="block w-full pl-8 pr-3 py-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-950 font-semibold sm:text-sm" value="150" min="0" step="10" oninput="validateAndRecalculate()">
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Optional Taxes & Insurance (Expandable Section) -->
+            <div class="border-t border-slate-200 pt-6">
+              <button onclick="toggleAdvancedCosts()" class="flex items-center space-x-2 text-brand-600 hover:text-brand-700 font-bold text-sm focus:outline-none focus:ring-2 focus:ring-brand-500 rounded-md py-1">
+                <svg id="advanced-toggle-icon" class="w-5 h-5 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path>
+                </svg>
+                <span>Taxes, Home Insurance & PMI Options</span>
+              </button>
+
+              <div id="advanced-costs-section" class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-4">
+
+                <!-- Property Tax Rate -->
+                <div>
+                  <label for="input-tax-rate" class="block text-sm font-semibold text-slate-700 mb-1">Annual Property Tax Rate (%)</label>
+                  <div class="relative rounded-lg shadow-sm">
+                    <input type="number" id="input-tax-rate" class="block w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-950 font-semibold sm:text-sm" value="1.2" min="0" max="10" step="0.05" oninput="validateAndRecalculate()">
+                    <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+                      <span class="text-slate-400 sm:text-sm">%</span>
+                    </div>
+                  </div>
+                  <p class="text-[11px] text-slate-400 mt-1" id="tax-annual-estimate">Estimated: $4,800/yr</p>
+                </div>
+
+                <!-- Home Insurance -->
+                <div>
+                  <label for="input-insurance" class="block text-sm font-semibold text-slate-700 mb-1">Annual Home Insurance ($)</label>
+                  <div class="relative rounded-lg shadow-sm">
+                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                      <span class="text-slate-400 sm:text-sm">$</span>
+                    </div>
+                    <input type="number" id="input-insurance" class="block w-full pl-8 pr-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-950 font-semibold sm:text-sm" value="1200" min="0" step="50" oninput="validateAndRecalculate()">
+                  </div>
+                  <p class="text-[11px] text-slate-400 mt-1">Average US rate is approx. $1,200/yr</p>
+                </div>
+
+                <!-- PMI Overrides -->
+                <div>
+                  <div class="flex justify-between items-center mb-1">
+                    <label for="input-pmi-rate" class="block text-sm font-semibold text-slate-700">Annual PMI Rate (%)</label>
+                  <span id="pmi-auto-badge" class="px-1.5 py-0.5 text-[10px] bg-yellow-100 text-yellow-800 font-bold rounded">Triggered (&lt;20%)</span>
+                  </div>
+                  <div class="relative rounded-lg shadow-sm">
+                    <input type="number" id="input-pmi-rate" class="block w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-950 font-semibold sm:text-sm" value="0.75" min="0" max="5" step="0.05" oninput="validateAndRecalculate()">
+                    <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+                      <span class="text-slate-400 sm:text-sm">%</span>
+                    </div>
+                  </div>
+                  <p class="text-[11px] text-slate-400 mt-1" id="pmi-annual-estimate">Estimated: $2,400/yr</p>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- Extra Payments Section -->
+            <div class="border-t border-slate-200 pt-6">
+              <button onclick="toggleExtraPayments()" class="flex items-center space-x-2 text-emerald-600 hover:text-emerald-700 font-bold text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 rounded-md py-1">
+                <svg id="extra-toggle-icon" class="w-5 h-5 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path>
+                </svg>
+                <span>🚀 Shave Years Off: Add Extra Payments</span>
+              </button>
+
+              <div id="extra-payments-section" class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-4 hidden">
+
+                <!-- Extra Monthly Payment -->
+                <div>
+                  <label for="input-extra-monthly" class="block text-sm font-semibold text-slate-700 mb-1">Extra Monthly Payment ($)</label>
+                  <div class="relative rounded-lg shadow-sm">
+                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                      <span class="text-slate-400 sm:text-sm">$</span>
+                    </div>
+                    <input type="number" id="input-extra-monthly" class="block w-full pl-8 pr-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 text-slate-950 font-semibold sm:text-sm" value="200" min="0" step="25" oninput="validateAndRecalculate()">
+                  </div>
+                  <p class="text-[11px] text-slate-400 mt-1">Paid on top of monthly payment</p>
+                </div>
+
+                <!-- Extra Yearly Payment -->
+                <div>
+                  <label for="input-extra-yearly" class="block text-sm font-semibold text-slate-700 mb-1">Extra Annual Payment ($)</label>
+                  <div class="relative rounded-lg shadow-sm">
+                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                      <span class="text-slate-400 sm:text-sm">$</span>
+                    </div>
+                    <input type="number" id="input-extra-yearly" class="block w-full pl-8 pr-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 text-slate-950 font-semibold sm:text-sm" value="0" min="0" step="100" oninput="validateAndRecalculate()">
+                  </div>
+                  <p class="text-[11px] text-slate-400 mt-1">Paid once a year, every year</p>
+                </div>
+
+                <!-- One Time Payment -->
+                <div>
+                  <div class="flex justify-between items-center mb-1">
+                    <label for="input-extra-onetime" class="block text-sm font-semibold text-slate-700">One-Time Payment ($)</label>
+                    <span class="text-[10px] text-slate-400">At Month #</span>
+                  </div>
+                  <div class="grid grid-cols-3 gap-2">
+                    <div class="relative rounded-lg shadow-sm col-span-2">
+                      <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                        <span class="text-slate-400 sm:text-sm">$</span>
+                      </div>
+                      <input type="number" id="input-extra-onetime" class="block w-full pl-8 pr-2 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 text-slate-950 font-semibold sm:text-sm" value="0" min="0" step="500" oninput="validateAndRecalculate()">
+                    </div>
+                    <input type="number" id="input-onetime-month" class="block w-full px-2 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 text-slate-950 font-semibold sm:text-sm" value="12" min="1" max="360" oninput="validateAndRecalculate()">
+                  </div>
+                  <p class="text-[11px] text-slate-400 mt-1">Single payout on specified month</p>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Live Calculation Results Dashboard -->
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-stretch">
+
+          <!-- Key Metric Summary Cards -->
+          <div class="md:col-span-4 flex flex-col justify-between space-y-4">
+
+            <!-- Monthly Total Payment Main Card -->
+            <div class="bg-gradient-to-br from-brand-600 to-brand-800 p-6 rounded-2xl text-white shadow-md flex-grow flex flex-col justify-center">
+              <span class="text-xs uppercase font-bold tracking-wider opacity-80 block">Estimated Monthly Payment</span>
+              <span class="text-4xl sm:text-5xl font-extrabold mt-2 tracking-tight block" id="result-monthly-total">$2,633</span>
+              <div class="border-t border-brand-500/50 mt-4 pt-3 text-xs space-y-1 opacity-90">
+                <div class="flex justify-between">
+                  <span>Principal & Interest:</span>
+                  <span class="font-bold" id="result-breakdown-pi">$2,023</span>
+                </div>
+                <div class="flex justify-between">
+                  <span>Taxes & Insurance:</span>
+                  <span class="font-bold" id="result-breakdown-taxes-insurance">$460</span>
+                </div>
+                <div class="flex justify-between">
+                  <span>HOA Fees:</span>
+                  <span class="font-bold" id="result-breakdown-hoa">$150</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Savings card if Extra Payments are applied -->
+            <div class="bg-emerald-50 border border-emerald-200 p-6 rounded-2xl shadow-sm" id="extra-savings-card">
+              <div class="flex items-center space-x-2 text-emerald-800 font-bold text-sm">
+                <svg class="w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                </svg>
+                <span>Extra Payment Impact</span>
+              </div>
+              <div class="mt-3 space-y-2">
+                <div>
+                  <span class="text-xs text-slate-500 block">Interest Saved:</span>
+                  <span class="text-2xl font-extrabold text-emerald-700" id="result-interest-saved">$0</span>
+                </div>
+                <div>
+                  <span class="text-xs text-slate-500 block">Years Shaved Off:</span>
+                  <span class="text-2xl font-extrabold text-emerald-700" id="result-years-shaved">0 Years</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Dynamic SVG Payment Breakdown Pie Chart -->
+          <div class="md:col-span-8 bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col md:flex-row items-center justify-around">
+            <div class="relative w-48 h-48 sm:w-56 sm:h-56">
+              <!-- SVG Donut Chart -->
+              <svg id="donut-chart" class="w-full h-full transform -rotate-90" viewBox="0 0 42 42">
+                <circle cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#f1f5f9" stroke-width="4.5"></circle>
+
+                <!-- Dynamic Slices -->
+                <circle id="slice-pi" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#0284c7" stroke-width="4.5" stroke-dasharray="70 30" stroke-dashoffset="0" class="transition-all duration-500"></circle>
+                <circle id="slice-tax" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#3b82f6" stroke-width="4.5" stroke-dasharray="15 85" stroke-dashoffset="70" class="transition-all duration-500"></circle>
+                <circle id="slice-insurance" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#10b981" stroke-width="4.5" stroke-dasharray="10 90" stroke-dashoffset="85" class="transition-all duration-500"></circle>
+                <circle id="slice-pmi" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#f59e0b" stroke-width="4.5" stroke-dasharray="5 95" stroke-dashoffset="95" class="transition-all duration-500"></circle>
+                <circle id="slice-hoa" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#ec4899" stroke-width="4.5" stroke-dasharray="0 100" stroke-dashoffset="100" class="transition-all duration-500"></circle>
+              </svg>
+              <!-- Center Total Text -->
+              <div class="absolute inset-0 flex flex-col items-center justify-center text-center">
+                <span class="text-[10px] text-slate-400 font-bold uppercase tracking-widest">Monthly</span>
+                <span class="text-xl sm:text-2xl font-extrabold text-slate-800" id="donut-center-total">$2,633</span>
+              </div>
+            </div>
+
+            <!-- Custom Interactive Legends -->
+            <div class="space-y-3 mt-4 md:mt-0 w-full max-w-[240px]">
+              <h3 class="text-xs uppercase font-extrabold tracking-widest text-slate-400">Payment Breakdown</h3>
+              <div class="space-y-2">
+                <div class="flex items-center justify-between text-xs">
+                  <div class="flex items-center space-x-2">
+                    <span class="w-3 h-3 rounded-full bg-brand-500 inline-block"></span>
+                    <span class="text-slate-600">Principal & Interest</span>
+                  </div>
+                  <span class="font-bold text-slate-900" id="legend-pi">$2,023</span>
+                </div>
+                <div class="flex items-center justify-between text-xs">
+                  <div class="flex items-center space-x-2">
+                    <span class="w-3 h-3 rounded-full bg-blue-500 inline-block"></span>
+                    <span class="text-slate-600">Property Taxes</span>
+                  </div>
+                  <span class="font-bold text-slate-900" id="legend-tax">$400</span>
+                </div>
+                <div class="flex items-center justify-between text-xs">
+                  <div class="flex items-center space-x-2">
+                    <span class="w-3 h-3 rounded-full bg-emerald-500 inline-block"></span>
+                    <span class="text-slate-600">Home Insurance</span>
+                  </div>
+                  <span class="font-bold text-slate-900" id="legend-insurance">$100</span>
+                </div>
+                <div class="flex items-center justify-between text-xs">
+                  <div class="flex items-center space-x-2">
+                    <span class="w-3 h-3 rounded-full bg-amber-500 inline-block"></span>
+                    <span class="text-slate-600">PMI</span>
+                  </div>
+                  <span class="font-bold text-slate-900" id="legend-pmi">$200</span>
+                </div>
+                <div class="flex items-center justify-between text-xs">
+                  <div class="flex items-center space-x-2">
+                    <span class="w-3 h-3 rounded-full bg-pink-500 inline-block"></span>
+                    <span class="text-slate-600">HOA Fees</span>
+                  </div>
+                  <span class="font-bold text-slate-900" id="legend-hoa">$150</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- Overall Summary Table Overview (Regular Amortization vs Extra Payments) -->
+        <div class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm space-y-4">
+          <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center border-b border-slate-100 gap-4">
+            <div>
+              <h2 class="text-xl font-bold text-slate-900">True Cost of Ownership Summary</h2>
+              <p class="text-xs text-slate-400 mt-0.5">Calculated over the life of the mortgage loan.</p>
+            </div>
+            <button onclick="copyCalculationSummary()" id="btn-copy-summary" class="inline-flex items-center space-x-2 px-4 py-2 bg-brand-600 text-white hover:bg-brand-700 transition-colors font-bold text-xs rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-brand-500">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path>
+              </svg>
+              <span>Copy Shareable Summary</span>
+            </button>
+          </div>
+
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-2">
+            <div class="bg-white p-4 rounded-xl">
+              <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Total Loan Amount</span>
+              <span class="text-lg sm:text-xl font-extrabold text-slate-800 block mt-1" id="sum-loan-amount">$320,000</span>
+            </div>
+            <div class="bg-white p-4 rounded-xl">
+              <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Total Interest Paid</span>
+              <span class="text-lg sm:text-xl font-extrabold text-slate-800 block mt-1" id="sum-total-interest">$408,349</span>
+            </div>
+            <div class="bg-white p-4 rounded-xl">
+              <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Total Payments (P&I)</span>
+              <span class="text-lg sm:text-xl font-extrabold text-slate-800 block mt-1" id="sum-total-payments">$728,349</span>
+            </div>
+            <div class="bg-white p-4 rounded-xl">
+              <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Expected Payoff Date</span>
+              <span class="text-lg sm:text-xl font-extrabold text-brand-700 block mt-1 animate-pulse" id="sum-payoff-year">Year 30</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Annual Amortization Table Card -->
+        <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+          <div class="p-6 sm:p-8 border-b border-slate-200 bg-white flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+            <div>
+              <h2 class="text-lg font-bold text-slate-900">Annual Amortization Schedule</h2>
+              <p class="text-xs text-slate-500 mt-0.5">Year-by-year projections with interest vs principal payouts and extra impact.</p>
+            </div>
+            <div class="flex items-center space-x-2">
+              <span class="text-xs font-semibold text-slate-500">Toggle Payments Chart</span>
+              <button onclick="toggleVisualChart()" class="relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent bg-slate-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-brand-500" id="btn-toggle-visual" aria-label="Toggle visual chart">
+                <span class="pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out translate-x-0" id="toggle-visual-handle"></span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Dynamic SVG Bar Chart for annual projection -->
+          <div id="annual-bar-chart-container" class="p-6 bg-slate-900 text-white hidden">
+            <h3 class="text-xs font-extrabold uppercase tracking-wider text-slate-200 mb-4">Mortgage Balance Projection Over Time</h3>
+            <div class="relative h-64 w-full">
+              <!-- Inline SVG Bar Chart containing paths dynamically drawn -->
+              <svg id="svg-bar-chart" class="w-full h-full" preserveAspectRatio="none">
+                <!-- Lines and text populated via JavaScript -->
+              </svg>
+            </div>
+            <div class="flex justify-center items-center space-x-6 mt-4 text-xs">
+              <div class="flex items-center space-x-2">
+                <span class="w-4 h-2 bg-brand-500 block rounded-sm"></span>
+                <span>Principal Balance</span>
+              </div>
+              <div class="flex items-center space-x-2">
+                <span class="w-4 h-2 bg-emerald-500 block rounded-sm"></span>
+                <span>Cumulative Extra Payments</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Amortization Table -->
+          <div class="overflow-x-auto">
+            <table class="min-w-full divide-y divide-slate-200 text-left">
+              <thead class="bg-white">
+                <tr>
+                  <th scope="col" class="px-6 py-3 text-xs font-bold text-slate-500 uppercase tracking-wider">Year</th>
+                  <th scope="col" class="px-6 py-3 text-xs font-bold text-slate-500 uppercase tracking-wider text-right">Start Balance</th>
+                  <th scope="col" class="px-6 py-3 text-xs font-bold text-slate-500 uppercase tracking-wider text-right">Interest Paid</th>
+                  <th scope="col" class="px-6 py-3 text-xs font-bold text-slate-500 uppercase tracking-wider text-right">Principal Paid</th>
+                  <th scope="col" class="px-6 py-3 text-xs font-bold text-slate-500 uppercase tracking-wider text-right">Extra Principal</th>
+                  <th scope="col" class="px-6 py-3 text-xs font-bold text-slate-500 uppercase tracking-wider text-right">Ending Balance</th>
+                </tr>
+              </thead>
+              <tbody id="amortization-table-body" class="bg-white divide-y divide-slate-100 text-sm">
+                <!-- Dynamically populated via JavaScript -->
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+
+        <!-- Comprehensive Explanatory SEO Content -->
+        <div class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm space-y-6 text-slate-600 leading-relaxed">
+          <h2 class="text-xl font-bold text-slate-900 border-b border-slate-100 pb-3">Understanding the Real Costs of Homeownership</h2>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
+            <div>
+              <h3 class="font-bold text-slate-800 mb-1">What is Principal & Interest (P&I)?</h3>
+              <p>Principal is the actual cash balance of your loan that you payback to the bank. Interest is the fee charged by the lender for borrowing the money. At the beginning of your term, the majority of your monthly checkout payments go towards servicing interest. As the balance decreases over time, a larger portion is allocated directly to lowering the principal balance.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-slate-800 mb-1">How is Property Tax & Home Insurance Handled?</h3>
+              <p>Typically, lenders establish an escrow account. They collect 1/12th of your annual property taxes and homeowners insurance premiums each month, then pay the local municipality and insurer directly when the bills are due.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-slate-800 mb-1">What triggers Private Mortgage Insurance (PMI)?</h3>
+              <p>If you purchase a home and pay less than a 20% down payment, lenders view the loan as higher risk. To protect themselves, they require you to purchase PMI. This premium is added to your monthly costs, typically costing between 0.5% and 1.5% of the initial loan amount annually. Once your loan-to-value (LTV) ratio hits 80%, you can request to have PMI removed.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-slate-800 mb-1">How Do Extra Payments Accelerate Wealth?</h3>
+              <p>Any extra payments made directly to the loan's principal balance lower the outstanding debt immediately. This means that in all following months, interest is calculated on a lower amount, speeding up the compounding rate at which you build equity, shaving years off your mortgage and saving vast amounts of cash.</p>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- Informative Articles & Guides Section -->
+        <div class="bg-white dark:bg-slate-900 p-6 sm:p-8 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm space-y-4 mt-6">
+          <h2 class="text-xl font-bold text-slate-900 dark:text-white border-b border-slate-100 dark:border-slate-800 pb-3">Informative Guides & Helper Articles</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <a href="./how-to-calculate-mortgage.html" class="block p-4 rounded-xl border border-slate-100 dark:border-slate-800 hover:border-brand-500 dark:hover:border-brand-500 hover:bg-slate-50/50 dark:hover:bg-slate-950/30 transition-all group">
+              <h3 class="text-sm font-bold text-slate-800 dark:text-slate-200 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">Manual Mortgage Calculation Guide</h3>
+              <p class="text-xs text-slate-400 dark:text-slate-500 mt-1">Learn how to calculate mortgage payments manually using standard financial formulas.</p>
+              <span class="text-xs font-semibold text-brand-600 dark:text-brand-400 mt-3 inline-block group-hover:translate-x-1 transition-transform">Read Article &rarr;</span>
+            </a>
+            <a href="./understanding-pmi.html" class="block p-4 rounded-xl border border-slate-100 dark:border-slate-800 hover:border-brand-500 dark:hover:border-brand-500 hover:bg-slate-50/50 dark:hover:bg-slate-950/30 transition-all group">
+              <h3 class="text-sm font-bold text-slate-800 dark:text-slate-200 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">Understanding Private Mortgage Insurance (PMI)</h3>
+              <p class="text-xs text-slate-400 dark:text-slate-500 mt-1">What is Private Mortgage Insurance (PMI)? Learn how to avoid or cancel it.</p>
+              <span class="text-xs font-semibold text-brand-600 dark:text-brand-400 mt-3 inline-block group-hover:translate-x-1 transition-transform">Read Article &rarr;</span>
+            </a>
+            <a href="./amortization-schedule-explained.html" class="block p-4 rounded-xl border border-slate-100 dark:border-slate-800 hover:border-brand-500 dark:hover:border-brand-500 hover:bg-slate-50/50 dark:hover:bg-slate-950/30 transition-all group">
+              <h3 class="text-sm font-bold text-slate-800 dark:text-slate-200 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">The Amortization Schedule Explained</h3>
+              <p class="text-xs text-slate-400 dark:text-slate-500 mt-1">Learn how principal and interest ratios shift over your mortgage term.</p>
+              <span class="text-xs font-semibold text-brand-600 dark:text-brand-400 mt-3 inline-block group-hover:translate-x-1 transition-transform">Read Article &rarr;</span>
+            </a>
+            <a href="./extra-payments-savings.html" class="block p-4 rounded-xl border border-slate-100 dark:border-slate-800 hover:border-brand-500 dark:hover:border-brand-500 hover:bg-slate-50/50 dark:hover:bg-slate-950/30 transition-all group">
+              <h3 class="text-sm font-bold text-slate-800 dark:text-slate-200 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">How Extra Principal Payments Save Thousands</h3>
+              <p class="text-xs text-slate-400 dark:text-slate-500 mt-1">Learn how extra payments slash your term and save interest.</p>
+              <span class="text-xs font-semibold text-brand-600 dark:text-brand-400 mt-3 inline-block group-hover:translate-x-1 transition-transform">Read Article &rarr;</span>
+            </a>
+            <a href="./property-tax-insurance-guide.html" class="block p-4 rounded-xl border border-slate-100 dark:border-slate-800 hover:border-brand-500 dark:hover:border-brand-500 hover:bg-slate-50/50 dark:hover:bg-slate-950/30 transition-all group">
+              <h3 class="text-sm font-bold text-slate-800 dark:text-slate-200 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">Property Taxes & Homeowners Insurance Guide</h3>
+              <p class="text-xs text-slate-400 dark:text-slate-500 mt-1">Understanding escrow assessments and how they affect your payment.</p>
+              <span class="text-xs font-semibold text-brand-600 dark:text-brand-400 mt-3 inline-block group-hover:translate-x-1 transition-transform">Read Article &rarr;</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- TARGET INJECTION POINT: Semantic SEO Instructional Hub -->
+        <section id="seo-instructional-hub" class="mt-8 p-6 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-lg shadow-sm space-y-6">
+          <div class="border-b border-slate-200 dark:border-slate-800">
+            <h2 class="text-2xl font-extrabold text-slate-900 dark:text-white tracking-tight">Professional Insights & Guide</h2>
+            <p class="text-sm text-slate-600 dark:text-slate-300 mt-1">Learn critical professional use cases, dynamic step-by-step instructions, and diagnostic failure point resolutions.</p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
+            <div>
+              <h3 class="font-bold text-slate-900 dark:text-white mb-2">Core Use Case scenario</h3>
+              <p class="text-slate-600 dark:text-slate-300 leading-relaxed">Homebuyers, real estate agents, and mortgage brokers require instant, clear projections of monthly house costs. This calculator accounts for variables like home prices, down payment structures, local property tax percentages, home insurance, and Private Mortgage Insurance (PMI) to help users evaluate financial options before bidding.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-slate-900 dark:text-white mb-2">Troubleshooting & Edge-Case Failure Points</h3>
+              <ul class="list-disc pl-5 space-y-2 text-slate-600 dark:text-slate-300 leading-relaxed">
+            <li>PMI calculation changes: PMI automatically triggers if down payments fall below 20%. Ensure your down payment figures are correct to see this charge adjust.</li>
+            <li>Interest slider limits: High interest inputs (e.g., above 15%) may require typing rates manually rather than sliding.</li>
+            <li>Amortization schedule rounding: Slight differences from lender estimates can occur due to local compounding intervals; use our tools as high-precision guide rails.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="pt-4 border-t border-slate-200 dark:border-slate-800">
+            <h3 class="font-bold text-slate-900 dark:text-white mb-2">Detailed Step-by-Step Instructions</h3>
+            <ol class="list-decimal pl-5 space-y-2 text-slate-600 dark:text-slate-300 leading-relaxed">
+            <li>Input the overall home price using the slider or precise number entry field.</li>
+            <li>Configure your down payment as a raw currency amount or dynamic percentage.</li>
+            <li>Toggle annual interest rates, loan terms (e.g., 30, 20, 15 years), and add estimates for tax, insurance, or HOA fees.</li>
+            <li>Review the color-coded monthly payment breakdown, amortization chart, and lifetime costs, then copy the shareable summary.</li>
+            </ol>
+          </div>
+
+
+        <!-- Semantic SEO Related Tool Matrix Silo -->
+        <div class="mt-6 pt-6 border-t border-slate-200 dark:border-slate-800">
+          <h3 class="text-sm font-bold text-slate-900 dark:text-white mb-3 uppercase tracking-wider">Related Web Utilities (Silo Hub)</h3>
+          <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2">
+            <a href="../car-lease-estimator/" class="text-xs font-semibold text-brand-600 hover:text-brand-800 dark:text-brand-400 dark:hover:text-brand-300 transition-colors bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 px-3 py-2 rounded-lg text-center block">Car Lease Estimator</a>
+            <a href="../inflation-calculator/" class="text-xs font-semibold text-brand-600 hover:text-brand-800 dark:text-brand-400 dark:hover:text-brand-300 transition-colors bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 px-3 py-2 rounded-lg text-center block">Inflation Calculator</a>
+            <a href="../crypto-tax-estimator/" class="text-xs font-semibold text-brand-600 hover:text-brand-800 dark:text-brand-400 dark:hover:text-brand-300 transition-colors bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 px-3 py-2 rounded-lg text-center block">Crypto Tax Estimator</a>
+            <a href="../hourly-to-salary-converter/" class="text-xs font-semibold text-brand-600 hover:text-brand-800 dark:text-brand-400 dark:hover:text-brand-300 transition-colors bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 px-3 py-2 rounded-lg text-center block">Hourly to Salary Converter</a>
+            <a href="../dividend-reinvestment-calculator/" class="text-xs font-semibold text-brand-600 hover:text-brand-800 dark:text-brand-400 dark:hover:text-brand-300 transition-colors bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 px-3 py-2 rounded-lg text-center block">Dividend Reinvestment Calculator</a>
+            <a href="../credit-card-payoff-planner/" class="text-xs font-semibold text-brand-600 hover:text-brand-800 dark:text-brand-400 dark:hover:text-brand-300 transition-colors bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 px-3 py-2 rounded-lg text-center block">Credit Card Payoff Planner</a>
+            <a href="../utm-generator/" class="text-xs font-semibold text-brand-600 hover:text-brand-800 dark:text-brand-400 dark:hover:text-brand-300 transition-colors bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 px-3 py-2 rounded-lg text-center block">UTM Campaign Link Builder</a>
+            <a href="../roi-calculator/" class="text-xs font-semibold text-brand-600 hover:text-brand-800 dark:text-brand-400 dark:hover:text-brand-300 transition-colors bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 px-3 py-2 rounded-lg text-center block">ROI & ROAS Campaign Calculator</a>
+            <a href="../cpm-calculator/" class="text-xs font-semibold text-brand-600 hover:text-brand-800 dark:text-brand-400 dark:hover:text-brand-300 transition-colors bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 px-3 py-2 rounded-lg text-center block">CPM Campaign Ad Calculator</a>
+            <a href="../headline-analyzer/" class="text-xs font-semibold text-brand-600 hover:text-brand-800 dark:text-brand-400 dark:hover:text-brand-300 transition-colors bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 px-3 py-2 rounded-lg text-center block">Copy Headline Sentiment Analyzer</a>
+            <a href="../qr-code-generator/" class="text-xs font-semibold text-brand-600 hover:text-brand-800 dark:text-brand-400 dark:hover:text-brand-300 transition-colors bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 px-3 py-2 rounded-lg text-center block">Secure QR Code Generator</a>
+            <a href="../social-media-image-resizer/" class="text-xs font-semibold text-brand-600 hover:text-brand-800 dark:text-brand-400 dark:hover:text-brand-300 transition-colors bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 px-3 py-2 rounded-lg text-center block">Social Media Image Resizer</a>
+            <a href="../chatgpt-prompt-optimizer/" class="text-xs font-semibold text-brand-600 hover:text-brand-800 dark:text-brand-400 dark:hover:text-brand-300 transition-colors bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 px-3 py-2 rounded-lg text-center block">ChatGPT Prompt Optimizer</a>
+            <a href="../midjourney-command-builder/" class="text-xs font-semibold text-brand-600 hover:text-brand-800 dark:text-brand-400 dark:hover:text-brand-300 transition-colors bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 px-3 py-2 rounded-lg text-center block">Midjourney Parameter Builder</a>
+            <a href="../fortune-wheel/" class="text-xs font-semibold text-brand-600 hover:text-brand-800 dark:text-brand-400 dark:hover:text-brand-300 transition-colors bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 px-3 py-2 rounded-lg text-center block">Fortune Wheel Spinner</a>
+          </div>
+        </div>
+
+        </section>
+
+        <!-- Informative Articles End -->
+</div>
+
+      <!-- Column 4: Sidebar with Sticky Programmatic Ad + Sidebar Discovery Panel (Trending Utilities) -->
+      <div class="lg:col-span-1 space-y-6">
+
+        <div id="trending-sidebar"></div>
+<!-- Reserved Square Ad Slot (CLS-safe) -->
+        <div id="ad-slot-square" class="w-full p-4 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center mt-4 select-none min-h-[250px] overflow-hidden" style="min-height:250px;">
+          <span class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-2">Sponsored</span>
+          <div class="w-full flex justify-center" style="height:250px; max-height:250px; overflow:hidden;">
+            <!-- SquareAds -->
+            <ins class="adsbygoogle" style="display:block; width:100%; min-height:250px; max-height:250px;" data-ad-client="ca-pub-3901061173891576" data-ad-slot="6707430996" data-ad-format="rectangle" data-full-width-responsive="false"></ins>
+          </div>
+        </div>
+
+        <!-- Reserved Vertical Ad Slot (CLS-safe, desktop only) -->
+        <div id="ad-slot-vertical" class="w-full p-4 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center mt-4 hidden lg:flex select-none min-h-[600px] overflow-hidden" style="min-height:600px;">
+          <span class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-2">Advertisement</span>
+          <div class="w-full flex justify-center" style="height:600px; max-height:600px; overflow:hidden;">
+            <!-- verticalAds -->
+            <ins class="adsbygoogle" style="display:block; width:100%; min-height:600px; max-height:600px;" data-ad-client="ca-pub-3901061173891576" data-ad-slot="1581548667" data-ad-format="auto" data-full-width-responsive="true"></ins>
+          </div>
+        </div>
+
+
+
+      </div>
+
+    </div>
+
+  </main>
+
+
+
+  <!-- JavaScript calculation and UI interaction core -->
+  <script>
+    // State indicators
+    let downPaymentPercentLocked = true; // Downpayment is configured primarily in percent or amount
+
+    // Toggle advanced option panels
+    function toggleAdvancedCosts() {
+      const el = document.getElementById('advanced-costs-section');
+      const icon = document.getElementById('advanced-toggle-icon');
+      if (el.classList.contains('hidden')) {
+        el.classList.remove('hidden');
+        icon.classList.add('rotate-180');
+      } else {
+        el.classList.add('hidden');
+        icon.classList.remove('rotate-180');
+      }
+    }
+
+    function toggleExtraPayments() {
+      const el = document.getElementById('extra-payments-section');
+      const icon = document.getElementById('extra-toggle-icon');
+      if (el.classList.contains('hidden')) {
+        el.classList.remove('hidden');
+        icon.classList.add('rotate-180');
+      } else {
+        el.classList.add('hidden');
+        icon.classList.remove('rotate-180');
+      }
+    }
+
+    function toggleVisualChart() {
+      const el = document.getElementById('annual-bar-chart-container');
+      const handle = document.getElementById('toggle-visual-handle');
+      const btn = document.getElementById('btn-toggle-visual');
+      if (el.classList.contains('hidden')) {
+        el.classList.remove('hidden');
+        handle.classList.remove('translate-x-0');
+        handle.classList.add('translate-x-5');
+        btn.classList.add('bg-brand-600');
+        renderBarChart();
+      } else {
+        el.classList.add('hidden');
+        handle.classList.remove('translate-x-5');
+        handle.classList.add('translate-x-0');
+        btn.classList.remove('bg-brand-600');
+      }
+    }
+
+    // Set Home Price Presets
+    function setHomePricePreset(price) {
+      document.getElementById('input-home-price').value = price;
+      document.getElementById('slider-home-price').value = price;
+      // Sync Down Payment amounts corresponding to locked configuration
+      const dPercent = parseFloat(document.getElementById('input-down-payment-pct').value) || 20;
+      const dAmount = Math.round((price * dPercent) / 100);
+      document.getElementById('input-down-payment').value = dAmount;
+      document.getElementById('slider-down-payment').value = dAmount;
+      validateAndRecalculate();
+    }
+
+    // Sync input sliders dynamically
+    function syncSliderToInput(id) {
+      const slider = document.getElementById(`slider-${id}`);
+      const input = document.getElementById(`input-${id}`);
+      input.value = slider.value;
+
+      if (id === 'home-price') {
+        const price = parseFloat(slider.value) || 0;
+        // Sync down payment limits
+        const dSlider = document.getElementById('slider-down-payment');
+        dSlider.max = price;
+        const pct = parseFloat(document.getElementById('input-down-payment-pct').value) || 0;
+        const amount = Math.round((price * pct) / 100);
+        document.getElementById('input-down-payment').value = amount;
+        dSlider.value = amount;
+      } else if (id === 'down-payment') {
+        const price = parseFloat(document.getElementById('input-home-price').value) || 1;
+        const val = parseFloat(slider.value) || 0;
+        document.getElementById('input-down-payment-pct').value = ((val / price) * 100).toFixed(1);
+      }
+
+      validateAndRecalculate();
+    }
+
+    // Manual input modifications triggers
+    function onDownPaymentAmountChange() {
+      const price = parseFloat(document.getElementById('input-home-price').value) || 1;
+      const amount = parseFloat(document.getElementById('input-down-payment').value) || 0;
+      document.getElementById('slider-down-payment').value = amount;
+      document.getElementById('input-down-payment-pct').value = ((amount / price) * 100).toFixed(1);
+      validateAndRecalculate();
+    }
+
+    function onDownPaymentPctChange() {
+      const price = parseFloat(document.getElementById('input-home-price').value) || 0;
+      const pct = parseFloat(document.getElementById('input-down-payment-pct').value) || 0;
+      const amount = Math.round((price * pct) / 100);
+      document.getElementById('input-down-payment').value = amount;
+      document.getElementById('slider-down-payment').value = amount;
+      validateAndRecalculate();
+    }
+
+    // Global inputs verification and amortization schedule engine
+    let globalSchedule = [];
+    let globalTermMonths = 360;
+
+    function validateAndRecalculate() {
+      const homePriceInput = document.getElementById('input-home-price');
+      const downPaymentInput = document.getElementById('input-down-payment');
+      const interestRateInput = document.getElementById('input-interest-rate');
+      const hoaInput = document.getElementById('input-hoa');
+
+      const hp = parseFloat(homePriceInput.value) || 0;
+      const dp = parseFloat(downPaymentInput.value) || 0;
+      const rate = parseFloat(interestRateInput.value) || 0;
+      const hoa = parseFloat(hoaInput.value) || 0;
+
+      let valid = true;
+
+      // Reset error messages
+      document.getElementById('error-home-price').classList.add('hidden');
+      document.getElementById('error-down-payment').classList.add('hidden');
+      document.getElementById('error-interest-rate').classList.add('hidden');
+      document.getElementById('error-hoa').classList.add('hidden');
+
+      if (hp <= 0) {
+        document.getElementById('error-home-price').classList.remove('hidden');
+        valid = false;
+      }
+      if (dp < 0 || dp > hp) {
+        document.getElementById('error-down-payment').classList.remove('hidden');
+        valid = false;
+      }
+      if (rate <= 0 || rate > 50) {
+        document.getElementById('error-interest-rate').classList.remove('hidden');
+        valid = false;
+      }
+      if (hoa < 0) {
+        document.getElementById('error-hoa').classList.remove('hidden');
+        valid = false;
+      }
+
+      if (!valid) return;
+
+      // Update Slider Max Limiters
+      document.getElementById('slider-home-price').value = hp;
+      const sliderDP = document.getElementById('slider-down-payment');
+      sliderDP.max = hp;
+      sliderDP.value = dp;
+      document.getElementById('slider-interest-rate').value = rate;
+
+      // Trigger auto PMI calculations based on standard loan-to-value threshold
+      const ltv = ((hp - dp) / hp) * 100;
+      const pmiAutoBadge = document.getElementById('pmi-auto-badge');
+      const pmiRateInput = document.getElementById('input-pmi-rate');
+
+      if (ltv > 80) {
+        pmiAutoBadge.classList.remove('hidden');
+        pmiAutoBadge.textContent = `Required (${(100 - ltv).toFixed(1)}% Down)`;
+        pmiAutoBadge.className = "px-1.5 py-0.5 text-[10px] bg-red-100 text-red-800 font-bold rounded";
+        // Default estimate PMI standard if left 0
+        if (parseFloat(pmiRateInput.value) === 0) {
+          pmiRateInput.value = "0.75";
+        }
+      } else {
+        pmiAutoBadge.classList.remove('hidden');
+        pmiAutoBadge.textContent = "PMI Avoided (20% Down)";
+        pmiAutoBadge.className = "px-1.5 py-0.5 text-[10px] bg-emerald-100 text-emerald-800 font-bold rounded";
+      }
+
+      executeCalculations();
+    }
+
+    function executeCalculations() {
+      // Fetch exact input values
+      const hp = parseFloat(document.getElementById('input-home-price').value) || 0;
+      const dp = parseFloat(document.getElementById('input-down-payment').value) || 0;
+      const annualRate = parseFloat(document.getElementById('input-interest-rate').value) || 0;
+      const termYears = parseInt(document.getElementById('input-loan-term').value) || 30;
+      const hoa = parseFloat(document.getElementById('input-hoa').value) || 0;
+
+      const taxRate = parseFloat(document.getElementById('input-tax-rate').value) || 0;
+      const annualInsurance = parseFloat(document.getElementById('input-insurance').value) || 0;
+      const pmiRate = parseFloat(document.getElementById('input-pmi-rate').value) || 0;
+
+      // Extra Payments
+      const extraMonthly = parseFloat(document.getElementById('input-extra-monthly').value) || 0;
+      const extraYearly = parseFloat(document.getElementById('input-extra-yearly').value) || 0;
+      const extraOnetime = parseFloat(document.getElementById('input-extra-onetime').value) || 0;
+      const extraOnetimeMonth = parseInt(document.getElementById('input-onetime-month').value) || 1;
+
+      // Basic updates
+      const annualTax = hp * (taxRate / 100);
+      document.getElementById('tax-annual-estimate').textContent = `Estimated: $${Math.round(annualTax).toLocaleString()}/yr`;
+
+      const loanAmount = hp - dp;
+      const monthlyPmi = (hp - dp) > 0 && ((hp - dp) / hp) * 100 > 80 ? Math.round((loanAmount * (pmiRate / 100)) / 12) : 0;
+      document.getElementById('pmi-annual-estimate').textContent = `Estimated: $${Math.round(monthlyPmi * 12).toLocaleString()}/yr`;
+
+      // Principal & Interest formula
+      const monthlyRate = (annualRate / 100) / 12;
+      const totalMonths = termYears * 12;
+      globalTermMonths = totalMonths;
+
+      let monthlyPI = 0;
+      if (monthlyRate === 0) {
+        monthlyPI = loanAmount / totalMonths;
+      } else {
+        monthlyPI = (loanAmount * monthlyRate * Math.pow(1 + monthlyRate, totalMonths)) / (Math.pow(1 + monthlyRate, totalMonths) - 1);
+      }
+
+      const monthlyTax = annualTax / 12;
+      const monthlyInsurance = annualInsurance / 12;
+
+      const totalMonthlyPayment = monthlyPI + monthlyTax + monthlyInsurance + monthlyPmi + hoa;
+
+      // Update UI Result Texts
+      document.getElementById('result-monthly-total').textContent = `$${Math.round(totalMonthlyPayment).toLocaleString()}`;
+      document.getElementById('result-breakdown-pi').textContent = `$${Math.round(monthlyPI).toLocaleString()}`;
+      document.getElementById('result-breakdown-taxes-insurance').textContent = `$${Math.round(monthlyTax + monthlyInsurance).toLocaleString()}`;
+      document.getElementById('result-breakdown-hoa').textContent = `$${Math.round(hoa).toLocaleString()}`;
+
+      document.getElementById('sum-loan-amount').textContent = `$${Math.round(loanAmount).toLocaleString()}`;
+
+      // Amortization Calculations with and without extra payments
+      // 1. Baseline Projection (No Extra Payments)
+      let baseSchedule = [];
+      let balanceBase = loanAmount;
+      let cumulativeInterestBase = 0;
+      let totalPIBase = 0;
+
+      for (let m = 1; m <= totalMonths; m++) {
+        const intPaid = balanceBase * monthlyRate;
+        let prinPaid = monthlyPI - intPaid;
+        if (prinPaid > balanceBase) prinPaid = balanceBase;
+        balanceBase -= prinPaid;
+        cumulativeInterestBase += intPaid;
+        totalPIBase += (prinPaid + intPaid);
+
+        if (m % 12 === 0 || balanceBase <= 0) {
+          baseSchedule.push({
+            year: Math.ceil(m / 12),
+            endingBalance: balanceBase,
+            cumulativeInterest: cumulativeInterestBase
+          });
+        }
+        if (balanceBase <= 0) break;
+      }
+
+      // 2. Extra Payment Schedule Projections
+      let extraSchedule = [];
+      let balanceExtra = loanAmount;
+      let cumulativeInterestExtra = 0;
+      let totalPaymentsExtra = 0;
+      let monthPaidOff = totalMonths;
+      let extraSavingsInterest = 0;
+
+      for (let m = 1; m <= totalMonths; m++) {
+        if (balanceExtra <= 0) {
+          if (monthPaidOff === totalMonths) {
+            monthPaidOff = m - 1;
+          }
+          break;
+        }
+
+        const intPaid = balanceExtra * monthlyRate;
+        let prinPaid = monthlyPI - intPaid;
+
+        // Add extra monthly principal
+        let extraThisMonth = extraMonthly;
+
+        // Add extra yearly principal if match month
+        if (m % 12 === 0) {
+          extraThisMonth += extraYearly;
+        }
+
+        // Add extra one-time principal if matches month index
+        if (m === extraOnetimeMonth) {
+          extraThisMonth += extraOnetime;
+        }
+
+        let totalPrinToPay = prinPaid + extraThisMonth;
+        if (totalPrinToPay > balanceExtra) {
+          totalPrinToPay = balanceExtra;
+        }
+
+        balanceExtra -= totalPrinToPay;
+        cumulativeInterestExtra += intPaid;
+        totalPaymentsExtra += (totalPrinToPay + intPaid);
+
+        if (balanceExtra <= 0) {
+          monthPaidOff = m;
+          break;
+        }
+      }
+
+      // Calculate Amortization schedule details for baseline dynamic output list
+      let viewSchedule = [];
+      let bBalance = loanAmount;
+      let cumulativeInterestView = 0;
+      let cumulativePrincipalView = 0;
+      let cumulativeExtraView = 0;
+
+      for (let m = 1; m <= totalMonths; m++) {
+        const intPaid = bBalance * monthlyRate;
+        let prinPaid = monthlyPI - intPaid;
+
+        let extraThisMonth = extraMonthly;
+        if (m % 12 === 0) extraThisMonth += extraYearly;
+        if (m === extraOnetimeMonth) extraThisMonth += extraOnetime;
+
+        let totalPrin = prinPaid + extraThisMonth;
+        if (totalPrin > bBalance) totalPrin = bBalance;
+
+        const actualExtra = Math.max(0, totalPrin - prinPaid);
+        const actualRegPrin = totalPrin - actualExtra;
+
+        const startBal = bBalance;
+        bBalance -= totalPrin;
+
+        cumulativeInterestView += intPaid;
+        cumulativePrincipalView += actualRegPrin;
+        cumulativeExtraView += actualExtra;
+
+        // Collect annual snapshots
+        if (m % 12 === 0 || bBalance <= 0) {
+          viewSchedule.push({
+            year: Math.ceil(m / 12),
+            startBalance: startBal + totalPrin, // Start balance of the year
+            interestPaid: cumulativeInterestView,
+            regPrincipalPaid: cumulativePrincipalView,
+            extraPrincipalPaid: cumulativeExtraView,
+            endingBalance: Math.max(0, bBalance)
+          });
+          // Reset annual accumulators for snapshot representation
+          cumulativeInterestView = 0;
+          cumulativePrincipalView = 0;
+          cumulativeExtraView = 0;
+        }
+
+        if (bBalance <= 0) break;
+      }
+
+      globalSchedule = viewSchedule;
+
+      // Render Dashboard summary values
+      const interestSaved = Math.max(0, cumulativeInterestBase - (viewSchedule.reduce((a, b) => a + b.interestPaid, 0)));
+      const yearsSaved = Math.max(0, (totalMonths - monthPaidOff) / 12);
+
+      document.getElementById('result-interest-saved').textContent = `$${Math.round(interestSaved).toLocaleString()}`;
+      document.getElementById('result-years-shaved').textContent = `${yearsSaved.toFixed(1)} Years`;
+
+      document.getElementById('sum-total-interest').textContent = `$${Math.round(viewSchedule.reduce((sum, item) => sum + item.interestPaid, 0)).toLocaleString()}`;
+      document.getElementById('sum-total-payments').textContent = `$${Math.round(loanAmount + viewSchedule.reduce((sum, item) => sum + item.interestPaid, 0)).toLocaleString()}`;
+      document.getElementById('sum-payoff-year').textContent = `Year ${Math.ceil(monthPaidOff / 12)}`;
+
+      // Update Pie Chart Slices Representation
+      updateDonutChart(monthlyPI, monthlyTax, monthlyInsurance, monthlyPmi, hoa);
+
+      // Populate Table view
+      const tbody = document.getElementById('amortization-table-body');
+      tbody.innerHTML = '';
+
+      viewSchedule.forEach(item => {
+        const tr = document.createElement('tr');
+        tr.className = "hover:bg-white transition-colors";
+        tr.innerHTML = `
+          <td class="px-6 py-3 font-semibold text-slate-900">Year ${item.year}</td>
+          <td class="px-6 py-3 text-right text-slate-600 font-mono">$${Math.round(item.startBalance).toLocaleString()}</td>
+          <td class="px-6 py-3 text-right text-red-600 font-mono">$${Math.round(item.interestPaid).toLocaleString()}</td>
+          <td class="px-6 py-3 text-right text-emerald-600 font-mono">$${Math.round(item.regPrincipalPaid).toLocaleString()}</td>
+          <td class="px-6 py-3 text-right text-indigo-600 font-mono font-bold">$${Math.round(item.extraPrincipalPaid).toLocaleString()}</td>
+          <td class="px-6 py-3 text-right text-slate-800 font-mono font-bold">$${Math.round(item.endingBalance).toLocaleString()}</td>
+        `;
+        tbody.appendChild(tr);
+      });
+
+      // Update the inline bar charts if container is open
+      if (!document.getElementById('annual-bar-chart-container').classList.contains('hidden')) {
+        renderBarChart();
+      }
+    }
+
+    // Pie chart donut animation updater
+    function updateDonutChart(pi, tax, ins, pmi, hoa) {
+      const total = pi + tax + ins + pmi + hoa;
+      document.getElementById('donut-center-total').textContent = `$${Math.round(total).toLocaleString()}`;
+
+      // Percentages
+      const pPi = (pi / total) * 100;
+      const pTax = (tax / total) * 100;
+      const pIns = (ins / total) * 100;
+      const pPmi = (pmi / total) * 100;
+      const pHoa = (hoa / total) * 100;
+
+      // Legends text updates
+      document.getElementById('legend-pi').textContent = `$${Math.round(pi).toLocaleString()} (${pPi.toFixed(0)}%)`;
+      document.getElementById('legend-tax').textContent = `$${Math.round(tax).toLocaleString()} (${pTax.toFixed(0)}%)`;
+      document.getElementById('legend-insurance').textContent = `$${Math.round(ins).toLocaleString()} (${pIns.toFixed(0)}%)`;
+      document.getElementById('legend-pmi').textContent = `$${Math.round(pmi).toLocaleString()} (${pPmi.toFixed(0)}%)`;
+      document.getElementById('legend-hoa').textContent = `$${Math.round(hoa).toLocaleString()} (${pHoa.toFixed(0)}%)`;
+
+      // Draw slices sequence stroke offsets
+      let offset = 0;
+
+      // Slice 1: P&I
+      const slicePi = document.getElementById('slice-pi');
+      slicePi.setAttribute('stroke-dasharray', `${pPi} ${100 - pPi}`);
+      slicePi.setAttribute('stroke-dashoffset', 0);
+      offset += pPi;
+
+      // Slice 2: Tax
+      const sliceTax = document.getElementById('slice-tax');
+      sliceTax.setAttribute('stroke-dasharray', `${pTax} ${100 - pTax}`);
+      sliceTax.setAttribute('stroke-dashoffset', -offset);
+      offset += pTax;
+
+      // Slice 3: Insurance
+      const sliceIns = document.getElementById('slice-insurance');
+      sliceIns.setAttribute('stroke-dasharray', `${pIns} ${100 - pIns}`);
+      sliceIns.setAttribute('stroke-dashoffset', -offset);
+      offset += pIns;
+
+      // Slice 4: PMI
+      const slicePmi = document.getElementById('slice-pmi');
+      slicePmi.setAttribute('stroke-dasharray', `${pPmi} ${100 - pPmi}`);
+      slicePmi.setAttribute('stroke-dashoffset', -offset);
+      offset += pPmi;
+
+      // Slice 5: HOA
+      const sliceHoa = document.getElementById('slice-hoa');
+      sliceHoa.setAttribute('stroke-dasharray', `${pHoa} ${100 - pHoa}`);
+      sliceHoa.setAttribute('stroke-dashoffset', -offset);
+    }
+
+    // Render bar chart via SVG elements
+    function renderBarChart() {
+      const svg = document.getElementById('svg-bar-chart');
+      svg.innerHTML = ''; // Clear SVG contents
+
+      if (globalSchedule.length === 0) return;
+
+      const count = globalSchedule.length;
+      const svgWidth = svg.clientWidth || 600;
+      const svgHeight = svg.clientHeight || 250;
+      const padding = 25;
+
+      const maxVal = globalSchedule[0].startBalance;
+
+      // Create vertical grid lines and year marks
+      for (let i = 0; i <= 4; i++) {
+        const y = padding + (i * (svgHeight - padding * 2)) / 4;
+        const val = maxVal - (i * maxVal) / 4;
+
+        // Horizontal guide line
+        const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+        line.setAttribute('x1', padding);
+        line.setAttribute('y1', y);
+        line.setAttribute('x2', svgWidth - padding);
+        line.setAttribute('y2', y);
+        line.setAttribute('stroke', '#334155');
+        line.setAttribute('stroke-dasharray', '4,4');
+        svg.appendChild(line);
+
+        // Guide text indicators
+        const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+        text.setAttribute('x', padding + 5);
+        text.setAttribute('y', y - 4);
+        text.setAttribute('fill', '#94a3b8');
+        text.setAttribute('font-size', '10px');
+        text.textContent = `$${Math.round(val).toLocaleString()}`;
+        svg.appendChild(text);
+      }
+
+      // Drawing bar elements
+      const barWidth = Math.max(4, ((svgWidth - padding * 2) / count) - 4);
+
+      globalSchedule.forEach((item, index) => {
+        const x = padding + index * ((svgWidth - padding * 2) / count);
+
+        // Calculations height ratio
+        const balanceHeight = ((svgHeight - padding * 2) * item.endingBalance) / maxVal;
+        const extraRatio = Math.min(item.startBalance, item.extraPrincipalPaid);
+        const extraHeight = ((svgHeight - padding * 2) * extraRatio) / maxVal;
+
+        // Draw regular balance Bar
+        const rectBal = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+        rectBal.setAttribute('x', x);
+        rectBal.setAttribute('y', svgHeight - padding - balanceHeight);
+        rectBal.setAttribute('width', barWidth);
+        rectBal.setAttribute('height', Math.max(2, balanceHeight));
+        rectBal.setAttribute('fill', '#0284c7');
+        rectBal.setAttribute('rx', '2');
+
+        // Dynamic tooltip content tag
+        const title = document.createElementNS('http://www.w3.org/2000/svg', 'title');
+        title.textContent = `Year ${item.year}: Ending Balance $${Math.round(item.endingBalance).toLocaleString()}`;
+        rectBal.appendChild(title);
+        svg.appendChild(rectBal);
+
+        // Add Year labels on footer of bars (every 5 years to keep clean)
+        if (item.year === 1 || item.year % 5 === 0 || item.year === count) {
+          const textYr = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+          textYr.setAttribute('x', x + barWidth / 2);
+          textYr.setAttribute('y', svgHeight - 6);
+          textYr.setAttribute('fill', '#94a3b8');
+          textYr.setAttribute('font-size', '10px');
+          textYr.setAttribute('text-anchor', 'middle');
+          textYr.textContent = `Yr ${item.year}`;
+          svg.appendChild(textYr);
+        }
+      });
+    }
+
+    // Copy to Clipboard feature with status updates
+    function copyCalculationSummary() {
+      const btn = document.getElementById('btn-copy-summary');
+      const text = btn.querySelector('span');
+
+      const hp = document.getElementById('input-home-price').value;
+      const dp = document.getElementById('input-down-payment').value;
+      const rate = document.getElementById('input-interest-rate').value;
+      const term = document.getElementById('input-loan-term').value;
+      const monthlyTotal = document.getElementById('result-monthly-total').textContent;
+      const interestSaved = document.getElementById('result-interest-saved').textContent;
+      const yearsSaved = document.getElementById('result-years-shaved').textContent;
+
+      const summaryText = `TopWebTool Mortgage Calculation Summary:\n` +
+                          `-------------------------------------------\n` +
+                          `🏡 Home Price: $${Number(hp).toLocaleString()}\n` +
+                          `💰 Down Payment: $${Number(dp).toLocaleString()}\n` +
+                          `📈 Interest Rate: ${rate}%\n` +
+                          `📅 Term: ${term} Years\n` +
+                          `-------------------------------------------\n` +
+                          `💵 Estimated Monthly Total: ${monthlyTotal}\n` +
+                          `🚀 Interest Saved with Extras: ${interestSaved}\n` +
+                          `⏱️ Term Reduction: ${yearsSaved}\n` +
+                          `Calculate yours free at: ${window.location.href}`;
+
+      navigator.clipboard.writeText(summaryText).then(() => {
+        text.textContent = 'Copied Summary!';
+btn.classList.remove('bg-brand-600', 'text-white');
+          btn.classList.add('bg-emerald-600', 'text-white');
+
+        setTimeout(() => {
+          text.textContent = 'Copy Shareable Summary';
+          btn.classList.remove('bg-emerald-600', 'text-white');
+          btn.classList.add('bg-brand-600', 'text-white');
+        }, 3000);
+      }).catch(err => {
+        console.error('Failed to copy text: ', err);
+      });
+    }
+
+    // Ensure immediate live rendering upon DOM initiation
+    window.addEventListener('DOMContentLoaded', () => {
+      validateAndRecalculate();
+    });
+
+    // Resize handlers to redraw bar charts responsively
+    window.addEventListener('resize', () => {
+      if (!document.getElementById('annual-bar-chart-container').classList.contains('hidden')) {
+        renderBarChart();
+      }
+    });
+  </script>
+  <footer id="global-footer"></footer>
+  <script src="../global.js" defer></script>
+</body>
+</html>
+
+
+
+
+
