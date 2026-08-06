@@ -10,6 +10,8 @@
    1. ACCESSIBLE DESIGN TOKENS (60-30-10 Rule)
    ------------------------------------------------------------- */
 :root {
+  color-scheme: light;            /* Native controls/scrollbars match the Light theme */
+
   /* 60% Neutral Background & Text Nodes */
   --bg-primary: #f1f5f9;          /* Slate 100 - Base Page Background */
   --bg-secondary: #f8fafc;        /* Slate 50 - Alternate/Outer Background */
@@ -80,6 +82,8 @@
 }
 
 .dark {
+  color-scheme: dark;             /* Native controls/scrollbars match the Dark theme */
+
   /* 60% Neutral Background & Text Nodes */
   --bg-primary: #090d16;
   --bg-secondary: #0c111d;
@@ -103,6 +107,35 @@
   --success-light: #064e3b;
   --error-color: #f87171;
   --error-light: #4c0519;
+}
+
+/* Explicit Light theme tokens. Declared on the `.light` class so the
+   manually-selected theme always wins over the OS-level
+   `prefers-color-scheme: dark` media query above — keeping the site
+   visually consistent no matter what the operating system prefers. */
+.light {
+  color-scheme: light;
+
+  --bg-primary: #f1f5f9;
+  --bg-secondary: #f8fafc;
+  --text-primary: #0f172a;
+  --text-secondary: #334155;
+  --text-muted: #64748b;
+
+  --surface-primary: #ffffff;
+  --surface-secondary: #f1f5f9;
+  --border-color: #cbd5e1;
+  --border-light: #e2e8f0;
+
+  --accent-color: #0369a1;
+  --accent-hover: #075985;
+  --accent-text: #ffffff;
+  --accent-light: #e0f2fe;
+
+  --success-color: #047857;
+  --success-light: #d1fae5;
+  --error-color: #be123c;
+  --error-light: #ffe4e6;
 }
 
 /* -------------------------------------------------------------
@@ -401,3 +434,131 @@ img {
   letter-spacing: 0.1em;
   margin-bottom: 0.5rem;
 }
+
+/* -------------------------------------------------------------
+   6. THEME CONSISTENCY & CONTRAST ENHANCEMENTS (WCAG AA)
+   -------------------------------------------------------------
+   Loaded on every page (homepage + all 23 tools). These rules live in
+   unlayered CSS so they reliably win over utility classes, guaranteeing
+   legible text in BOTH themes and a consistent look when toggling. */
+
+/* ---- Light theme: lift muted "slate" text above 4.5:1 on white cards ---- */
+.light .text-slate-400,
+.light .text-slate-500 {
+  color: #475569;                 /* slate-600 ≈ 7.7:1 on white */
+}
+
+/* ---- Light theme: deepen status accents so results/errors stay legible on white ---- */
+.light .text-emerald-500,
+.light .text-emerald-600 {
+  color: #047857;                 /* emerald-700 ≈ 5.4:1 on white */
+}
+.light .text-red-500 {
+  color: #dc2626;                 /* red-600 ≈ 4.5:1 on white */
+}
+
+/* ---- Dark theme: keep muted text clearly readable on dark surfaces ---- */
+.dark .text-slate-400 {
+  color: #cbd5e1;                 /* slate-300 ≈ 10.6:1 on slate-900 */
+}
+.dark .text-slate-500 {
+  color: #94a3b8;                 /* slate-400 ≈ 6.1:1 on slate-900 */
+}
+
+/* ---- Dark theme: lighten brand/accent text for contrast on dark cards ---- */
+.dark .text-brand-500,
+.dark .text-brand-600,
+.dark .text-brand-700,
+.dark .text-sky-500,
+.dark .text-sky-600,
+.dark .text-sky-700 {
+  color: #7dd3fc;                 /* sky-300 ≈ 8.4:1 on slate-900 */
+}
+.dark .text-indigo-500,
+.dark .text-indigo-600,
+.dark .text-indigo-700 {
+  color: #a5b4fc;                 /* indigo-300 ≈ 7.1:1 */
+}
+.dark .text-blue-500,
+.dark .text-blue-600,
+.dark .text-blue-700 {
+  color: #93c5fd;                 /* blue-300 ≈ 7.7:1 */
+}
+.dark .text-violet-500,
+.dark .text-violet-600,
+.dark .text-violet-700 {
+  color: #c4b5fd;                 /* violet-300 ≈ 7.3:1 */
+}
+.dark .text-purple-500,
+.dark .text-purple-600,
+.dark .text-purple-700 {
+  color: #d8b4fe;                 /* purple-300 ≈ 8.0:1 */
+}
+.dark .text-emerald-500,
+.dark .text-emerald-600,
+.dark .text-emerald-700,
+.dark .text-green-500,
+.dark .text-green-600,
+.dark .text-green-700 {
+  color: #6ee7b7;                 /* emerald-300 ≈ 9.6:1 */
+}
+.dark .text-red-500,
+.dark .text-red-600,
+.dark .text-red-700 {
+  color: #fca5a5;                 /* red-300 ≈ 7.4:1 */
+}
+.dark .text-rose-500,
+.dark .text-rose-600,
+.dark .text-rose-700 {
+  color: #fda4af;                 /* rose-300 ≈ 7.2:1 */
+}
+.dark .text-yellow-500,
+.dark .text-yellow-600,
+.dark .text-yellow-700,
+.dark .text-amber-500,
+.dark .text-amber-600,
+.dark .text-amber-700 {
+  color: #fcd34d;                 /* yellow-300 ≈ 8.2:1 */
+}
+.dark .text-orange-500,
+.dark .text-orange-600,
+.dark .text-orange-700 {
+  color: #fdba74;                 /* orange-300 ≈ 6.9:1 */
+}
+.dark .text-teal-500,
+.dark .text-teal-600,
+.dark .text-teal-700 {
+  color: #5eead4;                 /* teal-300 ≈ 9.0:1 */
+}
+.dark .text-cyan-500,
+.dark .text-cyan-600,
+.dark .text-cyan-700 {
+  color: #67e8f9;                 /* cyan-300 ≈ 9.2:1 */
+}
+.dark .text-pink-500,
+.dark .text-pink-600,
+.dark .text-pink-700 {
+  color: #f9a8d4;                 /* pink-300 ≈ 7.3:1 */
+}
+
+/* ---- Dark theme: swap light "pill/badge" backgrounds for dark equivalents ----
+   so tinted badges (e.g. PMI, warnings, presets) stay dark with legible text. */
+.dark .bg-emerald-100 { background-color: #064e3b; }
+.dark .bg-green-100 { background-color: #14532d; }
+.dark .bg-indigo-100 { background-color: #312e81; }
+.dark .bg-violet-100 { background-color: #4c1d95; }
+.dark .bg-purple-100 { background-color: #4c1d95; }
+.dark .bg-sky-100,
+.dark .bg-sky-50 { background-color: #0c4a6e; }
+.dark .bg-blue-100,
+.dark .bg-blue-50 { background-color: #1e3a8a; }
+.dark .bg-teal-100 { background-color: #134e4a; }
+.dark .bg-rose-100 { background-color: #881337; }
+.dark .bg-orange-100 { background-color: #7c2d12; }
+.dark .bg-cyan-100 { background-color: #164e63; }
+.dark .bg-pink-100 { background-color: #831843; }
+.dark .bg-fuchsia-100 { background-color: #701a75; }
+.dark .bg-lime-100 { background-color: #365314; }
+.dark .bg-stone-100,
+.dark .bg-neutral-100,
+.dark .bg-zinc-100 { background-color: #1f2937; }

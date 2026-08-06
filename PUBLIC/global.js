@@ -169,12 +169,9 @@ const UTILITIES_REGISTRY = [
 
 // Initialize theme as early as possible to prevent flashing (Default strictly to Light Mode)
 (function initTheme() {
-  const storedTheme = localStorage.getItem('theme');
-  if (storedTheme === 'dark') {
-    document.documentElement.classList.add('dark');
-  } else {
-    document.documentElement.classList.remove('dark');
-  }
+  const isDark = localStorage.getItem('theme') === 'dark';
+  document.documentElement.classList.toggle('dark', isDark);
+  document.documentElement.classList.toggle('light', !isDark);
 })();
 
 // Inject Google AdSense Script dynamically site-wide
@@ -444,13 +441,10 @@ function setupThemeToggler() {
   updateIcons();
 
   toggleBtn.addEventListener('click', () => {
-    if (document.documentElement.classList.contains('dark')) {
-      document.documentElement.classList.remove('dark');
-      localStorage.setItem('theme', 'light');
-    } else {
-      document.documentElement.classList.add('dark');
-      localStorage.setItem('theme', 'dark');
-    }
+    const isDark = document.documentElement.classList.contains('dark');
+    document.documentElement.classList.toggle('dark', !isDark);
+    document.documentElement.classList.toggle('light', isDark);
+    localStorage.setItem('theme', isDark ? 'light' : 'dark');
     updateIcons();
 
     // Fire a custom event to notify target sheets (like dark charts if they are present)
