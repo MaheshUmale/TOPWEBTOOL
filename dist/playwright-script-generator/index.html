@@ -1,0 +1,1224 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
+    <script>
+      (function () {
+        try {
+          const theme = localStorage.getItem("theme");
+          if (theme === "dark") {
+            document.documentElement.classList.add("dark");
+            document.documentElement.classList.remove("light");
+          } else {
+            document.documentElement.classList.remove("dark");
+            document.documentElement.classList.add("light");
+          }
+        } catch (e) {}
+      })();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    />
+    <meta charset="UTF-8" />
+    <meta name="google-adsense-account" content="ca-pub-3901061173891576" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Playwright & Puppeteer Script Generator | TopWebTool</title>
+    <meta
+      name="description"
+      content="Visually build browser-automation flows (goto, click, type, assert, screenshot) and generate runnable Playwright or Puppeteer scripts in JS or Python. Free."
+    />
+    <link
+      rel="canonical"
+      href="https://topwebtool.com/playwright-script-generator/"
+    />
+    <style>
+      html {
+        background-color: #fff;
+      }
+      html.dark {
+        background-color: #0f172a;
+      }
+      body {
+        padding-bottom: 6rem;
+      }
+      main.flex-grow {
+        min-height: 60vh;
+      }
+      #global-header {
+        min-height: 65px;
+      }
+      #global-footer {
+        min-height: 85px;
+      }
+      #trending-sidebar {
+        min-height: 700px;
+      }
+      @media (max-width: 767px) {
+        #global-header {
+          min-height: 200px;
+        }
+        #global-footer {
+          min-height: 120px;
+        }
+      }
+      .category-section {
+        content-visibility: auto;
+        contain-intrinsic-size: auto 500px;
+      }
+      .tool-card {
+        contain: layout style paint;
+      }
+      img[width][height] {
+        aspect-ratio: attr(width) / attr(height);
+      }
+    </style>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Playwright & Puppeteer Script Generator | TopWebTool",
+        "url": "https://topwebtool.com/playwright-script-generator/",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Windows, macOS, Linux, Android, iOS",
+        "browserRequirements": "Requires HTML5 compatible web browser",
+        "description": "Visually build browser-automation flows (goto, click, type, assert, screenshot) and generate runnable Playwright or Puppeteer scripts in JS or Python. Free.",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      }
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://topwebtool.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Playwright / Puppeteer Script Generator",
+            "item": "https://topwebtool.com/playwright-script-generator/"
+          }
+        ]
+      }
+    </script>
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="../global.css" />
+  </head>
+  <body
+    class="bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 min-h-screen flex flex-col"
+  >
+    <header id="global-header"></header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex-grow">
+      <!-- Reserved Leaderboard Ad Slot (CLS-safe) -->
+      <div
+        id="ad-slot-a"
+        class="w-full mx-auto mb-6 p-3 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center select-none overflow-hidden min-h-[90px]"
+        style="max-width: 728px; min-height: 90px; max-height: 135px"
+      >
+        <span
+          class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-1.5"
+          >Advertisement</span
+        >
+        <div
+          class="w-full flex justify-center"
+          style="height: 90px; max-height: 90px; overflow: hidden"
+        >
+          <!-- HzAds -->
+          <ins
+            class="adsbygoogle"
+            style="
+              display: inline-block;
+              width: 100%;
+              height: 90px;
+              max-height: 90px;
+            "
+            data-ad-client="ca-pub-3901061173891576"
+            data-ad-slot="2894630336"
+            data-ad-format="horizontal"
+            data-full-width-responsive="false"
+          ></ins>
+        </div>
+      </div>
+
+      <!-- 2-Column Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-4 gap-4">
+        <!-- Main Content -->
+        <div class="lg:col-span-3 space-y-8">
+          <div
+            class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm"
+          >
+            <h1
+              class="text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight sm:text-4xl"
+            >
+              Playwright / Puppeteer Script Generator
+            </h1>
+            <p class="mt-2 text-base text-slate-500 dark:text-slate-400">
+              Stack browser-automation actions visually and instantly emit a
+              complete, runnable Playwright or Puppeteer script in JavaScript or
+              Python.
+            </p>
+          </div>
+
+          <!-- Builder UI -->
+          <form
+            id="playwright-form"
+            class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm p-6 sm:p-8 space-y-6"
+            tool-name="playwright-script-generator"
+            tool-description="Build a browser automation action list and generate a runnable Playwright or Puppeteer script."
+          >
+            <div
+              class="flex justify-between items-center border-b border-slate-100 dark:border-slate-800 pb-3"
+            >
+              <h2 class="text-lg font-bold text-slate-900 dark:text-white">
+                Script Options
+              </h2>
+              <span class="text-xs font-bold text-brand-700 dark:text-brand-400"
+                >Visual → Runnable Code</span
+              >
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label
+                  for="lang-select"
+                  class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2"
+                  >Language</label
+                >
+                <select
+                  id="lang-select"
+                  class="w-full px-3 py-2.5 border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-950 rounded-lg text-sm font-semibold text-slate-900 dark:text-slate-100 focus:ring-2 focus:ring-brand-500 focus:border-brand-500"
+                  onchange="onLangChange()"
+                >
+                  <option value="javascript" selected>
+                    JavaScript (Node.js)
+                  </option>
+                  <option value="python">Python (Playwright sync)</option>
+                </select>
+              </div>
+              <div>
+                <label
+                  for="lib-select"
+                  class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2"
+                  >Library</label
+                >
+                <select
+                  id="lib-select"
+                  class="w-full px-3 py-2.5 border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-950 rounded-lg text-sm font-semibold text-slate-900 dark:text-slate-100 focus:ring-2 focus:ring-brand-500 focus:border-brand-500"
+                  onchange="renderScript()"
+                >
+                  <option value="playwright" selected>Playwright</option>
+                  <option value="puppeteer">Puppeteer (JS only)</option>
+                </select>
+                <p
+                  id="lib-note"
+                  class="hidden mt-1 text-xs text-slate-400 dark:text-slate-500"
+                >
+                  Puppeteer has no Python binding; Playwright is used for Python
+                  scripts.
+                </p>
+              </div>
+            </div>
+
+            <div class="border-t border-slate-100 dark:border-slate-800 pt-5">
+              <div class="flex justify-between items-center mb-3">
+                <h3
+                  class="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider"
+                >
+                  Action Sequence
+                </h3>
+                <button
+                  type="button"
+                  onclick="addActionRow(null)"
+                  class="px-4 py-2 text-sm font-bold text-white bg-brand-600 hover:bg-brand-700 rounded-lg transition-colors"
+                >
+                  + Add Action
+                </button>
+              </div>
+              <div id="action-list" class="space-y-3"></div>
+              <p
+                id="action-empty"
+                class="text-sm text-slate-400 dark:text-slate-500"
+              >
+                No actions yet — click "Add Action" to start your flow.
+              </p>
+            </div>
+
+            <div class="flex items-center gap-3">
+              <button
+                type="button"
+                onclick="renderScript()"
+                class="px-5 py-2.5 bg-brand-600 text-white hover:bg-brand-700 transition-colors font-bold text-sm rounded-lg shadow-sm"
+              >
+                Generate Script
+              </button>
+              <span
+                id="gen-status"
+                class="text-sm font-semibold text-slate-500 dark:text-slate-400"
+                role="status"
+                >Ready</span
+              >
+            </div>
+          </form>
+
+          <!-- Display Area -->
+          <div
+            class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm space-y-4"
+          >
+            <div
+              class="flex flex-wrap justify-between items-center border-b border-slate-100 dark:border-slate-800 pb-2 gap-2"
+            >
+              <h2 class="text-lg font-bold text-slate-900 dark:text-white">
+                Generated Script
+              </h2>
+              <button
+                type="button"
+                onclick="copyScript()"
+                id="btn-copy-script"
+                class="px-5 py-2.5 bg-brand-600 text-white hover:bg-brand-700 transition-colors font-bold text-sm rounded-lg shadow-sm"
+              >
+                <span>Copy Script</span>
+              </button>
+            </div>
+            <pre
+              class="bg-slate-950 dark:bg-slate-900 text-slate-100 p-4 rounded-xl font-mono text-xs overflow-x-auto break-all shadow-inner max-h-[560px] overflow-y-auto"
+              id="out-script"
+            ></pre>
+          </div>
+
+          <!-- Informative Articles & Guides Section -->
+          <div
+            class="bg-white dark:bg-slate-900 p-6 sm:p-8 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm space-y-4 mt-6"
+          >
+            <h2
+              class="text-xl font-bold text-slate-900 dark:text-white border-b border-slate-100 dark:border-slate-800 pb-3"
+            >
+              Informative Guides & Helper Articles
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <a
+                href="./playwright-script-generator-guide.html"
+                class="block p-4 rounded-xl border border-slate-100 dark:border-slate-800 hover:border-brand-500 dark:hover:border-brand-500 hover:bg-slate-50/50 dark:hover:bg-slate-950/30 transition-all group"
+              >
+                <h3
+                  class="text-sm font-bold text-slate-800 dark:text-slate-200 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors"
+                >
+                  Ultimate Guide to Playwright/Puppeteer Scripts
+                </h3>
+                <p class="text-xs text-slate-400 dark:text-slate-500 mt-1">
+                  From install and launch boilerplate to locators, actions, and
+                  running flows in CI.
+                </p>
+                <span
+                  class="text-xs font-semibold text-brand-600 dark:text-brand-400 mt-3 inline-block group-hover:translate-x-1 transition-transform"
+                  >Read Article &rarr;</span
+                >
+              </a>
+              <a
+                href="./playwright-script-generator-best-practices.html"
+                class="block p-4 rounded-xl border border-slate-100 dark:border-slate-800 hover:border-brand-500 dark:hover:border-brand-500 hover:bg-slate-50/50 dark:hover:bg-slate-950/30 transition-all group"
+              >
+                <h3
+                  class="text-sm font-bold text-slate-800 dark:text-slate-200 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors"
+                >
+                  Best Practices for Playwright/Puppeteer Scripts
+                </h3>
+                <p class="text-xs text-slate-400 dark:text-slate-500 mt-1">
+                  Stable locators, web-first waits, headless CI config, and
+                  readable selector strategy.
+                </p>
+                <span
+                  class="text-xs font-semibold text-brand-600 dark:text-brand-400 mt-3 inline-block group-hover:translate-x-1 transition-transform"
+                  >Read Article &rarr;</span
+                >
+              </a>
+              <a
+                href="./playwright-script-generator-common-errors.html"
+                class="block p-4 rounded-xl border border-slate-100 dark:border-slate-800 hover:border-brand-500 dark:hover:border-brand-500 hover:bg-slate-50/50 dark:hover:bg-slate-950/30 transition-all group"
+              >
+                <h3
+                  class="text-sm font-bold text-slate-800 dark:text-slate-200 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors"
+                >
+                  Common Errors in Playwright/Puppeteer Scripts
+                </h3>
+                <p class="text-xs text-slate-400 dark:text-slate-500 mt-1">
+                  Timeout, strict-mode violations, missing elements, iframes,
+                  and networkidle hangs — fixed.
+                </p>
+                <span
+                  class="text-xs font-semibold text-brand-600 dark:text-brand-400 mt-3 inline-block group-hover:translate-x-1 transition-transform"
+                  >Read Article &rarr;</span
+                >
+              </a>
+              <a
+                href="./playwright-script-generator-optimization-tips.html"
+                class="block p-4 rounded-xl border border-slate-100 dark:border-slate-800 hover:border-brand-500 dark:hover:border-brand-500 hover:bg-slate-50/50 dark:hover:bg-slate-950/30 transition-all group"
+              >
+                <h3
+                  class="text-sm font-bold text-slate-800 dark:text-slate-200 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors"
+                >
+                  Top Optimization Tips for Playwright Scripts
+                </h3>
+                <p class="text-xs text-slate-400 dark:text-slate-500 mt-1">
+                  Parallel workers, browser caching, lighter waits, and trace
+                  viewer for speed.
+                </p>
+                <span
+                  class="text-xs font-semibold text-brand-600 dark:text-brand-400 mt-3 inline-block group-hover:translate-x-1 transition-transform"
+                  >Read Article &rarr;</span
+                >
+              </a>
+              <a
+                href="./playwright-script-generator-future-trends.html"
+                class="block p-4 rounded-xl border border-slate-100 dark:border-slate-800 hover:border-brand-500 dark:hover:border-brand-500 hover:bg-slate-50/50 dark:hover:bg-slate-950/30 transition-all group"
+              >
+                <h3
+                  class="text-sm font-bold text-slate-800 dark:text-slate-200 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors"
+                >
+                  Future Trends in Browser Automation Scripts
+                </h3>
+                <p class="text-xs text-slate-400 dark:text-slate-500 mt-1">
+                  Self-healing locators, LLM-driven automation, and MCP servers
+                  for the browser.
+                </p>
+                <span
+                  class="text-xs font-semibold text-brand-600 dark:text-brand-400 mt-3 inline-block group-hover:translate-x-1 transition-transform"
+                  >Read Article &rarr;</span
+                >
+              </a>
+            </div>
+          </div>
+
+          <!-- TARGET INJECTION POINT: Semantic SEO Instructional Hub -->
+          <section
+            id="seo-instructional-hub"
+            class="mt-8 p-6 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-lg shadow-sm space-y-6"
+          >
+            <div class="border-b border-slate-200 dark:border-slate-800">
+              <h2
+                class="text-2xl font-extrabold text-slate-900 dark:text-white tracking-tight"
+              >
+                Professional Insights & Guide
+              </h2>
+              <p class="text-sm text-slate-600 dark:text-slate-300 mt-1">
+                How the visual action list maps to Playwright/Puppeteer API
+                calls, and the failure points to expect.
+              </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
+              <div>
+                <h3 class="font-bold text-slate-900 dark:text-white mb-2">
+                  Action → API Mapping
+                </h3>
+                <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
+                  Every action in the builder maps to a real framework call: Go
+                  to URL emits
+                  <code class="font-mono text-xs">page.goto()</code>, Click
+                  emits
+                  <code class="font-mono text-xs">page.click(selector)</code>,
+                  Type emits
+                  <code class="font-mono text-xs"
+                    >page.fill(selector, text)</code
+                  >
+                  (Playwright) or
+                  <code class="font-mono text-xs">page.type()</code>
+                  (Puppeteer), Wait emits a timeout, Assert reads the body text
+                  and throws if the expected string is missing, Screenshot
+                  writes a PNG, and Press Key sends a keyboard event. The
+                  generator also adds launch boilerplate — Playwright's
+                  <code class="font-mono text-xs">chromium.launch()</code> or
+                  Puppeteer's
+                  <code class="font-mono text-xs">puppeteer.launch()</code> —
+                  plus <code class="font-mono text-xs">browser.close()</code> so
+                  the emitted file runs end-to-end.
+                </p>
+              </div>
+              <div>
+                <h3 class="font-bold text-slate-900 dark:text-white mb-2">
+                  Troubleshooting & Edge-Case Failure Points
+                </h3>
+                <ul
+                  class="list-disc pl-5 space-y-2 text-slate-600 dark:text-slate-300 leading-relaxed"
+                >
+                  <li>
+                    Escaping: single quotes inside text values are escaped so
+                    generated strings never break the output file.
+                  </li>
+                  <li>
+                    Assertions that match text appearing in an iframe will fail
+                    — body text excludes iframe documents.
+                  </li>
+                  <li>
+                    Puppeteer has no official Python binding, so Python output
+                    always targets Playwright's sync API.
+                  </li>
+                  <li>
+                    Empty selectors or missing values produce an inline warning
+                    instead of silently emitting broken code.
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="pt-4 border-t border-slate-200 dark:border-slate-800">
+              <h3 class="font-bold text-slate-900 dark:text-white mb-2">
+                Detailed Step-by-Step Instructions
+              </h3>
+              <ol
+                class="list-decimal pl-5 space-y-2 text-slate-600 dark:text-slate-300 leading-relaxed"
+              >
+                <li>
+                  Choose JavaScript or Python, then pick Playwright or Puppeteer
+                  for JS output.
+                </li>
+                <li>
+                  Build the flow: add actions, select a type, fill the
+                  selectors, text, URLs, wait times, or keys.
+                </li>
+                <li>
+                  Reorder with the up/down arrows and delete mistakes with the
+                  remove button — the script regenerates live.
+                </li>
+                <li>
+                  Copy the highlighted output into a file, run
+                  <code class="font-mono text-xs">npm install playwright</code>
+                  (or
+                  <code class="font-mono text-xs">pip install playwright</code
+                  >), and execute it.
+                </li>
+              </ol>
+            </div>
+
+            <!-- Semantic SEO Related Tool Matrix Silo -->
+            <div
+              class="mt-6 pt-6 border-t border-slate-200 dark:border-slate-800"
+            >
+              <h3
+                class="text-sm font-bold text-slate-900 dark:text-white mb-3 uppercase tracking-wider"
+              >
+                Related Web Utilities (Silo Hub)
+              </h3>
+              <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2">
+                <a
+                  href="../agent-cron-scheduler/"
+                  class="text-xs font-semibold text-brand-600 hover:text-brand-800 dark:text-brand-400 dark:hover:text-brand-300 transition-colors bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 px-3 py-2 rounded-lg text-center block"
+                  >Cron-Job & Automation Scheduler</a
+                >
+                <a
+                  href="../autogen-yaml-designer/"
+                  class="text-xs font-semibold text-brand-600 hover:text-brand-800 dark:text-brand-400 dark:hover:text-brand-300 transition-colors bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 px-3 py-2 rounded-lg text-center block"
+                  >CrewAI / AutoGen YAML Designer</a
+                >
+                <a
+                  href="../agent-state-router/"
+                  class="text-xs font-semibold text-brand-600 hover:text-brand-800 dark:text-brand-400 dark:hover:text-brand-300 transition-colors bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 px-3 py-2 rounded-lg text-center block"
+                  >Agent State-Machine Router</a
+                >
+                <a
+                  href="../pydantic-schema-generator/"
+                  class="text-xs font-semibold text-brand-600 hover:text-brand-800 dark:text-brand-400 dark:hover:text-brand-300 transition-colors bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 px-3 py-2 rounded-lg text-center block"
+                  >Pydantic JSON-Schema Generator</a
+                >
+                <a
+                  href="../chatgpt-prompt-optimizer/"
+                  class="text-xs font-semibold text-brand-600 hover:text-brand-800 dark:text-brand-400 dark:hover:text-brand-300 transition-colors bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 px-3 py-2 rounded-lg text-center block"
+                  >ChatGPT Prompt Optimizer</a
+                >
+                <a
+                  href="../ai-text-humanizer-helper/"
+                  class="text-xs font-semibold text-brand-600 hover:text-brand-800 dark:text-brand-400 dark:hover:text-brand-300 transition-colors bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 px-3 py-2 rounded-lg text-center block"
+                  >AI Text Humanizer Helper</a
+                >
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- Column 4 Sidebar -->
+
+        <!-- Informative Articles & Guides Section -->
+        <div
+          class="bg-white dark:bg-slate-900 p-6 sm:p-8 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm space-y-4 mt-6"
+        >
+          <h2
+            class="text-xl font-bold text-slate-900 dark:text-white border-b border-slate-100 dark:border-slate-800 pb-3"
+          >
+            Informative Guides &amp; Helper Articles
+          </h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <a
+              href="./playwright-script-generator-best-practices.html"
+              class="block p-4 rounded-xl border border-slate-100 dark:border-slate-800 hover:border-brand-500 dark:hover:border-brand-500 hover:bg-slate-50/50 dark:hover:bg-slate-950/30 transition-all group"
+            >
+              <h3
+                class="text-sm font-bold text-slate-800 dark:text-slate-200 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors"
+              >
+                Best Practices for Playwright/Puppeteer Scripts
+              </h3>
+              <p class="text-xs text-slate-400 dark:text-slate-500 mt-1">
+                Professional Playwright and Puppeteer practices: stable test-id
+                locators, web-first waits, headless CI config, and readable
+                selectors.
+              </p>
+              <span
+                class="text-xs font-semibold text-brand-600 dark:text-brand-400 mt-3 inline-block group-hover:translate-x-1 transition-transform"
+                >Read Article &rarr;</span
+              >
+            </a>
+            <a
+              href="./playwright-script-generator-common-errors.html"
+              class="block p-4 rounded-xl border border-slate-100 dark:border-slate-800 hover:border-brand-500 dark:hover:border-brand-500 hover:bg-slate-50/50 dark:hover:bg-slate-950/30 transition-all group"
+            >
+              <h3
+                class="text-sm font-bold text-slate-800 dark:text-slate-200 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors"
+              >
+                Common Errors in Playwright/Puppeteer Scripts
+              </h3>
+              <p class="text-xs text-slate-400 dark:text-slate-500 mt-1">
+                Fix the most common browser-automation errors: timeouts,
+                strict-mode violations, missing elements, iframes, and
+                networkidle hangs.
+              </p>
+              <span
+                class="text-xs font-semibold text-brand-600 dark:text-brand-400 mt-3 inline-block group-hover:translate-x-1 transition-transform"
+                >Read Article &rarr;</span
+              >
+            </a>
+            <a
+              href="./playwright-script-generator-future-trends.html"
+              class="block p-4 rounded-xl border border-slate-100 dark:border-slate-800 hover:border-brand-500 dark:hover:border-brand-500 hover:bg-slate-50/50 dark:hover:bg-slate-950/30 transition-all group"
+            >
+              <h3
+                class="text-sm font-bold text-slate-800 dark:text-slate-200 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors"
+              >
+                Future Trends in Browser Automation Scripts
+              </h3>
+              <p class="text-xs text-slate-400 dark:text-slate-500 mt-1">
+                The future of browser automation: self-healing locators,
+                LLM-driven agents, MCP servers, and visual AI for Playwright and
+                Puppeteer.
+              </p>
+              <span
+                class="text-xs font-semibold text-brand-600 dark:text-brand-400 mt-3 inline-block group-hover:translate-x-1 transition-transform"
+                >Read Article &rarr;</span
+              >
+            </a>
+            <a
+              href="./playwright-script-generator-guide.html"
+              class="block p-4 rounded-xl border border-slate-100 dark:border-slate-800 hover:border-brand-500 dark:hover:border-brand-500 hover:bg-slate-50/50 dark:hover:bg-slate-950/30 transition-all group"
+            >
+              <h3
+                class="text-sm font-bold text-slate-800 dark:text-slate-200 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors"
+              >
+                Ultimate Guide to Playwright/Puppeteer Scripts
+              </h3>
+              <p class="text-xs text-slate-400 dark:text-slate-500 mt-1">
+                A complete guide to Playwright and Puppeteer: install, launch
+                boilerplate, locators, actions, assertions, screenshots, and
+                running flows in CI.
+              </p>
+              <span
+                class="text-xs font-semibold text-brand-600 dark:text-brand-400 mt-3 inline-block group-hover:translate-x-1 transition-transform"
+                >Read Article &rarr;</span
+              >
+            </a>
+            <a
+              href="./playwright-script-generator-optimization-tips.html"
+              class="block p-4 rounded-xl border border-slate-100 dark:border-slate-800 hover:border-brand-500 dark:hover:border-brand-500 hover:bg-slate-50/50 dark:hover:bg-slate-950/30 transition-all group"
+            >
+              <h3
+                class="text-sm font-bold text-slate-800 dark:text-slate-200 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors"
+              >
+                Top Optimization Tips for Playwright Scripts
+              </h3>
+              <p class="text-xs text-slate-400 dark:text-slate-500 mt-1">
+                Speed up Playwright and Puppeteer: parallel workers, cached
+                browsers, lighter waits, and trace viewer for performance and
+                debugging.
+              </p>
+              <span
+                class="text-xs font-semibold text-brand-600 dark:text-brand-400 mt-3 inline-block group-hover:translate-x-1 transition-transform"
+                >Read Article &rarr;</span
+              >
+            </a>
+          </div>
+        </div>
+        <!-- Informative Articles End -->
+
+        <div class="lg:col-span-1 space-y-6">
+          <div id="trending-sidebar"></div>
+          <!-- Reserved Square Ad Slot (CLS-safe) -->
+          <div
+            id="ad-slot-square"
+            class="w-full p-4 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center mt-4 select-none min-h-[250px] overflow-hidden"
+            style="min-height: 250px"
+          >
+            <span
+              class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-2"
+              >Advertisement</span
+            >
+            <div
+              class="w-full flex justify-center"
+              style="height: 250px; max-height: 250px; overflow: hidden"
+            >
+              <!-- SquareAds -->
+              <ins
+                class="adsbygoogle"
+                style="
+                  display: block;
+                  width: 100%;
+                  min-height: 250px;
+                  max-height: 250px;
+                "
+                data-ad-client="ca-pub-3901061173891576"
+                data-ad-slot="6707430996"
+                data-ad-format="rectangle"
+                data-full-width-responsive="false"
+              ></ins>
+            </div>
+          </div>
+
+          <!-- Reserved Vertical Ad Slot (CLS-safe, desktop only) -->
+          <div
+            id="ad-slot-vertical"
+            class="w-full p-4 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center mt-4 hidden lg:flex select-none min-h-[600px] overflow-hidden"
+            style="min-height: 600px"
+          >
+            <span
+              class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-2"
+              >Advertisement</span
+            >
+            <div
+              class="w-full flex justify-center"
+              style="height: 600px; max-height: 600px; overflow: hidden"
+            >
+              <!-- verticalAds -->
+              <ins
+                class="adsbygoogle"
+                style="
+                  display: block;
+                  width: 100%;
+                  min-height: 600px;
+                  max-height: 600px;
+                "
+                data-ad-client="ca-pub-3901061173891576"
+                data-ad-slot="1581548667"
+                data-ad-format="auto"
+                data-full-width-responsive="true"
+              ></ins>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer id="global-footer"></footer>
+    <script src="../global.js" defer></script>
+
+    <script>
+      const ACTIONS = {
+        goto: {
+          label: "Go to URL",
+          fields: [
+            { key: "url", placeholder: "https://example.com", label: "URL" },
+          ],
+        },
+        click: {
+          label: "Click Selector",
+          fields: [
+            { key: "selector", placeholder: "#submit", label: "Selector" },
+          ],
+        },
+        type: {
+          label: "Type Text",
+          fields: [
+            { key: "selector", placeholder: "#email", label: "Selector" },
+            { key: "text", placeholder: "user@example.com", label: "Text" },
+          ],
+        },
+        wait: {
+          label: "Wait (ms)",
+          fields: [{ key: "ms", placeholder: "2000", label: "Milliseconds" }],
+        },
+        assert: {
+          label: "Assert Text",
+          fields: [
+            {
+              key: "text",
+              placeholder: "Expected text on page",
+              label: "Text",
+            },
+          ],
+        },
+        screenshot: {
+          label: "Screenshot",
+          fields: [
+            { key: "name", placeholder: "screenshot.png", label: "Filename" },
+          ],
+        },
+        press: {
+          label: "Press Key",
+          fields: [{ key: "key", placeholder: "Enter", label: "Key" }],
+        },
+      };
+
+      let lastScript = "";
+
+      const listEl = document.getElementById("action-list");
+      const emptyEl = document.getElementById("action-empty");
+
+      function escQuoteJs(s) {
+        return String(s).replace(/\\/g, "\\\\").replace(/'/g, "\\'");
+      }
+      function escQuotePy(s) {
+        return String(s).replace(/\\/g, "\\\\").replace(/"/g, '\\"');
+      }
+
+      function mkIconBtn(text, label, role) {
+        const b = document.createElement("button");
+        b.type = "button";
+        b.textContent = text;
+        b.setAttribute("aria-label", label);
+        b.dataset.role = role;
+        b.className =
+          "w-9 h-9 flex items-center justify-center text-sm font-bold rounded-lg border border-slate-300 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors";
+        return b;
+      }
+
+      function fieldInputsFor(type, values) {
+        const defs = ACTIONS[type].fields;
+        return defs.map((f) => {
+          const wrap = document.createElement("div");
+          wrap.className = "flex flex-col gap-1 flex-1 min-w-0";
+          const label = document.createElement("label");
+          label.className =
+            "text-[11px] font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wide";
+          label.textContent = f.label;
+          const input = document.createElement("input");
+          input.type = "text";
+          input.className =
+            "block w-full px-3 py-2 border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-950 rounded-lg font-mono text-xs text-slate-900 dark:text-slate-100 focus:ring-2 focus:ring-brand-500 focus:border-brand-500";
+          input.placeholder = f.placeholder;
+          input.dataset.key = f.key;
+          if (values && values[f.key] !== undefined)
+            input.value = values[f.key];
+          wrap.appendChild(label);
+          wrap.appendChild(input);
+          return wrap;
+        });
+      }
+
+      function addActionRow(data) {
+        emptyEl.classList.add("hidden");
+        const row = document.createElement("div");
+        row.className =
+          "flex flex-col md:flex-row gap-3 items-stretch md:items-center border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-950 p-3 rounded-xl";
+
+        const select = document.createElement("select");
+        select.className =
+          "action-type md:w-44 shrink-0 px-3 py-2 border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-950 rounded-lg text-xs font-semibold text-slate-900 dark:text-slate-100 focus:ring-2 focus:ring-brand-500 focus:border-brand-500";
+        Object.keys(ACTIONS).forEach((k) => {
+          const opt = document.createElement("option");
+          opt.value = k;
+          opt.textContent = ACTIONS[k].label;
+          select.appendChild(opt);
+        });
+        if (data && data.type) select.value = data.type;
+
+        const fieldsWrap = document.createElement("div");
+        fieldsWrap.className =
+          "action-fields flex flex-col sm:flex-row gap-3 flex-1 min-w-0";
+        fieldInputsFor(select.value, data).forEach((el) =>
+          fieldsWrap.appendChild(el),
+        );
+
+        const btnsWrap = document.createElement("div");
+        btnsWrap.className = "flex items-center gap-2 shrink-0";
+        btnsWrap.appendChild(mkIconBtn("↑", "Move action up", "up"));
+        btnsWrap.appendChild(mkIconBtn("↓", "Move action down", "down"));
+        btnsWrap.appendChild(mkIconBtn("✕", "Remove action", "del"));
+
+        row.appendChild(select);
+        row.appendChild(fieldsWrap);
+        row.appendChild(btnsWrap);
+        listEl.appendChild(row);
+        renderScript();
+      }
+
+      function readActions() {
+        const rows = [];
+        listEl.querySelectorAll("div.border").forEach((row) => {
+          const select = row.querySelector("select.action-type");
+          if (!select) return;
+          const values = {};
+          row.querySelectorAll(".action-fields input").forEach((inp) => {
+            values[inp.dataset.key] = inp.value;
+          });
+          rows.push({ type: select.value, values: values });
+        });
+        return rows;
+      }
+
+      function actionLines(actions, lib, lang) {
+        const isPy = lang === "python";
+        const lines = [];
+        actions.forEach((a) => {
+          const v = a.values || {};
+          const indent = isPy ? "    " : "  ";
+          if (a.type === "goto") {
+            lines.push(
+              isPy
+                ? indent + 'page.goto("' + escQuotePy(v.url) + '")'
+                : indent +
+                    'await page.goto("' +
+                    escQuoteJs(v.url) +
+                    '", { waitUntil: "networkidle" });',
+            );
+          } else if (a.type === "click") {
+            lines.push(
+              isPy
+                ? indent + 'page.click("' + escQuotePy(v.selector) + '")'
+                : indent +
+                    'await page.click("' +
+                    escQuoteJs(v.selector) +
+                    '");',
+            );
+          } else if (a.type === "type") {
+            lines.push(
+              isPy
+                ? indent +
+                    'page.fill("' +
+                    escQuotePy(v.selector) +
+                    '", "' +
+                    escQuotePy(v.text) +
+                    '")'
+                : indent +
+                    "await page." +
+                    (lib === "puppeteer" ? "type" : "fill") +
+                    '("' +
+                    escQuoteJs(v.selector) +
+                    '", "' +
+                    escQuoteJs(v.text) +
+                    '");',
+            );
+          } else if (a.type === "wait") {
+            lines.push(
+              isPy
+                ? indent +
+                    "page.wait_for_timeout(" +
+                    (parseInt(v.ms, 10) || 0) +
+                    ")"
+                : indent +
+                    "await page.waitForTimeout(" +
+                    (parseInt(v.ms, 10) || 0) +
+                    ");",
+            );
+          } else if (a.type === "assert") {
+            if (isPy) {
+              lines.push(indent + 'body = page.text_content("body")');
+              lines.push(
+                indent +
+                  'assert "' +
+                  escQuotePy(v.text) +
+                  '" in body, "Assertion failed: text not found on page"',
+              );
+            } else if (lib === "puppeteer") {
+              lines.push(
+                indent +
+                  "const bodyText = await page.evaluate(() => document.body.innerText);",
+              );
+              lines.push(
+                indent +
+                  'if (!bodyText.includes("' +
+                  escQuoteJs(v.text) +
+                  '")) throw new Error("Assertion failed: text not found on page");',
+              );
+            } else {
+              lines.push(
+                indent + 'const bodyText = await page.textContent("body");',
+              );
+              lines.push(
+                indent +
+                  'if (!bodyText.includes("' +
+                  escQuoteJs(v.text) +
+                  '")) throw new Error("Assertion failed: text not found on page");',
+              );
+            }
+          } else if (a.type === "screenshot") {
+            lines.push(
+              isPy
+                ? indent + 'page.screenshot(path="' + escQuotePy(v.name) + '")'
+                : indent +
+                    'await page.screenshot({ path: "' +
+                    escQuoteJs(v.name) +
+                    '" });',
+            );
+          } else if (a.type === "press") {
+            lines.push(
+              isPy
+                ? indent + 'page.keyboard.press("' + escQuotePy(v.key) + '")'
+                : indent +
+                    'await page.keyboard.press("' +
+                    escQuoteJs(v.key) +
+                    '");',
+            );
+          }
+        });
+        return lines;
+      }
+
+      function buildScript() {
+        const actions = readActions();
+        const lib = document.getElementById("lib-select").value;
+        const lang = document.getElementById("lang-select").value;
+        const isPy = lang === "python";
+        const lines = actionLines(actions, lib, lang);
+        const body = lines.join("\n");
+
+        if (isPy) {
+          return (
+            "from playwright.sync_api import sync_playwright\n\n\nwith sync_playwright() as p:\n    browser = p.chromium.launch(headless=False)\n    page = browser.new_page()\n\n    # ===== Actions =====\n" +
+            body +
+            "\n\n    browser.close()\n"
+          );
+        }
+        if (lib === "puppeteer") {
+          return (
+            "const puppeteer = require('puppeteer');\n\n\n(async () => {\n  const browser = await puppeteer.launch({ headless: false });\n  const page = await browser.newPage();\n\n  // ===== Actions =====\n" +
+            body +
+            "\n\n  await browser.close();\n})();\n"
+          );
+        }
+        return (
+          "const { chromium } = require('@playwright/test');\n\n\n(async () => {\n  const browser = await chromium.launch({ headless: false });\n  const page = await browser.newPage();\n\n  // ===== Actions =====\n" +
+          body +
+          "\n\n  await browser.close();\n})();\n"
+        );
+      }
+
+      function escapeHtml(s) {
+        return s
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;");
+      }
+
+      function highlightCode(code, lang) {
+        const keywords =
+          lang === "python"
+            ? [
+                "def",
+                "with",
+                "as",
+                "from",
+                "import",
+                "assert",
+                "and",
+                "or",
+                "not",
+                "in",
+                "None",
+                "True",
+                "False",
+                "sync_playwright",
+                "lambda",
+              ]
+            : [
+                "const",
+                "let",
+                "var",
+                "function",
+                "async",
+                "await",
+                "require",
+                "return",
+                "if",
+                "else",
+                "for",
+                "of",
+                "in",
+                "new",
+                "throw",
+                "Error",
+                "require",
+                "=>",
+              ];
+        const kwAlt = keywords.join("|");
+        const re = new RegExp(
+          "//[^\\n]*|#[^\\n]*|/\\*[\\s\\S]*?\\*/|\"[^\"\\n]*\"|'[^'\\n]*'|\\b(" +
+            kwAlt +
+            ")\\b|\\b\\d+(?:\\.\\d+)?\\b",
+          "g",
+        );
+        let html = "";
+        let last = 0;
+        let m;
+        while ((m = re.exec(code))) {
+          const t = m[0];
+          html += escapeHtml(code.slice(last, m.index));
+          if (t[0] === "/" || t[0] === "#") {
+            html +=
+              '<span class="text-slate-500 italic">' +
+              escapeHtml(t) +
+              "</span>";
+          } else if (t[0] === '"' || t[0] === "'") {
+            html +=
+              '<span class="text-emerald-400">' + escapeHtml(t) + "</span>";
+          } else if (m[1]) {
+            html +=
+              '<span class="text-sky-400 font-semibold">' +
+              escapeHtml(t) +
+              "</span>";
+          } else {
+            html += '<span class="text-amber-300">' + escapeHtml(t) + "</span>";
+          }
+          last = m.index + t.length;
+        }
+        html += escapeHtml(code.slice(last));
+        return html;
+      }
+
+      function renderScript() {
+        const actions = readActions();
+        const warnings = [];
+        actions.forEach((a, i) => {
+          const defs = ACTIONS[a.type].fields;
+          defs.forEach((f) => {
+            if (!(a.values[f.key] && a.values[f.key].trim())) {
+              warnings.push(
+                "Action " +
+                  (i + 1) +
+                  " (" +
+                  ACTIONS[a.type].label +
+                  ') is missing "' +
+                  f.label +
+                  '".',
+              );
+            }
+          });
+        });
+        lastScript = buildScript();
+        document.getElementById("out-script").innerHTML = highlightCode(
+          lastScript,
+          document.getElementById("lang-select").value,
+        );
+        const status = document.getElementById("gen-status");
+        if (actions.length === 0) {
+          status.textContent = "No actions defined yet";
+          status.className =
+            "text-sm font-semibold text-slate-400 dark:text-slate-500";
+        } else if (warnings.length) {
+          status.textContent =
+            warnings.length +
+            " missing-field warning" +
+            (warnings.length > 1 ? "s" : "");
+          status.className =
+            "text-sm font-semibold text-amber-600 dark:text-amber-400";
+        } else {
+          status.textContent =
+            "Ready — " +
+            actions.length +
+            " action" +
+            (actions.length > 1 ? "s" : "");
+          status.className =
+            "text-sm font-semibold text-emerald-600 dark:text-emerald-400";
+        }
+      }
+
+      function copyScript() {
+        const btn = document.getElementById("btn-copy-script");
+        const span = btn.querySelector("span");
+        navigator.clipboard
+          .writeText(lastScript)
+          .then(() => {
+            span.textContent = "Copied!";
+            setTimeout(() => {
+              span.textContent = "Copy Script";
+            }, 2000);
+          })
+          .catch(() => {
+            const ta = document.createElement("textarea");
+            ta.value = lastScript;
+            document.body.appendChild(ta);
+            ta.select();
+            document.execCommand("copy");
+            document.body.removeChild(ta);
+            span.textContent = "Copied!";
+            setTimeout(() => {
+              span.textContent = "Copy Script";
+            }, 2000);
+          });
+      }
+
+      function onLangChange() {
+        const lang = document.getElementById("lang-select").value;
+        const lib = document.getElementById("lib-select");
+        const note = document.getElementById("lib-note");
+        if (lang === "python") {
+          lib.value = "playwright";
+          lib.disabled = true;
+          note.classList.remove("hidden");
+        } else {
+          lib.disabled = false;
+          note.classList.add("hidden");
+        }
+        renderScript();
+      }
+
+      listEl.addEventListener("change", (e) => {
+        if (e.target.classList.contains("action-type")) {
+          const row = e.target.closest("div.border");
+          const fieldsWrap = row.querySelector(".action-fields");
+          fieldsWrap.innerHTML = "";
+          fieldInputsFor(e.target.value, null).forEach((el) =>
+            fieldsWrap.appendChild(el),
+          );
+        }
+        renderScript();
+      });
+
+      listEl.addEventListener("input", renderScript);
+
+      listEl.addEventListener("click", (e) => {
+        const btn = e.target.closest("button[data-role]");
+        if (!btn) return;
+        const row = btn.closest("div.border");
+        const rows = Array.from(listEl.querySelectorAll("div.border"));
+        const idx = rows.indexOf(row);
+        const role = btn.dataset.role;
+        if (role === "del") {
+          row.remove();
+        } else if (role === "up" && idx > 0) {
+          listEl.insertBefore(row, rows[idx - 1]);
+        } else if (role === "down" && idx < rows.length - 1) {
+          listEl.insertBefore(row, rows[idx + 1].nextSibling);
+        }
+        renderScript();
+      });
+
+      window.addEventListener("DOMContentLoaded", () => {
+        const defaults = [
+          { type: "goto", values: { url: "https://example.com" } },
+          { type: "wait", values: { ms: "1500" } },
+          { type: "assert", values: { text: "Example Domain" } },
+          { type: "screenshot", values: { name: "example.png" } },
+        ];
+        defaults.forEach((d) => addActionRow(d));
+      });
+    </script>
+  </body>
+</html>
