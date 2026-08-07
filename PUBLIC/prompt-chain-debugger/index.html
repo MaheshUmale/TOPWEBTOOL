@@ -42,6 +42,27 @@
   }
 }
   </script>
+  
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://topwebtool.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Prompt Chain Debugger &amp;amp; Variable Injector",
+      "item": "https://topwebtool.com/prompt-chain-debugger/"
+    }
+  ]
+}
+  </script>
   <link rel="stylesheet" href="../styles.css">
   <link rel="stylesheet" href="../global.css">
 </head>
@@ -230,7 +251,10 @@ depends(step) = set of keys referenced by that step</pre>
       </div>
 
       <!-- Sidebar -->
-      <div class="lg:col-span-1 space-y-6">
+      
+
+
+        <div class="lg:col-span-1 space-y-6">
 
         <div id="trending-sidebar"></div>
 <!-- Reserved Square Ad Slot (CLS-safe) -->

@@ -70,14 +70,35 @@
   }
 }
   </script>
+  
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://topwebtool.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Advanced Mortgage Calculator",
+      "item": "https://topwebtool.com/mortgage-calculator/"
+    }
+  ]
+}
+  </script>
   <link rel="stylesheet" href="../styles.css">
-  <link rel="stylesheet" href="../global.css">
+  <link rel="stylesheet" href="./global.css">
 </head>
 <body class="bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 min-h-screen flex flex-col">
 
   <header id="global-header"></header>
 
-  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex-grow">
+  <main class="tool-page-main max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex-grow">
 <!-- Reserved Leaderboard Ad Slot (CLS-safe) -->
     <div id="ad-slot-a" class="w-full mx-auto mb-6 p-3 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center select-none overflow-hidden min-h-[90px]" style="max-width:728px; min-height:90px; max-height:135px;">
       <span class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-1.5">Advertisement</span>
@@ -554,7 +575,7 @@
         <!-- Informative Articles & Guides Section -->
         <div class="bg-white dark:bg-slate-900 p-6 sm:p-8 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm space-y-4 mt-6">
           <h2 class="text-xl font-bold text-slate-900 dark:text-white border-b border-slate-100 dark:border-slate-800 pb-3">Informative Guides & Helper Articles</h2>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="articles-guides-grid">
             <a href="./how-to-calculate-mortgage.html" class="block p-4 rounded-xl border border-slate-100 dark:border-slate-800 hover:border-brand-500 dark:hover:border-brand-500 hover:bg-slate-50/50 dark:hover:bg-slate-950/30 transition-all group">
               <h3 class="text-sm font-bold text-slate-800 dark:text-slate-200 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">Manual Mortgage Calculation Guide</h3>
               <p class="text-xs text-slate-400 dark:text-slate-500 mt-1">Learn how to calculate mortgage payments manually using standard financial formulas.</p>
@@ -644,12 +665,15 @@
 </div>
 
       <!-- Column 4: Sidebar with Sticky Programmatic Ad + Sidebar Discovery Panel (Trending Utilities) -->
-      <div class="lg:col-span-1 space-y-6">
+      
+
+
+        <div class="lg:col-span-1 space-y-6">
 
         <div id="trending-sidebar"></div>
 <!-- Reserved Square Ad Slot (CLS-safe) -->
         <div id="ad-slot-square" class="w-full p-4 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center mt-4 select-none min-h-[250px] overflow-hidden" style="min-height:250px;">
-          <span class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-2">Sponsored</span>
+          <span class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-2">Advertisement</span>
           <div class="w-full flex justify-center" style="height:250px; max-height:250px; overflow:hidden;">
             <!-- SquareAds -->
             <ins class="adsbygoogle" style="display:block; width:100%; min-height:250px; max-height:250px;" data-ad-client="ca-pub-3901061173891576" data-ad-slot="6707430996" data-ad-format="rectangle" data-full-width-responsive="false"></ins>

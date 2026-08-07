@@ -42,6 +42,27 @@
   }
 }
   </script>
+  
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://topwebtool.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "RAG Vector Chunking Simulator",
+      "item": "https://topwebtool.com/rag-chunking-simulator/"
+    }
+  ]
+}
+  </script>
   <link rel="stylesheet" href="../styles.css">
   <link rel="stylesheet" href="../global.css">
 </head>
@@ -275,7 +296,10 @@ semantic        = paragraphs, capped at chunk_size, split on sentences</pre>
       </div>
 
       <!-- Sidebar -->
-      <div class="lg:col-span-1 space-y-6">
+      
+
+
+        <div class="lg:col-span-1 space-y-6">
 
         <div id="trending-sidebar"></div>
 <!-- Reserved Square Ad Slot (CLS-safe) -->

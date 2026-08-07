@@ -43,8 +43,29 @@
   }
 }
   </script>
+  
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://topwebtool.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Eval Matrix Engine for AI Outputs",
+      "item": "https://topwebtool.com/agent-eval-engine/"
+    }
+  ]
+}
+  </script>
   <link rel="stylesheet" href="../styles.css">
-  <link rel="stylesheet" href="../global.css">
+  <link rel="stylesheet" href="./global.css">
 </head>
 <body class="bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 min-h-screen flex flex-col">
 
@@ -204,12 +225,48 @@
       </div>
 
       <!-- Sidebar -->
+      
+
+
+        <!-- Informative Articles & Guides Section -->
+        <div class="bg-white dark:bg-slate-900 p-6 sm:p-8 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm space-y-4 mt-6">
+          <h2 class="text-xl font-bold text-slate-900 dark:text-white border-b border-slate-100 dark:border-slate-800 pb-3">Informative Guides &amp; Helper Articles</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <a href="./agent-eval-engine-best-practices.html" class="block p-4 rounded-xl border border-slate-100 dark:border-slate-800 hover:border-brand-500 dark:hover:border-brand-500 hover:bg-slate-50/50 dark:hover:bg-slate-950/30 transition-all group">
+              <h3 class="text-sm font-bold text-slate-800 dark:text-slate-200 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">Best Practices for Eval Matrix Engine</h3>
+              <p class="text-xs text-slate-400 dark:text-slate-500 mt-1">Build trustworthy golden datasets, normalize text before scoring, and combine metrics the right way for reliable AI output evaluation.</p>
+              <span class="text-xs font-semibold text-brand-600 dark:text-brand-400 mt-3 inline-block group-hover:translate-x-1 transition-transform">Read Article &rarr;</span>
+            </a>
+            <a href="./agent-eval-engine-common-errors.html" class="block p-4 rounded-xl border border-slate-100 dark:border-slate-800 hover:border-brand-500 dark:hover:border-brand-500 hover:bg-slate-50/50 dark:hover:bg-slate-950/30 transition-all group">
+              <h3 class="text-sm font-bold text-slate-800 dark:text-slate-200 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">Common Errors in Eval Matrix Engine</h3>
+              <p class="text-xs text-slate-400 dark:text-slate-500 mt-1">Empty inputs, stopword-polluted keywords, and BLEU on short strings are the traps that silently corrupt your AI evaluation scores.</p>
+              <span class="text-xs font-semibold text-brand-600 dark:text-brand-400 mt-3 inline-block group-hover:translate-x-1 transition-transform">Read Article &rarr;</span>
+            </a>
+            <a href="./agent-eval-engine-future-trends.html" class="block p-4 rounded-xl border border-slate-100 dark:border-slate-800 hover:border-brand-500 dark:hover:border-brand-500 hover:bg-slate-50/50 dark:hover:bg-slate-950/30 transition-all group">
+              <h3 class="text-sm font-bold text-slate-800 dark:text-slate-200 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">Future Trends in Eval Matrix Engine</h3>
+              <p class="text-xs text-slate-400 dark:text-slate-500 mt-1">LLM-as-judge rubrics, embedding-based semantic similarity, and agentic evaluations are reshaping how AI outputs get scored.</p>
+              <span class="text-xs font-semibold text-brand-600 dark:text-brand-400 mt-3 inline-block group-hover:translate-x-1 transition-transform">Read Article &rarr;</span>
+            </a>
+            <a href="./agent-eval-engine-guide.html" class="block p-4 rounded-xl border border-slate-100 dark:border-slate-800 hover:border-brand-500 dark:hover:border-brand-500 hover:bg-slate-50/50 dark:hover:bg-slate-950/30 transition-all group">
+              <h3 class="text-sm font-bold text-slate-800 dark:text-slate-200 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">Ultimate Guide to Eval Matrix Engine</h3>
+              <p class="text-xs text-slate-400 dark:text-slate-500 mt-1">Learn how Levenshtein distance, BLEU-1/2 precision, and keyword overlap work together to score AI text against a gold reference.</p>
+              <span class="text-xs font-semibold text-brand-600 dark:text-brand-400 mt-3 inline-block group-hover:translate-x-1 transition-transform">Read Article &rarr;</span>
+            </a>
+            <a href="./agent-eval-engine-optimization-tips.html" class="block p-4 rounded-xl border border-slate-100 dark:border-slate-800 hover:border-brand-500 dark:hover:border-brand-500 hover:bg-slate-50/50 dark:hover:bg-slate-950/30 transition-all group">
+              <h3 class="text-sm font-bold text-slate-800 dark:text-slate-200 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">Eval Matrix Engine Optimization Tips</h3>
+              <p class="text-xs text-slate-400 dark:text-slate-500 mt-1">Optimize AI evaluation pipelines: two-row Levenshtein DP, clipped n-gram counts, weighted metric mixes, and drift monitoring that stays fast.</p>
+              <span class="text-xs font-semibold text-brand-600 dark:text-brand-400 mt-3 inline-block group-hover:translate-x-1 transition-transform">Read Article &rarr;</span>
+            </a>
+          </div>
+        </div>
+        <!-- Informative Articles End -->
+
       <div class="lg:col-span-1 space-y-6">
 
         <div id="trending-sidebar"></div>
 <!-- Reserved Square Ad Slot (CLS-safe) -->
         <div id="ad-slot-square" class="w-full p-4 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center mt-4 select-none min-h-[250px] overflow-hidden" style="min-height:250px;">
-          <span class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-2">Sponsored</span>
+          <span class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-2">Advertisement</span>
           <div class="w-full flex justify-center" style="height:250px; max-height:250px; overflow:hidden;">
             <!-- SquareAds -->
             <ins class="adsbygoogle" style="display:block; width:100%; min-height:250px; max-height:250px;" data-ad-client="ca-pub-3901061173891576" data-ad-slot="6707430996" data-ad-format="rectangle" data-full-width-responsive="false"></ins>

@@ -644,11 +644,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // the caps (inline !important) after every SDK style write.
   (function enforceAdSizeCaps() {
     const caps = {
-      'ad-slot-a': ['max-height:138px', 'overflow:hidden'],
-      'ad-slot-b': ['max-height:138px', 'overflow:hidden'],
-      'ad-slot-square': ['max-height:308px', 'overflow:hidden'],
-      'ad-slot-vertical': ['max-height:660px', 'overflow:hidden'],
-      'sticky-footer-ad': ['height:85px', 'max-height:85px', 'overflow:hidden']
+      'ad-slot-a': ['max-height:138px', 'overflow:hidden']
     };
     const apply = () => {
       for (const [id, decls] of Object.entries(caps)) {
@@ -669,7 +665,7 @@ document.addEventListener('DOMContentLoaded', () => {
     apply();
   })();
 
-  // Inject Dynamic AdSense Placements (AD A, AD B, AD C)
+  // Inject Dynamic AdSense Placements (AD A)
   renderAdPlacements();
 });
 
@@ -810,7 +806,7 @@ function renderHeader() {
                     <span>${shortName}</span>
                     <svg class="w-3.5 h-3.5 opacity-60 transition-transform duration-200 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
                   </button>
-                  <div class="absolute left-0 md:left-auto md:right-0 mt-1.5 w-64 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl shadow-lg dropdown-menu hidden z-[9999] p-2 space-y-1 max-h-[70vh] overflow-y-auto">
+                  <div class="absolute left-0 md:left-auto md:right-0 w-64 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl shadow-lg dropdown-menu hidden z-[9999] p-2 space-y-1 max-h-[70vh] overflow-y-auto">
                     ${tools.map(tool => `
                       <a href="${prefix}${tool.path.replace(/^\//, '')}" class="flex items-center space-x-2.5 px-3 py-2 text-xs font-semibold rounded-lg text-slate-800 dark:text-slate-200 hover:bg-indigo-50 dark:hover:bg-slate-800 hover:text-indigo-600 dark:hover:text-indigo-400 focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:outline-none transition-colors">
                         <span class="text-sm shrink-0" aria-hidden="true">${tool.icon}</span>
@@ -1091,114 +1087,7 @@ function renderAdPlacements() {
   } catch (e) {
     console.error("AdSense push error (Unit A):", e);
   }
-
-  // ===== UNIT B: MID-PAGE SEPARATOR BANNER =====
-  // Insert between interactive tool frame and SEO article text
-  let adB = document.getElementById('ad-slot-b');
-  if (!adB) {
-    adB = document.createElement('div');
-    adB.id = 'ad-slot-b';
-    adB.className = "ads-separator ads-safety-wrap";
-    adB.innerHTML = `
-      <span class="ads-label">Advertisement</span>
-      <div class="w-full flex justify-center" style="height:90px; max-height:90px; overflow:hidden;">
-        <ins class="adsbygoogle"
-             style="display:block; width:100%; height:90px; max-height:90px;"
-             data-ad-client="ca-pub-3901061173891576"
-             data-ad-slot="2894630336"
-             data-ad-format="horizontal"
-             data-full-width-responsive="false"></ins>
-      </div>
-    `;
-
-    // Try to insert after the primary tool container (form/calculator) and before article
-    const article = main.querySelector('article');
-    const toolForm = main.querySelector('form[onsubmit="return false;"]');
-    if (article && toolForm) {
-      toolForm.parentNode.insertBefore(adB, article);
-    } else if (toolForm) {
-      toolForm.parentNode.insertBefore(adB, toolForm.nextSibling);
-    } else {
-      main.insertBefore(adB, main.children[1] || null);
-    }
-  }
-
-  try {
-    (window.adsbygoogle = window.adsbygoogle || []).push({});
-  } catch (e) {
-    console.error("AdSense push error (Unit B):", e);
-  }
-
-  // ===== UNIT C: SIDEBAR VERTICAL DISPLAY RAIL =====
-  const sidebar = document.getElementById('trending-sidebar');
-  if (sidebar) {
-    let verticalAd = document.getElementById('ad-slot-vertical');
-    if (!verticalAd) {
-      verticalAd = document.createElement('div');
-      verticalAd.id = 'ad-slot-vertical';
-      verticalAd.className = "ads-sidebar ads-sidebar-skyscraper ads-safety-wrap hidden lg:flex";
-      verticalAd.innerHTML = `
-        <span class="ads-label">Advertisement</span>
-        <div class="w-full flex justify-center" style="height:600px; max-height:600px; overflow:hidden;">
-          <ins class="adsbygoogle"
-               style="display:block; width:100%; height:600px; max-height:600px;"
-               data-ad-client="ca-pub-3901061173891576"
-               data-ad-slot="1581548667"
-               data-ad-format="auto"
-               data-full-width-responsive="true"></ins>
-        </div>
-      `;
-      sidebar.parentNode.insertBefore(verticalAd, sidebar.nextSibling);
-    }
-
-    try {
-      (window.adsbygoogle = window.adsbygoogle || []).push({});
-    } catch (e) {
-      console.error("AdSense push error (Unit C):", e);
-    }
-  }
-
-  // ===== STICKY FOOTER AD (Optional extra unit) =====
-  if (!document.getElementById('sticky-footer-ad')) {
-    const stickyFooter = document.createElement('div');
-    stickyFooter.id = "sticky-footer-ad";
-    stickyFooter.className = "fixed bottom-0 left-0 w-full z-50 bg-white/95 dark:bg-slate-900/95 backdrop-blur border-t border-slate-200/80 dark:border-slate-800 shadow-lg flex flex-col items-center justify-center py-2 select-none overflow-hidden min-h-[50px]";
-    stickyFooter.style.maxHeight = "95px";
-
-    stickyFooter.innerHTML = `
-      <button onclick="closeStickyFooter()" class="absolute -top-3.5 right-4 w-7 h-7 bg-white dark:bg-slate-800 border border-slate-200/85 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-full shadow-md flex items-center justify-center text-slate-500 dark:text-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-colors cursor-pointer" title="Dismiss advertisement">
-        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"></path>
-        </svg>
-      </button>
-      <span class="text-[8px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-1">Advertisement</span>
-      <div class="w-full max-w-[320px] sm:max-w-[728px] px-4 flex justify-center" style="height:50px; max-height:50px; overflow:hidden;">
-        <ins class="adsbygoogle"
-             style="display:inline-block; width:100%; height:50px; max-height:50px;"
-             data-ad-client="ca-pub-3901061173891576"
-             data-ad-slot="2894630336"
-             data-ad-format="horizontal"
-             data-full-width-responsive="false"></ins>
-      </div>
-    `;
-
-    document.body.appendChild(stickyFooter);
-
-    try {
-      (window.adsbygoogle = window.adsbygoogle || []).push({});
-    } catch (e) {
-      console.error("AdSense push error (Sticky Footer):", e);
-    }
-  }
 }
-
-// Global dismiss action for the sticky footer
-window.closeStickyFooter = function() {
-  const el = document.getElementById('sticky-footer-ad');
-  if (el) {
-    el.style.display = 'none';
-  }
-};
 
 // Dynamic WebMCP Agent-Ready Layer for all 23 Utilities
 document.addEventListener("DOMContentLoaded", () => {
