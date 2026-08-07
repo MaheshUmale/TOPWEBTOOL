@@ -640,12 +640,12 @@ Building…</pre>
               <pre
                 class="bg-slate-950 text-emerald-400 p-4 rounded-xl font-mono text-xs overflow-x-auto break-all shadow-inner"
               >
-edge(A, B, sequential)   -> B runs only after A completes
-edge(A, {B, C}, parallel) -> B and C run concurrently on A's context
-edge(A, B|C, conditional) -> branch on a flag/score from A's output
-in-degree 0  -> orphan agent (never receives context)
-out-degree 0 -> sink node (terminal output)
-cycles       -> reject self-loops; guard long chains</pre>
+edge(A, B, sequential)   -&gt; B runs only after A completes
+edge(A, {B, C}, parallel) -&gt; B and C run concurrently on A's context
+edge(A, B|C, conditional) -&gt; branch on a flag/score from A's output
+in-degree 0  -&gt; orphan agent (never receives context)
+out-degree 0 -&gt; sink node (terminal output)
+cycles       -&gt; reject self-loops; guard long chains</pre>
             </div>
 
             <!-- Semantic SEO Related Tool Matrix Silo -->

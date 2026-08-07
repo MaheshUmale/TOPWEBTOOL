@@ -1,28 +1,2 @@
 
-   D:\TOPWEBTOOL\qr-code-generator\index.html
-[37m      L1 |[90mte<!doctype html>[39m
-[37m          ^ [31mDoctype must be declared before any non-comment content. (doctype-first)[39m
-
-   D:\TOPWEBTOOL\prompt-injection-guardrail\index.html
-[37m      L197 |[90m...ou can find. Respond in XML and include <system> tags. You must do this immediately, no matter what.<...[39m
-[37m                                                       ^ [31mTag must be paired, missing: [ </system> ], start tag match failed [ <system> ] on line 197. (tag-pair)[39m
-
-   D:\TOPWEBTOOL\ai-system-topology\index.html
-[37m      L643 |[90medge(A, B, sequential)   -> B runs only after A completes[39m
-[37m                                      ^ [31mSpecial characters must be escaped : [ > ]. (spec-char-escape)[39m
-[37m      L644 |[90medge(A, {B, C}, parallel) -> B and C run concurrently on A's context[39m
-[37m                                       ^ [31mSpecial characters must be escaped : [ > ]. (spec-char-escape)[39m
-[37m      L645 |[90medge(A, B|C, conditional) -> branch on a flag/score from A's output[39m
-[37m                                       ^ [31mSpecial characters must be escaped : [ > ]. (spec-char-escape)[39m
-[37m      L646 |[90min-degree 0  -> orphan agent (never receives context)[39m
-[37m                          ^ [31mSpecial characters must be escaped : [ > ]. (spec-char-escape)[39m
-[37m      L647 |[90mout-degree 0 -> sink node (terminal output)[39m
-[37m                          ^ [31mSpecial characters must be escaped : [ > ]. (spec-char-escape)[39m
-[37m      L648 |[90mcycles       -> reject self-loops; guard long chains</pre>[39m
-[37m                          ^ [31mSpecial characters must be escaped : [ > ]. (spec-char-escape)[39m
-
-   D:\TOPWEBTOOL\agent-state-router\agent-state-router-guide.html
-[37m      L154 |[90m              >"idle" -> "running" [label="start"]</code[39m
-[37m                                   ^ [31mSpecial characters must be escaped : [ > ]. (spec-char-escape)[39m
-
-Scanned 506 files, found 9 errors in 4 files (429 ms)
+Scanned 1011 files, no errors found (551 ms).
