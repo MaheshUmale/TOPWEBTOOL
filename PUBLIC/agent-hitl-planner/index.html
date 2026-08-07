@@ -1,13 +1,889 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head> <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering --> <script> (function() { try { const theme = localStorage.getItem('theme'); if (theme === 'dark') { document.documentElement.classList.add('dark'); document.documentElement.classList.remove('light'); } else { document.documentElement.classList.remove('dark'); document.documentElement.classList.add('light'); } } catch (e) {} })(); </script> <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin> <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"> <meta charset="UTF-8"> <meta name="google-adsense-account" content="ca-pub-3901061173891576"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Human-in-the-Loop HITL Planner for AI Agents | TopWebTool</title> <meta name="description" content="Design human-in-the-loop approval gates: pick agent steps, set approve/reject/edit types, timeouts and fallbacks, and export an interception plan with a flowchart."> <link rel="canonical" href="https://topwebtool.com/agent-hitl-planner/"> <style>html{background-color:#fff}html.dark{background-color:#0f172a}body{padding-bottom:6rem}main.flex-grow{min-height:60vh}#global-header{min-height:65px}#global-footer{min-height:85px}#trending-sidebar{min-height:700px}@media (max-width:767px){#global-header{min-height:200px}#global-footer{min-height:120px}}.category-section{content-visibility:auto;contain-intrinsic-size:auto 500px}.tool-card{contain:layout style paint}img[width][height]{aspect-ratio:attr(width)/attr(height)}</style> <script type="application/ld+json">
-{ "@context": "https://schema.org", "@type": "WebApplication", "name": "Human-in-the-Loop HITL Planner for AI Agents | TopWebTool", "url": "https://topwebtool.com/agent-hitl-planner/", "applicationCategory": "DeveloperApplication", "operatingSystem": "Windows, macOS, Linux, Android, iOS", "browserRequirements": "Requires HTML5 compatible web browser", "description": "Design human-in-the-loop approval gates: pick agent steps, set approve/reject/edit types, timeouts and fallbacks, and export an interception plan with a flowchart.", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
-} </script> <script type="application/ld+json">
-{ "@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [ { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://topwebtool.com/" }, { "@type": "ListItem", "position": 2, "name": "Human-in-the-Loop (HITL) Planner", "item": "https://topwebtool.com/agent-hitl-planner/" } ]
-} </script> <link rel="stylesheet" href="../styles.css"> <link rel="stylesheet" href="../global.css">
-</head>
-<body class="bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 min-h-screen flex flex-col"> <header id="global-header"></header> <main class="tool-page-main max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex-grow">
-<!-- Reserved Leaderboard Ad Slot (CLS-safe) --> <div id="ad-slot-a" class="w-full mx-auto mb-6 p-3 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center select-none overflow-hidden min-h-[90px]" style="max-width:728px; min-height:90px; max-height:135px;"> <span class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-1.5">Advertisement</span> <div class="w-full flex justify-center" style="height:90px; max-height:90px; overflow:hidden;"> <!-- HzAds --> <ins class="adsbygoogle" style="display:inline-block; width:100%; height:90px; max-height:90px;" data-ad-client="ca-pub-3901061173891576" data-ad-slot="2894630336" data-ad-format="horizontal" data-full-width-responsive="false"></ins> </div> </div> <!-- 2-Column Grid --> <div class="grid grid-cols-1 lg:grid-cols-4 gap-4"> <!-- Main Content --> <div class="lg:col-span-3 space-y-8"> <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm"> <h1 class="text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight sm:text-4xl">Human-in-the-Loop (HITL) Planner</h1> <p class="mt-2 text-base text-slate-500 dark:text-slate-400"> Map your agent's steps, choose which ones need human approval, and export an interception plan with a textual flowchart. </p> </div> <!-- Tool UI --> <form tool-name="agent-hitl-planner" tool-description="Design human-in-the-loop interception points: list agent steps, mark which require approval, set approve/reject/edit gates, timeouts and fallback behavior, then generate an interception plan table, a textual flowchart and a copyable plan summary." class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm p-6 sm:p-8 space-y-6"> <h2 class="text-lg font-bold text-slate-900 dark:text-white border-b border-slate-100 dark:border-slate-800 pb-3">Interception Point Designer</h2> <div> <label for="inp-agent-name" class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">Agent / Workflow Name</label> <input type="text" id="inp-agent-name" value="Support Automation Agent" class="block w-full px-3 py-2.5 border border-slate-300 dark:border-slate-700 rounded-lg bg-white dark:bg-slate-950 text-slate-950 dark:text-slate-100 text-sm font-semibold" aria-label="Name of the agent or workflow being planned"> </div> <div> <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-3"> <h3 class="text-sm font-bold text-slate-700 dark:text-slate-300">Agent Steps</h3> <button type="button" id="btn-add-step" class="px-4 py-2.5 bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs rounded-lg shadow-sm transition-colors" style="min-height:44px;">+ Add Step</button> </div> <div id="steps-container" class="space-y-3"></div> </div> <div class="flex flex-wrap gap-3 pt-1"> <button type="submit" class="px-5 py-3 bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm rounded-lg shadow-sm transition-colors" style="min-height:48px;">Generate Interception Plan</button> <button type="button" id="btn-reset" class="px-5 py-3 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 font-bold text-sm rounded-lg shadow-sm transition-colors hover:bg-slate-200 dark:hover:bg-slate-700" style="min-height:48px;">Reset Example Plan</button> </div> </form> <!-- Results --> <div class="bg-white dark:bg-slate-900 p-6 sm:p-8 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm space-y-4"> <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 border-b border-slate-100 dark:border-slate-800 pb-2"> <h2 class="text-lg font-bold text-slate-900 dark:text-white">Interception Plan</h2> <span id="plan-summary" class="text-xs font-bold text-slate-500 dark:text-slate-400"></span> </div> <div class="overflow-x-auto"> <table class="table w-full text-xs"> <thead> <tr class="text-left text-slate-500 dark:text-slate-400 uppercase tracking-wide"> <th class="py-2 pr-2 font-bold">Step</th> <th class="py-2 pr-2 font-bold">Step Name</th> <th class="py-2 pr-2 font-bold">Human Approval</th> <th class="py-2 pr-2 font-bold">Approval Type</th> <th class="py-2 pr-2 font-bold">Timeout</th> <th class="py-2 pl-2 font-bold">Fallback</th> </tr> </thead> <tbody id="plan-body" class="text-slate-700 dark:text-slate-200"></tbody> </table> </div> <div> <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2"> <h3 class="text-sm font-bold text-slate-700 dark:text-slate-300">Textual Flowchart</h3> <button type="button" id="btn-copy" class="px-4 py-2.5 bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs rounded-lg shadow-sm transition-colors" style="min-height:44px;"> <span>Copy Plan Summary</span> </button> </div> <pre id="flowchart" class="mt-2 bg-slate-950 text-emerald-400 p-4 rounded-xl font-mono text-xs overflow-x-auto break-all shadow-inner">Generate the plan to see the step &rarr; approval gate &rarr; continue/fallback flowchart.</pre> </div> </div> <!-- Informative Articles & Guides Section --> <div class="bg-white dark:bg-slate-900 p-6 sm:p-8 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm space-y-4 mt-6"> <h2 class="text-xl font-bold text-slate-900 dark:text-white border-b border-slate-100 dark:border-slate-800 pb-3">Informative Guides & Helper Articles</h2> <div class="grid grid-cols-1 gap-4"> <a href="./agent-hitl-planner-guide.html" class="block p-4 rounded-xl border border-slate-100 dark:border-slate-800 hover:border-brand-500 dark:hover:border-brand-500 hover:bg-slate-50/50 dark:hover:bg-slate-950/30 transition-all group"> <h3 class="text-sm font-bold text-slate-800 dark:text-slate-200 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">Ultimate Guide to HITL Planner for AI Agents</h3> <p class="text-xs text-slate-400 dark:text-slate-500 mt-1">How approval gates, timeouts, and fallbacks protect high-stakes agent actions in automated workflows.</p> <span class="text-xs font-semibold text-brand-600 dark:text-brand-400 mt-3 inline-block group-hover:translate-x-1 transition-transform">Read Article &rarr;</span> </a> <a href="./agent-hitl-planner-best-practices.html" class="block p-4 rounded-xl border border-slate-100 dark:border-slate-800 hover:border-brand-500 dark:hover:border-brand-500 hover:bg-slate-50/50 dark:hover:bg-slate-950/30 transition-all group"> <h3 class="text-sm font-bold text-slate-800 dark:text-slate-200 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">Best Practices for HITL Planner</h3> <p class="text-xs text-slate-400 dark:text-slate-500 mt-1">Gate only high-stakes actions, right-size timeouts, design fallbacks, and log every human decision.</p> <span class="text-xs font-semibold text-brand-600 dark:text-brand-400 mt-3 inline-block group-hover:translate-x-1 transition-transform">Read Article &rarr;</span> </a> <a href="./agent-hitl-planner-common-errors.html" class="block p-4 rounded-xl border border-slate-100 dark:border-slate-800 hover:border-brand-500 dark:hover:border-brand-500 hover:bg-slate-50/50 dark:hover:bg-slate-950/30 transition-all group"> <h3 class="text-sm font-bold text-slate-800 dark:text-slate-200 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">Common Errors in HITL Planner</h3> <p class="text-xs text-slate-400 dark:text-slate-500 mt-1">Timeouts that stall runs, gates on non-critical steps, and missing fallbacks break the human-in-the-loop design.</p> <span class="text-xs font-semibold text-brand-600 dark:text-brand-400 mt-3 inline-block group-hover:translate-x-1 transition-transform">Read Article &rarr;</span> </a> <a href="./agent-hitl-planner-optimization-tips.html" class="block p-4 rounded-xl border border-slate-100 dark:border-slate-800 hover:border-brand-500 dark:hover:border-brand-500 hover:bg-slate-50/50 dark:hover:bg-slate-950/30 transition-all group"> <h3 class="text-sm font-bold text-slate-800 dark:text-slate-200 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">Top Optimization Tips for HITL Planner</h3> <p class="text-xs text-slate-400 dark:text-slate-500 mt-1">Cut approval friction, batch decisions, and use escalation matrices so gates protect without blocking throughput.</p> <span class="text-xs font-semibold text-brand-600 dark:text-brand-400 mt-3 inline-block group-hover:translate-x-1 transition-transform">Read Article &rarr;</span> </a> <a href="./agent-hitl-planner-future-trends.html" class="block p-4 rounded-xl border border-slate-100 dark:border-slate-800 hover:border-brand-500 dark:hover:border-brand-500 hover:bg-slate-50/50 dark:hover:bg-slate-950/30 transition-all group"> <h3 class="text-sm font-bold text-slate-800 dark:text-slate-200 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">Future Trends in HITL Planner</h3> <p class="text-xs text-slate-400 dark:text-slate-500 mt-1">Autonomy levels, consent-based automation, and AI-act-driven governance are reshaping human oversight of agents.</p> <span class="text-xs font-semibold text-brand-600 dark:text-brand-400 mt-3 inline-block group-hover:translate-x-1 transition-transform">Read Article &rarr;</span> </a> </div> </div> <!-- Semantic SEO Instructional Hub --> <section id="seo-instructional-hub" class="mt-8 p-6 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-lg shadow-sm space-y-6"> <div class="border-b border-slate-200 dark:border-slate-800"> <h2 class="text-2xl font-extrabold text-slate-900 dark:text-white tracking-tight">Professional Insights & Guide</h2> <p class="text-sm text-slate-600 dark:text-slate-300 mt-1">Learn how HITL interception points are designed, how gates and fallbacks combine, and where the pattern breaks.</p> </div> <div class="grid grid-cols-1 gap-6 text-sm"> <div> <h3 class="font-bold text-slate-900 dark:text-white mb-2">Core Use Case scenario</h3> <p class="text-slate-600 dark:text-slate-300 leading-relaxed">Automation teams design agent workflows where most steps run autonomously but a few high-stakes actions pause for a human. Each step either passes through without intervention or stops at an approval gate where a person approves, rejects, or edits the proposed action. If nobody responds within the timeout, a fallback behaviour keeps the system safe: the run aborts, retries, skips the step, or continues with a note. The planner makes those decisions explicit before the workflow is built.</p> </div> <div> <h3 class="font-bold text-slate-900 dark:text-white mb-2">How the Plan Is Constructed</h3> <ul class="list-disc pl-5 space-y-2 text-slate-600 dark:text-slate-300 leading-relaxed"> <li>Each step has a name and a requires-approval flag; unchecked steps simply continue to the next one.</li> <li>Approval types: Approve/Reject, Edit &amp; Approve, or Assign Reviewer for a second opinion.</li> <li>Timeout in minutes defines how long a gate waits before the fallback fires.</li> <li>Fallback behaviors: abort the run, continue, skip to the next step, or retry the step.</li> <li>The flowchart renders step &rarr; approval gate &rarr; continue/fallback for every step.</li> </ul> </div> </div> <div class="pt-4 border-t border-slate-200 dark:border-slate-800"> <h3 class="font-bold text-slate-900 dark:text-white mb-2">Troubleshooting & Edge-Case Failure Points</h3> <ul class="list-disc pl-5 space-y-2 text-slate-600 dark:text-slate-300 leading-relaxed"> <li>Empty step names: the plan refuses to generate and flags the offending row with an inline error.</li> <li>Zero timeouts: a gate with a 0-minute timeout fires immediately, which is rarely what was intended.</li> <li>No fallback: without one, a rejected or timed-out gate leaves the workflow undefined and the run can hang.</li> <li>Over-gating: flagging every step for approval removes the benefit of automation and stalls throughput.</li> <li>Destructive actions: steps like refunds, deletes, or external sends should default to abort on timeout.</li> </ul> </div> <div class="pt-4 border-t border-slate-200 dark:border-slate-800"> <h3 class="font-bold text-slate-900 dark:text-white mb-2">Detailed Step-by-Step Instructions</h3> <ol class="list-decimal pl-5 space-y-2 text-slate-600 dark:text-slate-300 leading-relaxed"> <li>Name your agent or workflow in the top field, then review the example steps already loaded.</li> <li>Edit each step's name, and tick Requires approval only for steps that genuinely need a human.</li> <li>For gated steps, choose the approval type, a realistic timeout, and the fallback behaviour.</li> <li>Press + Add Step to insert more steps or Remove on a row to delete it.</li> <li>Press Generate Interception Plan to rebuild the table and the textual flowchart.</li> <li>Press Copy Plan Summary to paste the plan into a design doc, ticket, or PR description.</li> </ol> </div> <!-- Semantic SEO Related Tool Matrix Silo --> <div class="mt-6 pt-6 border-t border-slate-200 dark:border-slate-800"> <h3 class="text-sm font-bold text-slate-900 dark:text-white mb-3 uppercase tracking-wider">Related Web Utilities (Silo Hub)</h3> <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2"> <a href="../agent-eval-engine/" class="text-xs font-semibold text-brand-600 hover:text-brand-800 dark:text-brand-400 dark:hover:text-brand-300 transition-colors bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 px-3 py-2 rounded-lg text-center block">Eval Matrix Engine</a> <a href="../openapi-tool-converter/" class="text-xs font-semibold text-brand-600 hover:text-brand-800 dark:text-brand-400 dark:hover:text-brand-300 transition-colors bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 px-3 py-2 rounded-lg text-center block">OpenAPI Tool Converter</a> <a href="../agent-memory-matrix/" class="text-xs font-semibold text-brand-600 hover:text-brand-800 dark:text-brand-400 dark:hover:text-brand-300 transition-colors bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 px-3 py-2 rounded-lg text-center block">Agent Memory Token Matrix</a> <a href="../chatgpt-prompt-optimizer/" class="text-xs font-semibold text-brand-600 hover:text-brand-800 dark:text-brand-400 dark:hover:text-brand-300 transition-colors bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 px-3 py-2 rounded-lg text-center block">ChatGPT Prompt Optimizer</a> <a href="../midjourney-command-builder/" class="text-xs font-semibold text-brand-600 hover:text-brand-800 dark:text-brand-400 dark:hover:text-brand-300 transition-colors bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 px-3 py-2 rounded-lg text-center block">Midjourney Builder</a> <a href="../json-formatter-validator/" class="text-xs font-semibold text-brand-600 hover:text-brand-800 dark:text-brand-400 dark:hover:text-brand-300 transition-colors bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 px-3 py-2 rounded-lg text-center block">JSON Formatter & Validator</a> </div> </div> </section> </div> <!-- Sidebar --> <div class="lg:col-span-1 space-y-6"> <div id="trending-sidebar"></div>
-<!-- Reserved Square Ad Slot (CLS-safe) --> <div id="ad-slot-square" class="w-full p-4 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center mt-4 select-none min-h-[250px] overflow-hidden" style="min-height:250px;"> <span class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-2">Advertisement</span> <div class="w-full flex justify-center" style="height:250px; max-height:250px; overflow:hidden;"> <!-- SquareAds --> <ins class="adsbygoogle" style="display:block; width:100%; min-height:250px; max-height:250px;" data-ad-client="ca-pub-3901061173891576" data-ad-slot="6707430996" data-ad-format="rectangle" data-full-width-responsive="false"></ins> </div> </div> <!-- Reserved Vertical Ad Slot (CLS-safe, desktop only) --> <div id="ad-slot-vertical" class="w-full p-4 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center mt-4 hidden lg:flex select-none min-h-[600px] overflow-hidden" style="min-height:600px;"> <span class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-2">Advertisement</span> <div class="w-full flex justify-center" style="height:600px; max-height:600px; overflow:hidden;"> <!-- verticalAds --> <ins class="adsbygoogle" style="display:block; width:100%; min-height:600px; max-height:600px;" data-ad-client="ca-pub-3901061173891576" data-ad-slot="1581548667" data-ad-format="auto" data-full-width-responsive="true"></ins> </div> </div> </div> </div> </main> <script> (function () { const TYPE_LABELS = { 'approve-reject': 'Approve / Reject', 'edit': 'Edit & Approve', 'reviewer': 'Assign Reviewer' }; const FALLBACK_LABELS = { 'abort': 'abort run', 'continue': 'continue', 'skip': 'skip to next step', 'retry': 'retry step' }; const form = document.querySelector('form[tool-name="agent-hitl-planner"]'); const inpAgent = document.getElementById('inp-agent-name'); const container = document.getElementById('steps-container'); const btnAdd = document.getElementById('btn-add-step'); const btnReset = document.getElementById('btn-reset'); const planSummary = document.getElementById('plan-summary'); const planBody = document.getElementById('plan-body'); const flowchart = document.getElementById('flowchart'); const btnCopy = document.getElementById('btn-copy'); let lastPlan = ''; function createRow(step) { const row = document.createElement('div'); row.className = 'step-row p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 space-y-3'; row.innerHTML = '<div class="flex flex-col sm:flex-row sm:items-center gap-3">' + '<input type="text" class="step-name flex-grow min-w-0 px-3 py-2.5 border border-slate-300 dark:border-slate-700 rounded-lg bg-white dark:bg-slate-950 text-slate-950 dark:text-slate-100 text-sm font-semibold" placeholder="Step name, e.g. Issue refund" aria-label="Step name">' + '<label class="flex items-center space-x-2 text-xs font-bold text-slate-700 dark:text-slate-300 shrink-0 cursor-pointer">' + '<input type="checkbox" class="step-approve w-4 h-4" aria-label="Requires human approval"><span>Requires approval</span>' + '</label>' + '<button type="button" class="step-remove px-3 py-2 bg-slate-100 dark:bg-slate-800 text-red-600 font-bold text-xs rounded-lg hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors shrink-0" aria-label="Remove step">Remove</button>' + '</div>' + '<div class="grid grid-cols-1 sm:grid-cols-2 gap-3">' + '<div><label class="block text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wide mb-1">Approval type</label>' + '<select class="step-type w-full px-3 py-2 border border-slate-300 dark:border-slate-700 rounded-lg bg-white dark:bg-slate-950 text-slate-950 dark:text-slate-100 text-xs font-semibold">' + '<option value="approve-reject">Approve / Reject</option>' + '<option value="edit">Edit & Approve</option>' + '<option value="reviewer">Assign Reviewer</option>' + '</select></div>' + '<div><label class="block text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wide mb-1">Timeout (minutes)</label>' + '<input type="number" class="step-timeout w-full px-3 py-2 border border-slate-300 dark:border-slate-700 rounded-lg bg-white dark:bg-slate-950 text-slate-950 dark:text-slate-100 text-xs font-semibold" value="30" min="0" aria-label="Approval timeout in minutes"></div>' + '<div><label class="block text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wide mb-1">Fallback on reject / timeout</label>' + '<select class="step-fallback w-full px-3 py-2 border border-slate-300 dark:border-slate-700 rounded-lg bg-white dark:bg-slate-950 text-slate-950 dark:text-slate-100 text-xs font-semibold">' + '<option value="abort">Abort run</option>' + '<option value="continue">Continue anyway</option>' + '<option value="skip">Skip to next step</option>' + '<option value="retry">Retry step</option>' + '</select></div>' + '</div>' + '<p class="step-error text-xs text-red-600 font-semibold hidden"></p>'; row.querySelector('.step-name').value = step.name; row.querySelector('.step-approve').checked = !!step.approve; row.querySelector('.step-type').value = step.type || 'approve-reject'; row.querySelector('.step-timeout').value = step.timeout != null ? step.timeout : 30; row.querySelector('.step-fallback').value = step.fallback || 'abort'; row.querySelector('.step-remove').addEventListener('click', () => row.remove()); return row; } function setDefaultSteps() { const defaults = [ { name: 'Classify inbound support ticket', approve: false, type: 'approve-reject', timeout: 15, fallback: 'continue' }, { name: 'Draft reply to customer email', approve: false, type: 'approve-reject', timeout: 15, fallback: 'continue' }, { name: 'Issue refund of $249.99', approve: true, type: 'approve-reject', timeout: 30, fallback: 'abort' }, { name: 'Send confirmation email', approve: false, type: 'approve-reject', timeout: 10, fallback: 'continue' }, { name: 'Escalate unresolved billing dispute', approve: true, type: 'edit', timeout: 60, fallback: 'continue' } ]; container.innerHTML = ''; defaults.forEach(d => container.appendChild(createRow(d))); } function collectSteps() { const rows = Array.from(container.querySelectorAll('.step-row')); const steps = []; let valid = true; rows.forEach((row, idx) => { const name = row.querySelector('.step-name').value.trim(); const errEl = row.querySelector('.step-error'); errEl.classList.add('hidden'); if (!name) { errEl.textContent = 'Step ' + (idx + 1) + ': give this step a name before generating the plan.'; errEl.classList.remove('hidden'); valid = false; return; } const timeout = parseFloat(row.querySelector('.step-timeout').value); if (isNaN(timeout) || timeout < 0) { errEl.textContent = 'Step ' + (idx + 1) + ': timeout must be a number of minutes of 0 or more.'; errEl.classList.remove('hidden'); valid = false; return; } steps.push({ name, approve: row.querySelector('.step-approve').checked, type: row.querySelector('.step-type').value, timeout, fallback: row.querySelector('.step-fallback').value }); }); return valid ? steps : null; } function generatePlan() { const steps = collectSteps(); if (!steps) { planBody.innerHTML = ''; flowchart.textContent = 'Fix the highlighted step error, then generate again.'; planSummary.textContent = ''; lastPlan = ''; return; } if (!steps.length) { planBody.innerHTML = ''; flowchart.textContent = 'Add at least one step to build an interception plan.'; planSummary.textContent = ''; lastPlan = ''; return; } const agentName = inpAgent.value.trim() || 'Unnamed agent'; const gated = steps.filter(s => s.approve).length; planSummary.textContent = gated + ' of ' + steps.length + ' steps require human approval'; planBody.innerHTML = ''; steps.forEach((s, i) => { const tr = document.createElement('tr'); tr.className = 'border-t border-slate-100 dark:border-slate-800'; tr.innerHTML = '<td class="py-2 pr-2 font-bold">' + (i + 1) + '</td>' + '<td class="py-2 pr-2 font-bold text-slate-700 dark:text-slate-300"></td>' + '<td class="py-2 pr-2"></td>' + '<td class="py-2 pr-2"></td>' + '<td class="py-2 pr-2"></td>' + '<td class="py-2 pl-2"></td>'; tr.children[1].textContent = s.name; const approveCell = tr.children[2]; if (s.approve) { approveCell.textContent = 'Yes'; approveCell.className = 'py-2 pr-2 font-bold text-amber-800 dark:text-amber-200'; } else { approveCell.textContent = 'No'; approveCell.className = 'py-2 pr-2 font-semibold text-slate-400 dark:text-slate-500'; } tr.children[3].textContent = s.approve ? TYPE_LABELS[s.type] : '—'; tr.children[4].textContent = s.approve ? s.timeout + ' min' : '—'; tr.children[5].textContent = s.approve ? FALLBACK_LABELS[s.fallback] : '—'; planBody.appendChild(tr); }); const lines = []; lines.push('HITL INTERCEPTION PLAN'); lines.push('Agent: ' + agentName); lines.push('Steps: ' + steps.length + ' (' + gated + ' gated)'); lines.push(''); steps.forEach((s, i) => { lines.push('Step ' + (i + 1) + '. ' + s.name); if (s.approve) { lines.push(' >> HUMAN GATE [' + TYPE_LABELS[s.type] + '] timeout ' + s.timeout + ' min'); lines.push(' | approved -> continue'); lines.push(' | rejected -> ' + FALLBACK_LABELS[s.fallback]); lines.push(' | timeout -> ' + FALLBACK_LABELS[s.fallback]); } else { lines.push(' > no approval required -> continue'); } }); lines.push(''); lines.push('END'); flowchart.textContent = lines.join('\n'); lastPlan = lines.join('\n'); } btnAdd.addEventListener('click', () => { container.appendChild(createRow({ name: '', approve: false, type: 'approve-reject', timeout: 30, fallback: 'abort' })); }); btnReset.addEventListener('click', setDefaultSteps); form.addEventListener('submit', (e) => { e.preventDefault(); generatePlan(); }); btnCopy.addEventListener('click', () => { const span = btnCopy.querySelector('span'); if (!lastPlan) { planSummary.textContent = 'Generate the plan first so there is something to copy.'; return; } navigator.clipboard.writeText(lastPlan).then(() => { span.textContent = 'Copied!'; setTimeout(() => { span.textContent = 'Copy Plan Summary'; }, 2000); }); }); window.addEventListener('DOMContentLoaded', () => { setDefaultSteps(); generatePlan(); }); })(); </script> <footer id="global-footer"></footer> <script src="../global.js" defer></script>
-</body>
+  <head>
+    <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
+    <script>
+      (function () {
+        try {
+          const theme = localStorage.getItem("theme");
+          if (theme === "dark") {
+            document.documentElement.classList.add("dark");
+            document.documentElement.classList.remove("light");
+          } else {
+            document.documentElement.classList.remove("dark");
+            document.documentElement.classList.add("light");
+          }
+        } catch (e) {}
+      })();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    />
+    <meta charset="UTF-8" />
+    <meta name="google-adsense-account" content="ca-pub-3901061173891576" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Human-in-the-Loop HITL Planner for AI Agents | TopWebTool</title>
+    <meta
+      name="description"
+      content="Design human-in-the-loop approval gates: pick agent steps, set approve/reject/edit types, timeouts and fallbacks, and export an interception plan with a flowchart."
+    />
+    <link rel="canonical" href="https://topwebtool.com/agent-hitl-planner/" />
+    <style>
+      html {
+        background-color: #fff;
+      }
+      html.dark {
+        background-color: #0f172a;
+      }
+      body {
+        padding-bottom: 6rem;
+      }
+      main.flex-grow {
+        min-height: 60vh;
+      }
+      #global-header {
+        min-height: 65px;
+      }
+      #global-footer {
+        min-height: 85px;
+      }
+      #trending-sidebar {
+        min-height: 700px;
+      }
+      @media (max-width: 767px) {
+        #global-header {
+          min-height: 200px;
+        }
+        #global-footer {
+          min-height: 120px;
+        }
+      }
+      .category-section {
+        content-visibility: auto;
+        contain-intrinsic-size: auto 500px;
+      }
+      .tool-card {
+        contain: layout style paint;
+      }
+      img[width][height] {
+        aspect-ratio: attr(width) / attr(height);
+      }
+    </style>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Human-in-the-Loop HITL Planner for AI Agents | TopWebTool",
+        "url": "https://topwebtool.com/agent-hitl-planner/",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Windows, macOS, Linux, Android, iOS",
+        "browserRequirements": "Requires HTML5 compatible web browser",
+        "description": "Design human-in-the-loop approval gates: pick agent steps, set approve/reject/edit types, timeouts and fallbacks, and export an interception plan with a flowchart.",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://topwebtool.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Human-in-the-Loop (HITL) Planner",
+            "item": "https://topwebtool.com/agent-hitl-planner/"
+          }
+        ]
+      }
+    </script>
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="../global.css" />
+  </head>
+  <body
+    class="bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 min-h-screen flex flex-col"
+  >
+    <header id="global-header"></header>
+    <main
+      class="tool-page-main max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex-grow"
+    >
+      <!-- Reserved Leaderboard Ad Slot (CLS-safe) -->
+      <div
+        id="ad-slot-a"
+        class="w-full mx-auto mb-6 p-3 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center select-none overflow-hidden min-h-[90px]"
+        style="max-width: 728px; min-height: 90px; max-height: 135px"
+      >
+        <span
+          class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-1.5"
+          >Advertisement</span
+        >
+        <div
+          class="w-full flex justify-center"
+          style="height: 90px; max-height: 90px; overflow: hidden"
+        >
+          <!-- HzAds -->
+          <ins
+            class="adsbygoogle"
+            style="
+              display: inline-block;
+              width: 100%;
+              height: 90px;
+              max-height: 90px;
+            "
+            data-ad-client="ca-pub-3901061173891576"
+            data-ad-slot="2894630336"
+            data-ad-format="horizontal"
+            data-full-width-responsive="false"
+          ></ins>
+        </div>
+      </div>
+      <!-- 2-Column Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-4 gap-4">
+        <!-- Main Content -->
+        <div class="lg:col-span-3 space-y-8">
+          <div
+            class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm"
+          >
+            <h1
+              class="text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight sm:text-4xl"
+            >
+              Human-in-the-Loop (HITL) Planner
+            </h1>
+            <p class="mt-2 text-base text-slate-500 dark:text-slate-400">
+              Map your agent's steps, choose which ones need human approval, and
+              export an interception plan with a textual flowchart.
+            </p>
+          </div>
+          <!-- Tool UI -->
+          <form
+            tool-name="agent-hitl-planner"
+            tool-description="Design human-in-the-loop interception points: list agent steps, mark which require approval, set approve/reject/edit gates, timeouts and fallback behavior, then generate an interception plan table, a textual flowchart and a copyable plan summary."
+            class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm p-6 sm:p-8 space-y-6"
+          >
+            <h2
+              class="text-lg font-bold text-slate-900 dark:text-white border-b border-slate-100 dark:border-slate-800 pb-3"
+            >
+              Interception Point Designer
+            </h2>
+            <div>
+              <label
+                for="inp-agent-name"
+                class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2"
+                >Agent / Workflow Name</label
+              >
+              <input
+                type="text"
+                id="inp-agent-name"
+                value="Support Automation Agent"
+                class="block w-full px-3 py-2.5 border border-slate-300 dark:border-slate-700 rounded-lg bg-white dark:bg-slate-950 text-slate-950 dark:text-slate-100 text-sm font-semibold"
+                aria-label="Name of the agent or workflow being planned"
+              />
+            </div>
+            <div>
+              <div
+                class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-3"
+              >
+                <h3
+                  class="text-sm font-bold text-slate-700 dark:text-slate-300"
+                >
+                  Agent Steps
+                </h3>
+                <button
+                  type="button"
+                  id="btn-add-step"
+                  class="px-4 py-2.5 bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs rounded-lg shadow-sm transition-colors"
+                  style="min-height: 44px"
+                >
+                  + Add Step
+                </button>
+              </div>
+              <div id="steps-container" class="space-y-3"></div>
+            </div>
+            <div class="flex flex-wrap gap-3 pt-1">
+              <button
+                type="submit"
+                class="px-5 py-3 bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm rounded-lg shadow-sm transition-colors"
+                style="min-height: 48px"
+              >
+                Generate Interception Plan
+              </button>
+              <button
+                type="button"
+                id="btn-reset"
+                class="px-5 py-3 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 font-bold text-sm rounded-lg shadow-sm transition-colors hover:bg-slate-200 dark:hover:bg-slate-700"
+                style="min-height: 48px"
+              >
+                Reset Example Plan
+              </button>
+            </div>
+          </form>
+          <!-- Results -->
+          <div
+            class="bg-white dark:bg-slate-900 p-6 sm:p-8 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm space-y-4"
+          >
+            <div
+              class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 border-b border-slate-100 dark:border-slate-800 pb-2"
+            >
+              <h2 class="text-lg font-bold text-slate-900 dark:text-white">
+                Interception Plan
+              </h2>
+              <span
+                id="plan-summary"
+                class="text-xs font-bold text-slate-500 dark:text-slate-400"
+              ></span>
+            </div>
+            <div class="overflow-x-auto">
+              <table class="table w-full text-xs">
+                <thead>
+                  <tr
+                    class="text-left text-slate-500 dark:text-slate-400 uppercase tracking-wide"
+                  >
+                    <th class="py-2 pr-2 font-bold">Step</th>
+                    <th class="py-2 pr-2 font-bold">Step Name</th>
+                    <th class="py-2 pr-2 font-bold">Human Approval</th>
+                    <th class="py-2 pr-2 font-bold">Approval Type</th>
+                    <th class="py-2 pr-2 font-bold">Timeout</th>
+                    <th class="py-2 pl-2 font-bold">Fallback</th>
+                  </tr>
+                </thead>
+                <tbody
+                  id="plan-body"
+                  class="text-slate-700 dark:text-slate-200"
+                ></tbody>
+              </table>
+            </div>
+            <div>
+              <div
+                class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2"
+              >
+                <h3
+                  class="text-sm font-bold text-slate-700 dark:text-slate-300"
+                >
+                  Textual Flowchart
+                </h3>
+                <button
+                  type="button"
+                  id="btn-copy"
+                  class="px-4 py-2.5 bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs rounded-lg shadow-sm transition-colors"
+                  style="min-height: 44px"
+                >
+                  <span>Copy Plan Summary</span>
+                </button>
+              </div>
+              <pre
+                id="flowchart"
+                class="mt-2 bg-slate-950 text-emerald-400 p-4 rounded-xl font-mono text-xs overflow-x-auto break-all shadow-inner"
+              >
+Generate the plan to see the step &rarr; approval gate &rarr; continue/fallback flowchart.</pre>
+            </div>
+          </div>
+          <!-- Informative Articles & Guides Section -->
+          <div
+            class="bg-white dark:bg-slate-900 p-6 sm:p-8 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm space-y-4 mt-6"
+          >
+            <h2
+              class="text-xl font-bold text-slate-900 dark:text-white border-b border-slate-100 dark:border-slate-800 pb-3"
+            >
+              Informative Guides & Helper Articles
+            </h2>
+            <div class="grid grid-cols-1 gap-4">
+              <a
+                href="./agent-hitl-planner-guide.html"
+                class="block p-4 rounded-xl border border-slate-100 dark:border-slate-800 hover:border-brand-500 dark:hover:border-brand-500 hover:bg-slate-50/50 dark:hover:bg-slate-950/30 transition-all group"
+              >
+                <h3
+                  class="text-sm font-bold text-slate-800 dark:text-slate-200 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors"
+                >
+                  Ultimate Guide to HITL Planner for AI Agents
+                </h3>
+                <p class="text-xs text-slate-400 dark:text-slate-500 mt-1">
+                  How approval gates, timeouts, and fallbacks protect
+                  high-stakes agent actions in automated workflows.
+                </p>
+                <span
+                  class="text-xs font-semibold text-brand-600 dark:text-brand-400 mt-3 inline-block group-hover:translate-x-1 transition-transform"
+                  >Read Article &rarr;</span
+                >
+              </a>
+              <a
+                href="./agent-hitl-planner-best-practices.html"
+                class="block p-4 rounded-xl border border-slate-100 dark:border-slate-800 hover:border-brand-500 dark:hover:border-brand-500 hover:bg-slate-50/50 dark:hover:bg-slate-950/30 transition-all group"
+              >
+                <h3
+                  class="text-sm font-bold text-slate-800 dark:text-slate-200 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors"
+                >
+                  Best Practices for HITL Planner
+                </h3>
+                <p class="text-xs text-slate-400 dark:text-slate-500 mt-1">
+                  Gate only high-stakes actions, right-size timeouts, design
+                  fallbacks, and log every human decision.
+                </p>
+                <span
+                  class="text-xs font-semibold text-brand-600 dark:text-brand-400 mt-3 inline-block group-hover:translate-x-1 transition-transform"
+                  >Read Article &rarr;</span
+                >
+              </a>
+              <a
+                href="./agent-hitl-planner-common-errors.html"
+                class="block p-4 rounded-xl border border-slate-100 dark:border-slate-800 hover:border-brand-500 dark:hover:border-brand-500 hover:bg-slate-50/50 dark:hover:bg-slate-950/30 transition-all group"
+              >
+                <h3
+                  class="text-sm font-bold text-slate-800 dark:text-slate-200 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors"
+                >
+                  Common Errors in HITL Planner
+                </h3>
+                <p class="text-xs text-slate-400 dark:text-slate-500 mt-1">
+                  Timeouts that stall runs, gates on non-critical steps, and
+                  missing fallbacks break the human-in-the-loop design.
+                </p>
+                <span
+                  class="text-xs font-semibold text-brand-600 dark:text-brand-400 mt-3 inline-block group-hover:translate-x-1 transition-transform"
+                  >Read Article &rarr;</span
+                >
+              </a>
+              <a
+                href="./agent-hitl-planner-optimization-tips.html"
+                class="block p-4 rounded-xl border border-slate-100 dark:border-slate-800 hover:border-brand-500 dark:hover:border-brand-500 hover:bg-slate-50/50 dark:hover:bg-slate-950/30 transition-all group"
+              >
+                <h3
+                  class="text-sm font-bold text-slate-800 dark:text-slate-200 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors"
+                >
+                  Top Optimization Tips for HITL Planner
+                </h3>
+                <p class="text-xs text-slate-400 dark:text-slate-500 mt-1">
+                  Cut approval friction, batch decisions, and use escalation
+                  matrices so gates protect without blocking throughput.
+                </p>
+                <span
+                  class="text-xs font-semibold text-brand-600 dark:text-brand-400 mt-3 inline-block group-hover:translate-x-1 transition-transform"
+                  >Read Article &rarr;</span
+                >
+              </a>
+              <a
+                href="./agent-hitl-planner-future-trends.html"
+                class="block p-4 rounded-xl border border-slate-100 dark:border-slate-800 hover:border-brand-500 dark:hover:border-brand-500 hover:bg-slate-50/50 dark:hover:bg-slate-950/30 transition-all group"
+              >
+                <h3
+                  class="text-sm font-bold text-slate-800 dark:text-slate-200 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors"
+                >
+                  Future Trends in HITL Planner
+                </h3>
+                <p class="text-xs text-slate-400 dark:text-slate-500 mt-1">
+                  Autonomy levels, consent-based automation, and AI-act-driven
+                  governance are reshaping human oversight of agents.
+                </p>
+                <span
+                  class="text-xs font-semibold text-brand-600 dark:text-brand-400 mt-3 inline-block group-hover:translate-x-1 transition-transform"
+                  >Read Article &rarr;</span
+                >
+              </a>
+            </div>
+          </div>
+          <!-- Semantic SEO Instructional Hub -->
+          <section
+            id="seo-instructional-hub"
+            class="mt-8 p-6 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-lg shadow-sm space-y-6"
+          >
+            <div class="border-b border-slate-200 dark:border-slate-800">
+              <h2
+                class="text-2xl font-extrabold text-slate-900 dark:text-white tracking-tight"
+              >
+                Professional Insights & Guide
+              </h2>
+              <p class="text-sm text-slate-600 dark:text-slate-300 mt-1">
+                Learn how HITL interception points are designed, how gates and
+                fallbacks combine, and where the pattern breaks.
+              </p>
+            </div>
+            <div class="grid grid-cols-1 gap-6 text-sm">
+              <div>
+                <h3 class="font-bold text-slate-900 dark:text-white mb-2">
+                  Core Use Case scenario
+                </h3>
+                <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
+                  Automation teams design agent workflows where most steps run
+                  autonomously but a few high-stakes actions pause for a human.
+                  Each step either passes through without intervention or stops
+                  at an approval gate where a person approves, rejects, or edits
+                  the proposed action. If nobody responds within the timeout, a
+                  fallback behaviour keeps the system safe: the run aborts,
+                  retries, skips the step, or continues with a note. The planner
+                  makes those decisions explicit before the workflow is built.
+                </p>
+              </div>
+              <div>
+                <h3 class="font-bold text-slate-900 dark:text-white mb-2">
+                  How the Plan Is Constructed
+                </h3>
+                <ul
+                  class="list-disc pl-5 space-y-2 text-slate-600 dark:text-slate-300 leading-relaxed"
+                >
+                  <li>
+                    Each step has a name and a requires-approval flag; unchecked
+                    steps simply continue to the next one.
+                  </li>
+                  <li>
+                    Approval types: Approve/Reject, Edit &amp; Approve, or
+                    Assign Reviewer for a second opinion.
+                  </li>
+                  <li>
+                    Timeout in minutes defines how long a gate waits before the
+                    fallback fires.
+                  </li>
+                  <li>
+                    Fallback behaviors: abort the run, continue, skip to the
+                    next step, or retry the step.
+                  </li>
+                  <li>
+                    The flowchart renders step &rarr; approval gate &rarr;
+                    continue/fallback for every step.
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="pt-4 border-t border-slate-200 dark:border-slate-800">
+              <h3 class="font-bold text-slate-900 dark:text-white mb-2">
+                Troubleshooting & Edge-Case Failure Points
+              </h3>
+              <ul
+                class="list-disc pl-5 space-y-2 text-slate-600 dark:text-slate-300 leading-relaxed"
+              >
+                <li>
+                  Empty step names: the plan refuses to generate and flags the
+                  offending row with an inline error.
+                </li>
+                <li>
+                  Zero timeouts: a gate with a 0-minute timeout fires
+                  immediately, which is rarely what was intended.
+                </li>
+                <li>
+                  No fallback: without one, a rejected or timed-out gate leaves
+                  the workflow undefined and the run can hang.
+                </li>
+                <li>
+                  Over-gating: flagging every step for approval removes the
+                  benefit of automation and stalls throughput.
+                </li>
+                <li>
+                  Destructive actions: steps like refunds, deletes, or external
+                  sends should default to abort on timeout.
+                </li>
+              </ul>
+            </div>
+            <div class="pt-4 border-t border-slate-200 dark:border-slate-800">
+              <h3 class="font-bold text-slate-900 dark:text-white mb-2">
+                Detailed Step-by-Step Instructions
+              </h3>
+              <ol
+                class="list-decimal pl-5 space-y-2 text-slate-600 dark:text-slate-300 leading-relaxed"
+              >
+                <li>
+                  Name your agent or workflow in the top field, then review the
+                  example steps already loaded.
+                </li>
+                <li>
+                  Edit each step's name, and tick Requires approval only for
+                  steps that genuinely need a human.
+                </li>
+                <li>
+                  For gated steps, choose the approval type, a realistic
+                  timeout, and the fallback behaviour.
+                </li>
+                <li>
+                  Press + Add Step to insert more steps or Remove on a row to
+                  delete it.
+                </li>
+                <li>
+                  Press Generate Interception Plan to rebuild the table and the
+                  textual flowchart.
+                </li>
+                <li>
+                  Press Copy Plan Summary to paste the plan into a design doc,
+                  ticket, or PR description.
+                </li>
+              </ol>
+            </div>
+            <!-- Semantic SEO Related Tool Matrix Silo -->
+            <div
+              class="mt-6 pt-6 border-t border-slate-200 dark:border-slate-800"
+            >
+              <h3
+                class="text-sm font-bold text-slate-900 dark:text-white mb-3 uppercase tracking-wider"
+              >
+                Related Web Utilities (Silo Hub)
+              </h3>
+              <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2">
+                <a
+                  href="../agent-eval-engine/"
+                  class="text-xs font-semibold text-brand-600 hover:text-brand-800 dark:text-brand-400 dark:hover:text-brand-300 transition-colors bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 px-3 py-2 rounded-lg text-center block"
+                  >Eval Matrix Engine</a
+                >
+                <a
+                  href="../openapi-tool-converter/"
+                  class="text-xs font-semibold text-brand-600 hover:text-brand-800 dark:text-brand-400 dark:hover:text-brand-300 transition-colors bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 px-3 py-2 rounded-lg text-center block"
+                  >OpenAPI Tool Converter</a
+                >
+                <a
+                  href="../agent-memory-matrix/"
+                  class="text-xs font-semibold text-brand-600 hover:text-brand-800 dark:text-brand-400 dark:hover:text-brand-300 transition-colors bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 px-3 py-2 rounded-lg text-center block"
+                  >Agent Memory Token Matrix</a
+                >
+                <a
+                  href="../chatgpt-prompt-optimizer/"
+                  class="text-xs font-semibold text-brand-600 hover:text-brand-800 dark:text-brand-400 dark:hover:text-brand-300 transition-colors bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 px-3 py-2 rounded-lg text-center block"
+                  >ChatGPT Prompt Optimizer</a
+                >
+                <a
+                  href="../midjourney-command-builder/"
+                  class="text-xs font-semibold text-brand-600 hover:text-brand-800 dark:text-brand-400 dark:hover:text-brand-300 transition-colors bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 px-3 py-2 rounded-lg text-center block"
+                  >Midjourney Builder</a
+                >
+                <a
+                  href="../json-formatter-validator/"
+                  class="text-xs font-semibold text-brand-600 hover:text-brand-800 dark:text-brand-400 dark:hover:text-brand-300 transition-colors bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 px-3 py-2 rounded-lg text-center block"
+                  >JSON Formatter & Validator</a
+                >
+              </div>
+            </div>
+          </section>
+        </div>
+        <!-- Sidebar -->
+        <div class="lg:col-span-1 space-y-6">
+          <div id="trending-sidebar"></div>
+          <!-- Reserved Square Ad Slot (CLS-safe) -->
+          <div
+            id="ad-slot-square"
+            class="w-full p-4 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center mt-4 select-none min-h-[250px] overflow-hidden"
+            style="min-height: 250px"
+          >
+            <span
+              class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-2"
+              >Advertisement</span
+            >
+            <div
+              class="w-full flex justify-center"
+              style="height: 250px; max-height: 250px; overflow: hidden"
+            >
+              <!-- SquareAds -->
+              <ins
+                class="adsbygoogle"
+                style="
+                  display: block;
+                  width: 100%;
+                  min-height: 250px;
+                  max-height: 250px;
+                "
+                data-ad-client="ca-pub-3901061173891576"
+                data-ad-slot="6707430996"
+                data-ad-format="rectangle"
+                data-full-width-responsive="false"
+              ></ins>
+            </div>
+          </div>
+          <!-- Reserved Vertical Ad Slot (CLS-safe, desktop only) -->
+          <div
+            id="ad-slot-vertical"
+            class="w-full p-4 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center mt-4 hidden lg:flex select-none min-h-[600px] overflow-hidden"
+            style="min-height: 600px"
+          >
+            <span
+              class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-2"
+              >Advertisement</span
+            >
+            <div
+              class="w-full flex justify-center"
+              style="height: 600px; max-height: 600px; overflow: hidden"
+            >
+              <!-- verticalAds -->
+              <ins
+                class="adsbygoogle"
+                style="
+                  display: block;
+                  width: 100%;
+                  min-height: 600px;
+                  max-height: 600px;
+                "
+                data-ad-client="ca-pub-3901061173891576"
+                data-ad-slot="1581548667"
+                data-ad-format="auto"
+                data-full-width-responsive="true"
+              ></ins>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script>
+      (function () {
+        const TYPE_LABELS = {
+          "approve-reject": "Approve / Reject",
+          edit: "Edit & Approve",
+          reviewer: "Assign Reviewer",
+        };
+        const FALLBACK_LABELS = {
+          abort: "abort run",
+          continue: "continue",
+          skip: "skip to next step",
+          retry: "retry step",
+        };
+        const form = document.querySelector(
+          'form[tool-name="agent-hitl-planner"]',
+        );
+        const inpAgent = document.getElementById("inp-agent-name");
+        const container = document.getElementById("steps-container");
+        const btnAdd = document.getElementById("btn-add-step");
+        const btnReset = document.getElementById("btn-reset");
+        const planSummary = document.getElementById("plan-summary");
+        const planBody = document.getElementById("plan-body");
+        const flowchart = document.getElementById("flowchart");
+        const btnCopy = document.getElementById("btn-copy");
+        let lastPlan = "";
+        function createRow(step) {
+          const row = document.createElement("div");
+          row.className =
+            "step-row p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 space-y-3";
+          row.innerHTML =
+            '<div class="flex flex-col sm:flex-row sm:items-center gap-3">' +
+            '<input type="text" class="step-name flex-grow min-w-0 px-3 py-2.5 border border-slate-300 dark:border-slate-700 rounded-lg bg-white dark:bg-slate-950 text-slate-950 dark:text-slate-100 text-sm font-semibold" placeholder="Step name, e.g. Issue refund" aria-label="Step name">' +
+            '<label class="flex items-center space-x-2 text-xs font-bold text-slate-700 dark:text-slate-300 shrink-0 cursor-pointer">' +
+            '<input type="checkbox" class="step-approve w-4 h-4" aria-label="Requires human approval"><span>Requires approval</span>' +
+            "</label>" +
+            '<button type="button" class="step-remove px-3 py-2 bg-slate-100 dark:bg-slate-800 text-red-600 font-bold text-xs rounded-lg hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors shrink-0" aria-label="Remove step">Remove</button>' +
+            "</div>" +
+            '<div class="grid grid-cols-1 sm:grid-cols-2 gap-3">' +
+            '<div><label class="block text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wide mb-1">Approval type</label>' +
+            '<select class="step-type w-full px-3 py-2 border border-slate-300 dark:border-slate-700 rounded-lg bg-white dark:bg-slate-950 text-slate-950 dark:text-slate-100 text-xs font-semibold">' +
+            '<option value="approve-reject">Approve / Reject</option>' +
+            '<option value="edit">Edit & Approve</option>' +
+            '<option value="reviewer">Assign Reviewer</option>' +
+            "</select></div>" +
+            '<div><label class="block text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wide mb-1">Timeout (minutes)</label>' +
+            '<input type="number" class="step-timeout w-full px-3 py-2 border border-slate-300 dark:border-slate-700 rounded-lg bg-white dark:bg-slate-950 text-slate-950 dark:text-slate-100 text-xs font-semibold" value="30" min="0" aria-label="Approval timeout in minutes"></div>' +
+            '<div><label class="block text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wide mb-1">Fallback on reject / timeout</label>' +
+            '<select class="step-fallback w-full px-3 py-2 border border-slate-300 dark:border-slate-700 rounded-lg bg-white dark:bg-slate-950 text-slate-950 dark:text-slate-100 text-xs font-semibold">' +
+            '<option value="abort">Abort run</option>' +
+            '<option value="continue">Continue anyway</option>' +
+            '<option value="skip">Skip to next step</option>' +
+            '<option value="retry">Retry step</option>' +
+            "</select></div>" +
+            "</div>" +
+            '<p class="step-error text-xs text-red-600 font-semibold hidden"></p>';
+          row.querySelector(".step-name").value = step.name;
+          row.querySelector(".step-approve").checked = !!step.approve;
+          row.querySelector(".step-type").value = step.type || "approve-reject";
+          row.querySelector(".step-timeout").value =
+            step.timeout != null ? step.timeout : 30;
+          row.querySelector(".step-fallback").value = step.fallback || "abort";
+          row
+            .querySelector(".step-remove")
+            .addEventListener("click", () => row.remove());
+          return row;
+        }
+        function setDefaultSteps() {
+          const defaults = [
+            {
+              name: "Classify inbound support ticket",
+              approve: false,
+              type: "approve-reject",
+              timeout: 15,
+              fallback: "continue",
+            },
+            {
+              name: "Draft reply to customer email",
+              approve: false,
+              type: "approve-reject",
+              timeout: 15,
+              fallback: "continue",
+            },
+            {
+              name: "Issue refund of $249.99",
+              approve: true,
+              type: "approve-reject",
+              timeout: 30,
+              fallback: "abort",
+            },
+            {
+              name: "Send confirmation email",
+              approve: false,
+              type: "approve-reject",
+              timeout: 10,
+              fallback: "continue",
+            },
+            {
+              name: "Escalate unresolved billing dispute",
+              approve: true,
+              type: "edit",
+              timeout: 60,
+              fallback: "continue",
+            },
+          ];
+          container.innerHTML = "";
+          defaults.forEach((d) => container.appendChild(createRow(d)));
+        }
+        function collectSteps() {
+          const rows = Array.from(container.querySelectorAll(".step-row"));
+          const steps = [];
+          let valid = true;
+          rows.forEach((row, idx) => {
+            const name = row.querySelector(".step-name").value.trim();
+            const errEl = row.querySelector(".step-error");
+            errEl.classList.add("hidden");
+            if (!name) {
+              errEl.textContent =
+                "Step " +
+                (idx + 1) +
+                ": give this step a name before generating the plan.";
+              errEl.classList.remove("hidden");
+              valid = false;
+              return;
+            }
+            const timeout = parseFloat(
+              row.querySelector(".step-timeout").value,
+            );
+            if (isNaN(timeout) || timeout < 0) {
+              errEl.textContent =
+                "Step " +
+                (idx + 1) +
+                ": timeout must be a number of minutes of 0 or more.";
+              errEl.classList.remove("hidden");
+              valid = false;
+              return;
+            }
+            steps.push({
+              name,
+              approve: row.querySelector(".step-approve").checked,
+              type: row.querySelector(".step-type").value,
+              timeout,
+              fallback: row.querySelector(".step-fallback").value,
+            });
+          });
+          return valid ? steps : null;
+        }
+        function generatePlan() {
+          const steps = collectSteps();
+          if (!steps) {
+            planBody.innerHTML = "";
+            flowchart.textContent =
+              "Fix the highlighted step error, then generate again.";
+            planSummary.textContent = "";
+            lastPlan = "";
+            return;
+          }
+          if (!steps.length) {
+            planBody.innerHTML = "";
+            flowchart.textContent =
+              "Add at least one step to build an interception plan.";
+            planSummary.textContent = "";
+            lastPlan = "";
+            return;
+          }
+          const agentName = inpAgent.value.trim() || "Unnamed agent";
+          const gated = steps.filter((s) => s.approve).length;
+          planSummary.textContent =
+            gated + " of " + steps.length + " steps require human approval";
+          planBody.innerHTML = "";
+          steps.forEach((s, i) => {
+            const tr = document.createElement("tr");
+            tr.className = "border-t border-slate-100 dark:border-slate-800";
+            tr.innerHTML =
+              '<td class="py-2 pr-2 font-bold">' +
+              (i + 1) +
+              "</td>" +
+              '<td class="py-2 pr-2 font-bold text-slate-700 dark:text-slate-300"></td>' +
+              '<td class="py-2 pr-2"></td>' +
+              '<td class="py-2 pr-2"></td>' +
+              '<td class="py-2 pr-2"></td>' +
+              '<td class="py-2 pl-2"></td>';
+            tr.children[1].textContent = s.name;
+            const approveCell = tr.children[2];
+            if (s.approve) {
+              approveCell.textContent = "Yes";
+              approveCell.className =
+                "py-2 pr-2 font-bold text-amber-800 dark:text-amber-200";
+            } else {
+              approveCell.textContent = "No";
+              approveCell.className =
+                "py-2 pr-2 font-semibold text-slate-400 dark:text-slate-500";
+            }
+            tr.children[3].textContent = s.approve ? TYPE_LABELS[s.type] : "—";
+            tr.children[4].textContent = s.approve ? s.timeout + " min" : "—";
+            tr.children[5].textContent = s.approve
+              ? FALLBACK_LABELS[s.fallback]
+              : "—";
+            planBody.appendChild(tr);
+          });
+          const lines = [];
+          lines.push("HITL INTERCEPTION PLAN");
+          lines.push("Agent: " + agentName);
+          lines.push("Steps: " + steps.length + " (" + gated + " gated)");
+          lines.push("");
+          steps.forEach((s, i) => {
+            lines.push("Step " + (i + 1) + ". " + s.name);
+            if (s.approve) {
+              lines.push(
+                " >> HUMAN GATE [" +
+                  TYPE_LABELS[s.type] +
+                  "] timeout " +
+                  s.timeout +
+                  " min",
+              );
+              lines.push(" | approved -> continue");
+              lines.push(" | rejected -> " + FALLBACK_LABELS[s.fallback]);
+              lines.push(" | timeout -> " + FALLBACK_LABELS[s.fallback]);
+            } else {
+              lines.push(" > no approval required -> continue");
+            }
+          });
+          lines.push("");
+          lines.push("END");
+          flowchart.textContent = lines.join("\n");
+          lastPlan = lines.join("\n");
+        }
+        btnAdd.addEventListener("click", () => {
+          container.appendChild(
+            createRow({
+              name: "",
+              approve: false,
+              type: "approve-reject",
+              timeout: 30,
+              fallback: "abort",
+            }),
+          );
+        });
+        btnReset.addEventListener("click", setDefaultSteps);
+        form.addEventListener("submit", (e) => {
+          e.preventDefault();
+          generatePlan();
+        });
+        btnCopy.addEventListener("click", () => {
+          const span = btnCopy.querySelector("span");
+          if (!lastPlan) {
+            planSummary.textContent =
+              "Generate the plan first so there is something to copy.";
+            return;
+          }
+          navigator.clipboard.writeText(lastPlan).then(() => {
+            span.textContent = "Copied!";
+            setTimeout(() => {
+              span.textContent = "Copy Plan Summary";
+            }, 2000);
+          });
+        });
+        window.addEventListener("DOMContentLoaded", () => {
+          setDefaultSteps();
+          generatePlan();
+        });
+      })();
+    </script>
+    <footer id="global-footer"></footer>
+    <script src="../global.js" defer></script>
+  </body>
 </html>

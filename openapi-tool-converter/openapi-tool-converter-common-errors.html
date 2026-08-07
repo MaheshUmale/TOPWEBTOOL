@@ -1,105 +1,216 @@
-﻿<!DOCTYPE html>
+﻿<!doctype html>
 <html lang="en">
-<head>
-  <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
-  <script>
-    (function() {
-      try {
-        const theme = localStorage.getItem('theme');
-        if (theme === 'dark') {
-          document.documentElement.classList.add('dark');
-          document.documentElement.classList.remove('light');
-        } else {
-          document.documentElement.classList.remove('dark');
-          document.documentElement.classList.add('light');
-        }
-      } catch (e) {}
-    })();
-  </script>
-  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <meta charset="UTF-8">
-  <meta name="google-adsense-account" content="ca-pub-3901061173891576">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Common Errors in OpenAPI Tool Converter | TopWebTool</title>
-  <meta name="description" content="Invalid JSON, missing operationIds, unresolved $refs, and non-object request bodies are the errors that break OpenAPI-to-tool conversion.">
-  <link rel="canonical" href="https://topwebtool.com/openapi-tool-converter/openapi-tool-converter-common-errors.html">
-  <link rel="stylesheet" href="../styles.css">
-  <link rel="stylesheet" href="../global.css">
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": "Common Errors in OpenAPI Tool Converter | TopWebTool",
-    "url": "https://topwebtool.com/openapi-tool-converter/openapi-tool-converter-common-errors.html",
-    "description": "Common Errors in the OpenAPI to Agent Tool Converter with TopWebTool - Invalid JSON, missing operationIds, unresolved refs, and body schema traps.",
-    "isAccessibleForFree": "True"
-  }
-  </script>
-</head>
-<body class="bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 min-h-screen flex flex-col pb-4 transition-colors duration-200">
+  <head>
+    <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
+    <script>
+      (function () {
+        try {
+          const theme = localStorage.getItem("theme");
+          if (theme === "dark") {
+            document.documentElement.classList.add("dark");
+            document.documentElement.classList.remove("light");
+          } else {
+            document.documentElement.classList.remove("dark");
+            document.documentElement.classList.add("light");
+          }
+        } catch (e) {}
+      })();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <meta charset="UTF-8" />
+    <meta name="google-adsense-account" content="ca-pub-3901061173891576" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Common Errors in OpenAPI Tool Converter | TopWebTool</title>
+    <meta
+      name="description"
+      content="Invalid JSON, missing operationIds, unresolved $refs, and non-object request bodies are the errors that break OpenAPI-to-tool conversion."
+    />
+    <link
+      rel="canonical"
+      href="https://topwebtool.com/openapi-tool-converter/openapi-tool-converter-common-errors.html"
+    />
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="../global.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Common Errors in OpenAPI Tool Converter | TopWebTool",
+        "url": "https://topwebtool.com/openapi-tool-converter/openapi-tool-converter-common-errors.html",
+        "description": "Common Errors in the OpenAPI to Agent Tool Converter with TopWebTool - Invalid JSON, missing operationIds, unresolved refs, and body schema traps.",
+        "isAccessibleForFree": "True"
+      }
+    </script>
+  </head>
+  <body
+    class="bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 min-h-screen flex flex-col pb-4 transition-colors duration-200"
+  >
+    <!-- Header -->
+    <header id="global-header"></header>
 
-  <!-- Header -->
-  <header id="global-header"></header>
+    <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-grow">
+      <article class="prose prose-slate dark:prose-invert max-w-none">
+        <!-- Reverse Link Back to Main Tool -->
+        <a
+          href="./"
+          class="inline-flex items-center text-brand-600 dark:text-brand-400 font-bold hover:underline text-sm mb-2 transition-colors"
+        >
+          &larr; Back to OpenAPI &rarr; Agent Tool Converter Tool
+        </a>
 
-  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-grow">
-    <article class="prose prose-slate dark:prose-invert max-w-none">
-    <!-- Reverse Link Back to Main Tool -->
-    <a href="./" class="inline-flex items-center text-brand-600 dark:text-brand-400 font-bold hover:underline text-sm mb-2 transition-colors">
-  &larr; Back to OpenAPI &rarr; Agent Tool Converter Tool
-    </a>
+        <h1
+          class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight"
+        >
+          Common Errors in OpenAPI-to-Tool Conversion and Their Fixes
+        </h1>
 
-    <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight">
-  Common Errors in OpenAPI-to-Tool Conversion and Their Fixes
-    </h1>
+        <div
+          class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4"
+        >
+          <span>Published: August 2026</span>
+          <span>•</span>
+          <span>Category: AI Agent & Automation</span>
+          <span>•</span>
+          <span class="text-emerald-600 dark:text-emerald-400"
+            >No Sign-Up / 100% Free / No Registration</span
+          >
+        </div>
 
-    <div class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4">
-  <span>Published: August 2026</span>
-  <span>•</span>
-  <span>Category: AI Agent & Automation</span>
-  <span>•</span>
-  <span class="text-emerald-600 dark:text-emerald-400">No Sign-Up / 100% Free / No Registration</span>
-    </div>
+        <!-- Body Content -->
+        <div
+          class="text-slate-600 dark:text-slate-300 space-y-4 leading-relaxed text-sm"
+        >
+          <p class="mb-4">
+            The most common failure when converting an OpenAPI spec is invalid
+            JSON. A trailing comma after the last property, an unescaped double
+            quote inside a description, or a missing closing brace are all
+            rejected by the JSON parser, and the tool refuses to produce output
+            until the document parses cleanly. The inline error shows the exact
+            location reported by the parser, so the fix is usually a quick
+            inspection of the line named. If your spec came from a generator
+            that outputs YAML, remember to export the JSON flavour, not YAML,
+            before pasting it into the converter.
+          </p>
 
-    <!-- Body Content -->
-    <div class="text-slate-600 dark:text-slate-300 space-y-4 leading-relaxed text-sm">
-  <p class="mb-4">The most common failure when converting an OpenAPI spec is invalid JSON. A trailing comma after the last property, an unescaped double quote inside a description, or a missing closing brace are all rejected by the JSON parser, and the tool refuses to produce output until the document parses cleanly. The inline error shows the exact location reported by the parser, so the fix is usually a quick inspection of the line named. If your spec came from a generator that outputs YAML, remember to export the JSON flavour, not YAML, before pasting it into the converter.</p>
+          <p class="mb-4">
+            The second classic error is a spec without a usable
+            <code class="font-mono">paths</code> object. The converter cannot
+            invent endpoints, so a document that only defines components, or one
+            that places operations at the top level, produces a clear error: no
+            paths found. This usually happens when someone pastes a partial
+            fragment or a security schema instead of a full API description.
+            Paste the complete document, or at minimum the fragment that
+            contains the paths you want to convert.
+          </p>
 
-  <p class="mb-4">The second classic error is a spec without a usable <code class="font-mono">paths</code> object. The converter cannot invent endpoints, so a document that only defines components, or one that places operations at the top level, produces a clear error: no paths found. This usually happens when someone pastes a partial fragment or a security schema instead of a full API description. Paste the complete document, or at minimum the fragment that contains the paths you want to convert.</p>
+          <p class="mb-4">
+            Missing operationIds are handled gracefully but are still a warning
+            sign. The converter generates a fallback name from the HTTP method
+            and the path, such as
+            <code class="font-mono">get_weather_city</code>, which is perfectly
+            callable. The trouble is that fallback names are brittle and
+            machine-generated, so they can collide or read awkwardly, and the
+            model will emit them verbatim. Add explicit, unique operationIds to
+            every operation and re-convert; the generated tool names then read
+            like real function names and stay stable across spec versions.
+          </p>
 
-  <p class="mb-4">Missing operationIds are handled gracefully but are still a warning sign. The converter generates a fallback name from the HTTP method and the path, such as <code class="font-mono">get_weather_city</code>, which is perfectly callable. The trouble is that fallback names are brittle and machine-generated, so they can collide or read awkwardly, and the model will emit them verbatim. Add explicit, unique operationIds to every operation and re-convert; the generated tool names then read like real function names and stay stable across spec versions.</p>
+          <p class="mb-4">
+            Unresolvable <code class="font-mono">$ref</code> pointers produce
+            silently degraded output. If a schema references
+            <code class="font-mono">#/components/schemas/Missing</code> and no
+            such component exists, the reference resolves to nothing and the
+            property is dropped or replaced by an empty object. The converter
+            guards against infinite recursion, but it cannot invent a schema you
+            forgot to define. Validate your spec with a linter that reports
+            broken references before converting, and check the generated JSON
+            for any property that unexpectedly vanished.
+          </p>
 
-  <p class="mb-4">Unresolvable <code class="font-mono">$ref</code> pointers produce silently degraded output. If a schema references <code class="font-mono">#/components/schemas/Missing</code> and no such component exists, the reference resolves to nothing and the property is dropped or replaced by an empty object. The converter guards against infinite recursion, but it cannot invent a schema you forgot to define. Validate your spec with a linter that reports broken references before converting, and check the generated JSON for any property that unexpectedly vanished.</p>
+          <p class="mb-4">
+            Request bodies that are not JSON objects are another subtle trap. If
+            an operation declares
+            <code class="font-mono">requestBody.content["text/plain"]</code> or
+            a schema whose type is <code class="font-mono">string</code>, there
+            are no object properties to merge, so the converter wraps the whole
+            thing under a single <code class="font-mono">body</code> property.
+            That is a sensible fallback, but models reason about it less well
+            than they reason about named fields. Where possible, structure your
+            payloads as JSON objects with descriptive property names so the
+            generated argument schema is genuinely usable.
+          </p>
 
-  <p class="mb-4">Request bodies that are not JSON objects are another subtle trap. If an operation declares <code class="font-mono">requestBody.content["text/plain"]</code> or a schema whose type is <code class="font-mono">string</code>, there are no object properties to merge, so the converter wraps the whole thing under a single <code class="font-mono">body</code> property. That is a sensible fallback, but models reason about it less well than they reason about named fields. Where possible, structure your payloads as JSON objects with descriptive property names so the generated argument schema is genuinely usable.</p>
+          <p class="mb-4">
+            Duplicate parameter names between path, query, and body can silently
+            overwrite each other. OpenAPI allows a path parameter and a body
+            field to share a name, but the tool schema is a flat object with
+            unique keys, so the later source wins. The practical fix is to keep
+            names unique across the operation or to rename body fields that
+            collide with path parameters. Check the generated properties list
+            after conversion to confirm every input you expect is present
+            exactly once.
+          </p>
 
-  <p class="mb-4">Duplicate parameter names between path, query, and body can silently overwrite each other. OpenAPI allows a path parameter and a body field to share a name, but the tool schema is a flat object with unique keys, so the later source wins. The practical fix is to keep names unique across the operation or to rename body fields that collide with path parameters. Check the generated properties list after conversion to confirm every input you expect is present exactly once.</p>
+          <p class="mb-4">
+            Empty descriptions generate weak tools. An operation with no summary
+            and no description becomes a tool whose description is the
+            boilerplate "Call the GET endpoint at /weather/{city}." The model
+            will still call it, but it has no guidance on when to use it or what
+            to pass. Adding a one-line summary to the spec transforms the tool's
+            usefulness, and because conversion is instant, this is the cheapest
+            quality upgrade available in the whole workflow.
+          </p>
 
-  <p class="mb-4">Empty descriptions generate weak tools. An operation with no summary and no description becomes a tool whose description is the boilerplate "Call the GET endpoint at /weather/{city}." The model will still call it, but it has no guidance on when to use it or what to pass. Adding a one-line summary to the spec transforms the tool's usefulness, and because conversion is instant, this is the cheapest quality upgrade available in the whole workflow.</p>
+          <p class="mb-4">
+            Forgetting to update tools after a spec change is not a conversion
+            error, but it is the most expensive error downstream. Teams convert
+            once, deploy the tools, and then update the API while the agent
+            keeps calling the old schema. The symptoms, arguments rejected by
+            the server or fields silently dropped, look like model failures even
+            though the tools are stale. Regenerate the definitions on every spec
+            release and diff them in review, exactly as you would diff an SDK
+            client.
+          </p>
 
-  <p class="mb-4">Forgetting to update tools after a spec change is not a conversion error, but it is the most expensive error downstream. Teams convert once, deploy the tools, and then update the API while the agent keeps calling the old schema. The symptoms, arguments rejected by the server or fields silently dropped, look like model failures even though the tools are stale. Regenerate the definitions on every spec release and diff them in review, exactly as you would diff an SDK client.</p>
+          <p class="mb-4">
+            Finally, providers have different schema strictness. A tool that
+            passes OpenAI's validation can be rejected by Anthropic if it
+            contains an unsupported keyword or an unexpected structure. If you
+            paste the converted array and the provider returns a validation
+            error, read the message, adjust the offending schema in the spec,
+            and re-convert. Testing the generated JSON with the actual provider
+            is the only way to be sure, schema validity is not enough.
+          </p>
 
-  <p class="mb-4">Finally, providers have different schema strictness. A tool that passes OpenAI's validation can be rejected by Anthropic if it contains an unsupported keyword or an unexpected structure. If you paste the converted array and the provider returns a validation error, read the message, adjust the offending schema in the spec, and re-convert. Testing the generated JSON with the actual provider is the only way to be sure, schema validity is not enough.</p>
+          <p class="mb-4">
+            Almost every conversion problem traces back to the spec, not the
+            tool. Keep the document valid JSON, keep paths present, keep
+            operationIds unique, keep references resolvable, and keep bodies as
+            clean JSON objects, and the converter will faithfully turn your API
+            into tools that behave the way you intended.
+          </p>
+        </div>
 
-  <p class="mb-4">Almost every conversion problem traces back to the spec, not the tool. Keep the document valid JSON, keep paths present, keep operationIds unique, keep references resolvable, and keep bodies as clean JSON objects, and the converter will faithfully turn your API into tools that behave the way you intended.</p>
-    </div>
+        <div
+          class="pt-6 border-t border-slate-100 dark:border-slate-800/80 flex flex-col sm:flex-row justify-between items-center gap-4"
+        >
+          <span class="text-xs text-slate-400 dark:text-slate-500 font-semibold"
+            >Catch these errors in seconds with a real spec.</span
+          >
+          <a
+            href="./"
+            class="px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm rounded-lg transition-colors shadow-sm"
+          >
+            Try the OpenAPI Tool Converter &rarr;
+          </a>
+        </div>
+      </article>
+    </main>
 
-    <div class="pt-6 border-t border-slate-100 dark:border-slate-800/80 flex flex-col sm:flex-row justify-between items-center gap-4">
-  <span class="text-xs text-slate-400 dark:text-slate-500 font-semibold">Catch these errors in seconds with a real spec.</span>
-  <a href="./" class="px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm rounded-lg transition-colors shadow-sm">
-    Try the OpenAPI Tool Converter &rarr;
-  </a>
-    </div>
+    <!-- Footer -->
+    <footer id="global-footer"></footer>
 
-  </div>
-
-  </div>
-    </article>
-  </main>
-
-  <!-- Footer -->
-  <footer id="global-footer"></footer>
-
-  <script src="../global.js" defer></script>
-</body>
+    <script src="../global.js" defer></script>
+  </body>
 </html>

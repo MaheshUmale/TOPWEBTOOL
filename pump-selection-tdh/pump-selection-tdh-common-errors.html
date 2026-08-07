@@ -1,98 +1,230 @@
-﻿<!DOCTYPE html>
+﻿<!doctype html>
 <html lang="en">
-<head>
-  <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
-  <script>
-    (function() {
-      try {
-        const theme = localStorage.getItem('theme');
-        if (theme === 'dark') {
-          document.documentElement.classList.add('dark');
-          document.documentElement.classList.remove('light');
-        } else {
-          document.documentElement.classList.remove('dark');
-          document.documentElement.classList.add('light');
-        }
-      } catch (e) {}
-    })();
-  </script>
-  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
-  <meta charset="UTF-8">
-  <meta name="google-adsense-account" content="ca-pub-3901061173891576">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Common Errors in TDH Calculation | TopWebTool</title>
-  <meta name="description" content="Double-counted friction, mixed pressure units, and forgotten fitting losses that quietly undersize pumps.">
-  <link rel="canonical" href="https://topwebtool.com/pump-selection-tdh/pump-selection-tdh-common-errors.html">
-  <link rel="stylesheet" href="../styles.css">
-  <link rel="stylesheet" href="../global.css">
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": "Common Errors in TDH Calculation | TopWebTool",
-    "url": "https://topwebtool.com/pump-selection-tdh/pump-selection-tdh-common-errors.html",
-    "description": "Double-counted friction, mixed pressure units, and forgotten fitting losses that quietly undersize pumps.",
-    "isAccessibleForFree": "True"
-  }
-  </script>
-</head>
-<body class="bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 min-h-screen flex flex-col pb-4 transition-colors duration-200">
+  <head>
+    <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
+    <script>
+      (function () {
+        try {
+          const theme = localStorage.getItem("theme");
+          if (theme === "dark") {
+            document.documentElement.classList.add("dark");
+            document.documentElement.classList.remove("light");
+          } else {
+            document.documentElement.classList.remove("dark");
+            document.documentElement.classList.add("light");
+          }
+        } catch (e) {}
+      })();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    />
+    <meta charset="UTF-8" />
+    <meta name="google-adsense-account" content="ca-pub-3901061173891576" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Common Errors in TDH Calculation | TopWebTool</title>
+    <meta
+      name="description"
+      content="Double-counted friction, mixed pressure units, and forgotten fitting losses that quietly undersize pumps."
+    />
+    <link
+      rel="canonical"
+      href="https://topwebtool.com/pump-selection-tdh/pump-selection-tdh-common-errors.html"
+    />
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="../global.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Common Errors in TDH Calculation | TopWebTool",
+        "url": "https://topwebtool.com/pump-selection-tdh/pump-selection-tdh-common-errors.html",
+        "description": "Double-counted friction, mixed pressure units, and forgotten fitting losses that quietly undersize pumps.",
+        "isAccessibleForFree": "True"
+      }
+    </script>
+  </head>
+  <body
+    class="bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 min-h-screen flex flex-col pb-4 transition-colors duration-200"
+  >
+    <!-- Header -->
+    <header id="global-header"></header>
 
-  <!-- Header -->
-  <header id="global-header"></header>
+    <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-grow">
+      <article class="prose prose-slate dark:prose-invert max-w-none">
+        <!-- Reverse Link Back to Main Tool -->
+        <a
+          href="./"
+          class="inline-flex items-center text-brand-600 dark:text-brand-400 font-bold hover:underline text-sm mb-2 transition-colors"
+        >
+          &larr; Back to Pump Selection &amp; TDH Calculator
+        </a>
 
-  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-grow">
-    <article class="prose prose-slate dark:prose-invert max-w-none">
-    <!-- Reverse Link Back to Main Tool -->
-    <a href="./" class="inline-flex items-center text-brand-600 dark:text-brand-400 font-bold hover:underline text-sm mb-2 transition-colors">
-  &larr; Back to Pump Selection &amp; TDH Calculator
-    </a>
+        <h1
+          class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight"
+        >
+          Common Errors That Quietly Undersize Pumps
+        </h1>
 
-    <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight">
-  Common Errors That Quietly Undersize Pumps
-    </h1>
+        <div
+          class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4"
+        >
+          <span>Published: August 2026</span>
+          <span>•</span>
+          <span>Category: Industrial &amp; Engineering</span>
+          <span>•</span>
+          <span class="text-emerald-600 dark:text-emerald-400"
+            >No Sign-Up / 100% Free / No Registration</span
+          >
+        </div>
 
-    <div class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4">
-  <span>Published: August 2026</span>
-  <span>•</span>
-  <span>Category: Industrial &amp; Engineering</span>
-  <span>•</span>
-  <span class="text-emerald-600 dark:text-emerald-400">No Sign-Up / 100% Free / No Registration</span>
-    </div>
+        <!-- Body Content -->
+        <div
+          class="text-slate-600 dark:text-slate-300 space-y-4 leading-relaxed text-sm"
+        >
+          <p class="mb-4">
+            Total dynamic head errors are dangerous because they are quiet. An
+            undersized pump still delivers some flow — the tank fills slowly,
+            the cooling tower runs warm, the pressure never quite reaches the
+            set point — and the failure spreads across months of marginal
+            operation instead of one loud breakdown. This article catalogs the
+            recurring errors in TDH calculation so they can be caught in the
+            estimate rather than in service.
+          </p>
+          <p class="mb-4">
+            Error number one: double-counting the friction head. The most common
+            version is computing the friction loss from a chart or formula that
+            already includes fittings, then adding the fitting allowance on top
+            — or entering the total equivalent length as the straight-pipe
+            length and adding the fittings again. The calculator separates the
+            two cleanly: straight-pipe length in one field, fitting quantities
+            in another, and the equivalent-length conversion in between. When a
+            TDH estimate comes out suspiciously high, the first audit is always
+            the friction term: is every foot counted exactly once?
+          </p>
+          <p class="mb-4">
+            Error number two: mixing pressure units or pressure sides. The
+            pressure head term is the difference between discharge and suction
+            gauge pressures, converted with h = psi × 2.31 ÷ SG. Using absolute
+            pressure instead of gauge adds the atmospheric 14.7 psi — roughly 34
+            feet of phantom head for water — and using the discharge pressure
+            without subtracting the suction pressure inflates the requirement by
+            whatever pressure the suction side already contributes. Write both
+            gauge pressures at the operating point and subtract before
+            converting.
+          </p>
+          <p class="mb-4">
+            Error number three: forgetting the specific gravity. The 2.31
+            feet-per-psi conversion is valid for water at SG 1.0; for a brine at
+            SG 1.2 the same pressure represents only 1.93 feet per psi, and the
+            3960 constant in the power formula scales the whole horsepower
+            requirement by SG. Systems that pump glycol, brine, or oil are
+            routinely undersized by exactly this amount. The calculator's fluid
+            presets exist to make the specific gravity visible and correct, and
+            the copy output prints the SG next to every result so it cannot be
+            silently assumed to be water.
+          </p>
+          <p class="mb-4">
+            Error number four: using the wrong pipe diameter. Friction head
+            depends on diameter to the 4.87th power in the Hazen–Williams
+            relation, so a small diameter error is a huge friction error —
+            reading nominal size instead of internal diameter, or using the
+            discharge size for the suction line, can change the friction head
+            two or three times. The practice is to use the actual internal
+            diameter of each pipe and, where the suction and discharge differ in
+            size, to calculate each leg separately. The calculator takes a
+            single pipe diameter and is best used where one representative size
+            dominates.
+          </p>
+          <p class="mb-4">
+            Error number five: ignoring the velocity head. In most systems the
+            velocity head is under a foot and harmless to ignore, but in short,
+            high-velocity lines it can be several feet, and it is a legitimate
+            part of the TDH sum. Equally, the velocity itself matters beyond its
+            head: above about 10 ft/s in the discharge the friction rises
+            steeply, erosion accelerates, and water hammer becomes a real risk.
+            The calculator computes the velocity, reports it, and warns at the
+            threshold, so a system that is too fast is flagged rather than
+            quietly accepted.
+          </p>
+          <p class="mb-4">
+            Error number six: skipping the fittings. A fitting loss seems small
+            in isolation — a 90° elbow carries a K of about 0.9 — but a system
+            with twenty elbows, a check valve, and a gate valve can carry the
+            equivalent of several hundred feet of pipe. Hand calculations that
+            sum only straight-pipe friction routinely understate TDH by 10–30%
+            on complex runs. The calculator's fitting table and quantity fields
+            make the fitting contribution an explicit part of the friction term,
+            and the formula trace shows the total equivalent length so it can be
+            audited.
+          </p>
+          <p class="mb-4">
+            Error number seven: entering the static head with the wrong sign.
+            The suction static head is the elevation of the liquid surface
+            relative to the pump, and a flooded suction is a positive
+            contributor while a lift is negative. Sign errors here silently flip
+            several feet of head, and a suction lift entered as a positive
+            flooded head can hide a genuine suction problem behind a plausible
+            TDH. The calculator labels the fields and the breakdown shows the
+            subtraction explicitly, but the underlying discipline is to draw the
+            system and write the elevations before entering them.
+          </p>
+          <p class="mb-4">
+            Error number eight: ignoring the pump efficiency in the motor
+            selection. Selecting the motor from the hydraulic horsepower — the
+            water horsepower, before efficiency — leaves the motor undersized by
+            the pump's losses, typically 25–60%. The motor must be selected from
+            the shaft power at the duty efficiency, plus a margin, and rounded
+            to a standard size. The calculator's shaft-power line and the
+            recommended-motor line make the chain visible: hydraulic power,
+            divided by efficiency, multiplied by margin, rounded up to the next
+            standard motor rating.
+          </p>
+          <p class="mb-4">
+            Error number nine: computing the TDH at the wrong point in the
+            system. Total dynamic head is defined from the suction flange to the
+            discharge flange of the pump, not through the tanks. Including the
+            tank-to-flange piping on both sides is correct only if the
+            calculator's static and friction inputs are defined the same way;
+            mixing definitions double-counts elevation differences. The
+            consistent definition — static between the two liquid surfaces,
+            friction over the full suction plus discharge runs, pressures at the
+            two vessel surfaces — is what the calculator implements, and keeping
+            the model consistent is the engineer's job.
+          </p>
+          <p class="mb-4">
+            The common thread across these errors is that each produces a
+            defensible-looking number with a hidden wrong assumption. The
+            calculator's formula trace is the audit trail: every component
+            prints with its substituted values, so a wrong unit, a
+            double-counted length, or a forgotten SG shows up in the trace
+            instead of hiding in the final head. Check the trace on every
+            estimate, and the pump will land on its curve.
+          </p>
+        </div>
 
-    <!-- Body Content -->
-    <div class="text-slate-600 dark:text-slate-300 space-y-4 leading-relaxed text-sm">
-  <p class="mb-4">Total dynamic head errors are dangerous because they are quiet. An undersized pump still delivers some flow — the tank fills slowly, the cooling tower runs warm, the pressure never quite reaches the set point — and the failure spreads across months of marginal operation instead of one loud breakdown. This article catalogs the recurring errors in TDH calculation so they can be caught in the estimate rather than in service.</p>
-<p class="mb-4">Error number one: double-counting the friction head. The most common version is computing the friction loss from a chart or formula that already includes fittings, then adding the fitting allowance on top — or entering the total equivalent length as the straight-pipe length and adding the fittings again. The calculator separates the two cleanly: straight-pipe length in one field, fitting quantities in another, and the equivalent-length conversion in between. When a TDH estimate comes out suspiciously high, the first audit is always the friction term: is every foot counted exactly once?</p>
-<p class="mb-4">Error number two: mixing pressure units or pressure sides. The pressure head term is the difference between discharge and suction gauge pressures, converted with h = psi × 2.31 ÷ SG. Using absolute pressure instead of gauge adds the atmospheric 14.7 psi — roughly 34 feet of phantom head for water — and using the discharge pressure without subtracting the suction pressure inflates the requirement by whatever pressure the suction side already contributes. Write both gauge pressures at the operating point and subtract before converting.</p>
-<p class="mb-4">Error number three: forgetting the specific gravity. The 2.31 feet-per-psi conversion is valid for water at SG 1.0; for a brine at SG 1.2 the same pressure represents only 1.93 feet per psi, and the 3960 constant in the power formula scales the whole horsepower requirement by SG. Systems that pump glycol, brine, or oil are routinely undersized by exactly this amount. The calculator's fluid presets exist to make the specific gravity visible and correct, and the copy output prints the SG next to every result so it cannot be silently assumed to be water.</p>
-<p class="mb-4">Error number four: using the wrong pipe diameter. Friction head depends on diameter to the 4.87th power in the Hazen–Williams relation, so a small diameter error is a huge friction error — reading nominal size instead of internal diameter, or using the discharge size for the suction line, can change the friction head two or three times. The practice is to use the actual internal diameter of each pipe and, where the suction and discharge differ in size, to calculate each leg separately. The calculator takes a single pipe diameter and is best used where one representative size dominates.</p>
-<p class="mb-4">Error number five: ignoring the velocity head. In most systems the velocity head is under a foot and harmless to ignore, but in short, high-velocity lines it can be several feet, and it is a legitimate part of the TDH sum. Equally, the velocity itself matters beyond its head: above about 10 ft/s in the discharge the friction rises steeply, erosion accelerates, and water hammer becomes a real risk. The calculator computes the velocity, reports it, and warns at the threshold, so a system that is too fast is flagged rather than quietly accepted.</p>
-<p class="mb-4">Error number six: skipping the fittings. A fitting loss seems small in isolation — a 90° elbow carries a K of about 0.9 — but a system with twenty elbows, a check valve, and a gate valve can carry the equivalent of several hundred feet of pipe. Hand calculations that sum only straight-pipe friction routinely understate TDH by 10–30% on complex runs. The calculator's fitting table and quantity fields make the fitting contribution an explicit part of the friction term, and the formula trace shows the total equivalent length so it can be audited.</p>
-<p class="mb-4">Error number seven: entering the static head with the wrong sign. The suction static head is the elevation of the liquid surface relative to the pump, and a flooded suction is a positive contributor while a lift is negative. Sign errors here silently flip several feet of head, and a suction lift entered as a positive flooded head can hide a genuine suction problem behind a plausible TDH. The calculator labels the fields and the breakdown shows the subtraction explicitly, but the underlying discipline is to draw the system and write the elevations before entering them.</p>
-<p class="mb-4">Error number eight: ignoring the pump efficiency in the motor selection. Selecting the motor from the hydraulic horsepower — the water horsepower, before efficiency — leaves the motor undersized by the pump's losses, typically 25–60%. The motor must be selected from the shaft power at the duty efficiency, plus a margin, and rounded to a standard size. The calculator's shaft-power line and the recommended-motor line make the chain visible: hydraulic power, divided by efficiency, multiplied by margin, rounded up to the next standard motor rating.</p>
-<p class="mb-4">Error number nine: computing the TDH at the wrong point in the system. Total dynamic head is defined from the suction flange to the discharge flange of the pump, not through the tanks. Including the tank-to-flange piping on both sides is correct only if the calculator's static and friction inputs are defined the same way; mixing definitions double-counts elevation differences. The consistent definition — static between the two liquid surfaces, friction over the full suction plus discharge runs, pressures at the two vessel surfaces — is what the calculator implements, and keeping the model consistent is the engineer's job.</p>
-<p class="mb-4">The common thread across these errors is that each produces a defensible-looking number with a hidden wrong assumption. The calculator's formula trace is the audit trail: every component prints with its substituted values, so a wrong unit, a double-counted length, or a forgotten SG shows up in the trace instead of hiding in the final head. Check the trace on every estimate, and the pump will land on its curve.</p>
-    </div>
+        <div
+          class="pt-6 border-t border-slate-100 dark:border-slate-800/80 flex flex-col sm:flex-row justify-between items-center gap-4"
+        >
+          <span class="text-xs text-slate-400 dark:text-slate-500 font-semibold"
+            >Audit your last estimate before the pump order.</span
+          >
+          <a
+            href="./"
+            class="px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm rounded-lg transition-colors shadow-sm"
+          >
+            Use the Interactive Pump Selection &amp; TDH Calculator &rarr;
+          </a>
+        </div>
+      </article>
+    </main>
 
-    <div class="pt-6 border-t border-slate-100 dark:border-slate-800/80 flex flex-col sm:flex-row justify-between items-center gap-4">
-  <span class="text-xs text-slate-400 dark:text-slate-500 font-semibold">Audit your last estimate before the pump order.</span>
-  <a href="./" class="px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm rounded-lg transition-colors shadow-sm">
-    Use the Interactive Pump Selection &amp; TDH Calculator &rarr;
-  </a>
-    </div>
+    <!-- Footer -->
+    <footer id="global-footer"></footer>
 
-  </div>
-
-  </div>
-    </article>
-  </main>
-
-  <!-- Footer -->
-  <footer id="global-footer"></footer>
-
-  <script src="../global.js" defer></script>
-</body>
+    <script src="../global.js" defer></script>
+  </body>
 </html>

@@ -1,14 +1,1121 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head> <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering --> <script> (function() { try { const theme = localStorage.getItem('theme'); if (theme === 'dark') { document.documentElement.classList.add('dark'); document.documentElement.classList.remove('light'); } else { document.documentElement.classList.remove('dark'); document.documentElement.classList.add('light'); } } catch (e) {} })(); </script> <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin> <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"> <meta charset="UTF-8"> <meta name="google-adsense-account" content="ca-pub-3901061173891576"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Injection Molding Cycle Time & Clamp Force | TopWebTool</title> <meta name="description" content="Estimate injection molding clamp tonnage from projected area and cavity pressure, estimate cycle time from wall thickness, and part weight for nine common resins."> <link rel="canonical" href="https://topwebtool.com/injection-molding-estimator/"> <style>html{background-color:#fff}html.dark{background-color:#0f172a}body{padding-bottom:6rem}main.flex-grow{min-height:60vh}#global-header{min-height:65px}#global-footer{min-height:85px}#trending-sidebar{min-height:700px}@media (max-width:767px){#global-header{min-height:200px}#global-footer{min-height:120px}}.category-section{content-visibility:auto;contain-intrinsic-size:auto 500px}.tool-card{contain:layout style paint}img[width][height]{aspect-ratio:attr(width)/attr(height)}</style> <script type="application/ld+json">
-{ "@context": "https://schema.org", "@type": "WebApplication", "name": "Injection Molding Cycle Time & Clamp Force | TopWebTool", "url": "https://topwebtool.com/injection-molding-estimator/", "applicationCategory": "EngineeringApplication", "operatingSystem": "Windows, macOS, Linux, Android, iOS", "browserRequirements": "Requires HTML5 compatible web browser", "description": "Estimate injection molding clamp tonnage from projected area and cavity pressure, estimate cycle time from wall thickness, and part weight for nine common resins.", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
-} </script> <script type="application/ld+json">
-{ "@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [ { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://topwebtool.com/" }, { "@type": "ListItem", "position": 2, "name": "Injection Molding Cycle &amp;amp; Clamp Force Estimator", "item": "https://topwebtool.com/injection-molding-estimator/" } ]
-} </script> <link rel="stylesheet" href="../styles.css"> <link rel="stylesheet" href="../global.css">
-</head>
-<body class="bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 min-h-screen flex flex-col"> <header id="global-header"></header> <main class="tool-page-main max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex-grow">
-<!-- Reserved Leaderboard Ad Slot (CLS-safe) --> <div id="ad-slot-a" class="w-full mx-auto mb-6 p-3 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center select-none overflow-hidden min-h-[90px]" style="max-width:728px; min-height:90px; max-height:135px;"> <span class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-1.5">Advertisement</span> <div class="w-full flex justify-center" style="height:90px; max-height:90px; overflow:hidden;"> <!-- HzAds --> <ins class="adsbygoogle" style="display:inline-block; width:100%; height:90px; max-height:90px;" data-ad-client="ca-pub-3901061173891576" data-ad-slot="2894630336" data-ad-format="horizontal" data-full-width-responsive="false"></ins> </div> </div> <!-- 2-Column Grid --> <div class="grid grid-cols-1 lg:grid-cols-4 gap-4"> <!-- Main Content --> <div class="lg:col-span-3 space-y-8"> <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm"> <h1 class="text-3xl font-extrabold text-slate-900 tracking-tight sm:text-4xl">Injection Molding Cycle &amp; Clamp Force Estimator</h1> <p class="mt-2 text-base text-slate-500"> Estimate clamp tonnage from projected area, cycle time from wall thickness, and shot weight for common engineering and commodity resins. </p> </div> <!-- Calculator UI --> <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm p-6 sm:p-8 space-y-6"> <div class="flex justify-between items-center border-b border-slate-100 dark:border-slate-800 pb-3"> <h2 class="text-lg font-bold text-slate-900 dark:text-white">Molding Parameters</h2> <span class="text-xs font-bold text-slate-400 uppercase tracking-wide hidden sm:inline">🔩 Injection Molding</span> </div> <form id="injection-molding-estimator-form" form-id="injection-molding-estimator-form" tool-name="injection-molding-estimator" tool-description="Estimate injection molding clamp force, cycle time and shot weight from projected area, wall thickness, material preset and cavity count." onsubmit="return false;"> <div class="grid grid-cols-1  gap-4"> <div> <label for="projected-area" class="block text-sm font-semibold text-slate-700 dark:text-slate-200 mb-2">Projected Part Area (in²)</label> <input id="projected-area" type="number" min="0.1" step="0.5" value="24" class="w-full px-3 py-2.5 border border-slate-300 dark:border-slate-700 dark:bg-slate-950 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-950 dark:text-slate-100" required> </div> <div> <label for="wall-thickness" class="block text-sm font-semibold text-slate-700 dark:text-slate-200 mb-2">Nominal Wall Thickness (mm)</label> <input id="wall-thickness" type="number" min="0.05" step="0.05" value="2.0" class="w-full px-3 py-2.5 border border-slate-300 dark:border-slate-700 dark:bg-slate-950 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-950 dark:text-slate-100" required> </div> <div> <label for="material" class="block text-sm font-semibold text-slate-700 dark:text-slate-200 mb-2">Resin / Material Preset</label> <select id="material" class="w-full px-3 py-2.5 border border-slate-300 dark:border-slate-700 dark:bg-slate-950 rounded-lg bg-white dark:bg-slate-950 text-slate-950 dark:text-slate-100 focus:ring-2 focus:ring-brand-500 focus:border-brand-500"> <option value="pe">Polyethylene (LDPE/HDPE)</option> <option value="pp">Polypropylene (PP)</option> <option value="ps">Polystyrene (GPPS)</option> <option value="abs" selected>ABS</option> <option value="nylon">Nylon 6/6 (PA66)</option> <option value="pc">Polycarbonate (PC)</option> <option value="pom">Acetal (POM)</option> <option value="pmma">Acrylic (PMMA)</option> <option value="pbt">PBT Polyester</option> </select> </div> <div> <label for="cavities" class="block text-sm font-semibold text-slate-700 dark:text-slate-200 mb-2">Number of Cavities</label> <input id="cavities" type="number" min="1" max="64" step="1" value="4" class="w-full px-3 py-2.5 border border-slate-300 dark:border-slate-700 dark:bg-slate-950 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-950 dark:text-slate-100" required> </div> </div> <p id="form-error" class="hidden mt-4 text-sm font-semibold text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-900 rounded-lg px-3 py-2"></p> <p id="form-warning" class="hidden mt-3 text-sm font-semibold text-amber-600 dark:text-amber-400 bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-900 rounded-lg px-3 py-2"></p> <div class="flex flex-wrap items-center justify-end gap-3 pt-4"> <button type="submit" id="calculate-btn" class="px-6 py-2.5 bg-brand-600 text-white hover:bg-brand-700 transition-colors font-bold text-sm rounded-lg shadow-sm"> Calculate Cycle &amp; Tonnage </button> </div> </form> </div> <!-- Results --> <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm space-y-4"> <h2 class="text-lg font-bold text-slate-900 dark:text-white border-b border-slate-100 dark:border-slate-800 pb-2">Cycle &amp; Clamp Force Results</h2> <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3"> <div class="rounded-xl border border-slate-100 dark:border-slate-800 p-4"> <p class="text-xs font-bold text-slate-400 uppercase tracking-wider">Required Clamp Force</p> <p id="val-tonnage" class="text-2xl font-extrabold text-brand-600 dark:text-brand-400 mt-1">—</p> <p class="text-xs text-slate-400 mt-1">US tons (short)</p> </div> <div class="rounded-xl border border-slate-100 dark:border-slate-800 p-4"> <p class="text-xs font-bold text-slate-400 uppercase tracking-wider">Tonnage Factor</p> <p id="val-factor" class="text-2xl font-extrabold text-brand-600 dark:text-brand-400 mt-1">—</p> <p class="text-xs text-slate-400 mt-1">tons per in² (cavity pressure)</p> </div> <div class="rounded-xl border border-slate-100 dark:border-slate-800 p-4"> <p class="text-xs font-bold text-slate-400 uppercase tracking-wider">Recommended Machine</p> <p id="val-machine" class="text-2xl font-extrabold text-brand-600 dark:text-brand-400 mt-1">—</p> <p class="text-xs text-slate-400 mt-1">tons with 15% safety margin</p> </div> <div class="rounded-xl border border-slate-100 dark:border-slate-800 p-4"> <p class="text-xs font-bold text-slate-400 uppercase tracking-wider">Cooling Time</p> <p id="val-cooling" class="text-2xl font-extrabold text-brand-600 dark:text-brand-400 mt-1">—</p> <p class="text-xs text-slate-400 mt-1">seconds (Fourier plate model)</p> </div> <div class="rounded-xl border border-slate-100 dark:border-slate-800 p-4"> <p class="text-xs font-bold text-slate-400 uppercase tracking-wider">Fill + Hold + Eject</p> <p id="val-other" class="text-2xl font-extrabold text-brand-600 dark:text-brand-400 mt-1">—</p> <p class="text-xs text-slate-400 mt-1">seconds (fill, pack, clamp motion)</p> </div> <div class="rounded-xl border border-slate-100 dark:border-slate-800 p-4"> <p class="text-xs font-bold text-slate-400 uppercase tracking-wider">Total Cycle Time</p> <p id="val-cycle" class="text-2xl font-extrabold text-brand-600 dark:text-brand-400 mt-1">—</p> <p class="text-xs text-slate-400 mt-1">seconds</p> </div> <div class="rounded-xl border border-slate-100 dark:border-slate-800 p-4"> <p class="text-xs font-bold text-slate-400 uppercase tracking-wider">Production Rate</p> <p id="val-shots" class="text-2xl font-extrabold text-brand-600 dark:text-brand-400 mt-1">—</p> <p class="text-xs text-slate-400 mt-1">shots per hour</p> </div> <div class="rounded-xl border border-slate-100 dark:border-slate-800 p-4"> <p class="text-xs font-bold text-slate-400 uppercase tracking-wider">Part Weight</p> <p id="val-part-wt" class="text-2xl font-extrabold text-brand-600 dark:text-brand-400 mt-1">—</p> <p class="text-xs text-slate-400 mt-1">grams per cavity</p> </div> <div class="rounded-xl border border-slate-100 dark:border-slate-800 p-4"> <p class="text-xs font-bold text-slate-400 uppercase tracking-wider">Shot Weight (4 cav.)</p> <p id="val-shot-wt" class="text-2xl font-extrabold text-brand-600 dark:text-brand-400 mt-1">—</p> <p class="text-xs text-slate-400 mt-1">grams incl. runner allowance</p> </div> </div> <div> <h3 class="text-sm font-bold text-slate-800 dark:text-slate-200 mb-2">Formula Breakdown</h3> <pre class="bg-slate-950 text-emerald-400 p-4 rounded-xl font-mono text-xs overflow-x-auto break-all shadow-inner" id="out-breakdown">Waiting for input…</pre> </div> <pre class="hidden" id="out-copy">…</pre> <div class="flex justify-end pt-2"> <button onclick="copyResult()" id="btn-copy" class="px-5 py-2.5 bg-brand-600 text-white hover:bg-brand-700 transition-colors font-bold text-sm rounded-lg shadow-sm"> <span>Copy Result</span> </button> </div> </div> <!-- Informative Articles & Guides Section --> <div class="bg-white dark:bg-slate-900 p-6 sm:p-8 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm space-y-4 mt-6"> <h2 class="text-xl font-bold text-slate-900 dark:text-white border-b border-slate-100 dark:border-slate-800 pb-3">Informative Guides &amp; Helper Articles</h2> <div class="grid grid-cols-1 gap-4"> <a href="./injection-molding-estimator-guide.html" class="block p-4 rounded-xl border border-slate-100 dark:border-slate-800 hover:border-brand-500 dark:hover:border-brand-500 hover:bg-slate-50/50 dark:hover:bg-slate-950/30 transition-all group"> <h3 class="text-sm font-bold text-slate-800 dark:text-slate-200 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">Ultimate Guide to Injection Molding</h3> <p class="text-xs text-slate-400 dark:text-slate-500 mt-1">Tonnage, cycle-time and shot-weight theory explained from projected area to cooling equation.</p> <span class="text-xs font-semibold text-brand-600 dark:text-brand-400 mt-3 inline-block group-hover:translate-x-1 transition-transform">Read Article &rarr;</span> </a> <a href="./injection-molding-estimator-best-practices.html" class="block p-4 rounded-xl border border-slate-100 dark:border-slate-800 hover:border-brand-500 dark:hover:border-brand-500 hover:bg-slate-50/50 dark:hover:bg-slate-950/30 transition-all group"> <h3 class="text-sm font-bold text-slate-800 dark:text-slate-200 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">Best Practices for Injection Molding</h3> <p class="text-xs text-slate-400 dark:text-slate-500 mt-1">Rules for sizing the press, quoting cycle time, and balancing the mold with a safety margin.</p> <span class="text-xs font-semibold text-brand-600 dark:text-brand-400 mt-3 inline-block group-hover:translate-x-1 transition-transform">Read Article &rarr;</span> </a> <a href="./injection-molding-estimator-common-errors.html" class="block p-4 rounded-xl border border-slate-100 dark:border-slate-800 hover:border-brand-500 dark:hover:border-brand-500 hover:bg-slate-50/50 dark:hover:bg-slate-950/30 transition-all group"> <h3 class="text-sm font-bold text-slate-800 dark:text-slate-200 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">Common Errors in Injection Molding</h3> <p class="text-xs text-slate-400 dark:text-slate-500 mt-1">Undersized tonnage, miscalculated projected area, and cooling time assumptions that fail.</p> <span class="text-xs font-semibold text-brand-600 dark:text-brand-400 mt-3 inline-block group-hover:translate-x-1 transition-transform">Read Article &rarr;</span> </a> <a href="./injection-molding-estimator-optimization-tips.html" class="block p-4 rounded-xl border border-slate-100 dark:border-slate-800 hover:border-brand-500 dark:hover:border-brand-500 hover:bg-slate-50/50 dark:hover:bg-slate-950/30 transition-all group"> <h3 class="text-sm font-bold text-slate-800 dark:text-slate-200 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">Top Optimization Tips for Injection Molding</h3> <p class="text-xs text-slate-400 dark:text-slate-500 mt-1">Cut cooling time with conformal cooling, thinner walls, and mold-temperature control.</p> <span class="text-xs font-semibold text-brand-600 dark:text-brand-400 mt-3 inline-block group-hover:translate-x-1 transition-transform">Read Article &rarr;</span> </a> <a href="./injection-molding-estimator-future-trends.html" class="block p-4 rounded-xl border border-slate-100 dark:border-slate-800 hover:border-brand-500 dark:hover:border-brand-500 hover:bg-slate-50/50 dark:hover:bg-slate-950/30 transition-all group"> <h3 class="text-sm font-bold text-slate-800 dark:text-slate-200 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">Future Trends in Injection Molding</h3> <p class="text-xs text-slate-400 dark:text-slate-500 mt-1">Digital-twin process simulation, AM conformal cooling, and AI-driven cycle optimization.</p> <span class="text-xs font-semibold text-brand-600 dark:text-brand-400 mt-3 inline-block group-hover:translate-x-1 transition-transform">Read Article &rarr;</span> </a> </div> </div> <!-- TARGET INJECTION POINT: Semantic SEO Instructional Hub --> <section id="seo-instructional-hub" class="mt-8 p-6 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-lg shadow-sm space-y-6"> <div class="border-b border-slate-200 dark:border-slate-800"> <h2 class="text-2xl font-extrabold text-slate-900 dark:text-white tracking-tight">Molding Tonnage &amp; Cycle-Time Math</h2> <p class="text-sm text-slate-600 dark:text-slate-300 mt-1">Understand how required clamp force, cooling time, and shot weight are derived, then apply the embedded resin table with confidence.</p> </div> <div class="grid grid-cols-1 gap-6 text-sm"> <div> <h3 class="font-bold text-slate-900 dark:text-white mb-2">How The Formulas Work</h3> <p class="text-slate-600 dark:text-slate-300 leading-relaxed">Clamp force comes from projected area: <code class="text-brand-600 dark:text-brand-400 font-mono">F (tons) = projected area (in²) × cavity pressure (psi) ÷ 2000</code>. The resin preset supplies a typical peak cavity pressure — roughly 4,000–10,000 psi depending on flow — which works out to the familiar 2–5 tons per square inch rule of thumb. Cooling time follows the Fourier slab solution: <code class="text-brand-600 dark:text-brand-400 font-mono">t = s² ÷ (π²·α) × ln[(4/π)·(T<sub>melt</sub> − T<sub>mold</sub>) ÷ (T<sub>eject</sub> − T<sub>mold</sub>)]</code>, where s is wall thickness in mm and α is the resin thermal diffusivity. A quick shop-floor approximation is 2·s² seconds.</p> </div> <div> <h3 class="font-bold text-slate-900 dark:text-white mb-2">Embedded Resin Reference Table</h3> <p class="text-slate-600 dark:text-slate-300 leading-relaxed">This page ships with realistic cavity-pressure, thermal, and density data for nine resins. Selecting a material loads its values into the calculation. Always treat these as engineering estimates: gate design, wall variations, and mold temperature all shift the real numbers.</p> <div class="mt-3 overflow-x-auto"> <table class="w-full text-xs text-left border border-slate-200 dark:border-slate-800"> <thead> <tr class="bg-slate-100 dark:bg-slate-900 text-slate-700 dark:text-slate-300"> <th class="px-3 py-2 font-bold">Resin</th> <th class="px-3 py-2 font-bold">Cavity psi</th> <th class="px-3 py-2 font-bold">Tons/in²</th> <th class="px-3 py-2 font-bold">α (mm²/s)</th> <th class="px-3 py-2 font-bold">g/cm³</th> </tr> </thead> <tbody id="material-table"></tbody> </table> </div> </div> </div> <div class="pt-4 border-t border-slate-200 dark:border-slate-800"> <h3 class="font-bold text-slate-900 dark:text-white mb-2">Troubleshooting &amp; Edge-Case Failure Points</h3> <ul class="list-disc pl-5 space-y-2 text-slate-600 dark:text-slate-300 leading-relaxed"> <li>Projected area, not surface area: use the flat shadow of the part on the parting line. A deep ribbed box can have 5 in² of surface but only 1.5 in² of projected area.</li> <li>Multi-cavity tools: multiply projected area by cavity count, but remember cooling time depends only on the individual wall thickness, not the number of cavities.</li> <li>Very thick walls dominate the cycle: cooling scales with thickness squared, so a 4 mm wall cools about four times slower than a 2 mm wall.</li> <li>Non-flat parting lines and side-action cores add clamp loads that a flat-area estimate cannot capture — add 10–20% tonnage headroom.</li> </ul> </div> <div class="pt-4 border-t border-slate-200 dark:border-slate-800"> <h3 class="font-bold text-slate-900 dark:text-white mb-2">Step-by-Step Instructions</h3> <ol class="list-decimal pl-5 space-y-2 text-slate-600 dark:text-slate-300 leading-relaxed"> <li>Enter the projected area of the part in square inches (flat shadow on the parting line).</li> <li>Enter the nominal wall thickness in millimeters — use the thickest nominal wall, not the average.</li> <li>Select the resin from the preset list; its cavity pressure, thermal diffusivity, and density load automatically.</li> <li>Set the cavity count for the production tool.</li> <li>Click "Calculate Cycle &amp; Tonnage" and read off clamp force, recommended machine size, cooling, and shot weight.</li> <li>Use the Copy button to drop the full estimate into your quote sheet or mold spec.</li> </ol> </div> <!-- Semantic SEO Related Tool Matrix Silo --> <div class="mt-6 pt-6 border-t border-slate-200 dark:border-slate-800"> <h3 class="text-sm font-bold text-slate-900 dark:text-white mb-3 uppercase tracking-wider">Related Web Utilities (Silo Hub)</h3> <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2"> <a href="../composite-laminate-calculator/" class="text-xs font-semibold text-brand-600 hover:text-brand-800 dark:text-brand-400 dark:hover:text-brand-300 transition-colors bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 px-3 py-2 rounded-lg text-center block">Carbon Fiber Laminate Stack</a> <a href="../gear-tooth-generator/" class="text-xs font-semibold text-brand-600 hover:text-brand-800 dark:text-brand-400 dark:hover:text-brand-300 transition-colors bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 px-3 py-2 rounded-lg text-center block">Spur Gear Geometry Generator</a> <a href="../pump-selection-tdh/" class="text-xs font-semibold text-brand-600 hover:text-brand-800 dark:text-brand-400 dark:hover:text-brand-300 transition-colors bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 px-3 py-2 rounded-lg text-center block">Pump Selection &amp; TDH</a> <a href="../thermocouple-calculator/" class="text-xs font-semibold text-brand-600 hover:text-brand-800 dark:text-brand-400 dark:hover:text-brand-300 transition-colors bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 px-3 py-2 rounded-lg text-center block">Thermocouple &amp; RTD Converter</a> <a href="../cnc-feeds-speeds/" class="text-xs font-semibold text-brand-600 hover:text-brand-800 dark:text-brand-400 dark:hover:text-brand-300 transition-colors bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 px-3 py-2 rounded-lg text-center block">CNC Feeds &amp; Speeds Matrix</a> </div> </div> </section> <!-- Informative Articles End -->
-</div> <!-- Column 4 Sidebar --> <div class="lg:col-span-1 space-y-6"> <div id="trending-sidebar"></div>
-<!-- Reserved Square Ad Slot (CLS-safe) --> <div id="ad-slot-square" class="w-full p-4 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center mt-4 select-none min-h-[250px] overflow-hidden" style="min-height:250px;"> <span class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-2">Advertisement</span> <div class="w-full flex justify-center" style="height:250px; max-height:250px; overflow:hidden;"> <!-- SquareAds --> <ins class="adsbygoogle" style="display:block; width:100%; min-height:250px; max-height:250px;" data-ad-client="ca-pub-3901061173891576" data-ad-slot="6707430996" data-ad-format="rectangle" data-full-width-responsive="false"></ins> </div> </div> <!-- Reserved Vertical Ad Slot (CLS-safe, desktop only) --> <div id="ad-slot-vertical" class="w-full p-4 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center mt-4 hidden lg:flex select-none min-h-[600px] overflow-hidden" style="min-height:600px;"> <span class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-2">Advertisement</span> <div class="w-full flex justify-center" style="height:600px; max-height:600px; overflow:hidden;"> <!-- verticalAds --> <ins class="adsbygoogle" style="display:block; width:100%; min-height:600px; max-height:600px;" data-ad-client="ca-pub-3901061173891576" data-ad-slot="1581548667" data-ad-format="auto" data-full-width-responsive="true"></ins> </div> </div> </div> </div> </main> <script> const MATERIALS = { 'pe': { name: 'Polyethylene (LDPE/HDPE)', psi: 5000, alpha: 0.10, tm: 220, tw: 30, te: 65, rho: 0.95 }, 'pp': { name: 'Polypropylene (PP)', psi: 6500, alpha: 0.09, tm: 230, tw: 40, te: 80, rho: 0.90 }, 'ps': { name: 'Polystyrene (GPPS)', psi: 7500, alpha: 0.09, tm: 230, tw: 40, te: 75, rho: 1.05 }, 'abs': { name: 'ABS', psi: 8500, alpha: 0.09, tm: 240, tw: 50, te: 80, rho: 1.05 }, 'nylon': { name: 'Nylon 6/6 (PA66)', psi: 10000, alpha: 0.10, tm: 285, tw: 80, te: 120, rho: 1.14 }, 'pc': { name: 'Polycarbonate (PC)', psi: 10000, alpha: 0.12, tm: 300, tw: 90, te: 125, rho: 1.20 }, 'pom': { name: 'Acetal (POM)', psi: 9000, alpha: 0.09, tm: 210, tw: 90, te: 100, rho: 1.41 }, 'pmma': { name: 'Acrylic (PMMA)', psi: 9500, alpha: 0.10, tm: 240, tw: 60, te: 95, rho: 1.19 }, 'pbt': { name: 'PBT Polyester', psi: 10000, alpha: 0.10, tm: 250, tw: 60, te: 100, rho: 1.31 } }; function renderMaterialTable() { const tbody = document.getElementById('material-table'); tbody.innerHTML = Object.entries(MATERIALS).map(([key, m]) => { return '<tr class="border-t border-slate-200 dark:border-slate-800">' + '<td class="px-3 py-2 font-semibold text-slate-800 dark:text-slate-200">' + m.name + '</td>' + '<td class="px-3 py-2 text-slate-500 dark:text-slate-400">' + m.psi.toLocaleString() + '</td>' + '<td class="px-3 py-2 text-slate-500 dark:text-slate-400">' + (m.psi / 2000).toFixed(2) + '</td>' + '<td class="px-3 py-2 text-slate-500 dark:text-slate-400">' + m.alpha.toFixed(2) + '</td>' + '<td class="px-3 py-2 text-slate-500 dark:text-slate-400">' + m.rho.toFixed(2) + '</td>' + '</tr>'; }).join(''); } function calculate() { const errorEl = document.getElementById('form-error'); const warnEl = document.getElementById('form-warning'); errorEl.classList.add('hidden'); warnEl.classList.add('hidden'); const area = parseFloat(document.getElementById('projected-area').value); const t = parseFloat(document.getElementById('wall-thickness').value); const cavities = parseInt(document.getElementById('cavities').value, 10); const mat = MATERIALS[document.getElementById('material').value]; let firstError = null; if (!(area > 0)) firstError = 'Projected area must be greater than 0 in².'; else if (!(t > 0.05)) firstError = 'Wall thickness must be greater than 0.05 mm.'; else if (!(cavities >= 1 && cavities <= 64)) firstError = 'Cavity count must be a whole number between 1 and 64.'; if (firstError) { errorEl.textContent = firstError; errorEl.classList.remove('hidden'); return; } const clampTons = area * mat.psi / 2000; const clampKN = clampTons * 8.8964432; const tonnageFactor = mat.psi / 2000; const recommended = clampTons * 1.15; const tIn = t / 25.4; const partVolIn3 = area * tIn; const partVolCm3 = partVolIn3 * 16.3871; const partWeightG = partVolCm3 * mat.rho; const runnerAllow = 1.15; const shotWeightG = partWeightG * cavities * runnerAllow; const shotVolCm3 = partVolCm3 * cavities * runnerAllow; const cooling = (t * t) / (Math.PI * Math.PI * mat.alpha) * Math.log((4 / Math.PI) * ((mat.tm - mat.tw) / (mat.te - mat.tw))); const fill = Math.max(0.1, shotVolCm3 / 120); const pack = 1.5; const overhead = 3.0; const cycle = cooling + fill + pack + overhead; const shotsPerHour = 3600 / cycle; document.getElementById('val-tonnage').textContent = clampTons.toFixed(1) + ' tons'; document.getElementById('val-factor').textContent = tonnageFactor.toFixed(2) + ' t/in²'; document.getElementById('val-machine').textContent = recommended.toFixed(1) + ' tons (' + clampKN.toFixed(0) + ' kN)'; document.getElementById('val-cooling').textContent = cooling.toFixed(1) + ' s'; document.getElementById('val-other').textContent = (fill + pack + overhead).toFixed(1) + ' s'; document.getElementById('val-cycle').textContent = cycle.toFixed(1) + ' s'; document.getElementById('val-shots').textContent = shotsPerHour.toFixed(0) + ' /hr'; document.getElementById('val-part-wt').textContent = partWeightG.toFixed(1) + ' g'; document.getElementById('val-shot-wt').textContent = shotWeightG.toFixed(1) + ' g'; document.getElementById('out-breakdown').textContent = 'CLAMP = area × cavity pressure ÷ 2000\n' + ' = ' + area + ' × ' + mat.psi.toLocaleString() + ' ÷ 2000\n' + ' = ' + clampTons.toFixed(1) + ' tons (factor ' + tonnageFactor.toFixed(2) + ' t/in²)\n' + 'COOL = s² ÷ (π²·α) × ln[(4/π)·(Tm−Tw)/(Te−Tw)]\n' + ' = ' + t + '² ÷ (π²·' + mat.alpha + ') × ln[' + (4/Math.PI).toFixed(3) + '·' + (mat.tm - mat.tw) + '/' + (mat.te - mat.tw) + ']\n' + ' = ' + cooling.toFixed(2) + ' s\n' + 'FILL = shot volume ÷ 120 cm³/s = ' + shotVolCm3.toFixed(1) + ' ÷ 120 = ' + fill.toFixed(2) + ' s\n' + 'HOLD = ' + pack.toFixed(1) + ' s EJECT+CLAMP = ' + overhead.toFixed(1) + ' s\n' + 'CYCLE = ' + cooling.toFixed(1) + ' + ' + (fill + pack + overhead).toFixed(1) + ' = ' + cycle.toFixed(1) + ' s\n' + 'RATE = 3600 ÷ ' + cycle.toFixed(1) + ' = ' + shotsPerHour.toFixed(0) + ' shots/hr\n' + 'PART = ' + partVolCm3.toFixed(1) + ' cm³ × ' + mat.rho + ' g/cm³ = ' + partWeightG.toFixed(1) + ' g\n' + 'SHOT = ' + partWeightG.toFixed(1) + ' g × ' + cavities + ' × 1.15 (runner) = ' + shotWeightG.toFixed(1) + ' g'; document.getElementById('out-copy').textContent = 'Injection Molding Estimate — ' + mat.name + '\n' + 'Projected area: ' + area + ' in²\n' + 'Wall thickness: ' + t + ' mm\n' + 'Cavities: ' + cavities + '\n' + '— Results —\n' + 'Required clamp force: ' + clampTons.toFixed(1) + ' tons (' + clampKN.toFixed(0) + ' kN)\n' + 'Tonnage factor: ' + tonnageFactor.toFixed(2) + ' tons/in²\n' + 'Recommended machine: ' + recommended.toFixed(1) + ' tons\n' + 'Cooling time: ' + cooling.toFixed(1) + ' s\n' + 'Fill + hold + eject time: ' + (fill + pack + overhead).toFixed(1) + ' s\n' + 'Total cycle time: ' + cycle.toFixed(1) + ' s\n' + 'Production rate: ' + shotsPerHour.toFixed(0) + ' shots/hr\n' + 'Part weight: ' + partWeightG.toFixed(1) + ' g\n' + 'Shot weight (incl. runner): ' + shotWeightG.toFixed(1) + ' g'; if (clampTons < 20) { warnEl.textContent = 'Note: required clamp force is under 20 tons — a hand-press or micro-molding machine may be sufficient.'; warnEl.classList.remove('hidden'); } } function copyResult() { const btn = document.getElementById('btn-copy'); const text = btn.querySelector('span'); navigator.clipboard.writeText(document.getElementById('out-copy').textContent).then(() => { text.textContent = 'Copied!'; setTimeout(() => { text.textContent = 'Copy Result'; }, 2000); }); } window.addEventListener('DOMContentLoaded', () => { renderMaterialTable(); document.getElementById('material').addEventListener('change', calculate); ['projected-area', 'wall-thickness', 'cavities'].forEach(id => { document.getElementById(id).addEventListener('input', calculate); }); document.getElementById('calculate-btn').addEventListener('click', calculate); calculate(); }); </script> <footer id="global-footer"></footer> <script src="../global.js" defer></script>
-</body>
+  <head>
+    <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
+    <script>
+      (function () {
+        try {
+          const theme = localStorage.getItem("theme");
+          if (theme === "dark") {
+            document.documentElement.classList.add("dark");
+            document.documentElement.classList.remove("light");
+          } else {
+            document.documentElement.classList.remove("dark");
+            document.documentElement.classList.add("light");
+          }
+        } catch (e) {}
+      })();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    />
+    <meta charset="UTF-8" />
+    <meta name="google-adsense-account" content="ca-pub-3901061173891576" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Injection Molding Cycle Time & Clamp Force | TopWebTool</title>
+    <meta
+      name="description"
+      content="Estimate injection molding clamp tonnage from projected area and cavity pressure, estimate cycle time from wall thickness, and part weight for nine common resins."
+    />
+    <link
+      rel="canonical"
+      href="https://topwebtool.com/injection-molding-estimator/"
+    />
+    <style>
+      html {
+        background-color: #fff;
+      }
+      html.dark {
+        background-color: #0f172a;
+      }
+      body {
+        padding-bottom: 6rem;
+      }
+      main.flex-grow {
+        min-height: 60vh;
+      }
+      #global-header {
+        min-height: 65px;
+      }
+      #global-footer {
+        min-height: 85px;
+      }
+      #trending-sidebar {
+        min-height: 700px;
+      }
+      @media (max-width: 767px) {
+        #global-header {
+          min-height: 200px;
+        }
+        #global-footer {
+          min-height: 120px;
+        }
+      }
+      .category-section {
+        content-visibility: auto;
+        contain-intrinsic-size: auto 500px;
+      }
+      .tool-card {
+        contain: layout style paint;
+      }
+      img[width][height] {
+        aspect-ratio: attr(width) / attr(height);
+      }
+    </style>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Injection Molding Cycle Time & Clamp Force | TopWebTool",
+        "url": "https://topwebtool.com/injection-molding-estimator/",
+        "applicationCategory": "EngineeringApplication",
+        "operatingSystem": "Windows, macOS, Linux, Android, iOS",
+        "browserRequirements": "Requires HTML5 compatible web browser",
+        "description": "Estimate injection molding clamp tonnage from projected area and cavity pressure, estimate cycle time from wall thickness, and part weight for nine common resins.",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://topwebtool.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Injection Molding Cycle &amp;amp; Clamp Force Estimator",
+            "item": "https://topwebtool.com/injection-molding-estimator/"
+          }
+        ]
+      }
+    </script>
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="../global.css" />
+  </head>
+  <body
+    class="bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 min-h-screen flex flex-col"
+  >
+    <header id="global-header"></header>
+    <main
+      class="tool-page-main max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex-grow"
+    >
+      <!-- Reserved Leaderboard Ad Slot (CLS-safe) -->
+      <div
+        id="ad-slot-a"
+        class="w-full mx-auto mb-6 p-3 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center select-none overflow-hidden min-h-[90px]"
+        style="max-width: 728px; min-height: 90px; max-height: 135px"
+      >
+        <span
+          class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-1.5"
+          >Advertisement</span
+        >
+        <div
+          class="w-full flex justify-center"
+          style="height: 90px; max-height: 90px; overflow: hidden"
+        >
+          <!-- HzAds -->
+          <ins
+            class="adsbygoogle"
+            style="
+              display: inline-block;
+              width: 100%;
+              height: 90px;
+              max-height: 90px;
+            "
+            data-ad-client="ca-pub-3901061173891576"
+            data-ad-slot="2894630336"
+            data-ad-format="horizontal"
+            data-full-width-responsive="false"
+          ></ins>
+        </div>
+      </div>
+      <!-- 2-Column Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-4 gap-4">
+        <!-- Main Content -->
+        <div class="lg:col-span-3 space-y-8">
+          <div
+            class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm"
+          >
+            <h1
+              class="text-3xl font-extrabold text-slate-900 tracking-tight sm:text-4xl"
+            >
+              Injection Molding Cycle &amp; Clamp Force Estimator
+            </h1>
+            <p class="mt-2 text-base text-slate-500">
+              Estimate clamp tonnage from projected area, cycle time from wall
+              thickness, and shot weight for common engineering and commodity
+              resins.
+            </p>
+          </div>
+          <!-- Calculator UI -->
+          <div
+            class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm p-6 sm:p-8 space-y-6"
+          >
+            <div
+              class="flex justify-between items-center border-b border-slate-100 dark:border-slate-800 pb-3"
+            >
+              <h2 class="text-lg font-bold text-slate-900 dark:text-white">
+                Molding Parameters
+              </h2>
+              <span
+                class="text-xs font-bold text-slate-400 uppercase tracking-wide hidden sm:inline"
+                >🔩 Injection Molding</span
+              >
+            </div>
+            <form
+              id="injection-molding-estimator-form"
+              form-id="injection-molding-estimator-form"
+              tool-name="injection-molding-estimator"
+              tool-description="Estimate injection molding clamp force, cycle time and shot weight from projected area, wall thickness, material preset and cavity count."
+              onsubmit="return false;"
+            >
+              <div class="grid grid-cols-1 gap-4">
+                <div>
+                  <label
+                    for="projected-area"
+                    class="block text-sm font-semibold text-slate-700 dark:text-slate-200 mb-2"
+                    >Projected Part Area (in²)</label
+                  >
+                  <input
+                    id="projected-area"
+                    type="number"
+                    min="0.1"
+                    step="0.5"
+                    value="24"
+                    class="w-full px-3 py-2.5 border border-slate-300 dark:border-slate-700 dark:bg-slate-950 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-950 dark:text-slate-100"
+                    required
+                  />
+                </div>
+                <div>
+                  <label
+                    for="wall-thickness"
+                    class="block text-sm font-semibold text-slate-700 dark:text-slate-200 mb-2"
+                    >Nominal Wall Thickness (mm)</label
+                  >
+                  <input
+                    id="wall-thickness"
+                    type="number"
+                    min="0.05"
+                    step="0.05"
+                    value="2.0"
+                    class="w-full px-3 py-2.5 border border-slate-300 dark:border-slate-700 dark:bg-slate-950 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-950 dark:text-slate-100"
+                    required
+                  />
+                </div>
+                <div>
+                  <label
+                    for="material"
+                    class="block text-sm font-semibold text-slate-700 dark:text-slate-200 mb-2"
+                    >Resin / Material Preset</label
+                  >
+                  <select
+                    id="material"
+                    class="w-full px-3 py-2.5 border border-slate-300 dark:border-slate-700 dark:bg-slate-950 rounded-lg bg-white dark:bg-slate-950 text-slate-950 dark:text-slate-100 focus:ring-2 focus:ring-brand-500 focus:border-brand-500"
+                  >
+                    <option value="pe">Polyethylene (LDPE/HDPE)</option>
+                    <option value="pp">Polypropylene (PP)</option>
+                    <option value="ps">Polystyrene (GPPS)</option>
+                    <option value="abs" selected>ABS</option>
+                    <option value="nylon">Nylon 6/6 (PA66)</option>
+                    <option value="pc">Polycarbonate (PC)</option>
+                    <option value="pom">Acetal (POM)</option>
+                    <option value="pmma">Acrylic (PMMA)</option>
+                    <option value="pbt">PBT Polyester</option>
+                  </select>
+                </div>
+                <div>
+                  <label
+                    for="cavities"
+                    class="block text-sm font-semibold text-slate-700 dark:text-slate-200 mb-2"
+                    >Number of Cavities</label
+                  >
+                  <input
+                    id="cavities"
+                    type="number"
+                    min="1"
+                    max="64"
+                    step="1"
+                    value="4"
+                    class="w-full px-3 py-2.5 border border-slate-300 dark:border-slate-700 dark:bg-slate-950 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-950 dark:text-slate-100"
+                    required
+                  />
+                </div>
+              </div>
+              <p
+                id="form-error"
+                class="hidden mt-4 text-sm font-semibold text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-900 rounded-lg px-3 py-2"
+              ></p>
+              <p
+                id="form-warning"
+                class="hidden mt-3 text-sm font-semibold text-amber-600 dark:text-amber-400 bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-900 rounded-lg px-3 py-2"
+              ></p>
+              <div class="flex flex-wrap items-center justify-end gap-3 pt-4">
+                <button
+                  type="submit"
+                  id="calculate-btn"
+                  class="px-6 py-2.5 bg-brand-600 text-white hover:bg-brand-700 transition-colors font-bold text-sm rounded-lg shadow-sm"
+                >
+                  Calculate Cycle &amp; Tonnage
+                </button>
+              </div>
+            </form>
+          </div>
+          <!-- Results -->
+          <div
+            class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm space-y-4"
+          >
+            <h2
+              class="text-lg font-bold text-slate-900 dark:text-white border-b border-slate-100 dark:border-slate-800 pb-2"
+            >
+              Cycle &amp; Clamp Force Results
+            </h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+              <div
+                class="rounded-xl border border-slate-100 dark:border-slate-800 p-4"
+              >
+                <p
+                  class="text-xs font-bold text-slate-400 uppercase tracking-wider"
+                >
+                  Required Clamp Force
+                </p>
+                <p
+                  id="val-tonnage"
+                  class="text-2xl font-extrabold text-brand-600 dark:text-brand-400 mt-1"
+                >
+                  —
+                </p>
+                <p class="text-xs text-slate-400 mt-1">US tons (short)</p>
+              </div>
+              <div
+                class="rounded-xl border border-slate-100 dark:border-slate-800 p-4"
+              >
+                <p
+                  class="text-xs font-bold text-slate-400 uppercase tracking-wider"
+                >
+                  Tonnage Factor
+                </p>
+                <p
+                  id="val-factor"
+                  class="text-2xl font-extrabold text-brand-600 dark:text-brand-400 mt-1"
+                >
+                  —
+                </p>
+                <p class="text-xs text-slate-400 mt-1">
+                  tons per in² (cavity pressure)
+                </p>
+              </div>
+              <div
+                class="rounded-xl border border-slate-100 dark:border-slate-800 p-4"
+              >
+                <p
+                  class="text-xs font-bold text-slate-400 uppercase tracking-wider"
+                >
+                  Recommended Machine
+                </p>
+                <p
+                  id="val-machine"
+                  class="text-2xl font-extrabold text-brand-600 dark:text-brand-400 mt-1"
+                >
+                  —
+                </p>
+                <p class="text-xs text-slate-400 mt-1">
+                  tons with 15% safety margin
+                </p>
+              </div>
+              <div
+                class="rounded-xl border border-slate-100 dark:border-slate-800 p-4"
+              >
+                <p
+                  class="text-xs font-bold text-slate-400 uppercase tracking-wider"
+                >
+                  Cooling Time
+                </p>
+                <p
+                  id="val-cooling"
+                  class="text-2xl font-extrabold text-brand-600 dark:text-brand-400 mt-1"
+                >
+                  —
+                </p>
+                <p class="text-xs text-slate-400 mt-1">
+                  seconds (Fourier plate model)
+                </p>
+              </div>
+              <div
+                class="rounded-xl border border-slate-100 dark:border-slate-800 p-4"
+              >
+                <p
+                  class="text-xs font-bold text-slate-400 uppercase tracking-wider"
+                >
+                  Fill + Hold + Eject
+                </p>
+                <p
+                  id="val-other"
+                  class="text-2xl font-extrabold text-brand-600 dark:text-brand-400 mt-1"
+                >
+                  —
+                </p>
+                <p class="text-xs text-slate-400 mt-1">
+                  seconds (fill, pack, clamp motion)
+                </p>
+              </div>
+              <div
+                class="rounded-xl border border-slate-100 dark:border-slate-800 p-4"
+              >
+                <p
+                  class="text-xs font-bold text-slate-400 uppercase tracking-wider"
+                >
+                  Total Cycle Time
+                </p>
+                <p
+                  id="val-cycle"
+                  class="text-2xl font-extrabold text-brand-600 dark:text-brand-400 mt-1"
+                >
+                  —
+                </p>
+                <p class="text-xs text-slate-400 mt-1">seconds</p>
+              </div>
+              <div
+                class="rounded-xl border border-slate-100 dark:border-slate-800 p-4"
+              >
+                <p
+                  class="text-xs font-bold text-slate-400 uppercase tracking-wider"
+                >
+                  Production Rate
+                </p>
+                <p
+                  id="val-shots"
+                  class="text-2xl font-extrabold text-brand-600 dark:text-brand-400 mt-1"
+                >
+                  —
+                </p>
+                <p class="text-xs text-slate-400 mt-1">shots per hour</p>
+              </div>
+              <div
+                class="rounded-xl border border-slate-100 dark:border-slate-800 p-4"
+              >
+                <p
+                  class="text-xs font-bold text-slate-400 uppercase tracking-wider"
+                >
+                  Part Weight
+                </p>
+                <p
+                  id="val-part-wt"
+                  class="text-2xl font-extrabold text-brand-600 dark:text-brand-400 mt-1"
+                >
+                  —
+                </p>
+                <p class="text-xs text-slate-400 mt-1">grams per cavity</p>
+              </div>
+              <div
+                class="rounded-xl border border-slate-100 dark:border-slate-800 p-4"
+              >
+                <p
+                  class="text-xs font-bold text-slate-400 uppercase tracking-wider"
+                >
+                  Shot Weight (4 cav.)
+                </p>
+                <p
+                  id="val-shot-wt"
+                  class="text-2xl font-extrabold text-brand-600 dark:text-brand-400 mt-1"
+                >
+                  —
+                </p>
+                <p class="text-xs text-slate-400 mt-1">
+                  grams incl. runner allowance
+                </p>
+              </div>
+            </div>
+            <div>
+              <h3
+                class="text-sm font-bold text-slate-800 dark:text-slate-200 mb-2"
+              >
+                Formula Breakdown
+              </h3>
+              <pre
+                class="bg-slate-950 text-emerald-400 p-4 rounded-xl font-mono text-xs overflow-x-auto break-all shadow-inner"
+                id="out-breakdown"
+              >
+Waiting for input…</pre>
+            </div>
+            <pre class="hidden" id="out-copy">…</pre>
+            <div class="flex justify-end pt-2">
+              <button
+                onclick="copyResult()"
+                id="btn-copy"
+                class="px-5 py-2.5 bg-brand-600 text-white hover:bg-brand-700 transition-colors font-bold text-sm rounded-lg shadow-sm"
+              >
+                <span>Copy Result</span>
+              </button>
+            </div>
+          </div>
+          <!-- Informative Articles & Guides Section -->
+          <div
+            class="bg-white dark:bg-slate-900 p-6 sm:p-8 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm space-y-4 mt-6"
+          >
+            <h2
+              class="text-xl font-bold text-slate-900 dark:text-white border-b border-slate-100 dark:border-slate-800 pb-3"
+            >
+              Informative Guides &amp; Helper Articles
+            </h2>
+            <div class="grid grid-cols-1 gap-4">
+              <a
+                href="./injection-molding-estimator-guide.html"
+                class="block p-4 rounded-xl border border-slate-100 dark:border-slate-800 hover:border-brand-500 dark:hover:border-brand-500 hover:bg-slate-50/50 dark:hover:bg-slate-950/30 transition-all group"
+              >
+                <h3
+                  class="text-sm font-bold text-slate-800 dark:text-slate-200 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors"
+                >
+                  Ultimate Guide to Injection Molding
+                </h3>
+                <p class="text-xs text-slate-400 dark:text-slate-500 mt-1">
+                  Tonnage, cycle-time and shot-weight theory explained from
+                  projected area to cooling equation.
+                </p>
+                <span
+                  class="text-xs font-semibold text-brand-600 dark:text-brand-400 mt-3 inline-block group-hover:translate-x-1 transition-transform"
+                  >Read Article &rarr;</span
+                >
+              </a>
+              <a
+                href="./injection-molding-estimator-best-practices.html"
+                class="block p-4 rounded-xl border border-slate-100 dark:border-slate-800 hover:border-brand-500 dark:hover:border-brand-500 hover:bg-slate-50/50 dark:hover:bg-slate-950/30 transition-all group"
+              >
+                <h3
+                  class="text-sm font-bold text-slate-800 dark:text-slate-200 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors"
+                >
+                  Best Practices for Injection Molding
+                </h3>
+                <p class="text-xs text-slate-400 dark:text-slate-500 mt-1">
+                  Rules for sizing the press, quoting cycle time, and balancing
+                  the mold with a safety margin.
+                </p>
+                <span
+                  class="text-xs font-semibold text-brand-600 dark:text-brand-400 mt-3 inline-block group-hover:translate-x-1 transition-transform"
+                  >Read Article &rarr;</span
+                >
+              </a>
+              <a
+                href="./injection-molding-estimator-common-errors.html"
+                class="block p-4 rounded-xl border border-slate-100 dark:border-slate-800 hover:border-brand-500 dark:hover:border-brand-500 hover:bg-slate-50/50 dark:hover:bg-slate-950/30 transition-all group"
+              >
+                <h3
+                  class="text-sm font-bold text-slate-800 dark:text-slate-200 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors"
+                >
+                  Common Errors in Injection Molding
+                </h3>
+                <p class="text-xs text-slate-400 dark:text-slate-500 mt-1">
+                  Undersized tonnage, miscalculated projected area, and cooling
+                  time assumptions that fail.
+                </p>
+                <span
+                  class="text-xs font-semibold text-brand-600 dark:text-brand-400 mt-3 inline-block group-hover:translate-x-1 transition-transform"
+                  >Read Article &rarr;</span
+                >
+              </a>
+              <a
+                href="./injection-molding-estimator-optimization-tips.html"
+                class="block p-4 rounded-xl border border-slate-100 dark:border-slate-800 hover:border-brand-500 dark:hover:border-brand-500 hover:bg-slate-50/50 dark:hover:bg-slate-950/30 transition-all group"
+              >
+                <h3
+                  class="text-sm font-bold text-slate-800 dark:text-slate-200 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors"
+                >
+                  Top Optimization Tips for Injection Molding
+                </h3>
+                <p class="text-xs text-slate-400 dark:text-slate-500 mt-1">
+                  Cut cooling time with conformal cooling, thinner walls, and
+                  mold-temperature control.
+                </p>
+                <span
+                  class="text-xs font-semibold text-brand-600 dark:text-brand-400 mt-3 inline-block group-hover:translate-x-1 transition-transform"
+                  >Read Article &rarr;</span
+                >
+              </a>
+              <a
+                href="./injection-molding-estimator-future-trends.html"
+                class="block p-4 rounded-xl border border-slate-100 dark:border-slate-800 hover:border-brand-500 dark:hover:border-brand-500 hover:bg-slate-50/50 dark:hover:bg-slate-950/30 transition-all group"
+              >
+                <h3
+                  class="text-sm font-bold text-slate-800 dark:text-slate-200 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors"
+                >
+                  Future Trends in Injection Molding
+                </h3>
+                <p class="text-xs text-slate-400 dark:text-slate-500 mt-1">
+                  Digital-twin process simulation, AM conformal cooling, and
+                  AI-driven cycle optimization.
+                </p>
+                <span
+                  class="text-xs font-semibold text-brand-600 dark:text-brand-400 mt-3 inline-block group-hover:translate-x-1 transition-transform"
+                  >Read Article &rarr;</span
+                >
+              </a>
+            </div>
+          </div>
+          <!-- TARGET INJECTION POINT: Semantic SEO Instructional Hub -->
+          <section
+            id="seo-instructional-hub"
+            class="mt-8 p-6 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-lg shadow-sm space-y-6"
+          >
+            <div class="border-b border-slate-200 dark:border-slate-800">
+              <h2
+                class="text-2xl font-extrabold text-slate-900 dark:text-white tracking-tight"
+              >
+                Molding Tonnage &amp; Cycle-Time Math
+              </h2>
+              <p class="text-sm text-slate-600 dark:text-slate-300 mt-1">
+                Understand how required clamp force, cooling time, and shot
+                weight are derived, then apply the embedded resin table with
+                confidence.
+              </p>
+            </div>
+            <div class="grid grid-cols-1 gap-6 text-sm">
+              <div>
+                <h3 class="font-bold text-slate-900 dark:text-white mb-2">
+                  How The Formulas Work
+                </h3>
+                <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
+                  Clamp force comes from projected area:
+                  <code class="text-brand-600 dark:text-brand-400 font-mono"
+                    >F (tons) = projected area (in²) × cavity pressure (psi) ÷
+                    2000</code
+                  >. The resin preset supplies a typical peak cavity pressure —
+                  roughly 4,000–10,000 psi depending on flow — which works out
+                  to the familiar 2–5 tons per square inch rule of thumb.
+                  Cooling time follows the Fourier slab solution:
+                  <code class="text-brand-600 dark:text-brand-400 font-mono"
+                    >t = s² ÷ (π²·α) × ln[(4/π)·(T<sub>melt</sub> −
+                    T<sub>mold</sub>) ÷ (T<sub>eject</sub> −
+                    T<sub>mold</sub>)]</code
+                  >, where s is wall thickness in mm and α is the resin thermal
+                  diffusivity. A quick shop-floor approximation is 2·s² seconds.
+                </p>
+              </div>
+              <div>
+                <h3 class="font-bold text-slate-900 dark:text-white mb-2">
+                  Embedded Resin Reference Table
+                </h3>
+                <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
+                  This page ships with realistic cavity-pressure, thermal, and
+                  density data for nine resins. Selecting a material loads its
+                  values into the calculation. Always treat these as engineering
+                  estimates: gate design, wall variations, and mold temperature
+                  all shift the real numbers.
+                </p>
+                <div class="mt-3 overflow-x-auto">
+                  <table
+                    class="w-full text-xs text-left border border-slate-200 dark:border-slate-800"
+                  >
+                    <thead>
+                      <tr
+                        class="bg-slate-100 dark:bg-slate-900 text-slate-700 dark:text-slate-300"
+                      >
+                        <th class="px-3 py-2 font-bold">Resin</th>
+                        <th class="px-3 py-2 font-bold">Cavity psi</th>
+                        <th class="px-3 py-2 font-bold">Tons/in²</th>
+                        <th class="px-3 py-2 font-bold">α (mm²/s)</th>
+                        <th class="px-3 py-2 font-bold">g/cm³</th>
+                      </tr>
+                    </thead>
+                    <tbody id="material-table"></tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <div class="pt-4 border-t border-slate-200 dark:border-slate-800">
+              <h3 class="font-bold text-slate-900 dark:text-white mb-2">
+                Troubleshooting &amp; Edge-Case Failure Points
+              </h3>
+              <ul
+                class="list-disc pl-5 space-y-2 text-slate-600 dark:text-slate-300 leading-relaxed"
+              >
+                <li>
+                  Projected area, not surface area: use the flat shadow of the
+                  part on the parting line. A deep ribbed box can have 5 in² of
+                  surface but only 1.5 in² of projected area.
+                </li>
+                <li>
+                  Multi-cavity tools: multiply projected area by cavity count,
+                  but remember cooling time depends only on the individual wall
+                  thickness, not the number of cavities.
+                </li>
+                <li>
+                  Very thick walls dominate the cycle: cooling scales with
+                  thickness squared, so a 4 mm wall cools about four times
+                  slower than a 2 mm wall.
+                </li>
+                <li>
+                  Non-flat parting lines and side-action cores add clamp loads
+                  that a flat-area estimate cannot capture — add 10–20% tonnage
+                  headroom.
+                </li>
+              </ul>
+            </div>
+            <div class="pt-4 border-t border-slate-200 dark:border-slate-800">
+              <h3 class="font-bold text-slate-900 dark:text-white mb-2">
+                Step-by-Step Instructions
+              </h3>
+              <ol
+                class="list-decimal pl-5 space-y-2 text-slate-600 dark:text-slate-300 leading-relaxed"
+              >
+                <li>
+                  Enter the projected area of the part in square inches (flat
+                  shadow on the parting line).
+                </li>
+                <li>
+                  Enter the nominal wall thickness in millimeters — use the
+                  thickest nominal wall, not the average.
+                </li>
+                <li>
+                  Select the resin from the preset list; its cavity pressure,
+                  thermal diffusivity, and density load automatically.
+                </li>
+                <li>Set the cavity count for the production tool.</li>
+                <li>
+                  Click "Calculate Cycle &amp; Tonnage" and read off clamp
+                  force, recommended machine size, cooling, and shot weight.
+                </li>
+                <li>
+                  Use the Copy button to drop the full estimate into your quote
+                  sheet or mold spec.
+                </li>
+              </ol>
+            </div>
+            <!-- Semantic SEO Related Tool Matrix Silo -->
+            <div
+              class="mt-6 pt-6 border-t border-slate-200 dark:border-slate-800"
+            >
+              <h3
+                class="text-sm font-bold text-slate-900 dark:text-white mb-3 uppercase tracking-wider"
+              >
+                Related Web Utilities (Silo Hub)
+              </h3>
+              <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2">
+                <a
+                  href="../composite-laminate-calculator/"
+                  class="text-xs font-semibold text-brand-600 hover:text-brand-800 dark:text-brand-400 dark:hover:text-brand-300 transition-colors bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 px-3 py-2 rounded-lg text-center block"
+                  >Carbon Fiber Laminate Stack</a
+                >
+                <a
+                  href="../gear-tooth-generator/"
+                  class="text-xs font-semibold text-brand-600 hover:text-brand-800 dark:text-brand-400 dark:hover:text-brand-300 transition-colors bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 px-3 py-2 rounded-lg text-center block"
+                  >Spur Gear Geometry Generator</a
+                >
+                <a
+                  href="../pump-selection-tdh/"
+                  class="text-xs font-semibold text-brand-600 hover:text-brand-800 dark:text-brand-400 dark:hover:text-brand-300 transition-colors bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 px-3 py-2 rounded-lg text-center block"
+                  >Pump Selection &amp; TDH</a
+                >
+                <a
+                  href="../thermocouple-calculator/"
+                  class="text-xs font-semibold text-brand-600 hover:text-brand-800 dark:text-brand-400 dark:hover:text-brand-300 transition-colors bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 px-3 py-2 rounded-lg text-center block"
+                  >Thermocouple &amp; RTD Converter</a
+                >
+                <a
+                  href="../cnc-feeds-speeds/"
+                  class="text-xs font-semibold text-brand-600 hover:text-brand-800 dark:text-brand-400 dark:hover:text-brand-300 transition-colors bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 px-3 py-2 rounded-lg text-center block"
+                  >CNC Feeds &amp; Speeds Matrix</a
+                >
+              </div>
+            </div>
+          </section>
+          <!-- Informative Articles End -->
+        </div>
+        <!-- Column 4 Sidebar -->
+        <div class="lg:col-span-1 space-y-6">
+          <div id="trending-sidebar"></div>
+          <!-- Reserved Square Ad Slot (CLS-safe) -->
+          <div
+            id="ad-slot-square"
+            class="w-full p-4 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center mt-4 select-none min-h-[250px] overflow-hidden"
+            style="min-height: 250px"
+          >
+            <span
+              class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-2"
+              >Advertisement</span
+            >
+            <div
+              class="w-full flex justify-center"
+              style="height: 250px; max-height: 250px; overflow: hidden"
+            >
+              <!-- SquareAds -->
+              <ins
+                class="adsbygoogle"
+                style="
+                  display: block;
+                  width: 100%;
+                  min-height: 250px;
+                  max-height: 250px;
+                "
+                data-ad-client="ca-pub-3901061173891576"
+                data-ad-slot="6707430996"
+                data-ad-format="rectangle"
+                data-full-width-responsive="false"
+              ></ins>
+            </div>
+          </div>
+          <!-- Reserved Vertical Ad Slot (CLS-safe, desktop only) -->
+          <div
+            id="ad-slot-vertical"
+            class="w-full p-4 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center mt-4 hidden lg:flex select-none min-h-[600px] overflow-hidden"
+            style="min-height: 600px"
+          >
+            <span
+              class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-2"
+              >Advertisement</span
+            >
+            <div
+              class="w-full flex justify-center"
+              style="height: 600px; max-height: 600px; overflow: hidden"
+            >
+              <!-- verticalAds -->
+              <ins
+                class="adsbygoogle"
+                style="
+                  display: block;
+                  width: 100%;
+                  min-height: 600px;
+                  max-height: 600px;
+                "
+                data-ad-client="ca-pub-3901061173891576"
+                data-ad-slot="1581548667"
+                data-ad-format="auto"
+                data-full-width-responsive="true"
+              ></ins>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script>
+      const MATERIALS = {
+        pe: {
+          name: "Polyethylene (LDPE/HDPE)",
+          psi: 5000,
+          alpha: 0.1,
+          tm: 220,
+          tw: 30,
+          te: 65,
+          rho: 0.95,
+        },
+        pp: {
+          name: "Polypropylene (PP)",
+          psi: 6500,
+          alpha: 0.09,
+          tm: 230,
+          tw: 40,
+          te: 80,
+          rho: 0.9,
+        },
+        ps: {
+          name: "Polystyrene (GPPS)",
+          psi: 7500,
+          alpha: 0.09,
+          tm: 230,
+          tw: 40,
+          te: 75,
+          rho: 1.05,
+        },
+        abs: {
+          name: "ABS",
+          psi: 8500,
+          alpha: 0.09,
+          tm: 240,
+          tw: 50,
+          te: 80,
+          rho: 1.05,
+        },
+        nylon: {
+          name: "Nylon 6/6 (PA66)",
+          psi: 10000,
+          alpha: 0.1,
+          tm: 285,
+          tw: 80,
+          te: 120,
+          rho: 1.14,
+        },
+        pc: {
+          name: "Polycarbonate (PC)",
+          psi: 10000,
+          alpha: 0.12,
+          tm: 300,
+          tw: 90,
+          te: 125,
+          rho: 1.2,
+        },
+        pom: {
+          name: "Acetal (POM)",
+          psi: 9000,
+          alpha: 0.09,
+          tm: 210,
+          tw: 90,
+          te: 100,
+          rho: 1.41,
+        },
+        pmma: {
+          name: "Acrylic (PMMA)",
+          psi: 9500,
+          alpha: 0.1,
+          tm: 240,
+          tw: 60,
+          te: 95,
+          rho: 1.19,
+        },
+        pbt: {
+          name: "PBT Polyester",
+          psi: 10000,
+          alpha: 0.1,
+          tm: 250,
+          tw: 60,
+          te: 100,
+          rho: 1.31,
+        },
+      };
+      function renderMaterialTable() {
+        const tbody = document.getElementById("material-table");
+        tbody.innerHTML = Object.entries(MATERIALS)
+          .map(([key, m]) => {
+            return (
+              '<tr class="border-t border-slate-200 dark:border-slate-800">' +
+              '<td class="px-3 py-2 font-semibold text-slate-800 dark:text-slate-200">' +
+              m.name +
+              "</td>" +
+              '<td class="px-3 py-2 text-slate-500 dark:text-slate-400">' +
+              m.psi.toLocaleString() +
+              "</td>" +
+              '<td class="px-3 py-2 text-slate-500 dark:text-slate-400">' +
+              (m.psi / 2000).toFixed(2) +
+              "</td>" +
+              '<td class="px-3 py-2 text-slate-500 dark:text-slate-400">' +
+              m.alpha.toFixed(2) +
+              "</td>" +
+              '<td class="px-3 py-2 text-slate-500 dark:text-slate-400">' +
+              m.rho.toFixed(2) +
+              "</td>" +
+              "</tr>"
+            );
+          })
+          .join("");
+      }
+      function calculate() {
+        const errorEl = document.getElementById("form-error");
+        const warnEl = document.getElementById("form-warning");
+        errorEl.classList.add("hidden");
+        warnEl.classList.add("hidden");
+        const area = parseFloat(
+          document.getElementById("projected-area").value,
+        );
+        const t = parseFloat(document.getElementById("wall-thickness").value);
+        const cavities = parseInt(
+          document.getElementById("cavities").value,
+          10,
+        );
+        const mat = MATERIALS[document.getElementById("material").value];
+        let firstError = null;
+        if (!(area > 0))
+          firstError = "Projected area must be greater than 0 in².";
+        else if (!(t > 0.05))
+          firstError = "Wall thickness must be greater than 0.05 mm.";
+        else if (!(cavities >= 1 && cavities <= 64))
+          firstError = "Cavity count must be a whole number between 1 and 64.";
+        if (firstError) {
+          errorEl.textContent = firstError;
+          errorEl.classList.remove("hidden");
+          return;
+        }
+        const clampTons = (area * mat.psi) / 2000;
+        const clampKN = clampTons * 8.8964432;
+        const tonnageFactor = mat.psi / 2000;
+        const recommended = clampTons * 1.15;
+        const tIn = t / 25.4;
+        const partVolIn3 = area * tIn;
+        const partVolCm3 = partVolIn3 * 16.3871;
+        const partWeightG = partVolCm3 * mat.rho;
+        const runnerAllow = 1.15;
+        const shotWeightG = partWeightG * cavities * runnerAllow;
+        const shotVolCm3 = partVolCm3 * cavities * runnerAllow;
+        const cooling =
+          ((t * t) / (Math.PI * Math.PI * mat.alpha)) *
+          Math.log((4 / Math.PI) * ((mat.tm - mat.tw) / (mat.te - mat.tw)));
+        const fill = Math.max(0.1, shotVolCm3 / 120);
+        const pack = 1.5;
+        const overhead = 3.0;
+        const cycle = cooling + fill + pack + overhead;
+        const shotsPerHour = 3600 / cycle;
+        document.getElementById("val-tonnage").textContent =
+          clampTons.toFixed(1) + " tons";
+        document.getElementById("val-factor").textContent =
+          tonnageFactor.toFixed(2) + " t/in²";
+        document.getElementById("val-machine").textContent =
+          recommended.toFixed(1) + " tons (" + clampKN.toFixed(0) + " kN)";
+        document.getElementById("val-cooling").textContent =
+          cooling.toFixed(1) + " s";
+        document.getElementById("val-other").textContent =
+          (fill + pack + overhead).toFixed(1) + " s";
+        document.getElementById("val-cycle").textContent =
+          cycle.toFixed(1) + " s";
+        document.getElementById("val-shots").textContent =
+          shotsPerHour.toFixed(0) + " /hr";
+        document.getElementById("val-part-wt").textContent =
+          partWeightG.toFixed(1) + " g";
+        document.getElementById("val-shot-wt").textContent =
+          shotWeightG.toFixed(1) + " g";
+        document.getElementById("out-breakdown").textContent =
+          "CLAMP = area × cavity pressure ÷ 2000\n" +
+          " = " +
+          area +
+          " × " +
+          mat.psi.toLocaleString() +
+          " ÷ 2000\n" +
+          " = " +
+          clampTons.toFixed(1) +
+          " tons (factor " +
+          tonnageFactor.toFixed(2) +
+          " t/in²)\n" +
+          "COOL = s² ÷ (π²·α) × ln[(4/π)·(Tm−Tw)/(Te−Tw)]\n" +
+          " = " +
+          t +
+          "² ÷ (π²·" +
+          mat.alpha +
+          ") × ln[" +
+          (4 / Math.PI).toFixed(3) +
+          "·" +
+          (mat.tm - mat.tw) +
+          "/" +
+          (mat.te - mat.tw) +
+          "]\n" +
+          " = " +
+          cooling.toFixed(2) +
+          " s\n" +
+          "FILL = shot volume ÷ 120 cm³/s = " +
+          shotVolCm3.toFixed(1) +
+          " ÷ 120 = " +
+          fill.toFixed(2) +
+          " s\n" +
+          "HOLD = " +
+          pack.toFixed(1) +
+          " s EJECT+CLAMP = " +
+          overhead.toFixed(1) +
+          " s\n" +
+          "CYCLE = " +
+          cooling.toFixed(1) +
+          " + " +
+          (fill + pack + overhead).toFixed(1) +
+          " = " +
+          cycle.toFixed(1) +
+          " s\n" +
+          "RATE = 3600 ÷ " +
+          cycle.toFixed(1) +
+          " = " +
+          shotsPerHour.toFixed(0) +
+          " shots/hr\n" +
+          "PART = " +
+          partVolCm3.toFixed(1) +
+          " cm³ × " +
+          mat.rho +
+          " g/cm³ = " +
+          partWeightG.toFixed(1) +
+          " g\n" +
+          "SHOT = " +
+          partWeightG.toFixed(1) +
+          " g × " +
+          cavities +
+          " × 1.15 (runner) = " +
+          shotWeightG.toFixed(1) +
+          " g";
+        document.getElementById("out-copy").textContent =
+          "Injection Molding Estimate — " +
+          mat.name +
+          "\n" +
+          "Projected area: " +
+          area +
+          " in²\n" +
+          "Wall thickness: " +
+          t +
+          " mm\n" +
+          "Cavities: " +
+          cavities +
+          "\n" +
+          "— Results —\n" +
+          "Required clamp force: " +
+          clampTons.toFixed(1) +
+          " tons (" +
+          clampKN.toFixed(0) +
+          " kN)\n" +
+          "Tonnage factor: " +
+          tonnageFactor.toFixed(2) +
+          " tons/in²\n" +
+          "Recommended machine: " +
+          recommended.toFixed(1) +
+          " tons\n" +
+          "Cooling time: " +
+          cooling.toFixed(1) +
+          " s\n" +
+          "Fill + hold + eject time: " +
+          (fill + pack + overhead).toFixed(1) +
+          " s\n" +
+          "Total cycle time: " +
+          cycle.toFixed(1) +
+          " s\n" +
+          "Production rate: " +
+          shotsPerHour.toFixed(0) +
+          " shots/hr\n" +
+          "Part weight: " +
+          partWeightG.toFixed(1) +
+          " g\n" +
+          "Shot weight (incl. runner): " +
+          shotWeightG.toFixed(1) +
+          " g";
+        if (clampTons < 20) {
+          warnEl.textContent =
+            "Note: required clamp force is under 20 tons — a hand-press or micro-molding machine may be sufficient.";
+          warnEl.classList.remove("hidden");
+        }
+      }
+      function copyResult() {
+        const btn = document.getElementById("btn-copy");
+        const text = btn.querySelector("span");
+        navigator.clipboard
+          .writeText(document.getElementById("out-copy").textContent)
+          .then(() => {
+            text.textContent = "Copied!";
+            setTimeout(() => {
+              text.textContent = "Copy Result";
+            }, 2000);
+          });
+      }
+      window.addEventListener("DOMContentLoaded", () => {
+        renderMaterialTable();
+        document
+          .getElementById("material")
+          .addEventListener("change", calculate);
+        ["projected-area", "wall-thickness", "cavities"].forEach((id) => {
+          document.getElementById(id).addEventListener("input", calculate);
+        });
+        document
+          .getElementById("calculate-btn")
+          .addEventListener("click", calculate);
+        calculate();
+      });
+    </script>
+    <footer id="global-footer"></footer>
+    <script src="../global.js" defer></script>
+  </body>
 </html>

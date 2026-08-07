@@ -1,96 +1,191 @@
-﻿<!DOCTYPE html>
+﻿<!doctype html>
 <html lang="en">
-<head>
-  <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
-  <script>
-    (function() {
-      try {
-        const theme = localStorage.getItem('theme');
-        if (theme === 'dark') {
-          document.documentElement.classList.add('dark');
-          document.documentElement.classList.remove('light');
-        } else {
-          document.documentElement.classList.remove('dark');
-          document.documentElement.classList.add('light');
-        }
-      } catch (e) {}
-    })();
-  </script>
-  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <meta charset="UTF-8">
-  <meta name="google-adsense-account" content="ca-pub-3901061173891576">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Common Errors in Multi-Agent System Topology | TopWebTool</title>
-  <meta name="description" content="Find and fix the most common multi-agent topology errors: self-referencing edges, orphan agents, parallel fan-out mistakes and dead-end branches.">
-  <link rel="canonical" href="https://topwebtool.com/ai-system-topology/ai-system-topology-common-errors.html">
-  <link rel="stylesheet" href="../styles.css">
-  <link rel="stylesheet" href="../global.css">
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": "Common Errors in Multi-Agent System Topology | TopWebTool",
-    "url": "https://topwebtool.com/ai-system-topology/ai-system-topology-common-errors.html",
-    "description": "Find and fix the most common multi-agent topology errors: self-referencing edges, orphan agents, parallel fan-out mistakes and dead-end branches.",
-    "isAccessibleForFree": "True"
-  }
-  </script>
-</head>
-<body class="bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 min-h-screen flex flex-col pb-4 transition-colors duration-200">
+  <head>
+    <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
+    <script>
+      (function () {
+        try {
+          const theme = localStorage.getItem("theme");
+          if (theme === "dark") {
+            document.documentElement.classList.add("dark");
+            document.documentElement.classList.remove("light");
+          } else {
+            document.documentElement.classList.remove("dark");
+            document.documentElement.classList.add("light");
+          }
+        } catch (e) {}
+      })();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <meta charset="UTF-8" />
+    <meta name="google-adsense-account" content="ca-pub-3901061173891576" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Common Errors in Multi-Agent System Topology | TopWebTool</title>
+    <meta
+      name="description"
+      content="Find and fix the most common multi-agent topology errors: self-referencing edges, orphan agents, parallel fan-out mistakes and dead-end branches."
+    />
+    <link
+      rel="canonical"
+      href="https://topwebtool.com/ai-system-topology/ai-system-topology-common-errors.html"
+    />
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="../global.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Common Errors in Multi-Agent System Topology | TopWebTool",
+        "url": "https://topwebtool.com/ai-system-topology/ai-system-topology-common-errors.html",
+        "description": "Find and fix the most common multi-agent topology errors: self-referencing edges, orphan agents, parallel fan-out mistakes and dead-end branches.",
+        "isAccessibleForFree": "True"
+      }
+    </script>
+  </head>
+  <body
+    class="bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 min-h-screen flex flex-col pb-4 transition-colors duration-200"
+  >
+    <!-- Header -->
+    <header id="global-header"></header>
 
-  <!-- Header -->
-  <header id="global-header"></header>
+    <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-grow">
+      <article class="prose prose-slate dark:prose-invert max-w-none">
+        <!-- Reverse Link Back to Main Tool -->
+        <a
+          href="./"
+          class="inline-flex items-center text-brand-600 dark:text-brand-400 font-bold hover:underline text-sm mb-2 transition-colors"
+        >
+          &larr; Back to Multi-Agent System Topology Harness Tool
+        </a>
 
-  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-grow">
-    <article class="prose prose-slate dark:prose-invert max-w-none">
-    <!-- Reverse Link Back to Main Tool -->
-    <a href="./" class="inline-flex items-center text-brand-600 dark:text-brand-400 font-bold hover:underline text-sm mb-2 transition-colors">
-  &larr; Back to Multi-Agent System Topology Harness Tool
-    </a>
+        <h1
+          class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight"
+        >
+          Common Errors in Multi-Agent System Topology Design
+        </h1>
 
-    <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight">
-  Common Errors in Multi-Agent System Topology Design
-    </h1>
+        <div
+          class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4"
+        >
+          <span>Published: August 2026</span>
+          <span>•</span>
+          <span>Category: AI Agent & Automation</span>
+          <span>•</span>
+          <span class="text-emerald-600 dark:text-emerald-400"
+            >No Sign-Up / 100% Free / No Registration</span
+          >
+        </div>
 
-    <div class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4">
-  <span>Published: August 2026</span>
-  <span>•</span>
-  <span>Category: AI Agent & Automation</span>
-  <span>•</span>
-  <span class="text-emerald-600 dark:text-emerald-400">No Sign-Up / 100% Free / No Registration</span>
-    </div>
+        <!-- Body Content -->
+        <div
+          class="text-slate-600 dark:text-slate-300 space-y-4 leading-relaxed text-sm"
+        >
+          <p class="mb-4">
+            Most multi-agent projects fail long before a model call is made —
+            they fail on paper, in the topology. The good news is that the
+            failure modes are few, recognizable, and almost always fixable in a
+            few clicks. Knowing them by name turns a confusing debugging session
+            into a quick checklist.
+          </p>
+          <p class="mb-4">
+            The self-referencing edge is the most obvious trap. Wiring an agent
+            to itself looks harmless in a diagram but creates a loop that either
+            spins forever or consumes tokens until a timeout. The harness
+            rejects source-equals-target edges up front, but longer cycles — A
+            to B to C back to A — still slip through. The fix is to keep graphs
+            acyclic and to model genuine feedback as a bounded retry on a
+            conditional branch.
+          </p>
+          <p class="mb-4">
+            Orphan agents are nodes with no incoming edge. An orphan never
+            receives context, so it runs on empty input, produces meaningless
+            output, and quietly wastes budget. They usually appear after a
+            refactor deletes the edge that used to feed them. The symptom in
+            production is an agent that returns boilerplate regardless of the
+            request. The fix is a review pass that confirms every non-entry node
+            has exactly one incoming path.
+          </p>
+          <p class="mb-4">
+            Dead-end branches are the mirror image: an agent whose output is
+            never consumed. The pipeline spends money producing a result and
+            then discards it. This happens when an edge is deleted after a
+            workflow change but its target was never reassigned. The exported
+            topology text makes sinks visible, so audit out-degree and confirm
+            every terminal is the final answer rather than a forgotten step.
+          </p>
+          <p class="mb-4">
+            Parallel fan-out without a join is a classic growth failure. A
+            router splits work across three agents, and the next sequential step
+            expects one context, not three. The system either crashes on a type
+            mismatch or silently uses only the last result. If you fan out, plan
+            the merge: either a dedicated join agent or an explicit contract
+            that folds results into a single structure before the serial portion
+            continues.
+          </p>
+          <p class="mb-4">
+            Misassigned temperature is subtle and costly. A cold, deterministic
+            routing agent left at a high temperature starts picking branches at
+            random, and the whole system becomes unrepeatable. Conversely, a
+            creative agent locked at 0.0 produces flat, mechanical prose. Set
+            temperature per node with intent, and when outputs start drifting,
+            check temperature before rewriting prompts.
+          </p>
+          <p class="mb-4">
+            Context starvation and context bloat are two sides of the same
+            hand-off mistake. Starvation happens when an edge does not forward
+            the field a downstream agent needs, so it answers with whatever it
+            happens to know. Bloat happens when every edge forwards the entire
+            history and each agent re-reads megabytes of context, inflating
+            latency and token cost quadratically. Define the hand-off schema
+            explicitly per edge type.
+          </p>
+          <p class="mb-4">
+            Duplicate edges between the same pair are usually leftovers from an
+            edit session. The harness refuses exact duplicates, but
+            near-duplicates — one sequential and one parallel edge between the
+            same agents — create genuine ambiguity about intended behavior. When
+            you see two lines between the same boxes, delete one and document
+            the chosen flow.
+          </p>
+          <p class="mb-4">
+            A frequent and frustrating error is renaming a node after edges were
+            wired. Every edge references the old identifier, so the graph
+            suddenly points at nothing. The harness re-renders selections from
+            node IDs, but the discipline is still yours: rename early, treat
+            renames as refactors, and re-export the text after any rename to
+            catch dangling references.
+          </p>
+          <p class="mb-4">
+            Finally, resist the urge to mirror the database. A topology that
+            mirrors a storage graph — one node per table — is almost always
+            wrong. Agents exist to do work, not to represent records. Collapse
+            passive nodes, let one agent own multiple related operations, and
+            keep the graph shaped by control flow rather than by data model. A
+            leaner graph is easier to debug, cheaper to run, and far simpler to
+            explain in a review.
+          </p>
+        </div>
 
-    <!-- Body Content -->
-    <div class="text-slate-600 dark:text-slate-300 space-y-4 leading-relaxed text-sm">
-  <p class="mb-4">Most multi-agent projects fail long before a model call is made — they fail on paper, in the topology. The good news is that the failure modes are few, recognizable, and almost always fixable in a few clicks. Knowing them by name turns a confusing debugging session into a quick checklist.</p>
-<p class="mb-4">The self-referencing edge is the most obvious trap. Wiring an agent to itself looks harmless in a diagram but creates a loop that either spins forever or consumes tokens until a timeout. The harness rejects source-equals-target edges up front, but longer cycles — A to B to C back to A — still slip through. The fix is to keep graphs acyclic and to model genuine feedback as a bounded retry on a conditional branch.</p>
-<p class="mb-4">Orphan agents are nodes with no incoming edge. An orphan never receives context, so it runs on empty input, produces meaningless output, and quietly wastes budget. They usually appear after a refactor deletes the edge that used to feed them. The symptom in production is an agent that returns boilerplate regardless of the request. The fix is a review pass that confirms every non-entry node has exactly one incoming path.</p>
-<p class="mb-4">Dead-end branches are the mirror image: an agent whose output is never consumed. The pipeline spends money producing a result and then discards it. This happens when an edge is deleted after a workflow change but its target was never reassigned. The exported topology text makes sinks visible, so audit out-degree and confirm every terminal is the final answer rather than a forgotten step.</p>
-<p class="mb-4">Parallel fan-out without a join is a classic growth failure. A router splits work across three agents, and the next sequential step expects one context, not three. The system either crashes on a type mismatch or silently uses only the last result. If you fan out, plan the merge: either a dedicated join agent or an explicit contract that folds results into a single structure before the serial portion continues.</p>
-<p class="mb-4">Misassigned temperature is subtle and costly. A cold, deterministic routing agent left at a high temperature starts picking branches at random, and the whole system becomes unrepeatable. Conversely, a creative agent locked at 0.0 produces flat, mechanical prose. Set temperature per node with intent, and when outputs start drifting, check temperature before rewriting prompts.</p>
-<p class="mb-4">Context starvation and context bloat are two sides of the same hand-off mistake. Starvation happens when an edge does not forward the field a downstream agent needs, so it answers with whatever it happens to know. Bloat happens when every edge forwards the entire history and each agent re-reads megabytes of context, inflating latency and token cost quadratically. Define the hand-off schema explicitly per edge type.</p>
-<p class="mb-4">Duplicate edges between the same pair are usually leftovers from an edit session. The harness refuses exact duplicates, but near-duplicates — one sequential and one parallel edge between the same agents — create genuine ambiguity about intended behavior. When you see two lines between the same boxes, delete one and document the chosen flow.</p>
-<p class="mb-4">A frequent and frustrating error is renaming a node after edges were wired. Every edge references the old identifier, so the graph suddenly points at nothing. The harness re-renders selections from node IDs, but the discipline is still yours: rename early, treat renames as refactors, and re-export the text after any rename to catch dangling references.</p>
-<p class="mb-4">Finally, resist the urge to mirror the database. A topology that mirrors a storage graph — one node per table — is almost always wrong. Agents exist to do work, not to represent records. Collapse passive nodes, let one agent own multiple related operations, and keep the graph shaped by control flow rather than by data model. A leaner graph is easier to debug, cheaper to run, and far simpler to explain in a review.</p>
-    </div>
+        <div
+          class="pt-6 border-t border-slate-100 dark:border-slate-800/80 flex flex-col sm:flex-row justify-between items-center gap-4"
+        >
+          <span class="text-xs text-slate-400 dark:text-slate-500 font-semibold"
+            >Catch these errors before they reach production.</span
+          >
+          <a
+            href="./"
+            class="px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm rounded-lg transition-colors shadow-sm"
+          >
+            Open the Multi-Agent Topology Harness &rarr;
+          </a>
+        </div>
+      </article>
+    </main>
 
-    <div class="pt-6 border-t border-slate-100 dark:border-slate-800/80 flex flex-col sm:flex-row justify-between items-center gap-4">
-  <span class="text-xs text-slate-400 dark:text-slate-500 font-semibold">Catch these errors before they reach production.</span>
-  <a href="./" class="px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm rounded-lg transition-colors shadow-sm">
-    Open the Multi-Agent Topology Harness &rarr;
-  </a>
-    </div>
+    <!-- Footer -->
+    <footer id="global-footer"></footer>
 
-  </div>
-
-  </div>
-    </article>
-  </main>
-
-  <!-- Footer -->
-  <footer id="global-footer"></footer>
-
-  <script src="../global.js" defer></script>
-</body>
+    <script src="../global.js" defer></script>
+  </body>
 </html>
