@@ -53,174 +53,281 @@
     <!-- Header -->
     <header id="global-header"></header>
 
-    <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-grow">
-      <article class="prose prose-slate dark:prose-invert max-w-none">
-        <!-- Reverse Link Back to Main Tool -->
-        <a
-          href="./"
-          class="inline-flex items-center text-brand-600 dark:text-brand-400 font-bold hover:underline text-sm mb-2 transition-colors"
+    <main
+      class="tool-page-main max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex-grow"
+    >
+      <!-- Leaderboard Ad Slot -->
+      <div
+        id="ad-slot-a"
+        class="w-full mx-auto mb-6 p-3 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center select-none overflow-hidden min-h-[90px]"
+        style="max-width: 728px; min-height: 90px; max-height: 135px"
+      >
+        <span
+          class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-1.5"
+          >Advertisement</span
         >
-          &larr; Back to Gear Tooth Generator
-        </a>
-
-        <h1
-          class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight"
-        >
-          Best Practices for Designing Reliable Gear Sets
-        </h1>
-
         <div
-          class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4"
+          class="w-full flex justify-center"
+          style="height: 90px; max-height: 90px; overflow: hidden"
         >
-          <span>Published: August 2026</span>
-          <span>•</span>
-          <span>Category: Industrial &amp; Engineering</span>
-          <span>•</span>
-          <span class="text-emerald-600 dark:text-emerald-400"
-            >No Sign-Up / 100% Free / No Registration</span
-          >
+          <ins
+            class="adsbygoogle"
+            style="
+              display: inline-block;
+              width: 100%;
+              height: 90px;
+              max-height: 90px;
+            "
+            data-ad-client="ca-pub-3901061173891576"
+            data-ad-slot="2894630336"
+            data-ad-format="horizontal"
+            data-full-width-responsive="false"
+          ></ins>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-4 gap-4">
+        <!-- Main Content (Column 1-3) -->
+        <div class="lg:col-span-3 space-y-8">
+          <article class="prose prose-slate dark:prose-invert max-w-none">
+            <!-- Reverse Link Back to Main Tool -->
+            <a
+              href="./"
+              class="inline-flex items-center text-brand-600 dark:text-brand-400 font-bold hover:underline text-sm mb-2 transition-colors"
+            >
+              &larr; Back to Gear Tooth Generator
+            </a>
+
+            <h1
+              class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight"
+            >
+              Best Practices for Designing Reliable Gear Sets
+            </h1>
+
+            <div
+              class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4"
+            >
+              <span>Published: August 2026</span>
+              <span>•</span>
+              <span>Category: Industrial &amp; Engineering</span>
+              <span>•</span>
+              <span class="text-emerald-600 dark:text-emerald-400"
+                >No Sign-Up / 100% Free / No Registration</span
+              >
+            </div>
+
+            <!-- Body Content -->
+            <div
+              class="text-slate-600 dark:text-slate-300 space-y-4 leading-relaxed text-sm"
+            >
+              <p class="mb-4">
+                A gear that is dimensionally correct is not automatically a gear
+                that will live — reliability comes from a handful of design
+                habits applied around the geometry. The Gear Tooth Generator
+                produces the correct involute dimensions; the practices in this
+                article decide whether that geometry survives the loads, speeds,
+                and manufacturing tolerances it will meet in service.
+              </p>
+              <p class="mb-4">
+                The first practice is to match the pressure angle across the
+                pair. Two gears that mesh must share the same pressure angle — a
+                20° pinion running against a 25° gear will not conjugate,
+                producing noise, vibration, and rapid wear. The generator's
+                pressure-angle selection should be applied identically to every
+                gear in the train, and when a gear is being replaced in an
+                existing transmission, the replacement must be cut to the same
+                pressure angle and pitch as the original, not to what a fresh
+                design would use. This is the most common and most expensive
+                mismatch in gear replacement work.
+              </p>
+              <p class="mb-4">
+                The second practice is choosing the module or diametral pitch
+                deliberately. Pitch determines tooth size relative to the gear,
+                and tooth size controls strength, noise, and cost. A coarse
+                pitch (small module) makes large, strong teeth suited to heavy
+                loads and low speeds; a fine pitch makes small teeth suited to
+                compact, high-speed, quiet drives. The generator's pitch
+                diameter and tooth thickness outputs show the consequence of the
+                choice immediately, and the practical rule is to use the
+                coarsest pitch that the space envelope and the speed allow —
+                coarse teeth are stronger, cheaper to cut, and more forgiving of
+                misalignment.
+              </p>
+              <p class="mb-4">
+                The third practice is managing tooth count against undercutting.
+                Below roughly 17 teeth at 20° pressure angle, the generating
+                cutter removes part of the involute flank, leaving a weak,
+                re-entrant tooth root that fails under load. The generator flags
+                this automatically, and the designer's options are ordered: add
+                teeth if the ratio allows, reduce the pressure angle is not an
+                option for strength, increase the working depth through profile
+                shift, or accept the undercut with reduced rating. The cleanest
+                fix is a larger pinion with the ratio recovered elsewhere, which
+                is why small high-ratio sets so often end up as multi-stage
+                gearboxes.
+              </p>
+              <p class="mb-4">
+                The fourth practice is specifying backlash as an explicit
+                number, not leaving it to chance. The generator's nominal
+                geometry divides the circular pitch exactly between tooth and
+                space; production gears then remove a small amount of tooth
+                thickness — typically 0.04 to 0.1 times the module for
+                general-purpose sets — to create the running clearance that
+                prevents binding from thermal expansion, machining tolerance,
+                and bearing play. The backlash must be large enough to avoid
+                interference and small enough to avoid impact noise in reversing
+                drives. A drive that reverses frequently should run on the
+                tighter end; a low-speed power drive can run looser.
+              </p>
+              <p class="mb-4">
+                The fifth practice is checking the contact ratio, the average
+                number of teeth in mesh at any instant. A contact ratio below
+                about 1.2 means the drive spends measurable time with one tooth
+                carrying all the load, which drives noise and impact. The value
+                depends on the addendum, pressure angle, and tooth counts of the
+                pair — and the generator's outside and base circle outputs feed
+                directly into the contact-ratio calculation. When a quiet,
+                smooth drive is the goal, the design should target a contact
+                ratio of 1.4 or higher, achieved through adequate addendum
+                height and appropriate tooth counts rather than by hoping.
+              </p>
+              <p class="mb-4">
+                The sixth practice is verifying center distance against the
+                housing before cutting steel. The generator computes the
+                theoretical center distance as the sum of the pitch radii; the
+                housing and bearing stack must deliver that distance within
+                tight tolerance, or the gears run at the wrong operating
+                pressure angle. The practice is to compute the theoretical
+                distance, then confirm the actual as-built distance with a
+                measurement, and to use adjustable center mounting or profile
+                modification when the two cannot be made to agree. Housings that
+                were drilled by guesswork are the silent killer of many gearbox
+                retrofits.
+              </p>
+              <p class="mb-4">
+                The seventh practice is matching material and heat treatment to
+                the loading. The geometry defines the stress levels, but the
+                material defines the allowable stress. Carburized and hardened
+                steel teeth carry several times the load of through-hardened
+                teeth of the same geometry; bronze worms and plastic gears run
+                at far lower ratings. The discipline is to compute the geometry
+                with the generator, calculate the root bending and contact
+                stress from the transmitted power, and select the material from
+                a rated allowable — then re-check the geometry if the stress
+                exceeds the material's limit, because changing module or tooth
+                count moves the stress directly.
+              </p>
+              <p class="mb-4">
+                The eighth practice is checking the root and tip for clearance
+                in the assembled pair. The nominal formulas assume the standard
+                0.25m clearance, but profile shift, odd addendum proportions, or
+                a small pinion can reduce that clearance until the tips grind
+                the roots — a failure that makes itself known as wear dust and
+                rising temperature long before catastrophic loss. The
+                generator's root and outside diameters let you verify that the
+                tip of one gear clears the root of the other by the intended
+                clearance, and the copy output provides the exact numbers for
+                the review.
+              </p>
+              <p class="mb-4">
+                Finally, keep the geometry and the process linked in one record.
+                The generator's copy output emits the full geometry set — pitch,
+                addendum, dedendum, diameters, tooth thickness — in a form that
+                belongs in the engineering BOM beside the material, heat
+                treatment, and quality class. When the part number, the drawing,
+                and the cutter specification all reference the same numbers, the
+                probability of a mismatched gear in the field approaches zero.
+                Reliable gear design is 90% correct numbers and 10% discipline
+                about keeping those numbers consistent from drawing to shop
+                floor.
+              </p>
+              <p class="mb-4">
+                Apply these practices to every gear set you specify: matching
+                pressure angles, deliberate pitch, undercut avoidance, explicit
+                backlash, adequate contact ratio, verified center distance,
+                rated materials, and checked clearances — then let the generator
+                handle the arithmetic that ties them all together.
+              </p>
+            </div>
+
+            <div
+              class="pt-6 border-t border-slate-100 dark:border-slate-800/80 flex flex-col sm:flex-row justify-between items-center gap-4"
+            >
+              <span
+                class="text-xs text-slate-400 dark:text-slate-500 font-semibold"
+                >Ready to apply these practices?</span
+              >
+              <a
+                href="./"
+                class="px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm rounded-lg transition-colors shadow-sm"
+              >
+                Use the Interactive Gear Tooth Generator &rarr;
+              </a>
+            </div>
+          </article>
         </div>
 
-        <!-- Body Content -->
-        <div
-          class="text-slate-600 dark:text-slate-300 space-y-4 leading-relaxed text-sm"
-        >
-          <p class="mb-4">
-            A gear that is dimensionally correct is not automatically a gear
-            that will live — reliability comes from a handful of design habits
-            applied around the geometry. The Gear Tooth Generator produces the
-            correct involute dimensions; the practices in this article decide
-            whether that geometry survives the loads, speeds, and manufacturing
-            tolerances it will meet in service.
-          </p>
-          <p class="mb-4">
-            The first practice is to match the pressure angle across the pair.
-            Two gears that mesh must share the same pressure angle — a 20°
-            pinion running against a 25° gear will not conjugate, producing
-            noise, vibration, and rapid wear. The generator's pressure-angle
-            selection should be applied identically to every gear in the train,
-            and when a gear is being replaced in an existing transmission, the
-            replacement must be cut to the same pressure angle and pitch as the
-            original, not to what a fresh design would use. This is the most
-            common and most expensive mismatch in gear replacement work.
-          </p>
-          <p class="mb-4">
-            The second practice is choosing the module or diametral pitch
-            deliberately. Pitch determines tooth size relative to the gear, and
-            tooth size controls strength, noise, and cost. A coarse pitch (small
-            module) makes large, strong teeth suited to heavy loads and low
-            speeds; a fine pitch makes small teeth suited to compact,
-            high-speed, quiet drives. The generator's pitch diameter and tooth
-            thickness outputs show the consequence of the choice immediately,
-            and the practical rule is to use the coarsest pitch that the space
-            envelope and the speed allow — coarse teeth are stronger, cheaper to
-            cut, and more forgiving of misalignment.
-          </p>
-          <p class="mb-4">
-            The third practice is managing tooth count against undercutting.
-            Below roughly 17 teeth at 20° pressure angle, the generating cutter
-            removes part of the involute flank, leaving a weak, re-entrant tooth
-            root that fails under load. The generator flags this automatically,
-            and the designer's options are ordered: add teeth if the ratio
-            allows, reduce the pressure angle is not an option for strength,
-            increase the working depth through profile shift, or accept the
-            undercut with reduced rating. The cleanest fix is a larger pinion
-            with the ratio recovered elsewhere, which is why small high-ratio
-            sets so often end up as multi-stage gearboxes.
-          </p>
-          <p class="mb-4">
-            The fourth practice is specifying backlash as an explicit number,
-            not leaving it to chance. The generator's nominal geometry divides
-            the circular pitch exactly between tooth and space; production gears
-            then remove a small amount of tooth thickness — typically 0.04 to
-            0.1 times the module for general-purpose sets — to create the
-            running clearance that prevents binding from thermal expansion,
-            machining tolerance, and bearing play. The backlash must be large
-            enough to avoid interference and small enough to avoid impact noise
-            in reversing drives. A drive that reverses frequently should run on
-            the tighter end; a low-speed power drive can run looser.
-          </p>
-          <p class="mb-4">
-            The fifth practice is checking the contact ratio, the average number
-            of teeth in mesh at any instant. A contact ratio below about 1.2
-            means the drive spends measurable time with one tooth carrying all
-            the load, which drives noise and impact. The value depends on the
-            addendum, pressure angle, and tooth counts of the pair — and the
-            generator's outside and base circle outputs feed directly into the
-            contact-ratio calculation. When a quiet, smooth drive is the goal,
-            the design should target a contact ratio of 1.4 or higher, achieved
-            through adequate addendum height and appropriate tooth counts rather
-            than by hoping.
-          </p>
-          <p class="mb-4">
-            The sixth practice is verifying center distance against the housing
-            before cutting steel. The generator computes the theoretical center
-            distance as the sum of the pitch radii; the housing and bearing
-            stack must deliver that distance within tight tolerance, or the
-            gears run at the wrong operating pressure angle. The practice is to
-            compute the theoretical distance, then confirm the actual as-built
-            distance with a measurement, and to use adjustable center mounting
-            or profile modification when the two cannot be made to agree.
-            Housings that were drilled by guesswork are the silent killer of
-            many gearbox retrofits.
-          </p>
-          <p class="mb-4">
-            The seventh practice is matching material and heat treatment to the
-            loading. The geometry defines the stress levels, but the material
-            defines the allowable stress. Carburized and hardened steel teeth
-            carry several times the load of through-hardened teeth of the same
-            geometry; bronze worms and plastic gears run at far lower ratings.
-            The discipline is to compute the geometry with the generator,
-            calculate the root bending and contact stress from the transmitted
-            power, and select the material from a rated allowable — then
-            re-check the geometry if the stress exceeds the material's limit,
-            because changing module or tooth count moves the stress directly.
-          </p>
-          <p class="mb-4">
-            The eighth practice is checking the root and tip for clearance in
-            the assembled pair. The nominal formulas assume the standard 0.25m
-            clearance, but profile shift, odd addendum proportions, or a small
-            pinion can reduce that clearance until the tips grind the roots — a
-            failure that makes itself known as wear dust and rising temperature
-            long before catastrophic loss. The generator's root and outside
-            diameters let you verify that the tip of one gear clears the root of
-            the other by the intended clearance, and the copy output provides
-            the exact numbers for the review.
-          </p>
-          <p class="mb-4">
-            Finally, keep the geometry and the process linked in one record. The
-            generator's copy output emits the full geometry set — pitch,
-            addendum, dedendum, diameters, tooth thickness — in a form that
-            belongs in the engineering BOM beside the material, heat treatment,
-            and quality class. When the part number, the drawing, and the cutter
-            specification all reference the same numbers, the probability of a
-            mismatched gear in the field approaches zero. Reliable gear design
-            is 90% correct numbers and 10% discipline about keeping those
-            numbers consistent from drawing to shop floor.
-          </p>
-          <p class="mb-4">
-            Apply these practices to every gear set you specify: matching
-            pressure angles, deliberate pitch, undercut avoidance, explicit
-            backlash, adequate contact ratio, verified center distance, rated
-            materials, and checked clearances — then let the generator handle
-            the arithmetic that ties them all together.
-          </p>
-        </div>
-
-        <div
-          class="pt-6 border-t border-slate-100 dark:border-slate-800/80 flex flex-col sm:flex-row justify-between items-center gap-4"
-        >
-          <span class="text-xs text-slate-400 dark:text-slate-500 font-semibold"
-            >Ready to apply these practices?</span
+        <!-- Column 4 Sidebar -->
+        <div class="lg:col-span-1 space-y-6">
+          <div id="trending-sidebar"></div>
+          <div
+            id="ad-slot-square"
+            class="w-full p-4 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center mt-4 select-none min-h-[250px] overflow-hidden"
+            style="min-height: 250px"
           >
-          <a
-            href="./"
-            class="px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm rounded-lg transition-colors shadow-sm"
+            <span
+              class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-2"
+              >Advertisement</span
+            >
+            <div
+              class="w-full flex justify-center"
+              style="height: 250px; max-height: 250px; overflow: hidden"
+            >
+              <ins
+                class="adsbygoogle"
+                style="
+                  display: block;
+                  width: 100%;
+                  min-height: 250px;
+                  max-height: 250px;
+                "
+                data-ad-client="ca-pub-3901061173891576"
+                data-ad-slot="6707430996"
+                data-ad-format="rectangle"
+                data-full-width-responsive="false"
+              ></ins>
+            </div>
+          </div>
+          <div
+            id="ad-slot-vertical"
+            class="w-full p-4 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center mt-4 hidden lg:flex select-none min-h-[600px] overflow-hidden"
+            style="min-height: 600px"
           >
-            Use the Interactive Gear Tooth Generator &rarr;
-          </a>
+            <span
+              class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-2"
+              >Advertisement</span
+            >
+            <div
+              class="w-full flex justify-center"
+              style="height: 600px; max-height: 600px; overflow: hidden"
+            >
+              <ins
+                class="adsbygoogle"
+                style="
+                  display: block;
+                  width: 100%;
+                  min-height: 600px;
+                  max-height: 600px;
+                "
+                data-ad-client="ca-pub-3901061173891576"
+                data-ad-slot="1581548667"
+                data-ad-format="auto"
+                data-full-width-responsive="true"
+              ></ins>
+            </div>
+          </div>
         </div>
-      </article>
+      </div>
     </main>
 
     <!-- Footer -->

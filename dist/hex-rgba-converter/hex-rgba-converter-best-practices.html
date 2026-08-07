@@ -53,141 +53,242 @@
     <!-- Header -->
     <header id="global-header"></header>
 
-    <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-grow">
-      <article class="prose prose-slate dark:prose-invert max-w-none">
-        <!-- Reverse Link Back to Main Tool -->
-        <a
-          href="./"
-          class="inline-flex items-center text-brand-600 dark:text-brand-400 font-bold hover:underline text-sm mb-2 transition-colors"
+    <main
+      class="tool-page-main max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex-grow"
+    >
+      <!-- Leaderboard Ad Slot -->
+      <div
+        id="ad-slot-a"
+        class="w-full mx-auto mb-6 p-3 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center select-none overflow-hidden min-h-[90px]"
+        style="max-width: 728px; min-height: 90px; max-height: 135px"
+      >
+        <span
+          class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-1.5"
+          >Advertisement</span
         >
-          &larr; Back to HEX to RGBA Converter Tool
-        </a>
-
-        <h1
-          class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight"
-        >
-          Best Practices for HEX to RGBA Color Work
-        </h1>
-
         <div
-          class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4"
+          class="w-full flex justify-center"
+          style="height: 90px; max-height: 90px; overflow: hidden"
         >
-          <span>Published: August 2026</span>
-          <span>•</span>
-          <span>Category: Health &amp; Lifestyle</span>
-          <span>•</span>
-          <span class="text-emerald-600 dark:text-emerald-400"
-            >No Sign-Up / 100% Free / No Registration</span
-          >
+          <ins
+            class="adsbygoogle"
+            style="
+              display: inline-block;
+              width: 100%;
+              height: 90px;
+              max-height: 90px;
+            "
+            data-ad-client="ca-pub-3901061173891576"
+            data-ad-slot="2894630336"
+            data-ad-format="horizontal"
+            data-full-width-responsive="false"
+          ></ins>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-4 gap-4">
+        <!-- Main Content (Column 1-3) -->
+        <div class="lg:col-span-3 space-y-8">
+          <article class="prose prose-slate dark:prose-invert max-w-none">
+            <!-- Reverse Link Back to Main Tool -->
+            <a
+              href="./"
+              class="inline-flex items-center text-brand-600 dark:text-brand-400 font-bold hover:underline text-sm mb-2 transition-colors"
+            >
+              &larr; Back to HEX to RGBA Converter Tool
+            </a>
+
+            <h1
+              class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight"
+            >
+              Best Practices for HEX to RGBA Color Work
+            </h1>
+
+            <div
+              class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4"
+            >
+              <span>Published: August 2026</span>
+              <span>•</span>
+              <span>Category: Health &amp; Lifestyle</span>
+              <span>•</span>
+              <span class="text-emerald-600 dark:text-emerald-400"
+                >No Sign-Up / 100% Free / No Registration</span
+              >
+            </div>
+
+            <!-- Body Content -->
+            <div
+              class="text-slate-600 dark:text-slate-300 space-y-4 leading-relaxed text-sm"
+            >
+              <p class="mb-4">
+                Professionals treat color format as a matter of intent, not
+                habit. The first rule is to match the format to the job. Hex is
+                the right choice for brand assets and hard-coded values — it is
+                compact, exact, and everywhere in design files. RGB is the
+                workhorse for dynamic UI because JavaScript and CSS animation
+                libraries interpolate channels cleanly, and CSS variables are
+                most maintainable when they store raw channel numbers. HSL is
+                the thinking format — it lets you reason about hue and lightness
+                without mental math, which makes it ideal for palettes and
+                theming. Convert deliberately, and let the destination dictate
+                the spelling.
+              </p>
+              <p class="mb-4">
+                Second, respect the alpha channel's two unit systems. Hex writes
+                alpha as an 8-bit pair, 00 through FF, where FF is fully opaque.
+                RGBA writes the same value as a 0-to-1 fraction, and hsl/hsla
+                accept either a fraction or a percentage. Confusing these is the
+                classic color bug — treating rgba(…, 128) as 50% opacity when it
+                is actually 128/255, or writing #RRGGBB00 expecting it to mean
+                fully opaque. Normalize every input to one internal RGBA model
+                before converting, exactly as the tool does, and you eliminate
+                the whole class of alpha-unit mistakes.
+              </p>
+              <p class="mb-4">
+                Third, verify contrast before you ship, not after. The WCAG
+                target for normal text is 4.5:1, for large text 3:1, and the
+                stricter AAA level is 7:1. These numbers describe the ratio
+                between text and its background, so a button color that looks
+                fine at full opacity can fail once it sits under 40% alpha over
+                a dark image. The reliable workflow is to measure against the
+                actual composited background — the tool composites your color
+                over white for this reason — and to check both black and white
+                text so you know which combination passes before you write the
+                CSS rule.
+              </p>
+              <p class="mb-4">
+                Fourth, standardize a palette before the project grows. A
+                handful of hand-typed hex values scattered across files is how
+                contrast failures and inconsistent greys get born. Collect the
+                colors into tokens — brand primary, brand hover, surface, text
+                muted, and so on — stored once as canonical RGB or HSL values,
+                and convert to hex only where a format demands it. The converter
+                is the verification step in that pipeline: when a new token is
+                proposed, convert it, check its contrast on the relevant
+                backgrounds, and only then add it to the design system.
+              </p>
+              <p class="mb-4">
+                Fifth, use alpha for states instead of inventing new colors.
+                Focus rings, hover overlays, disabled text, and modal scrims are
+                the same color at different opacities. Because alpha is a single
+                channel, you can define one base color and derive every state
+                from it, which keeps the palette small and the UI visually
+                coherent. The trick is to remember alpha is a blend, not a
+                paint: a 50% overlay of brand blue over a white page is not half
+                the color — it is the exact blend the converter shows you in the
+                swatch and in the composited contrast number.
+              </p>
+              <p class="mb-6">
+                Sixth, prefer the short hex shorthand only where it costs
+                nothing. #39c and #3399cc are identical, and the shorter form
+                trims CSS bytes and reads faster. But shorthand is only valid
+                when every pair is doubled, so #39c works while #398 does not.
+                When you are pasting a color into documentation, a JSON config,
+                or a machine-readable file, always expand to full six-digit hex
+                to remove ambiguity. The converter emits both forms when alpha
+                is opaque, so you can copy whichever your context needs.
+              </p>
+              <p class="mb-4">
+                Seventh, keep named colors out of production code. Names like
+                tomato and rebeccapurple are convenient in mockups, but they
+                hide the actual value, they vary in clarity across teams, and
+                they cannot express alpha or HSL intent. Resolve a named color
+                to its hex once with the autocomplete list, then treat it like
+                any other token. When you see "tomato" in a design file, convert
+                it to #FF6347, verify its contrast role, and store the hex in
+                the design system alongside the other tokens.
+              </p>
+              <p class="mb-4">
+                Finally, make conversion a reflexive cross-check. Whenever a
+                color is handed off — from a brand guide, a Figma export, a
+                marketing brief, or another developer's CSS — convert it and
+                confirm the RGB channels match the stated intent. A single-digit
+                typo in a hex pair changes the color silently, while converting
+                the value and comparing it against the known brand number
+                catches the slip in seconds. Teams that treat conversion as a
+                verification step, not a chore, ship colors that match the
+                brand, pass contrast, and blend exactly as designed.
+              </p>
+            </div>
+
+            <div
+              class="pt-6 border-t border-slate-100 dark:border-slate-800/80 flex flex-col sm:flex-row justify-between items-center gap-4"
+            >
+              <span
+                class="text-xs text-slate-400 dark:text-slate-500 font-semibold"
+                >Ready to put these habits to work?</span
+              >
+              <a
+                href="./"
+                class="px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm rounded-lg transition-colors shadow-sm"
+              >
+                Use the Interactive HEX to RGBA Converter &rarr;
+              </a>
+            </div>
+          </article>
         </div>
 
-        <!-- Body Content -->
-        <div
-          class="text-slate-600 dark:text-slate-300 space-y-4 leading-relaxed text-sm"
-        >
-          <p class="mb-4">
-            Professionals treat color format as a matter of intent, not habit.
-            The first rule is to match the format to the job. Hex is the right
-            choice for brand assets and hard-coded values — it is compact,
-            exact, and everywhere in design files. RGB is the workhorse for
-            dynamic UI because JavaScript and CSS animation libraries
-            interpolate channels cleanly, and CSS variables are most
-            maintainable when they store raw channel numbers. HSL is the
-            thinking format — it lets you reason about hue and lightness without
-            mental math, which makes it ideal for palettes and theming. Convert
-            deliberately, and let the destination dictate the spelling.
-          </p>
-          <p class="mb-4">
-            Second, respect the alpha channel's two unit systems. Hex writes
-            alpha as an 8-bit pair, 00 through FF, where FF is fully opaque.
-            RGBA writes the same value as a 0-to-1 fraction, and hsl/hsla accept
-            either a fraction or a percentage. Confusing these is the classic
-            color bug — treating rgba(…, 128) as 50% opacity when it is actually
-            128/255, or writing #RRGGBB00 expecting it to mean fully opaque.
-            Normalize every input to one internal RGBA model before converting,
-            exactly as the tool does, and you eliminate the whole class of
-            alpha-unit mistakes.
-          </p>
-          <p class="mb-4">
-            Third, verify contrast before you ship, not after. The WCAG target
-            for normal text is 4.5:1, for large text 3:1, and the stricter AAA
-            level is 7:1. These numbers describe the ratio between text and its
-            background, so a button color that looks fine at full opacity can
-            fail once it sits under 40% alpha over a dark image. The reliable
-            workflow is to measure against the actual composited background —
-            the tool composites your color over white for this reason — and to
-            check both black and white text so you know which combination passes
-            before you write the CSS rule.
-          </p>
-          <p class="mb-4">
-            Fourth, standardize a palette before the project grows. A handful of
-            hand-typed hex values scattered across files is how contrast
-            failures and inconsistent greys get born. Collect the colors into
-            tokens — brand primary, brand hover, surface, text muted, and so on
-            — stored once as canonical RGB or HSL values, and convert to hex
-            only where a format demands it. The converter is the verification
-            step in that pipeline: when a new token is proposed, convert it,
-            check its contrast on the relevant backgrounds, and only then add it
-            to the design system.
-          </p>
-          <p class="mb-4">
-            Fifth, use alpha for states instead of inventing new colors. Focus
-            rings, hover overlays, disabled text, and modal scrims are the same
-            color at different opacities. Because alpha is a single channel, you
-            can define one base color and derive every state from it, which
-            keeps the palette small and the UI visually coherent. The trick is
-            to remember alpha is a blend, not a paint: a 50% overlay of brand
-            blue over a white page is not half the color — it is the exact blend
-            the converter shows you in the swatch and in the composited contrast
-            number.
-          </p>
-          <p class="mb-6">
-            Sixth, prefer the short hex shorthand only where it costs nothing.
-            #39c and #3399cc are identical, and the shorter form trims CSS bytes
-            and reads faster. But shorthand is only valid when every pair is
-            doubled, so #39c works while #398 does not. When you are pasting a
-            color into documentation, a JSON config, or a machine-readable file,
-            always expand to full six-digit hex to remove ambiguity. The
-            converter emits both forms when alpha is opaque, so you can copy
-            whichever your context needs.
-          </p>
-          <p class="mb-4">
-            Seventh, keep named colors out of production code. Names like tomato
-            and rebeccapurple are convenient in mockups, but they hide the
-            actual value, they vary in clarity across teams, and they cannot
-            express alpha or HSL intent. Resolve a named color to its hex once
-            with the autocomplete list, then treat it like any other token. When
-            you see "tomato" in a design file, convert it to #FF6347, verify its
-            contrast role, and store the hex in the design system alongside the
-            other tokens.
-          </p>
-          <p class="mb-4">
-            Finally, make conversion a reflexive cross-check. Whenever a color
-            is handed off — from a brand guide, a Figma export, a marketing
-            brief, or another developer's CSS — convert it and confirm the RGB
-            channels match the stated intent. A single-digit typo in a hex pair
-            changes the color silently, while converting the value and comparing
-            it against the known brand number catches the slip in seconds. Teams
-            that treat conversion as a verification step, not a chore, ship
-            colors that match the brand, pass contrast, and blend exactly as
-            designed.
-          </p>
-        </div>
-
-        <div
-          class="pt-6 border-t border-slate-100 dark:border-slate-800/80 flex flex-col sm:flex-row justify-between items-center gap-4"
-        >
-          <span class="text-xs text-slate-400 dark:text-slate-500 font-semibold"
-            >Ready to put these habits to work?</span
+        <!-- Column 4 Sidebar -->
+        <div class="lg:col-span-1 space-y-6">
+          <div id="trending-sidebar"></div>
+          <div
+            id="ad-slot-square"
+            class="w-full p-4 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center mt-4 select-none min-h-[250px] overflow-hidden"
+            style="min-height: 250px"
           >
-          <a
-            href="./"
-            class="px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm rounded-lg transition-colors shadow-sm"
+            <span
+              class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-2"
+              >Advertisement</span
+            >
+            <div
+              class="w-full flex justify-center"
+              style="height: 250px; max-height: 250px; overflow: hidden"
+            >
+              <ins
+                class="adsbygoogle"
+                style="
+                  display: block;
+                  width: 100%;
+                  min-height: 250px;
+                  max-height: 250px;
+                "
+                data-ad-client="ca-pub-3901061173891576"
+                data-ad-slot="6707430996"
+                data-ad-format="rectangle"
+                data-full-width-responsive="false"
+              ></ins>
+            </div>
+          </div>
+          <div
+            id="ad-slot-vertical"
+            class="w-full p-4 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center mt-4 hidden lg:flex select-none min-h-[600px] overflow-hidden"
+            style="min-height: 600px"
           >
-            Use the Interactive HEX to RGBA Converter &rarr;
-          </a>
+            <span
+              class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-2"
+              >Advertisement</span
+            >
+            <div
+              class="w-full flex justify-center"
+              style="height: 600px; max-height: 600px; overflow: hidden"
+            >
+              <ins
+                class="adsbygoogle"
+                style="
+                  display: block;
+                  width: 100%;
+                  min-height: 600px;
+                  max-height: 600px;
+                "
+                data-ad-client="ca-pub-3901061173891576"
+                data-ad-slot="1581548667"
+                data-ad-format="auto"
+                data-full-width-responsive="true"
+              ></ins>
+            </div>
+          </div>
         </div>
-      </article>
+      </div>
     </main>
 
     <!-- Footer -->

@@ -43,144 +43,248 @@
     class="bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 min-h-screen flex flex-col"
   >
     <header id="global-header"></header>
-    <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-grow">
-      <article class="prose prose-slate dark:prose-invert max-w-none">
-        <h1>Just-in-Time vs EOQ Inventory</h1>
-        <p>
-          Inventory management strategy selection often boils down to a choice
-          between two influential philosophies: Just-in-Time and Economic Order
-          Quantity. Both aim to reduce waste and improve cash flow, yet they
-          achieve these goals through fundamentally different mechanisms. JIT
-          focuses on minimizing inventory by synchronizing material arrivals
-          with production schedules, while EOQ focuses on optimizing batch sizes
-          to balance ordering and holding costs. Understanding the strengths,
-          weaknesses, and ideal operating environments for each approach helps
-          supply chain managers select the strategy that aligns with their
-          industry dynamics, supplier reliability, and risk tolerance. In
-          practice, many mature organizations blend elements of both methods to
-          create a hybrid system that captures the benefits of each.
-        </p>
+    <main
+      class="tool-page-main max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex-grow"
+    >
+      <!-- Leaderboard Ad Slot -->
+      <div
+        id="ad-slot-a"
+        class="w-full mx-auto mb-6 p-3 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center select-none overflow-hidden min-h-[90px]"
+        style="max-width: 728px; min-height: 90px; max-height: 135px"
+      >
+        <span
+          class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-1.5"
+          >Advertisement</span
+        >
+        <div
+          class="w-full flex justify-center"
+          style="height: 90px; max-height: 90px; overflow: hidden"
+        >
+          <ins
+            class="adsbygoogle"
+            style="
+              display: inline-block;
+              width: 100%;
+              height: 90px;
+              max-height: 90px;
+            "
+            data-ad-client="ca-pub-3901061173891576"
+            data-ad-slot="2894630336"
+            data-ad-format="horizontal"
+            data-full-width-responsive="false"
+          ></ins>
+        </div>
+      </div>
 
-        <h2>Understanding Just-in-Time Inventory</h2>
-        <p>
-          Just-in-Time, pioneered by Toyota in the mid-twentieth century, is a
-          pull-based system that seeks to receive goods only as they are needed
-          in the production process. Rather than maintaining large safety
-          stocks, JIT relies on tight coordination with suppliers, short lead
-          times, and continuous process improvement. Materials arrive at the
-          factory floor moments before they are required, dramatically reducing
-          warehousing needs, obsolescence risk, and capital tied up in
-          inventory. The philosophy extends beyond procurement to encompass
-          quality control, equipment maintenance, and workforce training,
-          because any disruption in the tightly coupled supply chain can halt
-          production. JIT excels in environments with stable demand, reliable
-          logistics, and strong supplier partnerships, but it leaves little room
-          for error when conditions shift unexpectedly.
-        </p>
+      <div class="grid grid-cols-1 lg:grid-cols-4 gap-4">
+        <!-- Main Content (Column 1-3) -->
+        <div class="lg:col-span-3 space-y-8">
+          <article class="prose prose-slate dark:prose-invert max-w-none">
+            <h1>Just-in-Time vs EOQ Inventory</h1>
+            <p>
+              Inventory management strategy selection often boils down to a
+              choice between two influential philosophies: Just-in-Time and
+              Economic Order Quantity. Both aim to reduce waste and improve cash
+              flow, yet they achieve these goals through fundamentally different
+              mechanisms. JIT focuses on minimizing inventory by synchronizing
+              material arrivals with production schedules, while EOQ focuses on
+              optimizing batch sizes to balance ordering and holding costs.
+              Understanding the strengths, weaknesses, and ideal operating
+              environments for each approach helps supply chain managers select
+              the strategy that aligns with their industry dynamics, supplier
+              reliability, and risk tolerance. In practice, many mature
+              organizations blend elements of both methods to create a hybrid
+              system that captures the benefits of each.
+            </p>
 
-        <h2>Understanding Economic Order Quantity</h2>
-        <p>
-          EOQ represents a push-based, batch-oriented approach where businesses
-          calculate the optimal order quantity based on annual demand, ordering
-          cost, and holding cost. Instead of constantly chasing minimal
-          inventory, EOQ accepts that some stock is necessary and seeks the most
-          cost-effective batch size. The resulting order quantities are fixed or
-          periodically reviewed, creating predictable procurement cycles that
-          simplify budgeting and supplier negotiation. EOQ is inherently more
-          forgiving of supplier variability because the safety stock implicit in
-          the order quantity absorbs some lead time fluctuations. However, this
-          resilience comes at the cost of higher average inventory compared to
-          JIT. Businesses using EOQ typically enjoy simpler operations and lower
-          administrative overhead, making the model attractive for small and
-          medium enterprises with limited supply chain resources.
-        </p>
+            <h2>Understanding Just-in-Time Inventory</h2>
+            <p>
+              Just-in-Time, pioneered by Toyota in the mid-twentieth century, is
+              a pull-based system that seeks to receive goods only as they are
+              needed in the production process. Rather than maintaining large
+              safety stocks, JIT relies on tight coordination with suppliers,
+              short lead times, and continuous process improvement. Materials
+              arrive at the factory floor moments before they are required,
+              dramatically reducing warehousing needs, obsolescence risk, and
+              capital tied up in inventory. The philosophy extends beyond
+              procurement to encompass quality control, equipment maintenance,
+              and workforce training, because any disruption in the tightly
+              coupled supply chain can halt production. JIT excels in
+              environments with stable demand, reliable logistics, and strong
+              supplier partnerships, but it leaves little room for error when
+              conditions shift unexpectedly.
+            </p>
 
-        <h2>Comparing Cost Structures</h2>
-        <p>
-          JIT reduces inventory carrying costs to near zero by design, but it
-          often increases ordering and logistics costs due to more frequent,
-          smaller shipments. EOQ reduces total cost by optimizing the tradeoff
-          between ordering and holding, typically maintaining moderate inventory
-          levels with fewer, larger orders. In industries where freight costs
-          are low and warehousing is expensive, JIT may outperform EOQ.
-          Conversely, in sectors with high fixed order costs or limited supplier
-          options, EOQ usually delivers lower total cost. Businesses should map
-          their cost structure against these assumptions before committing to
-          either philosophy. For many distributors, the optimal approach
-          involves identifying fast-moving items that justify JIT-style frequent
-          replenishment while applying EOQ principles to slower-moving products
-          with more stable demand patterns.
-        </p>
+            <h2>Understanding Economic Order Quantity</h2>
+            <p>
+              EOQ represents a push-based, batch-oriented approach where
+              businesses calculate the optimal order quantity based on annual
+              demand, ordering cost, and holding cost. Instead of constantly
+              chasing minimal inventory, EOQ accepts that some stock is
+              necessary and seeks the most cost-effective batch size. The
+              resulting order quantities are fixed or periodically reviewed,
+              creating predictable procurement cycles that simplify budgeting
+              and supplier negotiation. EOQ is inherently more forgiving of
+              supplier variability because the safety stock implicit in the
+              order quantity absorbs some lead time fluctuations. However, this
+              resilience comes at the cost of higher average inventory compared
+              to JIT. Businesses using EOQ typically enjoy simpler operations
+              and lower administrative overhead, making the model attractive for
+              small and medium enterprises with limited supply chain resources.
+            </p>
 
-        <h2>Risk Profiles and Supply Chain Resilience</h2>
-        <p>
-          JIT systems are notoriously vulnerable to supply chain shocks. Natural
-          disasters, geopolitical tensions, transportation strikes, and pandemic
-          disruptions can sever the delicate supplier relationships that JIT
-          depends upon. When a critical component fails to arrive on schedule,
-          the entire production line may idle, causing revenue losses far
-          exceeding any carrying cost savings. EOQ systems, by maintaining
-          larger buffer stocks, absorb these shocks more gracefully. The holding
-          cost premium paid during normal times essentially purchases insurance
-          against catastrophic downtime. This resilience advantage makes EOQ
-          preferable for industries where stockouts carry severe penalties, such
-          as healthcare, aerospace, and food production. Risk-averse
-          organizations often favor EOQ precisely because it decouples
-          production continuity from perfect supplier performance.
-        </p>
+            <h2>Comparing Cost Structures</h2>
+            <p>
+              JIT reduces inventory carrying costs to near zero by design, but
+              it often increases ordering and logistics costs due to more
+              frequent, smaller shipments. EOQ reduces total cost by optimizing
+              the tradeoff between ordering and holding, typically maintaining
+              moderate inventory levels with fewer, larger orders. In industries
+              where freight costs are low and warehousing is expensive, JIT may
+              outperform EOQ. Conversely, in sectors with high fixed order costs
+              or limited supplier options, EOQ usually delivers lower total
+              cost. Businesses should map their cost structure against these
+              assumptions before committing to either philosophy. For many
+              distributors, the optimal approach involves identifying
+              fast-moving items that justify JIT-style frequent replenishment
+              while applying EOQ principles to slower-moving products with more
+              stable demand patterns.
+            </p>
 
-        <h2>Implementation Complexity and Cultural Fit</h2>
-        <p>
-          Implementing JIT successfully demands cultural transformation, not
-          just process tweaks. It requires total quality management, continuous
-          improvement culture, cross-functional teamwork, and deep trust between
-          buyers and suppliers. Employees must embrace lean principles,
-          root-cause problem solving, and visual management systems. By
-          contrast, EOQ can be implemented with relatively modest changes to
-          existing procurement workflows. A spreadsheet or basic inventory
-          software suffices to calculate optimal order quantities and set
-          reorder points. The lower barrier to entry makes EOQ accessible to
-          smaller organizations without dedicated supply chain analysts. Even
-          within large corporations, EOQ serves as an excellent starting point
-          for inventory optimization before evolving toward more sophisticated
-          lean practices.
-        </p>
+            <h2>Risk Profiles and Supply Chain Resilience</h2>
+            <p>
+              JIT systems are notoriously vulnerable to supply chain shocks.
+              Natural disasters, geopolitical tensions, transportation strikes,
+              and pandemic disruptions can sever the delicate supplier
+              relationships that JIT depends upon. When a critical component
+              fails to arrive on schedule, the entire production line may idle,
+              causing revenue losses far exceeding any carrying cost savings.
+              EOQ systems, by maintaining larger buffer stocks, absorb these
+              shocks more gracefully. The holding cost premium paid during
+              normal times essentially purchases insurance against catastrophic
+              downtime. This resilience advantage makes EOQ preferable for
+              industries where stockouts carry severe penalties, such as
+              healthcare, aerospace, and food production. Risk-averse
+              organizations often favor EOQ precisely because it decouples
+              production continuity from perfect supplier performance.
+            </p>
 
-        <h2>Hybrid Strategies for Modern Supply Chains</h2>
-        <p>
-          Contemporary supply chain design increasingly favors hybrid models
-          that blend JIT and EOQ elements based on product segmentation.
-          High-value, fast-moving items with reliable suppliers may follow JIT
-          principles with daily or weekly replenishment. Lower-value,
-          slower-moving items with unpredictable demand may follow EOQ with
-          quarterly or monthly batches. Some organizations apply JIT to domestic
-          suppliers with short lead times while using EOQ for imported goods
-          subject to long shipping cycles. This segmentation approach
-          acknowledges that one size does not fit all and that strategic
-          flexibility outperforms doctrinal purity. Our
-          <a href="./index.html">EOQ Calculator</a> provides the quantitative
-          backbone for this hybrid approach, allowing teams to compute optimal
-          batch sizes for each product category and compare them against current
-          practices.
-        </p>
+            <h2>Implementation Complexity and Cultural Fit</h2>
+            <p>
+              Implementing JIT successfully demands cultural transformation, not
+              just process tweaks. It requires total quality management,
+              continuous improvement culture, cross-functional teamwork, and
+              deep trust between buyers and suppliers. Employees must embrace
+              lean principles, root-cause problem solving, and visual management
+              systems. By contrast, EOQ can be implemented with relatively
+              modest changes to existing procurement workflows. A spreadsheet or
+              basic inventory software suffices to calculate optimal order
+              quantities and set reorder points. The lower barrier to entry
+              makes EOQ accessible to smaller organizations without dedicated
+              supply chain analysts. Even within large corporations, EOQ serves
+              as an excellent starting point for inventory optimization before
+              evolving toward more sophisticated lean practices.
+            </p>
 
-        <h2>Making the Right Choice for Your Business</h2>
-        <p>
-          Choosing between JIT and EOQ depends on your specific context rather
-          than generic best practices. Evaluate supplier reliability, lead time
-          variability, holding cost per unit, order processing expense, and the
-          financial impact of stockouts. If your suppliers consistently deliver
-          on time and your warehousing costs are high, lean toward JIT-inspired
-          practices. If your supplier base is volatile, your order costs are
-          substantial, or stockouts threaten customer relationships, EOQ offers
-          a safer foundation. Consider running scenario analyses using our
-          <a href="./index.html">EOQ Calculator</a> to quantify the total cost
-          differences under varying assumptions. The winning strategy is the one
-          that aligns with your operational realities, risk appetite, and
-          long-term business objectives while remaining flexible enough to adapt
-          as conditions evolve.
-        </p>
-      </article>
+            <h2>Hybrid Strategies for Modern Supply Chains</h2>
+            <p>
+              Contemporary supply chain design increasingly favors hybrid models
+              that blend JIT and EOQ elements based on product segmentation.
+              High-value, fast-moving items with reliable suppliers may follow
+              JIT principles with daily or weekly replenishment. Lower-value,
+              slower-moving items with unpredictable demand may follow EOQ with
+              quarterly or monthly batches. Some organizations apply JIT to
+              domestic suppliers with short lead times while using EOQ for
+              imported goods subject to long shipping cycles. This segmentation
+              approach acknowledges that one size does not fit all and that
+              strategic flexibility outperforms doctrinal purity. Our
+              <a href="./index.html">EOQ Calculator</a> provides the
+              quantitative backbone for this hybrid approach, allowing teams to
+              compute optimal batch sizes for each product category and compare
+              them against current practices.
+            </p>
+
+            <h2>Making the Right Choice for Your Business</h2>
+            <p>
+              Choosing between JIT and EOQ depends on your specific context
+              rather than generic best practices. Evaluate supplier reliability,
+              lead time variability, holding cost per unit, order processing
+              expense, and the financial impact of stockouts. If your suppliers
+              consistently deliver on time and your warehousing costs are high,
+              lean toward JIT-inspired practices. If your supplier base is
+              volatile, your order costs are substantial, or stockouts threaten
+              customer relationships, EOQ offers a safer foundation. Consider
+              running scenario analyses using our
+              <a href="./index.html">EOQ Calculator</a> to quantify the total
+              cost differences under varying assumptions. The winning strategy
+              is the one that aligns with your operational realities, risk
+              appetite, and long-term business objectives while remaining
+              flexible enough to adapt as conditions evolve.
+            </p>
+          </article>
+        </div>
+
+        <!-- Column 4 Sidebar -->
+        <div class="lg:col-span-1 space-y-6">
+          <div id="trending-sidebar"></div>
+          <div
+            id="ad-slot-square"
+            class="w-full p-4 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center mt-4 select-none min-h-[250px] overflow-hidden"
+            style="min-height: 250px"
+          >
+            <span
+              class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-2"
+              >Advertisement</span
+            >
+            <div
+              class="w-full flex justify-center"
+              style="height: 250px; max-height: 250px; overflow: hidden"
+            >
+              <ins
+                class="adsbygoogle"
+                style="
+                  display: block;
+                  width: 100%;
+                  min-height: 250px;
+                  max-height: 250px;
+                "
+                data-ad-client="ca-pub-3901061173891576"
+                data-ad-slot="6707430996"
+                data-ad-format="rectangle"
+                data-full-width-responsive="false"
+              ></ins>
+            </div>
+          </div>
+          <div
+            id="ad-slot-vertical"
+            class="w-full p-4 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center mt-4 hidden lg:flex select-none min-h-[600px] overflow-hidden"
+            style="min-height: 600px"
+          >
+            <span
+              class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-2"
+              >Advertisement</span
+            >
+            <div
+              class="w-full flex justify-center"
+              style="height: 600px; max-height: 600px; overflow: hidden"
+            >
+              <ins
+                class="adsbygoogle"
+                style="
+                  display: block;
+                  width: 100%;
+                  min-height: 600px;
+                  max-height: 600px;
+                "
+                data-ad-client="ca-pub-3901061173891576"
+                data-ad-slot="1581548667"
+                data-ad-format="auto"
+                data-full-width-responsive="true"
+              ></ins>
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
     <footer id="global-footer"></footer>
     <script src="../global.js"></script>

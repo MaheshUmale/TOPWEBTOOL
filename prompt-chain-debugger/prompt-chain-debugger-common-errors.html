@@ -49,130 +49,233 @@
     <!-- Header -->
     <header id="global-header"></header>
 
-    <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-grow">
-      <article class="prose prose-slate dark:prose-invert max-w-none">
-        <!-- Reverse Link Back to Main Tool -->
-        <a
-          href="./"
-          class="inline-flex items-center text-brand-600 dark:text-brand-400 font-bold hover:underline text-sm mb-2 transition-colors"
+    <main
+      class="tool-page-main max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex-grow"
+    >
+      <!-- Leaderboard Ad Slot -->
+      <div
+        id="ad-slot-a"
+        class="w-full mx-auto mb-6 p-3 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center select-none overflow-hidden min-h-[90px]"
+        style="max-width: 728px; min-height: 90px; max-height: 135px"
+      >
+        <span
+          class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-1.5"
+          >Advertisement</span
         >
-          &larr; Back to Prompt Chain Debugger &amp; Variable Injector Tool
-        </a>
-
-        <h1
-          class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight"
-        >
-          Common Errors in Prompt Chain Debugging
-        </h1>
-
         <div
-          class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4"
+          class="w-full flex justify-center"
+          style="height: 90px; max-height: 90px; overflow: hidden"
         >
-          <span>Published: August 2026</span>
-          <span>•</span>
-          <span>Category: AI Agent & Automation</span>
-          <span>•</span>
-          <span class="text-emerald-600 dark:text-emerald-400"
-            >No Sign-Up / 100% Free / No Registration</span
-          >
+          <ins
+            class="adsbygoogle"
+            style="
+              display: inline-block;
+              width: 100%;
+              height: 90px;
+              max-height: 90px;
+            "
+            data-ad-client="ca-pub-3901061173891576"
+            data-ad-slot="2894630336"
+            data-ad-format="horizontal"
+            data-full-width-responsive="false"
+          ></ins>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-4 gap-4">
+        <!-- Main Content (Column 1-3) -->
+        <div class="lg:col-span-3 space-y-8">
+          <article class="prose prose-slate dark:prose-invert max-w-none">
+            <!-- Reverse Link Back to Main Tool -->
+            <a
+              href="./"
+              class="inline-flex items-center text-brand-600 dark:text-brand-400 font-bold hover:underline text-sm mb-2 transition-colors"
+            >
+              &larr; Back to Prompt Chain Debugger &amp; Variable Injector Tool
+            </a>
+
+            <h1
+              class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight"
+            >
+              Common Errors in Prompt Chain Debugging
+            </h1>
+
+            <div
+              class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4"
+            >
+              <span>Published: August 2026</span>
+              <span>•</span>
+              <span>Category: AI Agent & Automation</span>
+              <span>•</span>
+              <span class="text-emerald-600 dark:text-emerald-400"
+                >No Sign-Up / 100% Free / No Registration</span
+              >
+            </div>
+
+            <!-- Body Content -->
+            <div
+              class="text-slate-600 dark:text-slate-300 space-y-4 leading-relaxed text-sm"
+            >
+              <p class="mb-4">
+                Prompt chain bugs are characteristically quiet. They do not
+                throw exceptions; they leak placeholder text into model input
+                and produce answers that are wrong in ways users struggle to
+                describe. Because the failures are silent, the errors below tend
+                to persist for weeks. Knowing them by name turns debugging from
+                a hunt into a checklist.
+              </p>
+              <p class="mb-4">
+                Misspelled placeholders are the number one offender. The
+                template says {{tone}} but the map defines tone — or worse, tone
+                is defined with a trailing space, so the key is "tone " and
+                never matches. The result is a literal {{tone}} in the final
+                prompt. The debugger flags it, but the deeper fix is discipline:
+                copy keys from the map into templates, never retype them.
+              </p>
+              <p class="mb-4">
+                Shadowed variables quietly rewrite history. If a map defines
+                persona once and then redefines it lower in the file, every step
+                referencing persona — including steps written above the
+                redefinition — picks up the new value. The chain's dependency
+                table exposes all consumers of a key at once, which is exactly
+                the view that makes this bug visible.
+              </p>
+              <p class="mb-4">
+                Dropped context between hops is the progressive failure. Step
+                two extracts facts into a variable that step three never
+                references, so the knowledge quietly vanishes. Chains hand
+                information forward through variables, and a missing reference
+                is a dropped hand-off. Comparing each step's referenced
+                variables against the variables the previous step populated
+                catches this in seconds.
+              </p>
+              <p class="mb-4">
+                Literal single braces get interpolated by mistake in sloppy
+                chains. A template containing {json} or {code} is corrupted if
+                the interpeter treats any brace pair as a variable. Strict
+                double-brace-only interpolation — with whitespace tolerated
+                inside — prevents this, and the debugger's rule set should be
+                enforced, not assumed.
+              </p>
+              <p class="mb-4">
+                Empty-value injection is the silent killer. A key defined as
+                tone = produces a defined key with an empty value, so no
+                unresolved warning fires, yet the prompt reads "respond in a
+                style." Empty values pass validation because they exist;
+                catching them requires checking for emptiness, not just
+                presence.
+              </p>
+              <p class="mb-4">
+                Malformed map lines get skipped instead of rejected. A line
+                without an equals sign, or with an equals sign inside a quoted
+                value, is silently dropped by tolerant parsers. The chain then
+                runs against an under-populated map and fails somewhere
+                downstream. Fail loud: report the malformed line so the author
+                fixes the input, not the symptoms.
+              </p>
+              <p class="mb-4">
+                Reading only the final step hides propagated defects. A template
+                error in step two is faithfully copied into every downstream
+                output, so the final answer looks broken without pointing to its
+                cause. Per-step review — reading each interpolated step in order
+                — is the only way to locate the origin instead of the symptom.
+              </p>
+              <p class="mb-4">
+                Version drift is the operational error. Someone edits a template
+                in production but forgets to update the golden output, so the
+                checked-in file claims the chain produces text it no longer
+                produces. Because interpolation is deterministic, a stale golden
+                file is a lie you can detect with any diff. Keep outputs
+                generated, not hand-edited.
+              </p>
+              <p class="mb-4">
+                Finally, ignoring the dependency graph is a structural mistake.
+                Chains built without naming discipline or atomic steps grow
+                unruly until no one can say which variable feeds which step. The
+                table is the map; review it as often as you review the
+                templates, and the chain stays navigable no matter how many
+                steps it accumulates.
+              </p>
+            </div>
+
+            <div
+              class="pt-6 border-t border-slate-100 dark:border-slate-800/80 flex flex-col sm:flex-row justify-between items-center gap-4"
+            >
+              <span
+                class="text-xs text-slate-400 dark:text-slate-500 font-semibold"
+                >Find these bugs in seconds instead of weeks.</span
+              >
+              <a
+                href="./"
+                class="px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm rounded-lg transition-colors shadow-sm"
+              >
+                Open the Prompt Chain Debugger &rarr;
+              </a>
+            </div>
+          </article>
         </div>
 
-        <!-- Body Content -->
-        <div
-          class="text-slate-600 dark:text-slate-300 space-y-4 leading-relaxed text-sm"
-        >
-          <p class="mb-4">
-            Prompt chain bugs are characteristically quiet. They do not throw
-            exceptions; they leak placeholder text into model input and produce
-            answers that are wrong in ways users struggle to describe. Because
-            the failures are silent, the errors below tend to persist for weeks.
-            Knowing them by name turns debugging from a hunt into a checklist.
-          </p>
-          <p class="mb-4">
-            Misspelled placeholders are the number one offender. The template
-            says {{tone}} but the map defines tone — or worse, tone is defined
-            with a trailing space, so the key is "tone " and never matches. The
-            result is a literal {{tone}} in the final prompt. The debugger flags
-            it, but the deeper fix is discipline: copy keys from the map into
-            templates, never retype them.
-          </p>
-          <p class="mb-4">
-            Shadowed variables quietly rewrite history. If a map defines persona
-            once and then redefines it lower in the file, every step referencing
-            persona — including steps written above the redefinition — picks up
-            the new value. The chain's dependency table exposes all consumers of
-            a key at once, which is exactly the view that makes this bug
-            visible.
-          </p>
-          <p class="mb-4">
-            Dropped context between hops is the progressive failure. Step two
-            extracts facts into a variable that step three never references, so
-            the knowledge quietly vanishes. Chains hand information forward
-            through variables, and a missing reference is a dropped hand-off.
-            Comparing each step's referenced variables against the variables the
-            previous step populated catches this in seconds.
-          </p>
-          <p class="mb-4">
-            Literal single braces get interpolated by mistake in sloppy chains.
-            A template containing {json} or {code} is corrupted if the
-            interpeter treats any brace pair as a variable. Strict
-            double-brace-only interpolation — with whitespace tolerated inside —
-            prevents this, and the debugger's rule set should be enforced, not
-            assumed.
-          </p>
-          <p class="mb-4">
-            Empty-value injection is the silent killer. A key defined as tone =
-            produces a defined key with an empty value, so no unresolved warning
-            fires, yet the prompt reads "respond in a style." Empty values pass
-            validation because they exist; catching them requires checking for
-            emptiness, not just presence.
-          </p>
-          <p class="mb-4">
-            Malformed map lines get skipped instead of rejected. A line without
-            an equals sign, or with an equals sign inside a quoted value, is
-            silently dropped by tolerant parsers. The chain then runs against an
-            under-populated map and fails somewhere downstream. Fail loud:
-            report the malformed line so the author fixes the input, not the
-            symptoms.
-          </p>
-          <p class="mb-4">
-            Reading only the final step hides propagated defects. A template
-            error in step two is faithfully copied into every downstream output,
-            so the final answer looks broken without pointing to its cause.
-            Per-step review — reading each interpolated step in order — is the
-            only way to locate the origin instead of the symptom.
-          </p>
-          <p class="mb-4">
-            Version drift is the operational error. Someone edits a template in
-            production but forgets to update the golden output, so the
-            checked-in file claims the chain produces text it no longer
-            produces. Because interpolation is deterministic, a stale golden
-            file is a lie you can detect with any diff. Keep outputs generated,
-            not hand-edited.
-          </p>
-          <p class="mb-4">
-            Finally, ignoring the dependency graph is a structural mistake.
-            Chains built without naming discipline or atomic steps grow unruly
-            until no one can say which variable feeds which step. The table is
-            the map; review it as often as you review the templates, and the
-            chain stays navigable no matter how many steps it accumulates.
-          </p>
-        </div>
-
-        <div
-          class="pt-6 border-t border-slate-100 dark:border-slate-800/80 flex flex-col sm:flex-row justify-between items-center gap-4"
-        >
-          <span class="text-xs text-slate-400 dark:text-slate-500 font-semibold"
-            >Find these bugs in seconds instead of weeks.</span
+        <!-- Column 4 Sidebar -->
+        <div class="lg:col-span-1 space-y-6">
+          <div id="trending-sidebar"></div>
+          <div
+            id="ad-slot-square"
+            class="w-full p-4 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center mt-4 select-none min-h-[250px] overflow-hidden"
+            style="min-height: 250px"
           >
-          <a
-            href="./"
-            class="px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm rounded-lg transition-colors shadow-sm"
+            <span
+              class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-2"
+              >Advertisement</span
+            >
+            <div
+              class="w-full flex justify-center"
+              style="height: 250px; max-height: 250px; overflow: hidden"
+            >
+              <ins
+                class="adsbygoogle"
+                style="
+                  display: block;
+                  width: 100%;
+                  min-height: 250px;
+                  max-height: 250px;
+                "
+                data-ad-client="ca-pub-3901061173891576"
+                data-ad-slot="6707430996"
+                data-ad-format="rectangle"
+                data-full-width-responsive="false"
+              ></ins>
+            </div>
+          </div>
+          <div
+            id="ad-slot-vertical"
+            class="w-full p-4 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center mt-4 hidden lg:flex select-none min-h-[600px] overflow-hidden"
+            style="min-height: 600px"
           >
-            Open the Prompt Chain Debugger &rarr;
-          </a>
+            <span
+              class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-2"
+              >Advertisement</span
+            >
+            <div
+              class="w-full flex justify-center"
+              style="height: 600px; max-height: 600px; overflow: hidden"
+            >
+              <ins
+                class="adsbygoogle"
+                style="
+                  display: block;
+                  width: 100%;
+                  min-height: 600px;
+                  max-height: 600px;
+                "
+                data-ad-client="ca-pub-3901061173891576"
+                data-ad-slot="1581548667"
+                data-ad-format="auto"
+                data-full-width-responsive="true"
+              ></ins>
+            </div>
+          </div>
         </div>
-      </article>
+      </div>
     </main>
 
     <!-- Footer -->

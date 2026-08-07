@@ -43,131 +43,234 @@
     class="bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 min-h-screen flex flex-col"
   >
     <header id="global-header"></header>
-    <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-grow">
-      <article class="prose prose-slate dark:prose-invert max-w-none">
-        <h1>Freight Shipping Cost Calculator Guide</h1>
-        <p>
-          Freight shipping costs represent one of the most variable and
-          controllable expenses in modern supply chains, yet many businesses
-          still rely on gut feeling or outdated carrier contracts to make
-          routing decisions. A freight shipping cost calculator transforms
-          opaque pricing into transparent, comparable numbers that empower
-          logistics teams to choose the right carrier, package, and service
-          level for every shipment. By inputting package dimensions, weight,
-          origin, destination, and carrier-specific rules, shippers can
-          instantly see how dimensional weight, fuel surcharges, and accessorial
-          fees affect the final invoice. This guide explains how to use shipping
-          calculators effectively, interpret their outputs, and integrate them
-          into daily procurement workflows.
-        </p>
+    <main
+      class="tool-page-main max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex-grow"
+    >
+      <!-- Leaderboard Ad Slot -->
+      <div
+        id="ad-slot-a"
+        class="w-full mx-auto mb-6 p-3 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center select-none overflow-hidden min-h-[90px]"
+        style="max-width: 728px; min-height: 90px; max-height: 135px"
+      >
+        <span
+          class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-1.5"
+          >Advertisement</span
+        >
+        <div
+          class="w-full flex justify-center"
+          style="height: 90px; max-height: 90px; overflow: hidden"
+        >
+          <ins
+            class="adsbygoogle"
+            style="
+              display: inline-block;
+              width: 100%;
+              height: 90px;
+              max-height: 90px;
+            "
+            data-ad-client="ca-pub-3901061173891576"
+            data-ad-slot="2894630336"
+            data-ad-format="horizontal"
+            data-full-width-responsive="false"
+          ></ins>
+        </div>
+      </div>
 
-        <h2>What Goes Into a Shipping Cost Calculation</h2>
-        <p>
-          Shipping calculators factor in more than just the base rate quoted on
-          a carrier rate sheet. The first determinant is billable weight, which
-          is the greater of actual weight and dimensional weight. Dimensional
-          weight itself depends on package volume divided by a carrier-specific
-          divisor, typically one hundred thirty-nine or one hundred sixty-six
-          cubic inches per pound. Once billable weight is established, the
-          calculator applies the base rate for the appropriate service level,
-          such as ground, expedited, or next-day air. Additional charges may
-          include fuel surcharges that fluctuate monthly, residential delivery
-          fees for non-commercial addresses, signature confirmation add-ons,
-          hazardous material handling, and insurance for high-value shipments.
-          Advanced calculators also incorporate negotiated contract rates,
-          zone-based pricing, and dimensional weight discounts that reflect the
-          actual shipping agreement rather than published list prices.
-        </p>
+      <div class="grid grid-cols-1 lg:grid-cols-4 gap-4">
+        <!-- Main Content (Column 1-3) -->
+        <div class="lg:col-span-3 space-y-8">
+          <article class="prose prose-slate dark:prose-invert max-w-none">
+            <h1>Freight Shipping Cost Calculator Guide</h1>
+            <p>
+              Freight shipping costs represent one of the most variable and
+              controllable expenses in modern supply chains, yet many businesses
+              still rely on gut feeling or outdated carrier contracts to make
+              routing decisions. A freight shipping cost calculator transforms
+              opaque pricing into transparent, comparable numbers that empower
+              logistics teams to choose the right carrier, package, and service
+              level for every shipment. By inputting package dimensions, weight,
+              origin, destination, and carrier-specific rules, shippers can
+              instantly see how dimensional weight, fuel surcharges, and
+              accessorial fees affect the final invoice. This guide explains how
+              to use shipping calculators effectively, interpret their outputs,
+              and integrate them into daily procurement workflows.
+            </p>
 
-        <h2>Building Accurate Inputs for Your Calculator</h2>
-        <p>
-          The quality of any shipping cost calculation depends entirely on the
-          accuracy of the inputs provided. Package dimensions must be measured
-          to the nearest eighth of an inch or centimeter, including all bulges,
-          protrusions, and packing materials. Actual weight should be captured
-          on a calibrated scale immediately before labeling, not estimated from
-          product specifications. Carrier selection must reflect the specific
-          service tier being considered, because UPS Ground and UPS Next Day Air
-          have dramatically different divisors, rate structures, and dimensional
-          weight rules. Quantity inputs matter when comparing single shipments
-          against consolidated pallet rates or multi-piece drop shipments. Our
-          <a href="./index.html">Dimensional Weight Calculator</a> handles these
-          variables cleanly, letting you toggle between carrier types and
-          instantly see how billable weight shifts across different packaging
-          configurations.
-        </p>
+            <h2>What Goes Into a Shipping Cost Calculation</h2>
+            <p>
+              Shipping calculators factor in more than just the base rate quoted
+              on a carrier rate sheet. The first determinant is billable weight,
+              which is the greater of actual weight and dimensional weight.
+              Dimensional weight itself depends on package volume divided by a
+              carrier-specific divisor, typically one hundred thirty-nine or one
+              hundred sixty-six cubic inches per pound. Once billable weight is
+              established, the calculator applies the base rate for the
+              appropriate service level, such as ground, expedited, or next-day
+              air. Additional charges may include fuel surcharges that fluctuate
+              monthly, residential delivery fees for non-commercial addresses,
+              signature confirmation add-ons, hazardous material handling, and
+              insurance for high-value shipments. Advanced calculators also
+              incorporate negotiated contract rates, zone-based pricing, and
+              dimensional weight discounts that reflect the actual shipping
+              agreement rather than published list prices.
+            </p>
 
-        <h3>Interpreting Calculator Outputs</h3>
-        <p>
-          After entering your data, a good calculator displays package volume,
-          dimensional weight, actual weight, billable weight, and total billable
-          weight for the specified quantity. It should also highlight weight
-          discrepancies where dimensional weight exceeds actual weight, because
-          this is the primary driver of unexpected cost increases. Many
-          calculators add cost recommendations that suggest packaging changes or
-          alternative carriers based on the computed data. When reviewing
-          outputs, focus first on the billable weight column, then on the total
-          cost impact multiplied by your monthly shipment volume. A two-dollar
-          difference per package seems trivial until you multiply it by five
-          thousand monthly shipments, at which point the annual impact exceeds
-          one hundred thousand dollars.
-        </p>
+            <h2>Building Accurate Inputs for Your Calculator</h2>
+            <p>
+              The quality of any shipping cost calculation depends entirely on
+              the accuracy of the inputs provided. Package dimensions must be
+              measured to the nearest eighth of an inch or centimeter, including
+              all bulges, protrusions, and packing materials. Actual weight
+              should be captured on a calibrated scale immediately before
+              labeling, not estimated from product specifications. Carrier
+              selection must reflect the specific service tier being considered,
+              because UPS Ground and UPS Next Day Air have dramatically
+              different divisors, rate structures, and dimensional weight rules.
+              Quantity inputs matter when comparing single shipments against
+              consolidated pallet rates or multi-piece drop shipments. Our
+              <a href="./index.html">Dimensional Weight Calculator</a> handles
+              these variables cleanly, letting you toggle between carrier types
+              and instantly see how billable weight shifts across different
+              packaging configurations.
+            </p>
 
-        <h2>Comparing Carriers With Calculated Data</h2>
-        <p>
-          One of the most powerful uses of a shipping cost calculator is
-          side-by-side carrier comparison. Run the same package dimensions and
-          weight through UPS, FedEx, DHL, and USPS calculations to see which
-          service produces the lowest billable weight and total cost. Note that
-          carriers may round dimensional weight differently, apply minimum
-          billable weights, or impose maximum size restrictions that effectively
-          disqualify certain packages from their cheapest service tiers. USPS,
-          for example, often offers lower divisors for lightweight packages but
-          imposes strict size and weight limits that make it unsuitable for
-          bulky items. FedEx and UPS have more uniform rules but may charge
-          accessorial fees that offset their base rate advantage. Running these
-          comparisons through our
-          <a href="./index.html">Dimensional Weight Calculator</a> gives you the
-          objective data needed to negotiate better carrier contracts or justify
-          switching to a regional courier for specific lanes.
-        </p>
+            <h3>Interpreting Calculator Outputs</h3>
+            <p>
+              After entering your data, a good calculator displays package
+              volume, dimensional weight, actual weight, billable weight, and
+              total billable weight for the specified quantity. It should also
+              highlight weight discrepancies where dimensional weight exceeds
+              actual weight, because this is the primary driver of unexpected
+              cost increases. Many calculators add cost recommendations that
+              suggest packaging changes or alternative carriers based on the
+              computed data. When reviewing outputs, focus first on the billable
+              weight column, then on the total cost impact multiplied by your
+              monthly shipment volume. A two-dollar difference per package seems
+              trivial until you multiply it by five thousand monthly shipments,
+              at which point the annual impact exceeds one hundred thousand
+              dollars.
+            </p>
 
-        <h2>Integrating Calculators Into Daily Operations</h2>
-        <p>
-          To get the most value from freight calculators, embed them into the
-          pre-shipment workflow rather than treating them as occasional
-          reference tools. Warehouse teams should measure and weigh packages
-          immediately after packing, then enter the data into the calculator
-          before selecting a carrier service. E-commerce operations can
-          integrate dimensional weight checks into order management systems so
-          that oversized items trigger packaging review alerts before they reach
-          the shipping dock. Procurement teams should run monthly batch analyses
-          comparing actual carrier invoices against calculator projections to
-          identify rate creep, measurement errors, or unexpected surcharges.
-          Over time, this disciplined approach builds a historical dataset that
-          reveals seasonal patterns, packaging inefficiencies, and carrier
-          performance trends that would remain invisible in a simple spreadsheet
-          of invoice totals.
-        </p>
+            <h2>Comparing Carriers With Calculated Data</h2>
+            <p>
+              One of the most powerful uses of a shipping cost calculator is
+              side-by-side carrier comparison. Run the same package dimensions
+              and weight through UPS, FedEx, DHL, and USPS calculations to see
+              which service produces the lowest billable weight and total cost.
+              Note that carriers may round dimensional weight differently, apply
+              minimum billable weights, or impose maximum size restrictions that
+              effectively disqualify certain packages from their cheapest
+              service tiers. USPS, for example, often offers lower divisors for
+              lightweight packages but imposes strict size and weight limits
+              that make it unsuitable for bulky items. FedEx and UPS have more
+              uniform rules but may charge accessorial fees that offset their
+              base rate advantage. Running these comparisons through our
+              <a href="./index.html">Dimensional Weight Calculator</a> gives you
+              the objective data needed to negotiate better carrier contracts or
+              justify switching to a regional courier for specific lanes.
+            </p>
 
-        <h2>Negotiating Better Rates With Data</h2>
-        <p>
-          Carrier account managers respond strongly to data-driven negotiation
-          because it demonstrates professionalism and volume potential. When you
-          approach a carrier with documented dimensional weight analysis showing
-          that thirty percent of your packages bill above actual weight, you
-          create an opportunity to negotiate packaging guidelines, dimensional
-          weight discounts, or alternative service tiers that better match your
-          product profile. Presenting side-by-side calculations from our
-          <a href="./index.html">Dimensional Weight Calculator</a> alongside
-          your current invoice data gives the account manager concrete examples
-          of where pricing could be optimized. Many carriers will agree to
-          adjusted divisors, reduced minimum charges, or waived accessorial fees
-          in exchange for committed volume or contract extensions. The key is
-          arriving at the negotiation table with objective calculations rather
-          than emotional complaints about high rates.
-        </p>
-      </article>
+            <h2>Integrating Calculators Into Daily Operations</h2>
+            <p>
+              To get the most value from freight calculators, embed them into
+              the pre-shipment workflow rather than treating them as occasional
+              reference tools. Warehouse teams should measure and weigh packages
+              immediately after packing, then enter the data into the calculator
+              before selecting a carrier service. E-commerce operations can
+              integrate dimensional weight checks into order management systems
+              so that oversized items trigger packaging review alerts before
+              they reach the shipping dock. Procurement teams should run monthly
+              batch analyses comparing actual carrier invoices against
+              calculator projections to identify rate creep, measurement errors,
+              or unexpected surcharges. Over time, this disciplined approach
+              builds a historical dataset that reveals seasonal patterns,
+              packaging inefficiencies, and carrier performance trends that
+              would remain invisible in a simple spreadsheet of invoice totals.
+            </p>
+
+            <h2>Negotiating Better Rates With Data</h2>
+            <p>
+              Carrier account managers respond strongly to data-driven
+              negotiation because it demonstrates professionalism and volume
+              potential. When you approach a carrier with documented dimensional
+              weight analysis showing that thirty percent of your packages bill
+              above actual weight, you create an opportunity to negotiate
+              packaging guidelines, dimensional weight discounts, or alternative
+              service tiers that better match your product profile. Presenting
+              side-by-side calculations from our
+              <a href="./index.html">Dimensional Weight Calculator</a> alongside
+              your current invoice data gives the account manager concrete
+              examples of where pricing could be optimized. Many carriers will
+              agree to adjusted divisors, reduced minimum charges, or waived
+              accessorial fees in exchange for committed volume or contract
+              extensions. The key is arriving at the negotiation table with
+              objective calculations rather than emotional complaints about high
+              rates.
+            </p>
+          </article>
+        </div>
+
+        <!-- Column 4 Sidebar -->
+        <div class="lg:col-span-1 space-y-6">
+          <div id="trending-sidebar"></div>
+          <div
+            id="ad-slot-square"
+            class="w-full p-4 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center mt-4 select-none min-h-[250px] overflow-hidden"
+            style="min-height: 250px"
+          >
+            <span
+              class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-2"
+              >Advertisement</span
+            >
+            <div
+              class="w-full flex justify-center"
+              style="height: 250px; max-height: 250px; overflow: hidden"
+            >
+              <ins
+                class="adsbygoogle"
+                style="
+                  display: block;
+                  width: 100%;
+                  min-height: 250px;
+                  max-height: 250px;
+                "
+                data-ad-client="ca-pub-3901061173891576"
+                data-ad-slot="6707430996"
+                data-ad-format="rectangle"
+                data-full-width-responsive="false"
+              ></ins>
+            </div>
+          </div>
+          <div
+            id="ad-slot-vertical"
+            class="w-full p-4 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center mt-4 hidden lg:flex select-none min-h-[600px] overflow-hidden"
+            style="min-height: 600px"
+          >
+            <span
+              class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-2"
+              >Advertisement</span
+            >
+            <div
+              class="w-full flex justify-center"
+              style="height: 600px; max-height: 600px; overflow: hidden"
+            >
+              <ins
+                class="adsbygoogle"
+                style="
+                  display: block;
+                  width: 100%;
+                  min-height: 600px;
+                  max-height: 600px;
+                "
+                data-ad-client="ca-pub-3901061173891576"
+                data-ad-slot="1581548667"
+                data-ad-format="auto"
+                data-full-width-responsive="true"
+              ></ins>
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
     <footer id="global-footer"></footer>
     <script src="../global.js"></script>

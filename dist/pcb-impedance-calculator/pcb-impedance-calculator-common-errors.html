@@ -49,158 +49,265 @@
     <!-- Header -->
     <header id="global-header"></header>
 
-    <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-grow">
-      <article class="prose prose-slate dark:prose-invert max-w-none">
-        <a
-          href="./"
-          class="inline-flex items-center text-brand-600 dark:text-brand-400 font-bold hover:underline text-sm mb-2 transition-colors"
+    <main
+      class="tool-page-main max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex-grow"
+    >
+      <!-- Leaderboard Ad Slot -->
+      <div
+        id="ad-slot-a"
+        class="w-full mx-auto mb-6 p-3 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center select-none overflow-hidden min-h-[90px]"
+        style="max-width: 728px; min-height: 90px; max-height: 135px"
+      >
+        <span
+          class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-1.5"
+          >Advertisement</span
         >
-          &larr; Back to PCB Microstrip Impedance Modeler Tool
-        </a>
-
-        <h1
-          class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight"
-        >
-          Common Errors in PCB Microstrip Impedance Calculation
-        </h1>
-
         <div
-          class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4"
+          class="w-full flex justify-center"
+          style="height: 90px; max-height: 90px; overflow: hidden"
         >
-          <span>Published: August 2026</span>
-          <span>•</span>
-          <span>Category: Industrial &amp; Engineering</span>
-          <span>•</span>
-          <span class="text-emerald-600 dark:text-emerald-400"
-            >No Sign-Up / 100% Free / No Registration</span
-          >
+          <ins
+            class="adsbygoogle"
+            style="
+              display: inline-block;
+              width: 100%;
+              height: 90px;
+              max-height: 90px;
+            "
+            data-ad-client="ca-pub-3901061173891576"
+            data-ad-slot="2894630336"
+            data-ad-format="horizontal"
+            data-full-width-responsive="false"
+          ></ins>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-4 gap-4">
+        <!-- Main Content (Column 1-3) -->
+        <div class="lg:col-span-3 space-y-8">
+          <article class="prose prose-slate dark:prose-invert max-w-none">
+            <a
+              href="./"
+              class="inline-flex items-center text-brand-600 dark:text-brand-400 font-bold hover:underline text-sm mb-2 transition-colors"
+            >
+              &larr; Back to PCB Microstrip Impedance Modeler Tool
+            </a>
+
+            <h1
+              class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight"
+            >
+              Common Errors in PCB Microstrip Impedance Calculation
+            </h1>
+
+            <div
+              class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4"
+            >
+              <span>Published: August 2026</span>
+              <span>•</span>
+              <span>Category: Industrial &amp; Engineering</span>
+              <span>•</span>
+              <span class="text-emerald-600 dark:text-emerald-400"
+                >No Sign-Up / 100% Free / No Registration</span
+              >
+            </div>
+
+            <div
+              class="text-slate-600 dark:text-slate-300 space-y-4 leading-relaxed text-sm"
+            >
+              <p class="mb-4">
+                The microstrip formula is short, which makes it easy to misuse.
+                Nearly every wrong impedance number on a high-speed board traces
+                back to one of a handful of mistakes: dimensions in different
+                units, dielectric constants picked from memory, widths measured
+                before etching, copper thickness ignored, or geometry pushed
+                outside the formula's validity range. Here is each failure, why
+                it happens, and the guardrail the PCB Microstrip Impedance
+                Modeler puts in your way.
+              </p>
+              <p class="mb-4">
+                Mixing units is the most common and the most silent. The formula
+                demands that width, dielectric height, and copper thickness all
+                share one unit, and the natural logarithm is brutally sensitive
+                to a tenfold scale error. A 10 mil trace entered as 10
+                millimeters looks like a 400 mil trace, and the computed
+                impedance collapses. The tool converts every dimension to mils
+                internally, so you can type millimeters, inches, or mils and the
+                answer stays consistent, but the discipline still matters when
+                you copy numbers from a datasheet or a stackup sheet into a
+                calculator that does not convert.
+              </p>
+              <p class="mb-4">
+                Using the wrong dielectric constant for FR4 is a close second.
+                The number 4.3 gets quoted everywhere, but real FR4 varies by
+                resin content and glass style, from about 4.1 to 4.6, and it
+                also drifts with frequency. Feeding 4.3 when the laminate is
+                really 4.6 shifts a 50 ohm line by roughly one ohm and shifts
+                the propagation delay proportionally. The right Er for impedance
+                work is the value on the laminate supplier's data sheet at the
+                operating frequency, not the round number from the back of the
+                textbook.
+              </p>
+              <p class="mb-4">
+                Measuring the wrong width follows next. The width that matters
+                to impedance is the width of the copper after etching, because
+                that is what physically exists on the board. A designer who
+                enters the drawn CAD width ignores the side etching that narrows
+                a 10 mil trace to 9 mils, and the impedance comes out a few ohms
+                low. Either enter the finished width or let the fabricator's
+                impedance table, which is built from measured post-etch
+                geometry, be the authoritative number.
+              </p>
+              <p class="mb-4">
+                Ignoring copper thickness is a subtle error that the formula's
+                logarithm makes invisible at a glance. The thickness appears in
+                the denominator of the ratio inside the logarithm, so a thicker
+                trace means a slightly lower impedance for the same drawn width.
+                Many quick calculators assume zero thickness and quietly produce
+                numbers a few ohms high on heavy copper pours. The tool defaults
+                to 1.4 mils, the standard 1 ounce thickness, so the default
+                result is already more honest than a zero-thickness model.
+              </p>
+              <p class="mb-4">
+                Driving the w/h ratio outside the valid window is the failure
+                that produces confident nonsense. Below a width to height ratio
+                of 0.1 the trace is so thin relative to the dielectric that
+                fringing dominates and the closed-form formula loses accuracy;
+                above 3.0 the microstrip behaves more like a fat conductor over
+                a plane and the approximation fails again. The tool prints the
+                ratio with an in-range badge, so the validity problem is visible
+                on the results panel instead of being baked silently into a
+                wrong number.
+              </p>
+              <p class="mb-4">
+                The invalid-geometry trap is more absolute: when 5.98h divided
+                by 0.8w plus t drops below 1, the natural logarithm has no
+                sensible answer because the argument of the log is less than
+                one. The tool refuses to compute and prints an explicit error
+                message telling you to increase the dielectric height or reduce
+                the width. The designer who never sees that message in a hand
+                calculation is precisely the one who ships a stackup that cannot
+                physically reach the target.
+              </p>
+              <p class="mb-4">
+                Confusing a target with a guarantee is a process error rather
+                than a math error. The formula answers the question what width
+                gives this impedance for these dimensions, but it cannot promise
+                that the board comes back at that impedance, because etch,
+                solder mask, and laminate tolerance all move the finished
+                number. Treat the tool's output as the design intent, then
+                verify with the fabricator's coupon report. The error is
+                treating the computed width as if it were a measured result.
+              </p>
+              <p class="mb-4">
+                Forgetting the frequency dependence of Er is an error that
+                appears only on high-speed links. FR4's effective dielectric
+                constant falls as frequency rises, which changes both impedance
+                and delay across a wideband signal. A single Er entered into the
+                tool is a snapshot at one frequency; for gigahertz-plus signals,
+                use the Er specified at the band of interest and confirm the
+                design with a field solver that models dispersion instead of
+                assuming one constant.
+              </p>
+              <p class="mb-4">
+                Rounding intermediate values is the last recurring mistake. The
+                natural logarithm is well behaved, but rounding the argument of
+                the log to one decimal before taking the log shifts the result
+                more than people expect. Keep full precision through the
+                computation, and only round the final impedance to the number of
+                ohms you can actually control. The tool keeps full precision
+                internally and formats only the display, which is the correct
+                discipline to copy in your own hand calculations.
+              </p>
+              <p class="mb-4">
+                Every one of these errors is preventable once you know where
+                they hide. Check the units, source the Er, use the finished
+                width, keep the thickness, stay inside the window, and verify
+                against the coupon. The PCB Microstrip Impedance Modeler
+                automates the conversions and surfaces the validity limits, so
+                the remaining job is to feed it honest inputs and read the
+                results with the same skepticism you would apply to a measured
+                board.
+              </p>
+            </div>
+
+            <div
+              class="pt-6 border-t border-slate-100 dark:border-slate-800/80 flex flex-col sm:flex-row justify-between items-center gap-4"
+            >
+              <span
+                class="text-xs text-slate-400 dark:text-slate-500 font-semibold"
+                >Ready to check a stackup without unit mix-ups?</span
+              >
+              <a
+                href="./"
+                class="px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm rounded-lg transition-colors shadow-sm"
+              >
+                Use the Interactive PCB Impedance Modeler &rarr;
+              </a>
+            </div>
+          </article>
         </div>
 
-        <div
-          class="text-slate-600 dark:text-slate-300 space-y-4 leading-relaxed text-sm"
-        >
-          <p class="mb-4">
-            The microstrip formula is short, which makes it easy to misuse.
-            Nearly every wrong impedance number on a high-speed board traces
-            back to one of a handful of mistakes: dimensions in different units,
-            dielectric constants picked from memory, widths measured before
-            etching, copper thickness ignored, or geometry pushed outside the
-            formula's validity range. Here is each failure, why it happens, and
-            the guardrail the PCB Microstrip Impedance Modeler puts in your way.
-          </p>
-          <p class="mb-4">
-            Mixing units is the most common and the most silent. The formula
-            demands that width, dielectric height, and copper thickness all
-            share one unit, and the natural logarithm is brutally sensitive to a
-            tenfold scale error. A 10 mil trace entered as 10 millimeters looks
-            like a 400 mil trace, and the computed impedance collapses. The tool
-            converts every dimension to mils internally, so you can type
-            millimeters, inches, or mils and the answer stays consistent, but
-            the discipline still matters when you copy numbers from a datasheet
-            or a stackup sheet into a calculator that does not convert.
-          </p>
-          <p class="mb-4">
-            Using the wrong dielectric constant for FR4 is a close second. The
-            number 4.3 gets quoted everywhere, but real FR4 varies by resin
-            content and glass style, from about 4.1 to 4.6, and it also drifts
-            with frequency. Feeding 4.3 when the laminate is really 4.6 shifts a
-            50 ohm line by roughly one ohm and shifts the propagation delay
-            proportionally. The right Er for impedance work is the value on the
-            laminate supplier's data sheet at the operating frequency, not the
-            round number from the back of the textbook.
-          </p>
-          <p class="mb-4">
-            Measuring the wrong width follows next. The width that matters to
-            impedance is the width of the copper after etching, because that is
-            what physically exists on the board. A designer who enters the drawn
-            CAD width ignores the side etching that narrows a 10 mil trace to 9
-            mils, and the impedance comes out a few ohms low. Either enter the
-            finished width or let the fabricator's impedance table, which is
-            built from measured post-etch geometry, be the authoritative number.
-          </p>
-          <p class="mb-4">
-            Ignoring copper thickness is a subtle error that the formula's
-            logarithm makes invisible at a glance. The thickness appears in the
-            denominator of the ratio inside the logarithm, so a thicker trace
-            means a slightly lower impedance for the same drawn width. Many
-            quick calculators assume zero thickness and quietly produce numbers
-            a few ohms high on heavy copper pours. The tool defaults to 1.4
-            mils, the standard 1 ounce thickness, so the default result is
-            already more honest than a zero-thickness model.
-          </p>
-          <p class="mb-4">
-            Driving the w/h ratio outside the valid window is the failure that
-            produces confident nonsense. Below a width to height ratio of 0.1
-            the trace is so thin relative to the dielectric that fringing
-            dominates and the closed-form formula loses accuracy; above 3.0 the
-            microstrip behaves more like a fat conductor over a plane and the
-            approximation fails again. The tool prints the ratio with an
-            in-range badge, so the validity problem is visible on the results
-            panel instead of being baked silently into a wrong number.
-          </p>
-          <p class="mb-4">
-            The invalid-geometry trap is more absolute: when 5.98h divided by
-            0.8w plus t drops below 1, the natural logarithm has no sensible
-            answer because the argument of the log is less than one. The tool
-            refuses to compute and prints an explicit error message telling you
-            to increase the dielectric height or reduce the width. The designer
-            who never sees that message in a hand calculation is precisely the
-            one who ships a stackup that cannot physically reach the target.
-          </p>
-          <p class="mb-4">
-            Confusing a target with a guarantee is a process error rather than a
-            math error. The formula answers the question what width gives this
-            impedance for these dimensions, but it cannot promise that the board
-            comes back at that impedance, because etch, solder mask, and
-            laminate tolerance all move the finished number. Treat the tool's
-            output as the design intent, then verify with the fabricator's
-            coupon report. The error is treating the computed width as if it
-            were a measured result.
-          </p>
-          <p class="mb-4">
-            Forgetting the frequency dependence of Er is an error that appears
-            only on high-speed links. FR4's effective dielectric constant falls
-            as frequency rises, which changes both impedance and delay across a
-            wideband signal. A single Er entered into the tool is a snapshot at
-            one frequency; for gigahertz-plus signals, use the Er specified at
-            the band of interest and confirm the design with a field solver that
-            models dispersion instead of assuming one constant.
-          </p>
-          <p class="mb-4">
-            Rounding intermediate values is the last recurring mistake. The
-            natural logarithm is well behaved, but rounding the argument of the
-            log to one decimal before taking the log shifts the result more than
-            people expect. Keep full precision through the computation, and only
-            round the final impedance to the number of ohms you can actually
-            control. The tool keeps full precision internally and formats only
-            the display, which is the correct discipline to copy in your own
-            hand calculations.
-          </p>
-          <p class="mb-4">
-            Every one of these errors is preventable once you know where they
-            hide. Check the units, source the Er, use the finished width, keep
-            the thickness, stay inside the window, and verify against the
-            coupon. The PCB Microstrip Impedance Modeler automates the
-            conversions and surfaces the validity limits, so the remaining job
-            is to feed it honest inputs and read the results with the same
-            skepticism you would apply to a measured board.
-          </p>
-        </div>
-
-        <div
-          class="pt-6 border-t border-slate-100 dark:border-slate-800/80 flex flex-col sm:flex-row justify-between items-center gap-4"
-        >
-          <span class="text-xs text-slate-400 dark:text-slate-500 font-semibold"
-            >Ready to check a stackup without unit mix-ups?</span
+        <!-- Column 4 Sidebar -->
+        <div class="lg:col-span-1 space-y-6">
+          <div id="trending-sidebar"></div>
+          <div
+            id="ad-slot-square"
+            class="w-full p-4 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center mt-4 select-none min-h-[250px] overflow-hidden"
+            style="min-height: 250px"
           >
-          <a
-            href="./"
-            class="px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm rounded-lg transition-colors shadow-sm"
+            <span
+              class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-2"
+              >Advertisement</span
+            >
+            <div
+              class="w-full flex justify-center"
+              style="height: 250px; max-height: 250px; overflow: hidden"
+            >
+              <ins
+                class="adsbygoogle"
+                style="
+                  display: block;
+                  width: 100%;
+                  min-height: 250px;
+                  max-height: 250px;
+                "
+                data-ad-client="ca-pub-3901061173891576"
+                data-ad-slot="6707430996"
+                data-ad-format="rectangle"
+                data-full-width-responsive="false"
+              ></ins>
+            </div>
+          </div>
+          <div
+            id="ad-slot-vertical"
+            class="w-full p-4 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center mt-4 hidden lg:flex select-none min-h-[600px] overflow-hidden"
+            style="min-height: 600px"
           >
-            Use the Interactive PCB Impedance Modeler &rarr;
-          </a>
+            <span
+              class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-2"
+              >Advertisement</span
+            >
+            <div
+              class="w-full flex justify-center"
+              style="height: 600px; max-height: 600px; overflow: hidden"
+            >
+              <ins
+                class="adsbygoogle"
+                style="
+                  display: block;
+                  width: 100%;
+                  min-height: 600px;
+                  max-height: 600px;
+                "
+                data-ad-client="ca-pub-3901061173891576"
+                data-ad-slot="1581548667"
+                data-ad-format="auto"
+                data-full-width-responsive="true"
+              ></ins>
+            </div>
+          </div>
         </div>
-      </article>
+      </div>
     </main>
 
     <!-- Footer -->

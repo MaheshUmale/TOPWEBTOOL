@@ -53,169 +53,274 @@
     <!-- Header -->
     <header id="global-header"></header>
 
-    <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-grow">
-      <article class="prose prose-slate dark:prose-invert max-w-none">
-        <!-- Reverse Link Back to Main Tool -->
-        <a
-          href="./"
-          class="inline-flex items-center text-brand-600 dark:text-brand-400 font-bold hover:underline text-sm mb-2 transition-colors"
+    <main
+      class="tool-page-main max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex-grow"
+    >
+      <!-- Leaderboard Ad Slot -->
+      <div
+        id="ad-slot-a"
+        class="w-full mx-auto mb-6 p-3 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center select-none overflow-hidden min-h-[90px]"
+        style="max-width: 728px; min-height: 90px; max-height: 135px"
+      >
+        <span
+          class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-1.5"
+          >Advertisement</span
         >
-          &larr; Back to Pump Selection &amp; TDH Calculator
-        </a>
-
-        <h1
-          class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight"
-        >
-          Best Practices for Selecting Pumps That Last
-        </h1>
-
         <div
-          class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4"
+          class="w-full flex justify-center"
+          style="height: 90px; max-height: 90px; overflow: hidden"
         >
-          <span>Published: August 2026</span>
-          <span>•</span>
-          <span>Category: Industrial &amp; Engineering</span>
-          <span>•</span>
-          <span class="text-emerald-600 dark:text-emerald-400"
-            >No Sign-Up / 100% Free / No Registration</span
-          >
+          <ins
+            class="adsbygoogle"
+            style="
+              display: inline-block;
+              width: 100%;
+              height: 90px;
+              max-height: 90px;
+            "
+            data-ad-client="ca-pub-3901061173891576"
+            data-ad-slot="2894630336"
+            data-ad-format="horizontal"
+            data-full-width-responsive="false"
+          ></ins>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-4 gap-4">
+        <!-- Main Content (Column 1-3) -->
+        <div class="lg:col-span-3 space-y-8">
+          <article class="prose prose-slate dark:prose-invert max-w-none">
+            <!-- Reverse Link Back to Main Tool -->
+            <a
+              href="./"
+              class="inline-flex items-center text-brand-600 dark:text-brand-400 font-bold hover:underline text-sm mb-2 transition-colors"
+            >
+              &larr; Back to Pump Selection &amp; TDH Calculator
+            </a>
+
+            <h1
+              class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight"
+            >
+              Best Practices for Selecting Pumps That Last
+            </h1>
+
+            <div
+              class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4"
+            >
+              <span>Published: August 2026</span>
+              <span>•</span>
+              <span>Category: Industrial &amp; Engineering</span>
+              <span>•</span>
+              <span class="text-emerald-600 dark:text-emerald-400"
+                >No Sign-Up / 100% Free / No Registration</span
+              >
+            </div>
+
+            <!-- Body Content -->
+            <div
+              class="text-slate-600 dark:text-slate-300 space-y-4 leading-relaxed text-sm"
+            >
+              <p class="mb-4">
+                A pump is only as good as the point where its curve meets the
+                system's curve, and that meeting point is set by the total
+                dynamic head calculation. The practices in this article are the
+                habits that keep that intersection healthy — the pump running
+                near its best-efficiency point, clear of cavitation, and paired
+                with a motor that can actually drive it.
+              </p>
+              <p class="mb-4">
+                The first practice is to define the duty point honestly. The TDH
+                calculator produces a single head at a single flow, but real
+                systems change: the tank fills and the static head climbs, the
+                filter clogs and the friction rises, the summer load peaks and
+                the flow demand doubles. The professional practice is to compute
+                the TDH at the minimum, normal, and maximum conditions and to
+                select the pump so the normal condition sits at or near best
+                efficiency, with the maximum condition still inside the
+                operating range. A pump selected for a single point runs
+                off-curve most of the time.
+              </p>
+              <p class="mb-4">
+                The second practice is to size the suction side generously. The
+                TDH calculation treats the suction and discharge symmetrically
+                in the friction terms, but physically the suction side is far
+                more fragile: an undersized suction line increases suction
+                friction, raises the flow velocity, and reduces the net positive
+                suction head available below the pump's requirement. The result
+                is cavitation — vapor bubbles forming in the low-pressure region
+                and collapsing against the impeller, eroding the metal and
+                hammering the bearings. The rules of thumb are to keep suction
+                velocity below about 6 ft/s (under 3 ft/s for viscous fluids or
+                long runs) and to keep the pump close to the liquid source. The
+                velocity warning in the calculator is the first screen for this;
+                the NPSH check is the second and should never be skipped.
+              </p>
+              <p class="mb-4">
+                The third practice is to apply efficiency honestly. The pump
+                efficiency used in the shaft-power calculation is the value at
+                the duty point, not the catalog maximum, and it is worth
+                measuring or estimating conservatively: a centrifugal pump
+                quoted at 78% best-point efficiency may deliver 65% at the
+                actual duty flow, and the power shortfall lands on the motor.
+                The calculator's shaft-power line shows the difference directly
+                — at 65% efficiency the shaft power is about 54% above the
+                hydraulic power — and the 15% motor margin on top is the
+                standard allowance for service factor and aging. Selecting the
+                motor from the shaft power plus margin, rather than from the
+                hydraulic power, is the difference between a motor that breathes
+                and one that runs hot.
+              </p>
+              <p class="mb-4">
+                The fourth practice is choosing the operating region on the
+                curve deliberately. Every centrifugal pump has a recommended
+                operating range bracketing its best-efficiency point, and
+                running at the far ends of the curve is where the damage
+                happens: far to the right the pump may overload the motor and
+                cavitate on the suction side, and far to the left the pump can
+                overheat the fluid and suffer recirculation damage. When the
+                duty point falls outside the operating range, the correct
+                response is a different pump or a trimmed impeller — not
+                throttling a valve, which burns energy as pressure drop and
+                solves nothing. The TDH estimate tells you which pump class
+                fits; the curve selection confirms it.
+              </p>
+              <p class="mb-5">
+                The fifth practice is verifying the pressure terms, not assuming
+                them. The pressure head term in the TDH sum is psi converted to
+                feet of the pumped liquid, and it is easy to misapply: using the
+                tank's absolute pressure instead of the gauge pressure relative
+                to the suction, or forgetting that the conversion factor depends
+                on specific gravity. The practice is to write down the suction
+                and discharge gauge pressures at the operating condition — not
+                at deadhead — and to confirm which side is pressurized. A
+                pressurized discharge that is entered as static head instead of
+                pressure head still produces a plausible-looking number, but it
+                is wrong, and the pump will be sized incorrectly.
+              </p>
+              <p class="mb-4">
+                The sixth practice is accounting for the fluid, not just the
+                water. Specific gravity scales the power formula directly — the
+                hydraulic horsepower is Q × TDH × SG ÷ 3960 — so pumping a
+                glycol solution at SG 1.11 costs 11% more power than the same
+                water duty, and a high-viscosity fluid adds friction head far
+                beyond what a water-based Hazen–Williams estimate suggests. For
+                viscous duties the viscosity correction should be applied to
+                both the flow and the head before selecting the pump type. The
+                calculator's fluid presets handle the specific gravity part; the
+                viscosity part is a reminder to treat viscous-system TDH as a
+                separate, more careful calculation.
+              </p>
+              <p class="mb-4">
+                The seventh practice is choosing the pump type to match the
+                duty. TDH and flow describe the requirement, but the pump
+                technology — centrifugal, positive displacement, peristaltic,
+                submersible — is chosen from the same two numbers plus viscosity
+                and solids content. High flow at low head is centrifugal
+                territory; low flow at high head, or viscous or shear-sensitive
+                fluids, is positive-displacement territory. The TDH calculation
+                is pump-agnostic, and the practice is to keep it that way:
+                compute the requirement first, then let the requirement pick the
+                pump class rather than bending a preferred pump type to fit the
+                duty.
+              </p>
+              <p class="mb-4">
+                Finally, record the calculation with its assumptions. The copy
+                output from the calculator emits the full system description —
+                flow, heads, friction method, fitting counts, efficiency — in a
+                form that belongs in the pump datasheet next to the duty point
+                and motor rating. When the pump underperforms or the process
+                changes, that record is what tells the maintenance engineer
+                whether the pump, the system, or the original estimate is
+                responsible. A pump selection without its TDH assumptions is a
+                guess; one with them is a specification.
+              </p>
+              <p class="mb-4">
+                Run the calculation on every new or modified system, review the
+                head components for the largest term, verify NPSH on the suction
+                side, and pair the pump with a motor sized from shaft power plus
+                margin. Those habits keep pumps running on their curves for
+                decades.
+              </p>
+            </div>
+
+            <div
+              class="pt-6 border-t border-slate-100 dark:border-slate-800/80 flex flex-col sm:flex-row justify-between items-center gap-4"
+            >
+              <span
+                class="text-xs text-slate-400 dark:text-slate-500 font-semibold"
+                >Ready to apply these practices?</span
+              >
+              <a
+                href="./"
+                class="px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm rounded-lg transition-colors shadow-sm"
+              >
+                Use the Interactive Pump Selection &amp; TDH Calculator &rarr;
+              </a>
+            </div>
+          </article>
         </div>
 
-        <!-- Body Content -->
-        <div
-          class="text-slate-600 dark:text-slate-300 space-y-4 leading-relaxed text-sm"
-        >
-          <p class="mb-4">
-            A pump is only as good as the point where its curve meets the
-            system's curve, and that meeting point is set by the total dynamic
-            head calculation. The practices in this article are the habits that
-            keep that intersection healthy — the pump running near its
-            best-efficiency point, clear of cavitation, and paired with a motor
-            that can actually drive it.
-          </p>
-          <p class="mb-4">
-            The first practice is to define the duty point honestly. The TDH
-            calculator produces a single head at a single flow, but real systems
-            change: the tank fills and the static head climbs, the filter clogs
-            and the friction rises, the summer load peaks and the flow demand
-            doubles. The professional practice is to compute the TDH at the
-            minimum, normal, and maximum conditions and to select the pump so
-            the normal condition sits at or near best efficiency, with the
-            maximum condition still inside the operating range. A pump selected
-            for a single point runs off-curve most of the time.
-          </p>
-          <p class="mb-4">
-            The second practice is to size the suction side generously. The TDH
-            calculation treats the suction and discharge symmetrically in the
-            friction terms, but physically the suction side is far more fragile:
-            an undersized suction line increases suction friction, raises the
-            flow velocity, and reduces the net positive suction head available
-            below the pump's requirement. The result is cavitation — vapor
-            bubbles forming in the low-pressure region and collapsing against
-            the impeller, eroding the metal and hammering the bearings. The
-            rules of thumb are to keep suction velocity below about 6 ft/s
-            (under 3 ft/s for viscous fluids or long runs) and to keep the pump
-            close to the liquid source. The velocity warning in the calculator
-            is the first screen for this; the NPSH check is the second and
-            should never be skipped.
-          </p>
-          <p class="mb-4">
-            The third practice is to apply efficiency honestly. The pump
-            efficiency used in the shaft-power calculation is the value at the
-            duty point, not the catalog maximum, and it is worth measuring or
-            estimating conservatively: a centrifugal pump quoted at 78%
-            best-point efficiency may deliver 65% at the actual duty flow, and
-            the power shortfall lands on the motor. The calculator's shaft-power
-            line shows the difference directly — at 65% efficiency the shaft
-            power is about 54% above the hydraulic power — and the 15% motor
-            margin on top is the standard allowance for service factor and
-            aging. Selecting the motor from the shaft power plus margin, rather
-            than from the hydraulic power, is the difference between a motor
-            that breathes and one that runs hot.
-          </p>
-          <p class="mb-4">
-            The fourth practice is choosing the operating region on the curve
-            deliberately. Every centrifugal pump has a recommended operating
-            range bracketing its best-efficiency point, and running at the far
-            ends of the curve is where the damage happens: far to the right the
-            pump may overload the motor and cavitate on the suction side, and
-            far to the left the pump can overheat the fluid and suffer
-            recirculation damage. When the duty point falls outside the
-            operating range, the correct response is a different pump or a
-            trimmed impeller — not throttling a valve, which burns energy as
-            pressure drop and solves nothing. The TDH estimate tells you which
-            pump class fits; the curve selection confirms it.
-          </p>
-          <p class="mb-5">
-            The fifth practice is verifying the pressure terms, not assuming
-            them. The pressure head term in the TDH sum is psi converted to feet
-            of the pumped liquid, and it is easy to misapply: using the tank's
-            absolute pressure instead of the gauge pressure relative to the
-            suction, or forgetting that the conversion factor depends on
-            specific gravity. The practice is to write down the suction and
-            discharge gauge pressures at the operating condition — not at
-            deadhead — and to confirm which side is pressurized. A pressurized
-            discharge that is entered as static head instead of pressure head
-            still produces a plausible-looking number, but it is wrong, and the
-            pump will be sized incorrectly.
-          </p>
-          <p class="mb-4">
-            The sixth practice is accounting for the fluid, not just the water.
-            Specific gravity scales the power formula directly — the hydraulic
-            horsepower is Q × TDH × SG ÷ 3960 — so pumping a glycol solution at
-            SG 1.11 costs 11% more power than the same water duty, and a
-            high-viscosity fluid adds friction head far beyond what a
-            water-based Hazen–Williams estimate suggests. For viscous duties the
-            viscosity correction should be applied to both the flow and the head
-            before selecting the pump type. The calculator's fluid presets
-            handle the specific gravity part; the viscosity part is a reminder
-            to treat viscous-system TDH as a separate, more careful calculation.
-          </p>
-          <p class="mb-4">
-            The seventh practice is choosing the pump type to match the duty.
-            TDH and flow describe the requirement, but the pump technology —
-            centrifugal, positive displacement, peristaltic, submersible — is
-            chosen from the same two numbers plus viscosity and solids content.
-            High flow at low head is centrifugal territory; low flow at high
-            head, or viscous or shear-sensitive fluids, is positive-displacement
-            territory. The TDH calculation is pump-agnostic, and the practice is
-            to keep it that way: compute the requirement first, then let the
-            requirement pick the pump class rather than bending a preferred pump
-            type to fit the duty.
-          </p>
-          <p class="mb-4">
-            Finally, record the calculation with its assumptions. The copy
-            output from the calculator emits the full system description — flow,
-            heads, friction method, fitting counts, efficiency — in a form that
-            belongs in the pump datasheet next to the duty point and motor
-            rating. When the pump underperforms or the process changes, that
-            record is what tells the maintenance engineer whether the pump, the
-            system, or the original estimate is responsible. A pump selection
-            without its TDH assumptions is a guess; one with them is a
-            specification.
-          </p>
-          <p class="mb-4">
-            Run the calculation on every new or modified system, review the head
-            components for the largest term, verify NPSH on the suction side,
-            and pair the pump with a motor sized from shaft power plus margin.
-            Those habits keep pumps running on their curves for decades.
-          </p>
-        </div>
-
-        <div
-          class="pt-6 border-t border-slate-100 dark:border-slate-800/80 flex flex-col sm:flex-row justify-between items-center gap-4"
-        >
-          <span class="text-xs text-slate-400 dark:text-slate-500 font-semibold"
-            >Ready to apply these practices?</span
+        <!-- Column 4 Sidebar -->
+        <div class="lg:col-span-1 space-y-6">
+          <div id="trending-sidebar"></div>
+          <div
+            id="ad-slot-square"
+            class="w-full p-4 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center mt-4 select-none min-h-[250px] overflow-hidden"
+            style="min-height: 250px"
           >
-          <a
-            href="./"
-            class="px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm rounded-lg transition-colors shadow-sm"
+            <span
+              class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-2"
+              >Advertisement</span
+            >
+            <div
+              class="w-full flex justify-center"
+              style="height: 250px; max-height: 250px; overflow: hidden"
+            >
+              <ins
+                class="adsbygoogle"
+                style="
+                  display: block;
+                  width: 100%;
+                  min-height: 250px;
+                  max-height: 250px;
+                "
+                data-ad-client="ca-pub-3901061173891576"
+                data-ad-slot="6707430996"
+                data-ad-format="rectangle"
+                data-full-width-responsive="false"
+              ></ins>
+            </div>
+          </div>
+          <div
+            id="ad-slot-vertical"
+            class="w-full p-4 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center mt-4 hidden lg:flex select-none min-h-[600px] overflow-hidden"
+            style="min-height: 600px"
           >
-            Use the Interactive Pump Selection &amp; TDH Calculator &rarr;
-          </a>
+            <span
+              class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-2"
+              >Advertisement</span
+            >
+            <div
+              class="w-full flex justify-center"
+              style="height: 600px; max-height: 600px; overflow: hidden"
+            >
+              <ins
+                class="adsbygoogle"
+                style="
+                  display: block;
+                  width: 100%;
+                  min-height: 600px;
+                  max-height: 600px;
+                "
+                data-ad-client="ca-pub-3901061173891576"
+                data-ad-slot="1581548667"
+                data-ad-format="auto"
+                data-full-width-responsive="true"
+              ></ins>
+            </div>
+          </div>
         </div>
-      </article>
+      </div>
     </main>
 
     <!-- Footer -->

@@ -56,188 +56,294 @@
     <!-- Header -->
     <header id="global-header"></header>
 
-    <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-grow">
-      <article class="prose prose-slate dark:prose-invert max-w-none">
-        <!-- Reverse Link Back to Main Tool -->
-        <a
-          href="./index.html"
-          class="inline-flex items-center text-brand-600 dark:text-brand-400 font-bold hover:underline text-sm mb-2 transition-colors"
+    <main
+      class="tool-page-main max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex-grow"
+    >
+      <!-- Leaderboard Ad Slot -->
+      <div
+        id="ad-slot-a"
+        class="w-full mx-auto mb-6 p-3 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center select-none overflow-hidden min-h-[90px]"
+        style="max-width: 728px; min-height: 90px; max-height: 135px"
+      >
+        <span
+          class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-1.5"
+          >Advertisement</span
         >
-          &larr; Back to Property Tax Escalation Projector
-        </a>
-
-        <h1
-          class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight"
-        >
-          Property Tax Calculator Guide: How to Estimate Your Annual Tax Bill
-        </h1>
-
         <div
-          class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4"
+          class="w-full flex justify-center"
+          style="height: 90px; max-height: 90px; overflow: hidden"
         >
-          <span>Published: August 2026</span>
-          <span>&bull;</span>
-          <span>Category: Finance &amp; Real Estate</span>
-          <span>&bull;</span>
-          <span class="text-emerald-600 dark:text-emerald-400"
-            >No Sign-Up / 100% Free / No Registration</span
-          >
+          <ins
+            class="adsbygoogle"
+            style="
+              display: inline-block;
+              width: 100%;
+              height: 90px;
+              max-height: 90px;
+            "
+            data-ad-client="ca-pub-3901061173891576"
+            data-ad-slot="2894630336"
+            data-ad-format="horizontal"
+            data-full-width-responsive="false"
+          ></ins>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-4 gap-4">
+        <!-- Main Content (Column 1-3) -->
+        <div class="lg:col-span-3 space-y-8">
+          <article class="prose prose-slate dark:prose-invert max-w-none">
+            <!-- Reverse Link Back to Main Tool -->
+            <a
+              href="./index.html"
+              class="inline-flex items-center text-brand-600 dark:text-brand-400 font-bold hover:underline text-sm mb-2 transition-colors"
+            >
+              &larr; Back to Property Tax Escalation Projector
+            </a>
+
+            <h1
+              class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight"
+            >
+              Property Tax Calculator Guide: How to Estimate Your Annual Tax
+              Bill
+            </h1>
+
+            <div
+              class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4"
+            >
+              <span>Published: August 2026</span>
+              <span>&bull;</span>
+              <span>Category: Finance &amp; Real Estate</span>
+              <span>&bull;</span>
+              <span class="text-emerald-600 dark:text-emerald-400"
+                >No Sign-Up / 100% Free / No Registration</span
+              >
+            </div>
+
+            <!-- Body Content -->
+            <div
+              class="text-slate-600 dark:text-slate-300 space-y-4 leading-relaxed text-sm"
+            >
+              <p class="mb-4">
+                Property taxes are one of the largest ongoing costs of
+                homeownership, yet many homeowners pay them little attention
+                until the bill arrives in the mail. Because the calculation
+                involves several moving parts &mdash; assessed value, tax rates,
+                exemptions, and special assessments &mdash; a small
+                misunderstanding can lead to a surprisingly large gap between
+                what you expect to owe and what you are actually charged. This
+                guide walks you through every piece of the puzzle so you can
+                verify your bill, spot overcharges, and plan your housing budget
+                with confidence.
+              </p>
+
+              <h2>Core Formula: Assessed Value Times Tax Rate</h2>
+              <p class="mb-4">
+                At its simplest, the annual property tax owed equals the taxable
+                assessed value of your home multiplied by the effective tax
+                rate. The assessed value is the dollar figure your county
+                assigns to your property for taxation purposes, and the tax rate
+                is expressed as a percentage or as millage (one mill equals one
+                dollar in tax per one thousand dollars of assessed value). For
+                example, a home assessed at $300,000 in a jurisdiction with a
+                1.2 percent effective rate carries an annual bill of $3,600.
+              </p>
+
+              <h3>Assessed Value vs. Market Value</h3>
+              <p class="mb-4">
+                Although the terms sound interchangeable, assessed value and
+                market value serve different roles. Market value is what a
+                willing buyer and seller would agree to in an open transaction.
+                Assessed value is the figure the assessor uses to compute your
+                tax bill. In many states the assessed value is a portion of
+                market value, commonly eighty-five percent, though the ratio
+                ranges from seventy percent in Connecticut to one hundred
+                percent in Texas. Because property tax bills depend on assessed
+                value, not sale price, understanding the local assessment ratio
+                is essential for accurate projections.
+              </p>
+              <ul class="list-disc pl-6 space-y-2 mb-4">
+                <li>
+                  <strong>Market value:</strong> The price your home would fetch
+                  on the open market.
+                </li>
+                <li>
+                  <strong>Assessed (taxable) value:</strong> The figure
+                  multiplied by the tax rate to determine the bill.
+                </li>
+                <li>
+                  <strong>Assessment ratio:</strong> The percentage of market
+                  value used as the assessed value.
+                </li>
+                <li>
+                  <strong>Effective tax rate:</strong> The composite percentage
+                  all local taxing districts levy.
+                </li>
+              </ul>
+
+              <h2>Step-by-Step Calculation Example</h2>
+              <p class="mb-4">
+                Imagine you recently purchased a home for $400,000 in a county
+                that assesses at ninety percent of market value with a combined
+                mill levy of 120 mills. First, convert the purchase price to an
+                assessed value: $400,000 &times; 0.90 = $360,000. Then apply the
+                mill levy: $360,000 &times; (120 / 1,000) = $43,200. If your
+                state applies a simple exemption of $50,000, the taxable value
+                falls to $310,000, and the final bill becomes $37,200 divided
+                across the year. Each step in this chain is a chance for an
+                error to compound into a materially different tax obligation.
+              </p>
+
+              <h3>Where to Find the Numbers</h3>
+              <p class="mb-4">
+                Every component of the calculation is public record. Your
+                assessed value appears on the annual notice mailed by the
+                assessor&rsquo;s office, and the combined mill levy is published
+                on the county treasurer or auditor website. Most jurisdictions
+                also host an online searchable database where you can enter your
+                parcel number to retrieve both values instantly. Comparing your
+                notice to these official sources is the fastest way to confirm
+                whether your bill is correct before you ever reach for a
+                calculator.
+              </p>
+
+              <h2>Long-Term Planning with Compound Growth</h2>
+              <p class="mb-4">
+                A single year&rsquo;s property tax tells only part of the story.
+                Property values and taxing districts&rsquo; levies tend to rise
+                over time, and those increases compound. A home taxed at $4,000
+                annually today could carry a $6,000 bill twenty years from now
+                if both value and rate grow at three percent per year.
+                Forecasting this trajectory is critical for retirement planning,
+                cash-flow budgeting, and deciding whether a house truly fits
+                your long-term affordability goals.
+              </p>
+              <p class="mb-4">
+                Our
+                <a href="./index.html">Property Tax Escalation Projector</a>
+                automates these multi-year projections. By entering your current
+                property value, tax rate, expected annual appreciation, and
+                anticipated tax-rate growth, the tool generates a year-by-year
+                table showing the assessed value, tax rate, and annual bill for
+                each year out to a thirty-year horizon. This lets you see not
+                only what you pay today, but also the steady climb in your tax
+                burden &mdash; and the total you will have paid over the
+                lifetime of ownership.
+              </p>
+
+              <h2>Five Tips to Keep Your Calculation Accurate</h2>
+              <ol class="list-decimal pl-6 space-y-2 mb-4">
+                <li>
+                  Review your assessment notice each year and compare the
+                  assessed value to recent comparable sales in your
+                  neighborhood.
+                </li>
+                <li>
+                  Check whether your state applies a standard assessment ratio
+                  that limits how much of market value is taxed.
+                </li>
+                <li>
+                  Add up every mill levy from overlapping taxing districts
+                  &mdash; school, fire, water, and county &mdash; rather than
+                  relying on a single quoted rate.
+                </li>
+                <li>
+                  Subtract all applicable exemptions, including homestead,
+                  senior, disability, and special districts, before computing
+                  your taxable value.
+                </li>
+                <li>
+                  Cross-check your work against an online database by visiting
+                  the
+                  <a href="./index.html">Property Tax Projector</a> and entering
+                  your parcel or address for a second opinion.
+                </li>
+              </ol>
+              <p class="mb-4">
+                With these principles in hand and a reliable projection tool,
+                you can turn property taxes from an annual surprise into a
+                predictable, manageable line item in your household budget.
+              </p>
+            </div>
+
+            <div
+              class="pt-6 border-t border-slate-100 dark:border-slate-800/80 flex flex-col sm:flex-row justify-between items-center gap-4"
+            >
+              <span
+                class="text-xs text-slate-400 dark:text-slate-500 font-semibold"
+                >Ready to run some calculations or generate outputs?</span
+              >
+              <a
+                href="./index.html"
+                class="px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm rounded-lg transition-colors shadow-sm"
+              >
+                Use the Property Tax Projector &rarr;
+              </a>
+            </div>
+          </article>
         </div>
 
-        <!-- Body Content -->
-        <div
-          class="text-slate-600 dark:text-slate-300 space-y-4 leading-relaxed text-sm"
-        >
-          <p class="mb-4">
-            Property taxes are one of the largest ongoing costs of
-            homeownership, yet many homeowners pay them little attention until
-            the bill arrives in the mail. Because the calculation involves
-            several moving parts &mdash; assessed value, tax rates, exemptions,
-            and special assessments &mdash; a small misunderstanding can lead to
-            a surprisingly large gap between what you expect to owe and what you
-            are actually charged. This guide walks you through every piece of
-            the puzzle so you can verify your bill, spot overcharges, and plan
-            your housing budget with confidence.
-          </p>
-
-          <h2>Core Formula: Assessed Value Times Tax Rate</h2>
-          <p class="mb-4">
-            At its simplest, the annual property tax owed equals the taxable
-            assessed value of your home multiplied by the effective tax rate.
-            The assessed value is the dollar figure your county assigns to your
-            property for taxation purposes, and the tax rate is expressed as a
-            percentage or as millage (one mill equals one dollar in tax per one
-            thousand dollars of assessed value). For example, a home assessed at
-            $300,000 in a jurisdiction with a 1.2 percent effective rate carries
-            an annual bill of $3,600.
-          </p>
-
-          <h3>Assessed Value vs. Market Value</h3>
-          <p class="mb-4">
-            Although the terms sound interchangeable, assessed value and market
-            value serve different roles. Market value is what a willing buyer
-            and seller would agree to in an open transaction. Assessed value is
-            the figure the assessor uses to compute your tax bill. In many
-            states the assessed value is a portion of market value, commonly
-            eighty-five percent, though the ratio ranges from seventy percent in
-            Connecticut to one hundred percent in Texas. Because property tax
-            bills depend on assessed value, not sale price, understanding the
-            local assessment ratio is essential for accurate projections.
-          </p>
-          <ul class="list-disc pl-6 space-y-2 mb-4">
-            <li>
-              <strong>Market value:</strong> The price your home would fetch on
-              the open market.
-            </li>
-            <li>
-              <strong>Assessed (taxable) value:</strong> The figure multiplied
-              by the tax rate to determine the bill.
-            </li>
-            <li>
-              <strong>Assessment ratio:</strong> The percentage of market value
-              used as the assessed value.
-            </li>
-            <li>
-              <strong>Effective tax rate:</strong> The composite percentage all
-              local taxing districts levy.
-            </li>
-          </ul>
-
-          <h2>Step-by-Step Calculation Example</h2>
-          <p class="mb-4">
-            Imagine you recently purchased a home for $400,000 in a county that
-            assesses at ninety percent of market value with a combined mill levy
-            of 120 mills. First, convert the purchase price to an assessed
-            value: $400,000 &times; 0.90 = $360,000. Then apply the mill levy:
-            $360,000 &times; (120 / 1,000) = $43,200. If your state applies a
-            simple exemption of $50,000, the taxable value falls to $310,000,
-            and the final bill becomes $37,200 divided across the year. Each
-            step in this chain is a chance for an error to compound into a
-            materially different tax obligation.
-          </p>
-
-          <h3>Where to Find the Numbers</h3>
-          <p class="mb-4">
-            Every component of the calculation is public record. Your assessed
-            value appears on the annual notice mailed by the assessor&rsquo;s
-            office, and the combined mill levy is published on the county
-            treasurer or auditor website. Most jurisdictions also host an online
-            searchable database where you can enter your parcel number to
-            retrieve both values instantly. Comparing your notice to these
-            official sources is the fastest way to confirm whether your bill is
-            correct before you ever reach for a calculator.
-          </p>
-
-          <h2>Long-Term Planning with Compound Growth</h2>
-          <p class="mb-4">
-            A single year&rsquo;s property tax tells only part of the story.
-            Property values and taxing districts&rsquo; levies tend to rise over
-            time, and those increases compound. A home taxed at $4,000 annually
-            today could carry a $6,000 bill twenty years from now if both value
-            and rate grow at three percent per year. Forecasting this trajectory
-            is critical for retirement planning, cash-flow budgeting, and
-            deciding whether a house truly fits your long-term affordability
-            goals.
-          </p>
-          <p class="mb-4">
-            Our
-            <a href="./index.html">Property Tax Escalation Projector</a>
-            automates these multi-year projections. By entering your current
-            property value, tax rate, expected annual appreciation, and
-            anticipated tax-rate growth, the tool generates a year-by-year table
-            showing the assessed value, tax rate, and annual bill for each year
-            out to a thirty-year horizon. This lets you see not only what you
-            pay today, but also the steady climb in your tax burden &mdash; and
-            the total you will have paid over the lifetime of ownership.
-          </p>
-
-          <h2>Five Tips to Keep Your Calculation Accurate</h2>
-          <ol class="list-decimal pl-6 space-y-2 mb-4">
-            <li>
-              Review your assessment notice each year and compare the assessed
-              value to recent comparable sales in your neighborhood.
-            </li>
-            <li>
-              Check whether your state applies a standard assessment ratio that
-              limits how much of market value is taxed.
-            </li>
-            <li>
-              Add up every mill levy from overlapping taxing districts &mdash;
-              school, fire, water, and county &mdash; rather than relying on a
-              single quoted rate.
-            </li>
-            <li>
-              Subtract all applicable exemptions, including homestead, senior,
-              disability, and special districts, before computing your taxable
-              value.
-            </li>
-            <li>
-              Cross-check your work against an online database by visiting the
-              <a href="./index.html">Property Tax Projector</a> and entering
-              your parcel or address for a second opinion.
-            </li>
-          </ol>
-          <p class="mb-4">
-            With these principles in hand and a reliable projection tool, you
-            can turn property taxes from an annual surprise into a predictable,
-            manageable line item in your household budget.
-          </p>
-        </div>
-
-        <div
-          class="pt-6 border-t border-slate-100 dark:border-slate-800/80 flex flex-col sm:flex-row justify-between items-center gap-4"
-        >
-          <span class="text-xs text-slate-400 dark:text-slate-500 font-semibold"
-            >Ready to run some calculations or generate outputs?</span
+        <!-- Column 4 Sidebar -->
+        <div class="lg:col-span-1 space-y-6">
+          <div id="trending-sidebar"></div>
+          <div
+            id="ad-slot-square"
+            class="w-full p-4 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center mt-4 select-none min-h-[250px] overflow-hidden"
+            style="min-height: 250px"
           >
-          <a
-            href="./index.html"
-            class="px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm rounded-lg transition-colors shadow-sm"
+            <span
+              class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-2"
+              >Advertisement</span
+            >
+            <div
+              class="w-full flex justify-center"
+              style="height: 250px; max-height: 250px; overflow: hidden"
+            >
+              <ins
+                class="adsbygoogle"
+                style="
+                  display: block;
+                  width: 100%;
+                  min-height: 250px;
+                  max-height: 250px;
+                "
+                data-ad-client="ca-pub-3901061173891576"
+                data-ad-slot="6707430996"
+                data-ad-format="rectangle"
+                data-full-width-responsive="false"
+              ></ins>
+            </div>
+          </div>
+          <div
+            id="ad-slot-vertical"
+            class="w-full p-4 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center mt-4 hidden lg:flex select-none min-h-[600px] overflow-hidden"
+            style="min-height: 600px"
           >
-            Use the Property Tax Projector &rarr;
-          </a>
+            <span
+              class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-2"
+              >Advertisement</span
+            >
+            <div
+              class="w-full flex justify-center"
+              style="height: 600px; max-height: 600px; overflow: hidden"
+            >
+              <ins
+                class="adsbygoogle"
+                style="
+                  display: block;
+                  width: 100%;
+                  min-height: 600px;
+                  max-height: 600px;
+                "
+                data-ad-client="ca-pub-3901061173891576"
+                data-ad-slot="1581548667"
+                data-ad-format="auto"
+                data-full-width-responsive="true"
+              ></ins>
+            </div>
+          </div>
         </div>
-      </article>
+      </div>
     </main>
 
     <!-- Footer -->

@@ -53,145 +53,252 @@
     <!-- Header -->
     <header id="global-header"></header>
 
-    <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-grow">
-      <article class="prose prose-slate dark:prose-invert max-w-none">
-        <!-- Reverse Link Back to Main Tool -->
-        <a
-          href="./"
-          class="inline-flex items-center text-brand-600 dark:text-brand-400 font-bold hover:underline text-sm mb-2 transition-colors"
+    <main
+      class="tool-page-main max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex-grow"
+    >
+      <!-- Leaderboard Ad Slot -->
+      <div
+        id="ad-slot-a"
+        class="w-full mx-auto mb-6 p-3 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center select-none overflow-hidden min-h-[90px]"
+        style="max-width: 728px; min-height: 90px; max-height: 135px"
+      >
+        <span
+          class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-1.5"
+          >Advertisement</span
         >
-          &larr; Back to BMR &amp; TDEE Calorie Calculator
-        </a>
-
-        <h1
-          class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight"
-        >
-          Best Practices for BMR &amp; TDEE Calculation
-        </h1>
-
         <div
-          class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4"
+          class="w-full flex justify-center"
+          style="height: 90px; max-height: 90px; overflow: hidden"
         >
-          <span>Published: August 2026</span>
-          <span>•</span>
-          <span>Category: Health &amp; Lifestyle</span>
-          <span>•</span>
-          <span class="text-emerald-600 dark:text-emerald-400"
-            >No Sign-Up / 100% Free / No Registration</span
-          >
+          <ins
+            class="adsbygoogle"
+            style="
+              display: inline-block;
+              width: 100%;
+              height: 90px;
+              max-height: 90px;
+            "
+            data-ad-client="ca-pub-3901061173891576"
+            data-ad-slot="2894630336"
+            data-ad-format="horizontal"
+            data-full-width-responsive="false"
+          ></ins>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-4 gap-4">
+        <!-- Main Content (Column 1-3) -->
+        <div class="lg:col-span-3 space-y-8">
+          <article class="prose prose-slate dark:prose-invert max-w-none">
+            <!-- Reverse Link Back to Main Tool -->
+            <a
+              href="./"
+              class="inline-flex items-center text-brand-600 dark:text-brand-400 font-bold hover:underline text-sm mb-2 transition-colors"
+            >
+              &larr; Back to BMR &amp; TDEE Calorie Calculator
+            </a>
+
+            <h1
+              class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight"
+            >
+              Best Practices for BMR &amp; TDEE Calculation
+            </h1>
+
+            <div
+              class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4"
+            >
+              <span>Published: August 2026</span>
+              <span>•</span>
+              <span>Category: Health &amp; Lifestyle</span>
+              <span>•</span>
+              <span class="text-emerald-600 dark:text-emerald-400"
+                >No Sign-Up / 100% Free / No Registration</span
+              >
+            </div>
+
+            <!-- Body Content -->
+            <div
+              class="text-slate-600 dark:text-slate-300 space-y-4 leading-relaxed text-sm"
+            >
+              <p class="mb-4">
+                A calorie estimate is only as good as the habits around it. The
+                BMR &amp; TDEE Calorie Calculator is accurate to the extent that
+                you feed it honest inputs and use the output intelligently.
+                These best practices cover measurement discipline,
+                activity-level selection, protein strategy, and the tracking
+                loop that turns a one-time number into a reliable daily budget.
+              </p>
+              <p class="mb-4">
+                Weigh yourself under identical conditions every time. The ideal
+                protocol is a morning weigh-in, after using the bathroom, before
+                eating or drinking, wearing minimal clothing. Water fluctuations
+                of one to two kilograms from day to day are normal and say
+                nothing about fat gain or loss. Use a rolling seven-day average
+                of morning weigh-ins as your truth signal, and enter that
+                average weight into the calculator rather than today's spike or
+                dip.
+              </p>
+              <p class="mb-4">
+                Re-measure at a fixed interval. Because the Mifflin-St Jeor
+                equation multiplies every kilogram of weight by ten, a 5 kg drop
+                lowers BMR by about 50 kcal per day, and a 10 kg drop by roughly
+                100 kcal. If you are dieting, recompute every time you lose 5 kg
+                (about 10 lb); if you are bulking, do the same when the scale
+                climbs. Sticking to a stale number is the single most common
+                reason a formerly working target quietly stops producing
+                results.
+              </p>
+              <p class="mb-4">
+                Choose the activity level that matches an average week, not your
+                best week or your aspirational one. The gap between "lightly
+                active" (1.375) and "moderately active" (1.55) is about 175
+                calories on a 2000 kcal TDEE — enough to erase or create a
+                meaningful weekly deficit. If you are unsure, select the lower
+                tier and rely on a proper step count to verify. Ten thousand
+                steps a day plus three structured workouts usually justifies the
+                moderate tier; an all-day desk job with sporadic gym sessions
+                rarely does.
+              </p>
+              <p class="mb-4">
+                Treat the activity factor and exercise separately. The tier
+                already includes your training. Adding extra "exercise calories"
+                on top of TDEE double-counts the same energy and leads to weight
+                creeping up during a cut. If you do add them, use a conservative
+                10 kcal per minute of moderate cardio and never eat back more
+                than half of what your watch reports — wearable expenditure
+                estimates are typically inflated.
+              </p>
+              <p class="mb-4">
+                Prioritize protein within any calorie budget. Regardless of
+                whether you are cutting or bulking, aim for roughly 1.6 to 2.2
+                grams of protein per kilogram of body weight. During a cut that
+                protects lean mass and increases satiety; during a bulk it feeds
+                muscle protein synthesis. A simple split is about 30 to 35
+                percent of calories from protein, with the remainder divided
+                between carbohydrates and fats according to preference and
+                training demands.
+              </p>
+              <p class="mb-4">
+                Establish a proper baseline before judging the formula. Track
+                intake honestly for two weeks — weighed food where possible,
+                packaged labels elsewhere — while keeping activity constant. If
+                weight is stable over that window, your true TDEE matches the
+                estimate. If it moves, adjust the target by roughly 100 to 150
+                kcal in the direction needed, then re-evaluate after another two
+                weeks. This converts an educated guess into a measured, personal
+                number.
+              </p>
+              <p class="mb-4">
+                Do not slash calories below a sane floor. The cutting target of
+                minus 20 percent is the calculator's upper recommendation; for
+                women a floor around 1200 kcal and for men around 1500 kcal,
+                when dieting, avoids the metabolic slowdown and nutrient gaps
+                that come with extreme restriction. If your calculated target
+                sits below that floor, favor increased activity over further
+                cutting.
+              </p>
+              <p class="mb-4">
+                Account for the things that change metabolism day to day. Sleep
+                debt raises ghrelin and hunger while slightly lowering
+                expenditure; a stressful week with poor sleep can blunt a
+                deficit that looked perfect on paper. Rather than reacting to
+                every blip, watch the four-week trend of your rolling average.
+                Consistency — the same inputs, the same measurement protocol,
+                the same activity — is what lets the formula's signal shine
+                through the daily noise.
+              </p>
+              <p class="mb-4">
+                Finally, treat the numbers as a framework rather than a verdict.
+                The calculator runs entirely in your browser, needs no sign-up,
+                and protects your privacy by design, but its output is still an
+                estimate from a population equation. Health conditions,
+                medications, and thyroid function can all shift true
+                expenditure. If you are managing a medical condition or planning
+                significant restriction, review your plan with a registered
+                dietitian or physician. Done right, the BMR &amp; TDEE workflow
+                gives you a precise, defensible, and adjustable starting point
+                for any nutrition goal.
+              </p>
+            </div>
+
+            <div
+              class="pt-6 border-t border-slate-100 dark:border-slate-800/80 flex flex-col sm:flex-row justify-between items-center gap-4"
+            >
+              <span
+                class="text-xs text-slate-400 dark:text-slate-500 font-semibold"
+                >Ready to build your calorie budget?</span
+              >
+              <a
+                href="./"
+                class="px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm rounded-lg transition-colors shadow-sm"
+              >
+                Use the Interactive BMR &amp; TDEE Calculator &rarr;
+              </a>
+            </div>
+          </article>
         </div>
 
-        <!-- Body Content -->
-        <div
-          class="text-slate-600 dark:text-slate-300 space-y-4 leading-relaxed text-sm"
-        >
-          <p class="mb-4">
-            A calorie estimate is only as good as the habits around it. The BMR
-            &amp; TDEE Calorie Calculator is accurate to the extent that you
-            feed it honest inputs and use the output intelligently. These best
-            practices cover measurement discipline, activity-level selection,
-            protein strategy, and the tracking loop that turns a one-time number
-            into a reliable daily budget.
-          </p>
-          <p class="mb-4">
-            Weigh yourself under identical conditions every time. The ideal
-            protocol is a morning weigh-in, after using the bathroom, before
-            eating or drinking, wearing minimal clothing. Water fluctuations of
-            one to two kilograms from day to day are normal and say nothing
-            about fat gain or loss. Use a rolling seven-day average of morning
-            weigh-ins as your truth signal, and enter that average weight into
-            the calculator rather than today's spike or dip.
-          </p>
-          <p class="mb-4">
-            Re-measure at a fixed interval. Because the Mifflin-St Jeor equation
-            multiplies every kilogram of weight by ten, a 5 kg drop lowers BMR
-            by about 50 kcal per day, and a 10 kg drop by roughly 100 kcal. If
-            you are dieting, recompute every time you lose 5 kg (about 10 lb);
-            if you are bulking, do the same when the scale climbs. Sticking to a
-            stale number is the single most common reason a formerly working
-            target quietly stops producing results.
-          </p>
-          <p class="mb-4">
-            Choose the activity level that matches an average week, not your
-            best week or your aspirational one. The gap between "lightly active"
-            (1.375) and "moderately active" (1.55) is about 175 calories on a
-            2000 kcal TDEE — enough to erase or create a meaningful weekly
-            deficit. If you are unsure, select the lower tier and rely on a
-            proper step count to verify. Ten thousand steps a day plus three
-            structured workouts usually justifies the moderate tier; an all-day
-            desk job with sporadic gym sessions rarely does.
-          </p>
-          <p class="mb-4">
-            Treat the activity factor and exercise separately. The tier already
-            includes your training. Adding extra "exercise calories" on top of
-            TDEE double-counts the same energy and leads to weight creeping up
-            during a cut. If you do add them, use a conservative 10 kcal per
-            minute of moderate cardio and never eat back more than half of what
-            your watch reports — wearable expenditure estimates are typically
-            inflated.
-          </p>
-          <p class="mb-4">
-            Prioritize protein within any calorie budget. Regardless of whether
-            you are cutting or bulking, aim for roughly 1.6 to 2.2 grams of
-            protein per kilogram of body weight. During a cut that protects lean
-            mass and increases satiety; during a bulk it feeds muscle protein
-            synthesis. A simple split is about 30 to 35 percent of calories from
-            protein, with the remainder divided between carbohydrates and fats
-            according to preference and training demands.
-          </p>
-          <p class="mb-4">
-            Establish a proper baseline before judging the formula. Track intake
-            honestly for two weeks — weighed food where possible, packaged
-            labels elsewhere — while keeping activity constant. If weight is
-            stable over that window, your true TDEE matches the estimate. If it
-            moves, adjust the target by roughly 100 to 150 kcal in the direction
-            needed, then re-evaluate after another two weeks. This converts an
-            educated guess into a measured, personal number.
-          </p>
-          <p class="mb-4">
-            Do not slash calories below a sane floor. The cutting target of
-            minus 20 percent is the calculator's upper recommendation; for women
-            a floor around 1200 kcal and for men around 1500 kcal, when dieting,
-            avoids the metabolic slowdown and nutrient gaps that come with
-            extreme restriction. If your calculated target sits below that
-            floor, favor increased activity over further cutting.
-          </p>
-          <p class="mb-4">
-            Account for the things that change metabolism day to day. Sleep debt
-            raises ghrelin and hunger while slightly lowering expenditure; a
-            stressful week with poor sleep can blunt a deficit that looked
-            perfect on paper. Rather than reacting to every blip, watch the
-            four-week trend of your rolling average. Consistency — the same
-            inputs, the same measurement protocol, the same activity — is what
-            lets the formula's signal shine through the daily noise.
-          </p>
-          <p class="mb-4">
-            Finally, treat the numbers as a framework rather than a verdict. The
-            calculator runs entirely in your browser, needs no sign-up, and
-            protects your privacy by design, but its output is still an estimate
-            from a population equation. Health conditions, medications, and
-            thyroid function can all shift true expenditure. If you are managing
-            a medical condition or planning significant restriction, review your
-            plan with a registered dietitian or physician. Done right, the BMR
-            &amp; TDEE workflow gives you a precise, defensible, and adjustable
-            starting point for any nutrition goal.
-          </p>
-        </div>
-
-        <div
-          class="pt-6 border-t border-slate-100 dark:border-slate-800/80 flex flex-col sm:flex-row justify-between items-center gap-4"
-        >
-          <span class="text-xs text-slate-400 dark:text-slate-500 font-semibold"
-            >Ready to build your calorie budget?</span
+        <!-- Column 4 Sidebar -->
+        <div class="lg:col-span-1 space-y-6">
+          <div id="trending-sidebar"></div>
+          <div
+            id="ad-slot-square"
+            class="w-full p-4 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center mt-4 select-none min-h-[250px] overflow-hidden"
+            style="min-height: 250px"
           >
-          <a
-            href="./"
-            class="px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm rounded-lg transition-colors shadow-sm"
+            <span
+              class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-2"
+              >Advertisement</span
+            >
+            <div
+              class="w-full flex justify-center"
+              style="height: 250px; max-height: 250px; overflow: hidden"
+            >
+              <ins
+                class="adsbygoogle"
+                style="
+                  display: block;
+                  width: 100%;
+                  min-height: 250px;
+                  max-height: 250px;
+                "
+                data-ad-client="ca-pub-3901061173891576"
+                data-ad-slot="6707430996"
+                data-ad-format="rectangle"
+                data-full-width-responsive="false"
+              ></ins>
+            </div>
+          </div>
+          <div
+            id="ad-slot-vertical"
+            class="w-full p-4 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center mt-4 hidden lg:flex select-none min-h-[600px] overflow-hidden"
+            style="min-height: 600px"
           >
-            Use the Interactive BMR &amp; TDEE Calculator &rarr;
-          </a>
+            <span
+              class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-2"
+              >Advertisement</span
+            >
+            <div
+              class="w-full flex justify-center"
+              style="height: 600px; max-height: 600px; overflow: hidden"
+            >
+              <ins
+                class="adsbygoogle"
+                style="
+                  display: block;
+                  width: 100%;
+                  min-height: 600px;
+                  max-height: 600px;
+                "
+                data-ad-client="ca-pub-3901061173891576"
+                data-ad-slot="1581548667"
+                data-ad-format="auto"
+                data-full-width-responsive="true"
+              ></ins>
+            </div>
+          </div>
         </div>
-      </article>
+      </div>
     </main>
 
     <!-- Footer -->

@@ -52,133 +52,237 @@
     class="bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 min-h-screen flex flex-col"
   >
     <header id="global-header"></header>
-    <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-grow">
-      <article class="prose prose-slate dark:prose-invert max-w-none">
-        <a
-          href="./index.html"
-          class="inline-flex items-center text-brand-600 dark:text-brand-400 font-bold hover:underline text-sm mb-4 transition-colors"
+    <main
+      class="tool-page-main max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex-grow"
+    >
+      <!-- Leaderboard Ad Slot -->
+      <div
+        id="ad-slot-a"
+        class="w-full mx-auto mb-6 p-3 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center select-none overflow-hidden min-h-[90px]"
+        style="max-width: 728px; min-height: 90px; max-height: 135px"
+      >
+        <span
+          class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-1.5"
+          >Advertisement</span
         >
-          &larr; Back to HELOC Estimator Tool
-        </a>
-        <h1>How to Calculate HELOC Payments: A Step-by-Step Guide</h1>
-        <p>
-          Calculating your HELOC payment is not as straightforward as a
-          fixed-rate loan because the amount you owe, the interest rate, and
-          even the payment type can change over time. A HELOC goes through two
-          distinct phases: the draw period, where you borrow and typically pay
-          interest only, and the repayment period, where you pay back principal
-          plus interest over a set schedule. The payment you make in month one
-          can look nothing like the payment you make in month forty. This guide
-          walks you through the formulas, common pitfalls, and the exact numbers
-          you need to gather so you can model your own scenario with confidence.
-          Use our <a href="./index.html">HELOC Estimator</a> to plug in your
-          home value, mortgage balance, and proposed rate to see projected
-          payments instantly.
-        </p>
+        <div
+          class="w-full flex justify-center"
+          style="height: 90px; max-height: 90px; overflow: hidden"
+        >
+          <ins
+            class="adsbygoogle"
+            style="
+              display: inline-block;
+              width: 100%;
+              height: 90px;
+              max-height: 90px;
+            "
+            data-ad-client="ca-pub-3901061173891576"
+            data-ad-slot="2894630336"
+            data-ad-format="horizontal"
+            data-full-width-responsive="false"
+          ></ins>
+        </div>
+      </div>
 
-        <h2>Gathering the Inputs You Need</h2>
-        <p>
-          Before you calculate anything, collect the key variables your lender
-          will use. You need your current home value, the outstanding balance on
-          your first mortgage, the combined loan-to-value ratio your lender will
-          allow, the annual percentage rate on your HELOC, and the length of
-          both the draw and repayment periods. Most HELOCs use the prime rate
-          plus a markup, so also note your lender's margin. Having these figures
-          ready means the difference between an estimate and an accurate
-          projection. The <a href="./index.html">HELOC Estimator</a> asks for
-          these same inputs in plain language and returns your maximum available
-          credit, interest-only payment, and fully amortized repayment payment
-          in seconds.
-        </p>
-        <ol>
-          <li>Determine your home's current market value.</li>
-          <li>Find your existing mortgage balance.</li>
-          <li>Confirm your lender's maximum combined LTV.</li>
-          <li>Note your HELOC's interest rate or margin over prime.</li>
-          <li>Know the draw period length and repayment period length.</li>
-        </ol>
+      <div class="grid grid-cols-1 lg:grid-cols-4 gap-4">
+        <!-- Main Content (Column 1-3) -->
+        <div class="lg:col-span-3 space-y-8">
+          <article class="prose prose-slate dark:prose-invert max-w-none">
+            <a
+              href="./index.html"
+              class="inline-flex items-center text-brand-600 dark:text-brand-400 font-bold hover:underline text-sm mb-4 transition-colors"
+            >
+              &larr; Back to HELOC Estimator Tool
+            </a>
+            <h1>How to Calculate HELOC Payments: A Step-by-Step Guide</h1>
+            <p>
+              Calculating your HELOC payment is not as straightforward as a
+              fixed-rate loan because the amount you owe, the interest rate, and
+              even the payment type can change over time. A HELOC goes through
+              two distinct phases: the draw period, where you borrow and
+              typically pay interest only, and the repayment period, where you
+              pay back principal plus interest over a set schedule. The payment
+              you make in month one can look nothing like the payment you make
+              in month forty. This guide walks you through the formulas, common
+              pitfalls, and the exact numbers you need to gather so you can
+              model your own scenario with confidence. Use our
+              <a href="./index.html">HELOC Estimator</a> to plug in your home
+              value, mortgage balance, and proposed rate to see projected
+              payments instantly.
+            </p>
 
-        <h3>Interest-Only Payments During the Draw Period</h3>
-        <p>
-          Most HELOCs require interest-only payments while you are in the draw
-          phase. The formula is simple: convert the annual rate to a monthly
-          rate by dividing by twelve, then multiply by the current outstanding
-          balance. For example, if you have drawn twenty thousand dollars and
-          your HELOC rate is eight percent, your monthly rate is eight percent
-          divided by twelve, which is roughly zero point zero zero six six
-          seven. Multiply that by twenty thousand, and your interest-only
-          payment is about one hundred thirty-three dollars. Because the balance
-          can fluctuate daily as you draw and repay, your actual payment may
-          change each month. Many lenders bill interest-only payments based on
-          the average daily balance, so paying down principal early in the month
-          reduces the interest you owe.
-        </p>
+            <h2>Gathering the Inputs You Need</h2>
+            <p>
+              Before you calculate anything, collect the key variables your
+              lender will use. You need your current home value, the outstanding
+              balance on your first mortgage, the combined loan-to-value ratio
+              your lender will allow, the annual percentage rate on your HELOC,
+              and the length of both the draw and repayment periods. Most HELOCs
+              use the prime rate plus a markup, so also note your lender's
+              margin. Having these figures ready means the difference between an
+              estimate and an accurate projection. The
+              <a href="./index.html">HELOC Estimator</a> asks for these same
+              inputs in plain language and returns your maximum available
+              credit, interest-only payment, and fully amortized repayment
+              payment in seconds.
+            </p>
+            <ol>
+              <li>Determine your home's current market value.</li>
+              <li>Find your existing mortgage balance.</li>
+              <li>Confirm your lender's maximum combined LTV.</li>
+              <li>Note your HELOC's interest rate or margin over prime.</li>
+              <li>Know the draw period length and repayment period length.</li>
+            </ol>
 
-        <h2>Principal and Interest Payments</h2>
-        <p>
-          During the repayment period, your HELOC converts to a traditional
-          amortizing loan. You now pay both principal and interest based on the
-          remaining balance and a repayment schedule, usually fifteen or twenty
-          years. The formula uses the standard amortization payment calculation:
-          multiply the balance by the monthly rate times one plus the monthly
-          rate raised to the total number of payments, then divide by one plus
-          the monthly rate raised to the total number of payments minus one.
-          Using the same twenty thousand dollar balance at eight percent over
-          fifteen years, your fully amortized payment rises to roughly one
-          hundred ninety-seven dollars per month. That is roughly forty-five
-          percent higher than the interest-only payment, a jump that surprises
-          many borrowers.
-        </p>
+            <h3>Interest-Only Payments During the Draw Period</h3>
+            <p>
+              Most HELOCs require interest-only payments while you are in the
+              draw phase. The formula is simple: convert the annual rate to a
+              monthly rate by dividing by twelve, then multiply by the current
+              outstanding balance. For example, if you have drawn twenty
+              thousand dollars and your HELOC rate is eight percent, your
+              monthly rate is eight percent divided by twelve, which is roughly
+              zero point zero zero six six seven. Multiply that by twenty
+              thousand, and your interest-only payment is about one hundred
+              thirty-three dollars. Because the balance can fluctuate daily as
+              you draw and repay, your actual payment may change each month.
+              Many lenders bill interest-only payments based on the average
+              daily balance, so paying down principal early in the month reduces
+              the interest you owe.
+            </p>
 
-        <h3>Why Payments Change Over Time</h3>
-        <p>
-          Three forces move your HELOC payment: a rising or falling balance, a
-          variable rate that resets, and the transition from interest-only to
-          principal-and-interest payments. If your rate jumps from eight percent
-          to ten percent, your interest-only payment on twenty thousand dollars
-          increases from about one hundred thirty-three to one hundred
-          sixty-seven dollars. If you had already drawn the full amount and the
-          repayment period begins, the amortizing payment climbs even more
-          sharply. Because HELOC rates are almost always variable, budgeting for
-          the worst-case rate rather than today's rate is a safer approach. Use
-          our <a href="./index.html">HELOC Estimator</a> to test how sensitive
-          your payment is to rate changes, which helps you decide how much
-          buffer to keep in your monthly budget.
-        </p>
+            <h2>Principal and Interest Payments</h2>
+            <p>
+              During the repayment period, your HELOC converts to a traditional
+              amortizing loan. You now pay both principal and interest based on
+              the remaining balance and a repayment schedule, usually fifteen or
+              twenty years. The formula uses the standard amortization payment
+              calculation: multiply the balance by the monthly rate times one
+              plus the monthly rate raised to the total number of payments, then
+              divide by one plus the monthly rate raised to the total number of
+              payments minus one. Using the same twenty thousand dollar balance
+              at eight percent over fifteen years, your fully amortized payment
+              rises to roughly one hundred ninety-seven dollars per month. That
+              is roughly forty-five percent higher than the interest-only
+              payment, a jump that surprises many borrowers.
+            </p>
 
-        <h2>Common Calculation Mistakes</h2>
-        <p>
-          The most frequent error is assuming the draw-period payment represents
-          what you will pay forever. Borrowers budget for one hundred
-          thirty-three dollars but face one hundred ninety-seven dollars, plus
-          any rate increase, once repayment begins. Another mistake is using the
-          original loan amount instead of the current outstanding balance, which
-          understates the true interest due. Some borrowers also forget to
-          account for escrow assessments, lender fees, and mandatory reserve
-          requirements that appear on the monthly statement. Finally, never
-          ignore the tax impact of interest; while it may soften the effective
-          cost, it should not drive your decision to overextend on debt. Run
-          multiple scenarios through the
-          <a href="./index.html">HELOC Estimator</a> so you know your payment
-          range before you sign.
-        </p>
-        <ul>
-          <li>
-            Interest-only = balance multiplied by annual rate divided by twelve.
-          </li>
-          <li>
-            Repayment payment uses the full amortization formula over the
-            repayment term.
-          </li>
-          <li>
-            Variable rates mean today's payment is not tomorrow's payment.
-          </li>
-          <li>
-            Budget for the higher repayment-period payment plus a possible rate
-            increase.
-          </li>
-        </ul>
-      </article>
+            <h3>Why Payments Change Over Time</h3>
+            <p>
+              Three forces move your HELOC payment: a rising or falling balance,
+              a variable rate that resets, and the transition from interest-only
+              to principal-and-interest payments. If your rate jumps from eight
+              percent to ten percent, your interest-only payment on twenty
+              thousand dollars increases from about one hundred thirty-three to
+              one hundred sixty-seven dollars. If you had already drawn the full
+              amount and the repayment period begins, the amortizing payment
+              climbs even more sharply. Because HELOC rates are almost always
+              variable, budgeting for the worst-case rate rather than today's
+              rate is a safer approach. Use our
+              <a href="./index.html">HELOC Estimator</a> to test how sensitive
+              your payment is to rate changes, which helps you decide how much
+              buffer to keep in your monthly budget.
+            </p>
+
+            <h2>Common Calculation Mistakes</h2>
+            <p>
+              The most frequent error is assuming the draw-period payment
+              represents what you will pay forever. Borrowers budget for one
+              hundred thirty-three dollars but face one hundred ninety-seven
+              dollars, plus any rate increase, once repayment begins. Another
+              mistake is using the original loan amount instead of the current
+              outstanding balance, which understates the true interest due. Some
+              borrowers also forget to account for escrow assessments, lender
+              fees, and mandatory reserve requirements that appear on the
+              monthly statement. Finally, never ignore the tax impact of
+              interest; while it may soften the effective cost, it should not
+              drive your decision to overextend on debt. Run multiple scenarios
+              through the
+              <a href="./index.html">HELOC Estimator</a> so you know your
+              payment range before you sign.
+            </p>
+            <ul>
+              <li>
+                Interest-only = balance multiplied by annual rate divided by
+                twelve.
+              </li>
+              <li>
+                Repayment payment uses the full amortization formula over the
+                repayment term.
+              </li>
+              <li>
+                Variable rates mean today's payment is not tomorrow's payment.
+              </li>
+              <li>
+                Budget for the higher repayment-period payment plus a possible
+                rate increase.
+              </li>
+            </ul>
+          </article>
+        </div>
+
+        <!-- Column 4 Sidebar -->
+        <div class="lg:col-span-1 space-y-6">
+          <div id="trending-sidebar"></div>
+          <div
+            id="ad-slot-square"
+            class="w-full p-4 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center mt-4 select-none min-h-[250px] overflow-hidden"
+            style="min-height: 250px"
+          >
+            <span
+              class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-2"
+              >Advertisement</span
+            >
+            <div
+              class="w-full flex justify-center"
+              style="height: 250px; max-height: 250px; overflow: hidden"
+            >
+              <ins
+                class="adsbygoogle"
+                style="
+                  display: block;
+                  width: 100%;
+                  min-height: 250px;
+                  max-height: 250px;
+                "
+                data-ad-client="ca-pub-3901061173891576"
+                data-ad-slot="6707430996"
+                data-ad-format="rectangle"
+                data-full-width-responsive="false"
+              ></ins>
+            </div>
+          </div>
+          <div
+            id="ad-slot-vertical"
+            class="w-full p-4 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center mt-4 hidden lg:flex select-none min-h-[600px] overflow-hidden"
+            style="min-height: 600px"
+          >
+            <span
+              class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-2"
+              >Advertisement</span
+            >
+            <div
+              class="w-full flex justify-center"
+              style="height: 600px; max-height: 600px; overflow: hidden"
+            >
+              <ins
+                class="adsbygoogle"
+                style="
+                  display: block;
+                  width: 100%;
+                  min-height: 600px;
+                  max-height: 600px;
+                "
+                data-ad-client="ca-pub-3901061173891576"
+                data-ad-slot="1581548667"
+                data-ad-format="auto"
+                data-full-width-responsive="true"
+              ></ins>
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
     <footer id="global-footer"></footer>
     <script src="../global.js" defer></script>

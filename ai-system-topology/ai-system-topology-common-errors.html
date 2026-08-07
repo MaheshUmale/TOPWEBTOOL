@@ -49,138 +49,239 @@
     <!-- Header -->
     <header id="global-header"></header>
 
-    <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-grow">
-      <article class="prose prose-slate dark:prose-invert max-w-none">
-        <!-- Reverse Link Back to Main Tool -->
-        <a
-          href="./"
-          class="inline-flex items-center text-brand-600 dark:text-brand-400 font-bold hover:underline text-sm mb-2 transition-colors"
+    <main
+      class="tool-page-main max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex-grow"
+    >
+      <!-- Leaderboard Ad Slot -->
+      <div
+        id="ad-slot-a"
+        class="w-full mx-auto mb-6 p-3 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center select-none overflow-hidden min-h-[90px]"
+        style="max-width: 728px; min-height: 90px; max-height: 135px"
+      >
+        <span
+          class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-1.5"
+          >Advertisement</span
         >
-          &larr; Back to Multi-Agent System Topology Harness Tool
-        </a>
-
-        <h1
-          class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight"
-        >
-          Common Errors in Multi-Agent System Topology Design
-        </h1>
-
         <div
-          class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4"
+          class="w-full flex justify-center"
+          style="height: 90px; max-height: 90px; overflow: hidden"
         >
-          <span>Published: August 2026</span>
-          <span>•</span>
-          <span>Category: AI Agent & Automation</span>
-          <span>•</span>
-          <span class="text-emerald-600 dark:text-emerald-400"
-            >No Sign-Up / 100% Free / No Registration</span
-          >
+          <ins
+            class="adsbygoogle"
+            style="
+              display: inline-block;
+              width: 100%;
+              height: 90px;
+              max-height: 90px;
+            "
+            data-ad-client="ca-pub-3901061173891576"
+            data-ad-slot="2894630336"
+            data-ad-format="horizontal"
+            data-full-width-responsive="false"
+          ></ins>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-4 gap-4">
+        <!-- Main Content (Column 1-3) -->
+        <div class="lg:col-span-3 space-y-8">
+          <article class="prose prose-slate dark:prose-invert max-w-none">
+            <!-- Reverse Link Back to Main Tool -->
+            <a
+              href="./"
+              class="inline-flex items-center text-brand-600 dark:text-brand-400 font-bold hover:underline text-sm mb-2 transition-colors"
+            >
+              &larr; Back to Multi-Agent System Topology Harness Tool
+            </a>
+
+            <h1
+              class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight"
+            >
+              Common Errors in Multi-Agent System Topology Design
+            </h1>
+
+            <div
+              class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4"
+            >
+              <span>Published: August 2026</span>
+              <span>•</span>
+              <span>Category: AI Agent & Automation</span>
+              <span>•</span>
+              <span class="text-emerald-600 dark:text-emerald-400"
+                >No Sign-Up / 100% Free / No Registration</span
+              >
+            </div>
+
+            <!-- Body Content -->
+            <div
+              class="text-slate-600 dark:text-slate-300 space-y-4 leading-relaxed text-sm"
+            >
+              <p class="mb-4">
+                Most multi-agent projects fail long before a model call is made
+                — they fail on paper, in the topology. The good news is that the
+                failure modes are few, recognizable, and almost always fixable
+                in a few clicks. Knowing them by name turns a confusing
+                debugging session into a quick checklist.
+              </p>
+              <p class="mb-4">
+                The self-referencing edge is the most obvious trap. Wiring an
+                agent to itself looks harmless in a diagram but creates a loop
+                that either spins forever or consumes tokens until a timeout.
+                The harness rejects source-equals-target edges up front, but
+                longer cycles — A to B to C back to A — still slip through. The
+                fix is to keep graphs acyclic and to model genuine feedback as a
+                bounded retry on a conditional branch.
+              </p>
+              <p class="mb-4">
+                Orphan agents are nodes with no incoming edge. An orphan never
+                receives context, so it runs on empty input, produces
+                meaningless output, and quietly wastes budget. They usually
+                appear after a refactor deletes the edge that used to feed them.
+                The symptom in production is an agent that returns boilerplate
+                regardless of the request. The fix is a review pass that
+                confirms every non-entry node has exactly one incoming path.
+              </p>
+              <p class="mb-4">
+                Dead-end branches are the mirror image: an agent whose output is
+                never consumed. The pipeline spends money producing a result and
+                then discards it. This happens when an edge is deleted after a
+                workflow change but its target was never reassigned. The
+                exported topology text makes sinks visible, so audit out-degree
+                and confirm every terminal is the final answer rather than a
+                forgotten step.
+              </p>
+              <p class="mb-4">
+                Parallel fan-out without a join is a classic growth failure. A
+                router splits work across three agents, and the next sequential
+                step expects one context, not three. The system either crashes
+                on a type mismatch or silently uses only the last result. If you
+                fan out, plan the merge: either a dedicated join agent or an
+                explicit contract that folds results into a single structure
+                before the serial portion continues.
+              </p>
+              <p class="mb-4">
+                Misassigned temperature is subtle and costly. A cold,
+                deterministic routing agent left at a high temperature starts
+                picking branches at random, and the whole system becomes
+                unrepeatable. Conversely, a creative agent locked at 0.0
+                produces flat, mechanical prose. Set temperature per node with
+                intent, and when outputs start drifting, check temperature
+                before rewriting prompts.
+              </p>
+              <p class="mb-4">
+                Context starvation and context bloat are two sides of the same
+                hand-off mistake. Starvation happens when an edge does not
+                forward the field a downstream agent needs, so it answers with
+                whatever it happens to know. Bloat happens when every edge
+                forwards the entire history and each agent re-reads megabytes of
+                context, inflating latency and token cost quadratically. Define
+                the hand-off schema explicitly per edge type.
+              </p>
+              <p class="mb-4">
+                Duplicate edges between the same pair are usually leftovers from
+                an edit session. The harness refuses exact duplicates, but
+                near-duplicates — one sequential and one parallel edge between
+                the same agents — create genuine ambiguity about intended
+                behavior. When you see two lines between the same boxes, delete
+                one and document the chosen flow.
+              </p>
+              <p class="mb-4">
+                A frequent and frustrating error is renaming a node after edges
+                were wired. Every edge references the old identifier, so the
+                graph suddenly points at nothing. The harness re-renders
+                selections from node IDs, but the discipline is still yours:
+                rename early, treat renames as refactors, and re-export the text
+                after any rename to catch dangling references.
+              </p>
+              <p class="mb-4">
+                Finally, resist the urge to mirror the database. A topology that
+                mirrors a storage graph — one node per table — is almost always
+                wrong. Agents exist to do work, not to represent records.
+                Collapse passive nodes, let one agent own multiple related
+                operations, and keep the graph shaped by control flow rather
+                than by data model. A leaner graph is easier to debug, cheaper
+                to run, and far simpler to explain in a review.
+              </p>
+            </div>
+
+            <div
+              class="pt-6 border-t border-slate-100 dark:border-slate-800/80 flex flex-col sm:flex-row justify-between items-center gap-4"
+            >
+              <span
+                class="text-xs text-slate-400 dark:text-slate-500 font-semibold"
+                >Catch these errors before they reach production.</span
+              >
+              <a
+                href="./"
+                class="px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm rounded-lg transition-colors shadow-sm"
+              >
+                Open the Multi-Agent Topology Harness &rarr;
+              </a>
+            </div>
+          </article>
         </div>
 
-        <!-- Body Content -->
-        <div
-          class="text-slate-600 dark:text-slate-300 space-y-4 leading-relaxed text-sm"
-        >
-          <p class="mb-4">
-            Most multi-agent projects fail long before a model call is made —
-            they fail on paper, in the topology. The good news is that the
-            failure modes are few, recognizable, and almost always fixable in a
-            few clicks. Knowing them by name turns a confusing debugging session
-            into a quick checklist.
-          </p>
-          <p class="mb-4">
-            The self-referencing edge is the most obvious trap. Wiring an agent
-            to itself looks harmless in a diagram but creates a loop that either
-            spins forever or consumes tokens until a timeout. The harness
-            rejects source-equals-target edges up front, but longer cycles — A
-            to B to C back to A — still slip through. The fix is to keep graphs
-            acyclic and to model genuine feedback as a bounded retry on a
-            conditional branch.
-          </p>
-          <p class="mb-4">
-            Orphan agents are nodes with no incoming edge. An orphan never
-            receives context, so it runs on empty input, produces meaningless
-            output, and quietly wastes budget. They usually appear after a
-            refactor deletes the edge that used to feed them. The symptom in
-            production is an agent that returns boilerplate regardless of the
-            request. The fix is a review pass that confirms every non-entry node
-            has exactly one incoming path.
-          </p>
-          <p class="mb-4">
-            Dead-end branches are the mirror image: an agent whose output is
-            never consumed. The pipeline spends money producing a result and
-            then discards it. This happens when an edge is deleted after a
-            workflow change but its target was never reassigned. The exported
-            topology text makes sinks visible, so audit out-degree and confirm
-            every terminal is the final answer rather than a forgotten step.
-          </p>
-          <p class="mb-4">
-            Parallel fan-out without a join is a classic growth failure. A
-            router splits work across three agents, and the next sequential step
-            expects one context, not three. The system either crashes on a type
-            mismatch or silently uses only the last result. If you fan out, plan
-            the merge: either a dedicated join agent or an explicit contract
-            that folds results into a single structure before the serial portion
-            continues.
-          </p>
-          <p class="mb-4">
-            Misassigned temperature is subtle and costly. A cold, deterministic
-            routing agent left at a high temperature starts picking branches at
-            random, and the whole system becomes unrepeatable. Conversely, a
-            creative agent locked at 0.0 produces flat, mechanical prose. Set
-            temperature per node with intent, and when outputs start drifting,
-            check temperature before rewriting prompts.
-          </p>
-          <p class="mb-4">
-            Context starvation and context bloat are two sides of the same
-            hand-off mistake. Starvation happens when an edge does not forward
-            the field a downstream agent needs, so it answers with whatever it
-            happens to know. Bloat happens when every edge forwards the entire
-            history and each agent re-reads megabytes of context, inflating
-            latency and token cost quadratically. Define the hand-off schema
-            explicitly per edge type.
-          </p>
-          <p class="mb-4">
-            Duplicate edges between the same pair are usually leftovers from an
-            edit session. The harness refuses exact duplicates, but
-            near-duplicates — one sequential and one parallel edge between the
-            same agents — create genuine ambiguity about intended behavior. When
-            you see two lines between the same boxes, delete one and document
-            the chosen flow.
-          </p>
-          <p class="mb-4">
-            A frequent and frustrating error is renaming a node after edges were
-            wired. Every edge references the old identifier, so the graph
-            suddenly points at nothing. The harness re-renders selections from
-            node IDs, but the discipline is still yours: rename early, treat
-            renames as refactors, and re-export the text after any rename to
-            catch dangling references.
-          </p>
-          <p class="mb-4">
-            Finally, resist the urge to mirror the database. A topology that
-            mirrors a storage graph — one node per table — is almost always
-            wrong. Agents exist to do work, not to represent records. Collapse
-            passive nodes, let one agent own multiple related operations, and
-            keep the graph shaped by control flow rather than by data model. A
-            leaner graph is easier to debug, cheaper to run, and far simpler to
-            explain in a review.
-          </p>
-        </div>
-
-        <div
-          class="pt-6 border-t border-slate-100 dark:border-slate-800/80 flex flex-col sm:flex-row justify-between items-center gap-4"
-        >
-          <span class="text-xs text-slate-400 dark:text-slate-500 font-semibold"
-            >Catch these errors before they reach production.</span
+        <!-- Column 4 Sidebar -->
+        <div class="lg:col-span-1 space-y-6">
+          <div id="trending-sidebar"></div>
+          <div
+            id="ad-slot-square"
+            class="w-full p-4 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center mt-4 select-none min-h-[250px] overflow-hidden"
+            style="min-height: 250px"
           >
-          <a
-            href="./"
-            class="px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm rounded-lg transition-colors shadow-sm"
+            <span
+              class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-2"
+              >Advertisement</span
+            >
+            <div
+              class="w-full flex justify-center"
+              style="height: 250px; max-height: 250px; overflow: hidden"
+            >
+              <ins
+                class="adsbygoogle"
+                style="
+                  display: block;
+                  width: 100%;
+                  min-height: 250px;
+                  max-height: 250px;
+                "
+                data-ad-client="ca-pub-3901061173891576"
+                data-ad-slot="6707430996"
+                data-ad-format="rectangle"
+                data-full-width-responsive="false"
+              ></ins>
+            </div>
+          </div>
+          <div
+            id="ad-slot-vertical"
+            class="w-full p-4 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center mt-4 hidden lg:flex select-none min-h-[600px] overflow-hidden"
+            style="min-height: 600px"
           >
-            Open the Multi-Agent Topology Harness &rarr;
-          </a>
+            <span
+              class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-2"
+              >Advertisement</span
+            >
+            <div
+              class="w-full flex justify-center"
+              style="height: 600px; max-height: 600px; overflow: hidden"
+            >
+              <ins
+                class="adsbygoogle"
+                style="
+                  display: block;
+                  width: 100%;
+                  min-height: 600px;
+                  max-height: 600px;
+                "
+                data-ad-client="ca-pub-3901061173891576"
+                data-ad-slot="1581548667"
+                data-ad-format="auto"
+                data-full-width-responsive="true"
+              ></ins>
+            </div>
+          </div>
         </div>
-      </article>
+      </div>
     </main>
 
     <!-- Footer -->

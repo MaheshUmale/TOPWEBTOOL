@@ -49,173 +49,276 @@
     <!-- Header -->
     <header id="global-header"></header>
 
-    <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-grow">
-      <article class="prose prose-slate dark:prose-invert max-w-none">
-        <!-- Reverse Link Back to Main Tool -->
-        <a
-          href="./"
-          class="inline-flex items-center text-brand-600 dark:text-brand-400 font-bold hover:underline text-sm mb-2 transition-colors"
+    <main
+      class="tool-page-main max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex-grow"
+    >
+      <!-- Leaderboard Ad Slot -->
+      <div
+        id="ad-slot-a"
+        class="w-full mx-auto mb-6 p-3 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center select-none overflow-hidden min-h-[90px]"
+        style="max-width: 728px; min-height: 90px; max-height: 135px"
+      >
+        <span
+          class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-1.5"
+          >Advertisement</span
         >
-          &larr; Back to Wiring Harness Bundle Diameter Modeler Tool
-        </a>
-
-        <h1
-          class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight"
-        >
-          Comprehensive Guide: How to Size a Wiring Harness Bundle Diameter
-        </h1>
-
         <div
-          class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4"
+          class="w-full flex justify-center"
+          style="height: 90px; max-height: 90px; overflow: hidden"
         >
-          <span>Published: August 2026</span>
-          <span>•</span>
-          <span>Category: Industrial &amp; Engineering</span>
-          <span>•</span>
-          <span class="text-emerald-600 dark:text-emerald-400"
-            >No Sign-Up / 100% Free / No Registration</span
-          >
+          <ins
+            class="adsbygoogle"
+            style="
+              display: inline-block;
+              width: 100%;
+              height: 90px;
+              max-height: 90px;
+            "
+            data-ad-client="ca-pub-3901061173891576"
+            data-ad-slot="2894630336"
+            data-ad-format="horizontal"
+            data-full-width-responsive="false"
+          ></ins>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-4 gap-4">
+        <!-- Main Content (Column 1-3) -->
+        <div class="lg:col-span-3 space-y-8">
+          <article class="prose prose-slate dark:prose-invert max-w-none">
+            <!-- Reverse Link Back to Main Tool -->
+            <a
+              href="./"
+              class="inline-flex items-center text-brand-600 dark:text-brand-400 font-bold hover:underline text-sm mb-2 transition-colors"
+            >
+              &larr; Back to Wiring Harness Bundle Diameter Modeler Tool
+            </a>
+
+            <h1
+              class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight"
+            >
+              Comprehensive Guide: How to Size a Wiring Harness Bundle Diameter
+            </h1>
+
+            <div
+              class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4"
+            >
+              <span>Published: August 2026</span>
+              <span>•</span>
+              <span>Category: Industrial &amp; Engineering</span>
+              <span>•</span>
+              <span class="text-emerald-600 dark:text-emerald-400"
+                >No Sign-Up / 100% Free / No Registration</span
+              >
+            </div>
+
+            <!-- Body Content -->
+            <div
+              class="text-slate-600 dark:text-slate-300 space-y-4 leading-relaxed text-sm"
+            >
+              <p class="mb-4">
+                Every wiring harness starts as a collection of individual
+                conductors, but in the finished aircraft, vehicle or machine it
+                becomes one tightly managed bundle that must thread through
+                clamps, grommets, conduit, and connector backshells. The single
+                number that decides whether that bundle fits is its outside
+                diameter. Getting it wrong means reworking clamps, drilling new
+                pass-through holes, or worst of all, damaging wires at a bend
+                that was never given enough room. This guide explains the real
+                engineering behind bundle diameter estimation and shows you how
+                to apply it with the TopWebTool Wiring Harness Bundle Diameter
+                Modeler.
+              </p>
+              <p class="mb-4">
+                The math starts from geometry rather than guesswork. Each wire
+                in the harness occupies a cross-sectional area defined by its
+                outside diameter, including insulation. For a bundle of N wires
+                you add up every wire's area and then convert the total back
+                into a single equivalent circle. The equivalent solid diameter
+                is simply twice the square root of the total area divided by pi.
+                If you had ten wires of 0.5 mm² each, the summed area would be 5
+                mm², which corresponds to an equivalent solid circle of roughly
+                2.52 mm diameter.
+              </p>
+              <p class="mb-4">
+                Real wires, however, are round, and round objects never pack
+                perfectly into a circle. Gaps always remain between adjacent
+                conductors, so a bundle built from those ten wires measures
+                noticeably larger than the 2.52 mm equivalent solid value. That
+                is exactly why the packing density factor exists. Aerospace
+                harness practice typically applies a factor between 1.2 and 1.25
+                to the equivalent solid diameter to produce a realistic bundle
+                outside diameter. The 1.22 default in the modeler is a sound
+                middle ground for round insulated wires at moderate fill.
+              </p>
+              <p class="mb-4">
+                The American Wire Gauge table is the backbone of the
+                calculation. Each gauge maps to a conductor diameter in
+                millimetres and a cross-sectional area in square millimetres.
+                AWG 20, for example, has a bare conductor diameter of 0.812 mm
+                and an area of 0.518 mm², while AWG 22 drops to 0.644 mm and
+                0.326 mm². The modeler embeds this table for gauges 0000 through
+                40, so the only inputs you need are the gauge and the quantity
+                of each wire in your harness. Because diameter shrinks by
+                roughly 11% per gauge step while area shrinks by about 21%,
+                using the table directly avoids the compounding arithmetic
+                errors that plague manual spreadsheets.
+              </p>
+              <p class="mb-4">
+                The conductor diameter in the AWG table is the bare metal
+                diameter. The wire that goes into a real bundle carries
+                insulation, and that insulation adds anywhere from 10% to 30% to
+                the diameter depending on the specification. The modeler's
+                insulation size factor handles this: a factor of 1.15 tells the
+                tool that each wire's outside diameter is 15% larger than its
+                bare conductor diameter. If your design uses a thin-wall
+                M22759/32 aerospace wire you might set 1.10, whereas a heavier
+                M16878 or a mil-spec coaxial cable could justify 1.25 or more.
+              </p>
+              <p class="mb-4">
+                Bundle diameter is only half the story. The weight per meter of
+                the bundle is equally important, especially in aerospace, where
+                every gram matters. Conductor mass is the bare conductor area
+                multiplied by the metal density. Copper weighs 8.96 g/cm³, so a
+                wire with 0.518 mm² of copper weighs about 4.64 g per meter;
+                aluminum at 2.70 g/cm³ weighs only 1.40 g per meter for the same
+                cross-section. The modeler computes total conductor mass per
+                meter and per foot automatically, which lets you compare copper
+                versus aluminum designs without touching a calculator.
+              </p>
+              <p class="mb-4">
+                Shielded runs need special treatment. When you wrap a bundle in
+                a braided or foil shield, the shield adds roughly three times
+                the conductor-group diameter to the bundle, and the fill factor
+                on shielded groups behaves differently because shields are round
+                and compress less than bare wires. The cleanest approach is to
+                compute the shielded group as a single pseudo-wire with its
+                outside diameter, then include that pseudo-wire in the area sum
+                with the rest of the bundle.
+              </p>
+              <p class="mb-4">
+                The modeler reflects real industry standards. SAE AS50881
+                governs wiring installation on aerospace vehicles and requires
+                that bundles be sized so that clamps, grommets, and supports are
+                never overloaded. IPC/WHMA-A-620 adds workmanship rules for
+                harness build and cable assembly, including acceptable fill in
+                conduits. Both standards reward an engineer who can state the
+                expected bundle diameter on the drawing, because that number
+                drives clamp selection, conduit sizing, bend-radius checks, and
+                overall routing feasibility.
+              </p>
+              <p class="mb-4">
+                Using the TopWebTool modeler is straightforward. Add a row for
+                each gauge in the harness and type in the quantity. Leave the
+                packing density at 1.22 unless your build uses non-round or
+                compressible fill, choose the insulation factor that matches
+                your wire specification, and select copper or aluminum so the
+                weight output is correct. Press Calculate and the tool returns
+                total wire count, summed conductor area, equivalent solid
+                diameter, the true bundle diameter in millimeters and inches,
+                and weight per meter and per foot, alongside a live canvas
+                cross-section that shows how the wires fill the bundle circle.
+              </p>
+              <p class="mb-4">
+                Finally, treat the result as an engineering estimate that must
+                survive a sanity check. If the computed bundle diameter ever
+                comes out smaller than the largest single wire in the harness,
+                something is wrong, and the modeler clamps the result to that
+                single-wire diameter so you cannot ship an impossible number.
+                Compare the tool's output against a physical prototype or a
+                known-good harness whenever the design is critical. The
+                combination of a solid formula, a real AWG table, and a
+                documented packing factor gives you a bundle diameter you can
+                defend in design review instead of a finger in the air.
+              </p>
+              <p class="mb-4">
+                Experimentation is the best teacher. Load different wire mixes,
+                watch how the diameter changes as you add or remove a single AWG
+                20 wire, and see how switching to aluminum alters the weight
+                column. That intuition, built quickly with the interactive
+                modeler, is exactly what separates a harness that survives first
+                article inspection from one that needs a rework cycle.
+              </p>
+            </div>
+
+            <div
+              class="pt-6 border-t border-slate-100 dark:border-slate-800/80 flex flex-col sm:flex-row justify-between items-center gap-4"
+            >
+              <span
+                class="text-xs text-slate-400 dark:text-slate-500 font-semibold"
+                >Ready to size a harness bundle?</span
+              >
+              <a
+                href="./"
+                class="px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm rounded-lg transition-colors shadow-sm"
+              >
+                Use the Interactive Bundle Diameter Modeler &rarr;
+              </a>
+            </div>
+          </article>
         </div>
 
-        <!-- Body Content -->
-        <div
-          class="text-slate-600 dark:text-slate-300 space-y-4 leading-relaxed text-sm"
-        >
-          <p class="mb-4">
-            Every wiring harness starts as a collection of individual
-            conductors, but in the finished aircraft, vehicle or machine it
-            becomes one tightly managed bundle that must thread through clamps,
-            grommets, conduit, and connector backshells. The single number that
-            decides whether that bundle fits is its outside diameter. Getting it
-            wrong means reworking clamps, drilling new pass-through holes, or
-            worst of all, damaging wires at a bend that was never given enough
-            room. This guide explains the real engineering behind bundle
-            diameter estimation and shows you how to apply it with the
-            TopWebTool Wiring Harness Bundle Diameter Modeler.
-          </p>
-          <p class="mb-4">
-            The math starts from geometry rather than guesswork. Each wire in
-            the harness occupies a cross-sectional area defined by its outside
-            diameter, including insulation. For a bundle of N wires you add up
-            every wire's area and then convert the total back into a single
-            equivalent circle. The equivalent solid diameter is simply twice the
-            square root of the total area divided by pi. If you had ten wires of
-            0.5 mm² each, the summed area would be 5 mm², which corresponds to
-            an equivalent solid circle of roughly 2.52 mm diameter.
-          </p>
-          <p class="mb-4">
-            Real wires, however, are round, and round objects never pack
-            perfectly into a circle. Gaps always remain between adjacent
-            conductors, so a bundle built from those ten wires measures
-            noticeably larger than the 2.52 mm equivalent solid value. That is
-            exactly why the packing density factor exists. Aerospace harness
-            practice typically applies a factor between 1.2 and 1.25 to the
-            equivalent solid diameter to produce a realistic bundle outside
-            diameter. The 1.22 default in the modeler is a sound middle ground
-            for round insulated wires at moderate fill.
-          </p>
-          <p class="mb-4">
-            The American Wire Gauge table is the backbone of the calculation.
-            Each gauge maps to a conductor diameter in millimetres and a
-            cross-sectional area in square millimetres. AWG 20, for example, has
-            a bare conductor diameter of 0.812 mm and an area of 0.518 mm²,
-            while AWG 22 drops to 0.644 mm and 0.326 mm². The modeler embeds
-            this table for gauges 0000 through 40, so the only inputs you need
-            are the gauge and the quantity of each wire in your harness. Because
-            diameter shrinks by roughly 11% per gauge step while area shrinks by
-            about 21%, using the table directly avoids the compounding
-            arithmetic errors that plague manual spreadsheets.
-          </p>
-          <p class="mb-4">
-            The conductor diameter in the AWG table is the bare metal diameter.
-            The wire that goes into a real bundle carries insulation, and that
-            insulation adds anywhere from 10% to 30% to the diameter depending
-            on the specification. The modeler's insulation size factor handles
-            this: a factor of 1.15 tells the tool that each wire's outside
-            diameter is 15% larger than its bare conductor diameter. If your
-            design uses a thin-wall M22759/32 aerospace wire you might set 1.10,
-            whereas a heavier M16878 or a mil-spec coaxial cable could justify
-            1.25 or more.
-          </p>
-          <p class="mb-4">
-            Bundle diameter is only half the story. The weight per meter of the
-            bundle is equally important, especially in aerospace, where every
-            gram matters. Conductor mass is the bare conductor area multiplied
-            by the metal density. Copper weighs 8.96 g/cm³, so a wire with 0.518
-            mm² of copper weighs about 4.64 g per meter; aluminum at 2.70 g/cm³
-            weighs only 1.40 g per meter for the same cross-section. The modeler
-            computes total conductor mass per meter and per foot automatically,
-            which lets you compare copper versus aluminum designs without
-            touching a calculator.
-          </p>
-          <p class="mb-4">
-            Shielded runs need special treatment. When you wrap a bundle in a
-            braided or foil shield, the shield adds roughly three times the
-            conductor-group diameter to the bundle, and the fill factor on
-            shielded groups behaves differently because shields are round and
-            compress less than bare wires. The cleanest approach is to compute
-            the shielded group as a single pseudo-wire with its outside
-            diameter, then include that pseudo-wire in the area sum with the
-            rest of the bundle.
-          </p>
-          <p class="mb-4">
-            The modeler reflects real industry standards. SAE AS50881 governs
-            wiring installation on aerospace vehicles and requires that bundles
-            be sized so that clamps, grommets, and supports are never
-            overloaded. IPC/WHMA-A-620 adds workmanship rules for harness build
-            and cable assembly, including acceptable fill in conduits. Both
-            standards reward an engineer who can state the expected bundle
-            diameter on the drawing, because that number drives clamp selection,
-            conduit sizing, bend-radius checks, and overall routing feasibility.
-          </p>
-          <p class="mb-4">
-            Using the TopWebTool modeler is straightforward. Add a row for each
-            gauge in the harness and type in the quantity. Leave the packing
-            density at 1.22 unless your build uses non-round or compressible
-            fill, choose the insulation factor that matches your wire
-            specification, and select copper or aluminum so the weight output is
-            correct. Press Calculate and the tool returns total wire count,
-            summed conductor area, equivalent solid diameter, the true bundle
-            diameter in millimeters and inches, and weight per meter and per
-            foot, alongside a live canvas cross-section that shows how the wires
-            fill the bundle circle.
-          </p>
-          <p class="mb-4">
-            Finally, treat the result as an engineering estimate that must
-            survive a sanity check. If the computed bundle diameter ever comes
-            out smaller than the largest single wire in the harness, something
-            is wrong, and the modeler clamps the result to that single-wire
-            diameter so you cannot ship an impossible number. Compare the tool's
-            output against a physical prototype or a known-good harness whenever
-            the design is critical. The combination of a solid formula, a real
-            AWG table, and a documented packing factor gives you a bundle
-            diameter you can defend in design review instead of a finger in the
-            air.
-          </p>
-          <p class="mb-4">
-            Experimentation is the best teacher. Load different wire mixes,
-            watch how the diameter changes as you add or remove a single AWG 20
-            wire, and see how switching to aluminum alters the weight column.
-            That intuition, built quickly with the interactive modeler, is
-            exactly what separates a harness that survives first article
-            inspection from one that needs a rework cycle.
-          </p>
-        </div>
-
-        <div
-          class="pt-6 border-t border-slate-100 dark:border-slate-800/80 flex flex-col sm:flex-row justify-between items-center gap-4"
-        >
-          <span class="text-xs text-slate-400 dark:text-slate-500 font-semibold"
-            >Ready to size a harness bundle?</span
+        <!-- Column 4 Sidebar -->
+        <div class="lg:col-span-1 space-y-6">
+          <div id="trending-sidebar"></div>
+          <div
+            id="ad-slot-square"
+            class="w-full p-4 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center mt-4 select-none min-h-[250px] overflow-hidden"
+            style="min-height: 250px"
           >
-          <a
-            href="./"
-            class="px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm rounded-lg transition-colors shadow-sm"
+            <span
+              class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-2"
+              >Advertisement</span
+            >
+            <div
+              class="w-full flex justify-center"
+              style="height: 250px; max-height: 250px; overflow: hidden"
+            >
+              <ins
+                class="adsbygoogle"
+                style="
+                  display: block;
+                  width: 100%;
+                  min-height: 250px;
+                  max-height: 250px;
+                "
+                data-ad-client="ca-pub-3901061173891576"
+                data-ad-slot="6707430996"
+                data-ad-format="rectangle"
+                data-full-width-responsive="false"
+              ></ins>
+            </div>
+          </div>
+          <div
+            id="ad-slot-vertical"
+            class="w-full p-4 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center mt-4 hidden lg:flex select-none min-h-[600px] overflow-hidden"
+            style="min-height: 600px"
           >
-            Use the Interactive Bundle Diameter Modeler &rarr;
-          </a>
+            <span
+              class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-2"
+              >Advertisement</span
+            >
+            <div
+              class="w-full flex justify-center"
+              style="height: 600px; max-height: 600px; overflow: hidden"
+            >
+              <ins
+                class="adsbygoogle"
+                style="
+                  display: block;
+                  width: 100%;
+                  min-height: 600px;
+                  max-height: 600px;
+                "
+                data-ad-client="ca-pub-3901061173891576"
+                data-ad-slot="1581548667"
+                data-ad-format="auto"
+                data-full-width-responsive="true"
+              ></ins>
+            </div>
+          </div>
         </div>
-      </article>
+      </div>
     </main>
 
     <!-- Footer -->

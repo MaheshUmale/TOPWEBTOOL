@@ -49,158 +49,265 @@
     <!-- Header -->
     <header id="global-header"></header>
 
-    <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-grow">
-      <article class="prose prose-slate dark:prose-invert max-w-none">
-        <a
-          href="./"
-          class="inline-flex items-center text-brand-600 dark:text-brand-400 font-bold hover:underline text-sm mb-2 transition-colors"
+    <main
+      class="tool-page-main max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex-grow"
+    >
+      <!-- Leaderboard Ad Slot -->
+      <div
+        id="ad-slot-a"
+        class="w-full mx-auto mb-6 p-3 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center select-none overflow-hidden min-h-[90px]"
+        style="max-width: 728px; min-height: 90px; max-height: 135px"
+      >
+        <span
+          class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-1.5"
+          >Advertisement</span
         >
-          &larr; Back to Battery Pack Busbar &amp; Heat-Dissipation Modeler Tool
-        </a>
-
-        <h1
-          class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight"
-        >
-          Common Errors in Battery Busbar Sizing
-        </h1>
-
         <div
-          class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4"
+          class="w-full flex justify-center"
+          style="height: 90px; max-height: 90px; overflow: hidden"
         >
-          <span>Published: August 2026</span>
-          <span>•</span>
-          <span>Category: Industrial &amp; Engineering</span>
-          <span>•</span>
-          <span class="text-emerald-600 dark:text-emerald-400"
-            >No Sign-Up / 100% Free / No Registration</span
-          >
+          <ins
+            class="adsbygoogle"
+            style="
+              display: inline-block;
+              width: 100%;
+              height: 90px;
+              max-height: 90px;
+            "
+            data-ad-client="ca-pub-3901061173891576"
+            data-ad-slot="2894630336"
+            data-ad-format="horizontal"
+            data-full-width-responsive="false"
+          ></ins>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-4 gap-4">
+        <!-- Main Content (Column 1-3) -->
+        <div class="lg:col-span-3 space-y-8">
+          <article class="prose prose-slate dark:prose-invert max-w-none">
+            <a
+              href="./"
+              class="inline-flex items-center text-brand-600 dark:text-brand-400 font-bold hover:underline text-sm mb-2 transition-colors"
+            >
+              &larr; Back to Battery Pack Busbar &amp; Heat-Dissipation Modeler
+              Tool
+            </a>
+
+            <h1
+              class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight"
+            >
+              Common Errors in Battery Busbar Sizing
+            </h1>
+
+            <div
+              class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4"
+            >
+              <span>Published: August 2026</span>
+              <span>•</span>
+              <span>Category: Industrial &amp; Engineering</span>
+              <span>•</span>
+              <span class="text-emerald-600 dark:text-emerald-400"
+                >No Sign-Up / 100% Free / No Registration</span
+              >
+            </div>
+
+            <div
+              class="text-slate-600 dark:text-slate-300 space-y-4 leading-relaxed text-sm"
+            >
+              <p class="mb-4">
+                Battery busbar failures are rarely sudden. They are slow,
+                thermal, and cumulative: a slightly undersized bar runs warm,
+                the warmth raises resistance, the resistance raises losses, and
+                the pack slowly derates or, in the worst case, vents a cell. The
+                errors that start this spiral are remarkably consistent across
+                packs, and nearly all of them are visible in the sizing
+                calculation before anything is welded. This article names those
+                errors so you can catch them on a spreadsheet instead of a
+                thermal run.
+              </p>
+              <p class="mb-4">
+                The most common error is sizing the series busbar from the cell
+                current instead of the pack current. In a 14S8P pack, each cell
+                carries 25 A, but the series busbar between parallel groups
+                carries all 200 A. A designer who reads the cell current and
+                sizes every conductive element from it produces inter-cell tabs
+                that are fine and a series busbar that is dramatically
+                undersized. The resulting hot spot sits exactly where the pack's
+                most concentrated current flows, and it is invisible until the
+                pack is discharged hard.
+              </p>
+              <p class="mb-4">
+                Ignoring the joint is the second classic mistake. The resistance
+                budget of a busbar system is dominated by its ends: welds,
+                bolts, and plated interfaces. A clean laser weld adds a small
+                fraction of a milliohm, but a poorly torqued bolted joint or an
+                oxidized contact face can add a milliohm or more, which at 200 A
+                means 40 watts of heat concentrated in a spot the size of a
+                fingertip. Estimating the bar from its bulk resistance and
+                pretending the joints are free is how thermal cameras earn their
+                keep.
+              </p>
+              <p class="mb-4">
+                Using a fixed resistance ignores the temperature feedback loop.
+                Copper's resistivity climbs about 0.39 percent per degree
+                Celsius, so the resistance computed at 25 °C is not the
+                resistance at operating temperature. A bar that rises 40 degrees
+                becomes about 16 percent more resistive, and the model that
+                ignored this understates the real power loss and real
+                temperature. The hot-resistance correction is a one-line
+                calculation, and skipping it makes every thermal prediction
+                optimistic.
+              </p>
+              <p class="mb-4">
+                Mixing up material properties is a quiet but costly error.
+                Nickel is often chosen for weldability without noticing that its
+                resistivity is roughly four times copper's, so a nickel tab must
+                be roughly four times the cross-section to match copper's loss.
+                Aluminum looks attractive for its light weight but needs even
+                more cross-section for the same current, and its terminations
+                demand special handling. Comparing materials on resistivity,
+                density, and weldability together, not just on price, avoids a
+                design that saves grams and costs volts.
+              </p>
+              <p class="mb-4">
+                Overestimating the cooling environment is common in early
+                designs. The temperature rise calculation depends on the
+                convection coefficient and the exposed surface area, and a bar
+                assumed to be in moving air with 25 W/m²·K will run far hotter
+                in the stagnant cavity behind a cell stack where the real
+                coefficient is closer to 8 or 10 W/m²·K. Using an optimistic
+                coefficient makes a marginal busbar look fine, and the
+                discrepancy shows up as a hot pack on the first full-power test.
+              </p>
+              <p class="mb-4">
+                Wrong surface area in the thermal math is a subtler version of
+                the same problem. Cooling surface is the perimeter of the bar
+                times its length, two times width plus thickness for a
+                rectangular bar, not just the top face. A bar that is assumed to
+                cool from one face sheds half the heat it actually does,
+                doubling the predicted temperature rise in reverse. Matching the
+                surface model to the real geometry is essential before believing
+                any temperature number.
+              </p>
+              <p class="mb-4">
+                Undersized nickel tabs in consumer and power-tool packs follow
+                their own rule. These packs weld thin nickel strips directly to
+                cells, and each strip is a fuse in disguise. Strip thickness and
+                width chosen from a cell-current average ignore the current
+                concentration at the cell terminal and the weld resistance,
+                producing tabs that heat, stretch, and eventually fail in
+                vibration. Sizing the tab from the peak cell current with a
+                joint allowance, not the average, is the fix.
+              </p>
+              <p class="mb-8">
+                Forgetting voltage drop at the system level is the error that
+                hides in plain sight. A busbar that is thermally acceptable can
+                still drop enough voltage, once multiplied across the pack's
+                many bars and joints, to shorten the discharge window or trip an
+                under-voltage protection at the wrong moment. The voltage drop
+                should be checked against the system budget, not just against
+                the temperature rise, because a bar can be simultaneously cool
+                enough and too lossy.
+              </p>
+              <p class="mb-4">
+                Finally, trusting the model without a measurement is the
+                meta-error that lets all the others ship. A four-wire
+                milliohmmeter reading across a prototype bar and a thermocouple
+                on the joint during a full-current discharge confirm the
+                calculation in minutes. Packs that skip this validation are the
+                ones that discover their assumptions, all of them, at the worst
+                possible moment on the test stand.
+              </p>
+              <p class="mb-4">
+                Each of these errors is a single number on a spreadsheet, which
+                makes them easy to fix and easy to repeat. Running the geometry,
+                material, joint, and thermal loop explicitly, and checking
+                current density, voltage drop, and temperature rise against real
+                limits, closes the door on the whole class. That is exactly the
+                loop the Battery Pack Busbar &amp; Heat-Dissipation Modeler runs
+                for you.
+              </p>
+            </div>
+
+            <div
+              class="pt-6 border-t border-slate-100 dark:border-slate-800/80 flex flex-col sm:flex-row justify-between items-center gap-4"
+            >
+              <span
+                class="text-xs text-slate-400 dark:text-slate-500 font-semibold"
+                >Ready to catch these errors early?</span
+              >
+              <a
+                href="./"
+                class="px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm rounded-lg transition-colors shadow-sm"
+              >
+                Open the Busbar Calculator &rarr;
+              </a>
+            </div>
+          </article>
         </div>
 
-        <div
-          class="text-slate-600 dark:text-slate-300 space-y-4 leading-relaxed text-sm"
-        >
-          <p class="mb-4">
-            Battery busbar failures are rarely sudden. They are slow, thermal,
-            and cumulative: a slightly undersized bar runs warm, the warmth
-            raises resistance, the resistance raises losses, and the pack slowly
-            derates or, in the worst case, vents a cell. The errors that start
-            this spiral are remarkably consistent across packs, and nearly all
-            of them are visible in the sizing calculation before anything is
-            welded. This article names those errors so you can catch them on a
-            spreadsheet instead of a thermal run.
-          </p>
-          <p class="mb-4">
-            The most common error is sizing the series busbar from the cell
-            current instead of the pack current. In a 14S8P pack, each cell
-            carries 25 A, but the series busbar between parallel groups carries
-            all 200 A. A designer who reads the cell current and sizes every
-            conductive element from it produces inter-cell tabs that are fine
-            and a series busbar that is dramatically undersized. The resulting
-            hot spot sits exactly where the pack's most concentrated current
-            flows, and it is invisible until the pack is discharged hard.
-          </p>
-          <p class="mb-4">
-            Ignoring the joint is the second classic mistake. The resistance
-            budget of a busbar system is dominated by its ends: welds, bolts,
-            and plated interfaces. A clean laser weld adds a small fraction of a
-            milliohm, but a poorly torqued bolted joint or an oxidized contact
-            face can add a milliohm or more, which at 200 A means 40 watts of
-            heat concentrated in a spot the size of a fingertip. Estimating the
-            bar from its bulk resistance and pretending the joints are free is
-            how thermal cameras earn their keep.
-          </p>
-          <p class="mb-4">
-            Using a fixed resistance ignores the temperature feedback loop.
-            Copper's resistivity climbs about 0.39 percent per degree Celsius,
-            so the resistance computed at 25 °C is not the resistance at
-            operating temperature. A bar that rises 40 degrees becomes about 16
-            percent more resistive, and the model that ignored this understates
-            the real power loss and real temperature. The hot-resistance
-            correction is a one-line calculation, and skipping it makes every
-            thermal prediction optimistic.
-          </p>
-          <p class="mb-4">
-            Mixing up material properties is a quiet but costly error. Nickel is
-            often chosen for weldability without noticing that its resistivity
-            is roughly four times copper's, so a nickel tab must be roughly four
-            times the cross-section to match copper's loss. Aluminum looks
-            attractive for its light weight but needs even more cross-section
-            for the same current, and its terminations demand special handling.
-            Comparing materials on resistivity, density, and weldability
-            together, not just on price, avoids a design that saves grams and
-            costs volts.
-          </p>
-          <p class="mb-4">
-            Overestimating the cooling environment is common in early designs.
-            The temperature rise calculation depends on the convection
-            coefficient and the exposed surface area, and a bar assumed to be in
-            moving air with 25 W/m²·K will run far hotter in the stagnant cavity
-            behind a cell stack where the real coefficient is closer to 8 or 10
-            W/m²·K. Using an optimistic coefficient makes a marginal busbar look
-            fine, and the discrepancy shows up as a hot pack on the first
-            full-power test.
-          </p>
-          <p class="mb-4">
-            Wrong surface area in the thermal math is a subtler version of the
-            same problem. Cooling surface is the perimeter of the bar times its
-            length, two times width plus thickness for a rectangular bar, not
-            just the top face. A bar that is assumed to cool from one face sheds
-            half the heat it actually does, doubling the predicted temperature
-            rise in reverse. Matching the surface model to the real geometry is
-            essential before believing any temperature number.
-          </p>
-          <p class="mb-4">
-            Undersized nickel tabs in consumer and power-tool packs follow their
-            own rule. These packs weld thin nickel strips directly to cells, and
-            each strip is a fuse in disguise. Strip thickness and width chosen
-            from a cell-current average ignore the current concentration at the
-            cell terminal and the weld resistance, producing tabs that heat,
-            stretch, and eventually fail in vibration. Sizing the tab from the
-            peak cell current with a joint allowance, not the average, is the
-            fix.
-          </p>
-          <p class="mb-8">
-            Forgetting voltage drop at the system level is the error that hides
-            in plain sight. A busbar that is thermally acceptable can still drop
-            enough voltage, once multiplied across the pack's many bars and
-            joints, to shorten the discharge window or trip an under-voltage
-            protection at the wrong moment. The voltage drop should be checked
-            against the system budget, not just against the temperature rise,
-            because a bar can be simultaneously cool enough and too lossy.
-          </p>
-          <p class="mb-4">
-            Finally, trusting the model without a measurement is the meta-error
-            that lets all the others ship. A four-wire milliohmmeter reading
-            across a prototype bar and a thermocouple on the joint during a
-            full-current discharge confirm the calculation in minutes. Packs
-            that skip this validation are the ones that discover their
-            assumptions, all of them, at the worst possible moment on the test
-            stand.
-          </p>
-          <p class="mb-4">
-            Each of these errors is a single number on a spreadsheet, which
-            makes them easy to fix and easy to repeat. Running the geometry,
-            material, joint, and thermal loop explicitly, and checking current
-            density, voltage drop, and temperature rise against real limits,
-            closes the door on the whole class. That is exactly the loop the
-            Battery Pack Busbar &amp; Heat-Dissipation Modeler runs for you.
-          </p>
-        </div>
-
-        <div
-          class="pt-6 border-t border-slate-100 dark:border-slate-800/80 flex flex-col sm:flex-row justify-between items-center gap-4"
-        >
-          <span class="text-xs text-slate-400 dark:text-slate-500 font-semibold"
-            >Ready to catch these errors early?</span
+        <!-- Column 4 Sidebar -->
+        <div class="lg:col-span-1 space-y-6">
+          <div id="trending-sidebar"></div>
+          <div
+            id="ad-slot-square"
+            class="w-full p-4 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center mt-4 select-none min-h-[250px] overflow-hidden"
+            style="min-height: 250px"
           >
-          <a
-            href="./"
-            class="px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm rounded-lg transition-colors shadow-sm"
+            <span
+              class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-2"
+              >Advertisement</span
+            >
+            <div
+              class="w-full flex justify-center"
+              style="height: 250px; max-height: 250px; overflow: hidden"
+            >
+              <ins
+                class="adsbygoogle"
+                style="
+                  display: block;
+                  width: 100%;
+                  min-height: 250px;
+                  max-height: 250px;
+                "
+                data-ad-client="ca-pub-3901061173891576"
+                data-ad-slot="6707430996"
+                data-ad-format="rectangle"
+                data-full-width-responsive="false"
+              ></ins>
+            </div>
+          </div>
+          <div
+            id="ad-slot-vertical"
+            class="w-full p-4 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center mt-4 hidden lg:flex select-none min-h-[600px] overflow-hidden"
+            style="min-height: 600px"
           >
-            Open the Busbar Calculator &rarr;
-          </a>
+            <span
+              class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-2"
+              >Advertisement</span
+            >
+            <div
+              class="w-full flex justify-center"
+              style="height: 600px; max-height: 600px; overflow: hidden"
+            >
+              <ins
+                class="adsbygoogle"
+                style="
+                  display: block;
+                  width: 100%;
+                  min-height: 600px;
+                  max-height: 600px;
+                "
+                data-ad-client="ca-pub-3901061173891576"
+                data-ad-slot="1581548667"
+                data-ad-format="auto"
+                data-full-width-responsive="true"
+              ></ins>
+            </div>
+          </div>
         </div>
-      </article>
+      </div>
     </main>
 
     <!-- Footer -->

@@ -53,162 +53,268 @@
     <!-- Header -->
     <header id="global-header"></header>
 
-    <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-grow">
-      <article class="prose prose-slate dark:prose-invert max-w-none">
-        <!-- Reverse Link Back to Main Tool -->
-        <a
-          href="./"
-          class="inline-flex items-center text-brand-600 dark:text-brand-400 font-bold hover:underline text-sm mb-2 transition-colors"
+    <main
+      class="tool-page-main max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex-grow"
+    >
+      <!-- Leaderboard Ad Slot -->
+      <div
+        id="ad-slot-a"
+        class="w-full mx-auto mb-6 p-3 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center select-none overflow-hidden min-h-[90px]"
+        style="max-width: 728px; min-height: 90px; max-height: 135px"
+      >
+        <span
+          class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-1.5"
+          >Advertisement</span
         >
-          &larr; Back to Agent State-Machine Router Evaluator Tool
-        </a>
-
-        <h1
-          class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight"
-        >
-          Future Trends in Agent State-Machine Design
-        </h1>
-
         <div
-          class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4"
+          class="w-full flex justify-center"
+          style="height: 90px; max-height: 90px; overflow: hidden"
         >
-          <span>Published: August 2026</span>
-          <span>•</span>
-          <span>Category: AI Agent & Automation</span>
-          <span>•</span>
-          <span class="text-emerald-600 dark:text-emerald-400"
-            >No Sign-Up / 100% Free / No Registration</span
-          >
+          <ins
+            class="adsbygoogle"
+            style="
+              display: inline-block;
+              width: 100%;
+              height: 90px;
+              max-height: 90px;
+            "
+            data-ad-client="ca-pub-3901061173891576"
+            data-ad-slot="2894630336"
+            data-ad-format="horizontal"
+            data-full-width-responsive="false"
+          ></ins>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-4 gap-4">
+        <!-- Main Content (Column 1-3) -->
+        <div class="lg:col-span-3 space-y-8">
+          <article class="prose prose-slate dark:prose-invert max-w-none">
+            <!-- Reverse Link Back to Main Tool -->
+            <a
+              href="./"
+              class="inline-flex items-center text-brand-600 dark:text-brand-400 font-bold hover:underline text-sm mb-2 transition-colors"
+            >
+              &larr; Back to Agent State-Machine Router Evaluator Tool
+            </a>
+
+            <h1
+              class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight"
+            >
+              Future Trends in Agent State-Machine Design
+            </h1>
+
+            <div
+              class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4"
+            >
+              <span>Published: August 2026</span>
+              <span>•</span>
+              <span>Category: AI Agent & Automation</span>
+              <span>•</span>
+              <span class="text-emerald-600 dark:text-emerald-400"
+                >No Sign-Up / 100% Free / No Registration</span
+              >
+            </div>
+
+            <!-- Body Content -->
+            <div
+              class="text-slate-600 dark:text-slate-300 space-y-4 leading-relaxed text-sm"
+            >
+              <p class="mb-4">
+                State machines are ancient computer science, and they are
+                experiencing a renaissance because AI agents reintroduced the
+                exact problem they solved: unbounded, hard-to-reason-about
+                behavior. As agents take on money-moving, external-facing work,
+                the industry is returning to finite-state thinking as the
+                governance layer around otherwise open-ended model behavior. The
+                future of agent design is not less structure — it is more
+                structure, layered and verified.
+              </p>
+              <p class="mb-4">
+                Formal verification is moving from research to practice. The
+                reachability and cycle checks that the Router Evaluator performs
+                today are the first steps toward stronger guarantees: model
+                checking that proves a machine can never reach an undesired
+                state, invariant assertions that hold across every path, and
+                liveness proofs that a workflow always terminates. For
+                safety-critical agent deployments, these properties will be
+                checked automatically before a workflow ships, the same way a
+                compiler rejects type errors today.
+              </p>
+              <p class="mb-4">
+                LLM-generated state charts are the next authoring interface.
+                Instead of writing transition tables by hand, engineers will
+                describe the workflow in prose — "when research completes,
+                either publish or escalate depending on the confidence score" —
+                and an LLM will produce the state machine, which a verifier then
+                checks for reachability, loops, and dead-ends. The generated
+                machine becomes a reviewed artifact rather than accepted at face
+                value; generation accelerates authoring while verification
+                preserves rigor. The current tool already embodies the review
+                half of that loop.
+              </p>
+              <p class="mb-4">
+                Hierarchical state machines are resurging because agents are
+                naturally hierarchical. A top-level machine models the mission —
+                planning, executing, reviewing — while nested machines govern
+                each phase's internal micro-steps. This keeps each layer small
+                and analyzable, which is exactly what current flat machines
+                struggle with as agent workflows grow. Hierarchical design lets
+                you verify the mission graph and the phase graphs separately,
+                and composite states give the outer machine a single stable
+                interface per phase.
+              </p>
+              <p class="mb-4">
+                The boundary between state machines and workflows is blurring.
+                Orchestration tools increasingly expose explicit state models
+                beneath their flow DSLs, and state-machine tools are gaining
+                workflow features like timers, retries, and human approvals. The
+                transition table is becoming the common denominator: whether you
+                draw a diagram, write YAML, or describe intent in prose, it
+                compiles down to states and events that tools can analyze. That
+                convergence makes the analyzer's output format — a graph with
+                labeled edges — the lingua franca of orchestration design.
+              </p>
+              <p class="mb-4">
+                Runtime verification is joining design-time analysis. Beyond
+                checking the model at authoring time, future systems will check
+                the running agent against its declared machine, flagging any
+                transition attempt the model doesn't allow and emitting metrics
+                on state dwell times and event frequencies. This turns the state
+                machine from a design artifact into a runtime contract — an
+                agent that tries to violate its own topology is caught in the
+                act, not discovered after the fact.
+              </p>
+              <p class="mb-4">
+                State machines are also becoming the privacy and policy
+                boundary. By declaring which states can touch sensitive data or
+                invoke external effects, a machine doubles as an access-control
+                model: the transition that enters
+                <code class="font-mono text-xs">payment</code> requires
+                approval, the state
+                <code class="font-mono text-xs">uploading</code> triggers a
+                data-handling rule. Declarative machines are auditable policy,
+                and auditors increasingly expect to see them. The graph that
+                documents your agent's behavior is the same artifact that
+                demonstrates its compliance.
+              </p>
+              <p class="mb-4">
+                Determinism is gaining new respect as a feature. In a world of
+                stochastic models, the parts that can be made deterministic are
+                precious: routing decisions, retry budgets, escalation paths.
+                Teams are deliberately keeping as much of the agent's skeleton
+                as possible inside a deterministic state machine, reserving the
+                model for the genuinely generative steps. This hybrid —
+                deterministic skeleton, generative leaves — is emerging as the
+                dominant architecture for reliable agents, and it is precisely
+                the pattern this tool is built to design and check.
+              </p>
+              <p class="mb-4">
+                The trajectory is unmistakable: more structure, not less; more
+                verification, not vibes; more hierarchy as workflows scale; and
+                more conflation of machine, contract, and policy. Teams that
+                adopt the state-machine mindset early — model, verify, render,
+                instrument — will be building the reliable agents of the future
+                on the same foundations that made transactional systems
+                dependable decades ago.
+              </p>
+              <p class="mb-4">
+                Tools like this one are becoming part of the agent development
+                pipeline rather than a standalone afterthought. The pattern of
+                model, verify, render, and instrument is migrating into
+                authoring environments where the state machine is edited
+                visually and the analysis runs continuously in the background —
+                checking every change for reachability and cycles before it is
+                ever saved. This makes verification ambient: you don't run a
+                check after building the machine, the environment is always
+                checking it as you build. It also changes the review process,
+                because a designer who has watched the analysis stay green
+                through every edit has a very different confidence level than
+                one who ships an unexamined model. The same trajectory is
+                pulling runtime telemetry back into the authoring view, closing
+                the loop between design and production behavior in a single
+                interface.
+              </p>
+            </div>
+
+            <div
+              class="pt-6 border-t border-slate-100 dark:border-slate-800/80 flex flex-col sm:flex-row justify-between items-center gap-4"
+            >
+              <span
+                class="text-xs text-slate-400 dark:text-slate-500 font-semibold"
+                >Start building your future-proof agent skeleton today.</span
+              >
+              <a
+                href="./"
+                class="px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm rounded-lg transition-colors shadow-sm"
+              >
+                Use the Interactive Agent State-Machine Router Evaluator &rarr;
+              </a>
+            </div>
+          </article>
         </div>
 
-        <!-- Body Content -->
-        <div
-          class="text-slate-600 dark:text-slate-300 space-y-4 leading-relaxed text-sm"
-        >
-          <p class="mb-4">
-            State machines are ancient computer science, and they are
-            experiencing a renaissance because AI agents reintroduced the exact
-            problem they solved: unbounded, hard-to-reason-about behavior. As
-            agents take on money-moving, external-facing work, the industry is
-            returning to finite-state thinking as the governance layer around
-            otherwise open-ended model behavior. The future of agent design is
-            not less structure — it is more structure, layered and verified.
-          </p>
-          <p class="mb-4">
-            Formal verification is moving from research to practice. The
-            reachability and cycle checks that the Router Evaluator performs
-            today are the first steps toward stronger guarantees: model checking
-            that proves a machine can never reach an undesired state, invariant
-            assertions that hold across every path, and liveness proofs that a
-            workflow always terminates. For safety-critical agent deployments,
-            these properties will be checked automatically before a workflow
-            ships, the same way a compiler rejects type errors today.
-          </p>
-          <p class="mb-4">
-            LLM-generated state charts are the next authoring interface. Instead
-            of writing transition tables by hand, engineers will describe the
-            workflow in prose — "when research completes, either publish or
-            escalate depending on the confidence score" — and an LLM will
-            produce the state machine, which a verifier then checks for
-            reachability, loops, and dead-ends. The generated machine becomes a
-            reviewed artifact rather than accepted at face value; generation
-            accelerates authoring while verification preserves rigor. The
-            current tool already embodies the review half of that loop.
-          </p>
-          <p class="mb-4">
-            Hierarchical state machines are resurging because agents are
-            naturally hierarchical. A top-level machine models the mission —
-            planning, executing, reviewing — while nested machines govern each
-            phase's internal micro-steps. This keeps each layer small and
-            analyzable, which is exactly what current flat machines struggle
-            with as agent workflows grow. Hierarchical design lets you verify
-            the mission graph and the phase graphs separately, and composite
-            states give the outer machine a single stable interface per phase.
-          </p>
-          <p class="mb-4">
-            The boundary between state machines and workflows is blurring.
-            Orchestration tools increasingly expose explicit state models
-            beneath their flow DSLs, and state-machine tools are gaining
-            workflow features like timers, retries, and human approvals. The
-            transition table is becoming the common denominator: whether you
-            draw a diagram, write YAML, or describe intent in prose, it compiles
-            down to states and events that tools can analyze. That convergence
-            makes the analyzer's output format — a graph with labeled edges —
-            the lingua franca of orchestration design.
-          </p>
-          <p class="mb-4">
-            Runtime verification is joining design-time analysis. Beyond
-            checking the model at authoring time, future systems will check the
-            running agent against its declared machine, flagging any transition
-            attempt the model doesn't allow and emitting metrics on state dwell
-            times and event frequencies. This turns the state machine from a
-            design artifact into a runtime contract — an agent that tries to
-            violate its own topology is caught in the act, not discovered after
-            the fact.
-          </p>
-          <p class="mb-4">
-            State machines are also becoming the privacy and policy boundary. By
-            declaring which states can touch sensitive data or invoke external
-            effects, a machine doubles as an access-control model: the
-            transition that enters
-            <code class="font-mono text-xs">payment</code> requires approval,
-            the state <code class="font-mono text-xs">uploading</code> triggers
-            a data-handling rule. Declarative machines are auditable policy, and
-            auditors increasingly expect to see them. The graph that documents
-            your agent's behavior is the same artifact that demonstrates its
-            compliance.
-          </p>
-          <p class="mb-4">
-            Determinism is gaining new respect as a feature. In a world of
-            stochastic models, the parts that can be made deterministic are
-            precious: routing decisions, retry budgets, escalation paths. Teams
-            are deliberately keeping as much of the agent's skeleton as possible
-            inside a deterministic state machine, reserving the model for the
-            genuinely generative steps. This hybrid — deterministic skeleton,
-            generative leaves — is emerging as the dominant architecture for
-            reliable agents, and it is precisely the pattern this tool is built
-            to design and check.
-          </p>
-          <p class="mb-4">
-            The trajectory is unmistakable: more structure, not less; more
-            verification, not vibes; more hierarchy as workflows scale; and more
-            conflation of machine, contract, and policy. Teams that adopt the
-            state-machine mindset early — model, verify, render, instrument —
-            will be building the reliable agents of the future on the same
-            foundations that made transactional systems dependable decades ago.
-          </p>
-          <p class="mb-4">
-            Tools like this one are becoming part of the agent development
-            pipeline rather than a standalone afterthought. The pattern of
-            model, verify, render, and instrument is migrating into authoring
-            environments where the state machine is edited visually and the
-            analysis runs continuously in the background — checking every change
-            for reachability and cycles before it is ever saved. This makes
-            verification ambient: you don't run a check after building the
-            machine, the environment is always checking it as you build. It also
-            changes the review process, because a designer who has watched the
-            analysis stay green through every edit has a very different
-            confidence level than one who ships an unexamined model. The same
-            trajectory is pulling runtime telemetry back into the authoring
-            view, closing the loop between design and production behavior in a
-            single interface.
-          </p>
-        </div>
-
-        <div
-          class="pt-6 border-t border-slate-100 dark:border-slate-800/80 flex flex-col sm:flex-row justify-between items-center gap-4"
-        >
-          <span class="text-xs text-slate-400 dark:text-slate-500 font-semibold"
-            >Start building your future-proof agent skeleton today.</span
+        <!-- Column 4 Sidebar -->
+        <div class="lg:col-span-1 space-y-6">
+          <div id="trending-sidebar"></div>
+          <div
+            id="ad-slot-square"
+            class="w-full p-4 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center mt-4 select-none min-h-[250px] overflow-hidden"
+            style="min-height: 250px"
           >
-          <a
-            href="./"
-            class="px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm rounded-lg transition-colors shadow-sm"
+            <span
+              class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-2"
+              >Advertisement</span
+            >
+            <div
+              class="w-full flex justify-center"
+              style="height: 250px; max-height: 250px; overflow: hidden"
+            >
+              <ins
+                class="adsbygoogle"
+                style="
+                  display: block;
+                  width: 100%;
+                  min-height: 250px;
+                  max-height: 250px;
+                "
+                data-ad-client="ca-pub-3901061173891576"
+                data-ad-slot="6707430996"
+                data-ad-format="rectangle"
+                data-full-width-responsive="false"
+              ></ins>
+            </div>
+          </div>
+          <div
+            id="ad-slot-vertical"
+            class="w-full p-4 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center mt-4 hidden lg:flex select-none min-h-[600px] overflow-hidden"
+            style="min-height: 600px"
           >
-            Use the Interactive Agent State-Machine Router Evaluator &rarr;
-          </a>
+            <span
+              class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-2"
+              >Advertisement</span
+            >
+            <div
+              class="w-full flex justify-center"
+              style="height: 600px; max-height: 600px; overflow: hidden"
+            >
+              <ins
+                class="adsbygoogle"
+                style="
+                  display: block;
+                  width: 100%;
+                  min-height: 600px;
+                  max-height: 600px;
+                "
+                data-ad-client="ca-pub-3901061173891576"
+                data-ad-slot="1581548667"
+                data-ad-format="auto"
+                data-full-width-responsive="true"
+              ></ins>
+            </div>
+          </div>
         </div>
-      </article>
+      </div>
     </main>
 
     <!-- Footer -->

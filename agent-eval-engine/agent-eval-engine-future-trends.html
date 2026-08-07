@@ -49,168 +49,273 @@
     <!-- Header -->
     <header id="global-header"></header>
 
-    <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-grow">
-      <article class="prose prose-slate dark:prose-invert max-w-none">
-        <!-- Reverse Link Back to Main Tool -->
-        <a
-          href="./"
-          class="inline-flex items-center text-brand-600 dark:text-brand-400 font-bold hover:underline text-sm mb-2 transition-colors"
+    <main
+      class="tool-page-main max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex-grow"
+    >
+      <!-- Leaderboard Ad Slot -->
+      <div
+        id="ad-slot-a"
+        class="w-full mx-auto mb-6 p-3 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center select-none overflow-hidden min-h-[90px]"
+        style="max-width: 728px; min-height: 90px; max-height: 135px"
+      >
+        <span
+          class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-1.5"
+          >Advertisement</span
         >
-          &larr; Back to Eval Matrix Engine for AI Outputs Tool
-        </a>
-
-        <h1
-          class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight"
-        >
-          Where AI Output Evaluation Is Headed Next
-        </h1>
-
         <div
-          class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4"
+          class="w-full flex justify-center"
+          style="height: 90px; max-height: 90px; overflow: hidden"
         >
-          <span>Published: August 2026</span>
-          <span>•</span>
-          <span>Category: AI Agent & Automation</span>
-          <span>•</span>
-          <span class="text-emerald-600 dark:text-emerald-400"
-            >No Sign-Up / 100% Free / No Registration</span
-          >
+          <ins
+            class="adsbygoogle"
+            style="
+              display: inline-block;
+              width: 100%;
+              height: 90px;
+              max-height: 90px;
+            "
+            data-ad-client="ca-pub-3901061173891576"
+            data-ad-slot="2894630336"
+            data-ad-format="horizontal"
+            data-full-width-responsive="false"
+          ></ins>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-4 gap-4">
+        <!-- Main Content (Column 1-3) -->
+        <div class="lg:col-span-3 space-y-8">
+          <article class="prose prose-slate dark:prose-invert max-w-none">
+            <!-- Reverse Link Back to Main Tool -->
+            <a
+              href="./"
+              class="inline-flex items-center text-brand-600 dark:text-brand-400 font-bold hover:underline text-sm mb-2 transition-colors"
+            >
+              &larr; Back to Eval Matrix Engine for AI Outputs Tool
+            </a>
+
+            <h1
+              class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight"
+            >
+              Where AI Output Evaluation Is Headed Next
+            </h1>
+
+            <div
+              class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4"
+            >
+              <span>Published: August 2026</span>
+              <span>•</span>
+              <span>Category: AI Agent & Automation</span>
+              <span>•</span>
+              <span class="text-emerald-600 dark:text-emerald-400"
+                >No Sign-Up / 100% Free / No Registration</span
+              >
+            </div>
+
+            <!-- Body Content -->
+            <div
+              class="text-slate-600 dark:text-slate-300 space-y-4 leading-relaxed text-sm"
+            >
+              <p class="mb-4">
+                Levenshtein distance and BLEU precision are old, battle-tested
+                workhorses, and they are not going away. But the fastest-moving
+                frontier in AI output evaluation is the rise of the
+                LLM-as-judge. Instead of comparing a candidate to a gold string
+                character by character, teams now prompt a strong model to read
+                both texts and produce a rubric-based score across dimensions
+                such as factual accuracy, tone, completeness, and instruction
+                adherence. The Eval Matrix Engine's exact metrics remain
+                valuable as objective anchors, but they are increasingly
+                combined with judge scores to catch the semantic mismatches that
+                edit distance cannot see.
+              </p>
+
+              <p class="mb-4">
+                Embedding-based semantic similarity is the direct technological
+                successor to keyword overlap. Where a Jaccard keyword score only
+                recognizes literal word matches, embeddings map whole sentences
+                into a high-dimensional vector space where paraphrases land
+                close together. Teams compute cosine similarity between the
+                reference embedding and the candidate embedding, and a score of
+                0.95 with different vocabulary means the model preserved meaning
+                while rephrasing. The trend is toward hybrid evaluation: exact
+                metrics for structure, embeddings for meaning, and judge models
+                for judgment calls, each covering a weakness of the others.
+              </p>
+
+              <p class="mb-4">
+                Evaluation is becoming agentic itself. Instead of a single
+                prompt scored once, an evaluator agent can run multi-turn
+                checks, query a knowledge base to verify a cited fact, re-ask
+                the model for clarification, or compare a candidate against
+                several plausible gold answers when a question has multiple
+                valid responses. This shifts the evaluator's job from "is this
+                string close to that string" to "did this agent complete its
+                task correctly," which requires simulating the environment and
+                inspecting intermediate tool calls, not just the final text.
+              </p>
+
+              <p class="mb-4">
+                Trajectory evaluation is a growing subfield. Because modern
+                agents act over many steps, scoring only the final answer misses
+                failures in the middle: a tool call with wrong arguments, a
+                hallucinated intermediate calculation, a dead-end loop.
+                Evaluation harnesses now record each step's inputs and outputs
+                and grade them along the way, often with a lightweight matrix at
+                every checkpoint. This makes the Eval Matrix Engine pattern more
+                relevant than ever, applied at step granularity rather than once
+                at the end.
+              </p>
+
+              <p class="mb-4">
+                Chain-of-thought and reasoning transparency are pushing
+                evaluation beyond surface text. A candidate can produce a
+                perfect final answer while its reasoning contains a glaring
+                logical error, or the reverse. Future evaluators will score
+                reasoning traces separately from final answers, using exact
+                metrics for the conclusion and both rubric and embedding methods
+                for the reasoning path. The goal is to reward sound process, not
+                just a lucky final sentence.
+              </p>
+
+              <p class="mb-4">
+                Reference-free and reference-light evaluation are reducing the
+                burden of golden datasets. When no gold answer exists,
+                evaluators use consistency checks across multiple model runs,
+                verifier models trained to judge correctness, or constraint
+                satisfaction checks against structured rules. The
+                keyword-overlap approach points in this direction already: even
+                without a perfect reference, checking that all mandatory
+                concepts appear in the output is a lightweight, reliable
+                first-pass guard that remains cheap enough to run on every
+                generation.
+              </p>
+
+              <p class="mb-4">
+                Regulation and auditability are becoming part of the evaluation
+                contract. As the EU AI Act and similar frameworks formalize
+                requirements for high-risk systems, evaluation logs are evolving
+                from internal engineering artifacts into compliance evidence.
+                Metrics, references, judge prompts, and model versions will need
+                to be stored in an immutable, reproducible format. The matrix
+                report exported from tools like this one is a natural building
+                block, provided it is captured with the input context and
+                timestamp that regulators will expect.
+              </p>
+
+              <p class="mb-4">
+                Cost-aware evaluation is another practical trend. LLM-as-judge
+                runs cost real money and add latency, so teams route candidates
+                through a hierarchy: cheap exact metrics first, embedding
+                similarity second, and an expensive judge model only for the
+                small fraction of outputs that land in the ambiguous middle
+                band. This tiered funnel, which the exact metrics in the eval
+                matrix are perfectly suited to seed, keeps evaluation budgets
+                proportional to the risk each output actually carries.
+              </p>
+
+              <p class="mb-4">
+                Finally, evaluation is moving into the loop of the systems it
+                judges. Online evaluation, feedback-based learning, and
+                preference alignment all require near-real-time scoring of model
+                outputs. The trend is for lightweight, client-side scoring to
+                run continuously in the background of agent applications,
+                feeding drift alerts, reranking signals, and human-review
+                queues. Exact, deterministic, and free-to-run metrics like
+                Levenshtein and BLEU are precisely the kind of compute that can
+                live at that scale.
+              </p>
+
+              <p class="mb-4">
+                The direction of travel is clear: evaluation will never be a
+                single number again. Teams will blend exact edit distance,
+                lexical precision, semantic embeddings, judge models, and
+                trajectory checks into a layered scoring stack. Deterministic
+                metrics remain the trustworthy foundation, which is why learning
+                to read a comparison matrix well today is still the best
+                preparation for the richer evaluation stacks of tomorrow.
+              </p>
+            </div>
+
+            <div
+              class="pt-6 border-t border-slate-100 dark:border-slate-800/80 flex flex-col sm:flex-row justify-between items-center gap-4"
+            >
+              <span
+                class="text-xs text-slate-400 dark:text-slate-500 font-semibold"
+                >Ground your evaluation stack in deterministic scores
+                today.</span
+              >
+              <a
+                href="./"
+                class="px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm rounded-lg transition-colors shadow-sm"
+              >
+                Use the Eval Matrix Engine &rarr;
+              </a>
+            </div>
+          </article>
         </div>
 
-        <!-- Body Content -->
-        <div
-          class="text-slate-600 dark:text-slate-300 space-y-4 leading-relaxed text-sm"
-        >
-          <p class="mb-4">
-            Levenshtein distance and BLEU precision are old, battle-tested
-            workhorses, and they are not going away. But the fastest-moving
-            frontier in AI output evaluation is the rise of the LLM-as-judge.
-            Instead of comparing a candidate to a gold string character by
-            character, teams now prompt a strong model to read both texts and
-            produce a rubric-based score across dimensions such as factual
-            accuracy, tone, completeness, and instruction adherence. The Eval
-            Matrix Engine's exact metrics remain valuable as objective anchors,
-            but they are increasingly combined with judge scores to catch the
-            semantic mismatches that edit distance cannot see.
-          </p>
-
-          <p class="mb-4">
-            Embedding-based semantic similarity is the direct technological
-            successor to keyword overlap. Where a Jaccard keyword score only
-            recognizes literal word matches, embeddings map whole sentences into
-            a high-dimensional vector space where paraphrases land close
-            together. Teams compute cosine similarity between the reference
-            embedding and the candidate embedding, and a score of 0.95 with
-            different vocabulary means the model preserved meaning while
-            rephrasing. The trend is toward hybrid evaluation: exact metrics for
-            structure, embeddings for meaning, and judge models for judgment
-            calls, each covering a weakness of the others.
-          </p>
-
-          <p class="mb-4">
-            Evaluation is becoming agentic itself. Instead of a single prompt
-            scored once, an evaluator agent can run multi-turn checks, query a
-            knowledge base to verify a cited fact, re-ask the model for
-            clarification, or compare a candidate against several plausible gold
-            answers when a question has multiple valid responses. This shifts
-            the evaluator's job from "is this string close to that string" to
-            "did this agent complete its task correctly," which requires
-            simulating the environment and inspecting intermediate tool calls,
-            not just the final text.
-          </p>
-
-          <p class="mb-4">
-            Trajectory evaluation is a growing subfield. Because modern agents
-            act over many steps, scoring only the final answer misses failures
-            in the middle: a tool call with wrong arguments, a hallucinated
-            intermediate calculation, a dead-end loop. Evaluation harnesses now
-            record each step's inputs and outputs and grade them along the way,
-            often with a lightweight matrix at every checkpoint. This makes the
-            Eval Matrix Engine pattern more relevant than ever, applied at step
-            granularity rather than once at the end.
-          </p>
-
-          <p class="mb-4">
-            Chain-of-thought and reasoning transparency are pushing evaluation
-            beyond surface text. A candidate can produce a perfect final answer
-            while its reasoning contains a glaring logical error, or the
-            reverse. Future evaluators will score reasoning traces separately
-            from final answers, using exact metrics for the conclusion and both
-            rubric and embedding methods for the reasoning path. The goal is to
-            reward sound process, not just a lucky final sentence.
-          </p>
-
-          <p class="mb-4">
-            Reference-free and reference-light evaluation are reducing the
-            burden of golden datasets. When no gold answer exists, evaluators
-            use consistency checks across multiple model runs, verifier models
-            trained to judge correctness, or constraint satisfaction checks
-            against structured rules. The keyword-overlap approach points in
-            this direction already: even without a perfect reference, checking
-            that all mandatory concepts appear in the output is a lightweight,
-            reliable first-pass guard that remains cheap enough to run on every
-            generation.
-          </p>
-
-          <p class="mb-4">
-            Regulation and auditability are becoming part of the evaluation
-            contract. As the EU AI Act and similar frameworks formalize
-            requirements for high-risk systems, evaluation logs are evolving
-            from internal engineering artifacts into compliance evidence.
-            Metrics, references, judge prompts, and model versions will need to
-            be stored in an immutable, reproducible format. The matrix report
-            exported from tools like this one is a natural building block,
-            provided it is captured with the input context and timestamp that
-            regulators will expect.
-          </p>
-
-          <p class="mb-4">
-            Cost-aware evaluation is another practical trend. LLM-as-judge runs
-            cost real money and add latency, so teams route candidates through a
-            hierarchy: cheap exact metrics first, embedding similarity second,
-            and an expensive judge model only for the small fraction of outputs
-            that land in the ambiguous middle band. This tiered funnel, which
-            the exact metrics in the eval matrix are perfectly suited to seed,
-            keeps evaluation budgets proportional to the risk each output
-            actually carries.
-          </p>
-
-          <p class="mb-4">
-            Finally, evaluation is moving into the loop of the systems it
-            judges. Online evaluation, feedback-based learning, and preference
-            alignment all require near-real-time scoring of model outputs. The
-            trend is for lightweight, client-side scoring to run continuously in
-            the background of agent applications, feeding drift alerts,
-            reranking signals, and human-review queues. Exact, deterministic,
-            and free-to-run metrics like Levenshtein and BLEU are precisely the
-            kind of compute that can live at that scale.
-          </p>
-
-          <p class="mb-4">
-            The direction of travel is clear: evaluation will never be a single
-            number again. Teams will blend exact edit distance, lexical
-            precision, semantic embeddings, judge models, and trajectory checks
-            into a layered scoring stack. Deterministic metrics remain the
-            trustworthy foundation, which is why learning to read a comparison
-            matrix well today is still the best preparation for the richer
-            evaluation stacks of tomorrow.
-          </p>
-        </div>
-
-        <div
-          class="pt-6 border-t border-slate-100 dark:border-slate-800/80 flex flex-col sm:flex-row justify-between items-center gap-4"
-        >
-          <span class="text-xs text-slate-400 dark:text-slate-500 font-semibold"
-            >Ground your evaluation stack in deterministic scores today.</span
+        <!-- Column 4 Sidebar -->
+        <div class="lg:col-span-1 space-y-6">
+          <div id="trending-sidebar"></div>
+          <div
+            id="ad-slot-square"
+            class="w-full p-4 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center mt-4 select-none min-h-[250px] overflow-hidden"
+            style="min-height: 250px"
           >
-          <a
-            href="./"
-            class="px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm rounded-lg transition-colors shadow-sm"
+            <span
+              class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-2"
+              >Advertisement</span
+            >
+            <div
+              class="w-full flex justify-center"
+              style="height: 250px; max-height: 250px; overflow: hidden"
+            >
+              <ins
+                class="adsbygoogle"
+                style="
+                  display: block;
+                  width: 100%;
+                  min-height: 250px;
+                  max-height: 250px;
+                "
+                data-ad-client="ca-pub-3901061173891576"
+                data-ad-slot="6707430996"
+                data-ad-format="rectangle"
+                data-full-width-responsive="false"
+              ></ins>
+            </div>
+          </div>
+          <div
+            id="ad-slot-vertical"
+            class="w-full p-4 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center mt-4 hidden lg:flex select-none min-h-[600px] overflow-hidden"
+            style="min-height: 600px"
           >
-            Use the Eval Matrix Engine &rarr;
-          </a>
+            <span
+              class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-2"
+              >Advertisement</span
+            >
+            <div
+              class="w-full flex justify-center"
+              style="height: 600px; max-height: 600px; overflow: hidden"
+            >
+              <ins
+                class="adsbygoogle"
+                style="
+                  display: block;
+                  width: 100%;
+                  min-height: 600px;
+                  max-height: 600px;
+                "
+                data-ad-client="ca-pub-3901061173891576"
+                data-ad-slot="1581548667"
+                data-ad-format="auto"
+                data-full-width-responsive="true"
+              ></ins>
+            </div>
+          </div>
         </div>
-      </article>
+      </div>
     </main>
 
     <!-- Footer -->

@@ -53,155 +53,260 @@
     <!-- Header -->
     <header id="global-header"></header>
 
-    <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-grow">
-      <article class="prose prose-slate dark:prose-invert max-w-none">
-        <!-- Reverse Link Back to Main Tool -->
-        <a
-          href="./"
-          class="inline-flex items-center text-brand-600 dark:text-brand-400 font-bold hover:underline text-sm mb-2 transition-colors"
+    <main
+      class="tool-page-main max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex-grow"
+    >
+      <!-- Leaderboard Ad Slot -->
+      <div
+        id="ad-slot-a"
+        class="w-full mx-auto mb-6 p-3 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center select-none overflow-hidden min-h-[90px]"
+        style="max-width: 728px; min-height: 90px; max-height: 135px"
+      >
+        <span
+          class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-1.5"
+          >Advertisement</span
         >
-          &larr; Back to Acoustic Room Mode Analyzer
-        </a>
-
-        <h1
-          class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight"
-        >
-          Best Practices for Acoustic Room Mode Analysis
-        </h1>
-
         <div
-          class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4"
+          class="w-full flex justify-center"
+          style="height: 90px; max-height: 90px; overflow: hidden"
         >
-          <span>Published: August 2026</span>
-          <span>•</span>
-          <span>Category: Industrial & Engineering</span>
-          <span>•</span>
-          <span class="text-emerald-600 dark:text-emerald-400"
-            >No Sign-Up / 100% Free / No Registration</span
-          >
+          <ins
+            class="adsbygoogle"
+            style="
+              display: inline-block;
+              width: 100%;
+              height: 90px;
+              max-height: 90px;
+            "
+            data-ad-client="ca-pub-3901061173891576"
+            data-ad-slot="2894630336"
+            data-ad-format="horizontal"
+            data-full-width-responsive="false"
+          ></ins>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-4 gap-4">
+        <!-- Main Content (Column 1-3) -->
+        <div class="lg:col-span-3 space-y-8">
+          <article class="prose prose-slate dark:prose-invert max-w-none">
+            <!-- Reverse Link Back to Main Tool -->
+            <a
+              href="./"
+              class="inline-flex items-center text-brand-600 dark:text-brand-400 font-bold hover:underline text-sm mb-2 transition-colors"
+            >
+              &larr; Back to Acoustic Room Mode Analyzer
+            </a>
+
+            <h1
+              class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight"
+            >
+              Best Practices for Acoustic Room Mode Analysis
+            </h1>
+
+            <div
+              class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4"
+            >
+              <span>Published: August 2026</span>
+              <span>•</span>
+              <span>Category: Industrial & Engineering</span>
+              <span>•</span>
+              <span class="text-emerald-600 dark:text-emerald-400"
+                >No Sign-Up / 100% Free / No Registration</span
+              >
+            </div>
+
+            <!-- Body Content -->
+            <div
+              class="text-slate-600 dark:text-slate-300 space-y-4 leading-relaxed text-sm"
+            >
+              <p class="mb-4">
+                Treating a room's low-frequency response is more art than
+                pointing a panel at a wall — but it is a disciplined art with
+                clear rules. The workflow that produces consistent results is
+                always the same: predict with the room-mode math, confirm with a
+                real measurement, treat the dominant resonances, and re-measure
+                to verify. These best practices cover each stage, from choosing
+                dimensions in the design phase to placing bass traps and
+                monitors in an existing room.
+              </p>
+              <p class="mb-4">
+                Start at the drawing board whenever you can. Room modes are
+                governed by dimensions, and no amount of treatment fully repairs
+                a poorly proportioned room. When designing a studio, theater, or
+                critical-listening space, choose dimensions that follow a
+                recommended ratio and avoid equal dimensions and simple
+                multiples like 2:1 or 1.5:1, which create coincident modes. Run
+                the room-mode calculation on the proposed dimensions before
+                committing — a room on the Bolt or Louden area with a reasonable
+                volume will have its lowest modes spread apart and its higher
+                modes distributed evenly, which is the entire battle.
+              </p>
+              <p class="mb-4">
+                Measure the room before you treat it. The rectangular formula is
+                an excellent prediction, but the real room differs — doors and
+                windows act as leaks, furniture absorbs, and construction
+                tolerances shift the true dimensions. A measurement with a
+                calibrated microphone and a swept-sine or log-sweep measurement
+                captures the actual peaks and dips. Measure at the listening
+                position and at several points around the room, because modes
+                are spatial: a strong null at the listener's head may be a
+                pressure maximum three feet away. Never tune a treatment plan
+                from a single measurement point.
+              </p>
+              <p class="mb-4">
+                Place the measurement microphone and the listening position away
+                from pressure extremes. Axial modes create pressure maxima at
+                the walls and nulls at predictable internal planes; sitting
+                exactly on a null makes a dominant frequency disappear, while
+                sitting on a peak makes it boom. The classic starting geometry
+                places the listening position at about 38 percent of the room's
+                length from the front wall, in the middle laterally, which lands
+                between many of the first axial nulls. Confirm the position
+                against the computed mode frequencies — the analyzer lists the
+                first modes explicitly so you can check where your head actually
+                sits relative to the standing-wave pattern.
+              </p>
+              <p class="mb-4">
+                Treat axial modes first. Axial modes are the strongest
+                resonances because they lose the least energy per reflection, so
+                they dominate the audible bass problems. Each axial mode has
+                pressure maxima at the two opposite walls it bounces between,
+                which is where bass trapping is most effective. Panel or
+                membrane bass traps placed at the midpoints of those walls — the
+                geometric center of each wall — catch the fundamental axial
+                mode; corner placement spreads the coverage across several modes
+                at once because corners are pressure maxima for most low modes
+                simultaneously. That is why corners are the default bass-trap
+                location.
+              </p>
+              <p class="mb-4">
+                Match the trap technology to the frequency. Foam and fiberglass
+                broadband absorbers work well above a few hundred hertz but are
+                nearly transparent at 60 Hz; at low frequencies you need thick
+                porous absorbers, membrane absorbers, or pressure-zone traps
+                sized for the target resonance. A quarter-wavelength estimate
+                gives the sizing rule of thumb: a porous absorber needs to be at
+                least a quarter of the wavelength thick to absorb effectively,
+                which at 50 Hz means well over a meter — impractical in most
+                rooms, which is why membrane and resonant traps tuned to
+                specific mode frequencies are the practical solution.
+              </p>
+              <p class="mb-4">
+                Position speakers to reduce boundary coupling before you add
+                treatment. Monitors placed close to a wall or in a corner excite
+                the boundary modes more strongly, effectively increasing the
+                bass by coupling to the room's pressure zones. Pulling the
+                monitors away from the walls reduces how strongly they drive the
+                first axial modes, which flattens the low end without any
+                absorption. The trade-off is measurable: moving monitors changes
+                the measured frequency response, so verify the placement
+                decision with the same measurement you use for the treatment
+                plan.
+              </p>
+              <p class="mb-4">
+                Treat in stages and re-measure. Do not install a room full of
+                traps at once — you cannot tell what worked. Apply the first
+                stage targeting the strongest flagged modes, measure, and
+                compare. A well-damped mode should show a reduced peak and a
+                shorter decay time; a mode that did not move needs a different
+                trap position or type. Working in stages also keeps the budget
+                proportional to the problem, since most rooms have one or two
+                dominant resonances that cause the majority of the audible
+                issues.
+              </p>
+              <p class="mb-4">
+                Finally, record everything and treat the measurements as the
+                source of truth. Room-mode analysis predicts where the problems
+                will be; measurement confirms what actually is. Keep the
+                predicted mode list and the measured response together in the
+                room's documentation, and revisit them when the room changes —
+                new furniture, a different desk, or a moved bookcase all shift
+                the real response. The Acoustic Room Mode Analyzer gives you the
+                prediction layer, and a repeatable measurement habit gives you
+                the verification layer. Together they make low-frequency control
+                predictable instead of guesswork.
+              </p>
+            </div>
+
+            <div
+              class="pt-6 border-t border-slate-100 dark:border-slate-800/80 flex flex-col sm:flex-row justify-between items-center gap-4"
+            >
+              <span
+                class="text-xs text-slate-400 dark:text-slate-500 font-semibold"
+                >Ready to analyze a room?</span
+              >
+              <a
+                href="./"
+                class="px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm rounded-lg transition-colors shadow-sm"
+              >
+                Use the Interactive Acoustic Room Mode Analyzer &rarr;
+              </a>
+            </div>
+          </article>
         </div>
 
-        <!-- Body Content -->
-        <div
-          class="text-slate-600 dark:text-slate-300 space-y-4 leading-relaxed text-sm"
-        >
-          <p class="mb-4">
-            Treating a room's low-frequency response is more art than pointing a
-            panel at a wall — but it is a disciplined art with clear rules. The
-            workflow that produces consistent results is always the same:
-            predict with the room-mode math, confirm with a real measurement,
-            treat the dominant resonances, and re-measure to verify. These best
-            practices cover each stage, from choosing dimensions in the design
-            phase to placing bass traps and monitors in an existing room.
-          </p>
-          <p class="mb-4">
-            Start at the drawing board whenever you can. Room modes are governed
-            by dimensions, and no amount of treatment fully repairs a poorly
-            proportioned room. When designing a studio, theater, or
-            critical-listening space, choose dimensions that follow a
-            recommended ratio and avoid equal dimensions and simple multiples
-            like 2:1 or 1.5:1, which create coincident modes. Run the room-mode
-            calculation on the proposed dimensions before committing — a room on
-            the Bolt or Louden area with a reasonable volume will have its
-            lowest modes spread apart and its higher modes distributed evenly,
-            which is the entire battle.
-          </p>
-          <p class="mb-4">
-            Measure the room before you treat it. The rectangular formula is an
-            excellent prediction, but the real room differs — doors and windows
-            act as leaks, furniture absorbs, and construction tolerances shift
-            the true dimensions. A measurement with a calibrated microphone and
-            a swept-sine or log-sweep measurement captures the actual peaks and
-            dips. Measure at the listening position and at several points around
-            the room, because modes are spatial: a strong null at the listener's
-            head may be a pressure maximum three feet away. Never tune a
-            treatment plan from a single measurement point.
-          </p>
-          <p class="mb-4">
-            Place the measurement microphone and the listening position away
-            from pressure extremes. Axial modes create pressure maxima at the
-            walls and nulls at predictable internal planes; sitting exactly on a
-            null makes a dominant frequency disappear, while sitting on a peak
-            makes it boom. The classic starting geometry places the listening
-            position at about 38 percent of the room's length from the front
-            wall, in the middle laterally, which lands between many of the first
-            axial nulls. Confirm the position against the computed mode
-            frequencies — the analyzer lists the first modes explicitly so you
-            can check where your head actually sits relative to the
-            standing-wave pattern.
-          </p>
-          <p class="mb-4">
-            Treat axial modes first. Axial modes are the strongest resonances
-            because they lose the least energy per reflection, so they dominate
-            the audible bass problems. Each axial mode has pressure maxima at
-            the two opposite walls it bounces between, which is where bass
-            trapping is most effective. Panel or membrane bass traps placed at
-            the midpoints of those walls — the geometric center of each wall —
-            catch the fundamental axial mode; corner placement spreads the
-            coverage across several modes at once because corners are pressure
-            maxima for most low modes simultaneously. That is why corners are
-            the default bass-trap location.
-          </p>
-          <p class="mb-4">
-            Match the trap technology to the frequency. Foam and fiberglass
-            broadband absorbers work well above a few hundred hertz but are
-            nearly transparent at 60 Hz; at low frequencies you need thick
-            porous absorbers, membrane absorbers, or pressure-zone traps sized
-            for the target resonance. A quarter-wavelength estimate gives the
-            sizing rule of thumb: a porous absorber needs to be at least a
-            quarter of the wavelength thick to absorb effectively, which at 50
-            Hz means well over a meter — impractical in most rooms, which is why
-            membrane and resonant traps tuned to specific mode frequencies are
-            the practical solution.
-          </p>
-          <p class="mb-4">
-            Position speakers to reduce boundary coupling before you add
-            treatment. Monitors placed close to a wall or in a corner excite the
-            boundary modes more strongly, effectively increasing the bass by
-            coupling to the room's pressure zones. Pulling the monitors away
-            from the walls reduces how strongly they drive the first axial
-            modes, which flattens the low end without any absorption. The
-            trade-off is measurable: moving monitors changes the measured
-            frequency response, so verify the placement decision with the same
-            measurement you use for the treatment plan.
-          </p>
-          <p class="mb-4">
-            Treat in stages and re-measure. Do not install a room full of traps
-            at once — you cannot tell what worked. Apply the first stage
-            targeting the strongest flagged modes, measure, and compare. A
-            well-damped mode should show a reduced peak and a shorter decay
-            time; a mode that did not move needs a different trap position or
-            type. Working in stages also keeps the budget proportional to the
-            problem, since most rooms have one or two dominant resonances that
-            cause the majority of the audible issues.
-          </p>
-          <p class="mb-4">
-            Finally, record everything and treat the measurements as the source
-            of truth. Room-mode analysis predicts where the problems will be;
-            measurement confirms what actually is. Keep the predicted mode list
-            and the measured response together in the room's documentation, and
-            revisit them when the room changes — new furniture, a different
-            desk, or a moved bookcase all shift the real response. The Acoustic
-            Room Mode Analyzer gives you the prediction layer, and a repeatable
-            measurement habit gives you the verification layer. Together they
-            make low-frequency control predictable instead of guesswork.
-          </p>
-        </div>
-
-        <div
-          class="pt-6 border-t border-slate-100 dark:border-slate-800/80 flex flex-col sm:flex-row justify-between items-center gap-4"
-        >
-          <span class="text-xs text-slate-400 dark:text-slate-500 font-semibold"
-            >Ready to analyze a room?</span
+        <!-- Column 4 Sidebar -->
+        <div class="lg:col-span-1 space-y-6">
+          <div id="trending-sidebar"></div>
+          <div
+            id="ad-slot-square"
+            class="w-full p-4 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center mt-4 select-none min-h-[250px] overflow-hidden"
+            style="min-height: 250px"
           >
-          <a
-            href="./"
-            class="px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm rounded-lg transition-colors shadow-sm"
+            <span
+              class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-2"
+              >Advertisement</span
+            >
+            <div
+              class="w-full flex justify-center"
+              style="height: 250px; max-height: 250px; overflow: hidden"
+            >
+              <ins
+                class="adsbygoogle"
+                style="
+                  display: block;
+                  width: 100%;
+                  min-height: 250px;
+                  max-height: 250px;
+                "
+                data-ad-client="ca-pub-3901061173891576"
+                data-ad-slot="6707430996"
+                data-ad-format="rectangle"
+                data-full-width-responsive="false"
+              ></ins>
+            </div>
+          </div>
+          <div
+            id="ad-slot-vertical"
+            class="w-full p-4 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center mt-4 hidden lg:flex select-none min-h-[600px] overflow-hidden"
+            style="min-height: 600px"
           >
-            Use the Interactive Acoustic Room Mode Analyzer &rarr;
-          </a>
+            <span
+              class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-2"
+              >Advertisement</span
+            >
+            <div
+              class="w-full flex justify-center"
+              style="height: 600px; max-height: 600px; overflow: hidden"
+            >
+              <ins
+                class="adsbygoogle"
+                style="
+                  display: block;
+                  width: 100%;
+                  min-height: 600px;
+                  max-height: 600px;
+                "
+                data-ad-client="ca-pub-3901061173891576"
+                data-ad-slot="1581548667"
+                data-ad-format="auto"
+                data-full-width-responsive="true"
+              ></ins>
+            </div>
+          </div>
         </div>
-      </article>
+      </div>
     </main>
 
     <!-- Footer -->

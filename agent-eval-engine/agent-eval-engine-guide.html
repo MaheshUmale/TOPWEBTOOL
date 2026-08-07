@@ -49,172 +49,278 @@
     <!-- Header -->
     <header id="global-header"></header>
 
-    <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-grow">
-      <article class="prose prose-slate dark:prose-invert max-w-none">
-        <!-- Reverse Link Back to Main Tool -->
-        <a
-          href="./"
-          class="inline-flex items-center text-brand-600 dark:text-brand-400 font-bold hover:underline text-sm mb-2 transition-colors"
+    <main
+      class="tool-page-main max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex-grow"
+    >
+      <!-- Leaderboard Ad Slot -->
+      <div
+        id="ad-slot-a"
+        class="w-full mx-auto mb-6 p-3 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center select-none overflow-hidden min-h-[90px]"
+        style="max-width: 728px; min-height: 90px; max-height: 135px"
+      >
+        <span
+          class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-1.5"
+          >Advertisement</span
         >
-          &larr; Back to Eval Matrix Engine for AI Outputs Tool
-        </a>
-
-        <h1
-          class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight"
-        >
-          The Complete Guide to Scoring AI Outputs with an Eval Matrix Engine
-        </h1>
-
         <div
-          class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4"
+          class="w-full flex justify-center"
+          style="height: 90px; max-height: 90px; overflow: hidden"
         >
-          <span>Published: August 2026</span>
-          <span>•</span>
-          <span>Category: AI Agent & Automation</span>
-          <span>•</span>
-          <span class="text-emerald-600 dark:text-emerald-400"
-            >No Sign-Up / 100% Free / No Registration</span
-          >
+          <ins
+            class="adsbygoogle"
+            style="
+              display: inline-block;
+              width: 100%;
+              height: 90px;
+              max-height: 90px;
+            "
+            data-ad-client="ca-pub-3901061173891576"
+            data-ad-slot="2894630336"
+            data-ad-format="horizontal"
+            data-full-width-responsive="false"
+          ></ins>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-4 gap-4">
+        <!-- Main Content (Column 1-3) -->
+        <div class="lg:col-span-3 space-y-8">
+          <article class="prose prose-slate dark:prose-invert max-w-none">
+            <!-- Reverse Link Back to Main Tool -->
+            <a
+              href="./"
+              class="inline-flex items-center text-brand-600 dark:text-brand-400 font-bold hover:underline text-sm mb-2 transition-colors"
+            >
+              &larr; Back to Eval Matrix Engine for AI Outputs Tool
+            </a>
+
+            <h1
+              class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight"
+            >
+              The Complete Guide to Scoring AI Outputs with an Eval Matrix
+              Engine
+            </h1>
+
+            <div
+              class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4"
+            >
+              <span>Published: August 2026</span>
+              <span>•</span>
+              <span>Category: AI Agent & Automation</span>
+              <span>•</span>
+              <span class="text-emerald-600 dark:text-emerald-400"
+                >No Sign-Up / 100% Free / No Registration</span
+              >
+            </div>
+
+            <!-- Body Content -->
+            <div
+              class="text-slate-600 dark:text-slate-300 space-y-4 leading-relaxed text-sm"
+            >
+              <p class="mb-4">
+                Every serious LLM project eventually reaches the same wall: the
+                model generates text that looks reasonable, but nobody can say
+                whether it is actually correct. This is why evaluation exists.
+                An eval matrix engine takes a reference answer, often called a
+                gold standard, and compares it against the candidate text your
+                AI system produced. By running multiple scoring formulas over
+                the same pair of strings, it converts a vague impression of
+                "close enough" into measurable numbers you can track across
+                releases.
+              </p>
+
+              <p class="mb-4">
+                The heart of the engine is the Levenshtein distance, an edit
+                distance that counts the smallest number of single-character
+                insertions, deletions, or substitutions required to transform
+                one string into the other. For example, changing "cats" into
+                "cots" needs exactly one substitution, so the distance is one.
+                The algorithm finds this number with dynamic programming: it
+                fills a matrix where each cell represents the cost of converting
+                a prefix of the first string into a prefix of the second, and
+                the final corner of the matrix holds the answer. Levenshtein is
+                character-precise, which makes it ideal for detecting small
+                factual slips such as a wrong digit in an order number or a
+                misspelled city name.
+              </p>
+
+              <p class="mb-4">
+                Because a raw edit distance is hard to interpret on its own, the
+                engine converts it into a similarity percentage using the
+                formula 100 × (1 − distance ÷ max(reference length, candidate
+                length)). A score of 100% means the two strings are identical,
+                while 0% signals that every single character had to be replaced.
+                This normalisation is important because a distance of twelve
+                means something completely different for a twenty-character
+                string than for a two-thousand-character paragraph. Dividing by
+                the longer string's length keeps the percentage comparable
+                regardless of scale.
+              </p>
+
+              <p class="mb-4">
+                Text generators rarely match a reference word-for-word, so the
+                engine also computes BLEU-style precision scores over n-grams.
+                BLEU-1 measures how many candidate word unigrams appear in the
+                reference, clipped so a repeated word cannot be counted more
+                times than it occurs in the reference. BLEU-2 does the same for
+                consecutive word pairs, or bigrams. These scores capture lexical
+                coverage: a candidate that reuses the key words and short
+                phrases of the gold answer scores highly even when it rearranges
+                them grammatically. Bigrams are stricter than unigrams because
+                they require the same ordering, which makes BLEU-2 a better
+                proxy for fluency and structure.
+              </p>
+
+              <p class="mb-4">
+                Keyword overlap adds a semantic-ish layer on top of the n-gram
+                scores. The engine strips stopwords such as "the", "will", and
+                "and" plus any token shorter than three characters, then
+                compares the remaining keyword sets using the Jaccard
+                coefficient: the size of the intersection divided by the size of
+                the union. If the reference mentions "refund", "approved", and
+                "payment method", the candidate should too. The engine reports
+                the matched keywords plus the reference-only and candidate-only
+                lists, so you can see exactly which concepts drifted rather than
+                just a single number.
+              </p>
+
+              <p class="mb-4">
+                Character and word counts round out the matrix. A candidate with
+                wildly different lengths is often a red flag: a 20% similarity
+                score on a response that is five times longer than the gold
+                answer usually means the model padded its reply with filler.
+                Comparing raw character lengths and tokenized word counts
+                catches truncation bugs, duplicated paragraphs, and cases where
+                the model ignored an instruction to keep the answer brief.
+              </p>
+
+              <p class="mb-4">
+                Reading the four score bars together matters more than obsessing
+                over any single metric. High Levenshtein similarity with low
+                BLEU-1 usually indicates the model paraphrased every word but
+                kept the same character structure, which is rare; low similarity
+                with high keyword overlap means the candidate used the right
+                vocabulary but reordered or rephrased heavily, which is often
+                perfectly acceptable for summarisation tasks. High BLEU-2
+                confirms the candidate follows the reference's sentence-level
+                structure, which is desirable for extraction tasks but less
+                important for creative writing.
+              </p>
+
+              <p class="mb-4">
+                The practical workflow for an LLM engineer is simple. Build a
+                small golden dataset of perhaps fifty to two hundred reference
+                answers that cover the tricky corners of your domain. Run every
+                candidate response through the matrix, log the numbers, and gate
+                releases on thresholds, for example requiring a minimum
+                similarity of 85% and BLEU-1 above 0.80 on the critical subset.
+                When a number dips, the keyword drift chips tell you which
+                concepts the new model version stopped reproducing, giving you a
+                concrete debugging starting point instead of a vague regression
+                report.
+              </p>
+
+              <p class="mb-4">
+                Because the entire engine runs client-side in the browser, your
+                gold answers and candidate outputs never leave your machine.
+                That makes it safe to paste proprietary reference responses and
+                sensitive internal evaluation sets without worrying about data
+                leaving the building. The tool ships with a sample
+                refund-notification pair so you can see exactly how the matrix
+                behaves before you replace it with your own strings, and the
+                copy-report button exports the full metric table into a test
+                run, ticket, or commit message in one click.
+              </p>
+
+              <p class="mb-4">
+                Start small, standardise your normalisation rules, and let the
+                matrix guide you toward a repeatable evaluation loop. The
+                combination of an exact edit distance, two lexical precision
+                scores, and a keyword overlap ratio gives you evidence at four
+                different levels of granularity, which is far more trustworthy
+                than any single score when you are deciding whether a model
+                update actually improved the answers your users see.
+              </p>
+            </div>
+
+            <div
+              class="pt-6 border-t border-slate-100 dark:border-slate-800/80 flex flex-col sm:flex-row justify-between items-center gap-4"
+            >
+              <span
+                class="text-xs text-slate-400 dark:text-slate-500 font-semibold"
+                >Ready to score a pair of AI outputs?</span
+              >
+              <a
+                href="./"
+                class="px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm rounded-lg transition-colors shadow-sm"
+              >
+                Use the Interactive Eval Matrix Engine &rarr;
+              </a>
+            </div>
+          </article>
         </div>
 
-        <!-- Body Content -->
-        <div
-          class="text-slate-600 dark:text-slate-300 space-y-4 leading-relaxed text-sm"
-        >
-          <p class="mb-4">
-            Every serious LLM project eventually reaches the same wall: the
-            model generates text that looks reasonable, but nobody can say
-            whether it is actually correct. This is why evaluation exists. An
-            eval matrix engine takes a reference answer, often called a gold
-            standard, and compares it against the candidate text your AI system
-            produced. By running multiple scoring formulas over the same pair of
-            strings, it converts a vague impression of "close enough" into
-            measurable numbers you can track across releases.
-          </p>
-
-          <p class="mb-4">
-            The heart of the engine is the Levenshtein distance, an edit
-            distance that counts the smallest number of single-character
-            insertions, deletions, or substitutions required to transform one
-            string into the other. For example, changing "cats" into "cots"
-            needs exactly one substitution, so the distance is one. The
-            algorithm finds this number with dynamic programming: it fills a
-            matrix where each cell represents the cost of converting a prefix of
-            the first string into a prefix of the second, and the final corner
-            of the matrix holds the answer. Levenshtein is character-precise,
-            which makes it ideal for detecting small factual slips such as a
-            wrong digit in an order number or a misspelled city name.
-          </p>
-
-          <p class="mb-4">
-            Because a raw edit distance is hard to interpret on its own, the
-            engine converts it into a similarity percentage using the formula
-            100 × (1 − distance ÷ max(reference length, candidate length)). A
-            score of 100% means the two strings are identical, while 0% signals
-            that every single character had to be replaced. This normalisation
-            is important because a distance of twelve means something completely
-            different for a twenty-character string than for a
-            two-thousand-character paragraph. Dividing by the longer string's
-            length keeps the percentage comparable regardless of scale.
-          </p>
-
-          <p class="mb-4">
-            Text generators rarely match a reference word-for-word, so the
-            engine also computes BLEU-style precision scores over n-grams.
-            BLEU-1 measures how many candidate word unigrams appear in the
-            reference, clipped so a repeated word cannot be counted more times
-            than it occurs in the reference. BLEU-2 does the same for
-            consecutive word pairs, or bigrams. These scores capture lexical
-            coverage: a candidate that reuses the key words and short phrases of
-            the gold answer scores highly even when it rearranges them
-            grammatically. Bigrams are stricter than unigrams because they
-            require the same ordering, which makes BLEU-2 a better proxy for
-            fluency and structure.
-          </p>
-
-          <p class="mb-4">
-            Keyword overlap adds a semantic-ish layer on top of the n-gram
-            scores. The engine strips stopwords such as "the", "will", and "and"
-            plus any token shorter than three characters, then compares the
-            remaining keyword sets using the Jaccard coefficient: the size of
-            the intersection divided by the size of the union. If the reference
-            mentions "refund", "approved", and "payment method", the candidate
-            should too. The engine reports the matched keywords plus the
-            reference-only and candidate-only lists, so you can see exactly
-            which concepts drifted rather than just a single number.
-          </p>
-
-          <p class="mb-4">
-            Character and word counts round out the matrix. A candidate with
-            wildly different lengths is often a red flag: a 20% similarity score
-            on a response that is five times longer than the gold answer usually
-            means the model padded its reply with filler. Comparing raw
-            character lengths and tokenized word counts catches truncation bugs,
-            duplicated paragraphs, and cases where the model ignored an
-            instruction to keep the answer brief.
-          </p>
-
-          <p class="mb-4">
-            Reading the four score bars together matters more than obsessing
-            over any single metric. High Levenshtein similarity with low BLEU-1
-            usually indicates the model paraphrased every word but kept the same
-            character structure, which is rare; low similarity with high keyword
-            overlap means the candidate used the right vocabulary but reordered
-            or rephrased heavily, which is often perfectly acceptable for
-            summarisation tasks. High BLEU-2 confirms the candidate follows the
-            reference's sentence-level structure, which is desirable for
-            extraction tasks but less important for creative writing.
-          </p>
-
-          <p class="mb-4">
-            The practical workflow for an LLM engineer is simple. Build a small
-            golden dataset of perhaps fifty to two hundred reference answers
-            that cover the tricky corners of your domain. Run every candidate
-            response through the matrix, log the numbers, and gate releases on
-            thresholds, for example requiring a minimum similarity of 85% and
-            BLEU-1 above 0.80 on the critical subset. When a number dips, the
-            keyword drift chips tell you which concepts the new model version
-            stopped reproducing, giving you a concrete debugging starting point
-            instead of a vague regression report.
-          </p>
-
-          <p class="mb-4">
-            Because the entire engine runs client-side in the browser, your gold
-            answers and candidate outputs never leave your machine. That makes
-            it safe to paste proprietary reference responses and sensitive
-            internal evaluation sets without worrying about data leaving the
-            building. The tool ships with a sample refund-notification pair so
-            you can see exactly how the matrix behaves before you replace it
-            with your own strings, and the copy-report button exports the full
-            metric table into a test run, ticket, or commit message in one
-            click.
-          </p>
-
-          <p class="mb-4">
-            Start small, standardise your normalisation rules, and let the
-            matrix guide you toward a repeatable evaluation loop. The
-            combination of an exact edit distance, two lexical precision scores,
-            and a keyword overlap ratio gives you evidence at four different
-            levels of granularity, which is far more trustworthy than any single
-            score when you are deciding whether a model update actually improved
-            the answers your users see.
-          </p>
-        </div>
-
-        <div
-          class="pt-6 border-t border-slate-100 dark:border-slate-800/80 flex flex-col sm:flex-row justify-between items-center gap-4"
-        >
-          <span class="text-xs text-slate-400 dark:text-slate-500 font-semibold"
-            >Ready to score a pair of AI outputs?</span
+        <!-- Column 4 Sidebar -->
+        <div class="lg:col-span-1 space-y-6">
+          <div id="trending-sidebar"></div>
+          <div
+            id="ad-slot-square"
+            class="w-full p-4 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center mt-4 select-none min-h-[250px] overflow-hidden"
+            style="min-height: 250px"
           >
-          <a
-            href="./"
-            class="px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm rounded-lg transition-colors shadow-sm"
+            <span
+              class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-2"
+              >Advertisement</span
+            >
+            <div
+              class="w-full flex justify-center"
+              style="height: 250px; max-height: 250px; overflow: hidden"
+            >
+              <ins
+                class="adsbygoogle"
+                style="
+                  display: block;
+                  width: 100%;
+                  min-height: 250px;
+                  max-height: 250px;
+                "
+                data-ad-client="ca-pub-3901061173891576"
+                data-ad-slot="6707430996"
+                data-ad-format="rectangle"
+                data-full-width-responsive="false"
+              ></ins>
+            </div>
+          </div>
+          <div
+            id="ad-slot-vertical"
+            class="w-full p-4 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center mt-4 hidden lg:flex select-none min-h-[600px] overflow-hidden"
+            style="min-height: 600px"
           >
-            Use the Interactive Eval Matrix Engine &rarr;
-          </a>
+            <span
+              class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-2"
+              >Advertisement</span
+            >
+            <div
+              class="w-full flex justify-center"
+              style="height: 600px; max-height: 600px; overflow: hidden"
+            >
+              <ins
+                class="adsbygoogle"
+                style="
+                  display: block;
+                  width: 100%;
+                  min-height: 600px;
+                  max-height: 600px;
+                "
+                data-ad-client="ca-pub-3901061173891576"
+                data-ad-slot="1581548667"
+                data-ad-format="auto"
+                data-full-width-responsive="true"
+              ></ins>
+            </div>
+          </div>
         </div>
-      </article>
+      </div>
     </main>
 
     <!-- Footer -->

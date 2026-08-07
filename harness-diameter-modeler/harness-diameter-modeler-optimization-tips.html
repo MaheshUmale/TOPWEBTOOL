@@ -49,160 +49,266 @@
     <!-- Header -->
     <header id="global-header"></header>
 
-    <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-grow">
-      <article class="prose prose-slate dark:prose-invert max-w-none">
-        <a
-          href="./"
-          class="inline-flex items-center text-brand-600 dark:text-brand-400 font-bold hover:underline text-sm mb-2 transition-colors"
+    <main
+      class="tool-page-main max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex-grow"
+    >
+      <!-- Leaderboard Ad Slot -->
+      <div
+        id="ad-slot-a"
+        class="w-full mx-auto mb-6 p-3 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center select-none overflow-hidden min-h-[90px]"
+        style="max-width: 728px; min-height: 90px; max-height: 135px"
+      >
+        <span
+          class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-1.5"
+          >Advertisement</span
         >
-          &larr; Back to Wiring Harness Bundle Diameter Modeler Tool
-        </a>
-
-        <h1
-          class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight"
-        >
-          Top Optimization Tips to Shrink Harness Bundle Diameter
-        </h1>
-
         <div
-          class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4"
+          class="w-full flex justify-center"
+          style="height: 90px; max-height: 90px; overflow: hidden"
         >
-          <span>Published: August 2026</span>
-          <span>•</span>
-          <span>Category: Industrial &amp; Engineering</span>
-          <span>•</span>
-          <span class="text-emerald-600 dark:text-emerald-400"
-            >No Sign-Up / 100% Free / No Registration</span
-          >
+          <ins
+            class="adsbygoogle"
+            style="
+              display: inline-block;
+              width: 100%;
+              height: 90px;
+              max-height: 90px;
+            "
+            data-ad-client="ca-pub-3901061173891576"
+            data-ad-slot="2894630336"
+            data-ad-format="horizontal"
+            data-full-width-responsive="false"
+          ></ins>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-4 gap-4">
+        <!-- Main Content (Column 1-3) -->
+        <div class="lg:col-span-3 space-y-8">
+          <article class="prose prose-slate dark:prose-invert max-w-none">
+            <a
+              href="./"
+              class="inline-flex items-center text-brand-600 dark:text-brand-400 font-bold hover:underline text-sm mb-2 transition-colors"
+            >
+              &larr; Back to Wiring Harness Bundle Diameter Modeler Tool
+            </a>
+
+            <h1
+              class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight"
+            >
+              Top Optimization Tips to Shrink Harness Bundle Diameter
+            </h1>
+
+            <div
+              class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4"
+            >
+              <span>Published: August 2026</span>
+              <span>•</span>
+              <span>Category: Industrial &amp; Engineering</span>
+              <span>•</span>
+              <span class="text-emerald-600 dark:text-emerald-400"
+                >No Sign-Up / 100% Free / No Registration</span
+              >
+            </div>
+
+            <div
+              class="text-slate-600 dark:text-slate-300 space-y-4 leading-relaxed text-sm"
+            >
+              <p class="mb-4">
+                In aerospace and high-performance industrial wiring, bundle
+                diameter is not just a fit issue. It is weight, routing space,
+                clamp count, and drag. A bundle that is a few millimeters
+                thinner may be the difference between threading through a tight
+                bulkhead and adding a new pass-through cutout. The good news is
+                that bundle size is highly controllable through wire selection
+                and architecture choices, and the Wiring Harness Bundle Diameter
+                Modeler makes it trivial to measure the impact of each decision
+                before you spend any money.
+              </p>
+              <p class="mb-4">
+                The highest-leverage lever is insulation thickness. Conductor
+                diameter is fixed by the gauge, but the wire outside diameter is
+                dominated by the insulation wall. Switching from a standard
+                aerospace wire like M22759/16 with its heavier cross-linked wall
+                to a thin-wall spec such as M22759/32 or the extended-thin-wall
+                M22759/34 cuts the insulation factor from roughly 1.25 to 1.10
+                for the same gauge and current rating. Because bundle area
+                scales with the square of diameter, a 15% reduction in every
+                wire's diameter produces a bundle diameter reduction of roughly
+                ten percent and a weight saving from the thinner jacket too.
+              </p>
+              <p class="mb-4">
+                Consolidate grounds before you size anything. Return conductors
+                are the easiest wires to over-specify because each system is
+                designed in isolation and each designer adds its own return
+                path. A single appropriately sized ground wire shared by several
+                loads at the same chassis potential removes three or four
+                redundant conductors from the bundle. Run the modeler once with
+                the redundant grounds and once without, and the diameter
+                difference will justify the coordination meeting it takes to
+                agree on the shared return.
+              </p>
+              <p class="mb-4">
+                Use twisted pairs instead of individual shielded runs. When a
+                sensitive signal must be protected, the instinct is to shield
+                each conductor, and the shield's three-times diameter penalty
+                bloats the bundle. A twisted shielded pair carries two signals
+                in one shield and a twisted unshielded pair rejects common-mode
+                noise without any shield at all. Replacing two separately
+                shielded singles with one twisted shielded pair removes a full
+                shield's worth of diameter from the cross-section while
+                preserving signal integrity.
+              </p>
+              <p class="mb-4">
+                Right-size the gauge instead of defaulting to the house
+                standard. Many drawing sets specify AWG 20 for every discrete
+                signal simply because that is the template default. A
+                low-current sensor line at a few milliamps is physically fine at
+                AWG 26 or 28, which occupies roughly a third of the area. The
+                modeler makes the trade visible: swapping ten AWG 20 wires for
+                AWG 24 drops their combined area from 5.18 mm² to 2.05 mm². That
+                single housekeeping change is often the cheapest diameter
+                optimization available.
+              </p>
+              <p class="mb-4">
+                Group by function before you bundle. A harness that routes
+                power, PWM motor drives, and millivolt sensors in one tight
+                bundle needs shields and separation that inflate the diameter.
+                Splitting the physical architecture into a power bundle and a
+                signal bundle, routed a few centimeters apart, usually yields
+                two smaller bundles whose combined cross-section is less than
+                the single shielded mass, and it simplifies clamp selection and
+                fault isolation for the whole vehicle.
+              </p>
+              <p class="mb-4">
+                Evaluate aluminum for the heavy feeders. For long power runs,
+                aluminum conductors at the same current rating need a larger
+                gauge, but they weigh roughly seventy percent less than copper
+                for the same resistance. The modeler's aluminum material toggle
+                instantly shows the weight consequence of the trade. On
+                weight-critical platforms, a 14 AWG aluminum feeder that weighs
+                0.42 g/m versus 1.25 g/m for the equivalent copper run is a
+                meaningful saving across a full harness, provided the larger
+                diameter is acceptable in the routing space.
+              </p>
+              <p class="mb-4">
+                Reduce the packing factor where the bundle is controlled. A
+                bundle that is laced with waxed cord, tied with ty-raps at tight
+                intervals, or pulled through a rigid conduit packs significantly
+                better than a free-routed bundle. If your installation controls
+                the fill, setting the packing density toward the 1.20 end of the
+                range, rather than 1.25, reflects reality and wins you back a
+                few percent of diameter. Just make sure the drawing documents
+                the assumption so nobody re-routes the bundle loosely later.
+              </p>
+              <p class="mb-4">
+                Cut wire count with a common data bus. In many new designs,
+                multiple point-to-point signals can be replaced by a single
+                MIL-STD-1553 or ARINC 429 data path. One twisted shielded pair
+                replaces a dozen discrete signals and their shields. The
+                architecture decision is significant, but the diameter impact is
+                dramatic, and it is exactly the kind of comparison the modeler
+                makes fast when you swap the wire list from discrete wires to
+                one bus pair.
+              </p>
+              <p class="mb-4">
+                Finally, run the optimization loop in the modeler every time the
+                wire list changes. Add a row, remove a redundant ground, toggle
+                the material, adjust the insulation factor, and watch the
+                diameter and weight columns react instantly. Engineers who keep
+                their wire list in the tool discover that small, compounding
+                choices produce a harness that is genuinely thinner and lighter
+                than the first draft, without any change to electrical function
+                or safety margin.
+              </p>
+              <p class="mb-4">
+                Bundle optimization is a sequence of many small wins. Thin-wall
+                insulation, consolidated grounds, twisted pairs, right-sized
+                gauges, functional separation, and aluminum feeders each buy a
+                little diameter and a little weight. Added together across a
+                full wire list, they transform a bloated harness into a design
+                that fits, weighs less, and costs less to build.
+              </p>
+            </div>
+
+            <div
+              class="pt-6 border-t border-slate-100 dark:border-slate-800/80 flex flex-col sm:flex-row justify-between items-center gap-4"
+            >
+              <span
+                class="text-xs text-slate-400 dark:text-slate-500 font-semibold"
+                >Ready to optimize your harness wire list?</span
+              >
+              <a
+                href="./"
+                class="px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm rounded-lg transition-colors shadow-sm"
+              >
+                Use the Bundle Diameter Modeler &rarr;
+              </a>
+            </div>
+          </article>
         </div>
 
-        <div
-          class="text-slate-600 dark:text-slate-300 space-y-4 leading-relaxed text-sm"
-        >
-          <p class="mb-4">
-            In aerospace and high-performance industrial wiring, bundle diameter
-            is not just a fit issue. It is weight, routing space, clamp count,
-            and drag. A bundle that is a few millimeters thinner may be the
-            difference between threading through a tight bulkhead and adding a
-            new pass-through cutout. The good news is that bundle size is highly
-            controllable through wire selection and architecture choices, and
-            the Wiring Harness Bundle Diameter Modeler makes it trivial to
-            measure the impact of each decision before you spend any money.
-          </p>
-          <p class="mb-4">
-            The highest-leverage lever is insulation thickness. Conductor
-            diameter is fixed by the gauge, but the wire outside diameter is
-            dominated by the insulation wall. Switching from a standard
-            aerospace wire like M22759/16 with its heavier cross-linked wall to
-            a thin-wall spec such as M22759/32 or the extended-thin-wall
-            M22759/34 cuts the insulation factor from roughly 1.25 to 1.10 for
-            the same gauge and current rating. Because bundle area scales with
-            the square of diameter, a 15% reduction in every wire's diameter
-            produces a bundle diameter reduction of roughly ten percent and a
-            weight saving from the thinner jacket too.
-          </p>
-          <p class="mb-4">
-            Consolidate grounds before you size anything. Return conductors are
-            the easiest wires to over-specify because each system is designed in
-            isolation and each designer adds its own return path. A single
-            appropriately sized ground wire shared by several loads at the same
-            chassis potential removes three or four redundant conductors from
-            the bundle. Run the modeler once with the redundant grounds and once
-            without, and the diameter difference will justify the coordination
-            meeting it takes to agree on the shared return.
-          </p>
-          <p class="mb-4">
-            Use twisted pairs instead of individual shielded runs. When a
-            sensitive signal must be protected, the instinct is to shield each
-            conductor, and the shield's three-times diameter penalty bloats the
-            bundle. A twisted shielded pair carries two signals in one shield
-            and a twisted unshielded pair rejects common-mode noise without any
-            shield at all. Replacing two separately shielded singles with one
-            twisted shielded pair removes a full shield's worth of diameter from
-            the cross-section while preserving signal integrity.
-          </p>
-          <p class="mb-4">
-            Right-size the gauge instead of defaulting to the house standard.
-            Many drawing sets specify AWG 20 for every discrete signal simply
-            because that is the template default. A low-current sensor line at a
-            few milliamps is physically fine at AWG 26 or 28, which occupies
-            roughly a third of the area. The modeler makes the trade visible:
-            swapping ten AWG 20 wires for AWG 24 drops their combined area from
-            5.18 mm² to 2.05 mm². That single housekeeping change is often the
-            cheapest diameter optimization available.
-          </p>
-          <p class="mb-4">
-            Group by function before you bundle. A harness that routes power,
-            PWM motor drives, and millivolt sensors in one tight bundle needs
-            shields and separation that inflate the diameter. Splitting the
-            physical architecture into a power bundle and a signal bundle,
-            routed a few centimeters apart, usually yields two smaller bundles
-            whose combined cross-section is less than the single shielded mass,
-            and it simplifies clamp selection and fault isolation for the whole
-            vehicle.
-          </p>
-          <p class="mb-4">
-            Evaluate aluminum for the heavy feeders. For long power runs,
-            aluminum conductors at the same current rating need a larger gauge,
-            but they weigh roughly seventy percent less than copper for the same
-            resistance. The modeler's aluminum material toggle instantly shows
-            the weight consequence of the trade. On weight-critical platforms, a
-            14 AWG aluminum feeder that weighs 0.42 g/m versus 1.25 g/m for the
-            equivalent copper run is a meaningful saving across a full harness,
-            provided the larger diameter is acceptable in the routing space.
-          </p>
-          <p class="mb-4">
-            Reduce the packing factor where the bundle is controlled. A bundle
-            that is laced with waxed cord, tied with ty-raps at tight intervals,
-            or pulled through a rigid conduit packs significantly better than a
-            free-routed bundle. If your installation controls the fill, setting
-            the packing density toward the 1.20 end of the range, rather than
-            1.25, reflects reality and wins you back a few percent of diameter.
-            Just make sure the drawing documents the assumption so nobody
-            re-routes the bundle loosely later.
-          </p>
-          <p class="mb-4">
-            Cut wire count with a common data bus. In many new designs, multiple
-            point-to-point signals can be replaced by a single MIL-STD-1553 or
-            ARINC 429 data path. One twisted shielded pair replaces a dozen
-            discrete signals and their shields. The architecture decision is
-            significant, but the diameter impact is dramatic, and it is exactly
-            the kind of comparison the modeler makes fast when you swap the wire
-            list from discrete wires to one bus pair.
-          </p>
-          <p class="mb-4">
-            Finally, run the optimization loop in the modeler every time the
-            wire list changes. Add a row, remove a redundant ground, toggle the
-            material, adjust the insulation factor, and watch the diameter and
-            weight columns react instantly. Engineers who keep their wire list
-            in the tool discover that small, compounding choices produce a
-            harness that is genuinely thinner and lighter than the first draft,
-            without any change to electrical function or safety margin.
-          </p>
-          <p class="mb-4">
-            Bundle optimization is a sequence of many small wins. Thin-wall
-            insulation, consolidated grounds, twisted pairs, right-sized gauges,
-            functional separation, and aluminum feeders each buy a little
-            diameter and a little weight. Added together across a full wire
-            list, they transform a bloated harness into a design that fits,
-            weighs less, and costs less to build.
-          </p>
-        </div>
-
-        <div
-          class="pt-6 border-t border-slate-100 dark:border-slate-800/80 flex flex-col sm:flex-row justify-between items-center gap-4"
-        >
-          <span class="text-xs text-slate-400 dark:text-slate-500 font-semibold"
-            >Ready to optimize your harness wire list?</span
+        <!-- Column 4 Sidebar -->
+        <div class="lg:col-span-1 space-y-6">
+          <div id="trending-sidebar"></div>
+          <div
+            id="ad-slot-square"
+            class="w-full p-4 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center mt-4 select-none min-h-[250px] overflow-hidden"
+            style="min-height: 250px"
           >
-          <a
-            href="./"
-            class="px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm rounded-lg transition-colors shadow-sm"
+            <span
+              class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-2"
+              >Advertisement</span
+            >
+            <div
+              class="w-full flex justify-center"
+              style="height: 250px; max-height: 250px; overflow: hidden"
+            >
+              <ins
+                class="adsbygoogle"
+                style="
+                  display: block;
+                  width: 100%;
+                  min-height: 250px;
+                  max-height: 250px;
+                "
+                data-ad-client="ca-pub-3901061173891576"
+                data-ad-slot="6707430996"
+                data-ad-format="rectangle"
+                data-full-width-responsive="false"
+              ></ins>
+            </div>
+          </div>
+          <div
+            id="ad-slot-vertical"
+            class="w-full p-4 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center mt-4 hidden lg:flex select-none min-h-[600px] overflow-hidden"
+            style="min-height: 600px"
           >
-            Use the Bundle Diameter Modeler &rarr;
-          </a>
+            <span
+              class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-2"
+              >Advertisement</span
+            >
+            <div
+              class="w-full flex justify-center"
+              style="height: 600px; max-height: 600px; overflow: hidden"
+            >
+              <ins
+                class="adsbygoogle"
+                style="
+                  display: block;
+                  width: 100%;
+                  min-height: 600px;
+                  max-height: 600px;
+                "
+                data-ad-client="ca-pub-3901061173891576"
+                data-ad-slot="1581548667"
+                data-ad-format="auto"
+                data-full-width-responsive="true"
+              ></ins>
+            </div>
+          </div>
         </div>
-      </article>
+      </div>
     </main>
 
     <!-- Footer -->

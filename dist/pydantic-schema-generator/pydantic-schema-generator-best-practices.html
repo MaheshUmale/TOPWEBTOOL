@@ -53,168 +53,273 @@
     <!-- Header -->
     <header id="global-header"></header>
 
-    <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-grow">
-      <article class="prose prose-slate dark:prose-invert max-w-none">
-        <!-- Reverse Link Back to Main Tool -->
-        <a
-          href="./"
-          class="inline-flex items-center text-brand-600 dark:text-brand-400 font-bold hover:underline text-sm mb-2 transition-colors"
+    <main
+      class="tool-page-main max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex-grow"
+    >
+      <!-- Leaderboard Ad Slot -->
+      <div
+        id="ad-slot-a"
+        class="w-full mx-auto mb-6 p-3 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center select-none overflow-hidden min-h-[90px]"
+        style="max-width: 728px; min-height: 90px; max-height: 135px"
+      >
+        <span
+          class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-1.5"
+          >Advertisement</span
         >
-          &larr; Back to Pydantic Schema Generator Tool
-        </a>
-
-        <h1
-          class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight"
-        >
-          Pydantic Schema Best Practices for Production Models
-        </h1>
-
         <div
-          class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4"
+          class="w-full flex justify-center"
+          style="height: 90px; max-height: 90px; overflow: hidden"
         >
-          <span>Published: August 2026</span>
-          <span>•</span>
-          <span>Category: AI Agent & Automation</span>
-          <span>•</span>
-          <span class="text-emerald-600 dark:text-emerald-400"
-            >No Sign-Up / 100% Free / No Registration</span
-          >
+          <ins
+            class="adsbygoogle"
+            style="
+              display: inline-block;
+              width: 100%;
+              height: 90px;
+              max-height: 90px;
+            "
+            data-ad-client="ca-pub-3901061173891576"
+            data-ad-slot="2894630336"
+            data-ad-format="horizontal"
+            data-full-width-responsive="false"
+          ></ins>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-4 gap-4">
+        <!-- Main Content (Column 1-3) -->
+        <div class="lg:col-span-3 space-y-8">
+          <article class="prose prose-slate dark:prose-invert max-w-none">
+            <!-- Reverse Link Back to Main Tool -->
+            <a
+              href="./"
+              class="inline-flex items-center text-brand-600 dark:text-brand-400 font-bold hover:underline text-sm mb-2 transition-colors"
+            >
+              &larr; Back to Pydantic Schema Generator Tool
+            </a>
+
+            <h1
+              class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight"
+            >
+              Pydantic Schema Best Practices for Production Models
+            </h1>
+
+            <div
+              class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4"
+            >
+              <span>Published: August 2026</span>
+              <span>•</span>
+              <span>Category: AI Agent & Automation</span>
+              <span>•</span>
+              <span class="text-emerald-600 dark:text-emerald-400"
+                >No Sign-Up / 100% Free / No Registration</span
+              >
+            </div>
+
+            <!-- Body Content -->
+            <div
+              class="text-slate-600 dark:text-slate-300 space-y-4 leading-relaxed text-sm"
+            >
+              <p class="mb-4">
+                Start with the distinction that causes most production bugs:
+                optional versus nullable. An optional field, declared with a
+                default, is simply absent when not provided — the JSON omits the
+                key. A nullable field accepts
+                <code class="font-mono text-xs">null</code> as a value. These
+                are not the same thing, and conflating them leaks through to
+                consumers. If "age is unknown" means the field is missing, make
+                it optional; if it means the field is present but explicitly no
+                value, make it nullable. The generator's default handling is
+                deliberate: give a default only when the schema should tolerate
+                absence, and keep the type narrow when absence is invalid.
+              </p>
+              <p class="mb-4">
+                Constrain fields at the type, not in code. A field that accepts
+                any string but should only accept a country code is a string
+                until a constraint makes it a code. In Pydantic, constraints
+                like
+                <code class="font-mono text-xs">min_length</code>,
+                <code class="font-mono text-xs">max_length</code>,
+                <code class="font-mono text-xs">ge</code>, and
+                <code class="font-mono text-xs">le</code> live in the
+                <code class="font-mono text-xs">Field(...)</code> specifier, and
+                they flow automatically into the JSON Schema as
+                <code class="font-mono text-xs">minLength</code> and
+                <code class="font-mono text-xs">minimum</code>. Put the
+                constraint in the model once, and both Python validation and
+                JSON Schema consumers enforce it. Validation near the boundary
+                is cheaper than validation in every consumer.
+              </p>
+              <p class="mb-4">
+                Prefer narrow, explicit types over wide ones. A
+                <code class="font-mono text-xs">list</code> field with no
+                element type accepts a heterogeneous array, which almost never
+                matches reality. Model what the list actually holds — a list of
+                strings, a list of nested objects — so that a mis-typed element
+                fails at the boundary instead of cascading through downstream
+                code. The same principle applies to
+                <code class="font-mono text-xs">dict</code> fields: name the
+                value type when you can, and prefer
+                <code class="font-mono text-xs">EmailStr</code> and
+                <code class="font-mono text-xs">datetime</code> over their
+                looser string counterparts.
+              </p>
+              <p class="mb-4">
+                Compose small models into larger ones. Rather than a single
+                model with twenty flat fields, define a reusable sub-model for
+                an address or a payment method and nest it as a field type.
+                Nested composition mirrors how real objects are structured,
+                keeps each model reviewable, and gives you one canonical
+                definition to reuse across schemas. The generator's output is
+                ready to combine: each generated class can be imported and
+                embedded as a field type in another class.
+              </p>
+              <p class="mb-4">
+                Keep the schema backward-compatible as the API evolves. Adding a
+                new optional field is safe — old consumers ignore it and new
+                consumers get a default. Adding a new required field, changing a
+                type, or renaming a field breaks every existing consumer. When
+                you must change a contract, version it rather than mutating it
+                in place. The discipline of reviewing "requiredness" on every
+                new field is the cheapest insurance you can buy against a
+                coordinated deployment.
+              </p>
+              <p class="mb-4">
+                Treat the JSON Schema as the source of truth for cross-language
+                consumers. Whatever consumes the API — a TypeScript client, a
+                React form, a Java service — should derive its types from the
+                generated schema rather than hand-copying field names. A single
+                exported schema drives client type generation, form builders,
+                and documentation, which eliminates the drift that appears when
+                each layer writes its own copy of the shape.
+              </p>
+              <p class="mb-4">
+                Write the descriptions as if a stranger must integrate with you.
+                The description on each field is the only documentation many
+                consumers will read; it should state the semantic meaning, the
+                units, and the allowed domain. A description like "the ISO
+                3166-1 alpha-2 country code of the user's residence" beats
+                "country" in every downstream context — and it becomes the doc
+                text in OpenAPI automatically.
+              </p>
+              <p class="mb-4">
+                For structured LLM output, apply the strictest version of these
+                rules. When a model response must be parsed into your Pydantic
+                class, every field is a potential hallucination point, so
+                required fields should be truly required, constraints should
+                reject implausible values, and the validator should be the
+                gatekeeper between freeform output and your business logic. A
+                response that fails validation is retried or rejected; a
+                response that passes is guaranteed to match your contract. That
+                guarantee is the entire point of the pattern.
+              </p>
+              <p class="mb-4">
+                These practices — explicit optional-vs-null, type-level
+                constraints, narrow types, nested composition, backward
+                compatibility, schema-driven clients, and rich descriptions —
+                are the difference between a schema that merely parses and a
+                contract that engineers trust. Build the habit at model design
+                time, because every field decision you make here is inherited by
+                every consumer downstream.
+              </p>
+              <p class="mb-4">
+                Test the contract the way you test code. Every model deserves a
+                small suite of cases: a valid payload that should parse, a
+                payload missing a required field that should fail, a payload
+                with a wrong type that should fail, and boundary values at the
+                edges of your constraints. Because the failure messages carry
+                the field name and the reason, a failing test tells you exactly
+                where the contract and reality disagree. When you change a
+                schema, run the suite; a change that turns a previously valid
+                payload into a failure is a breaking change, whether or not the
+                type checker notices. For agent projects, this suite doubles as
+                the test of your structured-output contract — feeding the
+                model's actual output through the validator in tests catches the
+                hallucinations and format drift that would otherwise reach
+                production. A schema that is tested is a schema you can evolve
+                with confidence, because the suite will tell you when an update
+                breaks the world.
+              </p>
+            </div>
+
+            <div
+              class="pt-6 border-t border-slate-100 dark:border-slate-800/80 flex flex-col sm:flex-row justify-between items-center gap-4"
+            >
+              <span
+                class="text-xs text-slate-400 dark:text-slate-500 font-semibold"
+                >Design contracts that engineers trust.</span
+              >
+              <a
+                href="./"
+                class="px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm rounded-lg transition-colors shadow-sm"
+              >
+                Use the Interactive Pydantic Schema Generator &rarr;
+              </a>
+            </div>
+          </article>
         </div>
 
-        <!-- Body Content -->
-        <div
-          class="text-slate-600 dark:text-slate-300 space-y-4 leading-relaxed text-sm"
-        >
-          <p class="mb-4">
-            Start with the distinction that causes most production bugs:
-            optional versus nullable. An optional field, declared with a
-            default, is simply absent when not provided — the JSON omits the
-            key. A nullable field accepts
-            <code class="font-mono text-xs">null</code> as a value. These are
-            not the same thing, and conflating them leaks through to consumers.
-            If "age is unknown" means the field is missing, make it optional; if
-            it means the field is present but explicitly no value, make it
-            nullable. The generator's default handling is deliberate: give a
-            default only when the schema should tolerate absence, and keep the
-            type narrow when absence is invalid.
-          </p>
-          <p class="mb-4">
-            Constrain fields at the type, not in code. A field that accepts any
-            string but should only accept a country code is a string until a
-            constraint makes it a code. In Pydantic, constraints like
-            <code class="font-mono text-xs">min_length</code>,
-            <code class="font-mono text-xs">max_length</code>,
-            <code class="font-mono text-xs">ge</code>, and
-            <code class="font-mono text-xs">le</code> live in the
-            <code class="font-mono text-xs">Field(...)</code> specifier, and
-            they flow automatically into the JSON Schema as
-            <code class="font-mono text-xs">minLength</code> and
-            <code class="font-mono text-xs">minimum</code>. Put the constraint
-            in the model once, and both Python validation and JSON Schema
-            consumers enforce it. Validation near the boundary is cheaper than
-            validation in every consumer.
-          </p>
-          <p class="mb-4">
-            Prefer narrow, explicit types over wide ones. A
-            <code class="font-mono text-xs">list</code> field with no element
-            type accepts a heterogeneous array, which almost never matches
-            reality. Model what the list actually holds — a list of strings, a
-            list of nested objects — so that a mis-typed element fails at the
-            boundary instead of cascading through downstream code. The same
-            principle applies to
-            <code class="font-mono text-xs">dict</code> fields: name the value
-            type when you can, and prefer
-            <code class="font-mono text-xs">EmailStr</code> and
-            <code class="font-mono text-xs">datetime</code> over their looser
-            string counterparts.
-          </p>
-          <p class="mb-4">
-            Compose small models into larger ones. Rather than a single model
-            with twenty flat fields, define a reusable sub-model for an address
-            or a payment method and nest it as a field type. Nested composition
-            mirrors how real objects are structured, keeps each model
-            reviewable, and gives you one canonical definition to reuse across
-            schemas. The generator's output is ready to combine: each generated
-            class can be imported and embedded as a field type in another class.
-          </p>
-          <p class="mb-4">
-            Keep the schema backward-compatible as the API evolves. Adding a new
-            optional field is safe — old consumers ignore it and new consumers
-            get a default. Adding a new required field, changing a type, or
-            renaming a field breaks every existing consumer. When you must
-            change a contract, version it rather than mutating it in place. The
-            discipline of reviewing "requiredness" on every new field is the
-            cheapest insurance you can buy against a coordinated deployment.
-          </p>
-          <p class="mb-4">
-            Treat the JSON Schema as the source of truth for cross-language
-            consumers. Whatever consumes the API — a TypeScript client, a React
-            form, a Java service — should derive its types from the generated
-            schema rather than hand-copying field names. A single exported
-            schema drives client type generation, form builders, and
-            documentation, which eliminates the drift that appears when each
-            layer writes its own copy of the shape.
-          </p>
-          <p class="mb-4">
-            Write the descriptions as if a stranger must integrate with you. The
-            description on each field is the only documentation many consumers
-            will read; it should state the semantic meaning, the units, and the
-            allowed domain. A description like "the ISO 3166-1 alpha-2 country
-            code of the user's residence" beats "country" in every downstream
-            context — and it becomes the doc text in OpenAPI automatically.
-          </p>
-          <p class="mb-4">
-            For structured LLM output, apply the strictest version of these
-            rules. When a model response must be parsed into your Pydantic
-            class, every field is a potential hallucination point, so required
-            fields should be truly required, constraints should reject
-            implausible values, and the validator should be the gatekeeper
-            between freeform output and your business logic. A response that
-            fails validation is retried or rejected; a response that passes is
-            guaranteed to match your contract. That guarantee is the entire
-            point of the pattern.
-          </p>
-          <p class="mb-4">
-            These practices — explicit optional-vs-null, type-level constraints,
-            narrow types, nested composition, backward compatibility,
-            schema-driven clients, and rich descriptions — are the difference
-            between a schema that merely parses and a contract that engineers
-            trust. Build the habit at model design time, because every field
-            decision you make here is inherited by every consumer downstream.
-          </p>
-          <p class="mb-4">
-            Test the contract the way you test code. Every model deserves a
-            small suite of cases: a valid payload that should parse, a payload
-            missing a required field that should fail, a payload with a wrong
-            type that should fail, and boundary values at the edges of your
-            constraints. Because the failure messages carry the field name and
-            the reason, a failing test tells you exactly where the contract and
-            reality disagree. When you change a schema, run the suite; a change
-            that turns a previously valid payload into a failure is a breaking
-            change, whether or not the type checker notices. For agent projects,
-            this suite doubles as the test of your structured-output contract —
-            feeding the model's actual output through the validator in tests
-            catches the hallucinations and format drift that would otherwise
-            reach production. A schema that is tested is a schema you can evolve
-            with confidence, because the suite will tell you when an update
-            breaks the world.
-          </p>
-        </div>
-
-        <div
-          class="pt-6 border-t border-slate-100 dark:border-slate-800/80 flex flex-col sm:flex-row justify-between items-center gap-4"
-        >
-          <span class="text-xs text-slate-400 dark:text-slate-500 font-semibold"
-            >Design contracts that engineers trust.</span
+        <!-- Column 4 Sidebar -->
+        <div class="lg:col-span-1 space-y-6">
+          <div id="trending-sidebar"></div>
+          <div
+            id="ad-slot-square"
+            class="w-full p-4 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center mt-4 select-none min-h-[250px] overflow-hidden"
+            style="min-height: 250px"
           >
-          <a
-            href="./"
-            class="px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm rounded-lg transition-colors shadow-sm"
+            <span
+              class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-2"
+              >Advertisement</span
+            >
+            <div
+              class="w-full flex justify-center"
+              style="height: 250px; max-height: 250px; overflow: hidden"
+            >
+              <ins
+                class="adsbygoogle"
+                style="
+                  display: block;
+                  width: 100%;
+                  min-height: 250px;
+                  max-height: 250px;
+                "
+                data-ad-client="ca-pub-3901061173891576"
+                data-ad-slot="6707430996"
+                data-ad-format="rectangle"
+                data-full-width-responsive="false"
+              ></ins>
+            </div>
+          </div>
+          <div
+            id="ad-slot-vertical"
+            class="w-full p-4 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center mt-4 hidden lg:flex select-none min-h-[600px] overflow-hidden"
+            style="min-height: 600px"
           >
-            Use the Interactive Pydantic Schema Generator &rarr;
-          </a>
+            <span
+              class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-2"
+              >Advertisement</span
+            >
+            <div
+              class="w-full flex justify-center"
+              style="height: 600px; max-height: 600px; overflow: hidden"
+            >
+              <ins
+                class="adsbygoogle"
+                style="
+                  display: block;
+                  width: 100%;
+                  min-height: 600px;
+                  max-height: 600px;
+                "
+                data-ad-client="ca-pub-3901061173891576"
+                data-ad-slot="1581548667"
+                data-ad-format="auto"
+                data-full-width-responsive="true"
+              ></ins>
+            </div>
+          </div>
         </div>
-      </article>
+      </div>
     </main>
 
     <!-- Footer -->

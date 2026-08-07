@@ -53,166 +53,271 @@
     <!-- Header -->
     <header id="global-header"></header>
 
-    <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-grow">
-      <article class="prose prose-slate dark:prose-invert max-w-none">
-        <!-- Reverse Link Back to Main Tool -->
-        <a
-          href="./"
-          class="inline-flex items-center text-brand-600 dark:text-brand-400 font-bold hover:underline text-sm mb-2 transition-colors"
+    <main
+      class="tool-page-main max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex-grow"
+    >
+      <!-- Leaderboard Ad Slot -->
+      <div
+        id="ad-slot-a"
+        class="w-full mx-auto mb-6 p-3 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center select-none overflow-hidden min-h-[90px]"
+        style="max-width: 728px; min-height: 90px; max-height: 135px"
+      >
+        <span
+          class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-1.5"
+          >Advertisement</span
         >
-          &larr; Back to Thermocouple Calculator
-        </a>
-
-        <h1
-          class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight"
-        >
-          Common Errors That Silently Skew Thermocouple Readings
-        </h1>
-
         <div
-          class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4"
+          class="w-full flex justify-center"
+          style="height: 90px; max-height: 90px; overflow: hidden"
         >
-          <span>Published: August 2026</span>
-          <span>•</span>
-          <span>Category: Industrial &amp; Engineering</span>
-          <span>•</span>
-          <span class="text-emerald-600 dark:text-emerald-400"
-            >No Sign-Up / 100% Free / No Registration</span
-          >
+          <ins
+            class="adsbygoogle"
+            style="
+              display: inline-block;
+              width: 100%;
+              height: 90px;
+              max-height: 90px;
+            "
+            data-ad-client="ca-pub-3901061173891576"
+            data-ad-slot="2894630336"
+            data-ad-format="horizontal"
+            data-full-width-responsive="false"
+          ></ins>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-4 gap-4">
+        <!-- Main Content (Column 1-3) -->
+        <div class="lg:col-span-3 space-y-8">
+          <article class="prose prose-slate dark:prose-invert max-w-none">
+            <!-- Reverse Link Back to Main Tool -->
+            <a
+              href="./"
+              class="inline-flex items-center text-brand-600 dark:text-brand-400 font-bold hover:underline text-sm mb-2 transition-colors"
+            >
+              &larr; Back to Thermocouple Calculator
+            </a>
+
+            <h1
+              class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight"
+            >
+              Common Errors That Silently Skew Thermocouple Readings
+            </h1>
+
+            <div
+              class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4"
+            >
+              <span>Published: August 2026</span>
+              <span>•</span>
+              <span>Category: Industrial &amp; Engineering</span>
+              <span>•</span>
+              <span class="text-emerald-600 dark:text-emerald-400"
+                >No Sign-Up / 100% Free / No Registration</span
+              >
+            </div>
+
+            <!-- Body Content -->
+            <div
+              class="text-slate-600 dark:text-slate-300 space-y-4 leading-relaxed text-sm"
+            >
+              <p class="mb-4">
+                Thermocouple errors are the most expensive errors in temperature
+                measurement because they are invisible. The display shows a
+                number, the number looks reasonable, and the process runs on it
+                — even when every reading is off by a measurable amount. This
+                article catalogs the recurring errors in thermocouple
+                measurement and conversion so they can be caught before they
+                become process decisions.
+              </p>
+              <p class="mb-4">
+                Error number one: assuming the thermocouple type. The millivolt
+                signal of a Type J probe is very different from a Type K at the
+                same temperature — at 300 °C a Type J produces about 16.3 mV
+                while a Type K produces about 12.2 mV — so reading a Type J
+                sensor with a Type K conversion misplaces the temperature by
+                tens of degrees. The mistake is made in both directions: an
+                unlabeled probe read as the wrong type, or a probe labeled in
+                the old ANSI colors mistaken under a new standard. The
+                discipline is to verify the type from the wire alloy, the
+                connector color code, and the probe's label, and to record the
+                type beside every reading — which is exactly the first field in
+                the calculator's conversion.
+              </p>
+              <p class="mb-4">
+                Error number two: ignoring the cold junction. Every thermocouple
+                measurement includes the reference junction at the instrument,
+                and the NIST polynomials are defined with that junction at 0 °C.
+                If the reference junction actually sits at 25 °C and the
+                compensation is not applied, the temperature error is the EMF
+                difference — about 1 °C for a Type K, more for
+                higher-sensitivity types — and it scales with how far the
+                terminals drift from zero. The error appears as a constant
+                offset that passes the plausibility test, which is exactly why
+                it survives for years in field data. The calculator's
+                reference-junction field exists to make the compensation an
+                explicit input rather than an unspoken assumption.
+              </p>
+              <p class="mb-4">
+                Error number three: using the wrong extension wire. The leads
+                between the probe and the instrument must be thermocouple
+                extension wire matching the type, or every transition between
+                alloys creates a new junction at an uncontrolled temperature.
+                Running Type K sensor legs on copper wire, or mixing a Type J
+                probe with a Type K extension run, produces errors that vary
+                with the ambient temperature along the run — a moving target
+                that no single offset can correct. The calculator cannot see the
+                wiring, which is exactly why the wiring discipline belongs in
+                the measurement procedure.
+              </p>
+              <p class="mb-4">
+                Error number four: measuring outside the sensor's valid range.
+                Each thermocouple type has a temperature range set by its alloy
+                and defined by the ITS-90 polynomials, and beyond that range the
+                wire either cannot produce a valid signal or the polynomial
+                simply does not exist. A Type T at 500 °C, or a Type K
+                extrapolated past 1372 °C, produces a number that looks like a
+                reading but is not a measurement. The calculator rejects
+                out-of-range conversions explicitly, and the discipline is to
+                accept the rejection — the correct response to an out-of-range
+                sensor is a different type, not a different conversion.
+              </p>
+              <p class="mb-4">
+                Error number five: converting with the wrong unit. Thermocouple
+                tables and polynomials are defined in degrees Celsius and
+                millivolts, and mixing in Fahrenheit or kelvin without
+                converting shifts every result. A temperature entered as 200 °F
+                where 200 °C was meant changes the EMF dramatically — the
+                difference between the two is most of the usable range of
+                several thermocouple types. The calculator works entirely in
+                Celsius and millivolts and shows both °C and °F on the results,
+                but the input side must be entered in the unit the field states.
+              </p>
+              <p class="mb-4">
+                Error number six: trusting the voltage reading itself. The
+                conversion assumes the millivolt reading is accurate, but field
+                multimeters add contact resistance, lead resistance, and their
+                own thermal EMFs at the test leads. A handheld meter on
+                low-millivolt ranges can contribute microvolts that become
+                tenths of a degree, and worn test-lead contacts add noise that a
+                single conversion takes at face value. The discipline is to use
+                a meter rated and calibrated for thermocouple work, keep the
+                connections clean and tight, and take the reading when the
+                display has settled — the conversion is only as good as the
+                number it starts from.
+              </p>
+              <p class="mb-4">
+                Error number seven: single-point validation. A sensor checked at
+                one temperature is trusted across its whole range, but
+                thermocouple error is not constant — drift and nonlinearity
+                differ at 100 °C and at 800 °C. The practice of a two- or
+                three-point check, at a low, mid, and high temperature, brackets
+                the operating range and reveals errors a single check hides. The
+                calculator supports the check by converting each known
+                temperature to its expected EMF, so a calibration record carries
+                the expected and measured values at every point.
+              </p>
+              <p class="mb-4">
+                Error number eight: forgetting that the reference junction
+                moves. A bench instrument moved from a warm control room to a
+                cold plant floor, or a connector box warmed by the sun, changes
+                the reference-junction temperature, and if the compensation is
+                assumed rather than measured, the reading moves with it. The fix
+                is simple and reliable: either keep the reference junction at a
+                controlled 0 °C ice point, or measure the terminal temperature
+                and enter it — the calculator's reference-junction field makes
+                the second path immediate.
+              </p>
+              <p class="mb-4">
+                The common signature of all these errors is a plausible reading
+                built on a wrong assumption — the type, the junction, the wire,
+                the range, or the unit. The calculator's breakdown output is the
+                audit trail: it prints the type, the measured EMF, the reference
+                EMF, and the resulting temperature in one block, so a wrong
+                assumption shows up in the trace rather than hiding in the final
+                number. Check the trace on every conversion, verify the sensor
+                and its wiring once, and the reading will be what the process
+                actually is.
+              </p>
+            </div>
+
+            <div
+              class="pt-6 border-t border-slate-100 dark:border-slate-800/80 flex flex-col sm:flex-row justify-between items-center gap-4"
+            >
+              <span
+                class="text-xs text-slate-400 dark:text-slate-500 font-semibold"
+                >Audit your last conversion before you trust it.</span
+              >
+              <a
+                href="./"
+                class="px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm rounded-lg transition-colors shadow-sm"
+              >
+                Use the Interactive Thermocouple Calculator &rarr;
+              </a>
+            </div>
+          </article>
         </div>
 
-        <!-- Body Content -->
-        <div
-          class="text-slate-600 dark:text-slate-300 space-y-4 leading-relaxed text-sm"
-        >
-          <p class="mb-4">
-            Thermocouple errors are the most expensive errors in temperature
-            measurement because they are invisible. The display shows a number,
-            the number looks reasonable, and the process runs on it — even when
-            every reading is off by a measurable amount. This article catalogs
-            the recurring errors in thermocouple measurement and conversion so
-            they can be caught before they become process decisions.
-          </p>
-          <p class="mb-4">
-            Error number one: assuming the thermocouple type. The millivolt
-            signal of a Type J probe is very different from a Type K at the same
-            temperature — at 300 °C a Type J produces about 16.3 mV while a Type
-            K produces about 12.2 mV — so reading a Type J sensor with a Type K
-            conversion misplaces the temperature by tens of degrees. The mistake
-            is made in both directions: an unlabeled probe read as the wrong
-            type, or a probe labeled in the old ANSI colors mistaken under a new
-            standard. The discipline is to verify the type from the wire alloy,
-            the connector color code, and the probe's label, and to record the
-            type beside every reading — which is exactly the first field in the
-            calculator's conversion.
-          </p>
-          <p class="mb-4">
-            Error number two: ignoring the cold junction. Every thermocouple
-            measurement includes the reference junction at the instrument, and
-            the NIST polynomials are defined with that junction at 0 °C. If the
-            reference junction actually sits at 25 °C and the compensation is
-            not applied, the temperature error is the EMF difference — about 1
-            °C for a Type K, more for higher-sensitivity types — and it scales
-            with how far the terminals drift from zero. The error appears as a
-            constant offset that passes the plausibility test, which is exactly
-            why it survives for years in field data. The calculator's
-            reference-junction field exists to make the compensation an explicit
-            input rather than an unspoken assumption.
-          </p>
-          <p class="mb-4">
-            Error number three: using the wrong extension wire. The leads
-            between the probe and the instrument must be thermocouple extension
-            wire matching the type, or every transition between alloys creates a
-            new junction at an uncontrolled temperature. Running Type K sensor
-            legs on copper wire, or mixing a Type J probe with a Type K
-            extension run, produces errors that vary with the ambient
-            temperature along the run — a moving target that no single offset
-            can correct. The calculator cannot see the wiring, which is exactly
-            why the wiring discipline belongs in the measurement procedure.
-          </p>
-          <p class="mb-4">
-            Error number four: measuring outside the sensor's valid range. Each
-            thermocouple type has a temperature range set by its alloy and
-            defined by the ITS-90 polynomials, and beyond that range the wire
-            either cannot produce a valid signal or the polynomial simply does
-            not exist. A Type T at 500 °C, or a Type K extrapolated past 1372
-            °C, produces a number that looks like a reading but is not a
-            measurement. The calculator rejects out-of-range conversions
-            explicitly, and the discipline is to accept the rejection — the
-            correct response to an out-of-range sensor is a different type, not
-            a different conversion.
-          </p>
-          <p class="mb-4">
-            Error number five: converting with the wrong unit. Thermocouple
-            tables and polynomials are defined in degrees Celsius and
-            millivolts, and mixing in Fahrenheit or kelvin without converting
-            shifts every result. A temperature entered as 200 °F where 200 °C
-            was meant changes the EMF dramatically — the difference between the
-            two is most of the usable range of several thermocouple types. The
-            calculator works entirely in Celsius and millivolts and shows both
-            °C and °F on the results, but the input side must be entered in the
-            unit the field states.
-          </p>
-          <p class="mb-4">
-            Error number six: trusting the voltage reading itself. The
-            conversion assumes the millivolt reading is accurate, but field
-            multimeters add contact resistance, lead resistance, and their own
-            thermal EMFs at the test leads. A handheld meter on low-millivolt
-            ranges can contribute microvolts that become tenths of a degree, and
-            worn test-lead contacts add noise that a single conversion takes at
-            face value. The discipline is to use a meter rated and calibrated
-            for thermocouple work, keep the connections clean and tight, and
-            take the reading when the display has settled — the conversion is
-            only as good as the number it starts from.
-          </p>
-          <p class="mb-4">
-            Error number seven: single-point validation. A sensor checked at one
-            temperature is trusted across its whole range, but thermocouple
-            error is not constant — drift and nonlinearity differ at 100 °C and
-            at 800 °C. The practice of a two- or three-point check, at a low,
-            mid, and high temperature, brackets the operating range and reveals
-            errors a single check hides. The calculator supports the check by
-            converting each known temperature to its expected EMF, so a
-            calibration record carries the expected and measured values at every
-            point.
-          </p>
-          <p class="mb-4">
-            Error number eight: forgetting that the reference junction moves. A
-            bench instrument moved from a warm control room to a cold plant
-            floor, or a connector box warmed by the sun, changes the
-            reference-junction temperature, and if the compensation is assumed
-            rather than measured, the reading moves with it. The fix is simple
-            and reliable: either keep the reference junction at a controlled 0
-            °C ice point, or measure the terminal temperature and enter it — the
-            calculator's reference-junction field makes the second path
-            immediate.
-          </p>
-          <p class="mb-4">
-            The common signature of all these errors is a plausible reading
-            built on a wrong assumption — the type, the junction, the wire, the
-            range, or the unit. The calculator's breakdown output is the audit
-            trail: it prints the type, the measured EMF, the reference EMF, and
-            the resulting temperature in one block, so a wrong assumption shows
-            up in the trace rather than hiding in the final number. Check the
-            trace on every conversion, verify the sensor and its wiring once,
-            and the reading will be what the process actually is.
-          </p>
-        </div>
-
-        <div
-          class="pt-6 border-t border-slate-100 dark:border-slate-800/80 flex flex-col sm:flex-row justify-between items-center gap-4"
-        >
-          <span class="text-xs text-slate-400 dark:text-slate-500 font-semibold"
-            >Audit your last conversion before you trust it.</span
+        <!-- Column 4 Sidebar -->
+        <div class="lg:col-span-1 space-y-6">
+          <div id="trending-sidebar"></div>
+          <div
+            id="ad-slot-square"
+            class="w-full p-4 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center mt-4 select-none min-h-[250px] overflow-hidden"
+            style="min-height: 250px"
           >
-          <a
-            href="./"
-            class="px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm rounded-lg transition-colors shadow-sm"
+            <span
+              class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-2"
+              >Advertisement</span
+            >
+            <div
+              class="w-full flex justify-center"
+              style="height: 250px; max-height: 250px; overflow: hidden"
+            >
+              <ins
+                class="adsbygoogle"
+                style="
+                  display: block;
+                  width: 100%;
+                  min-height: 250px;
+                  max-height: 250px;
+                "
+                data-ad-client="ca-pub-3901061173891576"
+                data-ad-slot="6707430996"
+                data-ad-format="rectangle"
+                data-full-width-responsive="false"
+              ></ins>
+            </div>
+          </div>
+          <div
+            id="ad-slot-vertical"
+            class="w-full p-4 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center mt-4 hidden lg:flex select-none min-h-[600px] overflow-hidden"
+            style="min-height: 600px"
           >
-            Use the Interactive Thermocouple Calculator &rarr;
-          </a>
+            <span
+              class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-2"
+              >Advertisement</span
+            >
+            <div
+              class="w-full flex justify-center"
+              style="height: 600px; max-height: 600px; overflow: hidden"
+            >
+              <ins
+                class="adsbygoogle"
+                style="
+                  display: block;
+                  width: 100%;
+                  min-height: 600px;
+                  max-height: 600px;
+                "
+                data-ad-client="ca-pub-3901061173891576"
+                data-ad-slot="1581548667"
+                data-ad-format="auto"
+                data-full-width-responsive="true"
+              ></ins>
+            </div>
+          </div>
         </div>
-      </article>
+      </div>
     </main>
 
     <!-- Footer -->

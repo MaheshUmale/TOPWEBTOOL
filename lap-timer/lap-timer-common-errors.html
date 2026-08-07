@@ -53,149 +53,250 @@
     <!-- Header -->
     <header id="global-header"></header>
 
-    <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-grow">
-      <article class="prose prose-slate dark:prose-invert max-w-none">
-        <!-- Reverse Link Back to Main Tool -->
-        <a
-          href="./"
-          class="inline-flex items-center text-brand-600 dark:text-brand-400 font-bold hover:underline text-sm mb-2 transition-colors"
+    <main
+      class="tool-page-main max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex-grow"
+    >
+      <!-- Leaderboard Ad Slot -->
+      <div
+        id="ad-slot-a"
+        class="w-full mx-auto mb-6 p-3 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center select-none overflow-hidden min-h-[90px]"
+        style="max-width: 728px; min-height: 90px; max-height: 135px"
+      >
+        <span
+          class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-1.5"
+          >Advertisement</span
         >
-          &larr; Back to Chronometer Split Lap Timer
-        </a>
-
-        <h1
-          class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight"
-        >
-          Common Errors in Chronometer Split Lap Timing
-        </h1>
-
         <div
-          class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4"
+          class="w-full flex justify-center"
+          style="height: 90px; max-height: 90px; overflow: hidden"
         >
-          <span>Published: August 2026</span>
-          <span>•</span>
-          <span>Category: Health &amp; Lifestyle</span>
-          <span>•</span>
-          <span class="text-emerald-600 dark:text-emerald-400"
-            >No Sign-Up / 100% Free / No Registration</span
-          >
+          <ins
+            class="adsbygoogle"
+            style="
+              display: inline-block;
+              width: 100%;
+              height: 90px;
+              max-height: 90px;
+            "
+            data-ad-client="ca-pub-3901061173891576"
+            data-ad-slot="2894630336"
+            data-ad-format="horizontal"
+            data-full-width-responsive="false"
+          ></ins>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-4 gap-4">
+        <!-- Main Content (Column 1-3) -->
+        <div class="lg:col-span-3 space-y-8">
+          <article class="prose prose-slate dark:prose-invert max-w-none">
+            <!-- Reverse Link Back to Main Tool -->
+            <a
+              href="./"
+              class="inline-flex items-center text-brand-600 dark:text-brand-400 font-bold hover:underline text-sm mb-2 transition-colors"
+            >
+              &larr; Back to Chronometer Split Lap Timer
+            </a>
+
+            <h1
+              class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight"
+            >
+              Common Errors in Chronometer Split Lap Timing
+            </h1>
+
+            <div
+              class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4"
+            >
+              <span>Published: August 2026</span>
+              <span>•</span>
+              <span>Category: Health &amp; Lifestyle</span>
+              <span>•</span>
+              <span class="text-emerald-600 dark:text-emerald-400"
+                >No Sign-Up / 100% Free / No Registration</span
+              >
+            </div>
+
+            <!-- Body Content -->
+            <div
+              class="text-slate-600 dark:text-slate-300 space-y-4 leading-relaxed text-sm"
+            >
+              <p class="mb-4">
+                Even a millisecond-accurate chronometer produces useless data
+                when the operator makes timing errors. Most of the mistakes are
+                not hardware or software problems — they are habits. This
+                article walks through the most common errors in split lap
+                timing, how they corrupt the numbers, and the simple corrections
+                that keep a lap table honest.
+              </p>
+              <p class="mb-4">
+                The single most common error is marking the lap late. The runner
+                crosses the line at 1:48.2, and the thumb lands on Lap at
+                1:48.5. That one split is now wrong by a few tenths, and the
+                next split inherits the error in the opposite direction — the
+                following lap looks faster than it was. Consistent late marking
+                that is delayed the same amount every time is mostly harmless,
+                because the error cancels across the comparison. What destroys
+                the data is inconsistent delay: sometimes on time, sometimes 300
+                milliseconds late, which makes some laps look fast and others
+                slow for no physical reason. Fix it by fixing your technique and
+                marking at the moment of the event.
+              </p>
+              <p class="mb-4">
+                Changing split points mid-session is a subtler and more damaging
+                error. A runner starts marking every kilometer, then switches to
+                every 800 metres at lap four because the course markers changed.
+                From that point the lap intervals are a different distance, so
+                the numbers from the two halves of the table are not comparable
+                — a "fast" lap four may simply be shorter. The lap table is only
+                interpretable if every split spans the same physical interval.
+                Decide the split points first, write them down if needed, and
+                never change them until the reset.
+              </p>
+              <p class="mb-4">
+                Forgetting to export before resetting is the data-loss error.
+                Reset clears the lap table instantly and completely; there is no
+                undo and no recovery. The workflow that guarantees loss is
+                "finish the workout, admire the numbers, reset." The corrective
+                habit takes one second: press Export CSV as soon as the last lap
+                is marked, before Reset even comes into view. For a session you
+                care about, the export is the deliverable — the timer screen is
+                just the instrument display.
+              </p>
+              <p class="mb-4">
+                Pausing the timer and expecting the laps to keep a rhythm is
+                another frequent misunderstanding. Pause stops the accumulated
+                total; if you pause mid-workout and resume later, the cumulative
+                column keeps the entire interval — including the paused gap — so
+                the numbers no longer represent continuous running effort. The
+                best, worst, and average are still computed from the recorded
+                laps, but the cumulative column no longer matches the real
+                session structure. If a workout requires a genuine break, the
+                clean approach is to finish that segment, record the final
+                split, and start a new session for the next segment.
+              </p>
+              <p class="mb-4">
+                Misreading the two columns is a subtle but widespread error. The
+                cumulative column is a running total from Start; the lap column
+                is the interval since the last split. Comparing a lap time
+                against a cumulative time — or reading the cumulative column as
+                if it were the latest lap — produces nonsense conclusions like
+                "my second lap was slower than my first" when the real reason is
+                that the second cumulative reading simply includes the first
+                lap. Always compare like with like: lap column to lap column,
+                cumulative to cumulative.
+              </p>
+              <p class="mb-4">
+                Watching the display instead of the event is the attention
+                error. Timing precision comes from watching the athlete or the
+                finish line, not the screen. The display shows the state of the
+                clock, not the event you are measuring; if your eyes are on the
+                numbers, the moment of the split has usually already passed by
+                the time your thumb moves. Keep your eyes on the event, keep the
+                thumb on the button, and let the screen take care of itself.
+              </p>
+              <p class="mb-4">
+                Treating the average as meaningful with very few laps is an
+                interpretation error. A single lap gives a best, a worst, and an
+                average that are all the same number — statistically empty. The
+                average only begins to describe your pacing once you have
+                several comparable laps, and the spread between best and worst
+                only earns its meaning over a full set of consistent intervals.
+                Avoid drawing pacing conclusions from a two-lap session; the
+                summary needs volume before it means anything.
+              </p>
+              <p class="mb-4">
+                The last common error is blaming the instrument for human
+                latency. Manual splits will always trail automatic timing by a
+                reaction-time offset, and that is not a bug. If you compare
+                manual chronometer times against chip timing and expect
+                equality, the discrepancy will look like an error when it is
+                just the physics of a human button press. Recognize the offset,
+                keep your technique consistent so it cancels, and use the lap
+                table for what it is genuinely good at: comparing intervals
+                within and across your own sessions. Avoided these habits, the
+                Chronometer Split Lap Timer measures what actually happened —
+                and your data says what it says.
+              </p>
+            </div>
+
+            <div
+              class="pt-6 border-t border-slate-100 dark:border-slate-800/80 flex flex-col sm:flex-row justify-between items-center gap-4"
+            >
+              <span
+                class="text-xs text-slate-400 dark:text-slate-500 font-semibold"
+                >Ready to avoid these errors?</span
+              >
+              <a
+                href="./"
+                class="px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm rounded-lg transition-colors shadow-sm"
+              >
+                Use the Interactive Split Lap Timer &rarr;
+              </a>
+            </div>
+          </article>
         </div>
 
-        <!-- Body Content -->
-        <div
-          class="text-slate-600 dark:text-slate-300 space-y-4 leading-relaxed text-sm"
-        >
-          <p class="mb-4">
-            Even a millisecond-accurate chronometer produces useless data when
-            the operator makes timing errors. Most of the mistakes are not
-            hardware or software problems — they are habits. This article walks
-            through the most common errors in split lap timing, how they corrupt
-            the numbers, and the simple corrections that keep a lap table
-            honest.
-          </p>
-          <p class="mb-4">
-            The single most common error is marking the lap late. The runner
-            crosses the line at 1:48.2, and the thumb lands on Lap at 1:48.5.
-            That one split is now wrong by a few tenths, and the next split
-            inherits the error in the opposite direction — the following lap
-            looks faster than it was. Consistent late marking that is delayed
-            the same amount every time is mostly harmless, because the error
-            cancels across the comparison. What destroys the data is
-            inconsistent delay: sometimes on time, sometimes 300 milliseconds
-            late, which makes some laps look fast and others slow for no
-            physical reason. Fix it by fixing your technique and marking at the
-            moment of the event.
-          </p>
-          <p class="mb-4">
-            Changing split points mid-session is a subtler and more damaging
-            error. A runner starts marking every kilometer, then switches to
-            every 800 metres at lap four because the course markers changed.
-            From that point the lap intervals are a different distance, so the
-            numbers from the two halves of the table are not comparable — a
-            "fast" lap four may simply be shorter. The lap table is only
-            interpretable if every split spans the same physical interval.
-            Decide the split points first, write them down if needed, and never
-            change them until the reset.
-          </p>
-          <p class="mb-4">
-            Forgetting to export before resetting is the data-loss error. Reset
-            clears the lap table instantly and completely; there is no undo and
-            no recovery. The workflow that guarantees loss is "finish the
-            workout, admire the numbers, reset." The corrective habit takes one
-            second: press Export CSV as soon as the last lap is marked, before
-            Reset even comes into view. For a session you care about, the export
-            is the deliverable — the timer screen is just the instrument
-            display.
-          </p>
-          <p class="mb-4">
-            Pausing the timer and expecting the laps to keep a rhythm is another
-            frequent misunderstanding. Pause stops the accumulated total; if you
-            pause mid-workout and resume later, the cumulative column keeps the
-            entire interval — including the paused gap — so the numbers no
-            longer represent continuous running effort. The best, worst, and
-            average are still computed from the recorded laps, but the
-            cumulative column no longer matches the real session structure. If a
-            workout requires a genuine break, the clean approach is to finish
-            that segment, record the final split, and start a new session for
-            the next segment.
-          </p>
-          <p class="mb-4">
-            Misreading the two columns is a subtle but widespread error. The
-            cumulative column is a running total from Start; the lap column is
-            the interval since the last split. Comparing a lap time against a
-            cumulative time — or reading the cumulative column as if it were the
-            latest lap — produces nonsense conclusions like "my second lap was
-            slower than my first" when the real reason is that the second
-            cumulative reading simply includes the first lap. Always compare
-            like with like: lap column to lap column, cumulative to cumulative.
-          </p>
-          <p class="mb-4">
-            Watching the display instead of the event is the attention error.
-            Timing precision comes from watching the athlete or the finish line,
-            not the screen. The display shows the state of the clock, not the
-            event you are measuring; if your eyes are on the numbers, the moment
-            of the split has usually already passed by the time your thumb
-            moves. Keep your eyes on the event, keep the thumb on the button,
-            and let the screen take care of itself.
-          </p>
-          <p class="mb-4">
-            Treating the average as meaningful with very few laps is an
-            interpretation error. A single lap gives a best, a worst, and an
-            average that are all the same number — statistically empty. The
-            average only begins to describe your pacing once you have several
-            comparable laps, and the spread between best and worst only earns
-            its meaning over a full set of consistent intervals. Avoid drawing
-            pacing conclusions from a two-lap session; the summary needs volume
-            before it means anything.
-          </p>
-          <p class="mb-4">
-            The last common error is blaming the instrument for human latency.
-            Manual splits will always trail automatic timing by a reaction-time
-            offset, and that is not a bug. If you compare manual chronometer
-            times against chip timing and expect equality, the discrepancy will
-            look like an error when it is just the physics of a human button
-            press. Recognize the offset, keep your technique consistent so it
-            cancels, and use the lap table for what it is genuinely good at:
-            comparing intervals within and across your own sessions. Avoided
-            these habits, the Chronometer Split Lap Timer measures what actually
-            happened — and your data says what it says.
-          </p>
-        </div>
-
-        <div
-          class="pt-6 border-t border-slate-100 dark:border-slate-800/80 flex flex-col sm:flex-row justify-between items-center gap-4"
-        >
-          <span class="text-xs text-slate-400 dark:text-slate-500 font-semibold"
-            >Ready to avoid these errors?</span
+        <!-- Column 4 Sidebar -->
+        <div class="lg:col-span-1 space-y-6">
+          <div id="trending-sidebar"></div>
+          <div
+            id="ad-slot-square"
+            class="w-full p-4 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center mt-4 select-none min-h-[250px] overflow-hidden"
+            style="min-height: 250px"
           >
-          <a
-            href="./"
-            class="px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm rounded-lg transition-colors shadow-sm"
+            <span
+              class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-2"
+              >Advertisement</span
+            >
+            <div
+              class="w-full flex justify-center"
+              style="height: 250px; max-height: 250px; overflow: hidden"
+            >
+              <ins
+                class="adsbygoogle"
+                style="
+                  display: block;
+                  width: 100%;
+                  min-height: 250px;
+                  max-height: 250px;
+                "
+                data-ad-client="ca-pub-3901061173891576"
+                data-ad-slot="6707430996"
+                data-ad-format="rectangle"
+                data-full-width-responsive="false"
+              ></ins>
+            </div>
+          </div>
+          <div
+            id="ad-slot-vertical"
+            class="w-full p-4 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center mt-4 hidden lg:flex select-none min-h-[600px] overflow-hidden"
+            style="min-height: 600px"
           >
-            Use the Interactive Split Lap Timer &rarr;
-          </a>
+            <span
+              class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-2"
+              >Advertisement</span
+            >
+            <div
+              class="w-full flex justify-center"
+              style="height: 600px; max-height: 600px; overflow: hidden"
+            >
+              <ins
+                class="adsbygoogle"
+                style="
+                  display: block;
+                  width: 100%;
+                  min-height: 600px;
+                  max-height: 600px;
+                "
+                data-ad-client="ca-pub-3901061173891576"
+                data-ad-slot="1581548667"
+                data-ad-format="auto"
+                data-full-width-responsive="true"
+              ></ins>
+            </div>
+          </div>
         </div>
-      </article>
+      </div>
     </main>
 
     <!-- Footer -->

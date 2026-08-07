@@ -53,173 +53,275 @@
     <!-- Header -->
     <header id="global-header"></header>
 
-    <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-grow">
-      <article class="prose prose-slate dark:prose-invert max-w-none">
-        <!-- Reverse Link Back to Main Tool -->
-        <a
-          href="./"
-          class="inline-flex items-center text-brand-600 dark:text-brand-400 font-bold hover:underline text-sm mb-2 transition-colors"
+    <main
+      class="tool-page-main max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex-grow"
+    >
+      <!-- Leaderboard Ad Slot -->
+      <div
+        id="ad-slot-a"
+        class="w-full mx-auto mb-6 p-3 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center select-none overflow-hidden min-h-[90px]"
+        style="max-width: 728px; min-height: 90px; max-height: 135px"
+      >
+        <span
+          class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-1.5"
+          >Advertisement</span
         >
-          &larr; Back to CrewAI / AutoGen YAML Designer Tool
-        </a>
-
-        <h1
-          class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight"
-        >
-          Top Optimization Tips for CrewAI & AutoGen YAML Designer Pipelines
-        </h1>
-
         <div
-          class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4"
+          class="w-full flex justify-center"
+          style="height: 90px; max-height: 90px; overflow: hidden"
         >
-          <span>Published: August 2026</span>
-          <span>•</span>
-          <span>Category: AI Agent & Automation</span>
-          <span>•</span>
-          <span class="text-emerald-600 dark:text-emerald-400"
-            >No Sign-Up / 100% Free / No Registration</span
-          >
+          <ins
+            class="adsbygoogle"
+            style="
+              display: inline-block;
+              width: 100%;
+              height: 90px;
+              max-height: 90px;
+            "
+            data-ad-client="ca-pub-3901061173891576"
+            data-ad-slot="2894630336"
+            data-ad-format="horizontal"
+            data-full-width-responsive="false"
+          ></ins>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-4 gap-4">
+        <!-- Main Content (Column 1-3) -->
+        <div class="lg:col-span-3 space-y-8">
+          <article class="prose prose-slate dark:prose-invert max-w-none">
+            <!-- Reverse Link Back to Main Tool -->
+            <a
+              href="./"
+              class="inline-flex items-center text-brand-600 dark:text-brand-400 font-bold hover:underline text-sm mb-2 transition-colors"
+            >
+              &larr; Back to CrewAI / AutoGen YAML Designer Tool
+            </a>
+
+            <h1
+              class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight"
+            >
+              Top Optimization Tips for CrewAI & AutoGen YAML Designer Pipelines
+            </h1>
+
+            <div
+              class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4"
+            >
+              <span>Published: August 2026</span>
+              <span>•</span>
+              <span>Category: AI Agent & Automation</span>
+              <span>•</span>
+              <span class="text-emerald-600 dark:text-emerald-400"
+                >No Sign-Up / 100% Free / No Registration</span
+              >
+            </div>
+
+            <!-- Body Content -->
+            <div
+              class="text-slate-600 dark:text-slate-300 space-y-4 leading-relaxed text-sm"
+            >
+              <p class="mb-4">
+                The dominant cost in any multi-agent pipeline is tokens, and the
+                dominant driver of token spend is context. Every agent receives
+                its system prompt plus the accumulated task history, and long
+                backstories, verbose goals, and chained outputs all inflate the
+                context on every turn. The first optimization is compression:
+                write goals and expected outputs tightly, in outcome terms, and
+                cut adjectives from roles. A well-tuned crew config routinely
+                reduces per-run token usage by thirty to fifty percent without
+                any change in output quality.
+              </p>
+              <p class="mb-4">
+                Set explicit token budgets at the task level. Frameworks let you
+                cap max tokens per response, and the right cap prevents a
+                runaway agent from generating a fifteen-thousand-token artifact
+                when the expected output is two paragraphs. Budgets also make
+                cost forecasting possible — multiply expected tokens per task by
+                the call count and the model's price, and you can predict a
+                run's cost before it starts. A config with visible budgets is a
+                config you can plan around.
+              </p>
+              <p class="mb-4">
+                Feed agents only what they need. A writer agent does not need
+                the researcher's full source documents; it needs the synthesized
+                brief. Task chaining is an optimization lever: define
+                intermediate tasks that distill context so each downstream agent
+                receives a focused summary instead of a growing raw dump. The
+                expected-output field is your distillation contract — the
+                sharper it is, the smaller the context that flows downstream.
+              </p>
+              <p class="mb-4">
+                Cache what doesn't change. If the research task reads the same
+                source material across runs, cache the fetched content and the
+                model's synthesis, keyed by source hash and config version.
+                Caching across runs converts repeated executions from full-cost
+                to near-zero-cost, which matters enormously for agent pipelines
+                that run on a schedule. Put the cache key and policy in the task
+                metadata so the behavior is explicit and reviewable.
+              </p>
+              <p class="mb-4">
+                Parallelize independent tasks. Not every crew is a strict chain
+                — two tasks that both depend only on shared inputs can run
+                concurrently, cutting wall time roughly in half for a two-branch
+                pipeline. Framework support varies, so express parallel intent
+                in the config where supported and document the dependency graph
+                otherwise. The designer's separate agents and tasks sections
+                make the structure visible, which is the first step toward
+                spotting tasks that could run side by side.
+              </p>
+              <p class="mb-4">
+                Right-size the model per role. Not every agent needs the
+                flagship model; a reviewer or formatter may be perfectly served
+                by a smaller, cheaper, faster model while the complex synthesis
+                task gets the frontier model. Assigning models per agent in the
+                config is the lever, and it can cut total cost by a large factor
+                while keeping quality where it matters. Revisit model
+                assignments as new model tiers ship — the config makes swapping
+                one line per agent trivial.
+              </p>
+              <p class="mb-4">
+                Watch temperature and generation parameters. Synthesis tasks
+                benefit from low temperature for determinism; brainstorming
+                tasks want higher temperature for variety. Encoding these
+                per-agent in the llm config (as AutoGen's
+                <code class="font-mono text-xs">temperature</code> field does)
+                gives you control over both cost and character of output.
+                Document the choice next to the parameter so a future edit
+                doesn't flatten a carefully tuned pipeline back to defaults.
+              </p>
+              <p class="mb-4">
+                Instrument token usage per task and compare against the budget.
+                If a task consistently exceeds its allocation, either the
+                context feeding it is too fat (compress upstream) or the
+                expected output is underspecified (sharpen it). Keep run logs
+                keyed by config version so a regression is attributable to a
+                specific change. Optimization without measurement is guesswork;
+                agent pipelines have enough moving parts that guesswork is
+                expensive.
+              </p>
+              <p class="mb-4">
+                Optimization of a multi-agent crew is a loop: compress context,
+                budget tokens, cache stable work, parallelize branches,
+                right-size models, and measure every task. Apply the loop to the
+                config you design, and the crew gets faster and cheaper on every
+                iteration while the output stays consistent. The declarative
+                YAML is precisely what makes this loop practical — every lever
+                is one field, one line, one review away.
+              </p>
+              <p class="mb-4">
+                The cheapest optimization is fewer, better-defined agents. Every
+                additional agent adds a model call, a context hand-off, and a
+                coordination failure point, so crews that grow by accretion
+                usually get slower and less coherent, not smarter. Consolidate
+                roles that rarely interact independently, and resist the urge to
+                add a specialist until the data shows a gap the current crew
+                actually hits. Within each agent, the prompt is the cost lever:
+                a shorter, sharper system prompt produces cheaper calls and
+                fewer off-target responses, and tightening it is free. The other
+                structural lever is task sequencing — overlapping or re-entrant
+                task graphs cause redundant work and confused context, while a
+                clean dependency order lets each agent build on finished output.
+                When you measure, look at cost per completed mission and time
+                per mission, not just success rate; the optimizations that keep
+                those two metrics low while quality holds are the ones worth
+                keeping.
+              </p>
+              <p class="mb-4">
+                Keep the rendered file reviewable as the source of truth. When
+                the design is complete, the YAML it produces is what actually
+                deploys, so every optimization should be verified against the
+                rendered output rather than against the intent in your head —
+                render, read, and confirm that the agents, tasks, and
+                dependencies in the file are exactly the ones you planned. Treat
+                the rendered file as the review artifact in pull requests: a
+                reviewer should be able to read it top to bottom and understand
+                the crew's behavior without opening the editor. If the rendered
+                file has grown hard to read, that is a design signal — the file
+                should be the concise spec, not a sprawling artifact that needs
+                another document to explain it. A crew that is easy to describe
+                is easy to operate, and a rendered design that reads cleanly is
+                the best predictor of a crew that runs cleanly in production.
+              </p>
+            </div>
+
+            <div
+              class="pt-6 border-t border-slate-100 dark:border-slate-800/80 flex flex-col sm:flex-row justify-between items-center gap-4"
+            >
+              <span
+                class="text-xs text-slate-400 dark:text-slate-500 font-semibold"
+                >Design a crew that is fast, cheap, and measurable.</span
+              >
+              <a
+                href="./"
+                class="px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm rounded-lg transition-colors shadow-sm"
+              >
+                Use the Interactive CrewAI / AutoGen YAML Designer &rarr;
+              </a>
+            </div>
+          </article>
         </div>
 
-        <!-- Body Content -->
-        <div
-          class="text-slate-600 dark:text-slate-300 space-y-4 leading-relaxed text-sm"
-        >
-          <p class="mb-4">
-            The dominant cost in any multi-agent pipeline is tokens, and the
-            dominant driver of token spend is context. Every agent receives its
-            system prompt plus the accumulated task history, and long
-            backstories, verbose goals, and chained outputs all inflate the
-            context on every turn. The first optimization is compression: write
-            goals and expected outputs tightly, in outcome terms, and cut
-            adjectives from roles. A well-tuned crew config routinely reduces
-            per-run token usage by thirty to fifty percent without any change in
-            output quality.
-          </p>
-          <p class="mb-4">
-            Set explicit token budgets at the task level. Frameworks let you cap
-            max tokens per response, and the right cap prevents a runaway agent
-            from generating a fifteen-thousand-token artifact when the expected
-            output is two paragraphs. Budgets also make cost forecasting
-            possible — multiply expected tokens per task by the call count and
-            the model's price, and you can predict a run's cost before it
-            starts. A config with visible budgets is a config you can plan
-            around.
-          </p>
-          <p class="mb-4">
-            Feed agents only what they need. A writer agent does not need the
-            researcher's full source documents; it needs the synthesized brief.
-            Task chaining is an optimization lever: define intermediate tasks
-            that distill context so each downstream agent receives a focused
-            summary instead of a growing raw dump. The expected-output field is
-            your distillation contract — the sharper it is, the smaller the
-            context that flows downstream.
-          </p>
-          <p class="mb-4">
-            Cache what doesn't change. If the research task reads the same
-            source material across runs, cache the fetched content and the
-            model's synthesis, keyed by source hash and config version. Caching
-            across runs converts repeated executions from full-cost to
-            near-zero-cost, which matters enormously for agent pipelines that
-            run on a schedule. Put the cache key and policy in the task metadata
-            so the behavior is explicit and reviewable.
-          </p>
-          <p class="mb-4">
-            Parallelize independent tasks. Not every crew is a strict chain —
-            two tasks that both depend only on shared inputs can run
-            concurrently, cutting wall time roughly in half for a two-branch
-            pipeline. Framework support varies, so express parallel intent in
-            the config where supported and document the dependency graph
-            otherwise. The designer's separate agents and tasks sections make
-            the structure visible, which is the first step toward spotting tasks
-            that could run side by side.
-          </p>
-          <p class="mb-4">
-            Right-size the model per role. Not every agent needs the flagship
-            model; a reviewer or formatter may be perfectly served by a smaller,
-            cheaper, faster model while the complex synthesis task gets the
-            frontier model. Assigning models per agent in the config is the
-            lever, and it can cut total cost by a large factor while keeping
-            quality where it matters. Revisit model assignments as new model
-            tiers ship — the config makes swapping one line per agent trivial.
-          </p>
-          <p class="mb-4">
-            Watch temperature and generation parameters. Synthesis tasks benefit
-            from low temperature for determinism; brainstorming tasks want
-            higher temperature for variety. Encoding these per-agent in the llm
-            config (as AutoGen's
-            <code class="font-mono text-xs">temperature</code> field does) gives
-            you control over both cost and character of output. Document the
-            choice next to the parameter so a future edit doesn't flatten a
-            carefully tuned pipeline back to defaults.
-          </p>
-          <p class="mb-4">
-            Instrument token usage per task and compare against the budget. If a
-            task consistently exceeds its allocation, either the context feeding
-            it is too fat (compress upstream) or the expected output is
-            underspecified (sharpen it). Keep run logs keyed by config version
-            so a regression is attributable to a specific change. Optimization
-            without measurement is guesswork; agent pipelines have enough moving
-            parts that guesswork is expensive.
-          </p>
-          <p class="mb-4">
-            Optimization of a multi-agent crew is a loop: compress context,
-            budget tokens, cache stable work, parallelize branches, right-size
-            models, and measure every task. Apply the loop to the config you
-            design, and the crew gets faster and cheaper on every iteration
-            while the output stays consistent. The declarative YAML is precisely
-            what makes this loop practical — every lever is one field, one line,
-            one review away.
-          </p>
-          <p class="mb-4">
-            The cheapest optimization is fewer, better-defined agents. Every
-            additional agent adds a model call, a context hand-off, and a
-            coordination failure point, so crews that grow by accretion usually
-            get slower and less coherent, not smarter. Consolidate roles that
-            rarely interact independently, and resist the urge to add a
-            specialist until the data shows a gap the current crew actually
-            hits. Within each agent, the prompt is the cost lever: a shorter,
-            sharper system prompt produces cheaper calls and fewer off-target
-            responses, and tightening it is free. The other structural lever is
-            task sequencing — overlapping or re-entrant task graphs cause
-            redundant work and confused context, while a clean dependency order
-            lets each agent build on finished output. When you measure, look at
-            cost per completed mission and time per mission, not just success
-            rate; the optimizations that keep those two metrics low while
-            quality holds are the ones worth keeping.
-          </p>
-          <p class="mb-4">
-            Keep the rendered file reviewable as the source of truth. When the
-            design is complete, the YAML it produces is what actually deploys,
-            so every optimization should be verified against the rendered output
-            rather than against the intent in your head — render, read, and
-            confirm that the agents, tasks, and dependencies in the file are
-            exactly the ones you planned. Treat the rendered file as the review
-            artifact in pull requests: a reviewer should be able to read it top
-            to bottom and understand the crew's behavior without opening the
-            editor. If the rendered file has grown hard to read, that is a
-            design signal — the file should be the concise spec, not a sprawling
-            artifact that needs another document to explain it. A crew that is
-            easy to describe is easy to operate, and a rendered design that
-            reads cleanly is the best predictor of a crew that runs cleanly in
-            production.
-          </p>
-        </div>
-
-        <div
-          class="pt-6 border-t border-slate-100 dark:border-slate-800/80 flex flex-col sm:flex-row justify-between items-center gap-4"
-        >
-          <span class="text-xs text-slate-400 dark:text-slate-500 font-semibold"
-            >Design a crew that is fast, cheap, and measurable.</span
+        <!-- Column 4 Sidebar -->
+        <div class="lg:col-span-1 space-y-6">
+          <div id="trending-sidebar"></div>
+          <div
+            id="ad-slot-square"
+            class="w-full p-4 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center mt-4 select-none min-h-[250px] overflow-hidden"
+            style="min-height: 250px"
           >
-          <a
-            href="./"
-            class="px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm rounded-lg transition-colors shadow-sm"
+            <span
+              class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-2"
+              >Advertisement</span
+            >
+            <div
+              class="w-full flex justify-center"
+              style="height: 250px; max-height: 250px; overflow: hidden"
+            >
+              <ins
+                class="adsbygoogle"
+                style="
+                  display: block;
+                  width: 100%;
+                  min-height: 250px;
+                  max-height: 250px;
+                "
+                data-ad-client="ca-pub-3901061173891576"
+                data-ad-slot="6707430996"
+                data-ad-format="rectangle"
+                data-full-width-responsive="false"
+              ></ins>
+            </div>
+          </div>
+          <div
+            id="ad-slot-vertical"
+            class="w-full p-4 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center mt-4 hidden lg:flex select-none min-h-[600px] overflow-hidden"
+            style="min-height: 600px"
           >
-            Use the Interactive CrewAI / AutoGen YAML Designer &rarr;
-          </a>
+            <span
+              class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-2"
+              >Advertisement</span
+            >
+            <div
+              class="w-full flex justify-center"
+              style="height: 600px; max-height: 600px; overflow: hidden"
+            >
+              <ins
+                class="adsbygoogle"
+                style="
+                  display: block;
+                  width: 100%;
+                  min-height: 600px;
+                  max-height: 600px;
+                "
+                data-ad-client="ca-pub-3901061173891576"
+                data-ad-slot="1581548667"
+                data-ad-format="auto"
+                data-full-width-responsive="true"
+              ></ins>
+            </div>
+          </div>
         </div>
-      </article>
+      </div>
     </main>
 
     <!-- Footer -->

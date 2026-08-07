@@ -53,140 +53,243 @@
     <!-- Header -->
     <header id="global-header"></header>
 
-    <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-grow">
-      <article class="prose prose-slate dark:prose-invert max-w-none">
-        <!-- Reverse Link Back to Main Tool -->
-        <a
-          href="./"
-          class="inline-flex items-center text-brand-600 dark:text-brand-400 font-bold hover:underline text-sm mb-2 transition-colors"
+    <main
+      class="tool-page-main max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex-grow"
+    >
+      <!-- Leaderboard Ad Slot -->
+      <div
+        id="ad-slot-a"
+        class="w-full mx-auto mb-6 p-3 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center select-none overflow-hidden min-h-[90px]"
+        style="max-width: 728px; min-height: 90px; max-height: 135px"
+      >
+        <span
+          class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-1.5"
+          >Advertisement</span
         >
-          &larr; Back to the Pomodoro Timer
-        </a>
-
-        <h1
-          class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight"
-        >
-          Optimization Tips for a Productive Pomodoro Routine
-        </h1>
-
         <div
-          class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4"
+          class="w-full flex justify-center"
+          style="height: 90px; max-height: 90px; overflow: hidden"
         >
-          <span>Published: August 2026</span>
-          <span>•</span>
-          <span>Category: Health &amp; Lifestyle</span>
-          <span>•</span>
-          <span class="text-emerald-600 dark:text-emerald-400"
-            >No Sign-Up / 100% Free / No Registration</span
-          >
+          <ins
+            class="adsbygoogle"
+            style="
+              display: inline-block;
+              width: 100%;
+              height: 90px;
+              max-height: 90px;
+            "
+            data-ad-client="ca-pub-3901061173891576"
+            data-ad-slot="2894630336"
+            data-ad-format="horizontal"
+            data-full-width-responsive="false"
+          ></ins>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-4 gap-4">
+        <!-- Main Content (Column 1-3) -->
+        <div class="lg:col-span-3 space-y-8">
+          <article class="prose prose-slate dark:prose-invert max-w-none">
+            <!-- Reverse Link Back to Main Tool -->
+            <a
+              href="./"
+              class="inline-flex items-center text-brand-600 dark:text-brand-400 font-bold hover:underline text-sm mb-2 transition-colors"
+            >
+              &larr; Back to the Pomodoro Timer
+            </a>
+
+            <h1
+              class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight"
+            >
+              Optimization Tips for a Productive Pomodoro Routine
+            </h1>
+
+            <div
+              class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4"
+            >
+              <span>Published: August 2026</span>
+              <span>•</span>
+              <span>Category: Health &amp; Lifestyle</span>
+              <span>•</span>
+              <span class="text-emerald-600 dark:text-emerald-400"
+                >No Sign-Up / 100% Free / No Registration</span
+              >
+            </div>
+
+            <!-- Body Content -->
+            <div
+              class="text-slate-600 dark:text-slate-300 space-y-4 leading-relaxed text-sm"
+            >
+              <p class="mb-4">
+                Once the Pomodoro loop is running, the remaining gains come from
+                optimization: using the timer's own data to schedule your day,
+                pairing interval lengths with task types, and building a weekly
+                rhythm that turns the technique from a session tool into a
+                lifestyle system. These are the upgrades that separate a habit
+                from a routine.
+              </p>
+              <p class="mb-4">
+                Let your history schedule your day. The seven-day view in the
+                timer quietly reveals your attention profile: which weekdays you
+                complete the most focus intervals, and how deep the dip is on
+                heavy meeting days or Monday mornings. Use this as real
+                scheduling data. Put your most demanding creative or analytical
+                work into your historically strongest time window — for most
+                people, the morning — and reserve shallower task types for the
+                hours where your completion count drops. You are not guessing at
+                your best time; you are reading it off the record.
+              </p>
+              <p class="mb-4">
+                Pair interval length with cognitive load rather than with task
+                type alone. The familiar advice is "long intervals for deep
+                work," but the sharper version is: the interval length should
+                match the mental ramp time of the task. A task that takes five
+                minutes to get into — reading source code, drafting a section,
+                forming a hypothesis — rewards a 40 or 50 minute block, because
+                the ramp happens once and is amortized. A task with instant
+                entry — replying, categorising, filling fields — rewards a short
+                block, because the ramp cost is negligible and the frequent
+                boundaries keep you from drifting. Define a small library of
+                settings per task family and apply them with the Apply &amp;
+                Restart button.
+              </p>
+              <p class="mb-4">
+                Enable the completion chime when the timer is not your only
+                focus. The chime is off by default, which suits single-tasking
+                sessions where you watch the countdown. But if you run the timer
+                in a background tab while doing supportive work — or if you work
+                near the end of a long interval and want a clean signal to wrap
+                up — the two-tone completion chime announces the phase boundary
+                audibly. It is generated locally with the browser's Web Audio,
+                so it costs nothing and requires no network. Optimise it into
+                your setup for the sessions where your eyes are elsewhere.
+              </p>
+              <p class="mb-4">
+                Use the skip control deliberately, not lazily. Skip is a tool
+                for session design: some days you deliberately shorten a break
+                to chain two focus intervals, or skip a short break to preserve
+                momentum into a long one. Used intentionally, it keeps the
+                structure aligned with your actual state of engagement. Used
+                reflexively, it erodes the recovery that the method depends on.
+                The rule of thumb: skip the break only when you can feel that
+                the interval ended with energy to spare, never because the work
+                is urgent — urgency is a time-shortage feeling, and recovery is
+                what prevents the shortage.
+              </p>
+              <p class="mb-4">
+                Build a weekly rhythm instead of a daily scramble. The daily
+                history is granular; the weekly pattern is what you can actually
+                plan against. Aim for a target number of focus intervals per
+                week — derived from your own averages, not from an idealised
+                productivity number — and spread them across the days you know
+                hold them. Reviewing the record on a fixed day (many people use
+                Sunday or Monday morning) turns the history from a passive log
+                into an active planning input: you compare last week's count
+                against your target and adjust the plan, not the numbers.
+              </p>
+              <p class="mb-4">
+                Keep the tool private and local — that is an optimization, not
+                just a privacy feature. Because all history lives in your
+                browser's storage, the data is instant to read, immune to server
+                outages, and never used for anything other than showing you your
+                own counts. You can clear it anytime with the Clear History
+                control. The absence of accounts, sync, and analytics is what
+                lets you log honestly: there is nothing to optimise for except
+                your own focus, and nothing to be judged by except your own
+                record.
+              </p>
+              <p class="mb-4">
+                Finally, optimise the environment around the interval, not just
+                the interval. The Pomodoro technique assumes a workspace where
+                an interval can be honoured: silenced notifications, a single
+                open tab, a visible boundary between work and break. The timer
+                gives you the structure; the environment gives you the
+                permission. Together — the tuned durations, the scheduled day,
+                the honest history, and the workspace that protects the loop —
+                they produce the thing the technique was always after: not more
+                hours counted, but more hours that count. The Pomodoro Timer
+                keeps the measurement honest; the optimization is yours to run.
+              </p>
+            </div>
+
+            <div
+              class="pt-6 border-t border-slate-100 dark:border-slate-800/80 flex flex-col sm:flex-row justify-between items-center gap-4"
+            >
+              <span
+                class="text-xs text-slate-400 dark:text-slate-500 font-semibold"
+                >Optimize your routine starting today.</span
+              >
+              <a
+                href="./"
+                class="px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm rounded-lg transition-colors shadow-sm"
+              >
+                Use the Interactive Pomodoro Timer &rarr;
+              </a>
+            </div>
+          </article>
         </div>
 
-        <!-- Body Content -->
-        <div
-          class="text-slate-600 dark:text-slate-300 space-y-4 leading-relaxed text-sm"
-        >
-          <p class="mb-4">
-            Once the Pomodoro loop is running, the remaining gains come from
-            optimization: using the timer's own data to schedule your day,
-            pairing interval lengths with task types, and building a weekly
-            rhythm that turns the technique from a session tool into a lifestyle
-            system. These are the upgrades that separate a habit from a routine.
-          </p>
-          <p class="mb-4">
-            Let your history schedule your day. The seven-day view in the timer
-            quietly reveals your attention profile: which weekdays you complete
-            the most focus intervals, and how deep the dip is on heavy meeting
-            days or Monday mornings. Use this as real scheduling data. Put your
-            most demanding creative or analytical work into your historically
-            strongest time window — for most people, the morning — and reserve
-            shallower task types for the hours where your completion count
-            drops. You are not guessing at your best time; you are reading it
-            off the record.
-          </p>
-          <p class="mb-4">
-            Pair interval length with cognitive load rather than with task type
-            alone. The familiar advice is "long intervals for deep work," but
-            the sharper version is: the interval length should match the mental
-            ramp time of the task. A task that takes five minutes to get into —
-            reading source code, drafting a section, forming a hypothesis —
-            rewards a 40 or 50 minute block, because the ramp happens once and
-            is amortized. A task with instant entry — replying, categorising,
-            filling fields — rewards a short block, because the ramp cost is
-            negligible and the frequent boundaries keep you from drifting.
-            Define a small library of settings per task family and apply them
-            with the Apply &amp; Restart button.
-          </p>
-          <p class="mb-4">
-            Enable the completion chime when the timer is not your only focus.
-            The chime is off by default, which suits single-tasking sessions
-            where you watch the countdown. But if you run the timer in a
-            background tab while doing supportive work — or if you work near the
-            end of a long interval and want a clean signal to wrap up — the
-            two-tone completion chime announces the phase boundary audibly. It
-            is generated locally with the browser's Web Audio, so it costs
-            nothing and requires no network. Optimise it into your setup for the
-            sessions where your eyes are elsewhere.
-          </p>
-          <p class="mb-4">
-            Use the skip control deliberately, not lazily. Skip is a tool for
-            session design: some days you deliberately shorten a break to chain
-            two focus intervals, or skip a short break to preserve momentum into
-            a long one. Used intentionally, it keeps the structure aligned with
-            your actual state of engagement. Used reflexively, it erodes the
-            recovery that the method depends on. The rule of thumb: skip the
-            break only when you can feel that the interval ended with energy to
-            spare, never because the work is urgent — urgency is a time-shortage
-            feeling, and recovery is what prevents the shortage.
-          </p>
-          <p class="mb-4">
-            Build a weekly rhythm instead of a daily scramble. The daily history
-            is granular; the weekly pattern is what you can actually plan
-            against. Aim for a target number of focus intervals per week —
-            derived from your own averages, not from an idealised productivity
-            number — and spread them across the days you know hold them.
-            Reviewing the record on a fixed day (many people use Sunday or
-            Monday morning) turns the history from a passive log into an active
-            planning input: you compare last week's count against your target
-            and adjust the plan, not the numbers.
-          </p>
-          <p class="mb-4">
-            Keep the tool private and local — that is an optimization, not just
-            a privacy feature. Because all history lives in your browser's
-            storage, the data is instant to read, immune to server outages, and
-            never used for anything other than showing you your own counts. You
-            can clear it anytime with the Clear History control. The absence of
-            accounts, sync, and analytics is what lets you log honestly: there
-            is nothing to optimise for except your own focus, and nothing to be
-            judged by except your own record.
-          </p>
-          <p class="mb-4">
-            Finally, optimise the environment around the interval, not just the
-            interval. The Pomodoro technique assumes a workspace where an
-            interval can be honoured: silenced notifications, a single open tab,
-            a visible boundary between work and break. The timer gives you the
-            structure; the environment gives you the permission. Together — the
-            tuned durations, the scheduled day, the honest history, and the
-            workspace that protects the loop — they produce the thing the
-            technique was always after: not more hours counted, but more hours
-            that count. The Pomodoro Timer keeps the measurement honest; the
-            optimization is yours to run.
-          </p>
-        </div>
-
-        <div
-          class="pt-6 border-t border-slate-100 dark:border-slate-800/80 flex flex-col sm:flex-row justify-between items-center gap-4"
-        >
-          <span class="text-xs text-slate-400 dark:text-slate-500 font-semibold"
-            >Optimize your routine starting today.</span
+        <!-- Column 4 Sidebar -->
+        <div class="lg:col-span-1 space-y-6">
+          <div id="trending-sidebar"></div>
+          <div
+            id="ad-slot-square"
+            class="w-full p-4 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center mt-4 select-none min-h-[250px] overflow-hidden"
+            style="min-height: 250px"
           >
-          <a
-            href="./"
-            class="px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm rounded-lg transition-colors shadow-sm"
+            <span
+              class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-2"
+              >Advertisement</span
+            >
+            <div
+              class="w-full flex justify-center"
+              style="height: 250px; max-height: 250px; overflow: hidden"
+            >
+              <ins
+                class="adsbygoogle"
+                style="
+                  display: block;
+                  width: 100%;
+                  min-height: 250px;
+                  max-height: 250px;
+                "
+                data-ad-client="ca-pub-3901061173891576"
+                data-ad-slot="6707430996"
+                data-ad-format="rectangle"
+                data-full-width-responsive="false"
+              ></ins>
+            </div>
+          </div>
+          <div
+            id="ad-slot-vertical"
+            class="w-full p-4 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center mt-4 hidden lg:flex select-none min-h-[600px] overflow-hidden"
+            style="min-height: 600px"
           >
-            Use the Interactive Pomodoro Timer &rarr;
-          </a>
+            <span
+              class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-2"
+              >Advertisement</span
+            >
+            <div
+              class="w-full flex justify-center"
+              style="height: 600px; max-height: 600px; overflow: hidden"
+            >
+              <ins
+                class="adsbygoogle"
+                style="
+                  display: block;
+                  width: 100%;
+                  min-height: 600px;
+                  max-height: 600px;
+                "
+                data-ad-client="ca-pub-3901061173891576"
+                data-ad-slot="1581548667"
+                data-ad-format="auto"
+                data-full-width-responsive="true"
+              ></ins>
+            </div>
+          </div>
         </div>
-      </article>
+      </div>
     </main>
 
     <!-- Footer -->

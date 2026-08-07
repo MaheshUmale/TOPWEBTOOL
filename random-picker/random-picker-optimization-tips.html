@@ -53,141 +53,243 @@
     <!-- Header -->
     <header id="global-header"></header>
 
-    <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-grow">
-      <article class="prose prose-slate dark:prose-invert max-w-none">
-        <!-- Reverse Link Back to Main Tool -->
-        <a
-          href="./"
-          class="inline-flex items-center text-brand-600 dark:text-brand-400 font-bold hover:underline text-sm mb-2 transition-colors"
+    <main
+      class="tool-page-main max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex-grow"
+    >
+      <!-- Leaderboard Ad Slot -->
+      <div
+        id="ad-slot-a"
+        class="w-full mx-auto mb-6 p-3 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center select-none overflow-hidden min-h-[90px]"
+        style="max-width: 728px; min-height: 90px; max-height: 135px"
+      >
+        <span
+          class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-1.5"
+          >Advertisement</span
         >
-          &larr; Back to Random Number &amp; Group Picker Tool
-        </a>
-
-        <h1
-          class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight"
-        >
-          Top Optimization Tips for Random Pickers
-        </h1>
-
         <div
-          class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4"
+          class="w-full flex justify-center"
+          style="height: 90px; max-height: 90px; overflow: hidden"
         >
-          <span>Published: August 2026</span>
-          <span>•</span>
-          <span>Category: Health &amp; Lifestyle</span>
-          <span>•</span>
-          <span class="text-emerald-600 dark:text-emerald-400"
-            >No Sign-Up / 100% Free / No Registration</span
-          >
+          <ins
+            class="adsbygoogle"
+            style="
+              display: inline-block;
+              width: 100%;
+              height: 90px;
+              max-height: 90px;
+            "
+            data-ad-client="ca-pub-3901061173891576"
+            data-ad-slot="2894630336"
+            data-ad-format="horizontal"
+            data-full-width-responsive="false"
+          ></ins>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-4 gap-4">
+        <!-- Main Content (Column 1-3) -->
+        <div class="lg:col-span-3 space-y-8">
+          <article class="prose prose-slate dark:prose-invert max-w-none">
+            <!-- Reverse Link Back to Main Tool -->
+            <a
+              href="./"
+              class="inline-flex items-center text-brand-600 dark:text-brand-400 font-bold hover:underline text-sm mb-2 transition-colors"
+            >
+              &larr; Back to Random Number &amp; Group Picker Tool
+            </a>
+
+            <h1
+              class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight"
+            >
+              Top Optimization Tips for Random Pickers
+            </h1>
+
+            <div
+              class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4"
+            >
+              <span>Published: August 2026</span>
+              <span>•</span>
+              <span>Category: Health &amp; Lifestyle</span>
+              <span>•</span>
+              <span class="text-emerald-600 dark:text-emerald-400"
+                >No Sign-Up / 100% Free / No Registration</span
+              >
+            </div>
+
+            <!-- Body Content -->
+            <div
+              class="text-slate-600 dark:text-slate-300 space-y-4 leading-relaxed text-sm"
+            >
+              <p class="mb-4">
+                The fastest win in random work is to batch. Generating a hundred
+                values one by one with a round-trip to a form each time is slow
+                and error-prone; generating the whole set in one request is
+                instant and produces a single copyable list. The picker's count
+                field is built for exactly this: type 200, click generate once,
+                and read one clean column of numbers. Reserve repeated
+                individual draws for genuinely interactive decisions, not bulk
+                data.
+              </p>
+              <p class="mb-4">
+                Match the algorithm to the size of the range. For small ranges
+                and large counts — say fifty unique values from a range of sixty
+                — rejection sampling with a collision-checking Set is
+                near-perfect on the first pass, so the tool simply never wastes
+                work. For huge ranges, the BigInt arithmetic keeps values exact
+                even past the floating-point boundary, so a draw from a range in
+                the trillions stays unbiased and precise. Understanding that the
+                tool scales its strategy to the problem means you never have to
+                pre-normalize your numbers.
+              </p>
+              <p class="mb-4">
+                Use a seed to make your optimization measurable. When you are
+                comparing two assignment strategies — two group sizes, two
+                sampling fractions, two no-repeat policies — running both
+                against the same seed holds the randomness constant and isolates
+                the variable you actually care about. The same seed means the
+                identical underlying draw, so any difference in the output is
+                purely due to the setting you changed. That
+                controlled-comparison trick is the analytical backbone of A/B
+                testing with a random tool.
+              </p>
+              <p class="mb-4">
+                For A/B testing and user experiments, assign participants to
+                conditions with a seeded, balanced split rather than a raw coin
+                flip. Draw a group assignment that keeps both arms roughly equal
+                in size — the round-robin deal does this — and record the seed
+                with the assignment. When the experiment needs to be audited or
+                replayed, the seed reconstructs the entire allocation. This
+                turns a casual randomization into a reproducible experimental
+                design with almost zero extra effort.
+              </p>
+              <p class="mb-4">
+                Fair rotations are a hidden opportunity. If you are rotating who
+                presents, who moderates, or who picks first each week, use a
+                seeded draw once and then rotate the resulting order
+                mechanically. A single shuffle establishes a fair order, and
+                stepping through it week by week is deterministic and
+                explainable to everyone involved — no re-drawing, no accusations
+                of repeat bias, and a paper trail that lasts the whole term.
+              </p>
+              <p class="mb-4">
+                Mind the memory and CPU profile of giant sets. Generating 10,000
+                unique values requires tracking each one in a Set, which costs
+                memory but completes comfortably; the tool caps counts at a
+                sensible ceiling to keep the tab responsive. For truly enormous
+                samples, generate in batches and concatenate, or move the work
+                to a script. For anything the form accepts, the per-value cost
+                is microseconds, so the practical limit is your own patience
+                reading the output, not the algorithm.
+              </p>
+              <p class="mb-4">
+                Optimize the input side as aggressively as the output side.
+                Paste the roster already trimmed and deduplicated — a
+                spreadsheet column copied directly, or a list run through a
+                quick cleanup — so the group mode never sees phantom members.
+                The tool drops blank lines automatically, but a clean paste
+                means the member counts on screen exactly match your intended
+                participants, and the copied team sheet needs no post-editing
+                before you share it.
+              </p>
+              <p class="mb-4">
+                Save reusable configurations. If you run the same monthly draw —
+                same range, same count, same no-repeat policy, different seed —
+                keep the parameters in a note or a spreadsheet row alongside the
+                seed. Re-entering a half-dozen fields monthly is wasted motion;
+                storing them makes each draw a thirty-second procedure and keeps
+                the audit trail complete. The reproducibility you gain costs
+                nothing and pays off every time a result needs explaining.
+              </p>
+              <p class="mb-4">
+                Finally, measure the quality of your randomness when it matters.
+                A quick sanity check — a hundred draws from a range of ten
+                should produce roughly ten of each value, and a seeded run
+                should match its re-run exactly — catches generator problems and
+                user error in one go. Randomness is never perfect in software,
+                but with rejection sampling, a decent PRNG, and a disciplined
+                workflow, it is more than good enough for every fair-draw,
+                sampling, and team-building use case in this guide.
+              </p>
+            </div>
+
+            <div
+              class="pt-6 border-t border-slate-100 dark:border-slate-800/80 flex flex-col sm:flex-row justify-between items-center gap-4"
+            >
+              <span
+                class="text-xs text-slate-400 dark:text-slate-500 font-semibold"
+                >Ready to streamline your random workflows?</span
+              >
+              <a
+                href="./"
+                class="px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm rounded-lg transition-colors shadow-sm"
+              >
+                Use the Interactive Random Number &amp; Group Picker &rarr;
+              </a>
+            </div>
+          </article>
         </div>
 
-        <!-- Body Content -->
-        <div
-          class="text-slate-600 dark:text-slate-300 space-y-4 leading-relaxed text-sm"
-        >
-          <p class="mb-4">
-            The fastest win in random work is to batch. Generating a hundred
-            values one by one with a round-trip to a form each time is slow and
-            error-prone; generating the whole set in one request is instant and
-            produces a single copyable list. The picker's count field is built
-            for exactly this: type 200, click generate once, and read one clean
-            column of numbers. Reserve repeated individual draws for genuinely
-            interactive decisions, not bulk data.
-          </p>
-          <p class="mb-4">
-            Match the algorithm to the size of the range. For small ranges and
-            large counts — say fifty unique values from a range of sixty —
-            rejection sampling with a collision-checking Set is near-perfect on
-            the first pass, so the tool simply never wastes work. For huge
-            ranges, the BigInt arithmetic keeps values exact even past the
-            floating-point boundary, so a draw from a range in the trillions
-            stays unbiased and precise. Understanding that the tool scales its
-            strategy to the problem means you never have to pre-normalize your
-            numbers.
-          </p>
-          <p class="mb-4">
-            Use a seed to make your optimization measurable. When you are
-            comparing two assignment strategies — two group sizes, two sampling
-            fractions, two no-repeat policies — running both against the same
-            seed holds the randomness constant and isolates the variable you
-            actually care about. The same seed means the identical underlying
-            draw, so any difference in the output is purely due to the setting
-            you changed. That controlled-comparison trick is the analytical
-            backbone of A/B testing with a random tool.
-          </p>
-          <p class="mb-4">
-            For A/B testing and user experiments, assign participants to
-            conditions with a seeded, balanced split rather than a raw coin
-            flip. Draw a group assignment that keeps both arms roughly equal in
-            size — the round-robin deal does this — and record the seed with the
-            assignment. When the experiment needs to be audited or replayed, the
-            seed reconstructs the entire allocation. This turns a casual
-            randomization into a reproducible experimental design with almost
-            zero extra effort.
-          </p>
-          <p class="mb-4">
-            Fair rotations are a hidden opportunity. If you are rotating who
-            presents, who moderates, or who picks first each week, use a seeded
-            draw once and then rotate the resulting order mechanically. A single
-            shuffle establishes a fair order, and stepping through it week by
-            week is deterministic and explainable to everyone involved — no
-            re-drawing, no accusations of repeat bias, and a paper trail that
-            lasts the whole term.
-          </p>
-          <p class="mb-4">
-            Mind the memory and CPU profile of giant sets. Generating 10,000
-            unique values requires tracking each one in a Set, which costs
-            memory but completes comfortably; the tool caps counts at a sensible
-            ceiling to keep the tab responsive. For truly enormous samples,
-            generate in batches and concatenate, or move the work to a script.
-            For anything the form accepts, the per-value cost is microseconds,
-            so the practical limit is your own patience reading the output, not
-            the algorithm.
-          </p>
-          <p class="mb-4">
-            Optimize the input side as aggressively as the output side. Paste
-            the roster already trimmed and deduplicated — a spreadsheet column
-            copied directly, or a list run through a quick cleanup — so the
-            group mode never sees phantom members. The tool drops blank lines
-            automatically, but a clean paste means the member counts on screen
-            exactly match your intended participants, and the copied team sheet
-            needs no post-editing before you share it.
-          </p>
-          <p class="mb-4">
-            Save reusable configurations. If you run the same monthly draw —
-            same range, same count, same no-repeat policy, different seed — keep
-            the parameters in a note or a spreadsheet row alongside the seed.
-            Re-entering a half-dozen fields monthly is wasted motion; storing
-            them makes each draw a thirty-second procedure and keeps the audit
-            trail complete. The reproducibility you gain costs nothing and pays
-            off every time a result needs explaining.
-          </p>
-          <p class="mb-4">
-            Finally, measure the quality of your randomness when it matters. A
-            quick sanity check — a hundred draws from a range of ten should
-            produce roughly ten of each value, and a seeded run should match its
-            re-run exactly — catches generator problems and user error in one
-            go. Randomness is never perfect in software, but with rejection
-            sampling, a decent PRNG, and a disciplined workflow, it is more than
-            good enough for every fair-draw, sampling, and team-building use
-            case in this guide.
-          </p>
-        </div>
-
-        <div
-          class="pt-6 border-t border-slate-100 dark:border-slate-800/80 flex flex-col sm:flex-row justify-between items-center gap-4"
-        >
-          <span class="text-xs text-slate-400 dark:text-slate-500 font-semibold"
-            >Ready to streamline your random workflows?</span
+        <!-- Column 4 Sidebar -->
+        <div class="lg:col-span-1 space-y-6">
+          <div id="trending-sidebar"></div>
+          <div
+            id="ad-slot-square"
+            class="w-full p-4 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center mt-4 select-none min-h-[250px] overflow-hidden"
+            style="min-height: 250px"
           >
-          <a
-            href="./"
-            class="px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm rounded-lg transition-colors shadow-sm"
+            <span
+              class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-2"
+              >Advertisement</span
+            >
+            <div
+              class="w-full flex justify-center"
+              style="height: 250px; max-height: 250px; overflow: hidden"
+            >
+              <ins
+                class="adsbygoogle"
+                style="
+                  display: block;
+                  width: 100%;
+                  min-height: 250px;
+                  max-height: 250px;
+                "
+                data-ad-client="ca-pub-3901061173891576"
+                data-ad-slot="6707430996"
+                data-ad-format="rectangle"
+                data-full-width-responsive="false"
+              ></ins>
+            </div>
+          </div>
+          <div
+            id="ad-slot-vertical"
+            class="w-full p-4 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center mt-4 hidden lg:flex select-none min-h-[600px] overflow-hidden"
+            style="min-height: 600px"
           >
-            Use the Interactive Random Number &amp; Group Picker &rarr;
-          </a>
+            <span
+              class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-2"
+              >Advertisement</span
+            >
+            <div
+              class="w-full flex justify-center"
+              style="height: 600px; max-height: 600px; overflow: hidden"
+            >
+              <ins
+                class="adsbygoogle"
+                style="
+                  display: block;
+                  width: 100%;
+                  min-height: 600px;
+                  max-height: 600px;
+                "
+                data-ad-client="ca-pub-3901061173891576"
+                data-ad-slot="1581548667"
+                data-ad-format="auto"
+                data-full-width-responsive="true"
+              ></ins>
+            </div>
+          </div>
         </div>
-      </article>
+      </div>
     </main>
 
     <!-- Footer -->

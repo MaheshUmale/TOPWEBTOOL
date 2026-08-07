@@ -53,158 +53,263 @@
     <!-- Header -->
     <header id="global-header"></header>
 
-    <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-grow">
-      <article class="prose prose-slate dark:prose-invert max-w-none">
-        <!-- Reverse Link Back to Main Tool -->
-        <a
-          href="./"
-          class="inline-flex items-center text-brand-600 dark:text-brand-400 font-bold hover:underline text-sm mb-2 transition-colors"
+    <main
+      class="tool-page-main max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex-grow"
+    >
+      <!-- Leaderboard Ad Slot -->
+      <div
+        id="ad-slot-a"
+        class="w-full mx-auto mb-6 p-3 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center select-none overflow-hidden min-h-[90px]"
+        style="max-width: 728px; min-height: 90px; max-height: 135px"
+      >
+        <span
+          class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-1.5"
+          >Advertisement</span
         >
-          &larr; Back to Sheet Metal Bend Allowance Unfolder
-        </a>
-
-        <h1
-          class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight"
-        >
-          Future Trends in Sheet Metal Fabrication
-        </h1>
-
         <div
-          class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4"
+          class="w-full flex justify-center"
+          style="height: 90px; max-height: 90px; overflow: hidden"
         >
-          <span>Published: August 2026</span>
-          <span>•</span>
-          <span>Category: Industrial & Engineering</span>
-          <span>•</span>
-          <span class="text-emerald-600 dark:text-emerald-400"
-            >No Sign-Up / 100% Free / No Registration</span
-          >
+          <ins
+            class="adsbygoogle"
+            style="
+              display: inline-block;
+              width: 100%;
+              height: 90px;
+              max-height: 90px;
+            "
+            data-ad-client="ca-pub-3901061173891576"
+            data-ad-slot="2894630336"
+            data-ad-format="horizontal"
+            data-full-width-responsive="false"
+          ></ins>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-4 gap-4">
+        <!-- Main Content (Column 1-3) -->
+        <div class="lg:col-span-3 space-y-8">
+          <article class="prose prose-slate dark:prose-invert max-w-none">
+            <!-- Reverse Link Back to Main Tool -->
+            <a
+              href="./"
+              class="inline-flex items-center text-brand-600 dark:text-brand-400 font-bold hover:underline text-sm mb-2 transition-colors"
+            >
+              &larr; Back to Sheet Metal Bend Allowance Unfolder
+            </a>
+
+            <h1
+              class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight"
+            >
+              Future Trends in Sheet Metal Fabrication
+            </h1>
+
+            <div
+              class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4"
+            >
+              <span>Published: August 2026</span>
+              <span>•</span>
+              <span>Category: Industrial & Engineering</span>
+              <span>•</span>
+              <span class="text-emerald-600 dark:text-emerald-400"
+                >No Sign-Up / 100% Free / No Registration</span
+              >
+            </div>
+
+            <!-- Body Content -->
+            <div
+              class="text-slate-600 dark:text-slate-300 space-y-4 leading-relaxed text-sm"
+            >
+              <p class="mb-4">
+                Sheet metal fabrication is undergoing its most significant
+                technology shift in decades. The classic model — an operator
+                reading a flat-pattern print, setting a press brake by hand, and
+                compensating for springback by feel — is being replaced by
+                connected machines, in-process measurement, and software that
+                simulates the bend before a single sheet is cut. The
+                bend-allowance formula itself is not changing; what is changing
+                is how accurately and automatically the inputs to that formula
+                are captured.
+              </p>
+              <p class="mb-4">
+                Press-brake automation is the headline trend. Modern electric
+                and servo-hydraulic brakes with CNC-controlled ram position and
+                back gauges now position to the micron, and the control can
+                automatically compensate for springback by adjusting the
+                bottom-dead-center on each stroke based on measured feedback.
+                Programmed in-process angle measurement, using angle sensors
+                mounted on the tooling or a laser system reading the part as it
+                bends, closes the loop: the machine overbends by a predicted
+                amount, measures the relaxed angle, and corrects the next part.
+                This effectively automates the springback compensation that
+                operators historically performed by trial and error.
+              </p>
+              <p class="mb-4">
+                In-line measurement is moving the calibration step into
+                production. Rather than measuring a sample part after the batch
+                and adjusting, new systems measure every part, or every nth
+                part, and feed the dimensional results back into the bend
+                program in real time. The K-factor and delivered radius that the
+                flat pattern depends on are then continuously verified against
+                actual formed geometry. This changes the optimization loop
+                described in the best-practice guides: the calibration strip
+                becomes a continuous stream of calibration data, and drift in
+                material thickness or tooling wear is caught on the part that
+                experiences it, not the next batch.
+              </p>
+              <p class="mb-4">
+                Digital-twin simulation is bringing finite-element accuracy to
+                the shop floor. Instead of relying solely on the analytic
+                K-factor model — which is an excellent engineering approximation
+                — simulation tools now model the actual elastic-plastic
+                deformation of the sheet under the specific punch and die
+                geometry, predicting springback, local thinning, and the true
+                neutral-axis position for every bend. The practical value is
+                that an engineer can virtually try the part on the shop's exact
+                tooling before cutting anything, and the resulting flat pattern
+                is far closer to perfect on the first try than a hand-entered
+                K-factor could ever be.
+              </p>
+              <p class="mb-4">
+                Generative design and additive-complementary workflows are
+                changing what parts are built from sheet metal at all. Topology
+                optimization increasingly suggests folded structures that
+                combine dozens of bends into a single blank, and
+                laser-cut-and-folded design software generates bend sequences
+                automatically. These tools produce complete manufacturing
+                packages — flat pattern, bend order, and tooling selection — in
+                seconds. The role of the analyst shifts from drawing the
+                development to validating it against the shop's real machines,
+                which is precisely where an independent, transparent
+                bend-allowance check remains valuable.
+              </p>
+              <p class="mb-4">
+                Material traceability is feeding better data into every
+                calculation. Coil-level traceability, with measured thickness,
+                yield strength, and grain orientation recorded per lot, means
+                the K-factor library can be indexed by actual measured
+                properties rather than nominal spec. When the flat pattern is
+                developed from the real thickness and the real yield strength of
+                the incoming coil, the residual error that used to come from
+                material variability largely disappears. This is the logical
+                endpoint of the best practice of measuring incoming thickness:
+                the data is captured automatically at the source.
+              </p>
+              <p class="mb-4">
+                Connected shop software is standardizing bend data exchange.
+                Machine-readable tooling catalogs, shared K-factor and
+                springback tables, and open data formats between CAD, CAM, and
+                press-brake controls mean a flat pattern developed in one system
+                can run on any machine without re-entry. Web-based utilities sit
+                naturally in this ecosystem as a verification layer: an engineer
+                can run the bend-allowance math independently, confirm the
+                number the CAD package produced, and spot a tooling or input
+                discrepancy before it becomes a scrapped batch.
+              </p>
+              <p class="mb-4">
+                The human operator's role is evolving rather than disappearing.
+                Automation removes the repetitive compensation work, but setting
+                up complex multi-bend parts, judging edge cases like sharp radii
+                and high-strength alloys, and troubleshooting when a part still
+                drifts are exactly the tasks where experienced judgment and an
+                understanding of the underlying formula outperform any blind
+                automation. The machinist of the future is a process engineer
+                who reads the machine's data, validates the parameters, and
+                decides when the automated system is wrong.
+              </p>
+              <p class="mb-4">
+                Through all of this, the core physics remains the same. The
+                neutral axis still holds its length, the bend allowance is still
+                the arc of that axis, and the flat pattern is still the sum of
+                legs and allowances. What the trends deliver is better inputs —
+                measured radii, calibrated K-factors, real material properties —
+                and faster feedback. The Sheet Metal Bend Allowance Unfolder
+                stays relevant in that future precisely because it keeps the
+                transparent formula available for validation, independent of
+                which automated system generated the number. Master the formula,
+                and every automation trend makes you more effective rather than
+                less.
+              </p>
+            </div>
+
+            <div
+              class="pt-6 border-t border-slate-100 dark:border-slate-800/80 flex flex-col sm:flex-row justify-between items-center gap-4"
+            >
+              <span
+                class="text-xs text-slate-400 dark:text-slate-500 font-semibold"
+                >Ready to unfold a flat pattern?</span
+              >
+              <a
+                href="./"
+                class="px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm rounded-lg transition-colors shadow-sm"
+              >
+                Use the Interactive Sheet Metal Bend Allowance Unfolder &rarr;
+              </a>
+            </div>
+          </article>
         </div>
 
-        <!-- Body Content -->
-        <div
-          class="text-slate-600 dark:text-slate-300 space-y-4 leading-relaxed text-sm"
-        >
-          <p class="mb-4">
-            Sheet metal fabrication is undergoing its most significant
-            technology shift in decades. The classic model — an operator reading
-            a flat-pattern print, setting a press brake by hand, and
-            compensating for springback by feel — is being replaced by connected
-            machines, in-process measurement, and software that simulates the
-            bend before a single sheet is cut. The bend-allowance formula itself
-            is not changing; what is changing is how accurately and
-            automatically the inputs to that formula are captured.
-          </p>
-          <p class="mb-4">
-            Press-brake automation is the headline trend. Modern electric and
-            servo-hydraulic brakes with CNC-controlled ram position and back
-            gauges now position to the micron, and the control can automatically
-            compensate for springback by adjusting the bottom-dead-center on
-            each stroke based on measured feedback. Programmed in-process angle
-            measurement, using angle sensors mounted on the tooling or a laser
-            system reading the part as it bends, closes the loop: the machine
-            overbends by a predicted amount, measures the relaxed angle, and
-            corrects the next part. This effectively automates the springback
-            compensation that operators historically performed by trial and
-            error.
-          </p>
-          <p class="mb-4">
-            In-line measurement is moving the calibration step into production.
-            Rather than measuring a sample part after the batch and adjusting,
-            new systems measure every part, or every nth part, and feed the
-            dimensional results back into the bend program in real time. The
-            K-factor and delivered radius that the flat pattern depends on are
-            then continuously verified against actual formed geometry. This
-            changes the optimization loop described in the best-practice guides:
-            the calibration strip becomes a continuous stream of calibration
-            data, and drift in material thickness or tooling wear is caught on
-            the part that experiences it, not the next batch.
-          </p>
-          <p class="mb-4">
-            Digital-twin simulation is bringing finite-element accuracy to the
-            shop floor. Instead of relying solely on the analytic K-factor model
-            — which is an excellent engineering approximation — simulation tools
-            now model the actual elastic-plastic deformation of the sheet under
-            the specific punch and die geometry, predicting springback, local
-            thinning, and the true neutral-axis position for every bend. The
-            practical value is that an engineer can virtually try the part on
-            the shop's exact tooling before cutting anything, and the resulting
-            flat pattern is far closer to perfect on the first try than a
-            hand-entered K-factor could ever be.
-          </p>
-          <p class="mb-4">
-            Generative design and additive-complementary workflows are changing
-            what parts are built from sheet metal at all. Topology optimization
-            increasingly suggests folded structures that combine dozens of bends
-            into a single blank, and laser-cut-and-folded design software
-            generates bend sequences automatically. These tools produce complete
-            manufacturing packages — flat pattern, bend order, and tooling
-            selection — in seconds. The role of the analyst shifts from drawing
-            the development to validating it against the shop's real machines,
-            which is precisely where an independent, transparent bend-allowance
-            check remains valuable.
-          </p>
-          <p class="mb-4">
-            Material traceability is feeding better data into every calculation.
-            Coil-level traceability, with measured thickness, yield strength,
-            and grain orientation recorded per lot, means the K-factor library
-            can be indexed by actual measured properties rather than nominal
-            spec. When the flat pattern is developed from the real thickness and
-            the real yield strength of the incoming coil, the residual error
-            that used to come from material variability largely disappears. This
-            is the logical endpoint of the best practice of measuring incoming
-            thickness: the data is captured automatically at the source.
-          </p>
-          <p class="mb-4">
-            Connected shop software is standardizing bend data exchange.
-            Machine-readable tooling catalogs, shared K-factor and springback
-            tables, and open data formats between CAD, CAM, and press-brake
-            controls mean a flat pattern developed in one system can run on any
-            machine without re-entry. Web-based utilities sit naturally in this
-            ecosystem as a verification layer: an engineer can run the
-            bend-allowance math independently, confirm the number the CAD
-            package produced, and spot a tooling or input discrepancy before it
-            becomes a scrapped batch.
-          </p>
-          <p class="mb-4">
-            The human operator's role is evolving rather than disappearing.
-            Automation removes the repetitive compensation work, but setting up
-            complex multi-bend parts, judging edge cases like sharp radii and
-            high-strength alloys, and troubleshooting when a part still drifts
-            are exactly the tasks where experienced judgment and an
-            understanding of the underlying formula outperform any blind
-            automation. The machinist of the future is a process engineer who
-            reads the machine's data, validates the parameters, and decides when
-            the automated system is wrong.
-          </p>
-          <p class="mb-4">
-            Through all of this, the core physics remains the same. The neutral
-            axis still holds its length, the bend allowance is still the arc of
-            that axis, and the flat pattern is still the sum of legs and
-            allowances. What the trends deliver is better inputs — measured
-            radii, calibrated K-factors, real material properties — and faster
-            feedback. The Sheet Metal Bend Allowance Unfolder stays relevant in
-            that future precisely because it keeps the transparent formula
-            available for validation, independent of which automated system
-            generated the number. Master the formula, and every automation trend
-            makes you more effective rather than less.
-          </p>
-        </div>
-
-        <div
-          class="pt-6 border-t border-slate-100 dark:border-slate-800/80 flex flex-col sm:flex-row justify-between items-center gap-4"
-        >
-          <span class="text-xs text-slate-400 dark:text-slate-500 font-semibold"
-            >Ready to unfold a flat pattern?</span
+        <!-- Column 4 Sidebar -->
+        <div class="lg:col-span-1 space-y-6">
+          <div id="trending-sidebar"></div>
+          <div
+            id="ad-slot-square"
+            class="w-full p-4 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center mt-4 select-none min-h-[250px] overflow-hidden"
+            style="min-height: 250px"
           >
-          <a
-            href="./"
-            class="px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm rounded-lg transition-colors shadow-sm"
+            <span
+              class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-2"
+              >Advertisement</span
+            >
+            <div
+              class="w-full flex justify-center"
+              style="height: 250px; max-height: 250px; overflow: hidden"
+            >
+              <ins
+                class="adsbygoogle"
+                style="
+                  display: block;
+                  width: 100%;
+                  min-height: 250px;
+                  max-height: 250px;
+                "
+                data-ad-client="ca-pub-3901061173891576"
+                data-ad-slot="6707430996"
+                data-ad-format="rectangle"
+                data-full-width-responsive="false"
+              ></ins>
+            </div>
+          </div>
+          <div
+            id="ad-slot-vertical"
+            class="w-full p-4 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center mt-4 hidden lg:flex select-none min-h-[600px] overflow-hidden"
+            style="min-height: 600px"
           >
-            Use the Interactive Sheet Metal Bend Allowance Unfolder &rarr;
-          </a>
+            <span
+              class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-2"
+              >Advertisement</span
+            >
+            <div
+              class="w-full flex justify-center"
+              style="height: 600px; max-height: 600px; overflow: hidden"
+            >
+              <ins
+                class="adsbygoogle"
+                style="
+                  display: block;
+                  width: 100%;
+                  min-height: 600px;
+                  max-height: 600px;
+                "
+                data-ad-client="ca-pub-3901061173891576"
+                data-ad-slot="1581548667"
+                data-ad-format="auto"
+                data-full-width-responsive="true"
+              ></ins>
+            </div>
+          </div>
         </div>
-      </article>
+      </div>
     </main>
 
     <!-- Footer -->

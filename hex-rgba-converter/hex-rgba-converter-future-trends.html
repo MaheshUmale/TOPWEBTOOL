@@ -53,155 +53,260 @@
     <!-- Header -->
     <header id="global-header"></header>
 
-    <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-grow">
-      <article class="prose prose-slate dark:prose-invert max-w-none">
-        <!-- Reverse Link Back to Main Tool -->
-        <a
-          href="./"
-          class="inline-flex items-center text-brand-600 dark:text-brand-400 font-bold hover:underline text-sm mb-2 transition-colors"
+    <main
+      class="tool-page-main max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex-grow"
+    >
+      <!-- Leaderboard Ad Slot -->
+      <div
+        id="ad-slot-a"
+        class="w-full mx-auto mb-6 p-3 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center select-none overflow-hidden min-h-[90px]"
+        style="max-width: 728px; min-height: 90px; max-height: 135px"
+      >
+        <span
+          class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-1.5"
+          >Advertisement</span
         >
-          &larr; Back to HEX to RGBA Converter Tool
-        </a>
-
-        <h1
-          class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight"
-        >
-          Future Trends in Color &amp; Conversion
-        </h1>
-
         <div
-          class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4"
+          class="w-full flex justify-center"
+          style="height: 90px; max-height: 90px; overflow: hidden"
         >
-          <span>Published: August 2026</span>
-          <span>•</span>
-          <span>Category: Health &amp; Lifestyle</span>
-          <span>•</span>
-          <span class="text-emerald-600 dark:text-emerald-400"
-            >No Sign-Up / 100% Free / No Registration</span
-          >
+          <ins
+            class="adsbygoogle"
+            style="
+              display: inline-block;
+              width: 100%;
+              height: 90px;
+              max-height: 90px;
+            "
+            data-ad-client="ca-pub-3901061173891576"
+            data-ad-slot="2894630336"
+            data-ad-format="horizontal"
+            data-full-width-responsive="false"
+          ></ins>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-4 gap-4">
+        <!-- Main Content (Column 1-3) -->
+        <div class="lg:col-span-3 space-y-8">
+          <article class="prose prose-slate dark:prose-invert max-w-none">
+            <!-- Reverse Link Back to Main Tool -->
+            <a
+              href="./"
+              class="inline-flex items-center text-brand-600 dark:text-brand-400 font-bold hover:underline text-sm mb-2 transition-colors"
+            >
+              &larr; Back to HEX to RGBA Converter Tool
+            </a>
+
+            <h1
+              class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight"
+            >
+              Future Trends in Color &amp; Conversion
+            </h1>
+
+            <div
+              class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4"
+            >
+              <span>Published: August 2026</span>
+              <span>•</span>
+              <span>Category: Health &amp; Lifestyle</span>
+              <span>•</span>
+              <span class="text-emerald-600 dark:text-emerald-400"
+                >No Sign-Up / 100% Free / No Registration</span
+              >
+            </div>
+
+            <!-- Body Content -->
+            <div
+              class="text-slate-600 dark:text-slate-300 space-y-4 leading-relaxed text-sm"
+            >
+              <p class="mb-4">
+                The color ecosystem is mid-transition, and the familiar hex and
+                RGBA formats are being joined by a generation of spaces built
+                for the displays of the next decade. The most influential
+                newcomer is OKLCH, a perceptual color space that spaces
+                lightness and hue evenly so that a fixed lightness step looks
+                like the same visual step everywhere. HSL has a known quirk —
+                two colors at the same lightness can appear very different in
+                brightness, especially across hues. Designers who adopt OKLCH
+                get palettes that behave predictably, and conversion tools are
+                racing to treat it as a first-class citizen alongside the older
+                formats.
+              </p>
+              <p class="mb-4">
+                Wide-gamut and HDR displays are the hardware force behind this
+                change. Phones and monitors now cover P3 and Rec.2020 gamuts
+                that are larger than the sRGB space hex was designed for, so a
+                color that is perfectly valid on an old laptop can be
+                undersaturated on a new one. CSS Color Level 4 adds color()
+                syntax that can address these wider spaces directly, which means
+                the simple hex string no longer captures everything a designer
+                needs to express. The practical consequence is that conversion
+                is becoming a gamut-mapping problem, not just a notation
+                problem.
+              </p>
+              <p class="mb-4">
+                CSS color-mix() is quietly replacing the manual alpha math that
+                designers do every day. Instead of computing a 40% blend by hand
+                and hard-coding the resulting hex, the function lets a
+                stylesheet mix two colors at runtime: color-mix(in srgb, #3498db
+                40%, white). This is a genuine workflow shift, because blends
+                stay linked to their source colors — change the brand blue and
+                every derived tint updates automatically. The converter's role
+                in this world is unchanged in spirit: you still need to know the
+                exact channel values and the composited result, but the
+                reconciliation is increasingly handled by the platform.
+              </p>
+              <p class="mb-4">
+                Design-token ecosystems are maturing into the backbone of
+                multi-brand and theming work. Tools like Style Dictionary, W3C's
+                design-token specification, and framework color systems all
+                treat color as structured data: name, channel values, usage
+                role, and contrast constraints, exported to any platform.
+                Conversion happens at the token boundary — one canonical
+                definition, converted to CSS variables for the web, to Android
+                resource files, to Swift asset catalogs. The converter is
+                becoming a fixture in that pipeline: validating a token
+                proposal, producing every consumer format, and checking contrast
+                before the token is merged.
+              </p>
+              <p class="mb-4">
+                Accessibility tooling is moving from manual checks to continuous
+                verification. Contrast ratios that teams once computed ad hoc
+                are now measured in CI, in component libraries, and in
+                design-token files, with thresholds enforced like lint rules.
+                The trend favors tools that speak machine-readable results —
+                return the ratio, the pass/fail grade, and the composited
+                background assumption explicitly, so an automation layer can
+                consume it. Manual conversion remains the entry point, but the
+                destination is a world where every color change is validated
+                before it reaches production.
+              </p>
+              <p class="mb-4">
+                Dark mode and dynamic theming are pushing conversion complexity
+                up. A single canonical color is no longer enough; systems now
+                store light and dark variants, or even derive dark variants
+                algorithmically from the base. Deriving a dark surface from a
+                light brand color — by lowering lightness, shifting hue
+                slightly, and reducing saturation — is exactly the kind of
+                arithmetic the converter exposes step by step. Designers who
+                understand the underlying channel math can specify those
+                derivations confidently instead of hand-tuning dozens of
+                variants.
+              </p>
+              <p class="mb-4">
+                Machine learning is beginning to touch the palette workflow.
+                Model-assisted tools suggest accessible color pairings, convert
+                a brand color into a full tonal scale, or flag contrast failures
+                across a theme before a human reviews it. None of this replaces
+                the fundamentals — every suggested color is still a set of RGB
+                channels that must be checked against real backgrounds and real
+                luminance. The skilled designer's advantage remains knowing the
+                math underneath, which keeps hand conversion and verification
+                tools relevant precisely as the automation layer grows.
+              </p>
+              <p class="mb-4">
+                Finally, education is catching up. Design bootcamps and
+                front-end courses now teach color spaces and conversion as core
+                material rather than tribal knowledge, and interactive tools are
+                the way most learners make the connection between a hex string
+                and the color on screen. Seeing #3498db expand into RGB
+                channels, HSL coordinates, and a contrast ratio turns
+                memorization into comprehension. The generation of designers
+                trained this way will expect conversion to be transparent,
+                exact, and always at hand — and they will treat a tool that
+                shows the math as the standard, not the exception.
+              </p>
+              <p class="mb-4">
+                The formats will keep multiplying, but the invariant is simple:
+                every color is a set of channels, and every task is choosing the
+                spelling that fits the moment. Whether the destination is hex,
+                RGBA, HSL, OKLCH, or a wide-gamut color(), the discipline stays
+                the same — convert deliberately, verify the channels, and check
+                contrast on the real background. Keeping an exact,
+                format-agnostic converter handy is the safest way to stay
+                current while the color landscape itself keeps changing.
+              </p>
+            </div>
+
+            <div
+              class="pt-6 border-t border-slate-100 dark:border-slate-800/80 flex flex-col sm:flex-row justify-between items-center gap-4"
+            >
+              <span
+                class="text-xs text-slate-400 dark:text-slate-500 font-semibold"
+                >Explore the future of color conversion today?</span
+              >
+              <a
+                href="./"
+                class="px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm rounded-lg transition-colors shadow-sm"
+              >
+                Use the Interactive HEX to RGBA Converter &rarr;
+              </a>
+            </div>
+          </article>
         </div>
 
-        <!-- Body Content -->
-        <div
-          class="text-slate-600 dark:text-slate-300 space-y-4 leading-relaxed text-sm"
-        >
-          <p class="mb-4">
-            The color ecosystem is mid-transition, and the familiar hex and RGBA
-            formats are being joined by a generation of spaces built for the
-            displays of the next decade. The most influential newcomer is OKLCH,
-            a perceptual color space that spaces lightness and hue evenly so
-            that a fixed lightness step looks like the same visual step
-            everywhere. HSL has a known quirk — two colors at the same lightness
-            can appear very different in brightness, especially across hues.
-            Designers who adopt OKLCH get palettes that behave predictably, and
-            conversion tools are racing to treat it as a first-class citizen
-            alongside the older formats.
-          </p>
-          <p class="mb-4">
-            Wide-gamut and HDR displays are the hardware force behind this
-            change. Phones and monitors now cover P3 and Rec.2020 gamuts that
-            are larger than the sRGB space hex was designed for, so a color that
-            is perfectly valid on an old laptop can be undersaturated on a new
-            one. CSS Color Level 4 adds color() syntax that can address these
-            wider spaces directly, which means the simple hex string no longer
-            captures everything a designer needs to express. The practical
-            consequence is that conversion is becoming a gamut-mapping problem,
-            not just a notation problem.
-          </p>
-          <p class="mb-4">
-            CSS color-mix() is quietly replacing the manual alpha math that
-            designers do every day. Instead of computing a 40% blend by hand and
-            hard-coding the resulting hex, the function lets a stylesheet mix
-            two colors at runtime: color-mix(in srgb, #3498db 40%, white). This
-            is a genuine workflow shift, because blends stay linked to their
-            source colors — change the brand blue and every derived tint updates
-            automatically. The converter's role in this world is unchanged in
-            spirit: you still need to know the exact channel values and the
-            composited result, but the reconciliation is increasingly handled by
-            the platform.
-          </p>
-          <p class="mb-4">
-            Design-token ecosystems are maturing into the backbone of
-            multi-brand and theming work. Tools like Style Dictionary, W3C's
-            design-token specification, and framework color systems all treat
-            color as structured data: name, channel values, usage role, and
-            contrast constraints, exported to any platform. Conversion happens
-            at the token boundary — one canonical definition, converted to CSS
-            variables for the web, to Android resource files, to Swift asset
-            catalogs. The converter is becoming a fixture in that pipeline:
-            validating a token proposal, producing every consumer format, and
-            checking contrast before the token is merged.
-          </p>
-          <p class="mb-4">
-            Accessibility tooling is moving from manual checks to continuous
-            verification. Contrast ratios that teams once computed ad hoc are
-            now measured in CI, in component libraries, and in design-token
-            files, with thresholds enforced like lint rules. The trend favors
-            tools that speak machine-readable results — return the ratio, the
-            pass/fail grade, and the composited background assumption
-            explicitly, so an automation layer can consume it. Manual conversion
-            remains the entry point, but the destination is a world where every
-            color change is validated before it reaches production.
-          </p>
-          <p class="mb-4">
-            Dark mode and dynamic theming are pushing conversion complexity up.
-            A single canonical color is no longer enough; systems now store
-            light and dark variants, or even derive dark variants
-            algorithmically from the base. Deriving a dark surface from a light
-            brand color — by lowering lightness, shifting hue slightly, and
-            reducing saturation — is exactly the kind of arithmetic the
-            converter exposes step by step. Designers who understand the
-            underlying channel math can specify those derivations confidently
-            instead of hand-tuning dozens of variants.
-          </p>
-          <p class="mb-4">
-            Machine learning is beginning to touch the palette workflow.
-            Model-assisted tools suggest accessible color pairings, convert a
-            brand color into a full tonal scale, or flag contrast failures
-            across a theme before a human reviews it. None of this replaces the
-            fundamentals — every suggested color is still a set of RGB channels
-            that must be checked against real backgrounds and real luminance.
-            The skilled designer's advantage remains knowing the math
-            underneath, which keeps hand conversion and verification tools
-            relevant precisely as the automation layer grows.
-          </p>
-          <p class="mb-4">
-            Finally, education is catching up. Design bootcamps and front-end
-            courses now teach color spaces and conversion as core material
-            rather than tribal knowledge, and interactive tools are the way most
-            learners make the connection between a hex string and the color on
-            screen. Seeing #3498db expand into RGB channels, HSL coordinates,
-            and a contrast ratio turns memorization into comprehension. The
-            generation of designers trained this way will expect conversion to
-            be transparent, exact, and always at hand — and they will treat a
-            tool that shows the math as the standard, not the exception.
-          </p>
-          <p class="mb-4">
-            The formats will keep multiplying, but the invariant is simple:
-            every color is a set of channels, and every task is choosing the
-            spelling that fits the moment. Whether the destination is hex, RGBA,
-            HSL, OKLCH, or a wide-gamut color(), the discipline stays the same —
-            convert deliberately, verify the channels, and check contrast on the
-            real background. Keeping an exact, format-agnostic converter handy
-            is the safest way to stay current while the color landscape itself
-            keeps changing.
-          </p>
-        </div>
-
-        <div
-          class="pt-6 border-t border-slate-100 dark:border-slate-800/80 flex flex-col sm:flex-row justify-between items-center gap-4"
-        >
-          <span class="text-xs text-slate-400 dark:text-slate-500 font-semibold"
-            >Explore the future of color conversion today?</span
+        <!-- Column 4 Sidebar -->
+        <div class="lg:col-span-1 space-y-6">
+          <div id="trending-sidebar"></div>
+          <div
+            id="ad-slot-square"
+            class="w-full p-4 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center mt-4 select-none min-h-[250px] overflow-hidden"
+            style="min-height: 250px"
           >
-          <a
-            href="./"
-            class="px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm rounded-lg transition-colors shadow-sm"
+            <span
+              class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-2"
+              >Advertisement</span
+            >
+            <div
+              class="w-full flex justify-center"
+              style="height: 250px; max-height: 250px; overflow: hidden"
+            >
+              <ins
+                class="adsbygoogle"
+                style="
+                  display: block;
+                  width: 100%;
+                  min-height: 250px;
+                  max-height: 250px;
+                "
+                data-ad-client="ca-pub-3901061173891576"
+                data-ad-slot="6707430996"
+                data-ad-format="rectangle"
+                data-full-width-responsive="false"
+              ></ins>
+            </div>
+          </div>
+          <div
+            id="ad-slot-vertical"
+            class="w-full p-4 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center mt-4 hidden lg:flex select-none min-h-[600px] overflow-hidden"
+            style="min-height: 600px"
           >
-            Use the Interactive HEX to RGBA Converter &rarr;
-          </a>
+            <span
+              class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-2"
+              >Advertisement</span
+            >
+            <div
+              class="w-full flex justify-center"
+              style="height: 600px; max-height: 600px; overflow: hidden"
+            >
+              <ins
+                class="adsbygoogle"
+                style="
+                  display: block;
+                  width: 100%;
+                  min-height: 600px;
+                  max-height: 600px;
+                "
+                data-ad-client="ca-pub-3901061173891576"
+                data-ad-slot="1581548667"
+                data-ad-format="auto"
+                data-full-width-responsive="true"
+              ></ins>
+            </div>
+          </div>
         </div>
-      </article>
+      </div>
     </main>
 
     <!-- Footer -->
