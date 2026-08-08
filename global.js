@@ -5,602 +5,602 @@
 
 const UTILITIES_REGISTRY = [
   {
-    path: '/mortgage-calculator',
+    path: '/mortgage-calculator/',
     name: 'Mortgage Calculator',
     category: 'Finance & Real Estate',
     desc: 'Compute monthly house payments, taxes, and PMI with dynamic amortization schedule breakdowns.',
     icon: '🏡'
   },
   {
-    path: '/car-lease-estimator',
+    path: '/car-lease-estimator/',
     name: 'Car Lease Estimator',
     category: 'Finance & Real Estate',
     desc: 'Calculate monthly auto lease payments based on MSRP, residual value, money factor, and down payment.',
     icon: '🚗'
   },
   {
-    path: '/inflation-calculator',
+    path: '/inflation-calculator/',
     name: 'Inflation Calculator',
     category: 'Finance & Real Estate',
     desc: 'Track and compare historical buying power changes using US CPI & Eurostat inflation metrics.',
     icon: '📈'
   },
   {
-    path: '/crypto-tax-estimator',
+    path: '/crypto-tax-estimator/',
     name: 'Crypto Tax Estimator',
     category: 'Finance & Real Estate',
     desc: 'Estimate short-term and long-term capital gains tax brackets for crypto sales instantly.',
     icon: '🪙'
   },
   {
-    path: '/hourly-to-salary-converter',
+    path: '/hourly-to-salary-converter/',
     name: 'Hourly to Salary Converter',
     category: 'Finance & Real Estate',
     desc: 'Convert hourly wages to annual gross and net income based on standard US/EU tax baselines.',
     icon: '💼'
   },
   {
-    path: '/dividend-reinvestment-calculator',
+    path: '/dividend-reinvestment-calculator/',
     name: 'Dividend Reinvestment (DRIP)',
     category: 'Finance & Real Estate',
     desc: 'Project compounding stock growth assuming recurring dividend reinvestment schedules.',
     icon: '📊'
   },
   {
-    path: '/ltv-cac-calculator',
+    path: '/ltv-cac-calculator/',
     name: 'LTV CAC Calculator',
     category: 'Finance & Real Estate',
     desc: 'Calculate Customer Lifetime Value, Acquisition Cost, and LTV:CAC ratio for SaaS startups.',
     icon: '📊'
   },
   {
-    path: '/dso-tracker',
+    path: '/dso-tracker/',
     name: 'DSO Tracker',
     category: 'Finance & Real Estate',
     desc: 'Calculate Days Sales Outstanding and track accounts receivable efficiency for small business cash flow.',
     icon: '📅'
   },
   {
-    path: '/credit-card-payoff-planner',
+    path: '/credit-card-payoff-planner/',
     name: 'Credit Card Payoff Planner',
     category: 'Finance & Real Estate',
     desc: 'Compare Snowball and Avalanche debt payoff tracks to clear outstanding credit card balances.',
     icon: '💳'
   },
   {
-    path: '/utm-generator',
+    path: '/utm-generator/',
     name: 'UTM Campaign Link Builder',
     category: 'Digital Marketing',
     desc: 'Generate error-free UTM tracking URLs with dynamic copy-to-clipboard functionality.',
     icon: '🔗'
   },
   {
-    path: '/roi-calculator',
+    path: '/roi-calculator/',
     name: 'ROI & ROAS Calculator',
     category: 'Digital Marketing',
     desc: 'Calculate campaign Return on Investment and Return on Ad Spend dynamically.',
     icon: '💰'
   },
   {
-    path: '/cpm-calculator',
+    path: '/cpm-calculator/',
     name: 'CPM Campaign Ad Calculator',
     category: 'Digital Marketing',
     desc: 'Compute campaign cost, target CPM, or required impressions instantly.',
     icon: '📢'
   },
   {
-    path: '/headline-analyzer',
+    path: '/headline-analyzer/',
     name: 'Copy Headline Analyzer',
     category: 'Digital Marketing',
     desc: 'Score headlines based on emotional word weight, readability, and character length.',
     icon: '✍️'
   },
   {
-    path: '/qr-code-generator',
+    path: '/qr-code-generator/',
     name: 'Secure QR Code Generator',
     category: 'Digital Marketing',
     desc: 'Generate downloadable customized high-quality client-side QR codes instantly.',
     icon: '📱'
   },
   {
-    path: '/social-media-image-resizer',
+    path: '/social-media-image-resizer/',
     name: 'Social Image Resizer',
     category: 'Digital Marketing',
     desc: 'Crop and scale assets client-side for Instagram, LinkedIn, YouTube, and X.',
     icon: '🖼️'
   },
   {
-    path: '/chatgpt-prompt-optimizer',
+    path: '/chatgpt-prompt-optimizer/',
     name: 'ChatGPT Prompt Optimizer',
     category: 'AI Prompt Engineering',
     desc: 'Inject personas, variables, and formatting constraints into basic raw prompt strings.',
     icon: '🤖'
   },
   {
-    path: '/midjourney-command-builder',
+    path: '/midjourney-command-builder/',
     name: 'Midjourney Prompt Builder',
     category: 'AI Prompt Engineering',
     desc: 'Select parameters, version toggles, and aspect ratios to construct precise Midjourney commands.',
     icon: '🎨'
   },
   {
-    path: '/ai-text-humanizer-helper',
+    path: '/ai-text-humanizer-helper/',
     name: 'AI Text Humanizer Helper',
     category: 'AI Prompt Engineering',
     desc: 'Detect robotic structures and optimize copy flow to humanize AI-generated text output.',
     icon: '🧠'
   },
   {
-    path: '/json-formatter-validator',
+    path: '/json-formatter-validator/',
     name: 'JSON Formatter & Validator',
     category: 'Developer Utilities',
     desc: 'Beautify, compress, validate, and parse raw JSON strings securely offline.',
     icon: '⚙️'
   },
   {
-    path: '/password-generator',
+    path: '/password-generator/',
     name: 'Secure Password Generator',
     category: 'Developer Utilities',
     desc: 'Create highly secure, randomized passwords locally with robust length and character toggles.',
     icon: '🔑'
   },
   {
-    path: '/lorem-ipsum-generator',
+    path: '/lorem-ipsum-generator/',
     name: 'Lorem Ipsum Generator',
     category: 'Developer Utilities',
     desc: 'Generate customizable design placeholder paragraphs, words, or lists instantly.',
     icon: '📝'
   },
   {
-    path: '/base64-encoder-decoder',
+    path: '/base64-encoder-decoder/',
     name: 'Base64 Encoder & Decoder',
     category: 'Developer Utilities',
     desc: 'Convert strings and image assets to base64 format and vice-versa fully locally.',
     icon: '🔣'
   },
   {
-    path: '/word-character-counter',
+    path: '/word-character-counter/',
     name: 'Word & Character Counter',
     category: 'Developer Utilities',
     desc: 'Analyze content length, reading time, speaking duration, and sentence statistics.',
     icon: '🔢'
   },
   {
-    path: '/fortune-wheel',
+    path: '/fortune-wheel/',
     name: 'Fortune Wheel',
     category: 'Everyday & Niche Utilities',
     desc: 'Interactive customized canvas fortune-wheel spinner to make fast decisions.',
     icon: '☸️'
   },
   {
-    path: '/word-unscrambler',
+    path: '/word-unscrambler/',
     name: 'Word Unscrambler Solver',
     category: 'Everyday & Niche Utilities',
     desc: 'Instantly turn scrambled letters into valid words with wildcard search options.',
     icon: '🔡'
   },
   {
-    path: '/acoustic-room-analyzer',
+    path: '/acoustic-room-analyzer/',
     name: 'Acoustic Room Mode & Standing Wave Calculator',
     category: 'Industrial & Engineering',
     desc: 'Compute axial, tangential, and oblique room modes from the resonance formula, flag problematic low frequencies, and check Bolt-area room ratios.',
     icon: '⚙️'
   },
   {
-    path: '/age-calculator',
+    path: '/age-calculator/',
     name: 'Age Calculator (Years, Months, Days)',
     category: 'Health & Lifestyle',
     desc: 'Compute an exact age in years, months, and days between any two dates with total days, next birthday countdown, and the weekday you were born, leap-year safe.',
     icon: '🏃'
   },
   {
-    path: '/agent-cron-scheduler',
+    path: '/agent-cron-scheduler/',
     name: 'Free Cron-Job & Automation Scheduler Builder',
     category: 'AI & Automation',
     desc: 'Build a valid 5-field crontab expression from visual presets and custom fields, preview the next 5 run times, and copy it instantly. 100% Free, No Email.',
     icon: '🤖'
   },
   {
-    path: '/agent-eval-engine',
+    path: '/agent-eval-engine/',
     name: 'AI Eval Matrix Engine - Compare AI Outputs',
     category: 'AI & Automation',
     desc: 'Score AI outputs against a gold reference: Levenshtein distance, similarity percent, BLEU-1/2 precision, keyword overlap and character counts. 100% client-side.',
     icon: '🤖'
   },
   {
-    path: '/agent-hitl-planner',
+    path: '/agent-hitl-planner/',
     name: 'Human-in-the-Loop HITL Planner for AI Agents',
     category: 'AI & Automation',
     desc: 'Design human-in-the-loop approval gates: pick agent steps, set approve/reject/edit types, timeouts and fallbacks, and export an interception plan with a flowchart.',
     icon: '🤖'
   },
   {
-    path: '/agent-memory-matrix',
+    path: '/agent-memory-matrix/',
     name: 'LLM Context Window Token Budget Planner',
     category: 'AI & Automation',
     desc: 'Plan your LLM context-window budget: system prompt, conversation turns, memory/RAG content, and reserved output tokens. Utilization, remaining budget, warnings.',
     icon: '🤖'
   },
   {
-    path: '/agent-prompt-builder',
+    path: '/agent-prompt-builder/',
     name: 'System Prompt & Tool-Calling Builder',
     category: 'AI & Automation',
     desc: 'Compose production-ready agent system prompts with persona, goal, context, constraints and output format, and emit function-calling JSON tool schemas.',
     icon: '🤖'
   },
   {
-    path: '/agent-state-router',
+    path: '/agent-state-router/',
     name: 'Agent State-Machine Router Evaluator',
     category: 'AI & Automation',
     desc: 'Model agent states and transitions, then auto-detect unreachable states, duplicate routes, infinite loops, and dead-ends. Exports DOT-style graphs. Free.',
     icon: '🤖'
   },
   {
-    path: '/ai-system-topology',
+    path: '/ai-system-topology/',
     name: 'Multi-Agent System Topology Harness',
     category: 'AI & Automation',
     desc: 'Design multi-agent AI systems visually: add agent nodes with role, model and temperature, connect sequential, parallel and conditional edges, and export topology text plus Python skeletons.',
     icon: '🤖'
   },
   {
-    path: '/autogen-yaml-designer',
+    path: '/autogen-yaml-designer/',
     name: 'CrewAI / AutoGen YAML Designer',
     category: 'AI & Automation',
     desc: 'Design agents, goals, tools, and tasks in a visual builder and generate valid, properly indented CrewAI, AutoGen, or custom YAML config. Copy or download.',
     icon: '🤖'
   },
   {
-    path: '/battery-busbar-calculator',
+    path: '/battery-busbar-calculator/',
     name: 'Battery Pack Busbar & Heat-Dissipation Modeler',
     category: 'Industrial & Engineering',
     desc: 'Size EV battery pack busbars: current per cell group, required copper or nickel cross-section from current density, voltage drop, and temperature rise.',
     icon: '⚙️'
   },
   {
-    path: '/binary-decimal-converter',
+    path: '/binary-decimal-converter/',
     name: 'Free Binary to Decimal Converter',
     category: 'Developer Utilities',
     desc: 'Convert binary, octal, decimal, and hex numbers in real time with exact BigInt math. Live cross-base results with step-by-step details. Free, 100% client-side.',
     icon: '💻'
   },
   {
-    path: '/biweekly-mortgage-calculator',
+    path: '/biweekly-mortgage-calculator/',
     name: 'Biweekly Mortgage Calculator - Payoff Accelerator',
     category: 'Finance & Real Estate',
     desc: 'Compare monthly vs biweekly mortgage payments. See how making 13 payments per year can shave years off your loan and save thousands in interest.',
     icon: '💰'
   },
   {
-    path: '/bmr-tdee-calculator',
+    path: '/bmr-tdee-calculator/',
     name: 'BMR & TDEE Calorie Calculator',
     category: 'Health & Lifestyle',
     desc: 'Calculate Basal Metabolic Rate and Total Daily Energy Expenditure with the Mifflin-St Jeor equation, plus cutting and bulking calorie targets. Free, offline, client-side.',
     icon: '🏃'
   },
   {
-    path: '/cash-burn-runway',
+    path: '/cash-burn-runway/',
     name: 'Cash Burn Runway Calculator - Startup Run Rate Planner',
     category: 'B2B Business',
     desc: 'Calculate how long your startup can operate before running out of cash. Track monthly burn rate, run rate, and runway with our free planner.',
     icon: '📊'
   },
   {
-    path: '/chatgpt-prompt-optimizer',
+    path: '/chatgpt-prompt-optimizer/',
     name: 'Free ChatGPT Prompt Optimizer | Persona, Formatting, & Context Injections',
     category: 'AI & Automation',
     desc: 'Convert basic ideas into professional AI prompts. Auto-inject personas, constraints, variables, and markdown output configurations. 100% Free, No Email Needed.',
     icon: '🤖'
   },
   {
-    path: '/cnc-feeds-speeds',
+    path: '/cnc-feeds-speeds/',
     name: 'CNC Feeds & Speeds Calculator: RPM & Chip Load',
     category: 'Industrial & Engineering',
     desc: 'Calculate CNC spindle RPM, feed rate, and material removal rate from surface speed and embedded chip-load tables for aluminum, titanium, steel, and more.',
     icon: '⚙️'
   },
   {
-    path: '/composite-laminate-calculator',
+    path: '/composite-laminate-calculator/',
     name: 'Composite Laminate Calculator: Layup, Weight & More',
     category: 'Industrial & Engineering',
     desc: 'Calculate laminate thickness, areal weight, fiber volume fraction, and structural cost for carbon, glass, and kevlar composite layups.',
     icon: '⚙️'
   },
   {
-    path: '/connector-pinout-mapper',
+    path: '/connector-pinout-mapper/',
     name: 'Mil-Spec Connector Pinout Mapper',
     category: 'Industrial & Engineering',
     desc: 'Map Mil-Spec D38999 connector pinouts: pick shell size and insert arrangement, assign signal names to pins, and export a wire list as CSV.',
     icon: '⚙️'
   },
   {
-    path: '/crypto-position-size',
+    path: '/crypto-position-size/',
     name: 'Crypto Position Size & Risk Management',
     category: 'Trading & Crypto',
     desc: 'Crypto position sizing and risk calculator using the 1-2% account rule with entry, stop-loss, take-profit and leverage inputs. 100% free, client-side.',
     icon: '📈'
   },
   {
-    path: '/depreciation-schedule',
+    path: '/depreciation-schedule/',
     name: 'Depreciation Schedule Calculator - Straight-Line & DDB',
     category: 'B2B Business',
     desc: 'Generate business equipment depreciation schedules. Compare straight-line vs double-declining balance methods with full annual tables.',
     icon: '📊'
   },
   {
-    path: '/down-payment-savings',
+    path: '/down-payment-savings/',
     name: 'Home Down Payment Savings Calculator',
     category: 'Finance & Real Estate',
     desc: 'Calculate how long it will take to save for a home down payment. Plan your savings timeline with HYSA yield projections.',
     icon: '💰'
   },
   {
-    path: '/enclosure-thermal-solver',
+    path: '/enclosure-thermal-solver/',
     name: 'Industrial Enclosure Thermal Solver',
     category: 'Industrial & Engineering',
     desc: 'Compute internal temperature rise of sealed or vented electrical enclosures from heat dissipation, surface area, material, and required fan CFM.',
     icon: '⚙️'
   },
   {
-    path: '/eoq-calculator',
+    path: '/eoq-calculator/',
     name: 'EOQ Calculator - Economic Order Quantity Optimizer',
     category: 'B2B Business',
     desc: 'Calculate optimal Economic Order Quantity (EOQ) to minimize inventory costs. Free inventory optimization tool for supply chain management.',
     icon: '📊'
   },
   {
-    path: '/fortune-wheel',
+    path: '/fortune-wheel/',
     name: 'Free Online Fortune Wheel | Custom Choice & Alternate Yes/No Spinner',
     category: 'Health & Lifestyle',
     desc: 'Spin the decision wheel. Input custom names, choice lists, or alternative Yes/No questions to resolve debates dynamically. 100% Free, No Sign-Up Required.',
     icon: '🎰'
   },
   {
-    path: '/freight-dimensional-weight',
+    path: '/freight-dimensional-weight/',
     name: 'Dimensional Weight Calculator - Freight Shipping Cost Tool',
     category: 'B2B Business',
     desc: 'Calculate freight dimensional weight for UPS, FedEx, DHL, USPS, and general carriers. Optimize shipping costs with accurate billable weight calculations.',
     icon: '📊'
   },
   {
-    path: '/gear-tooth-generator',
+    path: '/gear-tooth-generator/',
     name: 'Gear Tooth Generator: Involute Calculator',
     category: 'Industrial & Engineering',
     desc: 'Generate involute gear tooth geometry - pitch, addendum, dedendum, outside and base circles - from module or diametral pitch with live drawing.',
     icon: '⚙️'
   },
   {
-    path: '/harness-diameter-modeler',
+    path: '/harness-diameter-modeler/',
     name: 'Wiring Harness Bundle Diameter Modeler',
     category: 'Industrial & Engineering',
     desc: 'Model aerospace wiring harness bundle diameter and weight from AWG inputs. Packing density 1.2-1.25x, live canvas cross-section, per-meter conductor mass.',
     icon: '⚙️'
   },
   {
-    path: '/heloc-estimator',
+    path: '/heloc-estimator/',
     name: 'HELOC Calculator - Home Equity Line of Credit Estimator',
     category: 'Finance & Real Estate',
     desc: 'Calculate your HELOC borrowing limit and monthly payments. Estimate home equity line of credit amounts based on LTV and current mortgage balance.',
     icon: '💰'
   },
   {
-    path: '/hex-rgba-converter',
+    path: '/hex-rgba-converter/',
     name: 'HEX to RGBA Color Converter',
     category: 'Developer Utilities',
     desc: 'Parse HEX, RGB, RGBA, HSL, or named colors and convert to HEX, RGBA, and HSL instantly. Live swatch preview and WCAG contrast ratios. Free.',
     icon: '💻'
   },
   {
-    path: '/home-affordability-calculator',
+    path: '/home-affordability-calculator/',
     name: 'Home Affordability Calculator - How Much House Can You Afford?',
     category: 'Finance & Real Estate',
     desc: 'Calculate how much house you can afford based on income, debts, and DTI ratio. Free home affordability calculator with 28/36 rule analysis.',
     icon: '💰'
   },
   {
-    path: '/hydraulic-pressure-drop',
+    path: '/hydraulic-pressure-drop/',
     name: 'Hydraulic Pressure Drop & Flow Calculator',
     category: 'Industrial & Engineering',
     desc: 'Model pressure loss through pipe with Reynolds number, Darcy-Weisbach friction factor, and fluid presets for water, oil, and glycol.',
     icon: '⚙️'
   },
   {
-    path: '/injection-molding-estimator',
+    path: '/injection-molding-estimator/',
     name: 'Injection Molding Cycle Time & Clamp Force',
     category: 'Industrial & Engineering',
     desc: 'Estimate injection molding clamp tonnage from projected area and cavity pressure, estimate cycle time from wall thickness, and part weight for nine common resins.',
     icon: '⚙️'
   },
   {
-    path: '/lap-timer',
+    path: '/lap-timer/',
     name: 'Chronometer Split Lap Timer',
     category: 'Health & Lifestyle',
     desc: 'A precision stopwatch and split lap timer using high-resolution timing, with best, worst, and average laps plus one-click CSV export. Works fully offline.',
     icon: '⏱️'
   },
   {
-    path: '/macro-diet-planner',
+    path: '/macro-diet-planner/',
     name: 'Macro Nutrient Flexible Diet Planner',
     category: 'Health & Lifestyle',
     desc: 'Calculate TDEE with the Mifflin-St Jeor equation and split daily calories into flexible protein, fat, and carb targets with a meal-split table. Free, client-side.',
     icon: '🥗'
   },
   {
-    path: '/markup-margin-tool',
+    path: '/markup-margin-tool/',
     name: 'Markup vs. Margin Tool & Calculator',
     category: 'Finance & Real Estate',
     desc: 'Convert markup and margin percentages instantly. Enter your product cost plus markup, margin, or sale price to see all four pricing metrics and profit.',
     icon: '💰'
   },
   {
-    path: '/merchant-account-fee-matrix',
+    path: '/merchant-account-fee-matrix/',
     name: 'Merchant Account Fee Calculator - Interchange Plus vs Flat Rate',
     category: 'B2B Business',
     desc: 'Compare credit card processing fees between flat rate and interchange-plus pricing. Calculate monthly costs, annual savings, and effective rates for small business merchant accounts.',
     icon: '📊'
   },
   {
-    path: '/moving-cost-calculator',
+    path: '/moving-cost-calculator/',
     name: 'Moving Cost Calculator - Estimate Your Moving Expenses',
     category: 'Finance & Real Estate',
     desc: 'Calculate moving costs with our inventory volume and distance estimator. Plan your relocation budget with accurate moving expense estimates.',
     icon: '💰'
   },
   {
-    path: '/openapi-tool-converter',
+    path: '/openapi-tool-converter/',
     name: 'OpenAPI to Agent Tool Definition Converter',
     category: 'AI & Automation',
     desc: 'Convert OpenAPI 3.x JSON specs into OpenAI function definitions and Anthropic tool arrays. Handles GET/POST, path/query params, JSON body schemas. Free.',
     icon: '🤖'
   },
   {
-    path: '/pcb-impedance-calculator',
+    path: '/pcb-impedance-calculator/',
     name: 'PCB Microstrip Impedance Modeler',
     category: 'Industrial & Engineering',
     desc: 'Model FR4 PCB microstrip impedance: compute characteristic impedance, propagation delay, and capacitance per length from trace width and stackup geometry.',
     icon: '⚙️'
   },
   {
-    path: '/playwright-script-generator',
+    path: '/playwright-script-generator/',
     name: 'Playwright & Puppeteer Script Generator',
     category: 'AI & Automation',
     desc: 'Visually build browser-automation flows (goto, click, type, assert, screenshot) and generate runnable Playwright or Puppeteer scripts in JS or Python. Free.',
     icon: '🤖'
   },
   {
-    path: '/pomodoro-timer',
+    path: '/pomodoro-timer/',
     name: 'Free Online Pomodoro Timer with Daily Session History',
     category: 'Health & Lifestyle',
     desc: 'Free Pomodoro Timer: configurable focus and break intervals, auto-advancing sessions, and a local daily history tracker. No sign-up required.',
     icon: '🍅'
   },
   {
-    path: '/pregnancy-due-date',
+    path: '/pregnancy-due-date/',
     name: 'Pregnancy Due Date Predictor',
     category: 'Health & Lifestyle',
     desc: 'Predict your estimated due date with Naegele\'s rule from your last menstrual period or conception date, with gestational age, trimester, and milestone tracking.',
     icon: '🤰'
   },
   {
-    path: '/prompt-chain-debugger',
+    path: '/prompt-chain-debugger/',
     name: 'Prompt Chain Debugger & Variable Injector',
     category: 'AI & Automation',
     desc: 'Debug multi-step prompt chains: inject {{variables}}, see interpolated output per step, spot unresolved placeholders, and map step-to-variable dependencies.',
     icon: '🤖'
   },
   {
-    path: '/prompt-injection-guardrail',
+    path: '/prompt-injection-guardrail/',
     name: 'Prompt Injection Guardrail Matrix',
     category: 'AI & Automation',
     desc: 'Scan prompts for injection patterns: instruction override, jailbreak, system-prompt leak, delimiter breaking and data exfiltration, with a 0-100 risk score.',
     icon: '🤖'
   },
   {
-    path: '/property-tax-projector',
+    path: '/property-tax-projector/',
     name: 'Property Tax Escalation Projector',
     category: 'Finance & Real Estate',
     desc: 'Project property tax increases over 20 years with compound growth. Estimate future tax bills and budget for homeownership costs.',
     icon: '💰'
   },
   {
-    path: '/pump-selection-tdh',
+    path: '/pump-selection-tdh/',
     name: 'Pump Selection & TDH Calculator',
     category: 'Industrial & Engineering',
     desc: 'Calculate total dynamic head and pump horsepower from static, friction, pressure, and velocity head with embedded fitting K-factor data.',
     icon: '⚙️'
   },
   {
-    path: '/pydantic-schema-generator',
+    path: '/pydantic-schema-generator/',
     name: 'JSON-Schema Generator (Pydantic)',
     category: 'AI & Automation',
     desc: 'Build fields visually and generate both the Pydantic v2 model class and the equivalent JSON Schema draft-07 side by side, then validate sample JSON. Free.',
     icon: '🤖'
   },
   {
-    path: '/rag-chunking-simulator',
+    path: '/rag-chunking-simulator/',
     name: 'RAG Vector Chunking Simulator',
     category: 'AI & Automation',
     desc: 'Simulate RAG text chunking: fixed-size, overlapping sliding window, or semantic paragraph chunking with char counts, total chunks and token estimates.',
     icon: '🤖'
   },
   {
-    path: '/random-picker',
+    path: '/random-picker/',
     name: 'Free Random Number & Group Picker',
     category: 'Health & Lifestyle',
     desc: 'Generate random numbers with optional no-repeat and seeded PRNG, or split a name list into random balanced teams. Instant, client-side, free.',
     icon: '🎲'
   },
   {
-    path: '/refinance-break-even',
+    path: '/refinance-break-even/',
     name: 'Mortgage Refinance Break-Even Calculator',
     category: 'Finance & Real Estate',
     desc: 'Calculate your mortgage refinance break-even point. Compare closing costs vs monthly savings to determine if refinancing is worth it.',
     icon: '💰'
   },
   {
-    path: '/rent-vs-buy-calculator',
+    path: '/rent-vs-buy-calculator/',
     name: 'Rent vs Buy Calculator 30-Year Comparison',
     category: 'Finance & Real Estate',
     desc: 'Compare renting vs buying a home over 30 years. Project net worth for both paths with appreciation, investment returns, and crossover analysis.',
     icon: '💰'
   },
   {
-    path: '/rental-cash-flow-calculator',
+    path: '/rental-cash-flow-calculator/',
     name: 'Rental Property Cash Flow Calculator',
     category: 'Finance & Real Estate',
     desc: 'Calculate rental property cash flow, NOI, cap rate, and cash-on-cash return. Free landlord investment analysis tool.',
     icon: '💰'
   },
   {
-    path: '/rental-yield-calculator',
+    path: '/rental-yield-calculator/',
     name: 'Rental Yield & ROI Calculator',
     category: 'Finance & Real Estate',
     desc: 'Calculate rental yield, net yield, cash-on-cash return, and IRR for investment properties. Free real estate ROI analysis tool.',
     icon: '💰'
   },
   {
-    path: '/retainer-profitability',
+    path: '/retainer-profitability/',
     name: 'Retainer Profitability Calculator - Project Margin Analyzer',
     category: 'B2B Business',
     desc: 'Analyze retainer project profitability. Calculate gross profit margins, break-even hours, effective cost per hour, and annual returns for agency retainers.',
     icon: '📊'
   },
   {
-    path: '/rigging-tension-solver',
+    path: '/rigging-tension-solver/',
     name: 'Rigging & Bridle Sling Tension Calculator',
     category: 'Industrial & Engineering',
     desc: 'Solve per-leg tension in bridle slings from load weight, leg count, and sling angle, with angle derating and capacity checks.',
     icon: '⚙️'
   },
   {
-    path: '/sheet-metal-unfolder',
+    path: '/sheet-metal-unfolder/',
     name: 'Sheet Metal Bend Allowance Calculator',
     category: 'Industrial & Engineering',
     desc: 'Unfold sheet metal flat-pattern lengths from K-factor and bend allowance formulas. Supports multi-bend parts with per-bend breakdowns.',
     icon: '⚙️'
   },
   {
-    path: '/sound-frequency-generator',
+    path: '/sound-frequency-generator/',
     name: 'Sound Frequency Generator & Tone Tester',
     category: 'Health & Lifestyle',
     desc: 'Generate sine, square, sawtooth, or triangle tones from 20-20,000 Hz with volume control and tuning presets. Start on click, safe defaults.',
     icon: '🔊'
   },
   {
-    path: '/student-loan-idr',
+    path: '/student-loan-idr/',
     name: 'Student Loan IDR Engine & Payment Calculator',
     category: 'Finance & Real Estate',
     desc: 'Estimate SAVE, IBR, and PAYE income-driven repayment plan payments using federal poverty guidelines. See 20/25-year forgiveness and total cost.',
     icon: '💰'
   },
   {
-    path: '/thermocouple-calculator',
+    path: '/thermocouple-calculator/',
     name: 'Thermocouple Calculator: mV to °C & °C to mV',
     category: 'Industrial & Engineering',
     desc: 'Convert thermocouple millivolts to temperature and back for types J, K, and T using embedded NIST ITS-90 coefficients, plus Pt100 RTD.',
     icon: '🌡️'
   },
   {
-    path: '/w2-vs-1099-comparator',
+    path: '/w2-vs-1099-comparator/',
     name: 'W2 vs 1099 Calculator - Compare Employee vs Contractor Pay',
     category: 'B2B Business',
     desc: 'Compare W2 employee take-home pay versus 1099 independent contractor earnings. Calculate taxes, benefits, and hourly rates side by side.',
@@ -770,10 +770,11 @@ function renderHeader() {
 
   headerContainer.className = "bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 sticky top-0 z-40 shadow-sm";
 
-  // Determine relative paths dynamic prefix
+  // Determine relative paths dynamic prefix (depth-aware: articles sit one
+  // level deeper than tool pages, so '../' alone would create broken links).
   const p = window.location.pathname;
   const isHomepage = p === '/' || p === '/index.html' || p === '';
-  const prefix = isHomepage ? './' : '../';
+  const prefix = isHomepage ? './' : '../'.repeat(p.split('/').filter(Boolean).length);
 
   // Group utilities by category
   const categories = {};
@@ -864,7 +865,7 @@ function renderHeader() {
           return `
             <div class="mobile-category-group border-b border-slate-100 dark:border-slate-800" data-category="${cat}">
               <div class="flex items-center">
-                <a href="./#category-title-${slug}" class="mobile-category-link flex-1 px-4 py-3.5 min-h-[48px] flex items-center text-sm font-bold text-slate-800 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors truncate">
+                <a href="${prefix}#category-title-${slug}" class="mobile-category-link flex-1 px-4 py-3.5 min-h-[48px] flex items-center text-sm font-bold text-slate-800 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors truncate">
                   ${cat}
                 </a>
                 <button onclick="toggleMobileCategory(this)" class="p-3.5 min-h-[48px] flex items-center justify-center text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" aria-label="Toggle ${cat}" aria-expanded="false">
@@ -942,10 +943,10 @@ function renderSidebarScroller() {
   // Add broad padding and explicit classes to support a wide, highly legible layout
   sidebarContainer.className = "bg-white dark:bg-slate-900 p-4 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col max-h-[700px] w-full";
 
-  // Determine prefix for relative navigation
+  // Determine prefix for relative navigation (depth-aware)
   const p = window.location.pathname;
   const isHomepage = p === '/' || p === '/index.html' || p === '';
-  const prefix = isHomepage ? './' : '../';
+  const prefix = isHomepage ? './' : '../'.repeat(p.split('/').filter(Boolean).length);
 
   // Build items HTML
   const currentPath = window.location.pathname.replace(/\/$/, '');
@@ -969,7 +970,7 @@ function renderSidebarScroller() {
     <!-- Scrollable 2-Column Wide container -->
     <div id="sidebar-items-scroller" class="flex-grow overflow-y-auto pr-1 custom-vscroll-bar grid grid-cols-2 gap-1.5">
       ${UTILITIES_REGISTRY.map(tool => {
-        const isActive = currentPath === tool.path || currentPath + '/index.html' === tool.path;
+        const isActive = currentPath === tool.path.replace(/\/$/, '');
         return `
           <a href="${prefix}${tool.path.replace(/^\//, '')}" data-name="${tool.name.toLowerCase()}" data-category="${tool.category.toLowerCase()}" class="group flex items-center p-1.5 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-950 transition-colors border ${isActive ? 'border-indigo-500 bg-indigo-50/50 dark:bg-indigo-950/20' : 'border-slate-100 dark:border-slate-800/80 hover:border-slate-200'} focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:outline-none" title="${tool.name} - ${tool.desc}">
             <div class="flex items-center space-x-1.5 min-w-0">
@@ -1052,7 +1053,10 @@ function renderAdPlacements() {
   const p = window.location.pathname;
   const isHomepage = p === '/' || p === '/index.html' || p === '';
 
-  // ===== UNIT A: TOP HEADER BANNER =====
+  // Do not place ads on the noindex 404 page (AdSense policy)
+  if (p === '/404.html' || p === '/404/') return;
+
+  // ===== UNIT A: TOP HEADER BANNER (injected only when the page lacks one) =====
   let adA = document.getElementById('ad-slot-a');
   if (!adA) {
     adA = document.createElement('div');
@@ -1083,9 +1087,15 @@ function renderAdPlacements() {
   }
 
   try {
-    (window.adsbygoogle = window.adsbygoogle || []).push({});
+    // Activate every ad unit present on the page (tool/SEO pages ship inline
+    // ins.adsbygoogle blocks that never received a push before).
+    const units = document.querySelectorAll('ins.adsbygoogle');
+    if (units.length) {
+      (window.adsbygoogle = window.adsbygoogle || []);
+      units.forEach(() => window.adsbygoogle.push({}));
+    }
   } catch (e) {
-    console.error("AdSense push error (Unit A):", e);
+    console.error("AdSense push error:", e);
   }
 }
 
