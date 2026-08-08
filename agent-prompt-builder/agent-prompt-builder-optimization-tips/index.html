@@ -1,0 +1,328 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
+    <script>
+      (function () {
+        try {
+          const theme = localStorage.getItem("theme");
+          if (theme === "dark") {
+            document.documentElement.classList.add("dark");
+            document.documentElement.classList.remove("light");
+          } else {
+            document.documentElement.classList.remove("dark");
+            document.documentElement.classList.add("light");
+          }
+        } catch (e) {}
+      })();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <meta charset="UTF-8" />
+    <meta name="google-adsense-account" content="ca-pub-3901061173891576" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Optimization Tips for System Prompts &amp; Tools | TopWebTool</title>
+    <meta name="description" content="Optimize system prompts for tokens and reliability: trim standing context, merge rules, tighten schemas and store prompts as versioned, diffable artifacts." />
+    <link
+      rel="canonical"
+      href="https://topwebtool.com/agent-prompt-builder/agent-prompt-builder-optimization-tips/"
+    />
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png" />
+
+    <link rel="manifest" href="../../site.webmanifest" />
+    <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="TopWebTool" />
+    <meta property="og:title" content="Optimization Tips for System Prompts &amp; Tools | TopWebTool" />
+    <meta property="og:description" content="Optimize system prompts for tokens and reliability: trim standing context, merge rules, tighten schemas and store prompts as versioned, diffable artifacts." />
+    <meta property="og:url" content="https://topwebtool.com/agent-prompt-builder/agent-prompt-builder-optimization-tips/" />
+    <meta property="og:image" content="https://topwebtool.com/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="en_US" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Optimization Tips for System Prompts &amp; Tools | TopWebTool" />
+    <meta name="twitter:description" content="Optimize system prompts for tokens and reliability: trim standing context, merge rules, tighten schemas and store prompts as versioned, diffable artifacts." />
+    <meta name="twitter:image" content="https://topwebtool.com/og-image.png" />
+    <link rel="stylesheet" href="../../styles.css" />
+    <link rel="stylesheet" href="../../global.css" />
+    <link rel="stylesheet" href="../../topwebtool-core.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Optimization Tips for System Prompts & Tools | TopWebTool",
+        "url": "https://topwebtool.com/agent-prompt-builder/agent-prompt-builder-optimization-tips/",
+      "datePublished": "2026-08-06",
+        "description": "Optimize system prompts for tokens and reliability: trim standing context, merge rules, tighten schemas and store prompts as versioned, diffable artifacts.",
+        "isAccessibleForFree": "True"
+      }
+    </script>
+  
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://topwebtool.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "System Prompt & Tool-Calling Builder",
+            "item": "https://topwebtool.com/agent-prompt-builder/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Optimization Tips for System Prompts & Tools",
+            "item": "https://topwebtool.com/agent-prompt-builder/agent-prompt-builder-optimization-tips/"
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body
+    class="bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 min-h-screen flex flex-col pb-4 transition-colors duration-200"
+  >
+    <!-- Header -->
+    <header id="global-header"></header>
+
+    <main
+      class="tool-page-main max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex-grow"
+    >
+      <!-- Leaderboard Ad Slot -->
+      <div
+        id="ad-slot-a"
+        class="w-full mx-auto mb-6 p-3 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center select-none overflow-hidden min-h-[90px]"
+        style="max-width: 728px; min-height: 90px; max-height: 135px"
+      >
+        <span
+          class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-1.5"
+          >Advertisement</span
+        >
+        <div
+          class="w-full flex justify-center"
+          style="height: 90px; max-height: 90px; overflow: hidden"
+        >
+          <ins
+            class="adsbygoogle"
+            style="
+              display: inline-block;
+              width: 100%;
+              height: 90px;
+              max-height: 90px;
+            "
+            data-ad-client="ca-pub-3901061173891576"
+            data-ad-slot="2894630336"
+            data-ad-format="horizontal"
+            data-full-width-responsive="false"
+          ></ins>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-4 gap-4">
+        <!-- Main Content (Column 1-3) -->
+        <div class="lg:col-span-3 space-y-8">
+          <article class="prose prose-slate dark:prose-invert max-w-none">
+            <!-- Reverse Link Back to Main Tool -->
+            <a
+              href="../"
+              class="inline-flex items-center text-brand-600 dark:text-brand-400 font-bold hover:underline text-sm mb-2 transition-colors"
+            >
+              &larr; Back to System Prompt &amp; Tool-Calling Builder Tool
+            </a>
+
+            <h1
+              class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight"
+            >
+              Optimization Tips for System Prompts &amp; Tools
+            </h1>
+
+            <div
+              class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4"
+            >
+              <span>Published: August 2026</span>
+              <span>•</span>
+              <span>Category: AI Agent & Automation</span>
+              <span>•</span>
+              <span class="text-emerald-600 dark:text-emerald-400"
+                >No Sign-Up / 100% Free / No Registration</span
+              >
+            </div>
+
+            <!-- Body Content -->
+            <div
+              class="text-slate-600 dark:text-slate-300 space-y-4 leading-relaxed text-sm"
+            >
+              <p class="mb-4">
+                Every token in the system prompt is paid for on every request.
+                Optimizing is therefore not cosmetic — it is a cost play and a
+                reliability play at once: shorter prompts are cheaper and less
+                diluted, so the model obeys them more consistently. These are
+                the highest-leverage trims.
+              </p>
+              <p class="mb-4">
+                Cut standing context ruthlessly. Anything in the system prompt
+                is re-sent on every call, even for requests that never touch it.
+                Move product descriptions, glossaries, and style samples into
+                per-request context or a retrieval step, and keep only what
+                every request genuinely needs in the standing prompt.
+              </p>
+              <p class="mb-4">
+                Merge overlapping rules. Five sentences that all say "be
+                accurate" can become one. Redundancy looks safe, but it consumes
+                attention budget and can push genuinely new instructions out of
+                the model's focus. If a rule appears twice, you have found
+                either a candidate to delete or a sign that the rule is not
+                landing — fix one or the other.
+              </p>
+              <p class="mb-4">
+                Tighten the tools array. A tool description that reads like a
+                sentence of prose can usually lose half its words and call more
+                reliably: "Returns order numbers and statuses for the user's
+                open orders" beats a paragraph. Models compare the user's need
+                against the description, and a crisp outcome phrase makes the
+                match obvious.
+              </p>
+              <p class="mb-4">
+                Shrink schemas to the required minimum. Every optional parameter
+                is a cost: it invites a value, and your handler has to tolerate
+                whatever arrives. Remove fields you do not actually use, and set
+                enum values when the domain allows it — constrained inputs make
+                both the model and your code more predictable.
+              </p>
+              <p class="mb-4">
+                Put the costliest rule where the model will see it. Because
+                early context is weighted more heavily, promote the rule that
+                matters most to the top of the prompt and relegate boilerplate
+                to the bottom. If the model keeps violating a rule that sits on
+                line three, the problem is phrasing, not placement; try
+                rephrasing before adding a second copy.
+              </p>
+              <p class="mb-4">
+                Store the prompt and the tools array as diffable artifacts. Keep
+                them in files, not in a database blob, so a change is a diff and
+                a diff is reviewable. A system prompt you cannot diff is a
+                system prompt you cannot debug when behavior regresses next
+                month.
+              </p>
+              <p class="mb-4">
+                Measure the prompt's token length and track it over time. Prompt
+                length tends to creep upward as rules accumulate. A weekly
+                number in your dashboard catches the creep, and the builder's
+                generated output gives you a canonical, copyable baseline to
+                diff against each edit.
+              </p>
+              <p class="mb-4">
+                Test against a frozen transcript set. Keep a small set of
+                representative user requests and their expected behaviors, and
+                re-run it after every prompt change. Because model behavior
+                shifts across versions, the transcript protects you from
+                mistaking a model update for a prompt improvement.
+              </p>
+              <p class="mb-4">
+                Finally, treat generated output as a starting point, not a
+                finish line. The builder assembles a clean, complete prompt —
+                then you iterate: ship, watch, trim, re-test. The optimization
+                loop never really closes; it just gets faster the better your
+                tooling and habits become.
+              </p>
+            </div>
+
+            <div
+              class="pt-6 border-t border-slate-100 dark:border-slate-800/80 flex flex-col sm:flex-row justify-between items-center gap-4"
+            >
+              <span
+                class="text-xs text-slate-400 dark:text-slate-500 font-semibold"
+                >Generate the baseline, then start trimming.</span
+              >
+              <a
+                href="../"
+                class="px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm rounded-lg transition-colors shadow-sm"
+              >
+                Open the Agent Prompt Builder &rarr;
+              </a>
+            </div>
+          </article>
+        </div>
+
+        <!-- Column 4 Sidebar -->
+        <div class="lg:col-span-1 space-y-6">
+          <div id="trending-sidebar"></div>
+          <div
+            id="ad-slot-square"
+            class="w-full p-4 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center mt-4 select-none min-h-[250px] overflow-hidden"
+            style="min-height: 250px"
+          >
+            <span
+              class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-2"
+              >Advertisement</span
+            >
+            <div
+              class="w-full flex justify-center"
+              style="height: 250px; max-height: 250px; overflow: hidden"
+            >
+              <ins
+                class="adsbygoogle"
+                style="
+                  display: block;
+                  width: 100%;
+                  min-height: 250px;
+                  max-height: 250px;
+                "
+                data-ad-client="ca-pub-3901061173891576"
+                data-ad-slot="6707430996"
+                data-ad-format="rectangle"
+                data-full-width-responsive="false"
+              ></ins>
+            </div>
+          </div>
+          <div
+            id="ad-slot-vertical"
+            class="w-full p-4 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center mt-4 hidden lg:flex select-none min-h-[600px] overflow-hidden"
+            style="min-height: 600px"
+          >
+            <span
+              class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-2"
+              >Advertisement</span
+            >
+            <div
+              class="w-full flex justify-center"
+              style="height: 600px; max-height: 600px; overflow: hidden"
+            >
+              <ins
+                class="adsbygoogle"
+                style="
+                  display: block;
+                  width: 100%;
+                  min-height: 600px;
+                  max-height: 600px;
+                "
+                data-ad-client="ca-pub-3901061173891576"
+                data-ad-slot="1581548667"
+                data-ad-format="auto"
+                data-full-width-responsive="true"
+              ></ins>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer id="global-footer"></footer>
+
+    <script src="../../global.js" defer></script>
+
+    <script src="../../twt-shell.js" defer></script>
+  </body>
+</html>

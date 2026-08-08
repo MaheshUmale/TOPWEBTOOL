@@ -47,12 +47,12 @@
     return [];
   }
 
-  /** Depth-aware relative path prefix (tools are 1 deep, articles 2). */
+  /** Depth-aware relative path prefix (root is 0, tools 1, articles 2). */
   function getPrefix() {
     var p = window.location.pathname;
     if (p === '/' || p === '/index.html' || p === '') return './';
     var depth = p.split('/').filter(Boolean).length;
-    return depth > 1 ? '../'.repeat(depth - 1) : '../';
+    return '../'.repeat(depth);
   }
 
   function el(tag, className, html) {

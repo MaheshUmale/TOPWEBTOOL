@@ -14,12 +14,12 @@ TopWebTool is a **100% static, client-side web tool directory** deployed to Clou
 - `index.html` — homepage (84-tool directory with search + category grid)
 - `404.html` — not-found page
 - `<tool-name>/index.html` — one directory per tool (84 total), e.g. `age-calculator/`
-- `<tool-name>/<slug>-best-practices.html`, `-common-errors.html`, etc. — SEO article pages per tool
+- `<tool-name>/<slug>/index.html` — SEO article pages per tool (one directory per article), e.g. `age-calculator/age-calculator-guide/index.html`
 - `global.js` — shared JS: theme loader, header, footer, sidebar, ad placement (header logo mark is inline at ~line 794)
 - `styles.css` / `global.css` / `src.css` — styling (Tailwind CSS v4)
 - `worker.js` — Cloudflare Pages **Function** (`/functions` compatible single-file worker) that serves real markdown to AI crawlers when `Accept: text/markdown`
 - `_headers` — response headers (CSP, cache, security, `Vary: Accept`, `Link:` to `.well-known/api-catalog` and `llms.txt`)
-- `_redirects` — 301 redirects + rewrites (2025 lines; `/index.html` → `/` first, order matters)
+- **No `_redirects` file exists by design.** Cloudflare Pages natively serves `/dir/` → `/dir/index.html`, redirects `.html` → extensionless, and adds trailing slashes to directories. Do NOT reintroduce `_redirects` — a `/tool/` → `/tool/index.html` rewrite (or any `.html` → clean 301 combined with a rewrite) LOOPs with the native redirect (`ERR_TOO_MANY_REDIRECTS`).
 - `sitemap.xml` — 505 canonical URLs
 - `robots.txt` — allows all bots including AI crawlers; lists `sitemap.xml`
 - `llms.txt` — llms.txt-standard index of all 84 tools (AI-friendly)
@@ -54,7 +54,7 @@ TopWebTool is a **100% static, client-side web tool directory** deployed to Clou
 
 Run these before finishing any batch of edits (Node scripts live in the temp dir):
 
-- HTML validity: `npx htmlhint` — expect "Scanned 506 files, no errors found"
+- HTML validity: `npx htmlhint` — expect "Scanned 507 files, no errors found"
 - Head/meta integrity: `node verify-heads.js` — expect "issues: 0"
 - JSON-LD validity: `node validate-jsonld.js` — expect "INVALID blocks: 0"
 - AI-friendliness: llms files must list exactly **84** tools.

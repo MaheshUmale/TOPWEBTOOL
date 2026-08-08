@@ -6,14 +6,19 @@ async function handle(request) {
   const url = new URL(request.url)
   const accept = request.headers.get('Accept') || ''
 
-  if (url.pathname.endsWith('.html') && accept.includes('text/markdown')) {
-    const html = await fetch(request.url).then(r => r.text()).catch(() => '')
-    if (html) {
-      return new Response(htmlToMarkdown(html, url.href), {
-        status: 200,
-        headers: { 'Content-Type': 'text/markdown; charset=utf-8' }
-      })
+  if (accept.includes('text/markdown')) {
+    const res = await fetch(request.url)
+    const contentType = res.headers.get('Content-Type') || ''
+    if (contentType.includes('text/html')) {
+      const html = await res.text()
+      if (html) {
+        return new Response(htmlToMarkdown(html, url.href), {
+          status: 200,
+          headers: { 'Content-Type': 'text/markdown; charset=utf-8' }
+        })
+      }
     }
+    return res
   }
   return fetch(request)
 }
