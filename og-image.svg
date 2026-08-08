@@ -1,19 +1,26 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="TopWebTool - Free Online Calculators &amp; Tools">
   <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#312e81"/>
-      <stop offset="100%" stop-color="#0ea5e9"/>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1e1b4b"/>
+      <stop offset="0.55" stop-color="#312e81"/>
+      <stop offset="1" stop-color="#0ea5e9"/>
+    </linearGradient>
+    <linearGradient id="mk" x1="0" y1="0" x2="100" y2="100" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#4f46e5"/>
+      <stop offset="1" stop-color="#0ea5e9"/>
     </linearGradient>
   </defs>
   <rect width="1200" height="630" fill="url(#bg)"/>
   <circle cx="1010" cy="90" r="190" fill="#ffffff" opacity="0.1"/>
   <circle cx="130" cy="560" r="160" fill="#ffffff" opacity="0.08"/>
   <circle cx="1080" cy="560" r="110" fill="#0ea5e9" opacity="0.15"/>
-  <g transform="translate(600 168)">
-    <rect x="-66" y="-66" width="132" height="132" rx="30" fill="#ffffff" opacity="0.92"/>
-    <path d="M -30 -30 h 60 v 24 h -18 v 36 h -24 v -36 h -18 z" fill="#4338ca"/>
+  <g transform="translate(600 160)">
+    <rect x="-82" y="-82" width="164" height="164" rx="38" fill="#ffffff" opacity="0.95"/>
+    <rect x="-52" y="-52" width="104" height="104" rx="24" fill="url(#mk)"/>
+    <path d="M -30 -30 h 60 v 10 h -22 v 44 h -16 v -44 h -22 z" fill="#ffffff"/>
+    <circle cx="38" cy="-38" r="6" fill="#fbbf24"/>
   </g>
-  <text x="600" y="352" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="92" font-weight="800" fill="#ffffff" letter-spacing="8">TOPWEBTOOL</text>
-  <text x="600" y="462" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="52" font-weight="600" fill="#ffffff" opacity="0.92" letter-spacing="4">FREE CALCULATORS &amp; TOOLS</text>
-  <text x="600" y="550" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="36" font-weight="500" fill="#ffffff" opacity="0.78" letter-spacing="3">NO SIGN-UP &bull; 100% FREE &bull; CLIENT-SIDE</text>
+  <text x="600" y="342" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="94" font-weight="800" fill="#ffffff" letter-spacing="7">TopWebTool</text>
+  <text x="600" y="452" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="54" font-weight="600" fill="#ffffff" opacity="0.94" letter-spacing="4">FREE CALCULATORS &amp; TOOLS</text>
+  <text x="600" y="540" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="36" font-weight="500" fill="#ffffff" opacity="0.8" letter-spacing="3">100% FREE &#8226; NO SIGN-UP &#8226; CLIENT-SIDE</text>
 </svg>

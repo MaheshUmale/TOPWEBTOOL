@@ -1,16 +1,21 @@
 {
   "name": "TopWebTool Utilities Directory",
   "short_name": "TopWebTool",
-  "description": "Access 23 free premium web utilities, financial calculators, digital marketing tools, and developer utilities securely offline.",
+  "description": "Access 84 free premium web utilities, financial calculators, digital marketing tools, and developer utilities securely offline.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#0f172a",
-  "theme_color": "#0284c7",
+  "background_color": "#ffffff",
+  "theme_color": "#4f46e5",
   "icons": [
     {
-      "src": "/logo.svg",
-      "sizes": "192x192 512x512",
-      "type": "image/svg+xml",
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
       "purpose": "any maskable"
     }
   ]
