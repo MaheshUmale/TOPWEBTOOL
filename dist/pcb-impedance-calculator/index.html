@@ -417,111 +417,72 @@
             </div>
           </div>
 
-          <!-- Informative Articles & Guides Section -->
+          
+        <div class="lg:col-span-1 space-y-6">
+          <div id="trending-sidebar"></div>
+          <!-- Reserved Square Ad Slot (CLS-safe) -->
           <div
-            class="bg-white dark:bg-slate-900 p-6 sm:p-8 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm space-y-4 mt-6"
+            id="ad-slot-square"
+            class="w-full p-4 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center mt-4 select-none min-h-[250px] overflow-hidden"
+            style="min-height: 250px"
           >
-            <h2
-              class="text-xl font-bold text-slate-900 dark:text-white border-b border-slate-100 dark:border-slate-800 pb-3"
+            <span
+              class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-2"
+              >Advertisement</span
             >
-              Informative Guides & Helper Articles
-            </h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <a
-                href="./pcb-impedance-calculator-guide.html"
-                class="block p-4 rounded-xl border border-slate-100 dark:border-slate-800 hover:border-brand-500 dark:hover:border-brand-500 hover:bg-slate-50/50 dark:hover:bg-slate-950/30 transition-all group"
-              >
-                <h3
-                  class="text-sm font-bold text-slate-800 dark:text-slate-200 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors"
-                >
-                  Ultimate Guide to PCB Microstrip Impedance
-                </h3>
-                <p class="text-xs text-slate-400 dark:text-slate-500 mt-1">
-                  The microstrip formula, effective dielectric constant, delay,
-                  and capacitance, and how controlled impedance design works.
-                </p>
-                <span
-                  class="text-xs font-semibold text-brand-600 dark:text-brand-400 mt-3 inline-block group-hover:translate-x-1 transition-transform"
-                  >Read Article &rarr;</span
-                >
-              </a>
-              <a
-                href="./pcb-impedance-calculator-best-practices.html"
-                class="block p-4 rounded-xl border border-slate-100 dark:border-slate-800 hover:border-brand-500 dark:hover:border-brand-500 hover:bg-slate-50/50 dark:hover:bg-slate-950/30 transition-all group"
-              >
-                <h3
-                  class="text-sm font-bold text-slate-800 dark:text-slate-200 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors"
-                >
-                  Best Practices for PCB Microstrip Design
-                </h3>
-                <p class="text-xs text-slate-400 dark:text-slate-500 mt-1">
-                  Consistent stackups, continuous reference planes, etch
-                  compensation, and avoiding plane splits under high-speed
-                  traces.
-                </p>
-                <span
-                  class="text-xs font-semibold text-brand-600 dark:text-brand-400 mt-3 inline-block group-hover:translate-x-1 transition-transform"
-                  >Read Article &rarr;</span
-                >
-              </a>
-              <a
-                href="./pcb-impedance-calculator-common-errors.html"
-                class="block p-4 rounded-xl border border-slate-100 dark:border-slate-800 hover:border-brand-500 dark:hover:border-brand-500 hover:bg-slate-50/50 dark:hover:bg-slate-950/30 transition-all group"
-              >
-                <h3
-                  class="text-sm font-bold text-slate-800 dark:text-slate-200 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors"
-                >
-                  Common Errors in PCB Microstrip Impedance
-                </h3>
-                <p class="text-xs text-slate-400 dark:text-slate-500 mt-1">
-                  Mixing units, using pre-etch width, ignoring thickness,
-                  out-of-range w/h, and the wrong Er for FR4 laminates.
-                </p>
-                <span
-                  class="text-xs font-semibold text-brand-600 dark:text-brand-400 mt-3 inline-block group-hover:translate-x-1 transition-transform"
-                  >Read Article &rarr;</span
-                >
-              </a>
-              <a
-                href="./pcb-impedance-calculator-optimization-tips.html"
-                class="block p-4 rounded-xl border border-slate-100 dark:border-slate-800 hover:border-brand-500 dark:hover:border-brand-500 hover:bg-slate-50/50 dark:hover:bg-slate-950/30 transition-all group"
-              >
-                <h3
-                  class="text-sm font-bold text-slate-800 dark:text-slate-200 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors"
-                >
-                  Top Optimization Tips for PCB Microstrips
-                </h3>
-                <p class="text-xs text-slate-400 dark:text-slate-500 mt-1">
-                  Differential pairs, length matching, back-drilling, via
-                  minimization, and impedance coupons for high-speed routing.
-                </p>
-                <span
-                  class="text-xs font-semibold text-brand-600 dark:text-brand-400 mt-3 inline-block group-hover:translate-x-1 transition-transform"
-                  >Read Article &rarr;</span
-                >
-              </a>
-              <a
-                href="./pcb-impedance-calculator-future-trends.html"
-                class="block p-4 rounded-xl border border-slate-100 dark:border-slate-800 hover:border-brand-500 dark:hover:border-brand-500 hover:bg-slate-50/50 dark:hover:bg-slate-950/30 transition-all group"
-              >
-                <h3
-                  class="text-sm font-bold text-slate-800 dark:text-slate-200 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors"
-                >
-                  Future Trends in PCB Microstrip Impedance
-                </h3>
-                <p class="text-xs text-slate-400 dark:text-slate-500 mt-1">
-                  Millimeter-wave routing, glass-core substrates, low-loss
-                  laminates, and AI-driven impedance verification.
-                </p>
-                <span
-                  class="text-xs font-semibold text-brand-600 dark:text-brand-400 mt-3 inline-block group-hover:translate-x-1 transition-transform"
-                  >Read Article &rarr;</span
-                >
-              </a>
+            <div
+              class="w-full flex justify-center"
+              style="height: 250px; max-height: 250px; overflow: hidden"
+            >
+              <!-- SquareAds -->
+              <ins
+                class="adsbygoogle"
+                style="
+                  display: block;
+                  width: 100%;
+                  min-height: 250px;
+                  max-height: 250px;
+                "
+                data-ad-client="ca-pub-3901061173891576"
+                data-ad-slot="6707430996"
+                data-ad-format="rectangle"
+                data-full-width-responsive="false"
+              ></ins>
             </div>
           </div>
 
-          <!-- Semantic SEO Instructional Hub -->
+          <!-- Reserved Vertical Ad Slot (CLS-safe, desktop only) -->
+          <div
+            id="ad-slot-vertical"
+            class="w-full p-4 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center mt-4 hidden lg:flex select-none min-h-[600px] overflow-hidden"
+            style="min-height: 600px"
+          >
+            <span
+              class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-2"
+              >Advertisement</span
+            >
+            <div
+              class="w-full flex justify-center"
+              style="height: 600px; max-height: 600px; overflow: hidden"
+            >
+              <!-- verticalAds -->
+              <ins
+                class="adsbygoogle"
+                style="
+                  display: block;
+                  width: 100%;
+                  min-height: 600px;
+                  max-height: 600px;
+                "
+                data-ad-client="ca-pub-3901061173891576"
+                data-ad-slot="1581548667"
+                data-ad-format="auto"
+                data-full-width-responsive="true"
+              ></ins>
+            </div>
+          </div>
+        </div>
+<!-- Semantic SEO Instructional Hub -->
           <section
             id="seo-instructional-hub"
             class="mt-8 p-6 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-lg shadow-sm space-y-6"
@@ -673,183 +634,273 @@ Valid range: 0.1 &lt; w/h &lt; 3.0, 1 &lt; Er &lt; 15</pre>
             </div>
           </section>
         </div>
+<!-- Semantic SEO Instructional Hub -->
+          <section
+            id="seo-instructional-hub"
+            class="mt-8 p-6 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-lg shadow-sm space-y-6"
+          >
+            <div class="border-b border-slate-200 dark:border-slate-800">
+              <h2
+                class="text-2xl font-extrabold text-slate-900 dark:text-white tracking-tight"
+              >
+                Professional Insights & Guide
+              </h2>
+              <p class="text-sm text-slate-600 dark:text-slate-300 mt-1">
+                The transmission-line math behind controlled-impedance routing,
+                with validity limits and real FR4 numbers.
+              </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
+              <div>
+                <h3 class="font-bold text-slate-900 dark:text-white mb-2">
+                  Core Use Case scenario
+                </h3>
+                <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
+                  When a digital signal's edge rate is fast enough that the
+                  trace length exceeds about a tenth of the signal wavelength,
+                  the trace stops behaving like a wire and starts behaving like
+                  a transmission line. Matching its characteristic impedance to
+                  the source and load prevents reflections that cause ringing
+                  and false triggering. The microstrip formula computes that
+                  impedance from the trace width, the dielectric height, and the
+                  copper thickness, and the same geometry gives the delay and
+                  the capacitance that matter for timing.
+                </p>
+              </div>
+              <div>
+                <h3 class="font-bold text-slate-900 dark:text-white mb-2">
+                  Troubleshooting & Edge-Case Failure Points
+                </h3>
+                <ul
+                  class="list-disc pl-5 space-y-2 text-slate-600 dark:text-slate-300 leading-relaxed"
+                >
+                  <li>
+                    Formula validity: the approximation holds for 0.1 &lt; w/h
+                    &lt; 3.0 and 1 &lt; Er &lt; 15; beyond that use a field
+                    solver.
+                  </li>
+                  <li>
+                    Etched width: the copper is narrower after etching than the
+                    drawn width — compensate with the fabricator's etch factor.
+                  </li>
+                  <li>
+                    Solder mask: mask over the trace lowers impedance a couple
+                    of ohms; on dense boards ask for mask-defined impedance.
+                  </li>
+                  <li>
+                    Invalid geometry: if 5.98h/(0.8w+t) falls below 1 the
+                    natural log goes negative — the tool flags it as
+                    impractical.
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="pt-4 border-t border-slate-200 dark:border-slate-800">
+              <h3 class="font-bold text-slate-900 dark:text-white mb-2">
+                Detailed Step-by-Step Instructions
+              </h3>
+              <ol
+                class="list-decimal pl-5 space-y-2 text-slate-600 dark:text-slate-300 leading-relaxed"
+              >
+                <li>
+                  Enter the trace width, dielectric height, and copper thickness
+                  in your preferred unit.
+                </li>
+                <li>
+                  Set the dielectric constant (4.3 for typical FR4; 3.4–3.6 for
+                  low-loss laminates).
+                </li>
+                <li>
+                  Press Compute Impedance and review Z0, εeff, propagation
+                  delay, and capacitance per length.
+                </li>
+                <li>
+                  To hit a target like 50 Ω, enter the target and press Solve
+                  Width — the required trace width is filled in for you.
+                </li>
+                <li>
+                  Copy the results into your stackup or routing note for the
+                  fabrication review.
+                </li>
+              </ol>
+            </div>
+
+            <div class="pt-4 border-t border-slate-200 dark:border-slate-800">
+              <h3 class="font-bold text-slate-900 dark:text-white mb-2">
+                Formulas Used
+              </h3>
+              <pre
+                class="bg-slate-950 text-emerald-400 p-4 rounded-xl font-mono text-xs overflow-x-auto break-all shadow-inner"
+              >
+Z0      = 87 / sqrt(Er + 1.41) * ln(5.98h / (0.8w + t))      // ohms, dims in mils
+eps_eff = (Er+1)/2 + (Er-1)/2 / sqrt(1 + 12h/w)
+t_pd    = sqrt(eps_eff) / c          // propagation delay per length
+C       = sqrt(eps_eff) / (c * Z0)   // capacitance per length
+L       = Z0^2 * C                   // inductance per length
+Valid range: 0.1 &lt; w/h &lt; 3.0, 1 &lt; Er &lt; 15</pre>
+            </div>
+
+            <!-- Semantic SEO Related Tool Matrix Silo -->
+            <div
+              class="mt-6 pt-6 border-t border-slate-200 dark:border-slate-800"
+            >
+              <h3
+                class="text-sm font-bold text-slate-900 dark:text-white mb-3 uppercase tracking-wider"
+              >
+                Related Web Utilities (Silo Hub)
+              </h3>
+              <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2">
+                <a
+                  href="../harness-diameter-modeler/"
+                  class="text-xs font-semibold text-brand-600 hover:text-brand-800 dark:text-brand-400 dark:hover:text-brand-300 transition-colors bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 px-3 py-2 rounded-lg text-center block"
+                  >Harness Bundle Diameter Modeler</a
+                >
+                <a
+                  href="../connector-pinout-mapper/"
+                  class="text-xs font-semibold text-brand-600 hover:text-brand-800 dark:text-brand-400 dark:hover:text-brand-300 transition-colors bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 px-3 py-2 rounded-lg text-center block"
+                  >Mil-Spec Connector Pinout Mapper</a
+                >
+                <a
+                  href="../battery-busbar-calculator/"
+                  class="text-xs font-semibold text-brand-600 hover:text-brand-800 dark:text-brand-400 dark:hover:text-brand-300 transition-colors bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 px-3 py-2 rounded-lg text-center block"
+                  >Battery Pack Busbar Calculator</a
+                >
+                <a
+                  href="../enclosure-thermal-solver/"
+                  class="text-xs font-semibold text-brand-600 hover:text-brand-800 dark:text-brand-400 dark:hover:text-brand-300 transition-colors bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 px-3 py-2 rounded-lg text-center block"
+                  >Enclosure Thermal Solver</a
+                >
+                <a
+                  href="../json-formatter-validator/"
+                  class="text-xs font-semibold text-brand-600 hover:text-brand-800 dark:text-brand-400 dark:hover:text-brand-300 transition-colors bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 px-3 py-2 rounded-lg text-center block"
+                  >JSON Formatter & Validator</a
+                >
+                <a
+                  href="../base64-encoder-decoder/"
+                  class="text-xs font-semibold text-brand-600 hover:text-brand-800 dark:text-brand-400 dark:hover:text-brand-300 transition-colors bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 px-3 py-2 rounded-lg text-center block"
+                  >Base64 Encoder & Decoder</a
+                >
+              </div>
+            </div>
+          </section>
+        </div>
+<!-- Informative Articles & Guides Section -->
+          <div
+            class="bg-white dark:bg-slate-900 p-6 sm:p-8 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm space-y-4 mt-6"
+          >
+            <h2
+              class="text-xl font-bold text-slate-900 dark:text-white border-b border-slate-100 dark:border-slate-800 pb-3"
+            >
+              Informative Guides & Helper Articles
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <a
+                href="./pcb-impedance-calculator-guide.html"
+                class="block p-4 rounded-xl border border-slate-100 dark:border-slate-800 hover:border-brand-500 dark:hover:border-brand-500 hover:bg-slate-50/50 dark:hover:bg-slate-950/30 transition-all group"
+              >
+                <h3
+                  class="text-sm font-bold text-slate-800 dark:text-slate-200 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors"
+                >
+                  Ultimate Guide to PCB Microstrip Impedance
+                </h3>
+                <p class="text-xs text-slate-400 dark:text-slate-500 mt-1">
+                  The microstrip formula, effective dielectric constant, delay,
+                  and capacitance, and how controlled impedance design works.
+                </p>
+                <span
+                  class="text-xs font-semibold text-brand-600 dark:text-brand-400 mt-3 inline-block group-hover:translate-x-1 transition-transform"
+                  >Read Article &rarr;</span
+                >
+              </a>
+              <a
+                href="./pcb-impedance-calculator-best-practices.html"
+                class="block p-4 rounded-xl border border-slate-100 dark:border-slate-800 hover:border-brand-500 dark:hover:border-brand-500 hover:bg-slate-50/50 dark:hover:bg-slate-950/30 transition-all group"
+              >
+                <h3
+                  class="text-sm font-bold text-slate-800 dark:text-slate-200 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors"
+                >
+                  Best Practices for PCB Microstrip Design
+                </h3>
+                <p class="text-xs text-slate-400 dark:text-slate-500 mt-1">
+                  Consistent stackups, continuous reference planes, etch
+                  compensation, and avoiding plane splits under high-speed
+                  traces.
+                </p>
+                <span
+                  class="text-xs font-semibold text-brand-600 dark:text-brand-400 mt-3 inline-block group-hover:translate-x-1 transition-transform"
+                  >Read Article &rarr;</span
+                >
+              </a>
+              <a
+                href="./pcb-impedance-calculator-common-errors.html"
+                class="block p-4 rounded-xl border border-slate-100 dark:border-slate-800 hover:border-brand-500 dark:hover:border-brand-500 hover:bg-slate-50/50 dark:hover:bg-slate-950/30 transition-all group"
+              >
+                <h3
+                  class="text-sm font-bold text-slate-800 dark:text-slate-200 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors"
+                >
+                  Common Errors in PCB Microstrip Impedance
+                </h3>
+                <p class="text-xs text-slate-400 dark:text-slate-500 mt-1">
+                  Mixing units, using pre-etch width, ignoring thickness,
+                  out-of-range w/h, and the wrong Er for FR4 laminates.
+                </p>
+                <span
+                  class="text-xs font-semibold text-brand-600 dark:text-brand-400 mt-3 inline-block group-hover:translate-x-1 transition-transform"
+                  >Read Article &rarr;</span
+                >
+              </a>
+              <a
+                href="./pcb-impedance-calculator-optimization-tips.html"
+                class="block p-4 rounded-xl border border-slate-100 dark:border-slate-800 hover:border-brand-500 dark:hover:border-brand-500 hover:bg-slate-50/50 dark:hover:bg-slate-950/30 transition-all group"
+              >
+                <h3
+                  class="text-sm font-bold text-slate-800 dark:text-slate-200 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors"
+                >
+                  Top Optimization Tips for PCB Microstrips
+                </h3>
+                <p class="text-xs text-slate-400 dark:text-slate-500 mt-1">
+                  Differential pairs, length matching, back-drilling, via
+                  minimization, and impedance coupons for high-speed routing.
+                </p>
+                <span
+                  class="text-xs font-semibold text-brand-600 dark:text-brand-400 mt-3 inline-block group-hover:translate-x-1 transition-transform"
+                  >Read Article &rarr;</span
+                >
+              </a>
+              <a
+                href="./pcb-impedance-calculator-future-trends.html"
+                class="block p-4 rounded-xl border border-slate-100 dark:border-slate-800 hover:border-brand-500 dark:hover:border-brand-500 hover:bg-slate-50/50 dark:hover:bg-slate-950/30 transition-all group"
+              >
+                <h3
+                  class="text-sm font-bold text-slate-800 dark:text-slate-200 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors"
+                >
+                  Future Trends in PCB Microstrip Impedance
+                </h3>
+                <p class="text-xs text-slate-400 dark:text-slate-500 mt-1">
+                  Millimeter-wave routing, glass-core substrates, low-loss
+                  laminates, and AI-driven impedance verification.
+                </p>
+                <span
+                  class="text-xs font-semibold text-brand-600 dark:text-brand-400 mt-3 inline-block group-hover:translate-x-1 transition-transform"
+                  >Read Article &rarr;</span
+                >
+              </a>
+            </div>
+          </div>
+
 
         <!-- Sidebar -->
 
-        <!-- Informative Articles & Guides Section -->
-        <div
-          class="bg-white dark:bg-slate-900 p-6 sm:p-8 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm space-y-4 mt-6"
-        >
-          <h2
-            class="text-xl font-bold text-slate-900 dark:text-white border-b border-slate-100 dark:border-slate-800 pb-3"
-          >
-            Informative Guides &amp; Helper Articles
-          </h2>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <a
-              href="./pcb-impedance-calculator-best-practices.html"
-              class="block p-4 rounded-xl border border-slate-100 dark:border-slate-800 hover:border-brand-500 dark:hover:border-brand-500 hover:bg-slate-50/50 dark:hover:bg-slate-950/30 transition-all group"
-            >
-              <h3
-                class="text-sm font-bold text-slate-800 dark:text-slate-200 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors"
-              >
-                Best Practices for PCB Microstrip Design
-              </h3>
-              <p class="text-xs text-slate-400 dark:text-slate-500 mt-1">
-                PCB microstrip best practices: consistent stackups, continuous
-                reference planes, etch compensation, and avoiding plane splits
-                under high-speed traces.
-              </p>
-              <span
-                class="text-xs font-semibold text-brand-600 dark:text-brand-400 mt-3 inline-block group-hover:translate-x-1 transition-transform"
-                >Read Article &rarr;</span
-              >
-            </a>
-            <a
-              href="./pcb-impedance-calculator-common-errors.html"
-              class="block p-4 rounded-xl border border-slate-100 dark:border-slate-800 hover:border-brand-500 dark:hover:border-brand-500 hover:bg-slate-50/50 dark:hover:bg-slate-950/30 transition-all group"
-            >
-              <h3
-                class="text-sm font-bold text-slate-800 dark:text-slate-200 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors"
-              >
-                Common Errors in PCB Microstrip Impedance
-              </h3>
-              <p class="text-xs text-slate-400 dark:text-slate-500 mt-1">
-                Common PCB microstrip errors: mixing units, using pre-etch
-                width, ignoring copper thickness, out-of-range w/h, and the
-                wrong Er for FR4 laminates.
-              </p>
-              <span
-                class="text-xs font-semibold text-brand-600 dark:text-brand-400 mt-3 inline-block group-hover:translate-x-1 transition-transform"
-                >Read Article &rarr;</span
-              >
-            </a>
-            <a
-              href="./pcb-impedance-calculator-future-trends.html"
-              class="block p-4 rounded-xl border border-slate-100 dark:border-slate-800 hover:border-brand-500 dark:hover:border-brand-500 hover:bg-slate-50/50 dark:hover:bg-slate-950/30 transition-all group"
-            >
-              <h3
-                class="text-sm font-bold text-slate-800 dark:text-slate-200 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors"
-              >
-                Future Trends in PCB Microstrip Impedance
-              </h3>
-              <p class="text-xs text-slate-400 dark:text-slate-500 mt-1">
-                Future trends in PCB microstrip impedance: millimeter-wave
-                routing, glass-core substrates, low-loss laminates, and
-                AI-driven impedance verification.
-              </p>
-              <span
-                class="text-xs font-semibold text-brand-600 dark:text-brand-400 mt-3 inline-block group-hover:translate-x-1 transition-transform"
-                >Read Article &rarr;</span
-              >
-            </a>
-            <a
-              href="./pcb-impedance-calculator-guide.html"
-              class="block p-4 rounded-xl border border-slate-100 dark:border-slate-800 hover:border-brand-500 dark:hover:border-brand-500 hover:bg-slate-50/50 dark:hover:bg-slate-950/30 transition-all group"
-            >
-              <h3
-                class="text-sm font-bold text-slate-800 dark:text-slate-200 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors"
-              >
-                Ultimate Guide to PCB Microstrip Impedance
-              </h3>
-              <p class="text-xs text-slate-400 dark:text-slate-500 mt-1">
-                Master PCB microstrip impedance modeling: the Z0 formula,
-                effective dielectric constant, propagation delay, capacitance,
-                and how controlled impedance design works.
-              </p>
-              <span
-                class="text-xs font-semibold text-brand-600 dark:text-brand-400 mt-3 inline-block group-hover:translate-x-1 transition-transform"
-                >Read Article &rarr;</span
-              >
-            </a>
-            <a
-              href="./pcb-impedance-calculator-optimization-tips.html"
-              class="block p-4 rounded-xl border border-slate-100 dark:border-slate-800 hover:border-brand-500 dark:hover:border-brand-500 hover:bg-slate-50/50 dark:hover:bg-slate-950/30 transition-all group"
-            >
-              <h3
-                class="text-sm font-bold text-slate-800 dark:text-slate-200 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors"
-              >
-                Top Optimization Tips for PCB Microstrips
-              </h3>
-              <p class="text-xs text-slate-400 dark:text-slate-500 mt-1">
-                Optimize PCB microstrips: differential pairs, length matching,
-                via minimization, back-drilling, and impedance coupons for
-                high-speed routing.
-              </p>
-              <span
-                class="text-xs font-semibold text-brand-600 dark:text-brand-400 mt-3 inline-block group-hover:translate-x-1 transition-transform"
-                >Read Article &rarr;</span
-              >
-            </a>
-          </div>
-        </div>
-        <!-- Informative Articles End -->
+        <!-- Sidebar -->
 
-        <div class="lg:col-span-1 space-y-6">
-          <div id="trending-sidebar"></div>
-          <!-- Reserved Square Ad Slot (CLS-safe) -->
-          <div
-            id="ad-slot-square"
-            class="w-full p-4 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center mt-4 select-none min-h-[250px] overflow-hidden"
-            style="min-height: 250px"
-          >
-            <span
-              class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-2"
-              >Advertisement</span
-            >
-            <div
-              class="w-full flex justify-center"
-              style="height: 250px; max-height: 250px; overflow: hidden"
-            >
-              <!-- SquareAds -->
-              <ins
-                class="adsbygoogle"
-                style="
-                  display: block;
-                  width: 100%;
-                  min-height: 250px;
-                  max-height: 250px;
-                "
-                data-ad-client="ca-pub-3901061173891576"
-                data-ad-slot="6707430996"
-                data-ad-format="rectangle"
-                data-full-width-responsive="false"
-              ></ins>
-            </div>
-          </div>
+        
 
-          <!-- Reserved Vertical Ad Slot (CLS-safe, desktop only) -->
-          <div
-            id="ad-slot-vertical"
-            class="w-full p-4 bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center mt-4 hidden lg:flex select-none min-h-[600px] overflow-hidden"
-            style="min-height: 600px"
-          >
-            <span
-              class="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-2"
-              >Advertisement</span
-            >
-            <div
-              class="w-full flex justify-center"
-              style="height: 600px; max-height: 600px; overflow: hidden"
-            >
-              <!-- verticalAds -->
-              <ins
-                class="adsbygoogle"
-                style="
-                  display: block;
-                  width: 100%;
-                  min-height: 600px;
-                  max-height: 600px;
-                "
-                data-ad-client="ca-pub-3901061173891576"
-                data-ad-slot="1581548667"
-                data-ad-format="auto"
-                data-full-width-responsive="true"
-              ></ins>
-            </div>
-          </div>
-        </div>
-      </div>
+
+
+      
+      
     </main>
 
     <script>
