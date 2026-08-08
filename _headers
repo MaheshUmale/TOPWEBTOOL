@@ -1,6 +1,28 @@
 /*
-  Link: </.well-known/api-catalog>; rel="api-catalog", </llms.txt>; rel="llms.txt"
-  Vary: Accept
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
   X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
   Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
   X-Robots-Tag: index, follow
+  Vary: Accept
+  Link: </.well-known/api-catalog>; rel="api-catalog", </llms.txt>; rel="llms.txt"
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://pagead2.googlesyndication.com https://*.googlesyndication.com https://*.googletagmanager.com https://*.google-analytics.com https://*.doubleclick.net https://*.google.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https:; object-src 'none'; base-uri 'self'; frame-src 'self' https://*.googlesyndication.com https://*.doubleclick.net https://*.google.com; worker-src 'self' blob:
+
+/404.html
+  X-Robots-Tag: noindex
+
+/*.svg
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.png
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.webmanifest
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.css
+  Cache-Control: public, max-age=86400
+
+/*.js
+  Cache-Control: public, max-age=86400
