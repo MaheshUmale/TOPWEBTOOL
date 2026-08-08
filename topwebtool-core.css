@@ -1,0 +1,800 @@
+/**
+ * ============================================================
+ * TopWebTool Core Design System (topwebtool-core.css)
+ * Centralized, universally-applicable layout framework.
+ *
+ * Load order: styles.css → global.css → topwebtool-core.css
+ *
+ * Namespace: every class is prefixed `twt-` so it can never
+ * collide with Tailwind utilities or per-tool inline CSS.
+ * The framework is ADDITIVE — it never re-skins a tool's
+ * internal widgets; it only governs the global chrome shell
+ * (nav / workspace / rail), the fluid grid, and the
+ * zero-CLS AdSense boundaries.
+ * ============================================================
+ */
+
+/* ============================================================
+   1. DESIGN TOKENS (deep slate + sharp brand indicators)
+   ============================================================ */
+:root {
+  color-scheme: light;
+
+  /* 60% Neutral — deep slate text */
+  --twt-bg: var(--bg-primary, #f1f5f9);
+  --twt-bg-alt: var(--bg-secondary, #f8fafc);
+  --twt-surface: var(--surface-primary, #ffffff);
+  --twt-surface-2: var(--surface-secondary, #f1f5f9);
+  --twt-text: var(--text-primary, #0f172a);
+  --twt-text-2: var(--text-secondary, #334155);
+  --twt-text-3: var(--text-muted, #64748b);
+  --twt-border: var(--border-color, #cbd5e1);
+  --twt-border-soft: var(--border-light, #e2e8f0);
+
+  /* 10% Interactive accent — brand indigo→sky execution engine */
+  --twt-brand: var(--accent-color, #0369a1);
+  --twt-brand-strong: var(--accent-hover, #075985);
+  --twt-brand-soft: var(--accent-light, #e0f2fe);
+  --twt-brand-text: var(--accent-text, #ffffff);
+
+  /* Status */
+  --twt-success: var(--success-color, #047857);
+  --twt-success-soft: var(--success-light, #d1fae5);
+  --twt-error: var(--error-color, #be123c);
+  --twt-error-soft: var(--error-light, #ffe4e6);
+
+  /* Type */
+  --twt-font: var(--font-sans, 'Inter', system-ui, sans-serif);
+  --twt-fs-xs: 0.75rem;
+  --twt-fs-sm: 0.875rem;
+  --twt-fs-base: 1rem;
+  --twt-fs-lg: 1.125rem;
+  --twt-fs-xl: 1.25rem;
+  --twt-fs-2xl: 1.5rem;
+  --twt-fs-3xl: 1.875rem;
+  --twt-fs-4xl: 2.25rem;
+
+  /* Geometry */
+  --twt-r-sm: var(--radius-sm, 0.375rem);
+  --twt-r-md: var(--radius-md, 0.5rem);
+  --twt-r-lg: var(--radius-lg, 0.75rem);
+  --twt-r-xl: var(--radius-xl, 1rem);
+
+  --twt-shadow-sm: var(--shadow-sm, 0 1px 2px 0 rgb(0 0 0 / 0.05));
+  --twt-shadow-md: var(--shadow-md, 0 4px 6px -1px rgb(0 0 0 / 0.1));
+  --twt-shadow-lg: var(--shadow-lg, 0 10px 15px -3px rgb(0 0 0 / 0.1));
+
+  --twt-motion: var(--transition-fast, 150ms cubic-bezier(0.4, 0, 0.2, 1));
+
+  /* Fluid grid control — set --twt-cols on the element to override */
+  --twt-cols: 1;
+  --twt-gap: 1rem;
+
+  /* Breakpoints used by the media queries below */
+  --twt-bp-md: 768px;
+  --twt-bp-lg: 1200px;
+
+  /* Zero-CLS AdSense boundaries (reserved BEFORE the ad script runs) */
+  --twt-ad-banner-h: 90px;
+  --twt-ad-inline-h: 250px;
+  --twt-ad-rail-w: 300px;
+  --twt-ad-rail-h: 600px;
+}
+
+/* ============================================================
+   2. SHELL — the 3-column execution engine
+   Layout areas: nav | workspace | rail
+   Mobile  : single-column dashboard (nav hidden, rail below)
+   Tablet  : dual split-pane (workspace + utility-link rail)
+   Desktop : rigid 3-column engine, max-width 1400px
+   ============================================================ */
+.twt-shell {
+  display: block;
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--twt-bg);
+  color: var(--twt-text);
+  font-family: var(--twt-font);
+  -webkit-font-smoothing: antialiased;
+}
+
+.twt-shell__header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+  background-color: var(--twt-surface);
+  border-bottom: 1px solid var(--twt-border-soft);
+  box-shadow: var(--twt-shadow-sm);
+}
+
+.twt-shell__frame {
+  display: grid;
+  width: 100%;
+  max-width: 1400px;
+  margin-inline: auto;
+  padding: 1rem clamp(1rem, 3vw, 2rem) 2rem;
+  gap: var(--twt-gap);
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-areas:
+    'workspace'
+    'rail';
+  align-items: start;
+}
+
+.twt-shell__nav {
+  display: none;
+  grid-area: nav;
+  min-width: 0;
+}
+
+.twt-shell__workspace {
+  grid-area: workspace;
+  min-width: 0;
+  width: 100%;
+}
+
+.twt-shell__rail {
+  grid-area: rail;
+  min-width: 0;
+}
+
+.twt-shell__footer {
+  width: 100%;
+  margin-top: auto;
+  background-color: var(--twt-surface);
+  border-top: 1px solid var(--twt-border-soft);
+}
+
+/* ---- Tablet: dual split-pane (tool container + utility links) ---- */
+@media (min-width: 768px) {
+  .twt-shell__frame {
+    grid-template-columns: minmax(0, 1fr) 300px;
+    grid-template-areas: 'workspace rail';
+    align-items: start;
+  }
+
+  .twt-shell__rail {
+    position: sticky;
+    top: 5rem;
+    align-self: start;
+    max-height: calc(100vh - 6rem);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+}
+
+/* ---- Desktop: rigid 3-column execution engine ---- */
+@media (min-width: 1200px) {
+  .twt-shell__frame {
+    grid-template-columns: 240px minmax(0, 1fr) 300px;
+    grid-template-areas: 'nav workspace rail';
+    gap: clamp(1rem, 2.5vw, 2rem);
+  }
+
+  .twt-shell__nav {
+    display: block;
+    position: sticky;
+    top: 5rem;
+    align-self: start;
+    max-height: calc(100vh - 6rem);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+
+  .twt-shell__workspace {
+    max-width: 100%;
+  }
+}
+
+/* Existing tool mains keep their own internal grids — we only
+   neutralize the outer page wrapper so the shell governs width. */
+.twt-shell__workspace.max-w-7xl {
+  max-width: 100% !important;
+  margin-inline: 0 !important;
+}
+
+/* ============================================================
+   3. FLUID MOBILE-FIRST GRID SYSTEM
+   Usage: <div class="twt-grid twt-grid--2">...</div>
+   ============================================================ */
+.twt-grid {
+  display: grid;
+  grid-template-columns: repeat(var(--twt-cols, 1), minmax(0, 1fr));
+  gap: var(--twt-gap);
+  width: 100%;
+}
+
+.twt-grid--2 { --twt-cols: 2; }
+.twt-grid--3 { --twt-cols: 3; }
+.twt-grid--4 { --twt-cols: 4; }
+
+@media (min-width: 768px) {
+  .twt-grid--2 { --twt-cols: 2; }
+  .twt-grid--3 { --twt-cols: 3; }
+  .twt-grid--4 { --twt-cols: 4; }
+}
+
+@media (min-width: 1200px) {
+  .twt-grid--3 { --twt-cols: 3; }
+  .twt-grid--4 { --twt-cols: 4; }
+}
+
+/* Auto-fill grid for directory / card lists */
+.twt-grid-auto {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 18rem), 1fr));
+  gap: var(--twt-gap);
+  width: 100%;
+}
+
+/* Span helpers */
+.twt-span-2 { grid-column: span 2; }
+.twt-span-3 { grid-column: span 3; }
+.twt-span-4 { grid-column: span 4; }
+
+/* ============================================================
+   4. LEFT NAVIGATION SIDEBAR
+   ============================================================ */
+.twt-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0.25rem;
+  background-color: var(--twt-surface);
+  border: 1px solid var(--twt-border-soft);
+  border-radius: var(--twt-r-lg);
+  box-shadow: var(--twt-shadow-sm);
+}
+
+.twt-nav__group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+}
+
+.twt-nav__title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.625rem 0.75rem;
+  font-size: var(--twt-fs-xs);
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--twt-text-3);
+  border-bottom: 1px solid var(--twt-border-soft);
+}
+
+.twt-nav__link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--twt-r-md);
+  font-size: var(--twt-fs-sm);
+  font-weight: 600;
+  color: var(--twt-text-2);
+  text-decoration: none;
+  transition: background-color var(--twt-motion), color var(--twt-motion);
+}
+
+.twt-nav__link:hover {
+  background-color: var(--twt-surface-2);
+  color: var(--twt-brand);
+}
+
+.twt-nav__link.is-active {
+  background-color: var(--twt-brand-soft);
+  color: var(--twt-brand-strong);
+  font-weight: 700;
+}
+
+.twt-nav__link:focus-visible {
+  outline: 2px solid var(--twt-brand);
+  outline-offset: 2px;
+}
+
+.twt-nav__search {
+  width: 100%;
+  margin-bottom: 0.25rem;
+  padding: 0.5rem 0.75rem;
+  font-size: var(--twt-fs-sm);
+  color: var(--twt-text);
+  background-color: var(--twt-surface-2);
+  border: 1px solid var(--twt-border);
+  border-radius: var(--twt-r-md);
+}
+
+.twt-nav__search:focus {
+  outline: none;
+  border-color: var(--twt-brand);
+  box-shadow: 0 0 0 2px var(--twt-brand-soft);
+}
+
+/* ============================================================
+   5. RIGHT RAIL — utility links + dedicated sticky ad rail
+   ============================================================ */
+.twt-rail {
+  display: flex;
+  flex-direction: column;
+  gap: var(--twt-gap);
+  min-width: 0;
+}
+
+.twt-rail__links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+  padding: 0.75rem;
+  background-color: var(--twt-surface);
+  border: 1px solid var(--twt-border-soft);
+  border-radius: var(--twt-r-lg);
+  box-shadow: var(--twt-shadow-sm);
+}
+
+.twt-rail__links-title {
+  padding: 0 0.5rem 0.5rem;
+  font-size: var(--twt-fs-xs);
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--twt-text-3);
+  border-bottom: 1px solid var(--twt-border-soft);
+}
+
+.twt-rail__link {
+  display: block;
+  padding: 0.5rem;
+  border-radius: var(--twt-r-md);
+  font-size: var(--twt-fs-sm);
+  font-weight: 600;
+  color: var(--twt-text-2);
+  text-decoration: none;
+  transition: background-color var(--twt-motion), color var(--twt-motion);
+}
+
+.twt-rail__link:hover {
+  background-color: var(--twt-surface-2);
+  color: var(--twt-brand);
+}
+
+/* The searchable trending panel (rendered by global.js) that lives in the
+   rail. Reuses the shell surface tokens for theme parity. */
+.twt-rail__panel {
+  width: 100%;
+  background-color: var(--twt-surface);
+  border: 1px solid var(--twt-border-soft);
+  border-radius: var(--twt-r-lg);
+  box-shadow: var(--twt-shadow-sm);
+  max-height: calc(100vh - 6rem);
+}
+
+/* Legacy square ad repurposed as the mid-inline unit inside the workspace. */
+.twt-mid-inline {
+  margin-block: var(--twt-gap);
+  min-height: 250px;
+}
+
+/* ============================================================
+   6. ZERO-CLS GOOGLE ADSENSE BOUNDARIES
+   The container is sized in the FIRST paint, before the
+   AdSense script executes, so ad fill causes 0.0 CLS.
+   ============================================================ */
+.twt-ad {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  text-align: center;
+  background-color: var(--twt-bg-alt);
+  border: 1px solid var(--twt-border-soft);
+  border-radius: var(--twt-r-lg);
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.twt-ad__label {
+  display: block;
+  width: 100%;
+  padding: 0.25rem 0 0.125rem;
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--twt-text-3);
+}
+
+.twt-ad__slot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Top banner — reserve 90px (plus label ≈ 20px) BEFORE ad script */
+.twt-ad--banner {
+  min-height: calc(var(--twt-ad-banner-h) + 1.25rem);
+}
+.twt-ad--banner .twt-ad__slot {
+  height: var(--twt-ad-banner-h);
+  max-height: var(--twt-ad-banner-h);
+}
+
+/* Mid-inline card — reserve 250px (plus label ≈ 20px) */
+.twt-ad--inline {
+  min-height: calc(var(--twt-ad-inline-h) + 1.25rem);
+}
+.twt-ad--inline .twt-ad__slot {
+  height: var(--twt-ad-inline-h);
+  max-height: var(--twt-ad-inline-h);
+}
+
+/* Desktop sidebar skyscraper — 300x600, only ≥1200px */
+.twt-ad--rail {
+  width: var(--twt-ad-rail-w);
+  max-width: 100%;
+  min-height: calc(var(--twt-ad-rail-h) + 1.25rem);
+  margin-inline: auto;
+}
+.twt-ad--rail .twt-ad__slot {
+  height: var(--twt-ad-rail-h);
+  max-height: var(--twt-ad-rail-h);
+  min-width: var(--twt-ad-rail-w);
+}
+
+/* Preserve the legacy ad-slot ids used by global.js + inline tool pages */
+#ad-slot-a,
+#ad-slot-square,
+#ad-slot-vertical {
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* Vertical skyscraper is a desktop-only rail unit under the shell */
+@media (max-width: 1199px) {
+  .twt-shell #ad-slot-vertical {
+    display: none !important;
+  }
+}
+
+/* ============================================================
+   7. UNIFORM TYPOGRAPHY SYSTEM
+   ============================================================ */
+.twt-h1,
+.twt-h2,
+.twt-h3,
+.twt-h4 {
+  margin: 0 0 0.5em;
+  color: var(--twt-text);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  font-weight: 800;
+}
+
+.twt-h1 { font-size: var(--twt-fs-4xl); }
+.twt-h2 { font-size: var(--twt-fs-3xl); }
+.twt-h3 { font-size: var(--twt-fs-2xl); }
+.twt-h4 { font-size: var(--twt-fs-xl); }
+
+.twt-lead {
+  font-size: var(--twt-fs-lg);
+  line-height: 1.6;
+  color: var(--twt-text-2);
+}
+
+.twt-muted { color: var(--twt-text-3); }
+.twt-text-sm { font-size: var(--twt-fs-sm); }
+.twt-text-xs { font-size: var(--twt-fs-xs); }
+
+/* Long-form SEO article typography */
+.twt-prose {
+  font-size: var(--twt-fs-base);
+  line-height: 1.75;
+  color: var(--twt-text-2);
+  overflow-wrap: break-word;
+}
+
+.twt-prose h1,
+.twt-prose h2,
+.twt-prose h3,
+.twt-prose h4 {
+  margin-top: 1.75em;
+  margin-bottom: 0.5em;
+  color: var(--twt-text);
+}
+
+.twt-prose p { margin: 0 0 1.25em; }
+
+.twt-prose ul,
+.twt-prose ol {
+  margin: 0 0 1.25em;
+  padding-left: 1.5em;
+}
+
+.twt-prose li { margin-bottom: 0.375em; }
+
+.twt-prose a {
+  color: var(--twt-brand);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color var(--twt-motion);
+}
+
+.twt-prose a:hover { color: var(--twt-brand-strong); }
+
+.twt-prose blockquote {
+  margin: 1.5em 0;
+  padding: 0.75rem 1rem;
+  border-left: 4px solid var(--twt-brand);
+  background-color: var(--twt-brand-soft);
+  border-radius: 0 var(--twt-r-md) var(--twt-r-md) 0;
+  color: var(--twt-text-2);
+}
+
+.twt-prose code {
+  padding: 0.125em 0.375em;
+  font-size: 0.9em;
+  background-color: var(--twt-surface-2);
+  border: 1px solid var(--twt-border-soft);
+  border-radius: var(--twt-r-sm);
+  font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+}
+
+.twt-prose pre {
+  margin: 1.5em 0;
+  padding: 1rem;
+  overflow-x: auto;
+  background-color: var(--twt-text);
+  color: var(--twt-bg-alt);
+  border-radius: var(--twt-r-lg);
+  font-size: var(--twt-fs-sm);
+  line-height: 1.6;
+}
+
+.twt-prose pre code {
+  background: none;
+  border: 0;
+  padding: 0;
+  color: inherit;
+}
+
+.twt-prose table {
+  width: 100%;
+  margin: 1.5em 0;
+  border-collapse: collapse;
+  font-size: var(--twt-fs-sm);
+}
+
+.twt-prose th,
+.twt-prose td {
+  padding: 0.625rem 0.75rem;
+  border: 1px solid var(--twt-border);
+  text-align: left;
+}
+
+.twt-prose th {
+  background-color: var(--twt-surface-2);
+  font-weight: 700;
+  color: var(--twt-text);
+}
+
+/* ============================================================
+   8. COMPONENTS
+   ============================================================ */
+
+/* Cards */
+.twt-card {
+  background-color: var(--twt-surface);
+  border: 1px solid var(--twt-border-soft);
+  border-radius: var(--twt-r-xl);
+  padding: 1.5rem;
+  box-shadow: var(--twt-shadow-sm);
+}
+
+.twt-card__title {
+  margin: 0 0 0.75rem;
+  font-size: var(--twt-fs-lg);
+  font-weight: 800;
+  color: var(--twt-text);
+}
+
+/* Buttons */
+.twt-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.25rem;
+  font-family: inherit;
+  font-size: var(--twt-fs-sm);
+  font-weight: 700;
+  line-height: 1.2;
+  border: 1px solid transparent;
+  border-radius: var(--twt-r-md);
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color var(--twt-motion), border-color var(--twt-motion),
+    box-shadow var(--twt-motion), transform var(--twt-motion);
+  box-shadow: var(--twt-shadow-sm);
+}
+
+.twt-btn:hover { transform: translateY(-1px); }
+.twt-btn:active { transform: translateY(0); }
+.twt-btn:focus-visible {
+  outline: 2px solid var(--twt-brand);
+  outline-offset: 2px;
+}
+
+.twt-btn--primary {
+  background-color: var(--twt-brand);
+  color: var(--twt-brand-text);
+}
+.twt-btn--primary:hover { background-color: var(--twt-brand-strong); }
+
+.twt-btn--secondary {
+  background-color: var(--twt-surface);
+  color: var(--twt-text);
+  border-color: var(--twt-border);
+}
+.twt-btn--secondary:hover { background-color: var(--twt-surface-2); }
+
+.twt-btn--block { width: 100%; }
+
+/* Forms — inputs are EXACTLY 16px so mobile browsers never auto-zoom */
+.twt-input,
+.twt-select,
+.twt-textarea {
+  display: block;
+  width: 100%;
+  padding: 0.625rem 0.75rem;
+  font-family: inherit;
+  font-size: 16px; /* anti-zoom invariant, all breakpoints */
+  color: var(--twt-text);
+  background-color: var(--twt-surface);
+  border: 1px solid var(--twt-border);
+  border-radius: var(--twt-r-md);
+  box-shadow: var(--twt-shadow-sm);
+  transition: border-color var(--twt-motion), box-shadow var(--twt-motion);
+}
+
+.twt-input:focus,
+.twt-select:focus,
+.twt-textarea:focus {
+  outline: none;
+  border-color: var(--twt-brand);
+  box-shadow: 0 0 0 2px var(--twt-brand-soft);
+}
+
+/* Enforce the 16px invariant on every form control inside the shell,
+   including the legacy Tailwind inputs already shipped in the 84 tools.
+   (Tailwind utilities live in a cascade layer, so this unlayered rule
+   wins — that is intentional and required to kill mobile auto-zoom.) */
+@media (max-width: 767px) {
+  .twt-shell input,
+  .twt-shell select,
+  .twt-shell textarea {
+    font-size: 16px !important;
+  }
+}
+
+.twt-label {
+  display: block;
+  margin-bottom: 0.375rem;
+  font-size: var(--twt-fs-sm);
+  font-weight: 700;
+  color: var(--twt-text-2);
+}
+
+.twt-field { margin-bottom: 1rem; }
+
+.twt-hint {
+  margin-top: 0.25rem;
+  font-size: var(--twt-fs-xs);
+  color: var(--twt-text-3);
+}
+
+/* Badges / chips */
+.twt-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.25rem 0.625rem;
+  font-size: var(--twt-fs-xs);
+  font-weight: 700;
+  border-radius: 999px;
+  background-color: var(--twt-surface-2);
+  color: var(--twt-text-2);
+  border: 1px solid var(--twt-border-soft);
+}
+
+.twt-badge--brand { background-color: var(--twt-brand-soft); color: var(--twt-brand-strong); }
+.twt-badge--success { background-color: var(--twt-success-soft); color: var(--twt-success); }
+.twt-badge--error { background-color: var(--twt-error-soft); color: var(--twt-error); }
+
+/* Tables */
+.twt-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.twt-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--twt-fs-sm);
+}
+
+.twt-table th,
+.twt-table td {
+  padding: 0.625rem 0.75rem;
+  border-bottom: 1px solid var(--twt-border-soft);
+  text-align: left;
+}
+
+.twt-table th {
+  font-weight: 700;
+  color: var(--twt-text);
+  background-color: var(--twt-surface-2);
+}
+
+.twt-table tbody tr:hover { background-color: var(--twt-bg-alt); }
+
+/* Alerts */
+.twt-alert {
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--twt-border);
+  border-radius: var(--twt-r-md);
+  font-size: var(--twt-fs-sm);
+  background-color: var(--twt-surface);
+  color: var(--twt-text-2);
+}
+
+.twt-alert--error { border-color: var(--twt-error); background-color: var(--twt-error-soft); color: var(--twt-error); }
+.twt-alert--success { border-color: var(--twt-success); background-color: var(--twt-success-soft); color: var(--twt-success); }
+
+/* Dividers */
+.twt-divider {
+  height: 1px;
+  margin: 1rem 0;
+  background-color: var(--twt-border-soft);
+  border: 0;
+}
+
+/* ============================================================
+   9. UTILITIES
+   ============================================================ */
+.twt-hidden { display: none !important; }
+.twt-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.twt-mt-2 { margin-top: 0.5rem; }
+.twt-mt-4 { margin-top: 1rem; }
+.twt-mb-2 { margin-bottom: 0.5rem; }
+.twt-mb-4 { margin-bottom: 1rem; }
+.twt-center { margin-inline: auto; }
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .twt-shell *,
+  .twt-shell *::before,
+  .twt-shell *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
