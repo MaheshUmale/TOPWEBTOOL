@@ -2,3 +2,6 @@
   Link: </.well-known/api-catalog>; rel="api-catalog", </llms.txt>; rel="llms.txt"
   Vary: Accept
 */
+
+# GSC Fix: Redirect legacy .html URLs to clean URLs
+/*.html  /  301

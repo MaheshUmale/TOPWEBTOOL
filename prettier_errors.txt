@@ -1,3 +1,0 @@
-[warn] agent-state-router/agent-state-router-guide.html
-[warn] dist/agent-state-router/agent-state-router-guide.html
-[warn] Code style issues found in 2 files. Run Prettier with --write to fix.
