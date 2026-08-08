@@ -2,101 +2,97 @@
 
 ## Site Overview
 
-TopWebTool is a 100% client-side web utility directory offering 84 free online tools across Finance, Marketing, AI, and Developer categories. All tools run entirely in the browser with no server-side processing.
+TopWebTool is a 100% client-side web utility directory offering 84 free online tools across Finance, Marketing, AI, and Developer categories. All tools run entirely in the browser with no server-side processing and no data leaves your device.
 
 ## Public Assets
 
-- [Homepage](/index.html) — Main tool directory with search and category grid
-- [Global Script](/global.js) — Shared JS for themes, header, footer, sidebar, and ad placements
-- [Stylesheet](/styles.css) — Global CSS with dark/light mode support
+- [Homepage](https://topwebtool.com/) — Main tool directory with search and category grid
+- [Global Script](https://topwebtool.com/global.js) — Shared JS for themes, header, footer, sidebar, and ad placements
+- [Stylesheet](https://topwebtool.com/styles.css) — Global CSS with dark/light mode support
 
-## Sub-Tool Directories
+## Tool Directory
 
-- [/acoustic-room-analyzer/index.html](Acoustic Room Mode & Standing Wave Calculator | TopWebTool)
-- [/age-calculator/index.html](Age Calculator (Years, Months, Days) | TopWebTool)
-- [/agent-cron-scheduler/index.html](Free Cron-Job & Automation Scheduler Builder | TopWebTool)
-- [/agent-eval-engine/index.html](AI Eval Matrix Engine - Compare AI Outputs | TopWebTool)
-- [/agent-hitl-planner/index.html](Human-in-the-Loop HITL Planner for AI Agents | TopWebTool)
-- [/agent-memory-matrix/index.html](LLM Context Window Token Budget Planner | TopWebTool)
-- [/agent-prompt-builder/index.html](System Prompt & Tool-Calling Builder | TopWebTool)
-- [/agent-state-router/index.html](Agent State-Machine Router Evaluator | TopWebTool)
-- [/ai-system-topology/index.html](Multi-Agent System Topology Harness | TopWebTool)
-- [/ai-text-humanizer-helper/index.html](Free AI Text Humanizer Helper | Redundancy & Robotic Pattern Detector | TopWebTool)
-- [/autogen-yaml-designer/index.html](CrewAI / AutoGen YAML Designer | TopWebTool)
-- [/base64-encoder-decoder/index.html](Free Secure Base64 Encoder & Decoder | Binary File & Text Translator | TopWebTool)
-- [/battery-busbar-calculator/index.html](Battery Pack Busbar & Heat-Dissipation Modeler | TopWebTool)
-- [/binary-decimal-converter/index.html](Free Binary to Decimal Converter | TopWebTool)
-- [/biweekly-mortgage-calculator/index.html](Biweekly Mortgage Calculator - Payoff Accelerator | TopWebTool)
-- [/bmr-tdee-calculator/index.html](BMR & TDEE Calorie Calculator | TopWebTool)
-- [/car-lease-estimator/index.html](Free Car Lease Estimator | Auto Lease Monthly Payment Calculator | TopWebTool)
-- [/cash-burn-runway/index.html](Cash Burn Runway Calculator - Startup Run Rate Planner | TopWebTool)
-- [/chatgpt-prompt-optimizer/index.html](Free ChatGPT Prompt Optimizer | Persona, Formatting, & Context Injections | TopWebTool)
-- [/cnc-feeds-speeds/index.html](CNC Feeds & Speeds Calculator: RPM & Chip Load | TopWebTool)
-- [/composite-laminate-calculator/index.html](Composite Laminate Calculator | TopWebTool)
-- [/connector-pinout-mapper/index.html](Mil-Spec Connector Pinout Mapper | TopWebTool)
-- [/cpm-calculator/index.html](Free CPM Campaign Ad Calculator | Cost, Impressions, & CPM Media Buyer Tool | TopWebTool)
-- [/credit-card-payoff-planner/index.html](Free Credit Card Payoff Planner | Avalanche vs Snowball Method | TopWebTool)
-- [/crypto-position-size/index.html](Crypto Position Size & Risk Management | TopWebTool)
-- [/crypto-tax-estimator/index.html](Free Crypto Tax Estimator | Capital Gains Income Bracket Calculator | TopWebTool)
-- [/depreciation-schedule/index.html](Depreciation Schedule Calculator - Straight-Line & DDB | TopWebTool)
-- [/dividend-reinvestment-calculator/index.html](Free Dividend Reinvestment Calculator | Compound Stock DRIP Growth | TopWebTool)
-- [/down-payment-savings/index.html](Home Down Payment Savings Calculator | TopWebTool)
-- [/dso-tracker/index.html](DSO Calculator - Days Sales Outstanding Tracker | TopWebTool)
-- [/enclosure-thermal-solver/index.html](Industrial Enclosure Thermal Solver | TopWebTool)
-- [/eoq-calculator/index.html](EOQ Calculator - Economic Order Quantity Optimizer | TopWebTool)
-- [/fortune-wheel/index.html](Free Online Fortune Wheel | Custom Choice & Alternate Yes/No Spinner | TopWebTool)
-- [/freight-dimensional-weight/index.html](Dimensional Weight Calculator - Freight Shipping Cost Tool | TopWebTool)
-- [/gear-tooth-generator/index.html](Gear Tooth Generator: Involute Calculator | TopWebTool)
-- [/harness-diameter-modeler/index.html](Wiring Harness Bundle Diameter Modeler | TopWebTool)
-- [/headline-analyzer/index.html](Free Copy Headline Analyzer | Readability, Emotional Weight, & CTR Score | TopWebTool)
-- [/heloc-estimator/index.html](HELOC Calculator - Home Equity Line of Credit Estimator | TopWebTool)
-- [/hex-rgba-converter/index.html](HEX to RGBA Color Converter | TopWebTool)
-- [/home-affordability-calculator/index.html](Home Affordability Calculator - How Much House Can You Afford? | TopWebTool)
-- [/hourly-to-salary-converter/index.html](Free Hourly to Salary Converter | Gross & Net Wage Projections | TopWebTool)
-- [/hydraulic-pressure-drop/index.html](Hydraulic Pressure Drop & Flow Calculator | TopWebTool)
-- [/inflation-calculator/index.html](Free Historical Inflation Calculator | US CPI & Eurostat Purchasing Power | TopWebTool)
-- [/injection-molding-estimator/index.html](Injection Molding Cycle Time & Clamp Force | TopWebTool)
-- [/json-formatter-validator/index.html](Free Secure JSON Formatter & Validator | Beautify & Parse JSON Errors | TopWebTool)
-- [/lap-timer/index.html](Chronometer Split Lap Timer | TopWebTool)
-- [/lorem-ipsum-generator/index.html](Free Custom Lorem Ipsum Generator | Dummy Text & Layout Placeholder Mockups | TopWebTool)
-- [/ltv-cac-calculator/index.html](LTV CAC Calculator - SaaS Unit Economics & Customer Metrics | TopWebTool)
-- [/macro-diet-planner/index.html](Macro Nutrient Flexible Diet Planner | TopWebTool)
-- [/markup-margin-tool/index.html](Markup vs. Margin Tool & Calculator | TopWebTool)
-- [/merchant-account-fee-matrix/index.html](Merchant Account Fee Calculator - Interchange Plus vs Flat Rate | TopWebTool)
-- [/midjourney-command-builder/index.html](Free Midjourney Parameter Builder | Dynamic Aspect Ratio & Style Generator | TopWebTool)
-- [/mortgage-calculator/index.html](Free UK/US Mortgage Calculator with PMI and Property Tax Sliders | TopWebTool)
-- [/moving-cost-calculator/index.html](Moving Cost Calculator - Estimate Your Moving Expenses | TopWebTool)
-- [/openapi-tool-converter/index.html](OpenAPI to Agent Tool Definition Converter | TopWebTool)
-- [/password-generator/index.html](Free Secure Random Password Generator | Strong Offline Password Tool | TopWebTool)
-- [/pcb-impedance-calculator/index.html](PCB Microstrip Impedance Modeler | TopWebTool)
-- [/playwright-script-generator/index.html](Playwright & Puppeteer Script Generator | TopWebTool)
-- [/pomodoro-timer/index.html](Free Online Pomodoro Timer with Daily Session History | TopWebTool)
-- [/pregnancy-due-date/index.html](Pregnancy Due Date Predictor | TopWebTool)
-- [/prompt-chain-debugger/index.html](Prompt Chain Debugger & Variable Injector | TopWebTool)
-- [/prompt-injection-guardrail/index.html](Prompt Injection Guardrail Matrix | TopWebTool)
-- [/property-tax-projector/index.html](Property Tax Escalation Projector | TopWebTool)
-- [/pump-selection-tdh/index.html](Pump Selection & TDH Calculator | TopWebTool)
-- [/pydantic-schema-generator/index.html](JSON-Schema Generator (Pydantic) | TopWebTool)
-- [/qr-code-generator/index.html](Free Client-Side QR Code Generator | Downloadable Vector SVG/PNG Codes | TopWebTool)
-- [/rag-chunking-simulator/index.html](RAG Vector Chunking Simulator | TopWebTool)
-- [/random-picker/index.html](Free Random Number & Group Picker | TopWebTool)
-- [/refinance-break-even/index.html](Mortgage Refinance Break-Even Calculator | TopWebTool)
-- [/rent-vs-buy-calculator/index.html](Rent vs Buy Calculator 30-Year Comparison | TopWebTool)
-- [/rental-cash-flow-calculator/index.html](Rental Property Cash Flow Calculator | TopWebTool)
-- [/rental-yield-calculator/index.html](Rental Yield & ROI Calculator | TopWebTool)
-- [/retainer-profitability/index.html](Retainer Profitability Calculator - Project Margin Analyzer | TopWebTool)
-- [/rigging-tension-solver/index.html](Rigging & Bridle Sling Tension Calculator | TopWebTool)
-- [/roi-calculator/index.html](Free ROI & ROAS Campaign Calculator | Digital Marketing Ad Spend Calculator | TopWebTool)
-- [/sheet-metal-unfolder/index.html](Sheet Metal Bend Allowance Calculator | TopWebTool)
-- [/social-media-image-resizer/index.html](Free Interactive Social Media Image Resizer | Crop, Move, Zoom Canvas Editor | TopWebTool)
-- [/sound-frequency-generator/index.html](Sound Frequency Generator & Tone Tester | TopWebTool)
-- [/student-loan-idr/index.html](Student Loan IDR Engine & Payment Calculator | TopWebTool)
-- [/thermocouple-calculator/index.html](Thermocouple Calculator: mV to °C & °C to mV | TopWebTool)
-- [/utm-generator/index.html](Free UTM Campaign Link Builder | Google Analytics Tracking URL Builder | TopWebTool)
-- [/w2-vs-1099-comparator/index.html](W2 vs 1099 Calculator - Compare Employee vs Contractor Pay | TopWebTool)
-- [/word-character-counter/index.html](Free Word & Character Copy Counter | Real-Time Reading & Speaking Times | TopWebTool)
-- [/word-unscrambler/index.html](Free Word Unscrambler | Unscramble Scrambled Letters & Wildcards Solver | TopWebTool)
-
-## WebMCP Support
-
-All client-side tools on TopWebTool support native browser invocation via WebMCP. AI browsing agents can interact with any tool by registering the tool's form inputs and triggering the existing button click handlers programmatically.
+- [Acoustic Room Mode & Standing Wave Calculator](https://topwebtool.com/acoustic-room-analyzer/) — Compute axial, tangential, and oblique room modes from the resonance formula, flag problematic low frequencies, and check Bolt-area room ratios.
+- [Age Calculator (Years, Months, Days)](https://topwebtool.com/age-calculator/) — Compute an exact age in years, months, and days between any two dates with total days, next birthday countdown, and the weekday you were born, leap-year safe.
+- [Free Cron-Job & Automation Scheduler Builder](https://topwebtool.com/agent-cron-scheduler/) — Build a valid 5-field crontab expression from visual presets and custom fields, preview the next 5 run times, and copy it instantly. 100% Free, No Email.
+- [AI Eval Matrix Engine - Compare AI Outputs](https://topwebtool.com/agent-eval-engine/) — Score AI outputs against a gold reference: Levenshtein distance, similarity percent, BLEU-1/2 precision, keyword overlap and character counts. 100% client-side.
+- [Human-in-the-Loop HITL Planner for AI Agents](https://topwebtool.com/agent-hitl-planner/) — Design human-in-the-loop approval gates: pick agent steps, set approve/reject/edit types, timeouts and fallbacks, and export an interception plan with a flowchart.
+- [LLM Context Window Token Budget Planner](https://topwebtool.com/agent-memory-matrix/) — Plan your LLM context-window budget: system prompt, conversation turns, memory/RAG content, and reserved output tokens. Utilization, remaining budget, warnings.
+- [System Prompt & Tool-Calling Builder](https://topwebtool.com/agent-prompt-builder/) — Compose production-ready agent system prompts with persona, goal, context, constraints and output format, and emit function-calling JSON tool schemas.
+- [Agent State-Machine Router Evaluator](https://topwebtool.com/agent-state-router/) — Model agent states and transitions, then auto-detect unreachable states, duplicate routes, infinite loops, and dead-ends. Exports DOT-style graphs. Free.
+- [Multi-Agent System Topology Harness](https://topwebtool.com/ai-system-topology/) — Design multi-agent AI systems visually: add agent nodes with role, model and temperature, connect sequential, parallel and conditional edges, and export topology text plus Python skeletons.
+- [Free AI Text Humanizer Helper | Redundancy & Robotic Pattern Detector](https://topwebtool.com/ai-text-humanizer-helper/) — Analyze copy text client-side to flag common repetitive patterns and robotic structures, helping edit towards natural voices. 100% Free, No Sign-Up Required.
+- [CrewAI / AutoGen YAML Designer](https://topwebtool.com/autogen-yaml-designer/) — Design agents, goals, tools, and tasks in a visual builder and generate valid, properly indented CrewAI, AutoGen, or custom YAML config. Copy or download.
+- [Free Secure Base64 Encoder & Decoder | Binary File & Text Translator](https://topwebtool.com/base64-encoder-decoder/) — Convert plain strings, text, or small binary files into standardized Base64 output streams offline. Secure, client-side. 100% Free, No Email Needed.
+- [Battery Pack Busbar & Heat-Dissipation Modeler](https://topwebtool.com/battery-busbar-calculator/) — Size EV battery pack busbars: current per cell group, required copper or nickel cross-section from current density, voltage drop, and temperature rise.
+- [Free Binary to Decimal Converter](https://topwebtool.com/binary-decimal-converter/) — Convert binary, octal, decimal, and hex numbers in real time with exact BigInt math. Live cross-base results with step-by-step details. Free, 100% client-side.
+- [Biweekly Mortgage Calculator - Payoff Accelerator](https://topwebtool.com/biweekly-mortgage-calculator/) — Compare monthly vs biweekly mortgage payments. See how making 13 payments per year can shave years off your loan and save thousands in interest.
+- [BMR & TDEE Calorie Calculator](https://topwebtool.com/bmr-tdee-calculator/) — Calculate Basal Metabolic Rate and Total Daily Energy Expenditure with the Mifflin-St Jeor equation, plus cutting and bulking calorie targets. Free, offline, client-side.
+- [Free Car Lease Estimator | Auto Lease Monthly Payment Calculator](https://topwebtool.com/car-lease-estimator/) — Calculate auto lease payments using MSRP, residual value, money factor, and trade-in. See complete depreciation & interest fee breakdowns instantly. 100% Free, No Sign-Up, No Email Required.
+- [Cash Burn Runway Calculator - Startup Run Rate Planner](https://topwebtool.com/cash-burn-runway/) — Calculate how long your startup can operate before running out of cash. Track monthly burn rate, run rate, and runway with our free planner.
+- [Free ChatGPT Prompt Optimizer | Persona, Formatting, & Context Injections](https://topwebtool.com/chatgpt-prompt-optimizer/) — Convert basic ideas into professional AI prompts. Auto-inject personas, constraints, variables, and markdown output configurations. 100% Free, No Email Needed.
+- [CNC Feeds & Speeds Calculator: RPM & Chip Load](https://topwebtool.com/cnc-feeds-speeds/) — Calculate CNC spindle RPM, feed rate, and material removal rate from surface speed and embedded chip-load tables for aluminum, titanium, steel, and more.
+- [Composite Laminate Calculator](https://topwebtool.com/composite-laminate-calculator/) — Calculate laminate thickness, areal weight, fiber volume fraction, and structural cost for carbon, glass, and kevlar composite layups.
+- [Mil-Spec Connector Pinout Mapper](https://topwebtool.com/connector-pinout-mapper/) — Map Mil-Spec D38999 connector pinouts: pick shell size and insert arrangement, assign signal names to pins, and export a wire list as CSV.
+- [Free CPM Campaign Ad Calculator | Cost, Impressions, & CPM Media Buyer Tool](https://topwebtool.com/cpm-calculator/) — Determine target media buys, impression sizes, cost models, or CPM values dynamically with this offline tool. 100% Free, No Registration Required.
+- [Free Credit Card Payoff Planner | Avalanche vs Snowball Method](https://topwebtool.com/credit-card-payoff-planner/) — Model Snowflake, Snowball, and Avalanche credit card payoff tracks. Plan interest savings and payoff timelines. 100% Free tool, No Email Needed.
+- [Crypto Position Size & Risk Management](https://topwebtool.com/crypto-position-size/) — Crypto position sizing and risk calculator using the 1–2% account rule with entry, stop-loss, take-profit and leverage inputs. 100% free, client-side.
+- [Free Crypto Tax Estimator | Capital Gains Income Bracket Calculator](https://topwebtool.com/crypto-tax-estimator/) — Estimate short and long term capital gains tax liabilities on crypto sales (Bitcoin/Ethereum) dynamically based on federal income. 100% Free, No Sign-Up Required.
+- [Depreciation Schedule Calculator - Straight-Line & DDB](https://topwebtool.com/depreciation-schedule/) — Generate business equipment depreciation schedules. Compare straight-line vs double-declining balance methods with full annual tables.
+- [Free Dividend Reinvestment Calculator | Compound Stock DRIP Growth](https://topwebtool.com/dividend-reinvestment-calculator/) — Project the long-term compound growth of stocks assuming monthly or quarterly dividend reinvestments (DRIP) with extra contributions. 100% Free, No Registration Required.
+- [Home Down Payment Savings Calculator](https://topwebtool.com/down-payment-savings/) — Calculate how long it will take to save for a home down payment. Plan your savings timeline with HYSA yield projections.
+- [DSO Calculator - Days Sales Outstanding Tracker](https://topwebtool.com/dso-tracker/) — Calculate your business Days Sales Outstanding (DSO) to measure accounts receivable efficiency and improve cash flow management.
+- [Industrial Enclosure Thermal Solver](https://topwebtool.com/enclosure-thermal-solver/) — Compute internal temperature rise of sealed or vented electrical enclosures from heat dissipation, surface area, material, and required fan CFM.
+- [EOQ Calculator - Economic Order Quantity Optimizer](https://topwebtool.com/eoq-calculator/) — Calculate optimal Economic Order Quantity (EOQ) to minimize inventory costs. Free inventory optimization tool for supply chain management.
+- [Free Online Fortune Wheel | Custom Choice & Alternate Yes/No Spinner](https://topwebtool.com/fortune-wheel/) — Spin the decision wheel. Input custom names, choice lists, or alternative Yes/No questions to resolve debates dynamically. 100% Free, No Sign-Up Required.
+- [Dimensional Weight Calculator - Freight Shipping Cost Tool](https://topwebtool.com/freight-dimensional-weight/) — Calculate freight dimensional weight for UPS, FedEx, DHL, USPS, and general carriers. Optimize shipping costs with accurate billable weight calculations.
+- [Gear Tooth Generator: Involute Calculator](https://topwebtool.com/gear-tooth-generator/) — Generate involute gear tooth geometry — pitch, addendum, dedendum, outside and base circles — from module or diametral pitch with live drawing.
+- [Wiring Harness Bundle Diameter Modeler](https://topwebtool.com/harness-diameter-modeler/) — Model aerospace wiring harness bundle diameter and weight from AWG inputs. Packing density 1.2-1.25x, live canvas cross-section, per-meter conductor mass.
+- [Free Copy Headline Analyzer | Readability, Emotional Weight, & CTR Score](https://topwebtool.com/headline-analyzer/) — Analyze copywriting headlines for sentiment, length, emotional words, and readability metrics to boost search and ad CTR. 100% Free, No Sign-Up.
+- [HELOC Calculator - Home Equity Line of Credit Estimator](https://topwebtool.com/heloc-estimator/) — Calculate your HELOC borrowing limit and monthly payments. Estimate home equity line of credit amounts based on LTV and current mortgage balance.
+- [HEX to RGBA Color Converter](https://topwebtool.com/hex-rgba-converter/) — Parse HEX, RGB, RGBA, HSL, or named colors and convert to HEX, RGBA, and HSL instantly. Live swatch preview and WCAG contrast ratios. Free.
+- [Home Affordability Calculator - How Much House Can You Afford?](https://topwebtool.com/home-affordability-calculator/) — Calculate how much house you can afford based on income, debts, and DTI ratio. Free home affordability calculator with 28/36 rule analysis.
+- [Free Hourly to Salary Converter | Gross & Net Wage Projections](https://topwebtool.com/hourly-to-salary-converter/) — Convert hourly pay rates instantly to annual salary projections with US & EU standard baseline tax baselines. Offline-secure tool. 100% Free, No Sign-Up, No Registration.
+- [Hydraulic Pressure Drop & Flow Calculator](https://topwebtool.com/hydraulic-pressure-drop/) — Model pressure loss through pipe with Reynolds number, Darcy-Weisbach friction factor, and fluid presets for water, oil, and glycol.
+- [Free Historical Inflation Calculator | US CPI & Eurostat Purchasing Power](https://topwebtool.com/inflation-calculator/) — Compare buying power shifts over time using historical US CPI and Eurostat HICP inflation data comparisons. 100% Free offline-secure tool with No Registration.
+- [Injection Molding Cycle Time & Clamp Force](https://topwebtool.com/injection-molding-estimator/) — Estimate injection molding clamp tonnage from projected area and cavity pressure, estimate cycle time from wall thickness, and part weight for nine common resins.
+- [Free Secure JSON Formatter & Validator | Beautify & Parse JSON Errors](https://topwebtool.com/json-formatter-validator/) — Beautify, compress, format, and validate raw JSON code arrays offline. 100% secure client-side parsing. No data leaves your machine. 100% Free, No Sign-Up.
+- [Chronometer Split Lap Timer](https://topwebtool.com/lap-timer/) — A precision stopwatch and split lap timer using high-resolution timing, with best, worst, and average laps plus one-click CSV export. Works fully offline.
+- [Free Custom Lorem Ipsum Generator | Dummy Text & Layout Placeholder Mockups](https://topwebtool.com/lorem-ipsum-generator/) — Generate customizable dummy text, paragraphs, words, or lists instantly for website layouts and graphic mockups. 100% Free, No Login Required.
+- [LTV CAC Calculator - SaaS Unit Economics & Customer Metrics](https://topwebtool.com/ltv-cac-calculator/) — Calculate Customer Lifetime Value, Acquisition Cost, and LTV:CAC ratio for SaaS startups. Free unit economics calculator.
+- [Macro Nutrient Flexible Diet Planner](https://topwebtool.com/macro-diet-planner/) — Calculate TDEE with the Mifflin-St Jeor equation and split daily calories into flexible protein, fat, and carb targets with a meal-split table. Free, client-side.
+- [Markup vs. Margin Tool & Calculator](https://topwebtool.com/markup-margin-tool/) — Convert markup and margin percentages instantly. Enter your product cost plus markup, margin, or sale price to see all four pricing metrics and profit.
+- [Merchant Account Fee Calculator - Interchange Plus vs Flat Rate](https://topwebtool.com/merchant-account-fee-matrix/) — Compare credit card processing fees between flat rate and interchange-plus pricing. Calculate monthly costs, annual savings, and effective rates for small business merchant accounts.
+- [Free Midjourney Parameter Builder | Dynamic Aspect Ratio & Style Generator](https://topwebtool.com/midjourney-command-builder/) — Visually build complex Midjourney command prompts with aspect ratios, styles, weights, and version flags. Offline tool. 100% Free, No Registration.
+- [Free UK/US Mortgage Calculator with PMI and Property Tax Sliders](https://topwebtool.com/mortgage-calculator/) — Free online Mortgage Calculator with dynamic PMI, home insurance, annual amortization schedule charts, and extra payment trackers. 100% Free, No Sign-Up, No Registration Required.
+- [Moving Cost Calculator - Estimate Your Moving Expenses](https://topwebtool.com/moving-cost-calculator/) — Calculate moving costs with our inventory volume and distance estimator. Plan your relocation budget with accurate moving expense estimates.
+- [OpenAPI to Agent Tool Definition Converter](https://topwebtool.com/openapi-tool-converter/) — Convert OpenAPI 3.x JSON specs into OpenAI function definitions and Anthropic tool arrays. Handles GET/POST, path/query params, JSON body schemas. Free.
+- [Free Secure Random Password Generator | Strong Offline Password Tool](https://topwebtool.com/password-generator/) — Generate strong, customizable cryptographic random passwords locally inside your browser. Offline-secure, no tracking. 100% Free, No Registration.
+- [PCB Microstrip Impedance Modeler](https://topwebtool.com/pcb-impedance-calculator/) — Model FR4 PCB microstrip impedance: compute characteristic impedance, propagation delay, and capacitance per length from trace width and stackup geometry.
+- [Playwright & Puppeteer Script Generator](https://topwebtool.com/playwright-script-generator/) — Visually build browser-automation flows (goto, click, type, assert, screenshot) and generate runnable Playwright or Puppeteer scripts in JS or Python. Free.
+- [Free Online Pomodoro Timer with Daily Session History](https://topwebtool.com/pomodoro-timer/) — Free Pomodoro Timer: configurable focus and break intervals, auto-advancing sessions, and a local daily history tracker. No sign-up required.
+- [Pregnancy Due Date Predictor](https://topwebtool.com/pregnancy-due-date/) — Predict your estimated due date with Naegele's rule from your last menstrual period or conception date, with gestational age, trimester, and milestone tracking.
+- [Prompt Chain Debugger & Variable Injector](https://topwebtool.com/prompt-chain-debugger/) — Debug multi-step prompt chains: inject {{variables}}, see interpolated output per step, spot unresolved placeholders, and map step-to-variable dependencies.
+- [Prompt Injection Guardrail Matrix](https://topwebtool.com/prompt-injection-guardrail/) — Scan prompts for injection patterns: instruction override, jailbreak, system-prompt leak, delimiter breaking and data exfiltration, with a 0–100 risk score.
+- [Property Tax Escalation Projector](https://topwebtool.com/property-tax-projector/) — Project property tax increases over 20 years with compound growth. Estimate future tax bills and budget for homeownership costs.
+- [Pump Selection & TDH Calculator](https://topwebtool.com/pump-selection-tdh/) — Calculate total dynamic head and pump horsepower from static, friction, pressure, and velocity head with embedded fitting K-factor data.
+- [JSON-Schema Generator (Pydantic)](https://topwebtool.com/pydantic-schema-generator/) — Build fields visually and generate both the Pydantic v2 model class and the equivalent JSON Schema draft-07 side by side, then validate sample JSON. Free.
+- [Free Client-Side QR Code Generator | Downloadable Vector SVG/PNG Codes](https://topwebtool.com/qr-code-generator/) — Generate high-precision downloadable custom QR codes client-side in SVG format instantly. Secure, offline-friendly. 100% Free, No Registration Required.
+- [RAG Vector Chunking Simulator](https://topwebtool.com/rag-chunking-simulator/) — Simulate RAG text chunking: fixed-size, overlapping sliding window, or semantic paragraph chunking with char counts, total chunks and token estimates.
+- [Free Random Number & Group Picker](https://topwebtool.com/random-picker/) — Generate random numbers with optional no-repeat and seeded PRNG, or split a name list into random balanced teams. Instant, client-side, free.
+- [Mortgage Refinance Break-Even Calculator](https://topwebtool.com/refinance-break-even/) — Calculate your mortgage refinance break-even point. Compare closing costs vs monthly savings to determine if refinancing is worth it.
+- [Rent vs Buy Calculator 30-Year Comparison](https://topwebtool.com/rent-vs-buy-calculator/) — Compare renting vs buying a home over 30 years. Project net worth for both paths with appreciation, investment returns, and crossover analysis.
+- [Rental Property Cash Flow Calculator](https://topwebtool.com/rental-cash-flow-calculator/) — Calculate rental property cash flow, NOI, cap rate, and cash-on-cash return. Free landlord investment analysis tool.
+- [Rental Yield & ROI Calculator](https://topwebtool.com/rental-yield-calculator/) — Calculate rental yield, net yield, cash-on-cash return, and IRR for investment properties. Free real estate ROI analysis tool.
+- [Retainer Profitability Calculator - Project Margin Analyzer](https://topwebtool.com/retainer-profitability/) — Analyze retainer project profitability. Calculate gross profit margins, break-even hours, effective cost per hour, and annual returns for agency retainers.
+- [Rigging & Bridle Sling Tension Calculator](https://topwebtool.com/rigging-tension-solver/) — Solve per-leg tension in bridle slings from load weight, leg count, and sling angle, with angle derating and capacity checks.
+- [Free ROI & ROAS Campaign Calculator | Digital Marketing Ad Spend Calculator](https://topwebtool.com/roi-calculator/) — Calculate digital campaign Return on Investment (ROI) and Return on Ad Spend (ROAS) based on spend, clicks, conversions, and order values. 100% Free, No Login.
+- [Sheet Metal Bend Allowance Calculator](https://topwebtool.com/sheet-metal-unfolder/) — Unfold sheet metal flat-pattern lengths from K-factor and bend allowance formulas. Supports multi-bend parts with per-bend breakdowns.
+- [Free Interactive Social Media Image Resizer | Crop, Move, Zoom Canvas Editor](https://topwebtool.com/social-media-image-resizer/) — Move, zoom, rotate, and crop images client-side for Instagram, LinkedIn, YouTube, and X templates with high-resolution download. 100% Free, No Sign-Up.
+- [Sound Frequency Generator & Tone Tester](https://topwebtool.com/sound-frequency-generator/) — Generate sine, square, sawtooth, or triangle tones from 20–20,000 Hz with volume control and tuning presets. Start on click, safe defaults.
+- [Student Loan IDR Engine & Payment Calculator](https://topwebtool.com/student-loan-idr/) — Estimate SAVE, IBR, and PAYE income-driven repayment plan payments using federal poverty guidelines. See 20/25-year forgiveness and total cost.
+- [Thermocouple Calculator: mV to °C & °C to mV](https://topwebtool.com/thermocouple-calculator/) — Convert thermocouple millivolts to temperature and back for types J, K, and T using embedded NIST ITS-90 coefficients, plus Pt100 RTD.
+- [Free UTM Campaign Link Builder | Google Analytics Tracking URL Builder](https://topwebtool.com/utm-generator/) — Build flawless promotional tracking links using Google Analytics UTM parameters with copy-to-clipboard actions. 100% Free, No Sign-Up, No Registration.
+- [W2 vs 1099 Calculator - Compare Employee vs Contractor Pay](https://topwebtool.com/w2-vs-1099-comparator/) — Compare W2 employee take-home pay versus 1099 independent contractor earnings. Calculate taxes, benefits, and hourly rates side by side.
+- [Free Word & Character Copy Counter | Real-Time Reading & Speaking Times](https://topwebtool.com/word-character-counter/) — Dynamically track words, characters, sentence structures, paragraph metrics, estimated reading, and speaking times. 100% Free offline utility with No Sign-Up.
+- [Free Word Unscrambler | Unscramble Scrambled Letters & Wildcards Solver](https://topwebtool.com/word-unscrambler/) — Unscramble letters into high-scoring words. Supports length limits, prefixes, suffixes, wildcards, and blank tiles. 100% Free, No Registration Required.
