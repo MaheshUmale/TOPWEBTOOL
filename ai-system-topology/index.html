@@ -876,9 +876,7 @@ cycles       -&gt; reject self-loops; guard long chains</pre>
         document.getElementById("inp-nrole").value = "";
         document.getElementById("inp-nmodel").value = "gpt-4o";
         document.getElementById("inp-ntemp").value = "0.3";
-        document
-          .getElementById("btn-save-node")
-          .querySelector("span").textContent = "Add Node";
+        document.getElementById("btn-save-node").textContent = "Add Node";
         selectedId = null;
       }
 
@@ -1236,9 +1234,7 @@ cycles       -&gt; reject self-loops; guard long chains</pre>
           document.getElementById("inp-nrole").value = n.role;
           document.getElementById("inp-nmodel").value = n.model;
           document.getElementById("inp-ntemp").value = n.temperature;
-          document
-            .getElementById("btn-save-node")
-            .querySelector("span").textContent = "Update Node";
+          document.getElementById("btn-save-node").textContent = "Update Node";
         } else {
           resetNodeForm();
         }
