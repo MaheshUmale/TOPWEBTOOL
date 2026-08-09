@@ -754,7 +754,7 @@
         const fieldsWrap = document.createElement("div");
         fieldsWrap.className =
           "action-fields flex flex-col sm:flex-row gap-3 flex-1 min-w-0";
-        fieldInputsFor(select.value, data).forEach((el) =>
+        fieldInputsFor(select.value, data && data.values).forEach((el) =>
           fieldsWrap.appendChild(el),
         );
 

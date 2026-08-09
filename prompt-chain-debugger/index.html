@@ -812,6 +812,7 @@ depends(step) = set of keys referenced by that step</pre>
             label: step.label,
             refs: refsArr,
             missing: missing,
+            status: status,
           });
 
           html +=
@@ -879,7 +880,7 @@ depends(step) = set of keys referenced by that step</pre>
                 refsText +
                 "</td>" +
                 '<td class="py-2 text-xs">' +
-                status +
+                info.status +
                 "</td></tr>"
               );
             })

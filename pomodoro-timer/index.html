@@ -901,6 +901,15 @@
 
       function updateDisplay() {
         document.getElementById("disp-time").textContent = fmt(remainingMs);
+        const total = settings();
+        const current =
+          phase === "focus"
+            ? total.focus
+            : phase === "short"
+              ? total.short
+              : total.long;
+        document.getElementById("progress").style.width =
+          Math.max(0, Math.min(100, (remainingMs / current) * 100)) + "%";
       }
 
       function renderHistory() {

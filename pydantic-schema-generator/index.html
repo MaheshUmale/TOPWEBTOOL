@@ -731,7 +731,7 @@
       function addFieldRow(data) {
         const row = document.createElement("div");
         row.className =
-          "border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-950 p-3 rounded-xl space-y-2";
+          "field-row border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-950 p-3 rounded-xl space-y-2";
 
         const top = document.createElement("div");
         top.className =
@@ -1401,7 +1401,7 @@
       fieldsEl.addEventListener("input", renderSchemas);
       fieldsEl.addEventListener("change", (e) => {
         if (e.target.classList.contains("field-type")) {
-          const row = e.target.closest(".border");
+          const row = e.target.closest(".field-row");
           const sub = row.querySelector(".field-subtype");
           sub.style.display =
             e.target.value === "list" || e.target.value === "dict"
@@ -1413,7 +1413,7 @@
       fieldsEl.addEventListener("click", (e) => {
         const btn = e.target.closest("button");
         if (btn && btn.textContent.trim() === "✕") {
-          btn.closest(".border").remove();
+          btn.closest(".field-row").remove();
           renderSchemas();
         }
       });
