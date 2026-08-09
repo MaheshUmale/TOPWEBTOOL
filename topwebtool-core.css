@@ -254,12 +254,7 @@
   }
 
   .twt-shell__rail {
-    position: sticky;
-    top: 5rem;
     align-self: start;
-    max-height: calc(100vh - 6rem);
-    overflow-y: auto;
-    overscroll-behavior: contain;
   }
 }
 
@@ -279,6 +274,10 @@
     max-height: calc(100vh - 6rem);
     overflow-y: auto;
     overscroll-behavior: contain;
+  }
+
+  .twt-shell__rail {
+    align-self: start;
   }
 
   .twt-shell__workspace {
@@ -356,6 +355,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 0.5rem;
   padding: 0.625rem 0.75rem;
   font-size: var(--twt-fs-xs);
   font-weight: 800;
@@ -363,7 +363,36 @@
   text-transform: uppercase;
   color: var(--twt-text-3);
   border-bottom: 1px solid var(--twt-border-soft);
+  cursor: pointer;
+  user-select: none;
+  border-radius: var(--twt-r-md);
+  transition: background-color var(--twt-motion), color var(--twt-motion);
 }
+
+.twt-nav__title:hover {
+  background-color: var(--twt-surface-2);
+  color: var(--twt-text);
+}
+
+.twt-nav__title span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.4em;
+  padding: 0 0.35em;
+  font-size: 0.65rem;
+  font-weight: 700;
+  border-radius: 9999px;
+  background-color: var(--twt-surface-2);
+  color: var(--twt-text-3);
+  transition: transform var(--twt-motion);
+}
+
+/* Accordion: links are hidden unless their group is open; the search box
+   (`.is-searching`) force-expands every group while filtering. */
+.twt-nav__group .twt-nav__link { display: none; }
+.twt-nav__group.is-open .twt-nav__link { display: flex; }
+.twt-nav.is-searching .twt-nav__link { display: flex; }
 
 .twt-nav__link {
   display: flex;

@@ -116,10 +116,27 @@
       body.appendChild(group);
     });
 
+    // Accordion groups: all collapsed by default; one category opens at a
+    // time. Keeps the nav a compact stack of titles instead of a 5000px
+    // scroll area. (The active tool's group is not auto-opened — the rail's
+    // contextual "Related Utilities" already surfaces same-category tools.)
+    var groups = body.querySelectorAll('.twt-nav__group');
+
+    body.addEventListener('click', function (e) {
+      var title = e.target.closest ? e.target.closest('.twt-nav__title') : null;
+      if (!title || !title.parentNode) return;
+      var isOpen = title.parentNode.classList.contains('is-open');
+      groups.forEach(function (group) {
+        group.classList.toggle('is-open', false);
+      });
+      title.parentNode.classList.toggle('is-open', !isOpen);
+    });
+
     nav.appendChild(body);
 
     search.addEventListener('input', function () {
       var q = search.value.toLowerCase().trim();
+      body.classList.toggle('is-searching', q !== '');
       body.querySelectorAll('.twt-nav__group').forEach(function (group) {
         var visible = 0;
         group.querySelectorAll('.twt-nav__link').forEach(function (link) {

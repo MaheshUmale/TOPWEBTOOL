@@ -783,7 +783,7 @@ function renderHeader() {
 
         <div class="flex items-center gap-2">
           <!-- Desktop Navigation (hidden on mobile) -->
-          <div class="hidden md:flex items-center gap-1.5">
+          <div class="hidden md:flex items-center gap-1.5 flex-wrap justify-end">
             ${categoryNames.map((cat, idx) => {
               const shortName = cat.split('&')[0].trim();
               const tools = categories[cat];
