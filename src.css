@@ -274,6 +274,14 @@ body {
   color: #f8fafc;
 }
 
+/* Terminal/output wells: near-black in light mode, they vanish against the
+   dark card when the theme flips. Give them a distinct black + inset ring so
+   the box boundary stays visible in dark mode. */
+.dark .bg-slate-950.font-mono {
+  background-color: #020617;
+  box-shadow: inset 0 0 0 1px #334155;
+}
+
 .dark .text-slate-900 {
   color: #ffffff;
 }
