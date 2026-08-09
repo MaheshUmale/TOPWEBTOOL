@@ -1094,7 +1094,7 @@ function renderAdPlacements() {
   if (!adA) {
     adA = document.createElement('div');
     adA.id = 'ad-slot-a';
-    adA.className = "ads-banner-top ads-safety-wrap";
+    adA.className = "ads-banner-top";
     adA.innerHTML = `
       <span class="ads-label">Advertisement</span>
       <div class="w-full flex justify-center" style="height:90px; max-height:90px; overflow:hidden;">

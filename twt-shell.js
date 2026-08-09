@@ -312,6 +312,10 @@
     // 1. Classify main as the center workspace.
     main.classList.add('twt-shell__workspace');
 
+    // 1b. Apply long-form typography to SEO article bodies.
+    var prose = main.querySelector('article');
+    if (prose) prose.classList.add('twt-prose');
+
     // 2. Place the square ad mid-inline, between tool and SEO content.
     placeMidInline();
 
