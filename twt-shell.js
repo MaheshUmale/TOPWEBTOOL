@@ -1,6 +1,6 @@
 /**
  * ============================================================
- * TopWebTool Modular Shell Engine (twt-shell.js)
+ * TopWebTool Modular Shell Engine (twt-shell.js) - FIXED & UPDATED
  * The "global boilerplate wrapper" — a zero-collision, additive
  * layer that ingests any existing tool or article page and
  * re-arranges it into the premium 3-column execution engine:
@@ -8,19 +8,6 @@
  *   Desktop : Left Nav Sidebar | Center Workspace + SEO | Right Ad Rail
  *   Tablet  : Center Workspace + Utility Links (dual split-pane)
  *   Mobile  : Single-column dashboard (everything stacks)
- *
- * Safety contract (DO NOT BREAK):
- *   - Runs after `global.js` (defer order), so header/footer/sidebar
- *     and AdSense slots already exist.
- *   - Never modifies tool widgets, IDs, or inline logic.
- *   - Every mutation is guarded by try/catch — if anything fails,
- *     the page silently falls back to its legacy layout.
- *   - Class names are all `twt-*` / `twt-shell__*` prefixed, so there
- *     is zero collision with the 84 tools' Tailwind utilities.
- *
- * Opt-in: pages include the framework CSS + this script. The engine
- * auto-detects the standard TopWebTool skeleton (`<main>` + optional
- * `#trending-sidebar`, `#ad-slot-*`) and rebuilds the wrapper around it.
  * ============================================================
  */
 (function () {
@@ -30,27 +17,31 @@
   window.__twtShellLoaded = true;
 
   var TWT = (window.TWTShell = window.TWTShell || {});
-  TWT.version = '2.0.0';
+  TWT.version = '2.1.0';
 
   /** Read the shared tool registry emitted by global.js if present. */
   function getRegistry() {
     try {
-      if (typeof window.UTILITIES_REGISTRY !== 'undefined') {
+      if (typeof window.UTILITIES_REGISTRY !== 'undefined' && Array.isArray(window.UTILITIES_REGISTRY)) {
         return window.UTILITIES_REGISTRY;
       }
     } catch (e) {}
     try {
-      if (typeof UTILITIES_REGISTRY !== 'undefined') {
+      if (typeof UTILITIES_REGISTRY !== 'undefined' && Array.isArray(UTILITIES_REGISTRY)) {
         return UTILITIES_REGISTRY;
       }
     } catch (e) {}
     return [];
   }
 
-  /** Depth-aware relative path prefix (root is 0, tools 1, articles 2). */
+  /**
+   * Depth-aware relative path prefix.
+   * FIX: Strips filename (e.g. index.html) before calculating directory depth
+   * so links don't overshoot root with extra `../`.
+   */
   function getPrefix() {
-    var p = window.location.pathname;
-    if (p === '/' || p === '/index.html' || p === '') return './';
+    var p = window.location.pathname.replace(/\/[^\/]*\.[^\/]*$/, ''); // Strip filename
+    if (p === '' || p === '/') return './';
     var depth = p.split('/').filter(Boolean).length;
     return '../'.repeat(depth);
   }
@@ -64,7 +55,7 @@
 
   /** Escape user/tool-provided strings when writing HTML. */
   function esc(s) {
-    return String(s)
+    return String(s || '')
       .replace(/&/g, '&amp;')
       .replace(/</g, '&lt;')
       .replace(/>/g, '&gt;')
@@ -92,6 +83,9 @@
       byCategory[cat].push(tool);
     });
 
+    // Clean current path for exact matching
+    var cleanCurrent = current.replace(/\/(index\.html)?$/, '').replace(/\/$/, '');
+
     Object.keys(byCategory).forEach(function (cat) {
       var group = el('div', 'twt-nav__group', '');
       var title = el('div', 'twt-nav__title', '');
@@ -99,41 +93,58 @@
       title.innerHTML = esc(cat) + '<span>' + count + '</span>';
       group.appendChild(title);
 
+      var containsActive = false;
+
       byCategory[cat].forEach(function (tool) {
         var href = prefix + tool.path.replace(/^\//, '');
+        var cleanToolPath = '/' + tool.path.replace(/^\/|\/$/g, '').replace(/\/index\.html$/, '');
         var cls = 'twt-nav__link';
-        if (current && tool.path.replace(/\/$/, '') === current.replace(/\/$/, '')) {
+
+        if (cleanCurrent && cleanToolPath === cleanCurrent) {
           cls += ' is-active';
+          containsActive = true;
         }
+
         var link = el('a', cls, '');
         link.href = href;
         link.textContent = tool.name;
-        link.setAttribute('data-name', tool.name.toLowerCase());
+        link.setAttribute('data-name', (tool.name || '').toLowerCase());
         link.setAttribute('data-category', (tool.category || '').toLowerCase());
         group.appendChild(link);
       });
 
+      // Auto-open group if active tool is inside it
+      if (containsActive) {
+        group.classList.add('is-open');
+      }
+
       body.appendChild(group);
     });
 
-    // Accordion groups: all collapsed by default; one category opens at a
-    // time. Keeps the nav a compact stack of titles instead of a 5000px
-    // scroll area. (The active tool's group is not auto-opened — the rail's
-    // contextual "Related Utilities" already surfaces same-category tools.)
-    var groups = body.querySelectorAll('.twt-nav__group');
-
+    /**
+     * FIX: Accordion event handler properly queries dynamic groups
+     * and toggles open state cleanly.
+     */
     body.addEventListener('click', function (e) {
       var title = e.target.closest ? e.target.closest('.twt-nav__title') : null;
       if (!title || !title.parentNode) return;
-      var isOpen = title.parentNode.classList.contains('is-open');
-      groups.forEach(function (group) {
-        group.classList.toggle('is-open', false);
+
+      var targetGroup = title.parentNode;
+      var wasOpen = targetGroup.classList.contains('is-open');
+
+      var allGroups = body.querySelectorAll('.twt-nav__group');
+      allGroups.forEach(function (g) {
+        g.classList.remove('is-open');
       });
-      title.parentNode.classList.toggle('is-open', !isOpen);
+
+      if (!wasOpen) {
+        targetGroup.classList.add('is-open');
+      }
     });
 
     nav.appendChild(body);
 
+    // Search Filter
     search.addEventListener('input', function () {
       var q = search.value.toLowerCase().trim();
       body.classList.toggle('is-searching', q !== '');
@@ -159,23 +170,17 @@
     var rail = el('aside', 'twt-shell__rail', '');
     rail.setAttribute('aria-label', 'Related tools and advertisements');
 
-    // Retire the full-registry "Trending Utilities" clone — it duplicates the
-    // left nav (same 84 tools, same search box) on every page. Hidden in
-    // place; the rail shows a compact contextual panel instead. Uses
-    // style.display because global.js's renderSidebarScroller overwrites the
-    // element's className after this runs.
     var trending = document.getElementById('trending-sidebar');
     if (trending) trending.style.display = 'none';
 
     var linksBox = el('div', 'twt-rail__links', '');
 
-    // Pick tools from the current tool's category; articles inherit the
-    // category of their parent tool. Falls back to a generic list.
-    var current = window.location.pathname.replace(/\/+$/, '');
+    var current = window.location.pathname.replace(/\/(index\.html)?$/, '').replace(/\/+$/, '');
     var self = null;
     var cat = null;
+
     registry.forEach(function (tool) {
-      var tp = '/' + tool.path.replace(/^\/|\/$/g, '');
+      var tp = '/' + tool.path.replace(/^\/|\/$/g, '').replace(/\/index\.html$/, '');
       if (tp === current) {
         self = tool;
         cat = tool.category;
@@ -200,9 +205,6 @@
     });
     rail.appendChild(linksBox);
 
-    // The 300x600 skyscraper is supplied by the existing `#ad-slot-vertical`
-    // unit (CLS-safe, zero duplicate slots). If the page lacks one, reserve a
-    // fresh boundary so the rail always renders at the exact 300x600 box.
     var legacyVertical = document.getElementById('ad-slot-vertical');
     if (legacyVertical) {
       rail.appendChild(legacyVertical);
@@ -221,10 +223,7 @@
     return rail;
   }
 
-  /**
-   * Repurpose the legacy square ad (250px) as the mid-inline unit inside
-   * the center workspace, between the tool widget and the SEO content.
-   */
+  /** Mid-inline ad placement logic */
   function placeMidInline() {
     var square = document.getElementById('ad-slot-square');
     if (!square) return;
@@ -232,8 +231,6 @@
     var article = document.querySelector('.twt-shell__workspace article');
 
     if (article) {
-      // Article pages: drop the square mid-content (after the second
-      // paragraph) so the top of the page keeps just the single leaderboard.
       var paras = article.querySelectorAll('p');
       if (paras.length >= 2) {
         var ref = paras[1];
@@ -249,75 +246,48 @@
       document.getElementById('seo-instructional-hub') ||
       document.querySelector('.twt-shell__workspace .twt-seo-content');
 
-    if (target) {
+    if (target && target.parentNode) {
       target.parentNode.insertBefore(square, target);
     }
     square.classList.add('twt-ad--inline', 'twt-mid-inline');
   }
 
   /**
-   * Neutralize the legacy page grid so the workspace is a single
-   * full-width column once the sidebar column has been emptied.
-   * Only the top-level wrapper grid of `main` is touched.
+   * Neutralize legacy layout grids.
+   * FIX: Flexible detection for various grid patterns (Tailwind lg:grid-cols-*, etc.)
    */
   function neutralizeLegacyGrid(main) {
-    var grid = null;
-    var children = main.children;
-    for (var i = 0; i < children.length; i++) {
-      var child = children[i];
+    var gridCandidates = main.querySelectorAll('div[class*="grid"]');
+    gridCandidates.forEach(function (child) {
       var cls = child.className || '';
-      if (cls.indexOf('grid-cols-1') !== -1 && cls.indexOf('lg:grid-cols-4') !== -1) {
-        grid = child;
-        break;
-      }
-    }
-    if (!grid) return;
+      if (cls.indexOf('lg:grid-cols-') !== -1 || cls.indexOf('md:grid-cols-') !== -1) {
+        child.classList.remove('grid', 'grid-cols-1', 'lg:grid-cols-4', 'lg:grid-cols-3', 'gap-4', 'gap-6');
 
-    grid.classList.remove('grid', 'grid-cols-1', 'lg:grid-cols-4', 'gap-4');
-
-    var col = grid.firstElementChild;
-    while (col) {
-      var next = col.nextElementSibling;
-      var c = col.className || '';
-      if (c.indexOf('lg:col-span-1') !== -1) {
-        col.classList.add('twt-hidden');
-      } else if (c.indexOf('lg:col-span-3') !== -1) {
-        col.classList.remove('lg:col-span-3');
-        col.style.width = '100%';
-        col.style.maxWidth = '100%';
+        var col = child.firstElementChild;
+        while (col) {
+          var next = col.nextElementSibling;
+          var c = col.className || '';
+          if (c.indexOf('lg:col-span-1') !== -1 || c.indexOf('sidebar') !== -1) {
+            col.classList.add('twt-hidden');
+          } else if (c.indexOf('lg:col-span-3') !== -1 || c.indexOf('lg:col-span-2') !== -1) {
+            col.className = col.className.replace(/lg:col-span-\d+/g, '');
+            col.style.width = '100%';
+            col.style.maxWidth = '100%';
+          }
+          col = next;
+        }
       }
-      col = next;
-    }
+    });
   }
 
   /**
-   * Re-parent an existing element into a target (guarded).
-   * Returns true on success.
-   */
-  function moveNode(node, target, position) {
-    try {
-      if (!node || !target) return false;
-      if (position === 'end') target.appendChild(node);
-      else target.insertBefore(node, position);
-      return true;
-    } catch (e) {
-      return false;
-    }
-  }
-
-  /**
-   * Build the shell wrapper around the current page.
-   *
-   * Strategy (no tool logic is touched):
-   *   1. Grab existing `main`, `#trending-sidebar` and `#ad-slot-*`.
-   *   2. Create `.twt-shell__frame` grid: nav | workspace | rail.
-   *   3. `main` becomes `.twt-shell__workspace`.
-   *   4. The trending sidebar panel + vertical ad move into the rail;
-   *      the legacy square ad becomes the mid-inline unit.
+   * Main shell initialization process.
    */
   function buildShell() {
     var main = document.querySelector('main');
     if (!main) return;
+
+    if (document.querySelector('.twt-shell__frame')) return;
 
     var registry = getRegistry();
     var prefix = getPrefix();
@@ -326,25 +296,23 @@
     var frame = el('div', 'twt-shell__frame', '');
     var nav = buildNav(registry, prefix, current);
 
-    // 1. Classify main as the center workspace.
+    // 1. Classify main as workspace
     main.classList.add('twt-shell__workspace');
 
-    // 1b. Apply long-form typography to SEO article bodies.
+    // 2. Add prose typography to articles
     var prose = main.querySelector('article');
     if (prose) prose.classList.add('twt-prose');
 
-    // 2. Place the square ad mid-inline, between tool and SEO content.
+    // 3. Move mid-inline ad
     placeMidInline();
 
-    // 3. Neutralize the legacy page grid now that its sidebar is emptying.
+    // 4. Neutralize legacy grids
     neutralizeLegacyGrid(main);
 
-    // 4. Only replace the layout IF the page is not already wrapped.
-    if (document.querySelector('.twt-shell__frame')) return;
-
+    // 5. Build right rail
     var rail = buildRail(registry, prefix);
 
-    // 5. Insert frame before `main` and move `main` inside as workspace.
+    // 6. Wrap content inside shell frame
     var parent = main.parentNode;
     var anchor = main;
     parent.insertBefore(frame, anchor);
@@ -352,17 +320,14 @@
     frame.appendChild(main);
     frame.appendChild(rail);
 
-    // 6. Promote header/footer into the shell chrome.
+    // 7. Standardize Chrome header/footer
     var header = document.getElementById('global-header');
     if (header) header.classList.add('twt-shell__header');
     var footer = document.getElementById('global-footer');
     if (footer) footer.classList.add('twt-shell__footer');
 
-    // 7. Flag the shell on <body> for CSS hooks + theme parity.
+    // 8. Add class flag to body
     document.body.classList.add('twt-shell');
-
-    // 8. AdSense activation for dynamically injected units is handled by
-    //    global.js; nothing extra is pushed here (avoids double-push).
   }
 
   function init() {
@@ -375,6 +340,7 @@
     }
   }
 
+  // Handle execution timing safely
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
   } else {
