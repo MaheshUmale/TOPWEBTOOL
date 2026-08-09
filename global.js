@@ -656,20 +656,40 @@ document.addEventListener('DOMContentLoaded', () => {
   // Lazy-load below-fold ad units via IntersectionObserver.
   // The top banner (ad-slot-a) is pushed immediately; square/vertical units
   // wait until they approach the viewport to reduce main-thread contention.
+   // Lazy-load below-fold ad units via IntersectionObserver.
+  // The top banner (ad-slot-a) is pushed immediately; square/vertical units
+  // wait until they approach the viewport to reduce main-thread contention.
   (function lazyLoadBelowFoldAds() {
     const PUSH_DELAY_MS = 150;
     const ROOT_MARGIN = '400px';
     const pushed = new Set();
+    
+    // Track exactly how many .push({}) commands we have actually sent to Google
+    let adsPushedCount = 0;
 
     function pushUnit(ins) {
       if (pushed.has(ins)) return;
       pushed.add(ins);
+      
       setTimeout(() => {
         try {
-          (window.adsbygoogle = window.adsbygoogle || []);
-          window.adsbygoogle.push({});
+          window.adsbygoogle = window.adsbygoogle || [];
+
+          // Core Safety: Check how many total <ins> ad tags exist in the entire document right now
+          const totalInsTags = document.querySelectorAll('ins.adsbygoogle').length;
+
+          // Double Check: Verify if an ad script or auto-ad already filled this element behind our backs
+          if (ins.querySelector('iframe') || ins.hasAttribute('data-google-query-id')) {
+            return;
+          }
+
+          // HARD GUARD: Never allow the number of push calls to exceed the total number of physical slots
+          if (adsPushedCount < totalInsTags) {
+            adsPushedCount++; // Claim this slot immediately in our script memory
+            window.adsbygoogle.push({});
+          }
         } catch (e) {
-          console.error('AdSense push error:', e);
+          console.warn('AdSense push safe-stopped:', e.message);
         }
       }, PUSH_DELAY_MS);
     }
@@ -683,15 +703,26 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }, { rootMargin: ROOT_MARGIN });
 
-    document.querySelectorAll('ins.adsbygoogle').forEach((ins) => {
-      const slotId = ins.closest('[id]')?.id || '';
-      if (slotId === 'ad-slot-a') {
-        pushUnit(ins);
-        return;
-      }
-      observer.observe(ins);
-    });
+    // We must wait for the DOM to be fully ready before counting tags, 
+    // especially critical on instant reloads.
+    function init() {
+      document.querySelectorAll('ins.adsbygoogle').forEach((ins) => {
+        const slotId = ins.closest('[id]')?.id || '';
+        if (slotId === 'ad-slot-a') {
+          pushUnit(ins);
+          return;
+        }
+        observer.observe(ins);
+      });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      init();
+    }
   })();
+
 
   // Inject Dynamic AdSense Placements (AD A)
   renderAdPlacements();
