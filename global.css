@@ -339,71 +339,7 @@ img {
 }
 
 /* -------------------------------------------------------------
-    5. ANTI-CLS GOOGLE ADSENSE WRAPPERS (Stability Engines)
-    ------------------------------------------------------------- */
-/* Top Horizontal Banner Ad Container */
-.ads-banner-top {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  max-width: 728px;
-  margin: 1.5rem auto;
-  padding: 0.5rem;
-  background-color: var(--bg-secondary);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  box-sizing: border-box;
-  text-align: center;
-
-  /* Enforce static layout reservation for Desktop: 728x90 (+ advertisement label = ~110px)
-     and Mobile: 320x50 (+ advertisement label = ~70px) */
-  min-height: 75px;
-  height: auto;
-}
-
-@media (min-width: 768px) {
-  .ads-banner-top {
-    min-height: 115px;
-    height: 115px;
-  }
-}
-
-/* Inline card elements ads blocks */
-.ads-inline-card {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  margin: 1.5rem 0;
-  padding: 1rem;
-  background-color: var(--bg-secondary);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  box-sizing: border-box;
-  text-align: center;
-
-  /* Standard card block reservation (typically 300x250 or 336x280) */
-  min-height: 275px;
-}
-
-/* Tiny advertisement text label style */
-.ads-label {
-  display: block;
-  font-size: 0.625rem; /* 10px */
-  font-weight: 700;
-  color: var(--text-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  margin-bottom: 0.5rem;
-}
-
-/* -------------------------------------------------------------
-   6. THEME CONSISTENCY & CONTRAST ENHANCEMENTS (WCAG AA)
+     6. THEME CONSISTENCY & CONTRAST ENHANCEMENTS (WCAG AA)
    -------------------------------------------------------------
    Loaded on every page (homepage + all 23 tools). These rules live in
    unlayered CSS so they reliably win over utility classes, guaranteeing
@@ -650,10 +586,4 @@ body > main.tool-page-main.max-w-7xl {
     flex: 1;
     min-height: 10rem;
   }
-}
-
-.adsbygoogle {
-  display: block !important;
-  width: 100% !important;
-  min-width: 250px;
 }
