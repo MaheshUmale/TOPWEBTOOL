@@ -4,7 +4,6 @@ node_modules/
 
 # Binary build/deploy artifacts and verification screenshots (regenerate as needed)
 *.zip
-*.png
 *.yml
 .playwright-mcp/
 .kilo/
