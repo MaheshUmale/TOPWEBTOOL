@@ -109,6 +109,7 @@
         link.href = href;
         link.textContent = tool.name;
         link.setAttribute('data-name', tool.name.toLowerCase());
+        link.setAttribute('data-category', (tool.category || '').toLowerCase());
         group.appendChild(link);
       });
 
@@ -119,10 +120,17 @@
 
     search.addEventListener('input', function () {
       var q = search.value.toLowerCase().trim();
-      var links = body.querySelectorAll('.twt-nav__link');
-      links.forEach(function (link) {
-        var hit = !q || (link.getAttribute('data-name') || '').indexOf(q) !== -1;
-        link.classList.toggle('twt-hidden', !hit);
+      body.querySelectorAll('.twt-nav__group').forEach(function (group) {
+        var visible = 0;
+        group.querySelectorAll('.twt-nav__link').forEach(function (link) {
+          var hit =
+            !q ||
+            (link.getAttribute('data-name') || '').indexOf(q) !== -1 ||
+            (link.getAttribute('data-category') || '').indexOf(q) !== -1;
+          link.classList.toggle('twt-hidden', !hit);
+          if (hit) visible++;
+        });
+        group.classList.toggle('twt-hidden', q !== '' && visible === 0);
       });
     });
 
@@ -204,9 +212,24 @@
     var square = document.getElementById('ad-slot-square');
     if (!square) return;
 
+    var article = document.querySelector('.twt-shell__workspace article');
+
+    if (article) {
+      // Article pages: drop the square mid-content (after the second
+      // paragraph) so the top of the page keeps just the single leaderboard.
+      var paras = article.querySelectorAll('p');
+      if (paras.length >= 2) {
+        var ref = paras[1];
+        ref.parentNode.insertBefore(square, ref.nextSibling);
+      } else {
+        article.appendChild(square);
+      }
+      square.classList.add('twt-ad--inline', 'twt-mid-inline');
+      return;
+    }
+
     var target =
       document.getElementById('seo-instructional-hub') ||
-      document.querySelector('.twt-shell__workspace article') ||
       document.querySelector('.twt-shell__workspace .twt-seo-content');
 
     if (target) {

@@ -146,6 +146,105 @@
   border-top: 1px solid var(--twt-border-soft);
 }
 
+/* Footer layout is self-contained: the compiled styles.css is missing the
+   responsive utilities the footer needs (the Tailwind build is broken since
+   src.css is gone). Desktop = 5-column grid; mobile = native <details>
+   accordions so the 10 categories collapse to thin headers instead of a
+   full page of links. */
+#global-footer .twt-footer-main {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+#global-footer .twt-footer-brand {
+  max-width: 24rem;
+}
+
+#global-footer .twt-footer-all {
+  display: inline-block;
+  margin-top: 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+
+#global-footer .twt-footer-cats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.5rem 2rem;
+  flex: 1;
+  min-width: 0;
+}
+
+#global-footer .twt-footer-acc summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 0.5rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#global-footer .twt-footer-acc summary::-webkit-details-marker {
+  display: none;
+}
+
+#global-footer .twt-footer-acc summary::after {
+  content: '+';
+  font-size: 0.75rem;
+  opacity: 0.7;
+}
+
+#global-footer .twt-footer-acc[open] summary::after {
+  content: '\2212';
+}
+
+#global-footer .twt-footer-acc ul {
+  list-style: none;
+  margin: 0 0 0.75rem;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+#global-footer .twt-footer-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+@media (min-width: 64rem) {
+  #global-footer .twt-footer-main {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  #global-footer .twt-footer-cats {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+
+  /* Force categories expanded on desktop regardless of <details> state. */
+  #global-footer .twt-footer-acc:not([open]) > :not(summary) {
+    display: block;
+  }
+
+  #global-footer .twt-footer-acc summary {
+    cursor: default;
+    padding-top: 0;
+  }
+
+  #global-footer .twt-footer-acc summary::after {
+    content: '';
+  }
+
+  #global-footer .twt-footer-bottom {
+    flex-direction: row;
+  }
+}
+
 /* ---- Tablet: dual split-pane (tool container + utility links) ---- */
 @media (min-width: 768px) {
   .twt-shell__frame {
