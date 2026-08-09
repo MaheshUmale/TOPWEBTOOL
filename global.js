@@ -656,40 +656,40 @@ document.addEventListener('DOMContentLoaded', () => {
   // Lazy-load below-fold ad units via IntersectionObserver.
   // The top banner (ad-slot-a) is pushed immediately; square/vertical units
   // wait until they approach the viewport to reduce main-thread contention.
-   // Lazy-load below-fold ad units via IntersectionObserver.
-  // The top banner (ad-slot-a) is pushed immediately; square/vertical units
-  // wait until they approach the viewport to reduce main-thread contention.
   (function lazyLoadBelowFoldAds() {
     const PUSH_DELAY_MS = 150;
     const ROOT_MARGIN = '400px';
     const pushed = new Set();
     
-    // Track exactly how many .push({}) commands we have actually sent to Google
-    let adsPushedCount = 0;
-
     function pushUnit(ins) {
       if (pushed.has(ins)) return;
+
+      if (ins.querySelector('iframe') || ins.hasAttribute('data-adsbygoogle-status') || ins.hasAttribute('data-google-query-id')) {
+        pushed.add(ins);
+        return;
+      }
+
       pushed.add(ins);
       
       setTimeout(() => {
         try {
           window.adsbygoogle = window.adsbygoogle || [];
+          
+          const rawUnfilledAds = Array.from(document.querySelectorAll('ins.adsbygoogle'))
+                                      .filter(el => !el.querySelector('iframe') && !el.hasAttribute('data-google-query-id'));
 
-          // Core Safety: Check how many total <ins> ad tags exist in the entire document right now
-          const totalInsTags = document.querySelectorAll('ins.adsbygoogle').length;
+          if (rawUnfilledAds.length === 0) return;
 
-          // Double Check: Verify if an ad script or auto-ad already filled this element behind our backs
-          if (ins.querySelector('iframe') || ins.hasAttribute('data-google-query-id')) {
-            return;
-          }
+          const validAds = rawUnfilledAds.filter(el => {
+            const r = el.getBoundingClientRect();
+            return r.width > 0;
+          });
 
-          // HARD GUARD: Never allow the number of push calls to exceed the total number of physical slots
-          if (adsPushedCount < totalInsTags) {
-            adsPushedCount++; // Claim this slot immediately in our script memory
+          if (validAds.length > 0) {
             window.adsbygoogle.push({});
           }
         } catch (e) {
-          console.warn('AdSense push safe-stopped:', e.message);
+          console.debug('AdSense placement deferred:', e.message);
         }
       }, PUSH_DELAY_MS);
     }
