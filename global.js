@@ -630,7 +630,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // the caps (inline !important) after every SDK style write.
   (function enforceAdSizeCaps() {
     const caps = {
-      'ad-slot-a': ['max-height:138px', 'overflow:hidden']
+      'ad-slot-a': ['max-height:138px', 'overflow:hidden'],
+      'ad-slot-square': ['max-height:250px', 'overflow:hidden'],
+      'ad-slot-vertical': ['max-height:600px', 'overflow:hidden']
     };
     const apply = () => {
       for (const [id, decls] of Object.entries(caps)) {
@@ -651,8 +653,69 @@ document.addEventListener('DOMContentLoaded', () => {
     apply();
   })();
 
+  // Lazy-load below-fold ad units via IntersectionObserver.
+  // The top banner (ad-slot-a) is pushed immediately; square/vertical units
+  // wait until they approach the viewport to reduce main-thread contention.
+  (function lazyLoadBelowFoldAds() {
+    const PUSH_DELAY_MS = 150;
+    const ROOT_MARGIN = '400px';
+    const pushed = new Set();
+
+    function pushUnit(ins) {
+      if (pushed.has(ins)) return;
+      pushed.add(ins);
+      setTimeout(() => {
+        try {
+          (window.adsbygoogle = window.adsbygoogle || []);
+          window.adsbygoogle.push({});
+        } catch (e) {
+          console.error('AdSense push error:', e);
+        }
+      }, PUSH_DELAY_MS);
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          pushUnit(entry.target);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: ROOT_MARGIN });
+
+    document.querySelectorAll('ins.adsbygoogle').forEach((ins) => {
+      const slotId = ins.closest('[id]')?.id || '';
+      if (slotId === 'ad-slot-a') {
+        pushUnit(ins);
+        return;
+      }
+      observer.observe(ins);
+    });
+  })();
+
   // Inject Dynamic AdSense Placements (AD A)
   renderAdPlacements();
+
+  // Re-apply size caps after dynamic ad insertion in case new containers were added
+  setTimeout(() => {
+    const caps = {
+      'ad-slot-a': ['max-height:138px', 'overflow:hidden'],
+      'ad-slot-square': ['max-height:250px', 'overflow:hidden'],
+      'ad-slot-vertical': ['max-height:600px', 'overflow:hidden']
+    };
+    for (const [id, decls] of Object.entries(caps)) {
+      const el = document.getElementById(id);
+      if (!el) continue;
+      for (const d of decls) {
+        const i = d.indexOf(':');
+        const prop = d.slice(0, i);
+        const val = d.slice(i + 1);
+        if (getComputedStyle(el)[prop] !== val) {
+          el.style.setProperty(prop, val, 'important');
+        }
+      }
+    }
+  }, 500);
 });
 
 // Mobile Drawer Controls
@@ -1115,7 +1178,12 @@ function renderAdPlacements() {
         main.insertBefore(adA, main.firstChild);
       }
     } else {
-      main.insertBefore(adA, main.firstChild);
+      const firstChild = main.firstChild;
+      if (firstChild) {
+        main.insertBefore(adA, firstChild.nextSibling);
+      } else {
+        main.appendChild(adA);
+      }
     }
   }
 

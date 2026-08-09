@@ -651,3 +651,9 @@ body > main.tool-page-main.max-w-7xl {
     min-height: 10rem;
   }
 }
+
+.adsbygoogle {
+  display: block !important;
+  width: 100% !important;
+  min-width: 250px;
+}
