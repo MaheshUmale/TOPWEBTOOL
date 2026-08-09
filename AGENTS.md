@@ -4,6 +4,73 @@ This file gives AI coding agents (opencode, Claude Code, Cursor, etc.) everythin
 # System Instructions
 - Always proceed with the most direct, automated execution paths available.
 - Minimize conversational back-and-forth; prioritize tool execution.
+
+## 💾 Session Persistence & State Management (Crucial)
+To prevent restarting from scratch upon session timeouts, tool updates, or system restarts, you MUST maintain a persistent status file (`.agent_state.json` or `session_status.md`) in the root of the project directory.
+
+### 1. Initialization Workflow
+At the absolute beginning of every new session or interaction:
+- **Check** the project directory for an existing state/status file before writing any code or plans.
+- **If found:** Load the file, read the current status, and explicitly tell the user: *"Resuming from previous session at Step [X]..."* Then, continue execution.
+- **If not found:** Initialize a new file with the structure outlined below.
+
+### 2. State File Structure
+Maintain the file using the following tracking schema:
+- **Project Goal:** The ultimate objective of the current project.
+- **Master Plan:** A sequential list of broken-down steps required to finish the project.
+- **Execution Log:**
+  - `Step Number` | `Description` | `Status` (Pending / In-Progress / Completed) | `Timestamp`
+- **Current Active Step:** The exact step currently being worked on.
+- **Artifacts Created:** Paths to files created, modified, or audited so far.
+
+### 3. State Update Triggers
+You must rewrite or update this file immediately when:
+1. A new master plan is generated or modified.
+2. A plan step changes its status (e.g., from `In-Progress` to `Completed`).
+3. A critical error occurs (log the blockages in the state file so you know what failed upon restart).
+
+
+## 📉 Context Management & Token Preservation
+To prevent context bloat, slow response times, and unnecessary token burn during long-running multi-task execution, you must aggressively manage the prompt context window.
+
+### 1. Context Segregation (Task Isolation)
+- **Scope Limitation:** When executing a specific step from the Master Plan, load *only* the specific code files, variables, and historical context required for that exact step. 
+- **Purge Intermediate Noise:** Do not keep raw terminal outputs, long logs, or entire raw source files in active memory once a sub-task is completed. Extract the conclusion, then drop the raw data.
+
+### 2. Rolling Memory & Summarization Triggers
+- **Token Threshold:** If a single task takes multiple iterations, summarize the chat history before the context window causes performance degradation or high token costs.
+- **Task Switching:** Upon completing a step in the Master Plan:
+  1. Generate a brief, high-density text summary of *what* was done and *why*.
+  2. Append this summary to your persistence file (`.agent_state.json` or `session_status.md`).
+  3. Wipe the active operational context of that completed task.
+  4. Prime the next task using *only* the persistence file summary as your baseline knowledge.
+
+### 3. Smart Code Referencing
+- Do not read entire files multiple times. 
+- Use targeted file reads (e.g., specific line ranges, AST definitions, or function heads) instead of injecting multi-thousand-line source code files into the prompt loop for minor edits.
+
+## 💾 Session Persistence & Plan-Mode State Management
+OpenCode severely restricts file system writes while running in 'Plan Mode'. To ensure session persistence is maintained without violating Plan Mode boundaries, you must strictly follow this file path exception rule.
+
+### 1. Hardcoded State File Location
+- You are FORBIDDEN from writing state or JSON files directly to the root project directory while in Plan Mode.
+- You MUST read and write your session status exclusively to: `.opencode/plans/session_status.md`
+- *Note: OpenCode specifically permits file modifications within `.opencode/plans/*.md` during Plan Mode to detail active implementation blueprints.*
+
+### 2. Initialization Workflow
+At the absolute beginning of every new interaction loop (Build or Plan Mode):
+- **Check** if the file `.opencode/plans/session_status.md` exists.
+- **If found:** Read it completely, restore your step progress, and state to the user: *"Resuming from previous session at Step [X] based on active plan..."*
+- **If not found:** Ask the user for permission to initialize the tracking file under the permitted `.opencode/plans/` directory.
+
+### 3. State Schema (Markdown Only)
+Keep the schema in a lightweight, clean Markdown format inside that file. Track:
+- **Project Goal:** Target objective.
+- **Master Plan:** List of steps.
+- **Current Active Step:** Step number and current status (Pending / In-Progress / Completed).
+- **Compacted Context Summary:** A 3-sentence high-density summary of the previous task's outcomes to prevent token bloat on restart.
+
+
 ## Project Overview
 
 TopWebTool is a **100% static, client-side web tool directory** deployed to Cloudflare Pages. It contains **84 tools** across Finance, Marketing, AI, and Developer categories. All tool logic runs in the browser; there is no backend, no database, no build step beyond CSS.
