@@ -9,3 +9,9 @@ node_modules/
 .playwright-mcp/
 .kilo/
 .agent_state/
+
+# Local agent/tooling config
+.opencode/
+.vscode/
+opencode.json
+.session-state.json
