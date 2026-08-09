@@ -590,6 +590,37 @@
    8. COMPONENTS
    ============================================================ */
 
+/* Directory tool cards (homepage + directory views) */
+.tool-card {
+  position: relative;
+  transition: transform 200ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 200ms cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 200ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.tool-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--twt-shadow-md);
+}
+
+/* Consistent emoji icon chip inside every directory card */
+.tool-card .text-2xl {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  font-size: 1.25rem;
+  flex-shrink: 0;
+  background-color: var(--twt-surface-2);
+  border: 1px solid var(--twt-border-soft);
+  border-radius: var(--twt-r-lg);
+  transition: background-color var(--twt-motion), border-color var(--twt-motion);
+}
+.tool-card:hover .text-2xl {
+  background-color: var(--twt-brand-soft);
+  border-color: var(--twt-brand);
+}
+
 /* Cards */
 .twt-card {
   background-color: var(--twt-surface);

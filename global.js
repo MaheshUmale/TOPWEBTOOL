@@ -285,13 +285,6 @@ const UTILITIES_REGISTRY = [
     icon: '📊'
   },
   {
-    path: '/chatgpt-prompt-optimizer/',
-    name: 'Free ChatGPT Prompt Optimizer | Persona, Formatting, & Context Injections',
-    category: 'AI & Automation',
-    desc: 'Convert basic ideas into professional AI prompts. Auto-inject personas, constraints, variables, and markdown output configurations. 100% Free, No Email Needed.',
-    icon: '🤖'
-  },
-  {
     path: '/cnc-feeds-speeds/',
     name: 'CNC Feeds & Speeds Calculator: RPM & Chip Load',
     category: 'Industrial & Engineering',
@@ -346,13 +339,6 @@ const UTILITIES_REGISTRY = [
     category: 'B2B Business',
     desc: 'Calculate optimal Economic Order Quantity (EOQ) to minimize inventory costs. Free inventory optimization tool for supply chain management.',
     icon: '📊'
-  },
-  {
-    path: '/fortune-wheel/',
-    name: 'Free Online Fortune Wheel | Custom Choice & Alternate Yes/No Spinner',
-    category: 'Health & Lifestyle',
-    desc: 'Spin the decision wheel. Input custom names, choice lists, or alternative Yes/No questions to resolve debates dynamically. 100% Free, No Sign-Up Required.',
-    icon: '🎰'
   },
   {
     path: '/freight-dimensional-weight/',
@@ -917,16 +903,62 @@ function renderFooter() {
   const footerContainer = document.getElementById('global-footer') || document.querySelector('footer');
   if (!footerContainer) return;
 
-  footerContainer.className = "bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 mt-8 py-4";
+  footerContainer.className = "bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 mt-8";
+
+  const p = window.location.pathname;
+  const isHomepage = p === '/' || p === '/index.html' || p === '';
+  const prefix = isHomepage ? './' : '../'.repeat(p.split('/').filter(Boolean).length);
+
+  const categories = {};
+  UTILITIES_REGISTRY.forEach(tool => {
+    if (!categories[tool.category]) categories[tool.category] = [];
+    categories[tool.category].push(tool);
+  });
+  const categoryEntries = Object.entries(categories);
+
+  // First 4 tools of each category keep the footer compact.
+  const year = new Date().getFullYear();
 
   footerContainer.innerHTML = `
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center text-slate-500 dark:text-slate-400 text-sm">
-      <div class="flex items-center space-x-2">
-        <span class="font-extrabold text-slate-700 dark:text-slate-300">TopWebTool</span>
-        <span>&copy; 2025. All rights reserved.</span>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <div class="flex flex-col md:flex-row md:items-start justify-between gap-8">
+        <div class="max-w-sm">
+          <a href="${prefix}" class="flex items-center space-x-2 focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:outline-none rounded-lg p-1 w-max" aria-label="TopWebTool Homepage">
+            <svg class="w-8 h-8 shrink-0" role="img" aria-label="TopWebTool Brand Logo" width="32" height="32" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><linearGradient id="brandGradFooter" x1="0" y1="0" x2="100" y2="100" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#4f46e5"/><stop offset="100%" stop-color="#0ea5e9"/></linearGradient></defs><rect x="4" y="4" width="92" height="92" rx="22" fill="url(#brandGradFooter)"/><path d="M32 32h36v9h-12v31h-12V41H32z" fill="#ffffff"/><circle cx="70" cy="25" r="5.5" fill="#fbbf24"/></svg>
+            <span class="font-extrabold text-2xl tracking-tight bg-gradient-to-r from-indigo-600 to-violet-500 dark:from-indigo-400 dark:to-sky-300 bg-clip-text text-slate-900 dark:text-slate-100" style="-webkit-background-clip: text; -webkit-text-fill-color: transparent;">TopWebTool</span>
+          </a>
+          <p class="mt-3 text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
+            ${UTILITIES_REGISTRY.length} free, premium, 100% client-side web utilities. No sign-up, no data leaving your browser, ever.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8 flex-1">
+          ${categoryEntries.map(([cat, tools]) => `
+            <div>
+              <h4 class="text-xs font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500 mb-3">${cat}</h4>
+              <ul class="space-y-2">
+                ${tools.slice(0, 4).map(tool => `
+                  <li>
+                    <a href="${prefix}${tool.path.replace(/^\//, '')}" class="text-sm text-slate-600 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-sky-400 transition-colors">
+                      ${tool.name}
+                    </a>
+                  </li>
+                `).join('')}
+              </ul>
+            </div>
+          `).join('')}
+        </div>
       </div>
-      <div class="mt-4 md:mt-0 flex space-x-6 items-center">
-        <span class="text-xs text-slate-400 dark:text-slate-500">Premium High-CPM Single-Page Utilities Directory</span>
+
+      <div class="mt-10 pt-6 border-t border-slate-200 dark:border-slate-800 flex flex-col md:flex-row items-center justify-between gap-3">
+        <p class="text-xs text-slate-400 dark:text-slate-500">
+          &copy; ${year} TopWebTool. All rights reserved.
+        </p>
+        <div class="flex items-center space-x-5">
+          <a href="${prefix}llms.txt" class="text-xs text-slate-400 dark:text-slate-500 hover:text-indigo-600 dark:hover:text-sky-400 transition-colors">AI Index (llms.txt)</a>
+          <a href="${prefix}robots.txt" class="text-xs text-slate-400 dark:text-slate-500 hover:text-indigo-600 dark:hover:text-sky-400 transition-colors">robots.txt</a>
+          <a href="${prefix}sitemap.xml" class="text-xs text-slate-400 dark:text-slate-500 hover:text-indigo-600 dark:hover:text-sky-400 transition-colors">Sitemap</a>
+        </div>
       </div>
     </div>
   `;

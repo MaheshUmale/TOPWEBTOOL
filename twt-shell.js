@@ -129,32 +129,51 @@
     return nav;
   }
 
-  /** Build the Right Rail: utility panel + reserved 300x600 ad boundary. */
+  /** Build the Right Rail: contextual utility links + reserved 300x600 ad. */
   function buildRail(registry, prefix) {
     var rail = el('aside', 'twt-shell__rail', '');
     rail.setAttribute('aria-label', 'Related tools and advertisements');
 
-    // The searchable "Trending Utilities" panel (already rendered by
-    // global.js) becomes the rail's utility list — search stays intact.
+    // Retire the full-registry "Trending Utilities" clone — it duplicates the
+    // left nav (same 84 tools, same search box) on every page. Hidden in
+    // place; the rail shows a compact contextual panel instead. Uses
+    // style.display because global.js's renderSidebarScroller overwrites the
+    // element's className after this runs.
     var trending = document.getElementById('trending-sidebar');
-    if (trending) {
-      rail.appendChild(trending);
-      trending.classList.add('twt-rail__panel');
-    }
+    if (trending) trending.style.display = 'none';
 
-    // Fallback: static compact links when the page has no trending panel.
-    if (!trending) {
-      var linksBox = el('div', 'twt-rail__links', '');
-      var title = el('div', 'twt-rail__links-title', 'Popular Utilities');
-      linksBox.appendChild(title);
-      registry.slice(0, 12).forEach(function (tool) {
-        var a = el('a', 'twt-rail__link', '');
-        a.href = prefix + tool.path.replace(/^\//, '');
-        a.textContent = tool.name;
-        linksBox.appendChild(a);
-      });
-      rail.appendChild(linksBox);
-    }
+    var linksBox = el('div', 'twt-rail__links', '');
+
+    // Pick tools from the current tool's category; articles inherit the
+    // category of their parent tool. Falls back to a generic list.
+    var current = window.location.pathname.replace(/\/+$/, '');
+    var self = null;
+    var cat = null;
+    registry.forEach(function (tool) {
+      var tp = '/' + tool.path.replace(/^\/|\/$/g, '');
+      if (tp === current) {
+        self = tool;
+        cat = tool.category;
+      } else if (!cat && current.indexOf(tp + '/') === 0) {
+        cat = tool.category;
+      }
+    });
+
+    var picks = cat
+      ? registry.filter(function (t) { return t !== self && t.category === cat; })
+      : registry.slice(0, 12);
+    if (picks.length === 0) picks = registry.slice(0, 12);
+
+    var title = el('div', 'twt-rail__links-title', cat ? 'Related Utilities' : 'Popular Utilities');
+    linksBox.appendChild(title);
+
+    picks.slice(0, 12).forEach(function (tool) {
+      var a = el('a', 'twt-rail__link', '');
+      a.href = prefix + tool.path.replace(/^\//, '');
+      a.textContent = tool.name;
+      linksBox.appendChild(a);
+    });
+    rail.appendChild(linksBox);
 
     // The 300x600 skyscraper is supplied by the existing `#ad-slot-vertical`
     // unit (CLS-safe, zero duplicate slots). If the page lacks one, reserve a
