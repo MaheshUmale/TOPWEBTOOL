@@ -673,20 +673,9 @@ document.addEventListener('DOMContentLoaded', () => {
       
       setTimeout(() => {
         try {
-          window.adsbygoogle = window.adsbygoogle || [];
-          
-          const rawUnfilledAds = Array.from(document.querySelectorAll('ins.adsbygoogle'))
-                                      .filter(el => !el.querySelector('iframe') && !el.hasAttribute('data-google-query-id'));
-
-          if (rawUnfilledAds.length === 0) return;
-
-          const validAds = rawUnfilledAds.filter(el => {
-            const r = el.getBoundingClientRect();
-            return r.width > 0;
-          });
-
-          if (validAds.length > 0) {
-            window.adsbygoogle.push({});
+          const emptyAdSlots = document.querySelectorAll('ins.adsbygoogle:not([data-adsbygoogle-status="done"])');
+          if (emptyAdSlots.length > 0) {
+            (window.adsbygoogle = window.adsbygoogle || []).push({});
           }
         } catch (e) {
           console.debug('AdSense placement deferred:', e.message);
@@ -1185,6 +1174,7 @@ function renderAdPlacements() {
 
   // ===== UNIT A: TOP HEADER BANNER (injected only when the page lacks one) =====
   let adA = document.getElementById('ad-slot-a');
+  let adAWasInjected = false;
   if (!adA) {
     adA = document.createElement('div');
     adA.id = 'ad-slot-a';
@@ -1216,18 +1206,21 @@ function renderAdPlacements() {
         main.appendChild(adA);
       }
     }
+    adAWasInjected = true;
   }
 
-  try {
-    // Activate every ad unit present on the page (tool/SEO pages ship inline
-    // ins.adsbygoogle blocks that never received a push before).
-    const units = document.querySelectorAll('ins.adsbygoogle');
-    if (units.length) {
-      (window.adsbygoogle = window.adsbygoogle || []);
-      units.forEach(() => window.adsbygoogle.push({}));
+  if (adAWasInjected) {
+    const newIns = adA.querySelector('ins.adsbygoogle');
+    if (newIns && !newIns.querySelector('iframe') && !newIns.hasAttribute('data-google-query-id')) {
+      setTimeout(() => {
+        try {
+          window.adsbygoogle = window.adsbygoogle || [];
+          window.adsbygoogle.push({});
+        } catch (e) {
+          console.debug('AdSense placement deferred:', e.message);
+        }
+      }, 150);
     }
-  } catch (e) {
-    console.error("AdSense push error:", e);
   }
 }
 
