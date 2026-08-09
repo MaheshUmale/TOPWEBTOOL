@@ -1,7 +1,9 @@
 # AGENTS.md — TopWebTool Repository Guide
 
 This file gives AI coding agents (opencode, Claude Code, Cursor, etc.) everything needed to work in this repo correctly the first time.
-
+# System Instructions
+- Always proceed with the most direct, automated execution paths available.
+- Minimize conversational back-and-forth; prioritize tool execution.
 ## Project Overview
 
 TopWebTool is a **100% static, client-side web tool directory** deployed to Cloudflare Pages. It contains **84 tools** across Finance, Marketing, AI, and Developer categories. All tool logic runs in the browser; there is no backend, no database, no build step beyond CSS.

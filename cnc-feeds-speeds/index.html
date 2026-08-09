@@ -494,7 +494,40 @@ Waiting for input…</pre>
                 class="px-5 py-2.5 bg-brand-600 text-white hover:bg-brand-700 transition-colors font-bold text-sm rounded-lg shadow-sm"
               >
                 <span>Copy Result</span>
-              </button>
+                  </button>
+                </div>
+              </div>
+
+          <!-- Reference Data -->
+          <div
+            class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-4"
+          >
+            <h2
+              class="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2"
+            >
+              Chip Load Reference Table
+            </h2>
+            <p class="text-sm text-slate-500">
+              Typical recommended chip loads (in/tooth) for common materials by
+              operation, plus recommended surface speeds.
+            </p>
+            <div class="overflow-x-auto">
+              <table
+                class="w-full text-sm border-collapse min-w-[640px]"
+              >
+                <thead>
+                  <tr
+                    class="text-left text-xs font-bold text-slate-400 uppercase tracking-wider"
+                  >
+                    <th class="px-3 py-2">Material</th>
+                    <th class="px-3 py-2">Surface Speed</th>
+                    <th class="px-3 py-2">Slotting</th>
+                    <th class="px-3 py-2">Side Milling</th>
+                    <th class="px-3 py-2">Plunging</th>
+                  </tr>
+                </thead>
+                <tbody id="chip-load-table"></tbody>
+              </table>
             </div>
           </div>
 

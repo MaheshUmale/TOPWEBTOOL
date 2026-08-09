@@ -765,7 +765,7 @@
 
         const totalBiweeklyInterest = biweeklyInterest;
         const interestSavings = totalMonthlyInterest - totalBiweeklyInterest;
-        const yearsSaved = biweeklyCount / 26 - loanTermYears;
+        const yearsSaved = loanTermYears - biweeklyCount / 26;
 
         document.getElementById("result-monthly").textContent =
           formatCurrency(monthlyPayment);
