@@ -891,3 +891,43 @@ Professional Insights & Guide Learn critical professional use cases, dynamic ste
 
 ---
 
+### Privacy Policy
+
+- URL: https://topwebtool.com/privacy.html
+- Heading: Privacy Policy
+- Description: Learn how TopWebTool handles your data, cookies, and privacy. We are 100% client-side — no data leaves your browser.
+
+TopWebTool is committed to protecting your privacy. This Privacy Policy explains how we handle information when you use our 100% client-side web utilities. No Data Collection All tools on TopWebTool run entirely in your browser. We do not collect, store, or transmit any personal data, input values, or calculation results to our servers. Nothing leaves your device. Cookies & Local Storage We use local storage solely to remember your theme preference (light or dark mode). We do not use tracking cookies, advertising cookies, or any third-party analytics that collect personal information. Third-Party Services We display advertisements served by Google AdSense. Google may use cookies to serve ads based on your prior visits to this website or other websites. You can opt out of personalized advertising by visiting Google Ads Settings. Children's Privacy Our services are not directed to children under the age of 13. We do not knowingly collect personal information from children. Changes to This Policy We may update this Privacy Policy from time to time. Any changes will be posted on this page with an updated revision date. Contact Us If you have questions about this Privacy Policy, please visit our Contact Us page.
+
+---
+
+### Terms and Conditions
+
+- URL: https://topwebtool.com/terms.html
+- Heading: Terms and Conditions
+- Description: Read the Terms and Conditions for using TopWebTool's free online calculators and web utilities.
+
+Welcome to TopWebTool. By accessing or using our free online calculators and utilities, you agree to be bound by these Terms and Conditions. Acceptance of Terms By using TopWebTool, you agree to comply with and be bound by these terms. If you do not agree to these terms, please do not use our services. Use of Services All tools on TopWebTool are provided free of charge for personal and commercial use. You may use our calculators and utilities directly in your browser without registration or sign-up. Accuracy of Results While we strive for accuracy, our tools are provided for informational purposes only. Results should not be considered professional financial, legal, or engineering advice. Always verify critical calculations with a qualified professional. Limitation of Liability TopWebTool shall not be liable for any direct, indirect, incidental, or consequential damages arising from the use or inability to use our tools. We make no warranties about the accuracy or reliability of any results. Intellectual Property All content, design, and code on TopWebTool are the property of TopWebTool and are protected by applicable intellectual property laws. You may not reproduce, distribute, or create derivative works without permission. Changes to Terms We reserve the right to modify these terms at any time. Continued use of the site after changes constitutes acceptance of the updated terms. Contact For questions about these terms, please visit our Contact Us page.
+
+---
+
+### Contact Us
+
+- URL: https://topwebtool.com/contact.html
+- Heading: Contact Us
+- Description: Get in touch with TopWebTool. Contact us for support, feedback, or partnership inquiries.
+
+The fastest way to reach us is by email: contact@topwebtool.com. We typically respond within 1-2 business days. For general tool support, please include the tool name and a brief description of your issue. Common Inquiries Bug reports: Describe the issue, browser, and steps to reproduce. Feature requests: Tell us which tool and what functionality you would like added. Partnerships: Include your company name and proposal in the subject line. Press & media: We are happy to provide screenshots, logos, and quotes. Before You Email Check our Privacy Policy and Terms and Conditions for common questions about data handling and usage.
+
+---
+
+### About Us
+
+- URL: https://topwebtool.com/about.html
+- Heading: About TopWebTool
+- Description: Learn about TopWebTool — a free, 100% client-side web utility directory built for developers, marketers, finance experts, and everyday users.
+
+TopWebTool is a curated directory of 84+ free, 100% client-side web utilities designed for developers, marketers, finance experts, AI prompt engineers, and everyday users. Every tool on this site runs entirely in your browser. There is no backend, no database, no account creation, and no data leaves your device. We believe powerful utilities should be instant, private, and accessible to everyone. Our Mission To democratize access to high-quality web utilities by removing paywalls, sign-ups, and data-harvesting practices. Whether you need a mortgage calculator, a JSON formatter, or a QR code generator, it should work instantly and stay free. What We Offer Finance & Real Estate: Mortgage, lease, tax, and investment calculators. Digital Marketing: UTM builders, ROI/ROAS trackers, CPM calculators, and QR generators. AI Prompt Engineering: Prompt optimizers, humanizers, and persona builders. Developer Utilities: JSON validators, password generators, base64 encoders, and more. Everyday & Niche: Fortune wheels, word unscramblers, acoustic analyzers, and specialized engineering tools. Contact Have feedback or a tool request? Email us at contact@topwebtool.com or visit our Contact Us page.
+
+---
+

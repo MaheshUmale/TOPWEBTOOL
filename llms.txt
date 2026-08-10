@@ -96,3 +96,10 @@ TopWebTool is a 100% client-side web utility directory offering 84 free online t
 - [W2 vs 1099 Calculator - Compare Employee vs Contractor Pay](https://topwebtool.com/w2-vs-1099-comparator/) — Compare W2 employee take-home pay versus 1099 independent contractor earnings. Calculate taxes, benefits, and hourly rates side by side.
 - [Free Word & Character Copy Counter | Real-Time Reading & Speaking Times](https://topwebtool.com/word-character-counter/) — Dynamically track words, characters, sentence structures, paragraph metrics, estimated reading, and speaking times. 100% Free offline utility with No Sign-Up.
 - [Free Word Unscrambler | Unscramble Scrambled Letters & Wildcards Solver](https://topwebtool.com/word-unscrambler/) — Unscramble letters into high-scoring words. Supports length limits, prefixes, suffixes, wildcards, and blank tiles. 100% Free, No Registration Required.
+
+## Legal & Info Pages
+
+- [Privacy Policy](https://topwebtool.com/privacy.html) — Learn how TopWebTool handles your data, cookies, and privacy. We are 100% client-side — no data leaves your browser.
+- [Terms and Conditions](https://topwebtool.com/terms.html) — Read the Terms and Conditions for using TopWebTool's free online calculators and web utilities.
+- [Contact Us](https://topwebtool.com/contact.html) — Get in touch with TopWebTool. Contact us for support, feedback, or partnership inquiries.
+- [About Us](https://topwebtool.com/about.html) — Learn about TopWebTool — a free, 100% client-side web utility directory built for developers, marketers, finance experts, and everyday users.

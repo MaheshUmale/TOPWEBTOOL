@@ -32,6 +32,9 @@ Allow: /
 User-agent: Google-Extended
 Allow: /
 
+User-agent: Mediapartners-Google
+Allow: /
+
 User-agent: Bytespider
 Allow: /
 
