@@ -1,7 +1,10 @@
+# Machine-readable AI-friendly files
 User-agent: *
 Allow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
 
-# AI crawlers — explicitly allowed (site is fully public & client-side)
+# Explicitly welcoming AI crawlers for search and processing
 User-agent: GPTBot
 Allow: /
 
@@ -46,10 +49,5 @@ Allow: /
 
 User-agent: Applebot-Extended
 Allow: /
-
-# Machine-readable AI-friendly files
-User-agent: LLM
-Allow: /llms.txt
-Allow: /llms-full.txt
 
 Sitemap: https://topwebtool.com/sitemap.xml
