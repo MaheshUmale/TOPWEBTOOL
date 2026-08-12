@@ -70,8 +70,11 @@
 
     var search = el('input', 'twt-nav__search', '');
     search.type = 'search';
+    search.id = 'twt-sidebar-filter';       // <-- ADD THIS LINE
+    search.name = 'filter_q';                // <-- ADD THIS LINE
     search.placeholder = 'Filter tools...';
     search.setAttribute('aria-label', 'Filter tools');
+    
 
     var body = el('div', 'twt-nav', '');
     body.appendChild(search);
