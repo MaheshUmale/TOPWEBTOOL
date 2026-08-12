@@ -205,51 +205,7 @@
     });
     rail.appendChild(linksBox);
 
-    var legacyVertical = document.getElementById('ad-slot-vertical');
-    if (legacyVertical) {
-      rail.appendChild(legacyVertical);
-      legacyVertical.classList.add('twt-ad--rail');
-    } else {
-      var ad = el('div', 'twt-ad twt-ad--rail', '');
-      ad.innerHTML =
-        '<span class="twt-ad__label">Advertisement</span>' +
-        '<div class="twt-ad__slot">' +
-        '<ins class="adsbygoogle" style="display:inline-block;width:300px;height:600px;"' +
-        ' data-ad-client="ca-pub-3901061173891576" data-ad-slot="1581548667"' +
-        ' data-ad-format="rectangle" data-full-width-responsive="true"></ins></div>';
-      rail.appendChild(ad);
-    }
-
     return rail;
-  }
-
-  /** Mid-inline ad placement logic */
-  function placeMidInline() {
-    var square = document.getElementById('ad-slot-square');
-    if (!square) return;
-
-    var article = document.querySelector('.twt-shell__workspace article');
-
-    if (article) {
-      var paras = article.querySelectorAll('p');
-      if (paras.length >= 2) {
-        var ref = paras[1];
-        ref.parentNode.insertBefore(square, ref.nextSibling);
-      } else {
-        article.appendChild(square);
-      }
-      square.classList.add('twt-ad--inline', 'twt-mid-inline');
-      return;
-    }
-
-    var target =
-      document.getElementById('seo-instructional-hub') ||
-      document.querySelector('.twt-shell__workspace .twt-seo-content');
-
-    if (target && target.parentNode) {
-      target.parentNode.insertBefore(square, target);
-    }
-    square.classList.add('twt-ad--inline', 'twt-mid-inline');
   }
 
   /**
@@ -303,10 +259,7 @@
     var prose = main.querySelector('article');
     if (prose) prose.classList.add('twt-prose');
 
-    // 3. Move mid-inline ad
-    placeMidInline();
-
-    // 4. Neutralize legacy grids
+    // 3. Neutralize legacy grids
     neutralizeLegacyGrid(main);
 
     // 5. Build right rail
