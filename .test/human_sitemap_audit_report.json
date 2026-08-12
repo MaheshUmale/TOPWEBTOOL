@@ -1,0 +1,132 @@
+[
+  {
+    "url": "https://topwebtool.com/",
+    "status": "FAILED",
+    "loadTimeMs": 4223,
+    "consoleErrors": [],
+    "networkErrors": [
+      "Navigation error: this.page.browser is not a function"
+    ],
+    "elementsTested": 0,
+    "interactionsLog": [
+      "Page load failed or timed out"
+    ]
+  },
+  {
+    "url": "https://topwebtool.com/acoustic-room-analyzer/",
+    "status": "FAILED",
+    "loadTimeMs": 1945,
+    "consoleErrors": [],
+    "networkErrors": [
+      "Navigation error: this.page.browser is not a function"
+    ],
+    "elementsTested": 0,
+    "interactionsLog": [
+      "Page load failed or timed out"
+    ]
+  },
+  {
+    "url": "https://topwebtool.com/acoustic-room-analyzer/acoustic-room-analyzer-best-practices/",
+    "status": "FAILED",
+    "loadTimeMs": 2126,
+    "consoleErrors": [],
+    "networkErrors": [
+      "Navigation error: this.page.browser is not a function"
+    ],
+    "elementsTested": 0,
+    "interactionsLog": [
+      "Page load failed or timed out"
+    ]
+  },
+  {
+    "url": "https://topwebtool.com/acoustic-room-analyzer/acoustic-room-analyzer-common-errors/",
+    "status": "FAILED",
+    "loadTimeMs": 2610,
+    "consoleErrors": [],
+    "networkErrors": [
+      "Navigation error: this.page.browser is not a function"
+    ],
+    "elementsTested": 0,
+    "interactionsLog": [
+      "Page load failed or timed out"
+    ]
+  },
+  {
+    "url": "https://topwebtool.com/acoustic-room-analyzer/acoustic-room-analyzer-future-trends/",
+    "status": "FAILED",
+    "loadTimeMs": 1737,
+    "consoleErrors": [],
+    "networkErrors": [
+      "Navigation error: this.page.browser is not a function"
+    ],
+    "elementsTested": 0,
+    "interactionsLog": [
+      "Page load failed or timed out"
+    ]
+  },
+  {
+    "url": "https://topwebtool.com/acoustic-room-analyzer/acoustic-room-analyzer-guide/",
+    "status": "FAILED",
+    "loadTimeMs": 1420,
+    "consoleErrors": [],
+    "networkErrors": [
+      "Navigation error: this.page.browser is not a function"
+    ],
+    "elementsTested": 0,
+    "interactionsLog": [
+      "Page load failed or timed out"
+    ]
+  },
+  {
+    "url": "https://topwebtool.com/acoustic-room-analyzer/acoustic-room-analyzer-optimization-tips/",
+    "status": "FAILED",
+    "loadTimeMs": 3304,
+    "consoleErrors": [],
+    "networkErrors": [
+      "Navigation error: this.page.browser is not a function"
+    ],
+    "elementsTested": 0,
+    "interactionsLog": [
+      "Page load failed or timed out"
+    ]
+  },
+  {
+    "url": "https://topwebtool.com/age-calculator/",
+    "status": "FAILED",
+    "loadTimeMs": 1609,
+    "consoleErrors": [],
+    "networkErrors": [
+      "Navigation error: this.page.browser is not a function"
+    ],
+    "elementsTested": 0,
+    "interactionsLog": [
+      "Page load failed or timed out"
+    ]
+  },
+  {
+    "url": "https://topwebtool.com/age-calculator/age-calculator-best-practices/",
+    "status": "FAILED",
+    "loadTimeMs": 3090,
+    "consoleErrors": [],
+    "networkErrors": [
+      "Navigation error: this.page.browser is not a function"
+    ],
+    "elementsTested": 0,
+    "interactionsLog": [
+      "Page load failed or timed out"
+    ]
+  },
+  {
+    "url": "https://topwebtool.com/age-calculator/age-calculator-common-errors/",
+    "status": "FAILED",
+    "loadTimeMs": 2209,
+    "consoleErrors": [],
+    "networkErrors": [
+      "Navigation error: this.page.browser is not a function"
+    ],
+    "elementsTested": 0,
+    "interactionsLog": [
+      "Page load failed or timed out"
+    ]
+  }
+]
