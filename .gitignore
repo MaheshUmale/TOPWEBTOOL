@@ -2,7 +2,9 @@ node_modules/
 .DS_Store
 *.log
 *.bat
-#*.ps1
+.test
+.test/
+.test/*
 # Binary build/deploy artifacts and verification screenshots (regenerate as needed)
 *.zip
 *.yml
@@ -15,3 +17,5 @@ node_modules/
 .vscode/
 opencode.json
 .session-state.json
+package-lock.json
+package.json
