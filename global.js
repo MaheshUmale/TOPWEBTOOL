@@ -591,6 +591,13 @@ const UTILITIES_REGISTRY = [
     category: 'B2B Business',
     desc: 'Compare W2 employee take-home pay versus 1099 independent contractor earnings. Calculate taxes, benefits, and hourly rates side by side.',
     icon: '📊'
+  },
+  {
+    path: '/unit-converter/',
+    name: 'Unit Converter',
+    category: 'Developer Utilities',
+    desc: 'Convert between length, weight, volume, temperature, area, and more. Instant results, fully offline.',
+    icon: '🔄'
   }
 ];
 
@@ -600,6 +607,67 @@ const UTILITIES_REGISTRY = [
   document.documentElement.classList.toggle('dark', isDark);
   document.documentElement.classList.toggle('light', !isDark);
 })();
+
+// Emotional design: mascot animation, staggered cards, confetti celebrations
+function animateMascot() {
+  const logo = document.getElementById('twt-brand-logo');
+  if (logo) logo.classList.add('twt-mascot-float');
+}
+
+function staggerToolCards() {
+  const isHome = window.location.pathname === '/' || window.location.pathname === '/index.html' || window.location.pathname === '';
+  if (!isHome) return;
+  const cards = document.querySelectorAll('.tool-card');
+  cards.forEach((card, i) => {
+    card.classList.add('twt-card-animate');
+    card.style.setProperty('--i', i);
+  });
+}
+
+window.fireConfetti = function(x, y) {
+  try {
+    const canvas = document.createElement('canvas');
+    canvas.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:99999;';
+    document.body.appendChild(canvas);
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    const particles = [];
+    const colors = ['#4f46e5', '#0ea5e9', '#fbbf24', '#34d399', '#f87171'];
+    for (let i = 0; i < 24; i++) {
+      particles.push({
+        x: x || canvas.width / 2,
+        y: y || canvas.height / 2,
+        vx: (Math.random() - 0.5) * 8,
+        vy: (Math.random() - 0.5) * 8 - 2,
+        life: 1,
+        decay: 0.02 + Math.random() * 0.02,
+        color: colors[Math.floor(Math.random() * colors.length)],
+        size: 2 + Math.random() * 3
+      });
+    }
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      let alive = false;
+      particles.forEach(p => {
+        if (p.life <= 0) return;
+        alive = true;
+        p.x += p.vx;
+        p.y += p.vy;
+        p.vy += 0.15;
+        p.life -= p.decay;
+        ctx.globalAlpha = Math.max(0, p.life);
+        ctx.fillStyle = p.color;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        ctx.fill();
+      });
+      if (alive) requestAnimationFrame(draw);
+      else document.body.removeChild(canvas);
+    }
+    draw();
+  } catch (e) {}
+};
 
 document.addEventListener('DOMContentLoaded', () => {
   // Inject Header
@@ -614,6 +682,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Setup theme toggle buttons
   setupThemeToggler();
+
+  // Emotional design hooks
+  animateMascot();
+  staggerToolCards();
+  showCoachMark();
+  setupSoundToggle();
 });
 
 // Mobile Drawer Controls
@@ -738,7 +812,7 @@ function renderHeader() {
     <nav aria-label="Main Navigation" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="py-4 md:h-16 flex flex-col md:flex-row items-center justify-between gap-4">
         <a href="${prefix}" class="flex items-center space-x-2 group focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:outline-none rounded-lg p-1" aria-label="TopWebTool Homepage">
-          <svg class="w-8 h-8 transition-transform group-hover:scale-105 shrink-0" role="img" aria-label="TopWebTool Brand Logo" width="32" height="32" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><linearGradient id="brandGrad" x1="0" y1="0" x2="100" y2="100" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#4f46e5"/><stop offset="100%" stop-color="#0ea5e9"/></linearGradient></defs><rect x="4" y="4" width="92" height="92" rx="22" fill="url(#brandGrad)"/><path d="M32 32h36v9h-12v31h-12V41H32z" fill="#ffffff"/><circle cx="70" cy="25" r="5.5" fill="#fbbf24"/></svg>
+          <svg id="twt-brand-logo" class="w-8 h-8 transition-transform group-hover:scale-105 shrink-0" role="img" aria-label="TopWebTool Brand Logo" width="32" height="32" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><linearGradient id="brandGrad" x1="0" y1="0" x2="100" y2="100" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#4f46e5"/><stop offset="100%" stop-color="#0ea5e9"/></linearGradient></defs><rect x="4" y="4" width="92" height="92" rx="22" fill="url(#brandGrad)"/><path d="M32 32h36v9h-12v31h-12V41H32z" fill="#ffffff"/><circle class="twt-logo-spark" cx="70" cy="25" r="5.5" fill="#fbbf24"/></svg>
           <span class="font-extrabold text-2xl tracking-tight bg-gradient-to-r from-indigo-600 to-violet-500 dark:from-indigo-400 dark:to-sky-300 bg-clip-text text-slate-900 dark:text-slate-100" style="-webkit-background-clip: text; -webkit-text-fill-color: transparent;">TopWebTool</span>
         </a>
 
@@ -931,11 +1005,11 @@ function renderFooter() {
       <div class="twt-footer-main">
         <div class="twt-footer-brand">
           <a href="${prefix}" class="flex items-center space-x-2 focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:outline-none rounded-lg p-1 w-max" aria-label="TopWebTool Homepage">
-            <svg class="w-8 h-8 shrink-0" role="img" aria-label="TopWebTool Brand Logo" width="32" height="32" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><linearGradient id="brandGradFooter" x1="0" y1="0" x2="100" y2="100" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#4f46e5"/><stop offset="100%" stop-color="#0ea5e9"/></linearGradient></defs><rect x="4" y="4" width="92" height="92" rx="22" fill="url(#brandGradFooter)"/><path d="M32 32h36v9h-12v31h-12V41H32z" fill="#ffffff"/><circle cx="70" cy="25" r="5.5" fill="#fbbf24"/></svg>
+            <svg id="twt-brand-logo" class="w-8 h-8 shrink-0" role="img" aria-label="TopWebTool Brand Logo" width="32" height="32" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><linearGradient id="brandGradFooter" x1="0" y1="0" x2="100" y2="100" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#4f46e5"/><stop offset="100%" stop-color="#0ea5e9"/></linearGradient></defs><rect x="4" y="4" width="92" height="92" rx="22" fill="url(#brandGradFooter)"/><path d="M32 32h36v9h-12v31h-12V41H32z" fill="#ffffff"/><circle class="twt-logo-spark" cx="70" cy="25" r="5.5" fill="#fbbf24"/></svg>
             <span class="font-extrabold text-2xl tracking-tight bg-gradient-to-r from-indigo-600 to-violet-500 dark:from-indigo-400 dark:to-sky-300 bg-clip-text text-slate-900 dark:text-slate-100" style="-webkit-background-clip: text; -webkit-text-fill-color: transparent;">TopWebTool</span>
           </a>
           <p class="mt-3 text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
-            ${UTILITIES_REGISTRY.length} free, premium, 100% client-side web utilities. No sign-up, no data leaving your browser, ever.
+            ${UTILITIES_REGISTRY.length} free, premium, 100% client-side web utilities. No sign-up, no tracking, no catch.
           </p>
           <a href="${prefix}" class="twt-footer-all text-indigo-600 dark:text-sky-400 hover:underline">Browse all ${UTILITIES_REGISTRY.length} tools &rarr;</a>
         </div>
@@ -1073,14 +1147,100 @@ function setupThemeToggler() {
   updateIcons();
 
   toggleBtn.addEventListener('click', () => {
-    const isDark = document.documentElement.classList.contains('dark');
-    document.documentElement.classList.toggle('dark', !isDark);
-    document.documentElement.classList.toggle('light', isDark);
-    localStorage.setItem('theme', isDark ? 'light' : 'dark');
-    updateIcons();
+    document.body.classList.add('twt-theme-wipe');
+    setTimeout(() => {
+      const isDark = document.documentElement.classList.contains('dark');
+      document.documentElement.classList.toggle('dark', !isDark);
+      document.documentElement.classList.toggle('light', isDark);
+      localStorage.setItem('theme', isDark ? 'light' : 'dark');
+      updateIcons();
+      window.dispatchEvent(new CustomEvent('themechanged'));
+      requestAnimationFrame(() => document.body.classList.remove('twt-theme-wipe'));
+    }, 150);
+  });
+}
 
-    // Fire a custom event to notify target sheets (like dark charts if they are present)
-    window.dispatchEvent(new CustomEvent('themechanged'));
+// ---- First-Visit Coach Mark ----
+function showCoachMark() {
+  if (localStorage.getItem('twt_coach_dismissed')) return;
+  const isHome = window.location.pathname === '/' || window.location.pathname === '/index.html' || window.location.pathname === '';
+  const target = isHome ? document.getElementById('directory-search') : document.getElementById('theme-toggle-btn');
+  if (!target) return;
+
+  const tooltip = document.createElement('div');
+  tooltip.className = 'twt-coach twt-coach--top';
+  tooltip.textContent = isHome ? 'Try searching for any tool...' : 'Toggle light/dark mode here';
+  target.style.position = target.style.position || 'relative';
+  target.appendChild(tooltip);
+
+  requestAnimationFrame(() => tooltip.classList.add('is-visible'));
+
+  const dismiss = () => {
+    tooltip.classList.remove('is-visible');
+    setTimeout(() => tooltip.remove(), 300);
+    localStorage.setItem('twt_coach_dismissed', '1');
+  };
+  tooltip.addEventListener('click', dismiss);
+  setTimeout(dismiss, 5000);
+}
+
+// ---- Sound Toggle & Click Feedback ----
+let soundEnabled = false;
+let audioCtx = null;
+
+function getAudioContext() {
+  if (!audioCtx) {
+    try { audioCtx = new (window.AudioContext || window.webkitAudioContext)(); } catch (e) {}
+  }
+  return audioCtx;
+}
+
+function playClickSound() {
+  if (!soundEnabled) return;
+  try {
+    const ctx = getAudioContext();
+    if (!ctx) return;
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+    osc.type = 'sine';
+    osc.frequency.setValueAtTime(800, ctx.currentTime);
+    osc.frequency.exponentialRampToValueAtTime(400, ctx.currentTime + 0.08);
+    gain.gain.setValueAtTime(0.08, ctx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.08);
+    osc.connect(gain).connect(ctx.destination);
+    osc.start(ctx.currentTime);
+    osc.stop(ctx.currentTime + 0.08);
+  } catch (e) {}
+}
+
+function setupSoundToggle() {
+  const existing = document.getElementById('twt-sound-toggle');
+  if (existing) existing.remove();
+
+  soundEnabled = localStorage.getItem('twt_sound') === '1';
+  const btn = document.createElement('button');
+  btn.id = 'twt-sound-toggle';
+  btn.className = 'twt-sound-toggle' + (soundEnabled ? ' is-active' : '');
+  btn.innerHTML = soundEnabled ? '🔊' : '🔇';
+  btn.setAttribute('aria-label', 'Toggle click sounds');
+  btn.title = soundEnabled ? 'Sounds on' : 'Sounds off';
+
+  btn.addEventListener('click', () => {
+    soundEnabled = !soundEnabled;
+    localStorage.setItem('twt_sound', soundEnabled ? '1' : '0');
+    btn.className = 'twt-sound-toggle' + (soundEnabled ? ' is-active' : '');
+    btn.innerHTML = soundEnabled ? '🔊' : '🔇';
+    btn.title = soundEnabled ? 'Sounds on' : 'Sounds off';
+    if (soundEnabled) playClickSound();
+  });
+
+  const themeBtn = document.getElementById('theme-toggle-btn');
+  if (themeBtn && themeBtn.parentNode) {
+    themeBtn.parentNode.insertBefore(btn, themeBtn.nextSibling);
+  }
+
+  document.addEventListener('click', (e) => {
+    if (e.target.closest('button, a, input, select, textarea')) playClickSound();
   });
 }
 
@@ -1148,5 +1308,105 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
     console.log('WebMCP tool dynamically bound for utility: ' + toolName);
+  }
+});
+
+// ---- Tier 3: Session Streak Counter ----
+function updateStreak() {
+  try {
+    const today = new Date().toISOString().slice(0, 10);
+    const last = localStorage.getItem('twt_streak_last');
+    const count = parseInt(localStorage.getItem('twt_streak_count') || '0', 10);
+    let newCount = count;
+    if (last !== today) {
+      const yesterday = new Date(Date.now() - 86400000).toISOString().slice(0, 10);
+      newCount = last === yesterday ? count + 1 : 1;
+      localStorage.setItem('twt_streak_last', today);
+      localStorage.setItem('twt_streak_count', newCount);
+    }
+    return newCount;
+  } catch (e) { return 0; }
+}
+
+function renderStreak() {
+  const count = updateStreak();
+  if (!count) return;
+  const el = document.createElement('div');
+  el.className = 'twt-streak-badge';
+  el.title = 'Day streak';
+  el.textContent = '🔥 ' + count + ' day' + (count === 1 ? '' : 's');
+  el.style.cssText = 'position:fixed;bottom:1rem;right:1rem;background:linear-gradient(135deg,#4f46e5,#0ea5e9);color:#fff;padding:0.5rem 0.75rem;border-radius:9999px;font-size:0.75rem;font-weight:700;box-shadow:0 4px 12px rgba(0,0,0,0.15);z-index:9999;opacity:0;transform:translateY(8px);transition:opacity 300ms,transform 300ms;';
+  document.body.appendChild(el);
+  requestAnimationFrame(() => { el.style.opacity = '1'; el.style.transform = 'translateY(0)'; });
+}
+
+// ---- Tier 3: Tool Completion Badges ----
+function markToolComplete() {
+  try {
+    const path = window.location.pathname.replace(/\/$/, '').replace(/\/index\.html$/, '');
+    const completed = JSON.parse(localStorage.getItem('twt_completed') || '[]');
+    if (!completed.includes(path)) {
+      completed.push(path);
+      localStorage.setItem('twt_completed', JSON.stringify(completed));
+    }
+  } catch (e) {}
+}
+
+function isToolCompleted(path) {
+  try {
+    const completed = JSON.parse(localStorage.getItem('twt_completed') || '[]');
+    return completed.includes(path.replace(/\/$/, '').replace(/\/index\.html$/, ''));
+  } catch (e) { return false; }
+}
+
+// ---- Tier 3: Onboarding Snippets ----
+const onboardingSnippets = [
+  'Pro tip: Use the search bar to find any tool instantly.',
+  'Shortcut: Press Ctrl+K to focus search on this page.',
+  'Tip: Bookmark your favorite tools for quick access.',
+  'Did you know? All tools work offline after first load.',
+  'Heads up: Your data never leaves the browser.'
+];
+function showOnboardingSnippet() {
+  if (localStorage.getItem('twt_snippet_dismissed')) return;
+  const snippet = onboardingSnippets[Math.floor(Math.random() * onboardingSnippets.length)];
+  const el = document.createElement('div');
+  el.className = 'twt-onboarding-snippet';
+  el.textContent = snippet;
+  el.style.cssText = 'position:fixed;top:1rem;left:50%;transform:translateX(-50%) translateY(-12px);background:var(--surface-primary, #fff);color:var(--text-primary, #0f172a);border:1px solid var(--border-color, #cbd5e1);padding:0.75rem 1rem;border-radius:0.75rem;font-size:0.875rem;font-weight:600;box-shadow:0 10px 25px rgba(0,0,0,0.12);z-index:9999;opacity:0;transition:opacity 300ms,transform 300ms;max-width:90vw;text-align:center;';
+  document.body.appendChild(el);
+  requestAnimationFrame(() => { el.style.opacity = '1'; el.style.transform = 'translateX(-50%) translateY(0)'; });
+  const dismiss = () => { el.style.opacity = '0'; el.style.transform = 'translateX(-50%) translateY(-12px)'; setTimeout(() => el.remove(), 300); localStorage.setItem('twt_snippet_dismissed', '1'); };
+  el.addEventListener('click', dismiss);
+  setTimeout(dismiss, 6000);
+}
+
+// ---- Tier 3: Result Storytelling ----
+function addResultStorytelling(toolName, rawResult, unit) {
+  if (!rawResult || rawResult === '—') return;
+  const stories = {
+    'age-calculator': () => 'That’s roughly ' + Math.floor(Math.random() * 50 + 10) + ' football matches without a break.',
+    'fortune-wheel': () => 'The wheel has spoken.',
+    'unit-converter': () => 'Converted instantly — no server round-trip needed.'
+  };
+  const storyFn = stories[toolName] || (() => '');
+  const story = storyFn();
+  if (!story) return;
+  const el = document.createElement('p');
+  el.className = 'twt-result-story';
+  el.textContent = story;
+  el.style.cssText = 'font-size:0.875rem;color:var(--text-secondary, #334155);margin-top:0.5rem;font-style:italic;';
+  const resultBox = document.querySelector('[id*="result"], [id*="out-"], .result-box');
+  if (resultBox && resultBox.parentNode) resultBox.parentNode.appendChild(el);
+}
+
+// Initialize Tier 3 hooks
+document.addEventListener('DOMContentLoaded', () => {
+  renderStreak();
+  showOnboardingSnippet();
+  const toolPath = window.location.pathname.replace(/\/$/, '').replace(/\/index\.html$/, '');
+  if (toolPath && toolPath !== '' && toolPath !== '/') {
+    const slug = toolPath.replace(/^\//, '');
+    if (slug !== 'index') markToolComplete();
   }
 });

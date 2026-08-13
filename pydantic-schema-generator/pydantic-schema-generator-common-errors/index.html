@@ -1,4 +1,4 @@
-ï»¿<!doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
@@ -130,9 +130,9 @@
               class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4"
             >
               <span>Published: August 2026</span>
-              <span>â€¢</span>
+              <span>•</span>
               <span>Category: AI Agent & Automation</span>
-              <span>â€¢</span>
+              <span>•</span>
               <span class="text-emerald-600 dark:text-emerald-400"
                 >No Sign-Up / 100% Free / No Registration</span
               >
@@ -148,7 +148,7 @@
                 <code class="font-mono text-xs">int</code> that receives a float
                 string, or a field typed
                 <code class="font-mono text-xs">str</code> that receives a list,
-                will fail validation at the boundary â€” and the failure message
+                will fail validation at the boundary — and the failure message
                 is your first clue. The generator's sample validation exists
                 precisely to surface these mismatches before you paste the model
                 into code: build the sample, hit validate, and read which field
@@ -160,7 +160,7 @@
                 declares every field required, every partial payload fails. The
                 reverse is equally common: a field that should be mandatory is
                 given a default, so invalid payloads quietly succeed with
-                placeholder data. Review requiredness with intent â€” a default
+                placeholder data. Review requiredness with intent — a default
                 exists to tolerate absence, not to paper over a data-quality
                 problem.
               </p>
@@ -187,7 +187,7 @@
                 <code class="font-mono text-xs">"name": null</code> and the
                 model declares
                 <code class="font-mono text-xs">Optional[str]</code>, Pydantic
-                accepts the null â€” which may be fine, or may be a silent
+                accepts the null — which may be fine, or may be a silent
                 data-quality loss if downstream code assumes a string. Decide
                 deliberately, and when null is a valid value, type the field to
                 accept it and document why.
@@ -205,7 +205,7 @@
                   >TypeError: Object of type ... is not JSON serializable</code
                 >. In Pydantic v2,
                 <code class="font-mono text-xs">dict(model)</code> also no
-                longer returns the validated data â€” another legacy habit that
+                longer returns the validated data — another legacy habit that
                 quietly produces wrong output.
               </p>
               <p class="mb-4">
@@ -228,7 +228,7 @@
                 field type check happens later, can dereference the wrong value
                 or raise an obscure exception. Keep validators simple, validate
                 one concern per validator, and remember that field-level
-                validators run after type coercion â€” write them against the
+                validators run after type coercion — write them against the
                 coerced value, not the raw input.
               </p>
               <p class="mb-4">
@@ -243,7 +243,7 @@
               <p class="mb-4">
                 These failures share a root cause: the schema was written by
                 assumption instead of validated against real data. The fix is
-                mechanical â€” check each field's type, requiredness, nullability,
+                mechanical — check each field's type, requiredness, nullability,
                 defaults, aliases, and serialization path, then regenerate both
                 artifacts and run the sample validation. A schema that has
                 survived that review is a schema you can trust, and a model that
@@ -253,7 +253,7 @@
                 Nested models fail in a characteristic way: the outer validation
                 passes while the inner structure is subtly wrong. A field typed
                 as a nested model accepts any dict-like object and validates it
-                field by field â€” so a missing key inside the nested object fails
+                field by field — so a missing key inside the nested object fails
                 the whole model, and a wrong type inside the nested object
                 surfaces at the inner field, not the outer one. When a failure
                 message names a path like
@@ -265,7 +265,7 @@
                 models independent and validate them in isolation with their own
                 test cases; then compose them, trusting that a tested inner
                 model rarely breaks the outer contract. The path-based error
-                messages are the map â€” follow them to the inner model that
+                messages are the map — follow them to the inner model that
                 actually owns the field.
               </p>
             </div>
@@ -302,5 +302,6 @@
     <script src="../../global.js" defer></script>
 
     <script src="../../twt-shell.js" defer></script>
+    <script src="../../js/context-engine.js" defer></script>
   </body>
 </html>

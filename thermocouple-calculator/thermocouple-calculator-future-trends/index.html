@@ -1,4 +1,4 @@
-ï»¿<!doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
@@ -82,7 +82,7 @@
           {
             "@type": "ListItem",
             "position": 2,
-            "name": "Thermocouple Calculator: mV to Â°C & Â°C to mV",
+            "name": "Thermocouple Calculator: mV to °C & °C to mV",
             "item": "https://topwebtool.com/thermocouple-calculator/"
           },
           {
@@ -130,9 +130,9 @@
               class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4"
             >
               <span>Published: August 2026</span>
-              <span>â€¢</span>
+              <span>•</span>
               <span>Category: Industrial &amp; Engineering</span>
-              <span>â€¢</span>
+              <span>•</span>
               <span class="text-emerald-600 dark:text-emerald-400"
                 >No Sign-Up / 100% Free / No Registration</span
               >
@@ -144,8 +144,8 @@
             >
               <p class="mb-4">
                 The thermocouple is over a century old, but the measurement
-                system around it is changing fast. The sensor principle â€” the
-                Seebeck effect in the junction of two alloys â€” is unchanged,
+                system around it is changing fast. The sensor principle — the
+                Seebeck effect in the junction of two alloys — is unchanged,
                 while everything downstream is being rebuilt: how the signal is
                 converted, where the conversion happens, and how the reference
                 junction is handled. This article traces the trends that will
@@ -157,8 +157,8 @@
                 instruments now runs in a microcontroller on the sensor node
                 itself, or in the gateway the node reports to. The result is
                 that the exact coefficients embedded in the Thermocouple
-                Calculator â€” the same Horner-form evaluation and the same
-                reference-junction compensation â€” become a routine function of
+                Calculator — the same Horner-form evaluation and the same
+                reference-junction compensation — become a routine function of
                 even the smallest industrial device. Edge conversion removes the
                 dependence on a central instrument's accuracy and makes each
                 sensor report a finished temperature rather than a raw
@@ -171,8 +171,8 @@
                 reference junction at the node terminals with an onboard sensor
                 and apply the compensation before transmission. This removes the
                 extension-wire error chain that this site's common-errors
-                article warns about â€” the uncontrolled junctions along a copper
-                or wrong-alloy run â€” because the measurement and its reference
+                article warns about — the uncontrolled junctions along a copper
+                or wrong-alloy run — because the measurement and its reference
                 are physically unified. The trade is a fresh power and
                 battery-life constraint, but the accuracy architecture is
                 genuinely simpler.
@@ -180,9 +180,9 @@
               <p class="mb-4">
                 Trend three: recalibrated ITS-90-era polynomials. The ITS-90
                 temperature scale and its thermocouple coefficients date to the
-                late 1980s, and the pending revision of the temperature scale â€”
+                late 1980s, and the pending revision of the temperature scale —
                 the move toward thermodynamic definitions anchored on physical
-                constants â€” will redraw the polynomial tables. Instruments,
+                constants — will redraw the polynomial tables. Instruments,
                 calibrators, and web tools that hardcode the current
                 coefficients will need a migration path, which is why the
                 calculator's coefficient tables are structured as data that can
@@ -198,8 +198,8 @@
                 as-found deviations at each calibration point are trended
                 against time, and sensors are flagged for replacement when the
                 extrapolated drift crosses a threshold. The calculation is
-                trivial â€” compare the expected EMF from the NIST polynomial with
-                the measured value at a known temperature â€” but the
+                trivial — compare the expected EMF from the NIST polynomial with
+                the measured value at a known temperature — but the
                 infrastructure to do it continuously is new. The trend converts
                 periodic maintenance into predictive maintenance, and it rewards
                 the discipline of recording the conversion trace that the
@@ -209,8 +209,8 @@
                 Trend five: hybrid sensor heads that multiplex thermocouples and
                 RTDs. The modern process head increasingly carries both signal
                 types through a common conditioning path, and the firmware
-                selects the conversion â€” ITS-90 thermocouple polynomial or Pt100
-                resistance law â€” per channel. The Thermocouple Calculator
+                selects the conversion — ITS-90 thermocouple polynomial or Pt100
+                resistance law — per channel. The Thermocouple Calculator
                 already reflects this architecture by offering both conversion
                 families in one interface, and the practical consequence for
                 engineers is that the sensor selection conversation (accuracy
@@ -227,7 +227,7 @@
                 lab. The effect on everyday measurement is indirect but steady:
                 the reference junction and the sensor can both be validated in
                 place, and the conversion math becomes the only remaining
-                assumption â€” which is precisely the part that the NIST
+                assumption — which is precisely the part that the NIST
                 coefficients make verifiable.
               </p>
               <p class="mb-4">
@@ -235,7 +235,7 @@
                 temperatures. As process models predict what a sensor should
                 read at a given operating point, the measured temperature is
                 compared against the model expectation in real time, and a
-                divergence flags the sensor, the wiring, or the process â€” not
+                divergence flags the sensor, the wiring, or the process — not
                 just the reading. This changes the role of the conversion: it
                 stops being the final answer and becomes one input to a
                 comparison. The accuracy requirements do not fall; they rise,
@@ -249,8 +249,8 @@
                 reference junction still demands compensation; the NIST
                 polynomials still define the conversion. What is changing is
                 where and how carefully those steps happen, and the skills this
-                site teaches â€” knowing the type, handling the cold junction,
-                converting with exact coefficients â€” become more valuable, not
+                site teaches — knowing the type, handling the cold junction,
+                converting with exact coefficients — become more valuable, not
                 less, as the surrounding infrastructure automates. The next
                 decade will move the conversion around, but it will not move the
                 science.
@@ -289,5 +289,6 @@
     <script src="../../global.js" defer></script>
 
     <script src="../../twt-shell.js" defer></script>
+    <script src="../../js/context-engine.js" defer></script>
   </body>
 </html>

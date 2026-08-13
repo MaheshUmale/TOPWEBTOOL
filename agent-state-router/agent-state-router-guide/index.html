@@ -1,4 +1,4 @@
-ï»¿<!doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
@@ -130,9 +130,9 @@
               class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4"
             >
               <span>Published: August 2026</span>
-              <span>â€¢</span>
+              <span>•</span>
               <span>Category: AI Agent & Automation</span>
-              <span>â€¢</span>
+              <span>•</span>
               <span class="text-emerald-600 dark:text-emerald-400"
                 >No Sign-Up / 100% Free / No Registration</span
               >
@@ -145,8 +145,8 @@
               <p class="mb-4">
                 A state machine is the simplest rigorous way to describe an
                 agent's possible conditions and the events that move it between
-                them. You define a finite set of states â€” idle, running, failed,
-                done â€” and a set of transitions labeled by events: start, error,
+                them. You define a finite set of states — idle, running, failed,
+                done — and a set of transitions labeled by events: start, error,
                 retry, complete. The agent is always in exactly one state, and
                 each event deterministically routes it to the next. For AI
                 agents, this structure is invaluable: it turns "the agent got
@@ -156,21 +156,21 @@
               <p class="mb-4">
                 The model is built from three primitives. States are the
                 distinct conditions the system can occupy. Events are the
-                triggers â€” a user action, a tool result, a timeout, an error â€”
+                triggers — a user action, a tool result, a timeout, an error —
                 that can cause a change. Transitions are directed edges from a
                 source state to a target state, labeled by the event that fires
                 them. A transition list like
                 <code class="font-mono text-xs">running, error, failed</code>
                 reads as "when in the running state and the error event fires,
-                move to failed." That triadic structure â€” from, event, to â€” is
+                move to failed." That triadic structure — from, event, to — is
                 exactly the format the Agent State-Machine Router Evaluator
                 consumes.
               </p>
               <p class="mb-4">
                 Reachability is the first property worth analyzing. Starting
                 from the designated start state, which states can the agent
-                actually enter? Some states may be defined but unreachable â€” no
-                transition leads into them â€” which usually means dead code in
+                actually enter? Some states may be defined but unreachable — no
+                transition leads into them — which usually means dead code in
                 your agent's logic or a missing edge. Reachability analysis is a
                 breadth-first traversal over the graph of transitions, and the
                 result tells you whether every state you designed for is
@@ -178,20 +178,20 @@
               </p>
               <p class="mb-4">
                 Cycle detection answers a different question: can the agent loop
-                forever? If the graph contains a cycle â€” idle to running to done
-                to idle â€” then under the right sequence of events the agent can
+                forever? If the graph contains a cycle — idle to running to done
+                to idle — then under the right sequence of events the agent can
                 revisit a state indefinitely. Sometimes a cycle is intended (a
                 polling loop, a retry loop), and sometimes it is a bug that
                 burns tokens forever. The evaluator's depth-first search with a
                 recursion stack finds every cycle, including self-loops like
-                <code class="font-mono text-xs">idle â†’ idle</code>, and reports
+                <code class="font-mono text-xs">idle ? idle</code>, and reports
                 each as a full path so you can see exactly where the loop runs.
               </p>
               <p class="mb-4">
                 Dead-ends are the mirror image: states with no outgoing
                 transitions. A terminal state like
                 <code class="font-mono text-xs">done</code> is usually
-                intentional â€” the workflow finished. But a dead-end reached in
+                intentional — the workflow finished. But a dead-end reached in
                 error, with no path forward, strands the agent. The evaluator
                 labels dead-end states so you can confirm each one is a
                 deliberate conclusion rather than an accidental gap in the
@@ -227,7 +227,7 @@
                 only the transitions that are legal. Resist the temptation to
                 model every nuance as a state; if an event does not change
                 behavior, it does not need a state change. The router evaluator
-                is the perfect review tool for this discipline â€” paste the
+                is the perfect review tool for this discipline — paste the
                 table, look at the warnings, and the design's gaps announce
                 themselves.
               </p>
@@ -242,16 +242,16 @@
               </p>
               <p class="mb-4">
                 The practical workflow with the tool follows four steps. First,
-                collect the states and transitions that already exist â€” in code,
-                in a ticket, or only in someone's head â€” and get them into the
+                collect the states and transitions that already exist — in code,
+                in a ticket, or only in someone's head — and get them into the
                 table or pasted text. Second, run the analysis and read the
                 results: which states are reachable, which transitions form
                 cycles, which states are dead-ends, and whether any conflicts or
                 duplicates need resolution. Third, fix the model in the editor
                 and re-run until the analysis is clean, treating each warning as
                 a specific, actionable defect rather than a vague concern.
-                Fourth, export the verified model â€” copy the table or download
-                the DOT â€” and use it as the source of truth for the next
+                Fourth, export the verified model — copy the table or download
+                the DOT — and use it as the source of truth for the next
                 implementation, review, or documentation pass. The loop is the
                 point: analysis makes the model legible, fixes make it correct,
                 and the clean result is an artifact you can trust enough to hand
@@ -292,5 +292,6 @@
     <script src="../../global.js" defer></script>
 
     <script src="../../twt-shell.js" defer></script>
+    <script src="../../js/context-engine.js" defer></script>
   </body>
 </html>

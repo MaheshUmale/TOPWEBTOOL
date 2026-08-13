@@ -1,4 +1,4 @@
-ï»¿<!doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
@@ -130,9 +130,9 @@
               class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4"
             >
               <span>Published: August 2026</span>
-              <span>â€¢</span>
+              <span>•</span>
               <span>Category: AI Agent & Automation</span>
-              <span>â€¢</span>
+              <span>•</span>
               <span class="text-emerald-600 dark:text-emerald-400"
                 >No Sign-Up / 100% Free / No Registration</span
               >
@@ -145,7 +145,7 @@
               <p class="mb-4">
                 Start with the distinction that causes most production bugs:
                 optional versus nullable. An optional field, declared with a
-                default, is simply absent when not provided â€” the JSON omits the
+                default, is simply absent when not provided — the JSON omits the
                 key. A nullable field accepts
                 <code class="font-mono text-xs">null</code> as a value. These
                 are not the same thing, and conflating them leaks through to
@@ -176,8 +176,8 @@
                 Prefer narrow, explicit types over wide ones. A
                 <code class="font-mono text-xs">list</code> field with no
                 element type accepts a heterogeneous array, which almost never
-                matches reality. Model what the list actually holds â€” a list of
-                strings, a list of nested objects â€” so that a mis-typed element
+                matches reality. Model what the list actually holds — a list of
+                strings, a list of nested objects — so that a mis-typed element
                 fails at the boundary instead of cascading through downstream
                 code. The same principle applies to
                 <code class="font-mono text-xs">dict</code> fields: name the
@@ -198,7 +198,7 @@
               </p>
               <p class="mb-4">
                 Keep the schema backward-compatible as the API evolves. Adding a
-                new optional field is safe â€” old consumers ignore it and new
+                new optional field is safe — old consumers ignore it and new
                 consumers get a default. Adding a new required field, changing a
                 type, or renaming a field breaks every existing consumer. When
                 you must change a contract, version it rather than mutating it
@@ -208,8 +208,8 @@
               </p>
               <p class="mb-4">
                 Treat the JSON Schema as the source of truth for cross-language
-                consumers. Whatever consumes the API â€” a TypeScript client, a
-                React form, a Java service â€” should derive its types from the
+                consumers. Whatever consumes the API — a TypeScript client, a
+                React form, a Java service — should derive its types from the
                 generated schema rather than hand-copying field names. A single
                 exported schema drives client type generation, form builders,
                 and documentation, which eliminates the drift that appears when
@@ -221,7 +221,7 @@
                 consumers will read; it should state the semantic meaning, the
                 units, and the allowed domain. A description like "the ISO
                 3166-1 alpha-2 country code of the user's residence" beats
-                "country" in every downstream context â€” and it becomes the doc
+                "country" in every downstream context — and it becomes the doc
                 text in OpenAPI automatically.
               </p>
               <p class="mb-4">
@@ -236,9 +236,9 @@
                 guarantee is the entire point of the pattern.
               </p>
               <p class="mb-4">
-                These practices â€” explicit optional-vs-null, type-level
+                These practices — explicit optional-vs-null, type-level
                 constraints, narrow types, nested composition, backward
-                compatibility, schema-driven clients, and rich descriptions â€”
+                compatibility, schema-driven clients, and rich descriptions —
                 are the difference between a schema that merely parses and a
                 contract that engineers trust. Build the habit at model design
                 time, because every field decision you make here is inherited by
@@ -255,7 +255,7 @@
                 schema, run the suite; a change that turns a previously valid
                 payload into a failure is a breaking change, whether or not the
                 type checker notices. For agent projects, this suite doubles as
-                the test of your structured-output contract â€” feeding the
+                the test of your structured-output contract — feeding the
                 model's actual output through the validator in tests catches the
                 hallucinations and format drift that would otherwise reach
                 production. A schema that is tested is a schema you can evolve
@@ -296,5 +296,6 @@
     <script src="../../global.js" defer></script>
 
     <script src="../../twt-shell.js" defer></script>
+    <script src="../../js/context-engine.js" defer></script>
   </body>
 </html>

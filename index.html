@@ -161,7 +161,7 @@
 
     <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-4">
       <!-- Hero Section -->
-      <div class="text-center mb-8">
+      <div class="text-center twt-hero">
         <h1
           class="text-4xl sm:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight"
         >
@@ -2893,6 +2893,7 @@
     <script src="./global.js" defer></script>
 
     <script src="./twt-shell.js" defer></script>
+    <script src="./js/context-engine.js" defer></script>
     <script>
       document.addEventListener("DOMContentLoaded", () => {
         const searchInput = document.getElementById("directory-search");
@@ -2911,6 +2912,7 @@
             const catMatch =
               activeFilter === "all" || activeFilter === cat;
             let hasVisibleCard = false;
+            let cardIndex = 0;
 
             const cards = section.querySelectorAll(".tool-card");
             cards.forEach((card) => {
@@ -2927,11 +2929,21 @@
                 tags.includes(q);
 
               if (catMatch && qMatch) {
-                card.classList.remove("hidden");
+                card.classList.remove("hidden", "twt-card-exit");
+                card.classList.remove("twt-card-animate");
+                void card.offsetWidth;
+                card.classList.add("twt-card-animate");
+                card.style.setProperty("--i", cardIndex);
+                cardIndex++;
                 hasVisibleCard = true;
                 visibleCards++;
               } else {
-                card.classList.add("hidden");
+                card.classList.remove("twt-card-animate");
+                card.classList.add("twt-card-exit");
+                setTimeout(() => {
+                  card.classList.add("hidden");
+                  card.classList.remove("twt-card-exit");
+                }, 200);
               }
             });
 
@@ -2941,7 +2953,7 @@
           if (resultsCount) {
             resultsCount.textContent = visibleCards
               ? `${visibleCards} tool${visibleCards === 1 ? "" : "s"} available`
-              : "";
+              : "No match — try 'mortgage', 'qr', or 'base64'?";
           }
         }
 

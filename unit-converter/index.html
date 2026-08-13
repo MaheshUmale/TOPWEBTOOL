@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <script>
+      (function () {
+        try {
+          const theme = localStorage.getItem("theme");
+          if (theme === "dark") {
+            document.documentElement.classList.add("dark");
+            document.documentElement.classList.remove("light");
+          } else {
+            document.documentElement.classList.remove("dark");
+            document.documentElement.classList.add("light");
+          }
+        } catch (e) {}
+      })();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Free Online Unit Converter | TopWebTool</title>
+    <meta name="description" content="Convert between length, weight, volume, temperature, area, and more. Free online unit converter with instant results. 100% client-side, no sign-up." />
+    <link rel="canonical" href="https://topwebtool.com/unit-converter/" />
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+    <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png" />
+    <link rel="manifest" href="../site.webmanifest" />
+    <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="TopWebTool" />
+    <meta property="og:title" content="Free Online Unit Converter | TopWebTool" />
+    <meta property="og:description" content="Convert between length, weight, volume, temperature, area, and more. Free online unit converter with instant results. 100% client-side, no sign-up." />
+    <meta property="og:url" content="https://topwebtool.com/unit-converter/" />
+    <meta property="og:image" content="https://topwebtool.com/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="en_US" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Free Online Unit Converter | TopWebTool" />
+    <meta name="twitter:description" content="Convert between length, weight, volume, temperature, area, and more. Free online unit converter with instant results. 100% client-side, no sign-up." />
+    <meta name="twitter:image" content="https://topwebtool.com/og-image.png" />
+    <style>
+      html { background-color: #fff; }
+      html.dark { background-color: #0f172a; }
+      body { padding-bottom: 6rem; }
+      main.flex-grow { min-height: 60vh; }
+      #global-header { min-height: 65px; }
+      #global-footer { min-height: 85px; }
+      #trending-sidebar { min-height: 700px; }
+      @media (max-width: 767px) {
+        #global-header { min-height: 200px; }
+        #global-footer { min-height: 120px; }
+      }
+      .category-section { content-visibility: auto; contain-intrinsic-size: auto 500px; }
+      .tool-card { contain: layout style paint; }
+      img[width][height] { aspect-ratio: attr(width) / attr(height); }
+    </style>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Free Online Unit Converter | TopWebTool",
+        "url": "https://topwebtool.com/unit-converter/",
+        "applicationCategory": "UtilityApplication",
+        "operatingSystem": "Windows, macOS, Linux, Android, iOS",
+        "browserRequirements": "Requires HTML5 compatible web browser",
+        "description": "Convert between length, weight, volume, temperature, area, and more. Free online unit converter with instant results. 100% client-side, no sign-up.",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://topwebtool.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Unit Converter", "item": "https://topwebtool.com/unit-converter/" }
+        ]
+      }
+    </script>
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="../global.css" />
+    <link rel="stylesheet" href="../topwebtool-core.css" />
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3901061173891576" crossorigin="anonymous"></script>
+  </head>
+  <body class="bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 min-h-screen flex flex-col">
+    <header id="global-header"></header>
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex-grow">
+      <div class="grid grid-cols-1 lg:grid-cols-4 gap-4">
+        <div class="lg:col-span-3 space-y-8">
+          <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+            <h1 class="text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight sm:text-4xl">Unit Converter</h1>
+            <p class="mt-2 text-base text-slate-500 dark:text-slate-400">Convert between length, weight, volume, temperature, area, and more. Instant results, fully offline.</p>
+          </div>
+          <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm p-6 sm:p-8 space-y-6">
+            <div class="flex justify-between items-center border-b border-slate-100 dark:border-slate-800 pb-3">
+              <h2 class="text-lg font-bold text-slate-900 dark:text-white">Select Category</h2>
+              <select id="unit-category" class="px-3 py-1.5 border border-slate-300 rounded-lg bg-white font-bold text-xs text-brand-700" onchange="updateUnits()">
+                <option value="length">Length</option>
+                <option value="weight">Weight</option>
+                <option value="volume">Volume</option>
+                <option value="temperature">Temperature</option>
+                <option value="area">Area</option>
+                <option value="time">Time</option>
+              </select>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label for="from-unit" class="block text-sm font-semibold text-slate-700 mb-2">From</label>
+                <select id="from-unit" class="w-full px-3 py-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 text-slate-950"></select>
+              </div>
+              <div>
+                <label for="to-unit" class="block text-sm font-semibold text-slate-700 mb-2">To</label>
+                <select id="to-unit" class="w-full px-3 py-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 text-slate-950"></select>
+              </div>
+            </div>
+            <div>
+              <label for="from-value" class="block text-sm font-semibold text-slate-700 mb-2">Value</label>
+              <input type="number" id="from-value" value="1" class="w-full px-3 py-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 text-slate-950" oninput="convert()" />
+            </div>
+            <div class="bg-slate-50 dark:bg-slate-950 p-4 rounded-xl border border-slate-200 dark:border-slate-800">
+              <p class="text-xs font-bold text-slate-400 uppercase tracking-wider">Result</p>
+              <p id="result" class="text-2xl font-extrabold text-brand-600 dark:text-brand-400 mt-1">—</p>
+            </div>
+          </div>
+          <section class="mt-8 p-6 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-lg shadow-sm space-y-6">
+            <div class="border-b border-slate-200 dark:border-slate-800">
+              <h2 class="text-2xl font-extrabold text-slate-900 dark:text-white tracking-tight">Professional Insights & Guide</h2>
+              <p class="text-sm text-slate-600 dark:text-slate-300 mt-1">Learn how unit conversion works, common pitfalls, and best practices.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
+              <div>
+                <h3 class="font-bold text-slate-900 dark:text-white mb-2">Core Use Case</h3>
+                <p class="text-slate-600 dark:text-slate-300 leading-relaxed">Unit conversion is essential in engineering, science, cooking, and daily life. This tool handles length, weight, volume, temperature, area, and time conversions instantly.</p>
+              </div>
+              <div>
+                <h3 class="font-bold text-slate-900 dark:text-white mb-2">Troubleshooting & Edge Cases</h3>
+                <ul class="list-disc pl-5 space-y-2 text-slate-600 dark:text-slate-300 leading-relaxed">
+                  <li>Temperature conversions require offset adjustments (°C ↔ °F).</li>
+                  <li>Very large or very small numbers may show scientific notation.</li>
+                  <li>All conversions are approximate for imperial units.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="pt-4 border-t border-slate-200 dark:border-slate-800">
+              <h3 class="font-bold text-slate-900 dark:text-white mb-2">Step-by-Step Instructions</h3>
+              <ol class="list-decimal pl-5 space-y-2 text-slate-600 dark:text-slate-300 leading-relaxed">
+                <li>Select a category from the dropdown menu.</li>
+                <li>Choose the source and target units.</li>
+                <li>Enter a value and see the converted result instantly.</li>
+                <li>Use the result directly in your calculations or copy it.</li>
+              </ol>
+            </div>
+            <div class="mt-6 pt-6 border-t border-slate-200 dark:border-slate-800">
+              <h3 class="text-sm font-bold text-slate-900 dark:text-white mb-3 uppercase tracking-wider">Related Web Utilities (Silo Hub)</h3>
+              <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2">
+                <a href="../number-base-converter/" class="text-xs font-semibold text-brand-600 hover:text-brand-800 dark:text-brand-400 dark:hover:text-brand-300 transition-colors bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 px-3 py-2 rounded-lg text-center block">Number Base Converter</a>
+                <a href="../hex-rgba-converter/" class="text-xs font-semibold text-brand-600 hover:text-brand-800 dark:text-brand-400 dark:hover:text-brand-300 transition-colors bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 px-3 py-2 rounded-lg text-center block">HEX to RGBA Converter</a>
+                <a href="../json-formatter-validator/" class="text-xs font-semibold text-brand-600 hover:text-brand-800 dark:text-brand-400 dark:hover:text-brand-300 transition-colors bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 px-3 py-2 rounded-lg text-center block">JSON Formatter & Validator</a>
+              </div>
+            </div>
+          </section>
+        </div>
+        <div class="lg:col-span-1 space-y-6">
+          <div id="trending-sidebar"></div>
+        </div>
+      </div>
+    </main>
+    <footer id="global-footer"></footer>
+    <script src="../global.js" defer></script>
+    <script src="../twt-shell.js" defer></script>
+    <script src="../js/context-engine.js" defer></script>
+    <script>
+      const unitData = {
+        length: { base: 'meter', units: { meter: 1, kilometer: 1000, centimeter: 0.01, millimeter: 0.001, mile: 1609.344, yard: 0.9144, foot: 0.3048, inch: 0.0254 } },
+        weight: { base: 'kilogram', units: { kilogram: 1, gram: 0.001, milligram: 0.000001, pound: 0.453592, ounce: 0.0283495, ton: 1000 } },
+        volume: { base: 'liter', units: { liter: 1, milliliter: 0.001, 'cubic meter': 1000, 'cubic centimeter': 0.001, gallon: 3.78541, quart: 0.946353, pint: 0.473176, cup: 0.236588 } },
+        temperature: { base: 'celsius', units: { celsius: 'celsius', kelvin: 'kelvin', fahrenheit: 'fahrenheit' } },
+        area: { base: 'square meter', units: { 'square meter': 1, 'square kilometer': 1000000, 'square centimeter': 0.0001, hectare: 10000, acre: 4046.8564224 } },
+        time: { base: 'second', units: { second: 1, millisecond: 0.001, minute: 60, hour: 3600, day: 86400, week: 604800 } }
+      };
+      function updateUnits() {
+        const cat = document.getElementById('unit-category').value;
+        const fromSel = document.getElementById('from-unit');
+        const toSel = document.getElementById('to-unit');
+        fromSel.innerHTML = '';
+        toSel.innerHTML = '';
+        const units = Object.keys(unitData[cat].units);
+        units.forEach(u => {
+          fromSel.add(new Option(u, u));
+          toSel.add(new Option(u, u));
+        });
+        if (units.length > 1) toSel.selectedIndex = 1;
+        convert();
+      }
+      function convert() {
+        const cat = document.getElementById('unit-category').value;
+        const from = document.getElementById('from-unit').value;
+        const to = document.getElementById('to-unit').value;
+        const val = parseFloat(document.getElementById('from-value').value);
+        const out = document.getElementById('result');
+        if (isNaN(val)) { out.textContent = '—'; return; }
+        let result;
+        if (cat === 'temperature') {
+          if (from === to) result = val;
+          else if (from === 'celsius' && to === 'fahrenheit') result = val * 9/5 + 32;
+          else if (from === 'celsius' && to === 'kelvin') result = val + 273.15;
+          else if (from === 'fahrenheit' && to === 'celsius') result = (val - 32) * 5/9;
+          else if (from === 'fahrenheit' && to === 'kelvin') result = (val - 32) * 5/9 + 273.15;
+          else if (from === 'kelvin' && to === 'celsius') result = val - 273.15;
+          else if (from === 'kelvin' && to === 'fahrenheit') result = (val - 273.15) * 9/5 + 32;
+          else result = val;
+        } else {
+          const baseVal = val * unitData[cat].units[from];
+          result = baseVal / unitData[cat].units[to];
+        }
+        out.textContent = formatNumber(result) + ' ' + to;
+      }
+      function formatNumber(n) {
+        if (n === 0) return '0';
+        const abs = Math.abs(n);
+        if (abs < 0.01 || abs > 1e9) return n.toExponential(4);
+        const rounded = Math.round(n * 10000) / 10000;
+        return rounded.toString();
+      }
+      window.addEventListener('DOMContentLoaded', updateUnits);
+    </script>
+  </body>
+</html>

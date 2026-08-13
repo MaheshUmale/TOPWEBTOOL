@@ -1,4 +1,4 @@
-ï»¿<!doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
@@ -126,9 +126,9 @@
               class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4"
             >
               <span>Published: August 2026</span>
-              <span>â€¢</span>
+              <span>•</span>
               <span>Category: AI Agent & Automation</span>
-              <span>â€¢</span>
+              <span>•</span>
               <span class="text-emerald-600 dark:text-emerald-400"
                 >No Sign-Up / 100% Free / No Registration</span
               >
@@ -141,7 +141,7 @@
               <p class="mb-4">
                 Chunking failures are easy to miss because they rarely crash
                 anything. The pipeline runs, the vector index fills, and the
-                answers are subtly wrong â€” irrelevant passages retrieved, key
+                answers are subtly wrong — irrelevant passages retrieved, key
                 sentences missing, costs creeping upward. Most of these failures
                 trace back to a small set of recurring errors. Recognizing them
                 is the fastest path to a working RAG system.
@@ -160,7 +160,7 @@
                 in size and every re-embedding pass costs twice as much. Overlap
                 is a targeted tool for boundary phrases, not a general safety
                 margin. If your chunks never reuse more than a few words across
-                boundaries, cut the overlap to 10â€“25% and watch the token
+                boundaries, cut the overlap to 10–25% and watch the token
                 estimate drop.
               </p>
               <p class="mb-4">
@@ -191,7 +191,7 @@
               <p class="mb-4">
                 Forgetting metadata at chunk time is an error you only notice
                 later. Without source, section, and page fields, you cannot
-                filter the corpus, and the generator cannot cite its sources â€” a
+                filter the corpus, and the generator cannot cite its sources — a
                 trust problem in any production answer. Because metadata must be
                 assigned as chunks are built, omitting it forces a full re-embed
                 later. Capture the schema on the first pass.
@@ -200,8 +200,8 @@
                 Dirty text upstream silently corrupts the result. Inconsistent
                 whitespace, stray HTML tags, or encoding artifacts become
                 phantom tokens that pollute similarity distances and inflate
-                token counts. Normalizing the document before splitting â€”
-                collapsing whitespace, stripping markup, fixing encoding â€” is
+                token counts. Normalizing the document before splitting —
+                collapsing whitespace, stripping markup, fixing encoding — is
                 cheap insurance that prevents a long list of downstream
                 gremlins.
               </p>
@@ -255,5 +255,6 @@
     <script src="../../global.js" defer></script>
 
     <script src="../../twt-shell.js" defer></script>
+    <script src="../../js/context-engine.js" defer></script>
   </body>
 </html>

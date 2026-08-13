@@ -1,4 +1,4 @@
-ï»¿<!doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
@@ -130,9 +130,9 @@
               class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4"
             >
               <span>Published: August 2026</span>
-              <span>â€¢</span>
+              <span>•</span>
               <span>Category: AI Agent & Automation</span>
-              <span>â€¢</span>
+              <span>•</span>
               <span class="text-emerald-600 dark:text-emerald-400"
                 >No Sign-Up / 100% Free / No Registration</span
               >
@@ -148,7 +148,7 @@
                 exact format LLM tool-calling expects: a function's input
                 parameters are declared as a schema, and the model is steered to
                 emit JSON matching it. Pydantic models already map directly onto
-                this pattern â€” a Python class with types and descriptions
+                this pattern — a Python class with types and descriptions
                 compiles to the very structure a tool-enabled model consumes.
                 Schema design is no longer a backend concern; it is the seam
                 between the model and your system.
@@ -159,7 +159,7 @@
                 guarantees responses conform to a given schema, rather than
                 hoping the model obeys freeform instructions. When the decoder
                 is schema-constrained, the Pydantic model becomes a spec the
-                runtime enforces at generation time â€” validation failures become
+                runtime enforces at generation time — validation failures become
                 rare, and retries collapse. The trend rewards tight,
                 well-described schemas, because the schema is not just
                 documentation anymore; it is the prompt that shapes every
@@ -180,7 +180,7 @@
               <p class="mb-4">
                 Schemas are being used to gate agent actions as policy. When an
                 agent's tool calls are validated against a schema before
-                execution, the schema becomes a security boundary â€” arguments
+                execution, the schema becomes a security boundary — arguments
                 are type-checked and constrained before they reach an external
                 effect. Field descriptions double as instructions to the model
                 about correct usage, and required fields become guards against
@@ -194,15 +194,15 @@
                 a Python validator, a database migration, and an LLM tool spec.
                 Teams are building pipelines that emit each artifact from one
                 source of truth, killing the hand-copied duplicates that used to
-                rot independently. The side-by-side generation approach â€” one
-                field list, many outputs â€” is the miniature version of that
+                rot independently. The side-by-side generation approach — one
+                field list, many outputs — is the miniature version of that
                 philosophy, and it scales to the whole organization.
               </p>
               <p class="mb-4">
                 AI-assisted schema design is arriving as a complement to manual
                 modeling. Instead of starting from a blank field list, describe
-                the data in prose â€” "a user profile with name, email, optional
-                birthday, and a list of addresses" â€” and an LLM drafts the
+                the data in prose — "a user profile with name, email, optional
+                birthday, and a list of addresses" — and an LLM drafts the
                 model, which a human then tightens with constraints and
                 descriptions. Generation accelerates authoring; verification
                 keeps it honest. The schema generator's role shifts from
@@ -217,15 +217,15 @@
                 own. The trend is toward explicit schema registries, automated
                 migration checks, and tools that diff schemas and report
                 breaking changes before deployment. The practice that begins as
-                a per-field habit â€” "is this new field optional?" â€” grows into
+                a per-field habit — "is this new field optional?" — grows into
                 organizational machinery.
               </p>
               <p class="mb-4">
                 The direction is unmistakable: schemas are simultaneously more
                 central, more automated, and more embedded. They define API
                 surfaces, shape LLM behavior, gate agent actions, and drive
-                generated clients. The disciplines that matter â€” precise types,
-                honest requiredness, rich descriptions, versioning care â€” are
+                generated clients. The disciplines that matter — precise types,
+                honest requiredness, rich descriptions, versioning care — are
                 the same disciplines this tool encodes, and they compound as the
                 schema's audience widens from humans to machines and models.
               </p>
@@ -237,19 +237,19 @@
                 wherever shapes repeat. The teams that master that habit will
                 inherit the AI-native data layer with the least friction,
                 because their contracts are already written in the language that
-                everyone â€” humans, services, and models â€” speaks.
+                everyone — humans, services, and models — speaks.
               </p>
               <p class="mb-4">
                 Typed agents are the clearest expression of the schema trend.
                 Instead of prompting a model to produce free text and parsing it
                 hopefully, a typed agent declares its outputs as Pydantic models
-                up front, and the runtime steers generation to conform â€”
+                up front, and the runtime steers generation to conform —
                 schema-constrained decoding on the provider side,
                 validator-gated parsing on ours. The two guarantees meet in the
                 middle: the model cannot easily emit invalid structure, and any
                 residual invalidity is caught before it touches business logic.
                 As providers race to support structured output, the schema
-                becomes the integration contract across the whole stack â€” the
+                becomes the integration contract across the whole stack — the
                 same class definition drives the prompt, the decoder constraint,
                 the validator, and the documentation. Teams that design these
                 contracts deliberately will find their agents are more reliable,
@@ -291,5 +291,6 @@
     <script src="../../global.js" defer></script>
 
     <script src="../../twt-shell.js" defer></script>
+    <script src="../../js/context-engine.js" defer></script>
   </body>
 </html>

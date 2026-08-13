@@ -1,4 +1,4 @@
-ï»¿<!doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
@@ -130,9 +130,9 @@
               class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4"
             >
               <span>Published: August 2026</span>
-              <span>â€¢</span>
+              <span>•</span>
               <span>Category: Industrial & Engineering</span>
-              <span>â€¢</span>
+              <span>•</span>
               <span class="text-emerald-600 dark:text-emerald-400"
                 >No Sign-Up / 100% Free / No Registration</span
               >
@@ -149,7 +149,7 @@
                 thousands of dollars of annual pump energy, extend component
                 life, and lower operating temperatures. Because pressure drop
                 scales with the square of velocity and linearly with length, the
-                biggest optimizations come from geometry decisions â€” and the
+                biggest optimizations come from geometry decisions — and the
                 modeler makes those trade-offs measurable before anything is
                 built.
               </p>
@@ -157,23 +157,23 @@
                 Right-size the pipe before anything else. Pipe diameter appears
                 in the area, the Reynolds number, and the L/D ratio, so
                 increasing the diameter by one standard size reduces the
-                friction loss dramatically â€” often by 40 percent or more per
+                friction loss dramatically — often by 40 percent or more per
                 step at the same flow. The cost trade-off is pipe material
                 against pump energy and operating cost, and the modeler gives
                 you the numbers to make that trade-off explicit: model the same
-                flow through the next two pipe sizes and compare Î”P, head, and
+                flow through the next two pipe sizes and compare ?P, head, and
                 the implied pump power. In almost every system there is a
                 diameter step where the energy savings pay back the larger pipe
                 quickly.
               </p>
               <p class="mb-4">
-                Watch velocity as the master variable. Since Î”P scales with vÂ²,
+                Watch velocity as the master variable. Since ?P scales with v²,
                 velocity is the highest-leverage number in the system. Water
                 systems generally live at 4 to 8 ft/s, oil pressure lines at 10
                 to 15 ft/s, and suction lines are held low to protect the pump
                 from cavitation. When a loop shows a pressure drop problem, the
                 first question is not "how much pump head" but "why is the
-                velocity high here?" â€” usually a pipe that is one size too small
+                velocity high here?" — usually a pipe that is one size too small
                 or a branch that was designed for a flow it no longer carries.
                 Fix the velocity and the drop follows.
               </p>
@@ -185,7 +185,7 @@
                 remove equivalent length from the system at zero ongoing cost.
                 The modeler takes the total effective length as input, so it
                 quantifies exactly what each routing decision is worth: model
-                the current layout and the simplified layout, and the Î”P
+                the current layout and the simplified layout, and the ?P
                 difference is the saving.
               </p>
               <p class="mb-4">
@@ -203,8 +203,8 @@
                 Reduce viscosity losses by controlling temperature. In
                 oil-hydraulic systems, a 30-degree temperature rise can halve
                 the viscosity and cut the laminar-regime pressure drop nearly in
-                half. Heat management â€” an adequate cooler, correct reservoir
-                sizing, and no unnecessary pressure relief losses â€” is therefore
+                half. Heat management — an adequate cooler, correct reservoir
+                sizing, and no unnecessary pressure relief losses — is therefore
                 a pressure-drop optimization, not just a thermal nicety. Model
                 the cold and hot cases, and the energy spent keeping the fluid
                 at operating temperature is repaid in reduced pump head and
@@ -225,10 +225,10 @@
               <p class="mb-4">
                 Convert the pressure drop into pump power to see the money. The
                 pump hydraulic power for a flow of Q GPM against a head loss of
-                Î”P psi is roughly P = Q Ã— Î”P / 1714 horsepower. Multiply by
+                ?P psi is roughly P = Q × ?P / 1714 horsepower. Multiply by
                 operating hours and the electricity rate, and a 10-psi saving on
                 a 500-GPM loop running continuously becomes a five-figure annual
-                cost difference. The modeler gives you Î”P directly; converting
+                cost difference. The modeler gives you ?P directly; converting
                 it to dollars is one arithmetic step, and it is the step that
                 convinces management to buy the larger pipe or fund the
                 re-route.
@@ -240,7 +240,7 @@
                 calculation. Because the modeler produces a complete, copyable
                 parameter and result block, the design history stays traceable:
                 each revision documents its fluid, roughness, lengths, and the
-                resulting Î”P. That documentation turns pressure-drop
+                resulting ?P. That documentation turns pressure-drop
                 optimization from a one-time exercise into a continuous
                 improvement loop on every system in the plant.
               </p>
@@ -249,8 +249,8 @@
                 Filters, strainers, coolers, and check valves each add their own
                 drop, and a badly chosen filter can dominate the entire circuit.
                 Filter manufacturers publish clean- and loaded-element
-                pressure-drop curves; modeling the worst case â€” a dirty element
-                near its change-out point â€” shows whether the pump can actually
+                pressure-drop curves; modeling the worst case — a dirty element
+                near its change-out point — shows whether the pump can actually
                 deliver at the end of service life. Add the component drops to
                 the pipe drop rather than treating them as an afterthought, and
                 the system is sized for the real operating range instead of the
@@ -290,5 +290,6 @@
     <script src="../../global.js" defer></script>
 
     <script src="../../twt-shell.js" defer></script>
+    <script src="../../js/context-engine.js" defer></script>
   </body>
 </html>

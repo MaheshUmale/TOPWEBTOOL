@@ -73,7 +73,7 @@ Keep the schema in a lightweight, clean Markdown format inside that file. Track:
 
 ## Project Overview
 
-TopWebTool is a **100% static, client-side web tool directory** deployed to Cloudflare Pages. It contains **84 tools** across Finance, Marketing, AI, and Developer categories. All tool logic runs in the browser; there is no backend, no database, no build step beyond CSS.
+TopWebTool is a **100% static, client-side web tool directory** deployed to Cloudflare Pages. It contains **85 tools** across Finance, Marketing, AI, and Developer categories. All tool logic runs in the browser; there is no backend, no database, no build step beyond CSS.
 
 - Production site: `https://topwebtool.com/`
 - Deploy target: Cloudflare Pages (repo root is the publish directory)
@@ -91,7 +91,7 @@ TopWebTool is a **100% static, client-side web tool directory** deployed to Clou
 - **No `_redirects` file exists by design.** Cloudflare Pages natively serves `/dir/` → `/dir/index.html`, redirects `.html` → extensionless, and adds trailing slashes to directories. Do NOT reintroduce `_redirects` — a `/tool/` → `/tool/index.html` rewrite (or any `.html` → clean 301 combined with a rewrite) LOOPs with the native redirect (`ERR_TOO_MANY_REDIRECTS`).
 - `sitemap.xml` — 505 canonical URLs
 - `robots.txt` — allows all bots including AI crawlers; lists `sitemap.xml`
-- `llms.txt` — llms.txt-standard index of all 84 tools (AI-friendly)
+- `llms.txt` — llms.txt-standard index of all 85 tools (AI-friendly)
 - `llms-full.txt` — full-content markdown index for AI crawlers
 - `.well-known/api-catalog` — catalog of machine-readable AI resources
 - `favicon.svg`, `logo.svg`, `og-image.png` (+ PNG favicon sizes), `site.webmanifest` — brand assets

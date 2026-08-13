@@ -1,4 +1,4 @@
-Ôªø<!doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
@@ -130,9 +130,9 @@
               class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4"
             >
               <span>Published: August 2026</span>
-              <span>‚Ä¢</span>
+              <span>ï</span>
               <span>Category: Industrial & Engineering</span>
-              <span>‚Ä¢</span>
+              <span>ï</span>
               <span class="text-emerald-600 dark:text-emerald-400"
                 >No Sign-Up / 100% Free / No Registration</span
               >
@@ -144,7 +144,7 @@
             >
               <p class="mb-4">
                 Pressure-drop calculations fail in a handful of familiar,
-                predictable ways ‚Äî and almost always because a well-known
+                predictable ways ó and almost always because a well-known
                 formula was fed the wrong number, not because the physics was
                 wrong. The Darcy-Weisbach equation is over a century old and
                 battle-tested; the failures come from laminar-turbulent
@@ -159,7 +159,7 @@
                 the Colebrook or Haaland equations. Using the laminar formula at
                 a Reynolds number of 50,000 under-predicts friction by roughly a
                 factor of five, because the turbulent formula is not a smooth
-                extension of the laminar one ‚Äî it is a different physical
+                extension of the laminar one ó it is a different physical
                 regime. Using a turbulent formula below Re 2300 over-predicts.
                 The modeler switches automatically at the boundaries and labels
                 the regime, which removes this entire class of error.
@@ -167,12 +167,12 @@
               <p class="mb-4">
                 Viscosity unit confusion is the quiet killer. Kinematic
                 viscosity is quoted in centistokes (cSt) in datasheets and in
-                ft¬≤/s in US engineering formulas, and the two differ by a factor
-                of about 1.08 √ó 10‚Åª‚Åµ. Plug 32 cSt into a formula expecting ft¬≤/s
+                ft≤/s in US engineering formulas, and the two differ by a factor
+                of about 1.08 ◊ 10?5. Plug 32 cSt into a formula expecting ft≤/s
                 and the Reynolds number collapses by five orders of magnitude,
                 turning a turbulent flow into an absurdly laminar one and
                 inflating the pressure drop catastrophically. The modeler
-                converts internally from the centistoke preset to ft¬≤/s before
+                converts internally from the centistoke preset to ft≤/s before
                 computing, and displays the conversion in the reference table so
                 the numbers stay visible.
               </p>
@@ -216,7 +216,7 @@
                 heads in water, glycol, and oil. Selecting a pump by comparing a
                 water-based pressure drop to an oil pump curve, or converting
                 head to pressure with the wrong density, quietly mis-specifies
-                the machine. The modeler outputs both ŒîP in psi and kPa and head
+                the machine. The modeler outputs both ?P in psi and kPa and head
                 loss in feet of the actual fluid, so the comparison to a pump
                 curve is always consistent.
               </p>
@@ -225,7 +225,7 @@
                 every result. Schedule 40 and Schedule 80 pipe of the same
                 nominal size have different wall thicknesses and therefore
                 different inside diameters, and the friction formula uses the
-                inside diameter throughout ‚Äî it appears in the area, the
+                inside diameter throughout ó it appears in the area, the
                 Reynolds number, and the L/D ratio. A one-eighth-inch error in
                 the assumed inside diameter of a small pipe is a several-percent
                 error in area and a compounded error in the loss. Always pull
@@ -237,8 +237,8 @@
                 roughly 2300 and 4000 the flow flips between laminar and
                 turbulent unpredictably, and the friction factor jumps as it
                 does. If a design lands in this band, the honest response is to
-                change the operating point ‚Äî smaller flow, larger pipe, or
-                different fluid ‚Äî until the regime is decisive. The modeler
+                change the operating point ó smaller flow, larger pipe, or
+                different fluid ó until the regime is decisive. The modeler
                 labels transitional flow explicitly, which turns this ambiguity
                 from a hidden assumption into a visible design decision.
               </p>
@@ -249,7 +249,7 @@
                 the roughness assumption, and the Darcy-Weisbach formula will
                 reward you with predictions that hold up in the field. The
                 Hydraulic Pressure Drop Modeler automates the arithmetic and
-                makes the intermediate values ‚Äî velocity, Re, regime, f ‚Äî
+                makes the intermediate values ó velocity, Re, regime, f ó
                 visible, so the audit has somewhere to look.
               </p>
             </div>
@@ -286,5 +286,6 @@
     <script src="../../global.js" defer></script>
 
     <script src="../../twt-shell.js" defer></script>
+    <script src="../../js/context-engine.js" defer></script>
   </body>
 </html>

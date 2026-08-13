@@ -535,6 +535,59 @@ body > main.tool-page-main.max-w-7xl {
   max-height: 12rem;
   overflow: auto;
 }
+
+/* ============================================================
+     9. PREMIUM DESIGN — Halo Effect & Cognitive Fluency
+     ============================================================ */
+
+/* ---- Premium Hero (Halo Effect) ---- */
+.twt-hero {
+  position: relative;
+  padding: 3.5rem 1rem 3rem;
+  border-radius: var(--radius-xl);
+  background: radial-gradient(ellipse 80% 60% at center top, var(--accent-light) 0%, transparent 70%);
+  margin-bottom: 2.5rem;
+}
+.light .twt-hero {
+  background: radial-gradient(ellipse 80% 60% at center top, #e0f2fe 0%, transparent 70%);
+}
+.dark .twt-hero {
+  background: radial-gradient(ellipse 80% 60% at center top, #0c4a6e 0%, transparent 70%);
+}
+
+/* ---- Premium Card Hover (Micro-interactions) ---- */
+.tool-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px -8px rgba(0, 0, 0, 0.12), 0 4px 12px -4px rgba(0, 0, 0, 0.06);
+}
+.dark .tool-card:hover {
+  box-shadow: 0 12px 30px -8px rgba(0, 0, 0, 0.35), 0 4px 12px -4px rgba(0, 0, 0, 0.2);
+}
+
+/* ---- Search Focus Glow (Micro-interactions) ---- */
+#directory-search:focus,
+.form-input:focus {
+  box-shadow: 0 0 0 3px var(--accent-light), 0 0 0 5px var(--accent-color);
+}
+
+/* ---- Hero Entrance (Peak-End Rule) ---- */
+@keyframes twt-heroIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.twt-hero {
+  animation: twt-heroIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* ---- Premium Base Polish ---- */
+html {
+  scroll-behavior: smooth;
+}
+::selection {
+  background-color: var(--accent-light);
+  color: var(--accent-hover);
+}
+
 @media (min-width: 768px) {
   .hitl-shell {
     display: grid;
@@ -582,8 +635,165 @@ body > main.tool-page-main.max-w-7xl {
     display: none;
   }
   .hitl-json-preview {
-    max-height: none;
-    flex: 1;
-    min-height: 10rem;
+  max-height: none;
+  flex: 1;
+  min-height: 10rem;
+}
+
+/* ============================================================
+    8. EMOTIONAL DESIGN — Animations & Micro-interactions
+    ============================================================ */
+
+/* ---- Keyframes ---- */
+@keyframes twt-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+
+@keyframes twt-sparkle {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.25); }
+}
+
+@keyframes twt-cardIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes twt-shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes twt-shrink {
+  to { opacity: 0; transform: scale(0.95); }
+}
+
+@keyframes twt-cardExit {
+  to { opacity: 0; transform: scale(0.95); }
+}
+
+.twt-card-exit {
+  animation: twt-shrink 0.2s ease-out forwards;
+}
+
+/* ---- Mascot ---- */
+#twt-brand-logo {
+  animation: twt-float 3s ease-in-out infinite;
+}
+
+#twt-brand-logo .twt-logo-spark {
+  animation: twt-sparkle 2s ease-in-out infinite;
+  transform-origin: 70px 25px;
+}
+
+/* ---- Staggered Cards ---- */
+.twt-card-animate {
+  animation: twt-cardIn 0.4s ease-out both;
+  animation-delay: calc(var(--i, 0) * 30ms);
+}
+
+/* ---- Hover morphing ---- */
+.tool-card:hover span[aria-hidden="true"]:first-child {
+  display: inline-block;
+  animation: twt-iconWobble 0.4s ease-in-out;
+}
+
+@keyframes twt-iconWobble {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-6deg); }
+  75% { transform: rotate(6deg); }
+}
+.twt-skeleton {
+  background: linear-gradient(90deg, var(--surface-secondary) 25%, var(--border-light) 50%, var(--surface-secondary) 75%);
+  background-size: 200% 100%;
+  animation: twt-shimmer 1.5s infinite;
+  border-radius: var(--radius-md);
+}
+
+/* ---- Reduced Motion ---- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
+}
+
+/* ---- Coach Mark / First-Visit Tooltip ---- */
+.twt-coach {
+  position: absolute;
+  z-index: 1000;
+  background: var(--twt-text);
+  color: var(--twt-surface);
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--twt-r-md);
+  font-size: var(--twt-fs-sm);
+  font-weight: 600;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 300ms ease, transform 300ms ease;
+}
+.twt-coach.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.twt-coach::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 6px 6px 0;
+  border-style: solid;
+  border-color: var(--twt-text) transparent transparent;
+}
+.twt-coach--top {
+  bottom: calc(100% + 10px);
+}
+.twt-coach--top::after {
+  bottom: auto;
+  top: -6px;
+  border-width: 0 6px 6px;
+  border-color: transparent transparent var(--twt-text);
+}
+
+/* ---- Sound Toggle ---- */
+.twt-sound-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: var(--twt-r-md);
+  border: 1px solid var(--twt-border);
+  background: var(--twt-surface);
+  color: var(--twt-text-2);
+  cursor: pointer;
+  font-size: 0.875rem;
+  line-height: 1;
+  transition: all var(--twt-motion);
+}
+.twt-sound-toggle:hover {
+  background: var(--twt-surface-2);
+  color: var(--twt-text);
+}
+.twt-sound-toggle.is-active {
+  background: var(--twt-brand-soft);
+  color: var(--twt-brand);
+  border-color: var(--twt-brand);
+}
+
+/* ---- Theme Transition Wipe ---- */
+body.twt-theme-wipe {
+  animation: twt-themeWipe 300ms ease;
+}
+@keyframes twt-themeWipe {
+  0% { opacity: 1; }
+  50% { opacity: 0.85; }
+  100% { opacity: 1; }
+}
 }

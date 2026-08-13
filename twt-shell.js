@@ -168,45 +168,14 @@
     return nav;
   }
 
-  /** Build the Right Rail: contextual utility links + reserved 300x600 ad. */
+  /** Build the Right Rail: delegated to context-engine.js */
   function buildRail(registry, prefix) {
     var rail = el('aside', 'twt-shell__rail', '');
     rail.setAttribute('aria-label', 'Related tools and advertisements');
+    rail.id = 'right-rail';
 
     var trending = document.getElementById('trending-sidebar');
     if (trending) trending.style.display = 'none';
-
-    var linksBox = el('div', 'twt-rail__links', '');
-
-    var current = window.location.pathname.replace(/\/(index\.html)?$/, '').replace(/\/+$/, '');
-    var self = null;
-    var cat = null;
-
-    registry.forEach(function (tool) {
-      var tp = '/' + tool.path.replace(/^\/|\/$/g, '').replace(/\/index\.html$/, '');
-      if (tp === current) {
-        self = tool;
-        cat = tool.category;
-      } else if (!cat && current.indexOf(tp + '/') === 0) {
-        cat = tool.category;
-      }
-    });
-
-    var picks = cat
-      ? registry.filter(function (t) { return t !== self && t.category === cat; })
-      : registry.slice(0, 12);
-    if (picks.length === 0) picks = registry.slice(0, 12);
-
-    var title = el('div', 'twt-rail__links-title', cat ? 'Related Utilities' : 'Popular Utilities');
-    linksBox.appendChild(title);
-
-    picks.slice(0, 12).forEach(function (tool) {
-      var a = el('a', 'twt-rail__link', '');
-      a.href = prefix + tool.path.replace(/^\//, '');
-      a.textContent = tool.name;
-      linksBox.appendChild(a);
-    });
-    rail.appendChild(linksBox);
 
     return rail;
   }

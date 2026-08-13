@@ -1,4 +1,4 @@
-ï»¿<!doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
@@ -126,9 +126,9 @@
               class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4"
             >
               <span>Published: August 2026</span>
-              <span>â€¢</span>
+              <span>•</span>
               <span>Category: AI Agent & Automation</span>
-              <span>â€¢</span>
+              <span>•</span>
               <span class="text-emerald-600 dark:text-emerald-400"
                 >No Sign-Up / 100% Free / No Registration</span
               >
@@ -139,7 +139,7 @@
               class="text-slate-600 dark:text-slate-300 space-y-4 leading-relaxed text-sm"
             >
               <p class="mb-4">
-                Chunking has spent its short history as a pragmatic hack â€” a way
+                Chunking has spent its short history as a pragmatic hack — a way
                 to force long documents through embedding models with limited
                 windows. That is changing on both sides of the equation: models
                 can now consume far more context, and chunking itself is
@@ -149,7 +149,7 @@
               <p class="mb-4">
                 Semantic chunking is moving from paragraphs to meaning. The next
                 generation splits on semantic boundaries detected by the model
-                itself â€” a new topic, a shift in argument, a change of speaker â€”
+                itself — a new topic, a shift in argument, a change of speaker —
                 rather than on fixed punctuation. These chunks correspond to
                 units of meaning, not units of text, and they retrieve better
                 because the boundary coincides with where an idea actually
@@ -182,7 +182,7 @@
               </p>
               <p class="mb-4">
                 Graph-based chunking will connect chunks as nodes with typed
-                links â€” citation, continuation, contradiction, reference.
+                links — citation, continuation, contradiction, reference.
                 Retrieval then walks the graph, pulling a chunk and its linked
                 neighbors, which fixes the oldest RAG complaint: that the answer
                 sometimes spans several adjacent chunks the flat index keeps
@@ -197,8 +197,8 @@
                 becomes the core of an automated chunker.
               </p>
               <p class="mb-4">
-                Context packing â€” assembling retrieved material so the generator
-                sees it efficiently â€” is merging with chunking. Rather than
+                Context packing — assembling retrieved material so the generator
+                sees it efficiently — is merging with chunking. Rather than
                 concatenating top-k chunks verbatim, systems will trim,
                 prioritize, and interleave fragments to fit the generator's
                 window optimally. Chunk metadata becomes the input to that
@@ -207,7 +207,7 @@
               <p class="mb-4">
                 Multimodal chunking will follow the same arc. Documents contain
                 images, tables, and audio that plain text splitting discards.
-                Future chunkers will emit typed units â€” text, table, figure â€”
+                Future chunkers will emit typed units — text, table, figure —
                 with cross-references, so a question about a chart can retrieve
                 the figure's caption, its data table, and its surrounding
                 paragraph as one coherent unit.
@@ -215,8 +215,8 @@
               <p class="mb-4">
                 The throughline is that chunking stops being a fixed, static
                 split and becomes a learned, dynamic, content-aware system. The
-                simulator you use today trains the right instincts â€” size,
-                overlap, boundaries, token cost â€” that still matter when the
+                simulator you use today trains the right instincts — size,
+                overlap, boundaries, token cost — that still matter when the
                 machinery becomes smarter. Understanding the trade-offs now
                 means you will recognize the better defaults later, whatever
                 form they take.
@@ -255,5 +255,6 @@
     <script src="../../global.js" defer></script>
 
     <script src="../../twt-shell.js" defer></script>
+    <script src="../../js/context-engine.js" defer></script>
   </body>
 </html>

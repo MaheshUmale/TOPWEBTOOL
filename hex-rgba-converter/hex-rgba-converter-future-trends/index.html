@@ -1,4 +1,4 @@
-ï»¿<!doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
@@ -130,9 +130,9 @@
               class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4"
             >
               <span>Published: August 2026</span>
-              <span>â€¢</span>
+              <span>•</span>
               <span>Category: Health &amp; Lifestyle</span>
-              <span>â€¢</span>
+              <span>•</span>
               <span class="text-emerald-600 dark:text-emerald-400"
                 >No Sign-Up / 100% Free / No Registration</span
               >
@@ -148,7 +148,7 @@
                 for the displays of the next decade. The most influential
                 newcomer is OKLCH, a perceptual color space that spaces
                 lightness and hue evenly so that a fixed lightness step looks
-                like the same visual step everywhere. HSL has a known quirk â€”
+                like the same visual step everywhere. HSL has a known quirk —
                 two colors at the same lightness can appear very different in
                 brightness, especially across hues. Designers who adopt OKLCH
                 get palettes that behave predictably, and conversion tools are
@@ -173,7 +173,7 @@
                 and hard-coding the resulting hex, the function lets a
                 stylesheet mix two colors at runtime: color-mix(in srgb, #3498db
                 40%, white). This is a genuine workflow shift, because blends
-                stay linked to their source colors â€” change the brand blue and
+                stay linked to their source colors — change the brand blue and
                 every derived tint updates automatically. The converter's role
                 in this world is unchanged in spirit: you still need to know the
                 exact channel values and the composited result, but the
@@ -185,7 +185,7 @@
                 design-token specification, and framework color systems all
                 treat color as structured data: name, channel values, usage
                 role, and contrast constraints, exported to any platform.
-                Conversion happens at the token boundary â€” one canonical
+                Conversion happens at the token boundary — one canonical
                 definition, converted to CSS variables for the web, to Android
                 resource files, to Swift asset catalogs. The converter is
                 becoming a fixture in that pipeline: validating a token
@@ -197,7 +197,7 @@
                 verification. Contrast ratios that teams once computed ad hoc
                 are now measured in CI, in component libraries, and in
                 design-token files, with thresholds enforced like lint rules.
-                The trend favors tools that speak machine-readable results â€”
+                The trend favors tools that speak machine-readable results —
                 return the ratio, the pass/fail grade, and the composited
                 background assumption explicitly, so an automation layer can
                 consume it. Manual conversion remains the entry point, but the
@@ -209,8 +209,8 @@
                 up. A single canonical color is no longer enough; systems now
                 store light and dark variants, or even derive dark variants
                 algorithmically from the base. Deriving a dark surface from a
-                light brand color â€” by lowering lightness, shifting hue
-                slightly, and reducing saturation â€” is exactly the kind of
+                light brand color — by lowering lightness, shifting hue
+                slightly, and reducing saturation — is exactly the kind of
                 arithmetic the converter exposes step by step. Designers who
                 understand the underlying channel math can specify those
                 derivations confidently instead of hand-tuning dozens of
@@ -221,7 +221,7 @@
                 Model-assisted tools suggest accessible color pairings, convert
                 a brand color into a full tonal scale, or flag contrast failures
                 across a theme before a human reviews it. None of this replaces
-                the fundamentals â€” every suggested color is still a set of RGB
+                the fundamentals — every suggested color is still a set of RGB
                 channels that must be checked against real backgrounds and real
                 luminance. The skilled designer's advantage remains knowing the
                 math underneath, which keeps hand conversion and verification
@@ -236,7 +236,7 @@
                 channels, HSL coordinates, and a contrast ratio turns
                 memorization into comprehension. The generation of designers
                 trained this way will expect conversion to be transparent,
-                exact, and always at hand â€” and they will treat a tool that
+                exact, and always at hand — and they will treat a tool that
                 shows the math as the standard, not the exception.
               </p>
               <p class="mb-4">
@@ -244,7 +244,7 @@
                 every color is a set of channels, and every task is choosing the
                 spelling that fits the moment. Whether the destination is hex,
                 RGBA, HSL, OKLCH, or a wide-gamut color(), the discipline stays
-                the same â€” convert deliberately, verify the channels, and check
+                the same — convert deliberately, verify the channels, and check
                 contrast on the real background. Keeping an exact,
                 format-agnostic converter handy is the safest way to stay
                 current while the color landscape itself keeps changing.
@@ -283,5 +283,6 @@
     <script src="../../global.js" defer></script>
 
     <script src="../../twt-shell.js" defer></script>
+    <script src="../../js/context-engine.js" defer></script>
   </body>
 </html>

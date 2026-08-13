@@ -8,7 +8,7 @@ ZIP = ROOT / "deployment.zip"
 
 EXCLUDE_DIRS = {
     '.git', '.kilo', '.opencode', '.vscode', 'node_modules',
-    'dist', '.agent-zero', '.playwright-mcp', '.well-known', '.test',
+    'dist', '.agent-zero', '.playwright-mcp', '.well-known', '.test', 'js',
 }
 EXCLUDE_FILES = {
     '.gitignore', 'opencode.json', '.session-state.json',

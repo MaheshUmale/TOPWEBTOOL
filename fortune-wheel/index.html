@@ -732,6 +732,7 @@ Spin Again</textarea>
         const resultText = document.getElementById("result-text");
         resultText.textContent = winner;
         resultBox.classList.remove("hidden");
+        if (window.fireConfetti) window.fireConfetti();
       }
 
       function easeOut(t, b, c, d) {
@@ -766,5 +767,6 @@ Spin Again</textarea>
     <footer id="global-footer"></footer>
     <script src="../global.js" defer></script>
     <script src="../twt-shell.js" defer></script>
+    <script src="../js/context-engine.js" defer></script>
   </body>
 </html>

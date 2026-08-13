@@ -1,4 +1,4 @@
-ï»¿<!doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
@@ -130,9 +130,9 @@
               class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4"
             >
               <span>Published: August 2026</span>
-              <span>â€¢</span>
+              <span>•</span>
               <span>Category: Health &amp; Lifestyle</span>
-              <span>â€¢</span>
+              <span>•</span>
               <span class="text-emerald-600 dark:text-emerald-400"
                 >No Sign-Up / 100% Free / No Registration</span
               >
@@ -144,8 +144,8 @@
             >
               <p class="mb-4">
                 The cheapest byte win in all of CSS is the three-digit hex
-                shorthand. When every pair in a color is doubled â€” #3399cc,
-                #ff0000, #000000 â€” the browser accepts the compressed form #39c,
+                shorthand. When every pair in a color is doubled — #3399cc,
+                #ff0000, #000000 — the browser accepts the compressed form #39c,
                 #f00, #000. Because colors appear dozens or hundreds of times in
                 a real stylesheet, the savings add up, and the shorthand reads
                 faster in audits. The rule is simple: use short hex when the
@@ -155,8 +155,8 @@
               </p>
               <p class="mb-4">
                 Design tokens beat hard-coded colors for every reason that
-                matters. A token system stores each color once â€” as RGB channels
-                in a CSS variable â€” and references it by name everywhere else.
+                matters. A token system stores each color once — as RGB channels
+                in a CSS variable — and references it by name everywhere else.
                 When the brand primary shifts a shade, you edit one line instead
                 of thirty. When you need a hover state, you derive it from the
                 base token with alpha rather than inventing a second color. The
@@ -170,7 +170,7 @@
                 can interpolate colors, but the transition quality differs by
                 format, and raw RGB channels give animation and JavaScript the
                 cleanest numeric surface to work with. Store the channels as
-                numbers â€” 52, 152, 219 â€” and let alpha do the state work: focus
+                numbers — 52, 152, 219 — and let alpha do the state work: focus
                 rings, hover overlays, and scrims all become the same color at
                 different opacities. Keeping the palette small and letting alpha
                 vary is both a design discipline and a performance habit,
@@ -184,7 +184,7 @@
                 converts each candidate color, composites it over the intended
                 background, and compares the ratio against 4.5:1 for normal text
                 and 3:1 for large text. The converter performs exactly that
-                computation â€” including the compositing-over-white step â€” so a
+                computation — including the compositing-over-white step — so a
                 design system can pre-approve a palette and reduce each new
                 color to a two-minute verification instead of a redesign cycle.
               </p>
@@ -202,7 +202,7 @@
               <p class="mb-4">
                 Keep the formats in your design system consistent. Nothing slows
                 a team down like a tokens file where half the values are hex, a
-                quarter are rgba(), and the rest are hsl() â€” every consumer must
+                quarter are rgba(), and the rest are hsl() — every consumer must
                 normalize to its own preference, and every round trip is a
                 chance to diverge. Pick one canonical format for storage (raw
                 RGB or HSL are the best candidates) and convert only at the
@@ -216,7 +216,7 @@
                 maintenance trap for the next designer. Audit the palette
                 periodically and drop tokens that no component references.
                 Because a token is just a number, converting and comparing token
-                pairs reveals duplicates â€” two greys that are 1% apart, or an
+                pairs reveals duplicates — two greys that are 1% apart, or an
                 alpha variant that duplicates a solid color. The converter makes
                 those comparisons fast and precise, so the palette stays lean
                 without losing the shades the UI actually needs.
@@ -230,7 +230,7 @@
                 today, capture its RGB channels and its canonical hex together.
                 That single habit means the next redesign, the next dark-mode
                 implementation, and the next contrast audit all start from clean
-                data instead of a round of reverse-engineering â€” the real
+                data instead of a round of reverse-engineering — the real
                 long-term win of disciplined color conversion.
               </p>
             </div>
@@ -267,5 +267,6 @@
     <script src="../../global.js" defer></script>
 
     <script src="../../twt-shell.js" defer></script>
+    <script src="../../js/context-engine.js" defer></script>
   </body>
 </html>

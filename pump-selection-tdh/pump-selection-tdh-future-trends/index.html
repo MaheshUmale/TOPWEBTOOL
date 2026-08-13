@@ -1,4 +1,4 @@
-ï»¿<!doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
@@ -130,9 +130,9 @@
               class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4"
             >
               <span>Published: August 2026</span>
-              <span>â€¢</span>
+              <span>•</span>
               <span>Category: Industrial &amp; Engineering</span>
-              <span>â€¢</span>
+              <span>•</span>
               <span class="text-emerald-600 dark:text-emerald-400"
                 >No Sign-Up / 100% Free / No Registration</span
               >
@@ -143,8 +143,8 @@
               class="text-slate-600 dark:text-slate-300 space-y-4 leading-relaxed text-sm"
             >
               <p class="mb-4">
-                The total dynamic head calculation â€” static, friction, pressure,
-                and velocity head summed to a single duty point â€” has been the
+                The total dynamic head calculation — static, friction, pressure,
+                and velocity head summed to a single duty point — has been the
                 backbone of pump sizing for a century, and it is not going away.
                 What is changing is the machinery around that number: pumps that
                 manage themselves, estimates that become live, and selection
@@ -156,7 +156,7 @@
                 The first trend is the smart pump with integrated variable-speed
                 control. Modern pumps ship with the drive, the sensors, and the
                 controller built in, and they continuously adjust speed to hold
-                a set flow or pressure as the system changes â€” a filter loading
+                a set flow or pressure as the system changes — a filter loading
                 up, a tank level falling, a process demand shifting. The
                 affinity laws make this a dramatic energy story: power scales
                 with the cube of speed, so a pump running most of its life at
@@ -173,8 +173,8 @@
                 digital twin turns the static TDH calculation into a live one:
                 instead of estimating a fixed system curve, the twin measures
                 the actual friction and static head as the system runs and
-                predicts the consequences of a proposed change â€” a different
-                impeller, a pipe reroute, a valve replacement â€” before any
+                predicts the consequences of a proposed change — a different
+                impeller, a pipe reroute, a valve replacement — before any
                 hardware moves. The first-pass TDH estimate from a tool like
                 this one is the seed of the twin, and the two coexist: the
                 calculator sizes the system quickly, and the twin refines it
@@ -185,7 +185,7 @@
                 energy-labeling. Regulatory programs around the world now
                 require pumps to meet minimum energy-efficiency thresholds, and
                 selection software ranks candidate pumps not by price but by the
-                total cost of ownership over their life â€” capital cost plus the
+                total cost of ownership over their life — capital cost plus the
                 present value of the energy they will consume. Because pump
                 energy is typically many times the purchase price over a decade,
                 an efficient pump that costs more up front usually wins the
@@ -202,7 +202,7 @@
                 intervention. For the estimator, the practical effect is
                 feedback: actual operating data reveals when the real system
                 curve diverges from the estimated one, and the estimate is
-                corrected â€” the friction term that was guessed is now measured.
+                corrected — the friction term that was guessed is now measured.
                 The documentation discipline of recording TDH assumptions pays
                 off directly here, because a recorded estimate is something the
                 monitoring system can compare against.
@@ -213,8 +213,8 @@
                 prices have made the energy a pump consumes as important as the
                 head it delivers, and selection now routinely carries an
                 efficiency comparison and a carbon figure alongside the duty
-                point. The optimization levers described on the sibling pages â€”
-                pipe sizing, velocity, impeller trim, speed control â€” are being
+                point. The optimization levers described on the sibling pages —
+                pipe sizing, velocity, impeller trim, speed control — are being
                 ranked by their carbon and cost payback, and the TDH component
                 breakdown is the tool that makes each lever's effect visible. A
                 15% cut in friction head is not just a pump-savings number
@@ -228,7 +228,7 @@
                 directly against a calculated duty point, returning the smallest
                 pump that meets the requirement with the motor and drive
                 included. The TDH calculation is the front end of that workflow
-                â€” flow and head in, candidate pumps out â€” and the human
+                — flow and head in, candidate pumps out — and the human
                 judgement shifts from arithmetic to engineering judgment about
                 operating range, NPSH margin, and redundancy. The arithmetic
                 that used to occupy the day is now seconds, which is exactly
@@ -242,18 +242,18 @@
                 best-efficiency point must sit inside that band. This is the
                 practical version of designing for a range rather than a point,
                 and it is why the calculator reports the head components and the
-                power at the same time â€” the components explain the band, and
+                power at the same time — the components explain the band, and
                 the power explains what the band costs.
               </p>
               <p class="mb-4">
                 None of these trends repeals the TDH equation. The static,
                 friction, pressure, and velocity terms still sum to the head,
-                and power still follows Q Ã— TDH Ã— SG Ã· 3960. What changes is how
+                and power still follows Q × TDH × SG ÷ 3960. What changes is how
                 often the estimate is made, how much measured data feeds it, and
-                how many competing considerations â€” efficiency, carbon, cost,
-                maintainability â€” are weighed against the single head number.
+                how many competing considerations — efficiency, carbon, cost,
+                maintainability — are weighed against the single head number.
                 The engineers who stay ahead will keep the core calculation
-                sharp and let the new data refine it â€” which is exactly what the
+                sharp and let the new data refine it — which is exactly what the
                 calculator on this page supports.
               </p>
               <p class="mb-4">
@@ -269,7 +269,7 @@
             >
               <span
                 class="text-xs text-slate-400 dark:text-slate-500 font-semibold"
-                >Build your baseline today â€” refine it with real data
+                >Build your baseline today — refine it with real data
                 tomorrow.</span
               >
               <a
@@ -297,5 +297,6 @@
     <script src="../../global.js" defer></script>
 
     <script src="../../twt-shell.js" defer></script>
+    <script src="../../js/context-engine.js" defer></script>
   </body>
 </html>

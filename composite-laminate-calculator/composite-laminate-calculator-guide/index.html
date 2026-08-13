@@ -1,4 +1,4 @@
-Ôªø<!doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
@@ -130,9 +130,9 @@
               class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4"
             >
               <span>Published: August 2026</span>
-              <span>‚Ä¢</span>
+              <span>ï</span>
               <span>Category: Industrial &amp; Engineering</span>
-              <span>‚Ä¢</span>
+              <span>ï</span>
               <span class="text-emerald-600 dark:text-emerald-400"
                 >No Sign-Up / 100% Free / No Registration</span
               >
@@ -149,8 +149,8 @@
                 along their length, and by rotating each ply's fiber direction,
                 an engineer can place stiffness and strength exactly where the
                 load demands it. This guide walks through the small set of
-                calculations that describe any laminate ‚Äî thickness, weight,
-                fiber volume fraction, and stiffness ‚Äî and shows how the
+                calculations that describe any laminate ó thickness, weight,
+                fiber volume fraction, and stiffness ó and shows how the
                 Composite Laminate Calculator reproduces them from a ply-by-ply
                 description.
               </p>
@@ -160,7 +160,7 @@
                 after consolidation, typically 0.125 to 0.3 mm for structural
                 prepregs. The areal weight, measured in grams per square meter,
                 is the weight of that ply including its resin content.
-                Crucially, areal weight already contains the matrix ‚Äî it is the
+                Crucially, areal weight already contains the matrix ó it is the
                 weight you actually lay up on the table, not a fiber-only
                 figure. The laminate thickness is simply the sum of every ply
                 thickness times its quantity, and the laminate areal weight is
@@ -173,26 +173,26 @@
                 volume occupied by fibers rather than resin. It is the single
                 most important quality metric in composite fabrication because
                 stiffness and strength scale almost linearly with it. A
-                well-consolidated prepreg laminate holds 55‚Äì65% fiber by volume;
-                a hand wet layup is lucky to reach 40‚Äì50%. The calculator
+                well-consolidated prepreg laminate holds 55ñ65% fiber by volume;
+                a hand wet layup is lucky to reach 40ñ50%. The calculator
                 computes an average Vf by thickness-weighting each ply's nominal
                 value: a thick stack of 60% UD carbon surrounded by thin 50%
                 glass plies lands somewhere between. Because Vf directly
-                controls structural properties, quoting it ‚Äî and measuring it by
-                burn-off or acid digestion in production ‚Äî is how the design
+                controls structural properties, quoting it ó and measuring it by
+                burn-off or acid digestion in production ó is how the design
                 intent is verified.
               </p>
               <p class="mb-4">
                 Ply orientation is where laminate design becomes engineering
-                rather than bookkeeping. A ply has stiffness E‚ÇÅ along the fiber
-                and a much lower stiffness E‚ÇÇ across it. A unidirectional carbon
+                rather than bookkeeping. A ply has stiffness E1 along the fiber
+                and a much lower stiffness E2 across it. A unidirectional carbon
                 ply might carry 135 GPa along the fiber and barely 10 GPa across
-                it ‚Äî a fourteen-fold difference. When a ply is rotated to an
-                angle Œ∏, its contribution to the laminate stiffness in the
-                reference direction is given by the transformed modulus: E(Œ∏) =
-                E‚ÇÅcos‚Å¥Œ∏ + E‚ÇÇsin‚Å¥Œ∏. A 45¬∞ ply contributes a quarter of E‚ÇÅ plus a
-                quarter of E‚ÇÇ, which is why ¬±45¬∞ plies are the classic choice
-                for shear loading and why 0¬∞ plies dominate bending and axial
+                it ó a fourteen-fold difference. When a ply is rotated to an
+                angle ?, its contribution to the laminate stiffness in the
+                reference direction is given by the transformed modulus: E(?) =
+                E1cos4? + E2sin4?. A 45∞ ply contributes a quarter of E1 plus a
+                quarter of E2, which is why ±45∞ plies are the classic choice
+                for shear loading and why 0∞ plies dominate bending and axial
                 stiffness.
               </p>
               <p class="mb-4">
@@ -200,9 +200,9 @@
                 The governing rule is that load in every direction must have a
                 load path. A structure that carries bending, shear, and torsion
                 simultaneously needs a balanced and symmetric stacking sequence:
-                every +Œ∏ ply mirrored by a ‚àíŒ∏ ply (balanced) and the sequence
+                every +? ply mirrored by a -? ply (balanced) and the sequence
                 mirrored about the mid-plane (symmetric). A classic
-                quasi-isotropic layup is 0/¬±45/90 repeated, which gives
+                quasi-isotropic layup is 0/±45/90 repeated, which gives
                 approximately equal stiffness in every in-plane direction while
                 remaining balanced and symmetric. The calculator lets you add
                 plies at 0, 15, 30, 45, 60, 75, and 90 degrees and averages the
@@ -211,8 +211,8 @@
               </p>
               <p class="mb-4">
                 Weight follows directly from areal weight, and the calculator
-                applies it to the part area: part weight = area √ó areal weight.
-                A 1 m¬≤ panel with a 736 g/m¬≤ layup weighs 736 grams before any
+                applies it to the part area: part weight = area ◊ areal weight.
+                A 1 m≤ panel with a 736 g/m≤ layup weighs 736 grams before any
                 core, adhesive, or paint. This is the number that feeds vehicle
                 weight budgets, aircraft structural weight estimates, and
                 shipping calculations, and it is why composites win weight
@@ -229,10 +229,10 @@
                 system: unidirectional carbon premium prepreg runs highest,
                 twill carbon slightly less, kevlar competitive with carbon on
                 area, and E-glass at a fraction of both. Structural cost = area
-                √ó Œ£(qty √ó ply cost). The same 1 m¬≤ panel costs roughly three
+                ◊ S(qty ◊ ply cost). The same 1 m≤ panel costs roughly three
                 times more in carbon than in glass at the layup level, before
                 tooling and labor are added. In design reviews this cost line is
-                what makes the argument for hybridizing ‚Äî a glass inner core
+                what makes the argument for hybridizing ó a glass inner core
                 with carbon faces to carry the peak bending stress where it is
                 needed.
               </p>
@@ -245,8 +245,8 @@
                 free-edge effects that a simple sum cannot see. Cured ply
                 thickness varies with consolidation pressure, resin bleed, and
                 temperature, so the real panel will carry a tolerance of a few
-                percent on both thickness and weight. And defects ‚Äî voids,
-                wrinkles, delamination ‚Äî reduce properties below the
+                percent on both thickness and weight. And defects ó voids,
+                wrinkles, delamination ó reduce properties below the
                 fiber-volume-fraction prediction. The value of the calculator is
                 that it gives a defensible, transparent starting point that
                 makes every subsequent refinement easier to interpret.
@@ -259,7 +259,7 @@
                 formula trace so the numbers can be audited. Run it once for a
                 baseline, then change one orientation or swap one material and
                 watch the weight and stiffness move. That immediate feedback is
-                how engineers learn to think in laminates ‚Äî and it is free to
+                how engineers learn to think in laminates ó and it is free to
                 use for as many layups as you care to build.
               </p>
             </div>
@@ -296,5 +296,6 @@
     <script src="../../global.js" defer></script>
 
     <script src="../../twt-shell.js" defer></script>
+    <script src="../../js/context-engine.js" defer></script>
   </body>
 </html>

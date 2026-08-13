@@ -1,4 +1,4 @@
-ï»¿<!doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
@@ -130,9 +130,9 @@
               class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4"
             >
               <span>Published: August 2026</span>
-              <span>â€¢</span>
+              <span>•</span>
               <span>Category: Industrial & Engineering</span>
-              <span>â€¢</span>
+              <span>•</span>
               <span class="text-emerald-600 dark:text-emerald-400"
                 >No Sign-Up / 100% Free / No Registration</span
               >
@@ -147,7 +147,7 @@
                 identifiable error in flat-pattern development. The blank was
                 cut a fraction of an inch too short or too long, the flange
                 angle came out off by a degree, or the part cracked on the bend
-                line. Each failure mode has a specific cause â€” a wrong K-factor,
+                line. Each failure mode has a specific cause — a wrong K-factor,
                 a radius that does not match the tooling, a leg-and-angle count
                 that does not align, or springback that was ignored. Here are
                 the most common mistakes and how to correct them.
@@ -160,7 +160,7 @@
                 position for all three, because K-factor depends on the
                 radius-to-thickness ratio and the bending method. The symptom is
                 blanks that are right for one job and wrong for another with no
-                obvious reason. The fix is a small calibration table â€” one
+                obvious reason. The fix is a small calibration table — one
                 measured K-factor for each material, thickness, and radius
                 combination you actually produce.
               </p>
@@ -184,19 +184,19 @@
                 legs with three angles, or two legs with one angle, produces a
                 mathematically invalid development, and the resulting flat is
                 either cut with a phantom flange or missing an allowance
-                entirely. The tool enforces this rule â€” it checks that the leg
+                entirely. The tool enforces this rule — it checks that the leg
                 count is exactly one more than the bend count and shows an
                 inline error when it is not.
               </p>
               <p class="mb-4">
                 Forgetting to convert bend allowance when mixing units is a
-                classic arithmetic failure. The formula BA = Î¸ Ã— (Ï€/180) Ã— (R +
-                KÃ—T) requires the angle in degrees (converted internally to
+                classic arithmetic failure. The formula BA = ? × (p/180) × (R +
+                K×T) requires the angle in degrees (converted internally to
                 radians) and all lengths in the same unit. Mixing millimeters
                 for thickness with inches for radius, or quoting a radius in
                 millimeters while the legs are in inches, shifts the result by
                 25.4 with no warning. Keep every dimension in one consistent
-                unit â€” this tool works in inches throughout â€” and convert the
+                unit — this tool works in inches throughout — and convert the
                 final flat length only after the calculation is complete.
               </p>
               <p class="mb-4">
@@ -218,7 +218,7 @@
                 elongation limit and cracks, especially parallel to the grain
                 and in aluminum. The part will never be right no matter how
                 accurate the bend allowance. The fix is a larger radius, a
-                grain-direction change, or a different bending method â€”
+                grain-direction change, or a different bending method —
                 bottoming and coining achieve tighter radii with different
                 failure characteristics. The tool flags R less than T as a
                 warning so the risk is visible before the blank is cut.
@@ -236,7 +236,7 @@
               </p>
               <p class="mb-4">
                 The through-line is simple: the bend-allowance formula is
-                reliable, and the failures come from the inputs â€” an
+                reliable, and the failures come from the inputs — an
                 uncalibrated K-factor, the wrong radius, an invalid leg-to-bend
                 count, mixed units, or ignored springback. The Sheet Metal Bend
                 Allowance Unfolder removes the arithmetic errors by automating
@@ -278,5 +278,6 @@
     <script src="../../global.js" defer></script>
 
     <script src="../../twt-shell.js" defer></script>
+    <script src="../../js/context-engine.js" defer></script>
   </body>
 </html>

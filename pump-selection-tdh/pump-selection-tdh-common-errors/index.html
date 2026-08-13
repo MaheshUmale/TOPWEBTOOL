@@ -1,4 +1,4 @@
-ï»¿<!doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
@@ -130,9 +130,9 @@
               class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4"
             >
               <span>Published: August 2026</span>
-              <span>â€¢</span>
+              <span>•</span>
               <span>Category: Industrial &amp; Engineering</span>
-              <span>â€¢</span>
+              <span>•</span>
               <span class="text-emerald-600 dark:text-emerald-400"
                 >No Sign-Up / 100% Free / No Registration</span
               >
@@ -144,9 +144,9 @@
             >
               <p class="mb-4">
                 Total dynamic head errors are dangerous because they are quiet.
-                An undersized pump still delivers some flow â€” the tank fills
+                An undersized pump still delivers some flow — the tank fills
                 slowly, the cooling tower runs warm, the pressure never quite
-                reaches the set point â€” and the failure spreads across months of
+                reaches the set point — and the failure spreads across months of
                 marginal operation instead of one loud breakdown. This article
                 catalogs the recurring errors in TDH calculation so they can be
                 caught in the estimate rather than in service.
@@ -155,7 +155,7 @@
                 Error number one: double-counting the friction head. The most
                 common version is computing the friction loss from a chart or
                 formula that already includes fittings, then adding the fitting
-                allowance on top â€” or entering the total equivalent length as
+                allowance on top — or entering the total equivalent length as
                 the straight-pipe length and adding the fittings again. The
                 calculator separates the two cleanly: straight-pipe length in
                 one field, fitting quantities in another, and the
@@ -166,9 +166,9 @@
               <p class="mb-4">
                 Error number two: mixing pressure units or pressure sides. The
                 pressure head term is the difference between discharge and
-                suction gauge pressures, converted with h = psi Ã— 2.31 Ã· SG.
+                suction gauge pressures, converted with h = psi × 2.31 ÷ SG.
                 Using absolute pressure instead of gauge adds the atmospheric
-                14.7 psi â€” roughly 34 feet of phantom head for water â€” and using
+                14.7 psi — roughly 34 feet of phantom head for water — and using
                 the discharge pressure without subtracting the suction pressure
                 inflates the requirement by whatever pressure the suction side
                 already contributes. Write both gauge pressures at the operating
@@ -187,8 +187,8 @@
               </p>
               <p class="mb-4">
                 Error number four: using the wrong pipe diameter. Friction head
-                depends on diameter to the 4.87th power in the Hazenâ€“Williams
-                relation, so a small diameter error is a huge friction error â€”
+                depends on diameter to the 4.87th power in the Hazen–Williams
+                relation, so a small diameter error is a huge friction error —
                 reading nominal size instead of internal diameter, or using the
                 discharge size for the suction line, can change the friction
                 head two or three times. The practice is to use the actual
@@ -210,11 +210,11 @@
               </p>
               <p class="mb-4">
                 Error number six: skipping the fittings. A fitting loss seems
-                small in isolation â€” a 90Â° elbow carries a K of about 0.9 â€” but
+                small in isolation — a 90° elbow carries a K of about 0.9 — but
                 a system with twenty elbows, a check valve, and a gate valve can
                 carry the equivalent of several hundred feet of pipe. Hand
                 calculations that sum only straight-pipe friction routinely
-                understate TDH by 10â€“30% on complex runs. The calculator's
+                understate TDH by 10–30% on complex runs. The calculator's
                 fitting table and quantity fields make the fitting contribution
                 an explicit part of the friction term, and the formula trace
                 shows the total equivalent length so it can be audited.
@@ -233,9 +233,9 @@
               </p>
               <p class="mb-4">
                 Error number eight: ignoring the pump efficiency in the motor
-                selection. Selecting the motor from the hydraulic horsepower â€”
-                the water horsepower, before efficiency â€” leaves the motor
-                undersized by the pump's losses, typically 25â€“60%. The motor
+                selection. Selecting the motor from the hydraulic horsepower —
+                the water horsepower, before efficiency — leaves the motor
+                undersized by the pump's losses, typically 25–60%. The motor
                 must be selected from the shaft power at the duty efficiency,
                 plus a margin, and rounded to a standard size. The calculator's
                 shaft-power line and the recommended-motor line make the chain
@@ -249,9 +249,9 @@
                 Including the tank-to-flange piping on both sides is correct
                 only if the calculator's static and friction inputs are defined
                 the same way; mixing definitions double-counts elevation
-                differences. The consistent definition â€” static between the two
+                differences. The consistent definition — static between the two
                 liquid surfaces, friction over the full suction plus discharge
-                runs, pressures at the two vessel surfaces â€” is what the
+                runs, pressures at the two vessel surfaces — is what the
                 calculator implements, and keeping the model consistent is the
                 engineer's job.
               </p>
@@ -298,5 +298,6 @@
     <script src="../../global.js" defer></script>
 
     <script src="../../twt-shell.js" defer></script>
+    <script src="../../js/context-engine.js" defer></script>
   </body>
 </html>

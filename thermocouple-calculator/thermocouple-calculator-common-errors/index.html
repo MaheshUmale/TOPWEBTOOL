@@ -1,4 +1,4 @@
-ï»¿<!doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
@@ -82,7 +82,7 @@
           {
             "@type": "ListItem",
             "position": 2,
-            "name": "Thermocouple Calculator: mV to Â°C & Â°C to mV",
+            "name": "Thermocouple Calculator: mV to °C & °C to mV",
             "item": "https://topwebtool.com/thermocouple-calculator/"
           },
           {
@@ -130,9 +130,9 @@
               class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4"
             >
               <span>Published: August 2026</span>
-              <span>â€¢</span>
+              <span>•</span>
               <span>Category: Industrial &amp; Engineering</span>
-              <span>â€¢</span>
+              <span>•</span>
               <span class="text-emerald-600 dark:text-emerald-400"
                 >No Sign-Up / 100% Free / No Registration</span
               >
@@ -146,7 +146,7 @@
                 Thermocouple errors are the most expensive errors in temperature
                 measurement because they are invisible. The display shows a
                 number, the number looks reasonable, and the process runs on it
-                â€” even when every reading is off by a measurable amount. This
+                — even when every reading is off by a measurable amount. This
                 article catalogs the recurring errors in thermocouple
                 measurement and conversion so they can be caught before they
                 become process decisions.
@@ -154,25 +154,25 @@
               <p class="mb-4">
                 Error number one: assuming the thermocouple type. The millivolt
                 signal of a Type J probe is very different from a Type K at the
-                same temperature â€” at 300 Â°C a Type J produces about 16.3 mV
-                while a Type K produces about 12.2 mV â€” so reading a Type J
+                same temperature — at 300 °C a Type J produces about 16.3 mV
+                while a Type K produces about 12.2 mV — so reading a Type J
                 sensor with a Type K conversion misplaces the temperature by
                 tens of degrees. The mistake is made in both directions: an
                 unlabeled probe read as the wrong type, or a probe labeled in
                 the old ANSI colors mistaken under a new standard. The
                 discipline is to verify the type from the wire alloy, the
                 connector color code, and the probe's label, and to record the
-                type beside every reading â€” which is exactly the first field in
+                type beside every reading — which is exactly the first field in
                 the calculator's conversion.
               </p>
               <p class="mb-4">
                 Error number two: ignoring the cold junction. Every thermocouple
                 measurement includes the reference junction at the instrument,
-                and the NIST polynomials are defined with that junction at 0 Â°C.
-                If the reference junction actually sits at 25 Â°C and the
+                and the NIST polynomials are defined with that junction at 0 °C.
+                If the reference junction actually sits at 25 °C and the
                 compensation is not applied, the temperature error is the EMF
-                difference â€” about 1 Â°C for a Type K, more for
-                higher-sensitivity types â€” and it scales with how far the
+                difference — about 1 °C for a Type K, more for
+                higher-sensitivity types — and it scales with how far the
                 terminals drift from zero. The error appears as a constant
                 offset that passes the plausibility test, which is exactly why
                 it survives for years in field data. The calculator's
@@ -186,7 +186,7 @@
                 alloys creates a new junction at an uncontrolled temperature.
                 Running Type K sensor legs on copper wire, or mixing a Type J
                 probe with a Type K extension run, produces errors that vary
-                with the ambient temperature along the run â€” a moving target
+                with the ambient temperature along the run — a moving target
                 that no single offset can correct. The calculator cannot see the
                 wiring, which is exactly why the wiring discipline belongs in
                 the measurement procedure.
@@ -196,22 +196,22 @@
                 Each thermocouple type has a temperature range set by its alloy
                 and defined by the ITS-90 polynomials, and beyond that range the
                 wire either cannot produce a valid signal or the polynomial
-                simply does not exist. A Type T at 500 Â°C, or a Type K
-                extrapolated past 1372 Â°C, produces a number that looks like a
+                simply does not exist. A Type T at 500 °C, or a Type K
+                extrapolated past 1372 °C, produces a number that looks like a
                 reading but is not a measurement. The calculator rejects
                 out-of-range conversions explicitly, and the discipline is to
-                accept the rejection â€” the correct response to an out-of-range
+                accept the rejection — the correct response to an out-of-range
                 sensor is a different type, not a different conversion.
               </p>
               <p class="mb-4">
                 Error number five: converting with the wrong unit. Thermocouple
                 tables and polynomials are defined in degrees Celsius and
                 millivolts, and mixing in Fahrenheit or kelvin without
-                converting shifts every result. A temperature entered as 200 Â°F
-                where 200 Â°C was meant changes the EMF dramatically â€” the
+                converting shifts every result. A temperature entered as 200 °F
+                where 200 °C was meant changes the EMF dramatically — the
                 difference between the two is most of the usable range of
                 several thermocouple types. The calculator works entirely in
-                Celsius and millivolts and shows both Â°C and Â°F on the results,
+                Celsius and millivolts and shows both °C and °F on the results,
                 but the input side must be entered in the unit the field states.
               </p>
               <p class="mb-4">
@@ -224,14 +224,14 @@
                 single conversion takes at face value. The discipline is to use
                 a meter rated and calibrated for thermocouple work, keep the
                 connections clean and tight, and take the reading when the
-                display has settled â€” the conversion is only as good as the
+                display has settled — the conversion is only as good as the
                 number it starts from.
               </p>
               <p class="mb-4">
                 Error number seven: single-point validation. A sensor checked at
                 one temperature is trusted across its whole range, but
-                thermocouple error is not constant â€” drift and nonlinearity
-                differ at 100 Â°C and at 800 Â°C. The practice of a two- or
+                thermocouple error is not constant — drift and nonlinearity
+                differ at 100 °C and at 800 °C. The practice of a two- or
                 three-point check, at a low, mid, and high temperature, brackets
                 the operating range and reveals errors a single check hides. The
                 calculator supports the check by converting each known
@@ -245,13 +245,13 @@
                 the reference-junction temperature, and if the compensation is
                 assumed rather than measured, the reading moves with it. The fix
                 is simple and reliable: either keep the reference junction at a
-                controlled 0 Â°C ice point, or measure the terminal temperature
-                and enter it â€” the calculator's reference-junction field makes
+                controlled 0 °C ice point, or measure the terminal temperature
+                and enter it — the calculator's reference-junction field makes
                 the second path immediate.
               </p>
               <p class="mb-4">
                 The common signature of all these errors is a plausible reading
-                built on a wrong assumption â€” the type, the junction, the wire,
+                built on a wrong assumption — the type, the junction, the wire,
                 the range, or the unit. The calculator's breakdown output is the
                 audit trail: it prints the type, the measured EMF, the reference
                 EMF, and the resulting temperature in one block, so a wrong
@@ -294,5 +294,6 @@
     <script src="../../global.js" defer></script>
 
     <script src="../../twt-shell.js" defer></script>
+    <script src="../../js/context-engine.js" defer></script>
   </body>
 </html>

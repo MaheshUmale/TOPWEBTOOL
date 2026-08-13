@@ -1,4 +1,4 @@
-ï»¿<!doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
@@ -130,9 +130,9 @@
               class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4"
             >
               <span>Published: August 2026</span>
-              <span>â€¢</span>
+              <span>•</span>
               <span>Category: Health &amp; Lifestyle</span>
-              <span>â€¢</span>
+              <span>•</span>
               <span class="text-emerald-600 dark:text-emerald-400"
                 >No Sign-Up / 100% Free / No Registration</span
               >
@@ -154,8 +154,8 @@
               </p>
               <p class="mb-4">
                 Match the algorithm to the size of the range. For small ranges
-                and large counts â€” say fifty unique values from a range of sixty
-                â€” rejection sampling with a collision-checking Set is
+                and large counts — say fifty unique values from a range of sixty
+                — rejection sampling with a collision-checking Set is
                 near-perfect on the first pass, so the tool simply never wastes
                 work. For huge ranges, the BigInt arithmetic keeps values exact
                 even past the floating-point boundary, so a draw from a range in
@@ -165,8 +165,8 @@
               </p>
               <p class="mb-4">
                 Use a seed to make your optimization measurable. When you are
-                comparing two assignment strategies â€” two group sizes, two
-                sampling fractions, two no-repeat policies â€” running both
+                comparing two assignment strategies — two group sizes, two
+                sampling fractions, two no-repeat policies — running both
                 against the same seed holds the randomness constant and isolates
                 the variable you actually care about. The same seed means the
                 identical underlying draw, so any difference in the output is
@@ -178,7 +178,7 @@
                 For A/B testing and user experiments, assign participants to
                 conditions with a seeded, balanced split rather than a raw coin
                 flip. Draw a group assignment that keeps both arms roughly equal
-                in size â€” the round-robin deal does this â€” and record the seed
+                in size — the round-robin deal does this — and record the seed
                 with the assignment. When the experiment needs to be audited or
                 replayed, the seed reconstructs the entire allocation. This
                 turns a casual randomization into a reproducible experimental
@@ -190,7 +190,7 @@
                 seeded draw once and then rotate the resulting order
                 mechanically. A single shuffle establishes a fair order, and
                 stepping through it week by week is deterministic and
-                explainable to everyone involved â€” no re-drawing, no accusations
+                explainable to everyone involved — no re-drawing, no accusations
                 of repeat bias, and a paper trail that lasts the whole term.
               </p>
               <p class="mb-4">
@@ -205,17 +205,17 @@
               </p>
               <p class="mb-4">
                 Optimize the input side as aggressively as the output side.
-                Paste the roster already trimmed and deduplicated â€” a
+                Paste the roster already trimmed and deduplicated — a
                 spreadsheet column copied directly, or a list run through a
-                quick cleanup â€” so the group mode never sees phantom members.
+                quick cleanup — so the group mode never sees phantom members.
                 The tool drops blank lines automatically, but a clean paste
                 means the member counts on screen exactly match your intended
                 participants, and the copied team sheet needs no post-editing
                 before you share it.
               </p>
               <p class="mb-4">
-                Save reusable configurations. If you run the same monthly draw â€”
-                same range, same count, same no-repeat policy, different seed â€”
+                Save reusable configurations. If you run the same monthly draw —
+                same range, same count, same no-repeat policy, different seed —
                 keep the parameters in a note or a spreadsheet row alongside the
                 seed. Re-entering a half-dozen fields monthly is wasted motion;
                 storing them makes each draw a thirty-second procedure and keeps
@@ -224,9 +224,9 @@
               </p>
               <p class="mb-4">
                 Finally, measure the quality of your randomness when it matters.
-                A quick sanity check â€” a hundred draws from a range of ten
+                A quick sanity check — a hundred draws from a range of ten
                 should produce roughly ten of each value, and a seeded run
-                should match its re-run exactly â€” catches generator problems and
+                should match its re-run exactly — catches generator problems and
                 user error in one go. Randomness is never perfect in software,
                 but with rejection sampling, a decent PRNG, and a disciplined
                 workflow, it is more than good enough for every fair-draw,
@@ -266,5 +266,6 @@
     <script src="../../global.js" defer></script>
 
     <script src="../../twt-shell.js" defer></script>
+    <script src="../../js/context-engine.js" defer></script>
   </body>
 </html>

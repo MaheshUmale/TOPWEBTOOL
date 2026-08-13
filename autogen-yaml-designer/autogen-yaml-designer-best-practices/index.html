@@ -1,4 +1,4 @@
-ï»¿<!doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
@@ -130,9 +130,9 @@
               class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4"
             >
               <span>Published: August 2026</span>
-              <span>â€¢</span>
+              <span>•</span>
               <span>Category: AI Agent & Automation</span>
-              <span>â€¢</span>
+              <span>•</span>
               <span class="text-emerald-600 dark:text-emerald-400"
                 >No Sign-Up / 100% Free / No Registration</span
               >
@@ -145,8 +145,8 @@
               <p class="mb-4">
                 Declarative agent configuration rewards discipline. The first
                 habit is consistent naming. Agent keys are referenced by tasks,
-                so a stable naming scheme â€” lowercase snake_case for keys,
-                descriptive nouns for roles â€” keeps the mapping legible. A
+                so a stable naming scheme — lowercase snake_case for keys,
+                descriptive nouns for roles — keeps the mapping legible. A
                 config where
                 <code class="font-mono text-xs">research_analyst</code> runs
                 task <code class="font-mono text-xs">market_scan</code> reads
@@ -183,8 +183,8 @@
                 the market" is vague; "deliver a ranked list of the top five
                 competitors with pricing, funding, and positioning" is a goal a
                 model can actually execute toward. The same principle applies to
-                expected output: state the format explicitly â€” "a JSON array of
-                objects with fields name, price, and source" â€” because a model
+                expected output: state the format explicitly — "a JSON array of
+                objects with fields name, price, and source" — because a model
                 will produce precisely the structure you name. This single
                 practice improves downstream reliability more than any other
                 prompt tweak.
@@ -193,7 +193,7 @@
                 Validate early and validate often. The framework will parse your
                 YAML at startup, but you want problems found at authoring time,
                 not deploy time. Run the generated document through a YAML
-                linter, and â€” more usefully â€” through a schema-aware check that
+                linter, and — more usefully — through a schema-aware check that
                 confirms every task's agent reference exists and every required
                 field is present. The TopWebTool CrewAI / AutoGen YAML Designer
                 performs exactly these checks inline, flagging unknown agents
@@ -213,7 +213,7 @@
                 and the Python bootstrap that consumes it evolve together, so
                 keep them in the same repository and same commit. Add a smoke
                 test that loads the config and asserts the expected agent and
-                task counts â€” this catches schema drift the moment it is
+                task counts — this catches schema drift the moment it is
                 introduced, before a production run discovers it. Configuration
                 as code means the config gets the same review, CI, and testing
                 treatment as application code.
@@ -223,7 +223,7 @@
                 which models were used, and how many tokens each task consumed.
                 Because the config determines the crew, a run log keyed by
                 config version lets you attribute a quality regression to a
-                specific change â€” "this report degraded after we swapped the
+                specific change — "this report degraded after we swapped the
                 writer's model." Observability is what turns declarative
                 convenience into a system you can operate at scale.
               </p>
@@ -243,7 +243,7 @@
                 Keep the designer file in version control alongside the code
                 that loads it, review diffs the way you review code, and tag
                 releases with the crew configuration they ship. When an agent
-                misbehaves, the first question is always "what changed?" â€” and
+                misbehaves, the first question is always "what changed?" — and
                 without versioned configurations, that question is unanswerable.
                 Adopt a naming convention that encodes the intent of a variant:
                 a name like "research-v2-lenient" tells a future reader far more
@@ -287,5 +287,6 @@
     <script src="../../global.js" defer></script>
 
     <script src="../../twt-shell.js" defer></script>
+    <script src="../../js/context-engine.js" defer></script>
   </body>
 </html>
