@@ -94,7 +94,7 @@ const UTILITIES_REGISTRY = [
 | `index.html` | Renders the 84-tool category grid + search |
 | `twt-shell.js` | Builds the trending sidebar (`<aside id="right-rail">`) |
 | `js/context-engine.js` | Resolves related tools via category (+5) and keyword (+2) overlap |
-| `global.js` itself | Counts tools for footer ("84 free...") |
+| `global.js` itself | Counts tools for footer ("85 free...") |
 
 **No other file hardcodes tool names or paths.** The registry is loaded before `twt-shell.js` and `context-engine.js` on every page.
 

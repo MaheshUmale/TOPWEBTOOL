@@ -305,12 +305,13 @@ if (Test-Path $zipPath) { Remove-Item $zipPath -Force }
 
 Add-Type -AssemblyName System.IO.Compression.FileSystem
 
-$excludeDirs = @('.git','.kilo','.opencode','.vscode','node_modules','dist','.agent-zero','.playwright-mcp','.well-known')
+$excludeDirs = @('.git','.kilo','.opencode','.vscode','node_modules','dist','.agent-zero','.playwright-mcp','.well-known','js')
 $excludeFiles = @('.gitignore','opencode.json','.session-state.json','AGENTS.md','README.md','ACTION_PLAN.md','build-deploy.ps1','build-deploy.py','BUILD_ZIP_LIVE_SITE.ps1')
 $excludeSuffixes = @('.ps1','.zip','.py')
 $reservedNames = @('NUL','CON','PRN','AUX','COM1','COM2','COM3','COM4','COM5','COM6','COM7','COM8','COM9','LPT1','LPT2','LPT3','LPT4','LPT5','LPT6','LPT7','LPT8','LPT9')
 
 function Should-Include($path, $rel) {
+    if ($rel -eq 'js/context-engine.js') { return $true }
     $parts = $rel -split '/'
     foreach ($p in $parts) {
         if ($excludeDirs.Contains($p) -or $reservedNames.Contains($p)) { return $false }

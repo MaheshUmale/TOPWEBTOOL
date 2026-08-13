@@ -1,6 +1,6 @@
 {
   "name": "TopWebTool",
-  "description": "100% client-side web utility directory with 84 free online tools. All tools run in the browser; no server-side processing or public APIs exist.",
+  "description": "100% client-side web utility directory with 85 free online tools. All tools run in the browser; no server-side processing or public APIs exist.",
   "owner": {
     "name": "TopWebTool",
     "url": "https://topwebtool.com/"
@@ -8,7 +8,7 @@
   "resources": [
     {
       "name": "llms.txt",
-      "description": "Machine-readable index of all 84 tools (llms.txt standard).",
+      "description": "Machine-readable index of all 85 tools (llms.txt standard).",
       "url": "https://topwebtool.com/llms.txt",
       "type": "text/plain"
     },

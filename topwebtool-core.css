@@ -859,7 +859,7 @@
 }
 
 /* Enforce the 16px invariant on every form control inside the shell,
-   including the legacy Tailwind inputs already shipped in the 84 tools.
+   including the legacy Tailwind inputs already shipped in the 85 tools.
    (Tailwind utilities live in a cascade layer, so this unlayered rule
    wins — that is intentional and required to kill mobile auto-zoom.) */
 @media (max-width: 767px) {
@@ -1031,6 +1031,15 @@
 .twt-rail-toggle:hover {
   background: var(--twt-surface-2);
   color: var(--twt-text);
+}
+
+.twt-shell--rail-collapsed .twt-rail-toggle {
+  position: fixed;
+  right: 0.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1000;
+  opacity: 1 !important;
 }
 
 .twt-rail-module {

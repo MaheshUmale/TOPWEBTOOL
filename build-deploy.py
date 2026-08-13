@@ -23,6 +23,8 @@ RESERVED_NAMES = {
 }
 
 def should_include(path: Path, rel: str) -> bool:
+    if rel == 'js' + os.sep + 'context-engine.js' or rel == 'js/context-engine.js':
+        return True
     parts = rel.split(os.sep)
     # Exclude dirs
     for p in parts:
@@ -182,10 +184,10 @@ def build_zip():
     count = 0
     with zipfile.ZipFile(ZIP, 'w', zipfile.ZIP_DEFLATED, compresslevel=6) as zf:
         for dirpath, dirnames, filenames in os.walk(ROOT):
-            # Filter dirs in-place to skip excluded
+            # Filter dirs in-place to skip excluded (keep js for whitelisted files)
             dirnames[:] = [
                 d for d in dirnames
-                if d not in EXCLUDE_DIRS and d not in RESERVED_NAMES
+                if (d not in EXCLUDE_DIRS or d == 'js') and d not in RESERVED_NAMES
             ]
             for fname in filenames:
                 file_path = Path(dirpath) / fname

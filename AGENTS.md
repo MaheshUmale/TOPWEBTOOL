@@ -100,7 +100,7 @@ TopWebTool is a **100% static, client-side web tool directory** deployed to Clou
 ## Brand System
 
 - Logo/tile: indigo→sky gradient (`#4f46e5 → #0ea5e9`), white "T", amber spark (`#fbbf24`)
-- `site.webmanifest`: description "84 free premium web utilities", `background_color: #ffffff`, `theme_color: #4f46e5`
+- `site.webmanifest`: description "85 free premium web utilities", `background_color: #ffffff`, `theme_color: #4f46e5`
 - Theme: dark (`#0f172a`) / light (`#ffffff`) via `localStorage` + early blocking script in `<head>`
 
 ## Conventions (MUST follow for new/edited pages)
@@ -130,6 +130,6 @@ Run these before finishing any batch of edits (Node scripts live in the temp dir
 
 ## AI-Friendliness (site-level, do not regress)
 
-- `llms.txt` / `llms-full.txt` must stay in sync with the 84 tools (regenerate via temp script from `index.html` pages).
+- `llms.txt` / `llms-full.txt` must stay in sync with the 85 tools (regenerate via temp script from `index.html` pages).
 - `worker.js` returns clean markdown for `Accept: text/markdown` on `.html` pages (strips header/footer/nav/ads/forms, converts headings/lists/tables, decodes HTML entities).
 - `robots.txt` explicitly allows all major AI crawlers; `.well-known/api-catalog` + `Link:` header expose machine-readable resources.

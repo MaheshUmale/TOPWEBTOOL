@@ -1,6 +1,6 @@
 # TopWebTool
 
-A 100% static, client-side web tool directory deployed to Cloudflare Pages. Contains 84 free online utilities across Finance, Marketing, AI, and Developer categories. All logic runs in the browser; no backend, no database.
+A 100% static, client-side web tool directory deployed to Cloudflare Pages. Contains 85 free online utilities across Finance, Marketing, AI, and Developer categories. All logic runs in the browser; no backend, no database.
 
 ## Tech Stack
 

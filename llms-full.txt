@@ -2,7 +2,7 @@
 
 ## Site Overview
 
-TopWebTool is a 100% client-side web utility directory offering 84 free online tools across Finance, Marketing, AI, and Developer categories. All tools run entirely in the browser with no server-side processing and no data leaves your device.
+TopWebTool is a 100% client-side web utility directory offering 85 free online tools across Finance, Marketing, AI, and Developer categories. All tools run entirely in the browser with no server-side processing and no data leaves your device.
 
 - Homepage: https://topwebtool.com/
 - Global Script: https://topwebtool.com/global.js
