@@ -1,4 +1,4 @@
-<!doctype html>
+ï»¿<!doctype html>
 <html lang="en">
   <head>
     <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
@@ -38,7 +38,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png" />
 
     <link rel="manifest" href="../../site.webmanifest" />
-    <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#090d16" media="(prefers-color-scheme: dark)" />
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
     <meta property="og:type" content="article" />
     <meta property="og:site_name" content="TopWebTool" />
@@ -130,9 +130,9 @@
               class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4"
             >
               <span>Published: August 2026</span>
-              <span>•</span>
+              <span>â€¢</span>
               <span>Category: AI Agent & Automation</span>
-              <span>•</span>
+              <span>â€¢</span>
               <span class="text-emerald-600 dark:text-emerald-400"
                 >No Sign-Up / 100% Free / No Registration</span
               >
@@ -146,7 +146,7 @@
                 The most damaging state-machine bug is the infinite loop, and it
                 is also the easiest to detect once you think to check. Any cycle
                 in the transition graph means the agent can revisit a state
-                forever given the right event sequence — an error followed by a
+                forever given the right event sequence â€” an error followed by a
                 retry that always fails, a polling loop that never converges, or
                 a self-loop like
                 <code class="font-mono text-xs">idle ? idle</code> that fires on
@@ -168,7 +168,7 @@
               </p>
               <p class="mb-4">
                 Dead-ends are the mirror failure. A state with zero outgoing
-                transitions is a terminal point — correct for
+                transitions is a terminal point â€” correct for
                 <code class="font-mono text-xs">done</code>, suspicious for
                 anything else. An error state that routes nowhere strands the
                 agent with no recovery path, and a "review" state with no
@@ -190,7 +190,7 @@
               <p class="mb-4">
                 Conflicting transitions are a genuine correctness bug. When the
                 same from-state and event route to two different targets, the
-                machine's behavior is nondeterministic — whatever the runtime
+                machine's behavior is nondeterministic â€” whatever the runtime
                 picks first wins, and two environments may behave differently.
                 This usually happens when two engineers added recovery paths
                 independently, or when a rename didn't propagate. The analyzer
@@ -214,13 +214,13 @@
                 reason about when it fires. In the transition table, prefer
                 explicit event names even for obvious paths. The DOT export
                 keeps labels visible precisely so that review shows what each
-                edge means — an unlabeled edge in the diagram is a red flag in
+                edge means â€” an unlabeled edge in the diagram is a red flag in
                 the design.
               </p>
               <p class="mb-4">
                 Finally, the meta-error is not running the analysis at all.
-                State machines grow organically — a state added here, an edge
-                patched there — and every unexamined addition is a candidate for
+                State machines grow organically â€” a state added here, an edge
+                patched there â€” and every unexamined addition is a candidate for
                 one of the failures above. Running the evaluator on every design
                 change is cheap, fast, and turns the whole class of structural
                 bugs into resolved warnings before they ever reach production. A
@@ -228,21 +228,21 @@
                 confidence.
               </p>
               <p class="mb-4">
-                The recurring failures are all structural — loops,
+                The recurring failures are all structural â€” loops,
                 unreachability, dead-ends, duplicates, conflicts, and naming
-                slips — which is exactly why they yield to automated analysis.
+                slips â€” which is exactly why they yield to automated analysis.
                 Detect each one with a graph algorithm, resolve each one in the
                 transition table, and re-run until clean. That loop is the
                 entire discipline, and it takes minutes once it becomes a habit.
               </p>
               <p class="mb-4">
                 The boundary between states is another place where design intent
-                hides. Two states that are semantically identical — "waiting for
-                approval" from two different entry paths — look like one state
+                hides. Two states that are semantically identical â€” "waiting for
+                approval" from two different entry paths â€” look like one state
                 to the model but behave like two in the code, and the table can
                 drift without anyone noticing. Similarly, an event name that
-                changes between the trigger and the transition — "approve" in
-                one place, "approved" in another — silently severs the edge that
+                changes between the trigger and the transition â€” "approve" in
+                one place, "approved" in another â€” silently severs the edge that
                 was supposed to connect them, producing a dead-end or an
                 unreachable state that analysis will catch. The cure is a
                 controlled vocabulary: a short, reviewed list of state names and
@@ -290,3 +290,4 @@
     <script src="../../js/context-engine.js" defer></script>
   </body>
 </html>
+

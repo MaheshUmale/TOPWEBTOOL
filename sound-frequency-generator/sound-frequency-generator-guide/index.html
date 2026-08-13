@@ -1,4 +1,4 @@
-<!doctype html>
+ï»¿<!doctype html>
 <html lang="en">
   <head>
     <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
@@ -38,7 +38,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png" />
 
     <link rel="manifest" href="../../site.webmanifest" />
-    <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#090d16" media="(prefers-color-scheme: dark)" />
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
     <meta property="og:type" content="article" />
     <meta property="og:site_name" content="TopWebTool" />
@@ -130,9 +130,9 @@
               class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4"
             >
               <span>Published: August 2026</span>
-              <span>•</span>
+              <span>â€¢</span>
               <span>Category: Health &amp; Lifestyle</span>
-              <span>•</span>
+              <span>â€¢</span>
               <span class="text-emerald-600 dark:text-emerald-400"
                 >No Sign-Up / 100% Free / No Registration</span
               >
@@ -145,7 +145,7 @@
               <p class="mb-4">
                 Frequency is the heartbeat of sound. Every tone you hear is air
                 pressure oscillating back and forth, and frequency counts how
-                many complete oscillations happen in one second — measured in
+                many complete oscillations happen in one second â€” measured in
                 hertz (Hz). A 440 Hz tone completes 440 cycles every second,
                 which is why it feels "higher" than a 220 Hz tone: its pressure
                 waves arrive twice as often. The full range of human hearing
@@ -156,11 +156,11 @@
               </p>
               <p class="mb-4">
                 The period is the flip side of frequency and the simplest
-                calculation in acoustics: period = 1 ÷ frequency. At 440 Hz each
+                calculation in acoustics: period = 1 Ã· frequency. At 440 Hz each
                 cycle lasts about 2.27 milliseconds; at 20 Hz a single cycle
                 stretches to 50 milliseconds. This reciprocal relationship is
-                why low frequencies feel slow and heavy — the speaker cone
-                physically moves back and forth far less often — and why high
+                why low frequencies feel slow and heavy â€” the speaker cone
+                physically moves back and forth far less often â€” and why high
                 frequencies feel tense and fast. Any time you need to reason
                 about speaker movement, buffer sizes, or beat lengths,
                 converting frequency to period is the first step.
@@ -179,7 +179,7 @@
               </p>
               <p class="mb-4">
                 A pure tone of a single frequency is called a sine wave, and it
-                is the cleanest sound the Web Audio API can produce — no extra
+                is the cleanest sound the Web Audio API can produce â€” no extra
                 harmonics, just the fundamental. Real instruments are never this
                 pure; they layer harmonics, multiples of the fundamental, whose
                 mix defines each instrument's timbre. Understanding that a sine
@@ -190,12 +190,12 @@
               </p>
               <p class="mb-4">
                 Waveform shape is what changes timbre. A square wave adds only
-                odd harmonics — at 1/3, 1/5, 1/7 of the fundamental's amplitude
-                — which gives it a hollow, buzzy, almost vintage-computer sound.
+                odd harmonics â€” at 1/3, 1/5, 1/7 of the fundamental's amplitude
+                â€” which gives it a hollow, buzzy, almost vintage-computer sound.
                 A sawtooth contains every harmonic, odd and even, which makes it
                 bright and reedy, the classic synthesizer lead. A triangle wave
-                keeps only the odd harmonics but rolls them off much faster —
-                1/9, 1/25 — producing a warm, flute-like tone. The same 440 Hz
+                keeps only the odd harmonics but rolls them off much faster â€”
+                1/9, 1/25 â€” producing a warm, flute-like tone. The same 440 Hz
                 frequency sounds completely different through each of these
                 shapes, because the shape, not the pitch, defines the character.
               </p>
@@ -204,7 +204,7 @@
                 audio cannot start until a user gesture. Clicking a button,
                 pressing a key, or tapping a screen counts; a page loading does
                 not. This is why the AudioContext is created inside the Start
-                click handler rather than on page load — the browser grants
+                click handler rather than on page load â€” the browser grants
                 audio access only within that gesture, so the generator stays
                 instantly usable while respecting the autoplay policy. It is
                 also why a generator that works in one context may refuse in
@@ -215,7 +215,7 @@
                 Sudden changes in volume are audible as clicks and pops, so a
                 good generator ramps. Instead of jumping the gain from zero to
                 full volume in one sample, the Web Audio API changes it
-                exponentially over a short interval — around 30 milliseconds on
+                exponentially over a short interval â€” around 30 milliseconds on
                 start and slightly longer on stop. The ear perceives this as a
                 smooth attack and release rather than an ugly transient. Forcing
                 the volume to jump instantly is the difference between a
@@ -232,7 +232,7 @@
                 Frequencies near the top of the range are especially fatiguing,
                 and prolonged exposure at high level is how hearing damage
                 accumulates. A tone generator is a measuring instrument, not a
-                maximum-volume demonstration — treat the levels with the same
+                maximum-volume demonstration â€” treat the levels with the same
                 respect you would any professional audio gear.
               </p>
               <p class="mb-4">
@@ -244,7 +244,7 @@
                 known sine. Explore sound therapy with gentle low tones. Because
                 the tool couples frequency, waveform, and volume with a live
                 waveform preview and a harmonic spectrum hint, you can hear the
-                tone and see its structure simultaneously — and reason precisely
+                tone and see its structure simultaneously â€” and reason precisely
                 about what you are listening to.
               </p>
             </div>
@@ -284,3 +284,4 @@
     <script src="../../js/context-engine.js" defer></script>
   </body>
 </html>
+

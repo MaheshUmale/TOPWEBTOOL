@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
   <head>
     <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
@@ -38,7 +38,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png" />
 
     <link rel="manifest" href="../site.webmanifest" />
-    <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#090d16" media="(prefers-color-scheme: dark)" />
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="TopWebTool" />
@@ -58,7 +58,7 @@
         background-color: #fff;
       }
       html.dark {
-        background-color: #0f172a;
+        background-color: #090d16;
       }
       body {
         padding-bottom: 6rem;
@@ -259,7 +259,7 @@
                 <label
                   for="inp-target"
                   class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2"
-                  >Target Impedance (Ω)</label
+                  >Target Impedance (Î©)</label
                 >
                 <input
                   type="number"
@@ -316,19 +316,19 @@
                 <span
                   id="out-z0"
                   class="font-extrabold text-slate-900 dark:text-white"
-                  >–</span
+                  >â€“</span
                 >
               </div>
               <div
                 class="flex items-center justify-between gap-3 p-3 bg-slate-50 dark:bg-slate-950 rounded-lg"
               >
                 <span class="text-slate-500 dark:text-slate-400 font-semibold"
-                  >Effective Dielectric (εeff)</span
+                  >Effective Dielectric (Îµeff)</span
                 >
                 <span
                   id="out-eeff"
                   class="font-extrabold text-slate-900 dark:text-white"
-                  >–</span
+                  >â€“</span
                 >
               </div>
               <div
@@ -340,7 +340,7 @@
                 <span
                   id="out-delay"
                   class="font-extrabold text-slate-900 dark:text-white"
-                  >–</span
+                  >â€“</span
                 >
               </div>
               <div
@@ -352,7 +352,7 @@
                 <span
                   id="out-cap"
                   class="font-extrabold text-slate-900 dark:text-white"
-                  >–</span
+                  >â€“</span
                 >
               </div>
               <div
@@ -364,7 +364,7 @@
                 <span
                   id="out-ind"
                   class="font-extrabold text-slate-900 dark:text-white"
-                  >–</span
+                  >â€“</span
                 >
               </div>
               <div
@@ -376,7 +376,7 @@
                 <span
                   id="out-wh"
                   class="font-extrabold text-slate-900 dark:text-white"
-                  >–</span
+                  >â€“</span
                 >
               </div>
             </div>
@@ -461,7 +461,7 @@
                   </li>
                   <li>
                     Etched width: the copper is narrower after etching than the
-                    drawn width — compensate with the fabricator's etch factor.
+                    drawn width â€” compensate with the fabricator's etch factor.
                   </li>
                   <li>
                     Solder mask: mask over the trace lowers impedance a couple
@@ -469,7 +469,7 @@
                   </li>
                   <li>
                     Invalid geometry: if 5.98h/(0.8w+t) falls below 1 the
-                    natural log goes negative — the tool flags it as
+                    natural log goes negative â€” the tool flags it as
                     impractical.
                   </li>
                 </ul>
@@ -488,16 +488,16 @@
                   in your preferred unit.
                 </li>
                 <li>
-                  Set the dielectric constant (4.3 for typical FR4; 3.4–3.6 for
+                  Set the dielectric constant (4.3 for typical FR4; 3.4â€“3.6 for
                   low-loss laminates).
                 </li>
                 <li>
-                  Press Compute Impedance and review Z0, εeff, propagation
+                  Press Compute Impedance and review Z0, Îµeff, propagation
                   delay, and capacitance per length.
                 </li>
                 <li>
-                  To hit a target like 50 Ω, enter the target and press Solve
-                  Width — the required trace width is filled in for you.
+                  To hit a target like 50 Î©, enter the target and press Solve
+                  Width â€” the required trace width is filled in for you.
                 </li>
                 <li>
                   Copy the results into your stackup or routing note for the
@@ -613,7 +613,7 @@ Valid range: 0.1 &lt; w/h &lt; 3.0, 1 &lt; Er &lt; 15</pre>
                   </li>
                   <li>
                     Etched width: the copper is narrower after etching than the
-                    drawn width — compensate with the fabricator's etch factor.
+                    drawn width â€” compensate with the fabricator's etch factor.
                   </li>
                   <li>
                     Solder mask: mask over the trace lowers impedance a couple
@@ -621,7 +621,7 @@ Valid range: 0.1 &lt; w/h &lt; 3.0, 1 &lt; Er &lt; 15</pre>
                   </li>
                   <li>
                     Invalid geometry: if 5.98h/(0.8w+t) falls below 1 the
-                    natural log goes negative — the tool flags it as
+                    natural log goes negative â€” the tool flags it as
                     impractical.
                   </li>
                 </ul>
@@ -640,16 +640,16 @@ Valid range: 0.1 &lt; w/h &lt; 3.0, 1 &lt; Er &lt; 15</pre>
                   in your preferred unit.
                 </li>
                 <li>
-                  Set the dielectric constant (4.3 for typical FR4; 3.4–3.6 for
+                  Set the dielectric constant (4.3 for typical FR4; 3.4â€“3.6 for
                   low-loss laminates).
                 </li>
                 <li>
-                  Press Compute Impedance and review Z0, εeff, propagation
+                  Press Compute Impedance and review Z0, Îµeff, propagation
                   delay, and capacitance per length.
                 </li>
                 <li>
-                  To hit a target like 50 Ω, enter the target and press Solve
-                  Width — the required trace width is filled in for you.
+                  To hit a target like 50 Î©, enter the target and press Solve
+                  Width â€” the required trace width is filled in for you.
                 </li>
                 <li>
                   Copy the results into your stackup or routing note for the
@@ -870,7 +870,7 @@ Valid range: 0.1 &lt; w/h &lt; 3.0, 1 &lt; Er &lt; 15</pre>
             "out-cap",
             "out-ind",
             "out-wh",
-          ].forEach((id) => (document.getElementById(id).textContent = "—"));
+          ].forEach((id) => (document.getElementById(id).textContent = "â€”"));
           drawSection(null, null, null);
           return;
         }
@@ -887,7 +887,7 @@ Valid range: 0.1 &lt; w/h &lt; 3.0, 1 &lt; Er &lt; 15</pre>
             "out-cap",
             "out-ind",
             "out-wh",
-          ].forEach((id) => (document.getElementById(id).textContent = "—"));
+          ].forEach((id) => (document.getElementById(id).textContent = "â€”"));
           drawSection(null, null, null);
           return;
         }
@@ -904,7 +904,7 @@ Valid range: 0.1 &lt; w/h &lt; 3.0, 1 &lt; Er &lt; 15</pre>
         const indNhM = Z0 * sq * 3.3356;
         const wh = w / h;
 
-        document.getElementById("out-z0").textContent = Z0.toFixed(2) + " Ω";
+        document.getElementById("out-z0").textContent = Z0.toFixed(2) + " Î©";
         document.getElementById("out-eeff").textContent = eeff.toFixed(3);
         document.getElementById("out-delay").textContent =
           delayPsMm.toFixed(2) + " ps/mm (" + delayNsFt.toFixed(3) + " ns/ft)";
@@ -917,7 +917,7 @@ Valid range: 0.1 &lt; w/h &lt; 3.0, 1 &lt; Er &lt; 15</pre>
           " nH/m)";
         document.getElementById("out-wh").textContent =
           wh.toFixed(3) +
-          (wh >= 0.1 && wh <= 3.0 ? " (in range)" : " (outside 0.1–3.0)");
+          (wh >= 0.1 && wh <= 3.0 ? " (in range)" : " (outside 0.1â€“3.0)");
 
         window.__impedanceSummary =
           "PCB Microstrip Impedance Results\n" +
@@ -938,7 +938,7 @@ Valid range: 0.1 &lt; w/h &lt; 3.0, 1 &lt; Er &lt; 15</pre>
           "\n" +
           "Characteristic impedance Z0: " +
           Z0.toFixed(2) +
-          " Ω\n" +
+          " Î©\n" +
           "Effective dielectric (eeff): " +
           eeff.toFixed(3) +
           "\n" +
@@ -986,7 +986,7 @@ Valid range: 0.1 &lt; w/h &lt; 3.0, 1 &lt; Er &lt; 15</pre>
           errEl.textContent =
             "No positive width solves to " +
             target.toFixed(0) +
-            " Ω with this stackup. Adjust height or thickness.";
+            " Î© with this stackup. Adjust height or thickness.";
           errEl.classList.remove("hidden");
           return;
         }
@@ -1137,3 +1137,4 @@ Valid range: 0.1 &lt; w/h &lt; 3.0, 1 &lt; Er &lt; 15</pre>
     <script src="../js/context-engine.js" defer></script>
   </body>
 </html>
+

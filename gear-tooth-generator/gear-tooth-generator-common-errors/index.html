@@ -1,4 +1,4 @@
-<!doctype html>
+ï»¿<!doctype html>
 <html lang="en">
   <head>
     <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
@@ -38,7 +38,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png" />
 
     <link rel="manifest" href="../../site.webmanifest" />
-    <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#090d16" media="(prefers-color-scheme: dark)" />
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
     <meta property="og:type" content="article" />
     <meta property="og:site_name" content="TopWebTool" />
@@ -130,9 +130,9 @@
               class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4"
             >
               <span>Published: August 2026</span>
-              <span>•</span>
+              <span>â€¢</span>
               <span>Category: Industrial &amp; Engineering</span>
-              <span>•</span>
+              <span>â€¢</span>
               <span class="text-emerald-600 dark:text-emerald-400"
                 >No Sign-Up / 100% Free / No Registration</span
               >
@@ -154,7 +154,7 @@
                 Error number one: confusing module with diametral pitch. Module
                 is millimeters of pitch diameter per tooth; diametral pitch is
                 teeth per inch of pitch diameter. They are not interchangeable
-                and their relation, m = 25.4 ÷ P, is not a close call — a 1.5
+                and their relation, m = 25.4 Ã· P, is not a close call â€” a 1.5
                 module gear and a 1.5 diametral pitch gear are wildly different
                 sizes. The classic mistake is reading a metric drawing, seeing
                 "module 2", and cutting it as 2 DP, which produces a gear
@@ -169,17 +169,17 @@
                 of 2.25 modules. Using a dedendum equal to the addendum (1.0)
                 removes the tip clearance entirely, and the meshing partner's
                 tips grind into the roots. Using 1.2 instead of 1.25 for the
-                dedendum changes the root diameter by a tenth of a module —
+                dedendum changes the root diameter by a tenth of a module â€”
                 small on paper, fatal in a tight housing. The generator's
                 formula trace prints 1.0 and 1.25 explicitly, and any deviation
                 should be a deliberate, documented design choice.
               </p>
               <p class="mb-4">
                 Error number three: forgetting the pressure angle. The base
-                circle is D × cos a, and the involute flank depends entirely on
+                circle is D Ã— cos a, and the involute flank depends entirely on
                 a. Two gears with identical teeth and pitch but different
                 pressure angles look nearly identical to the naked eye and will
-                not mesh correctly — the contact is wrong and the drive runs
+                not mesh correctly â€” the contact is wrong and the drive runs
                 rough or jams. Replacing a gear in an existing transmission
                 without confirming its pressure angle is how "identical
                 replacement" gears arrive that do not fit. The generator makes
@@ -189,9 +189,9 @@
               </p>
               <p class="mb-4">
                 Error number four: computing the outside diameter from the wrong
-                formula. The outside diameter is (N + 2) × m, not N × m plus
+                formula. The outside diameter is (N + 2) Ã— m, not N Ã— m plus
                 something guessed at. When the pitch diameter is confused with
-                the outside diameter — a very common catalog error — the gear
+                the outside diameter â€” a very common catalog error â€” the gear
                 blank is cut too small, the teeth are too shallow, and the
                 addendum height is wrong. The mnemonic is that the addendum is
                 one full module above the pitch circle, so the outside diameter
@@ -203,26 +203,26 @@
                 millimeters and the tooth thickness in inches, or the pressure
                 angle in degrees and the base circle in feet. Any unit mismatch
                 silently shifts a dimension by 25.4 or the relevant factor. The
-                discipline is to convert everything to one system at the start —
+                discipline is to convert everything to one system at the start â€”
                 the generator works entirely in millimeters when module is
-                selected and inches when diametral pitch is selected — and to
+                selected and inches when diametral pitch is selected â€” and to
                 keep the units attached to every output, as the tool does.
               </p>
               <p class="mb-4">
                 Error number six: reading the circular pitch as the tooth
-                thickness. Circular pitch p = p × m is the distance from one
+                thickness. Circular pitch p = p Ã— m is the distance from one
                 tooth to the next; the tooth thickness at the pitch circle is
-                only p ÷ 2. Designers who specify the tooth thickness as the
+                only p Ã· 2. Designers who specify the tooth thickness as the
                 full circular pitch leave no space between teeth and the pair
                 cannot mesh. The generator outputs both, and the formula trace
                 shows the division by two.
               </p>
               <p class="mb-4">
                 Error number seven: ignoring undercut at low tooth counts. Below
-                about 17 teeth at 20° pressure angle the generating cutter
+                about 17 teeth at 20Â° pressure angle the generating cutter
                 undercuts the involute flank, weakening the tooth and reducing
                 the active profile. The dimension formulas still return numbers
-                — a 12-tooth, 2-module gear computes fine — but the computed
+                â€” a 12-tooth, 2-module gear computes fine â€” but the computed
                 involute is partly cut away. The generator flags the regime, and
                 the designer must respond with profile shift, a higher pinion
                 count, or an accepted rating reduction. Treating the nominal
@@ -231,7 +231,7 @@
               </p>
               <p class="mb-4">
                 Error number eight: assuming the center distance is whatever
-                fits. The theoretical center distance is (D1 + D2) ÷ 2, and the
+                fits. The theoretical center distance is (D1 + D2) Ã· 2, and the
                 housing must deliver it within tolerance. A common field error
                 is to force the gears into a slightly wrong center and accept
                 the "adjustment," which changes the operating pressure angle,
@@ -244,7 +244,7 @@
               <p class="mb-4">
                 Error number nine: using a drawing's pitch diameter as the
                 measurement diameter. Pitch diameter is a theoretical dimension
-                you cannot measure directly with calipers on a spur gear — what
+                you cannot measure directly with calipers on a spur gear â€” what
                 you measure is the outside diameter, or better, the measurement
                 over pins or balls. Specifying the pitch diameter as a machined
                 dimension invites confusion and rejects. The generator's copy
@@ -297,3 +297,4 @@
     <script src="../../js/context-engine.js" defer></script>
   </body>
 </html>
+

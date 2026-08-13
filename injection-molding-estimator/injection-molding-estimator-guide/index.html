@@ -1,4 +1,4 @@
-<!doctype html>
+ï»¿<!doctype html>
 <html lang="en">
   <head>
     <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
@@ -38,7 +38,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png" />
 
     <link rel="manifest" href="../../site.webmanifest" />
-    <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#090d16" media="(prefers-color-scheme: dark)" />
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
     <meta property="og:type" content="article" />
     <meta property="og:site_name" content="TopWebTool" />
@@ -130,9 +130,9 @@
               class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4"
             >
               <span>Published: August 2026</span>
-              <span>•</span>
+              <span>â€¢</span>
               <span>Category: Industrial &amp; Engineering</span>
-              <span>•</span>
+              <span>â€¢</span>
               <span class="text-emerald-600 dark:text-emerald-400"
                 >No Sign-Up / 100% Free / No Registration</span
               >
@@ -161,21 +161,21 @@
                 pressure pushes against the steel and tries to force the parting
                 line open, and the machine's clamp must generate enough force to
                 keep the two halves sealed. The force required is simply the
-                cavity pressure acting over the projected area of the part — the
+                cavity pressure acting over the projected area of the part â€” the
                 flat shadow the part casts on the parting line. Because clamping
                 force is measured in tons and pressure times area comes out in
                 pounds, the industry formula is: required tons = projected area
-                in square inches × cavity pressure in psi ÷ 2,000.
+                in square inches Ã— cavity pressure in psi Ã· 2,000.
               </p>
               <p class="mb-4">
                 That division by 2,000 is where the famous "2 to 5 tons per
                 square inch" rule of thumb comes from. A resin with a typical
                 cavity pressure of 5,000 psi needs 2.5 tons per square inch of
                 projected area; a stiff, viscous material like polycarbonate
-                with an 8,000–10,000 psi cavity pressure needs up to 5 tons per
+                with an 8,000â€“10,000 psi cavity pressure needs up to 5 tons per
                 square inch. The estimator embeds realistic cavity-pressure data
-                for nine resins — polyethylene at 5,000 psi, ABS at 8,500 psi,
-                and Nylon 6/6 and polycarbonate at 10,000 psi — and computes the
+                for nine resins â€” polyethylene at 5,000 psi, ABS at 8,500 psi,
+                and Nylon 6/6 and polycarbonate at 10,000 psi â€” and computes the
                 tonnage factor directly from the preset. Designers often confuse
                 projected area with total surface area. A deeply ribbed
                 electronics housing can have five square inches of total surface
@@ -188,13 +188,13 @@
                 The second number, cycle time, is dominated by cooling. When the
                 melt enters the cavity it must shed enough heat to solidify so
                 the part can be ejected without distortion, and because polymer
-                conducts heat poorly, that cooling step takes roughly 60–80% of
+                conducts heat poorly, that cooling step takes roughly 60â€“80% of
                 the entire cycle. The controlling variable is the nominal wall
                 thickness, because heat must travel through the wall from the
                 hot core to the mold surface. The analytical solution for a flat
                 slab cooled symmetrically from both faces is the Fourier
-                equation: cooling time = s² ÷ (p²·a) × ln[(4/p)·(T_melt -
-                T_mold) ÷ (T_eject - T_mold)], where s is the wall thickness in
+                equation: cooling time = sÂ² Ã· (pÂ²Â·a) Ã— ln[(4/p)Â·(T_melt -
+                T_mold) Ã· (T_eject - T_mold)], where s is the wall thickness in
                 millimeters, a is the resin's thermal diffusivity, and the three
                 temperatures are melt, mold, and ejection temperatures. The
                 thickness term is squared, which is why cooling time collapses
@@ -203,7 +203,7 @@
               </p>
               <p class="mb-4">
                 For quick sanity checks, molders use the empirical approximation
-                that cooling time in seconds is roughly 2·s² — about 8 seconds
+                that cooling time in seconds is roughly 2Â·sÂ² â€” about 8 seconds
                 for a 2 mm wall and 32 seconds for a 4 mm wall. The estimator
                 applies the full Fourier form with material-specific diffusivity
                 and temperature windows, which typically lands within a few
@@ -211,15 +211,15 @@
                 the cycle adds fill time (shot volume divided by the machine's
                 fill rate), a pack-and-hold phase of roughly 1.5 seconds to
                 compensate shrinkage, and the clamp open, ejection, and close
-                overhead of a few seconds. For the default scenario — a 24 in²
-                ABS part with a 2 mm wall in a 4-cavity tool — the model returns
+                overhead of a few seconds. For the default scenario â€” a 24 inÂ²
+                ABS part with a 2 mm wall in a 4-cavity tool â€” the model returns
                 roughly 9.4 seconds of cooling, about 1.2 seconds of fill, and a
                 15-second total cycle, or roughly 240 shots per hour.
               </p>
               <p class="mb-4">
                 The third number, shot weight, sizes the injection unit. The
-                estimator multiplies part volume — projected area times wall
-                thickness — by the resin density to get part weight, then scales
+                estimator multiplies part volume â€” projected area times wall
+                thickness â€” by the resin density to get part weight, then scales
                 by cavity count and a 15% runner allowance to account for the
                 sprue, runners, and gates that also freeze each cycle. The
                 runner allowance is a judgment call that varies with part size
@@ -227,7 +227,7 @@
                 entirely, while a cold two-plate tool on a small part can waste
                 30% or more of the shot. Shot weight drives screw size, barrel
                 residence time, and material cost, and it must stay within
-                roughly 25–80% of the machine's nominal shot capacity for good
+                roughly 25â€“80% of the machine's nominal shot capacity for good
                 plastication and residence time control.
               </p>
               <p class="mb-4">
@@ -236,8 +236,8 @@
                 locally thicken the wall, and it assumes the mold surface
                 temperature is uniform. Cavity pressure varies along the flow
                 path, so the peak near the gate is higher than the average near
-                the end of fill. Production quotes apply a safety factor —
-                commonly 10–20% on tonnage — and verify with mold-filling
+                the end of fill. Production quotes apply a safety factor â€”
+                commonly 10â€“20% on tonnage â€” and verify with mold-filling
                 simulation before cutting steel. But the value of the first-pass
                 estimate is that it catches gross sizing errors before they
                 become expensive, and it gives every member of the team the same
@@ -248,7 +248,7 @@
                 data leaving your machine. Select the resin, enter projected
                 area, wall thickness, and cavity count, and the tool returns
                 required tonnage, recommended machine size, cooling and cycle
-                breakdown, production rate, and shot weight in one view — with
+                breakdown, production rate, and shot weight in one view â€” with
                 the full formula trace underneath. It is the same
                 back-of-the-envelope math a mold estimator would do by hand,
                 automated and checked, and it is free to use for as many parts
@@ -291,3 +291,4 @@
     <script src="../../js/context-engine.js" defer></script>
   </body>
 </html>
+

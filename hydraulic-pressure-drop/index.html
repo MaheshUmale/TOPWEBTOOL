@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
   <head>
     <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
@@ -38,7 +38,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png" />
 
     <link rel="manifest" href="../site.webmanifest" />
-    <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#090d16" media="(prefers-color-scheme: dark)" />
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="TopWebTool" />
@@ -58,7 +58,7 @@
         background-color: #fff;
       }
       html.dark {
-        background-color: #0f172a;
+        background-color: #090d16;
       }
       body {
         padding-bottom: 6rem;
@@ -176,7 +176,7 @@
               </h2>
               <span
                 class="text-xs font-bold text-slate-400 uppercase tracking-wide hidden sm:inline"
-                >🌊 Flow &amp; Friction</span
+                >ðŸŒŠ Flow &amp; Friction</span
               >
             </div>
 
@@ -243,16 +243,16 @@
                     class="w-full px-3 py-2.5 border border-slate-300 rounded-lg bg-white text-slate-950 focus:ring-2 focus:ring-brand-500 focus:border-brand-500"
                   >
                     <option value="water" selected>
-                      Water @ 68°F (ρ 62.4 lb/ft³, 1.0 cSt)
+                      Water @ 68Â°F (Ï 62.4 lb/ftÂ³, 1.0 cSt)
                     </option>
                     <option value="glycol">
-                      Ethylene Glycol 50/50 (ρ 65.6 lb/ft³, 8.0 cSt)
+                      Ethylene Glycol 50/50 (Ï 65.6 lb/ftÂ³, 8.0 cSt)
                     </option>
                     <option value="oil10w">
-                      SAE 10W Oil (ρ 56.5 lb/ft³, 32 cSt)
+                      SAE 10W Oil (Ï 56.5 lb/ftÂ³, 32 cSt)
                     </option>
                     <option value="oil30">
-                      SAE 30 Oil (ρ 54.3 lb/ft³, 110 cSt)
+                      SAE 30 Oil (Ï 54.3 lb/ftÂ³, 110 cSt)
                     </option>
                   </select>
                 </div>
@@ -279,7 +279,7 @@
                   <label
                     for="roughness"
                     class="block text-sm font-semibold text-slate-700 mb-2"
-                    >Absolute Roughness ε (ft)</label
+                    >Absolute Roughness Îµ (ft)</label
                   >
                   <input
                     id="roughness"
@@ -332,7 +332,7 @@
                   id="val-velocity"
                   class="text-2xl font-extrabold text-brand-600 dark:text-brand-400 mt-1"
                 >
-                  —
+                  â€”
                 </p>
                 <p class="text-xs text-slate-400 mt-1">ft/s (m/s)</p>
               </div>
@@ -348,7 +348,7 @@
                   id="val-reynolds"
                   class="text-2xl font-extrabold text-brand-600 dark:text-brand-400 mt-1"
                 >
-                  —
+                  â€”
                 </p>
                 <p class="text-xs text-slate-400 mt-1">dimensionless</p>
               </div>
@@ -364,7 +364,7 @@
                   id="val-regime"
                   class="text-2xl font-extrabold text-brand-600 dark:text-brand-400 mt-1"
                 >
-                  —
+                  â€”
                 </p>
                 <p class="text-xs text-slate-400 mt-1">
                   laminar / transitional / turbulent
@@ -382,7 +382,7 @@
                   id="val-friction"
                   class="text-2xl font-extrabold text-brand-600 dark:text-brand-400 mt-1"
                 >
-                  —
+                  â€”
                 </p>
                 <p class="text-xs text-slate-400 mt-1">Darcy-Weisbach</p>
               </div>
@@ -392,13 +392,13 @@
                 <p
                   class="text-xs font-bold text-slate-400 uppercase tracking-wider"
                 >
-                  Pressure Drop ΔP
+                  Pressure Drop Î”P
                 </p>
                 <p
                   id="val-pressure"
                   class="text-2xl font-extrabold text-brand-600 dark:text-brand-400 mt-1"
                 >
-                  —
+                  â€”
                 </p>
                 <p class="text-xs text-slate-400 mt-1">psi (kPa)</p>
               </div>
@@ -414,7 +414,7 @@
                   id="val-head"
                   class="text-2xl font-extrabold text-brand-600 dark:text-brand-400 mt-1"
                 >
-                  —
+                  â€”
                 </p>
                 <p class="text-xs text-slate-400 mt-1">ft of fluid column</p>
               </div>
@@ -430,10 +430,10 @@
                 class="bg-slate-950 text-emerald-400 p-4 rounded-xl font-mono text-xs overflow-x-auto break-all shadow-inner"
                 id="out-breakdown"
               >
-Waiting for input…</pre>
+Waiting for inputâ€¦</pre>
             </div>
 
-            <pre class="hidden" id="out-copy">…</pre>
+            <pre class="hidden" id="out-copy">â€¦</pre>
 
             <div class="flex justify-end pt-2">
               <button
@@ -578,7 +578,7 @@ Waiting for input…</pre>
     <script>
       const FLUIDS = {
         water: {
-          name: "Water @ 68°F",
+          name: "Water @ 68Â°F",
           rho: 62.4,
           nuCs: 1.0,
           nuFt2s: 1.0764e-5,
@@ -661,30 +661,30 @@ Waiting for input…</pre>
 
         document.getElementById("out-breakdown").textContent =
           "Velocity  v = Q / A\n" +
-          "  A = π/4 × (" +
+          "  A = Ï€/4 Ã— (" +
           D +
-          " in / 12)² = " +
+          " in / 12)Â² = " +
           area.toFixed(5) +
-          " ft²\n" +
+          " ftÂ²\n" +
           "  Q = " +
           Q +
-          " gpm × 0.002228 = " +
+          " gpm Ã— 0.002228 = " +
           Qcfs.toFixed(5) +
-          " ft³/s\n" +
+          " ftÂ³/s\n" +
           "  v = " +
           v.toFixed(2) +
           " ft/s\n" +
-          "Reynolds  Re = v × D / ν\n" +
+          "Reynolds  Re = v Ã— D / Î½\n" +
           "  = " +
           v.toFixed(2) +
-          " × " +
+          " Ã— " +
           Dft.toFixed(4) +
           " / " +
           fluid.nuFt2s.toExponential(1) +
           "\n" +
           "  = " +
           Re.toFixed(0) +
-          "  →  " +
+          "  â†’  " +
           regime +
           "\n" +
           "Friction factor f = " +
@@ -693,28 +693,28 @@ Waiting for input…</pre>
             ? "  (64/Re)"
             : "  (Haaland approximation of Colebrook)" +
               "\n" +
-              "  ε/D = " +
+              "  Îµ/D = " +
               eps +
               " / " +
               Dft.toFixed(4) +
               " = " +
               (eps / Dft).toExponential(2)) +
           "\n" +
-          "Pressure drop  ΔP = f × (L/D) × (ρ × v²/2)\n" +
+          "Pressure drop  Î”P = f Ã— (L/D) Ã— (Ï Ã— vÂ²/2)\n" +
           "  = " +
           f.toFixed(5) +
-          " × (" +
+          " Ã— (" +
           L +
           "/" +
           Dft.toFixed(4) +
-          ") × (" +
+          ") Ã— (" +
           fluid.rho +
-          " × " +
+          " Ã— " +
           (v * v).toFixed(2) +
           "/2)\n" +
           "  = " +
           dPpsf.toFixed(1) +
-          " lb/ft² = " +
+          " lb/ftÂ² = " +
           dPpsi.toFixed(2) +
           " psi (" +
           dPkPa.toFixed(1) +
@@ -728,9 +728,9 @@ Waiting for input…</pre>
           "Hydraulic Pressure Drop Model\n" +
           "Fluid: " +
           fluid.name +
-          " (ρ " +
+          " (Ï " +
           fluid.rho +
-          " lb/ft³, ν " +
+          " lb/ftÂ³, Î½ " +
           fluid.nuCs +
           " cSt)\n" +
           "Flow rate: " +
@@ -745,7 +745,7 @@ Waiting for input…</pre>
           "Absolute roughness: " +
           eps +
           " ft\n" +
-          "— Results —\n" +
+          "â€” Results â€”\n" +
           "Velocity: " +
           v.toFixed(2) +
           " ft/s (" +
@@ -807,3 +807,4 @@ Waiting for input…</pre>
     <script src="../js/context-engine.js" defer></script>
   </body>
 </html>
+

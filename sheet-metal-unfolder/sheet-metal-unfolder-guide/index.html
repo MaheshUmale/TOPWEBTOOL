@@ -1,4 +1,4 @@
-<!doctype html>
+ï»¿<!doctype html>
 <html lang="en">
   <head>
     <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
@@ -38,7 +38,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png" />
 
     <link rel="manifest" href="../../site.webmanifest" />
-    <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#090d16" media="(prefers-color-scheme: dark)" />
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
     <meta property="og:type" content="article" />
     <meta property="og:site_name" content="TopWebTool" />
@@ -130,9 +130,9 @@
               class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4"
             >
               <span>Published: August 2026</span>
-              <span>•</span>
+              <span>â€¢</span>
               <span>Category: Industrial & Engineering</span>
-              <span>•</span>
+              <span>â€¢</span>
               <span class="text-emerald-600 dark:text-emerald-400"
                 >No Sign-Up / 100% Free / No Registration</span
               >
@@ -146,7 +146,7 @@
                 Bending a piece of sheet metal changes its length. A strip of
                 16-gauge steel that measures exactly 4.000 inches across the
                 outer faces before bending will not measure 4.000 inches flat
-                afterwards — the blank that produced it had to be slightly
+                afterwards â€” the blank that produced it had to be slightly
                 longer than the sum of the leg dimensions written on the
                 drawing. The discipline that handles this shrinkage is bend
                 allowance, and the parameter that controls it is the K-factor.
@@ -161,7 +161,7 @@
                 length, so the flat blank cannot simply be the sum of the
                 measured leg distances. Somewhere between the inner and outer
                 surfaces there is a plane that neither stretches nor compresses
-                — it stays exactly the same length through the bend. That plane
+                â€” it stays exactly the same length through the bend. That plane
                 is the neutral axis, and its arc through the bend region is the
                 length you actually have to account for in the flat pattern.
               </p>
@@ -173,8 +173,8 @@
                 material, measured from the inside of the bend. The neutral axis
                 radius is therefore R plus K times T, where R is the inside
                 radius and T is the thickness. In the most common air-bending
-                setup — a 90-degree bend in a V-die with the inside radius
-                roughly equal to the thickness — that K-factor lands near 0.44,
+                setup â€” a 90-degree bend in a V-die with the inside radius
+                roughly equal to the thickness â€” that K-factor lands near 0.44,
                 which is why it is the default starting value for most
                 bend-development work.
               </p>
@@ -182,11 +182,11 @@
                 Bend allowance is simply the arc length of the neutral axis
                 through the bend region. Because it is an arc, it is computed
                 from the included bend angle and the neutral axis radius: BA = ?
-                × (p/180) × (R + K×T). The p/180 factor converts the angle from
+                Ã— (p/180) Ã— (R + KÃ—T). The p/180 factor converts the angle from
                 degrees to radians. For a 90-degree bend in 0.060-inch steel
                 with a 0.0625-inch inside radius and K = 0.44, the neutral
-                radius is 0.0625 + 0.44 × 0.060 = 0.0889 inches, and the bend
-                allowance is 90 × 0.0174533 × 0.0889 ˜ 0.1397 inches. That small
+                radius is 0.0625 + 0.44 Ã— 0.060 = 0.0889 inches, and the bend
+                allowance is 90 Ã— 0.0174533 Ã— 0.0889 Ëœ 0.1397 inches. That small
                 fraction of an inch is exactly the difference between a perfect
                 part and a blank that is 0.14 inches too short on the flanges.
               </p>
@@ -206,13 +206,13 @@
                 because it is not a constant of the material. It depends on the
                 bending method and on the ratio of inside radius to thickness.
                 Air bending with a large V-die opening and a radius greater than
-                the thickness pushes the neutral axis inward, toward K ˜ 0.40.
+                the thickness pushes the neutral axis inward, toward K Ëœ 0.40.
                 Bottoming, where the punch forces the sheet to conform to the
                 die cavity, moves it outward to roughly 0.33. Coining, which
                 fully contains and compresses the material, lands near 0.30, and
                 wipe or hemming operations can reach up toward 0.50. The
                 practical consequence: one K-factor per material is never enough
-                — you need one K-factor per radius-to-thickness ratio you
+                â€” you need one K-factor per radius-to-thickness ratio you
                 actually bend.
               </p>
               <p class="mb-4">
@@ -245,8 +245,8 @@
                 process rather than a guess. Identify the material and
                 thickness, choose the bending method and tooling, estimate or
                 calibrate the K-factor for the specific radius-to-thickness
-                ratio, and compute the flat pattern with the formula BA = ? ×
-                (p/180) × (R + K×T). The Sheet Metal Bend Allowance Unfolder
+                ratio, and compute the flat pattern with the formula BA = ? Ã—
+                (p/180) Ã— (R + KÃ—T). The Sheet Metal Bend Allowance Unfolder
                 automates the arithmetic and produces a clean, copyable
                 development you can hand to the shear or the laser. Start with
                 the air-bend preset near 0.44, verify on a test piece, and
@@ -289,3 +289,4 @@
     <script src="../../js/context-engine.js" defer></script>
   </body>
 </html>
+

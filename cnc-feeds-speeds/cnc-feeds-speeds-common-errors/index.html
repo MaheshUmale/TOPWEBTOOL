@@ -1,4 +1,4 @@
-<!doctype html>
+ï»¿<!doctype html>
 <html lang="en">
   <head>
     <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
@@ -38,7 +38,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png" />
 
     <link rel="manifest" href="../../site.webmanifest" />
-    <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#090d16" media="(prefers-color-scheme: dark)" />
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
     <meta property="og:type" content="article" />
     <meta property="og:site_name" content="TopWebTool" />
@@ -130,9 +130,9 @@
               class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4"
             >
               <span>Published: August 2026</span>
-              <span>•</span>
+              <span>â€¢</span>
               <span>Category: Industrial & Engineering</span>
-              <span>•</span>
+              <span>â€¢</span>
               <span class="text-emerald-600 dark:text-emerald-400"
                 >No Sign-Up / 100% Free / No Registration</span
               >
@@ -145,7 +145,7 @@
               <p class="mb-4">
                 When a new cutter fails on the first part, the cause is almost
                 never bad luck. It is a predictable error in the cutting-data
-                chain — a unit conversion, a misread chip load, an engagement
+                chain â€” a unit conversion, a misread chip load, an engagement
                 that the tool geometry cannot support, or a spindle pushed past
                 its torque curve. Knowing the classic failure modes makes them
                 cheap to avoid. Here are the most common mistakes machinists and
@@ -158,7 +158,7 @@
                 meters per minute (m/min), and mixing them shifts the spindle
                 speed by a factor of 3.28. Similarly, entering a cutter diameter
                 in millimeters into a formula written for inches raises RPM by
-                25.4 times — a number that will shatter a carbide end mill on
+                25.4 times â€” a number that will shatter a carbide end mill on
                 contact. Every formula in this tool works in inches and SFM
                 only, so keep the units consistent when transferring data from a
                 catalog, a CAM package, or a manufacturer's app. When copying
@@ -194,7 +194,7 @@
                 Ignoring engagement when comparing tools causes feed errors that
                 travel from job to job. A feed rate that works for a 0.375-inch,
                 4-flute tool cannot simply be doubled for a 0.750-inch, 4-flute
-                tool — the edge speed and the arc of engagement both change. The
+                tool â€” the edge speed and the arc of engagement both change. The
                 correct approach is to re-derive RPM from surface speed and
                 diameter, then recompute feed from the new RPM, the flute count,
                 and a target chip load. This is precisely what the CNC Feeds,
@@ -208,8 +208,8 @@
                 but ignores the horsepower demand feeds the machine until the
                 spindle stalls, the servo faults, or the toolholder slips. The
                 power estimate belongs in the setup review: multiply the planned
-                MRR by the material power factor — about 0.3 for aluminum, 0.9
-                for 4140 steel, 1.1 for stainless, 1.6 for titanium — and
+                MRR by the material power factor â€” about 0.3 for aluminum, 0.9
+                for 4140 steel, 1.1 for stainless, 1.6 for titanium â€” and
                 compare the result against the machine's continuous spindle
                 rating. If the pass needs 12 horsepower and the machine has 10,
                 the program is wrong, not the machine.
@@ -218,7 +218,7 @@
                 Chatter is often misdiagnosed as too much feed when it is
                 actually too much speed. A buzzing, harmonic squeal in the cut
                 is a resonant vibration, and the standard response is to drop
-                RPM — sometimes by 20 percent or more — while holding or
+                RPM â€” sometimes by 20 percent or more â€” while holding or
                 slightly increasing the feed to preserve chip thickness. Adding
                 rigidity at the source is even better: shorten tool overhang,
                 use a stub-length holder, or switch to a variable-flute tool
@@ -246,7 +246,7 @@
                 window. The disciplined workflow is to run the calculation,
                 start near the middle of the range, make a test pass, and adjust
                 based on chip color, tool sound, and finish. Every mistake
-                listed here is detectable on the first pass if you are looking —
+                listed here is detectable on the first pass if you are looking â€”
                 and every one of them becomes avoidable once the calculation
                 chain is done right.
               </p>
@@ -287,3 +287,4 @@
     <script src="../../js/context-engine.js" defer></script>
   </body>
 </html>
+

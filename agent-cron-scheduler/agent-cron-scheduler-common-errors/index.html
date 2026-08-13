@@ -1,4 +1,4 @@
-<!doctype html>
+ï»¿<!doctype html>
 <html lang="en">
   <head>
     <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
@@ -38,7 +38,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png" />
 
     <link rel="manifest" href="../../site.webmanifest" />
-    <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#090d16" media="(prefers-color-scheme: dark)" />
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
     <meta property="og:type" content="article" />
     <meta property="og:site_name" content="TopWebTool" />
@@ -130,9 +130,9 @@
               class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4"
             >
               <span>Published: August 2026</span>
-              <span>•</span>
+              <span>â€¢</span>
               <span>Category: AI Agent & Automation</span>
-              <span>•</span>
+              <span>â€¢</span>
               <span class="text-emerald-600 dark:text-emerald-400"
                 >No Sign-Up / 100% Free / No Registration</span
               >
@@ -143,13 +143,13 @@
               class="text-slate-600 dark:text-slate-300 space-y-4 leading-relaxed text-sm"
             >
               <p class="mb-4">
-                The most common cron failure is not a crashed job — it is a
+                The most common cron failure is not a crashed job â€” it is a
                 schedule that silently means something other than what its
                 author intended. Because crontab has no type system and no
                 compiler, a typo like
                 <code class="font-mono text-xs">0 9 * * 8</code> is accepted by
                 most daemons and simply never fires, since day-of-week 8 is
-                outside the legal 0–7 range. The job sits in the crontab looking
+                outside the legal 0â€“7 range. The job sits in the crontab looking
                 healthy while nothing ever happens. This is exactly why
                 validation before deployment matters: every field should be
                 checked against its legal range the moment you build it.
@@ -170,7 +170,7 @@
               <p class="mb-4">
                 The single most misunderstood behavior in cron is the
                 day-of-month versus day-of-week rule. When both fields are
-                restricted, standard cron fires when either matches — it is an
+                restricted, standard cron fires when either matches â€” it is an
                 OR, not an AND. The expression
                 <code class="font-mono text-xs">0 9 1 * 1</code> therefore runs
                 on the first of every month plus every Monday, which surprises
@@ -217,7 +217,7 @@
               <p class="mb-4">
                 Step-value drift is subtler still. An expression like
                 <code class="font-mono text-xs">*/45 * * * *</code> does not
-                fire at 00:45 and 01:30 cleanly forever — the occurrences land
+                fire at 00:45 and 01:30 cleanly forever â€” the occurrences land
                 at 00:00, 00:45, 01:30, 02:15, 03:00 and so on, resetting each
                 hour because 60 is not divisible by 45. Teams that expect a
                 strict every-45-minutes cadence are surprised by the uneven
@@ -230,7 +230,7 @@
                 confusion. Crontab is relative to the wall clock, not to "when I
                 deployed it," and an expression like
                 <code class="font-mono text-xs">*/10 * * * *</code> fires at
-                minute 0, 10, 20 and so on — not ten minutes after you added it.
+                minute 0, 10, 20 and so on â€” not ten minutes after you added it.
                 Teams that expect relative intervals are routinely baffled by
                 the first run. The next-run preview from a chosen start datetime
                 makes the anchor explicit, letting you confirm that the first
@@ -242,7 +242,7 @@
                 whitespace corruption, or timezone drift. Each is easy to
                 prevent with validation and a next-run preview. Build your
                 expression visually, watch the computed occurrences, and copy
-                the verified string into production — the errors above become
+                the verified string into production â€” the errors above become
                 rare rather than routine.
               </p>
               <p class="mb-4">
@@ -299,3 +299,4 @@
     <script src="../../js/context-engine.js" defer></script>
   </body>
 </html>
+

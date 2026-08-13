@@ -1,4 +1,4 @@
-<!doctype html>
+ï»¿<!doctype html>
 <html lang="en">
   <head>
     <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
@@ -38,7 +38,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png" />
 
     <link rel="manifest" href="../../site.webmanifest" />
-    <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#090d16" media="(prefers-color-scheme: dark)" />
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
     <meta property="og:type" content="article" />
     <meta property="og:site_name" content="TopWebTool" />
@@ -130,9 +130,9 @@
               class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4"
             >
               <span>Published: August 2026</span>
-              <span>•</span>
+              <span>â€¢</span>
               <span>Category: AI Agent & Automation</span>
-              <span>•</span>
+              <span>â€¢</span>
               <span class="text-emerald-600 dark:text-emerald-400"
                 >No Sign-Up / 100% Free / No Registration</span
               >
@@ -150,7 +150,7 @@
                 transition reads, merge them. If a state exists only to
                 distinguish "waiting for X" from "waiting for Y" and the routing
                 treats both identically, collapse it. The analysis tools make
-                this concrete — a small, dense graph is cheaper to review,
+                this concrete â€” a small, dense graph is cheaper to review,
                 cheaper to test, and cheaper to reason about than a sprawling
                 one.
               </p>
@@ -161,13 +161,13 @@
                 state, done. Nondeterminism forces probing, fallbacks, and
                 reconciliation logic that multiply latency and invite bugs. The
                 evaluator's conflict detection is effectively a determinism
-                linter — clear every conflict and your router becomes a simple,
+                linter â€” clear every conflict and your router becomes a simple,
                 fast table rather than a decision procedure.
               </p>
               <p class="mb-4">
                 Event-driven routing beats polling in both latency and cost.
                 Rather than a timer that periodically asks "should I move now?",
-                a proper event — a webhook, a queue message, a callback —
+                a proper event â€” a webhook, a queue message, a callback â€”
                 advances the machine the moment the condition changes. For
                 agents, this is doubly important: event-driven transitions avoid
                 waking a model to re-check a condition that already resolved,
@@ -177,8 +177,8 @@
               </p>
               <p class="mb-4">
                 Cache the parts of the machine that don't change. A compiled
-                transition table — states indexed, events hashed, targets
-                pre-resolved — turns every routing decision into a memory
+                transition table â€” states indexed, events hashed, targets
+                pre-resolved â€” turns every routing decision into a memory
                 lookup, which matters when a high-volume agent processes
                 thousands of events per second. If your runtime rebuilds the
                 machine from a table on every event, hoist that build once at
@@ -194,7 +194,7 @@
                 design should make it terminate. A common pattern is three
                 retries, then an
                 <code class="font-mono text-xs">escalated</code> state with a
-                human or a fallback model — the loop converts from an infinite
+                human or a fallback model â€” the loop converts from an infinite
                 concern to a bounded, observable one.
               </p>
               <p class="mb-4">
@@ -205,7 +205,7 @@
                 automatically, asserting that no reachable state is a dead-end
                 and no event leaves the machine without a defined target.
                 Because the transition table is data, the test can iterate it
-                directly — coverage is mechanical, not heroic.
+                directly â€” coverage is mechanical, not heroic.
               </p>
               <p class="mb-4">
                 Feed telemetry back into design. Track time spent per state and
@@ -213,7 +213,7 @@
                 almost never entered may be a candidate for removal, and an
                 event that fires far more than expected may reveal a hidden
                 retry loop. The analyzer's degree counts (in-degree and
-                out-degree) are the static version of this — states with zero or
+                out-degree) are the static version of this â€” states with zero or
                 one transitions deserve scrutiny. Metrics close the loop between
                 the model on the whiteboard and the machine in production.
               </p>
@@ -222,7 +222,7 @@
                 events are cheap (a parsed response, a lookup) and some are
                 expensive (a new model call, an external API). Arrange the
                 machine so cheap gates run first and expensive transitions fire
-                only when necessary — the same philosophy as guard-condition
+                only when necessary â€” the same philosophy as guard-condition
                 design, but applied to cost. A router that can reject or
                 short-circuit before invoking a model is the single biggest
                 agent-budget saver in the pattern.
@@ -230,7 +230,7 @@
               <p class="mb-4">
                 Optimization, then, is a loop of subtraction, determinism,
                 events, caching, bounded retries, exhaustive tests, and
-                cost-gated transitions. None of it changes the core model —
+                cost-gated transitions. None of it changes the core model â€”
                 states and events remain the vocabulary. It simply makes the
                 machine small, fast, deterministic, and measurable, which is
                 precisely what a production agent needs to run at scale without
@@ -242,7 +242,7 @@
                 encoding the value of every flag and counter into distinct
                 states, so the model grows combinatorially as features are
                 added. The escape hatch is to separate what a state is from what
-                a state knows — let a state be a coarse phase of the workflow
+                a state knows â€” let a state be a coarse phase of the workflow
                 and carry the details in payload or context data, with the
                 machine governing only the coarse transitions. A machine that
                 models "phase plus data" stays small while remaining fully
@@ -290,3 +290,4 @@
     <script src="../../js/context-engine.js" defer></script>
   </body>
 </html>
+

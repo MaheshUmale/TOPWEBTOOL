@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
   <head>
     <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
@@ -35,7 +35,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png" />
 
     <link rel="manifest" href="../site.webmanifest" />
-    <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#090d16" media="(prefers-color-scheme: dark)" />
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="TopWebTool" />
@@ -55,7 +55,7 @@
         background-color: #fff;
       }
       html.dark {
-        background-color: #0f172a;
+        background-color: #090d16;
       }
       body {
         padding-bottom: 6rem;
@@ -157,7 +157,7 @@
             <p class="mt-2 text-base text-slate-500 dark:text-slate-400">
               Define your agent's states and transitions as rows or pasted text,
               then detect unreachable states, duplicates, cycles, and dead-ends
-              — with a DOT-style graph export.
+              â€” with a DOT-style graph export.
             </p>
           </div>
 
@@ -401,7 +401,7 @@ idle, reset, idle</textarea>
                   actually be entered. Cycle detection runs a depth-first search
                   with a recursion stack: any back edge to a grey (in-progress)
                   node reveals an infinite loop, including self-loops like
-                  <code class="font-mono text-xs">idle → idle</code>. Duplicate
+                  <code class="font-mono text-xs">idle â†’ idle</code>. Duplicate
                   and conflicting transitions are found by grouping transitions
                   on <code class="font-mono text-xs">from + event</code>;
                   duplicates repeat an identical route while conflicts fan out
@@ -418,7 +418,7 @@ idle, reset, idle</textarea>
                 >
                   <li>
                     A start state that isn't in the transition set is flagged
-                    immediately — reachability has nowhere to begin.
+                    immediately â€” reachability has nowhere to begin.
                   </li>
                   <li>
                     States with only incoming edges (like
@@ -428,7 +428,7 @@ idle, reset, idle</textarea>
                   </li>
                   <li>
                     Duplicate routes that look identical may hide a mismatch in
-                    event spelling — each warning shows the exact offending
+                    event spelling â€” each warning shows the exact offending
                     strings.
                   </li>
                   <li>
@@ -659,7 +659,7 @@ idle, reset, idle</textarea>
 
         const del = document.createElement("button");
         del.type = "button";
-        del.textContent = "✕";
+        del.textContent = "âœ•";
         del.setAttribute("aria-label", "Remove transition");
         del.className =
           "w-10 h-10 shrink-0 flex items-center justify-center text-sm font-bold rounded-lg border border-slate-300 dark:border-slate-700 text-red-500 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-950/40 transition-colors";
@@ -689,7 +689,7 @@ idle, reset, idle</textarea>
         lines.forEach((line) => {
           let parts = null;
           if (line.indexOf("->") !== -1) parts = line.split("->");
-          else if (line.indexOf("→") !== -1) parts = line.split("→");
+          else if (line.indexOf("â†’") !== -1) parts = line.split("â†’");
           else if (line.indexOf(",") !== -1) parts = line.split(",");
           else parts = line.split(/\s+/);
           const clean = parts.map((p) => p.trim()).filter(Boolean);
@@ -902,7 +902,7 @@ idle, reset, idle</textarea>
             detail:
               '"' +
               s +
-              '" has no outgoing transitions — terminal by design or missing handling.',
+              '" has no outgoing transitions â€” terminal by design or missing handling.',
           }),
         );
 
@@ -964,7 +964,7 @@ idle, reset, idle</textarea>
         });
         document.getElementById("warnings-table").innerHTML = warnings.length
           ? warnRows.join("")
-          : '<tr><td colspan="3" class="p-3 text-emerald-600 dark:text-emerald-400">No issues found — the state machine is clean.</td></tr>';
+          : '<tr><td colspan="3" class="p-3 text-emerald-600 dark:text-emerald-400">No issues found â€” the state machine is clean.</td></tr>';
 
         const dot = [];
         dot.push("digraph agent_router {");
@@ -996,7 +996,7 @@ idle, reset, idle</textarea>
           status.className =
             "text-sm font-semibold text-amber-600 dark:text-amber-400";
         } else {
-          status.textContent = states.length + " states — no issues found";
+          status.textContent = states.length + " states â€” no issues found";
           status.className =
             "text-sm font-semibold text-emerald-600 dark:text-emerald-400";
         }
@@ -1040,3 +1040,4 @@ idle, reset, idle</textarea>
     </script>
   </body>
 </html>
+

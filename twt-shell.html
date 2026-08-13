@@ -1,52 +1,52 @@
-<!doctype html>
+﻿<!doctype html>
 <!--
   ============================================================================
-  TopWebTool GLOBAL BOILERPLATE WRAPPER — reference template
+  TopWebTool GLOBAL BOILERPLATE WRAPPER â€” reference template
   ============================================================================
   This is the single source of truth for the premium uniform framework.
   Map any of the 83 existing tool/article pages into it by following the
   class contract below. The engine (`twt-shell.js`) auto-wraps any page
-  that matches this skeleton — no tool JS is ever touched.
+  that matches this skeleton â€” no tool JS is ever touched.
 
   STRUCTURAL CLASS CONTRACT
   ----------------------------------------------------------------------------
-  body.twt-shell                      → enables the framework + theme hooks
-  header#global-header                → sticky top chrome (rendered by global.js)
-  .twt-shell__frame                   → grid: nav | workspace | rail  (auto)
-    .twt-shell__nav                   → LEFT NAV SIDEBAR (desktop ≥1200px)
-    main.twt-shell__workspace         → CENTER WORKSPACE + SEO CONTENT
-      #ad-slot-a                      → TOP BANNER   (min-height 90px)
-      .twt-tool                       → THE TOOL WIDGET (existing markup)
-      #ad-slot-square (auto-promoted) → MID-INLINE   (min-height 250px, auto)
-      #seo-instructional-hub / article → SEO ARTICLE COPY (.twt-prose typography)
-    .twt-shell__rail                  → RIGHT STICKY AD RAIL (≥768px)
-      #trending-sidebar (auto-moved)  → searchable utility panel (tablet split-pane)
-      #ad-slot-vertical               → SKYSCRAPER 300x600 (desktop only)
-  footer#global-footer                → bottom chrome (rendered by global.js)
+  body.twt-shell                      â†’ enables the framework + theme hooks
+  header#global-header                â†’ sticky top chrome (rendered by global.js)
+  .twt-shell__frame                   â†’ grid: nav | workspace | rail  (auto)
+    .twt-shell__nav                   â†’ LEFT NAV SIDEBAR (desktop â‰¥1200px)
+    main.twt-shell__workspace         â†’ CENTER WORKSPACE + SEO CONTENT
+      #ad-slot-a                      â†’ TOP BANNER   (min-height 90px)
+      .twt-tool                       â†’ THE TOOL WIDGET (existing markup)
+      #ad-slot-square (auto-promoted) â†’ MID-INLINE   (min-height 250px, auto)
+      #seo-instructional-hub / article â†’ SEO ARTICLE COPY (.twt-prose typography)
+    .twt-shell__rail                  â†’ RIGHT STICKY AD RAIL (â‰¥768px)
+      #trending-sidebar (auto-moved)  â†’ searchable utility panel (tablet split-pane)
+      #ad-slot-vertical               â†’ SKYSCRAPER 300x600 (desktop only)
+  footer#global-footer                â†’ bottom chrome (rendered by global.js)
 
   AUTO-REARRANGEMENT (engine reparents, never clones/duplicates)
   ----------------------------------------------------------------------------
-  1. `#trending-sidebar` panel        → moved whole into the rail (search intact)
-  2. `#ad-slot-square` (250px)        → becomes the mid-inline unit, inserted
+  1. `#trending-sidebar` panel        â†’ moved whole into the rail (search intact)
+  2. `#ad-slot-square` (250px)        â†’ becomes the mid-inline unit, inserted
                                         between the tool widget and SEO content
-  3. `#ad-slot-vertical` (300x600)    → becomes the rail skyscraper
-  4. Legacy `lg:grid-cols-4` wrapper  → neutralized; sidebar column hidden so the
+  3. `#ad-slot-vertical` (300x600)    â†’ becomes the rail skyscraper
+  4. Legacy `lg:grid-cols-4` wrapper  â†’ neutralized; sidebar column hidden so the
                                         workspace is one full-width column
-  5. Fallback (no trending panel)     → engine injects `.twt-rail__links` with
+  5. Fallback (no trending panel)     â†’ engine injects `.twt-rail__links` with
                                         the first 12 registry tools
 
   RESPONSIVE MATRIX
   ----------------------------------------------------------------------------
   <768px      single-column dashboard, inputs forced to 16px (no iOS zoom)
-  768–1199px  dual split-pane: workspace + rail (utility panel; no skyscraper)
-  ≥1200px     3-column execution engine, max-width 1400px, rail + nav sticky
+  768â€“1199px  dual split-pane: workspace + rail (utility panel; no skyscraper)
+  â‰¥1200px     3-column execution engine, max-width 1400px, rail + nav sticky
 
   ASSET INGESTION (add to every mapped page)
   ----------------------------------------------------------------------------
   <link rel="stylesheet" href="../topwebtool-core.css" />
   <script src="../twt-shell.js" defer></script>
-  (then load ORDER: styles.css → global.css → topwebtool-core.css;
-   scripts: global.js → twt-shell.js, both defer)
+  (then load ORDER: styles.css â†’ global.css â†’ topwebtool-core.css;
+   scripts: global.js â†’ twt-shell.js, both defer)
   ============================================================================
 -->
 <html lang="en">
@@ -79,7 +79,7 @@
 
     <!-- @TODO: replace per tool -->
     <title>Tool Name | TopWebTool</title>
-    <meta name="description" content="Tool description for SEO — replace me." />
+    <meta name="description" content="Tool description for SEO â€” replace me." />
     <link rel="canonical" href="https://topwebtool.com/tool-name/" />
 
     <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
@@ -87,13 +87,13 @@
     <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png" />
     <link rel="manifest" href="../site.webmanifest" />
-    <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#090d16" media="(prefers-color-scheme: dark)" />
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
 
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="TopWebTool" />
     <meta property="og:title" content="Tool Name | TopWebTool" />
-    <meta property="og:description" content="Tool description for SEO — replace me." />
+    <meta property="og:description" content="Tool description for SEO â€” replace me." />
     <meta property="og:url" content="https://topwebtool.com/tool-name/" />
     <meta property="og:image" content="https://topwebtool.com/og-image.png" />
     <meta property="og:image:width" content="1200" />
@@ -101,7 +101,7 @@
     <meta property="og:locale" content="en_US" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Tool Name | TopWebTool" />
-    <meta name="twitter:description" content="Tool description for SEO — replace me." />
+    <meta name="twitter:description" content="Tool description for SEO â€” replace me." />
     <meta name="twitter:image" content="https://topwebtool.com/og-image.png" />
 
     <!-- JSON-LD: WebApplication -->
@@ -114,7 +114,7 @@
         "applicationCategory": "UtilityApplication",
         "operatingSystem": "Windows, macOS, Linux, Android, iOS",
         "browserRequirements": "Requires HTML5 compatible web browser",
-        "description": "Tool description for SEO — replace me.",
+        "description": "Tool description for SEO â€” replace me.",
         "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
       }
     </script>
@@ -141,7 +141,7 @@
       }
     </script>
 
-    <!-- Asset ingestion order matters: Tailwind → global → core framework -->
+    <!-- Asset ingestion order matters: Tailwind â†’ global â†’ core framework -->
     <link rel="stylesheet" href="../styles.css" />
     <link rel="stylesheet" href="../global.css" />
     <link rel="stylesheet" href="../topwebtool-core.css" />
@@ -163,10 +163,10 @@
       <main class="twt-shell__workspace"> yourself.
     -->
     <main class="twt-shell__workspace max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex-grow">
-      <!-- TOP BANNER — zero-CLS: 90px reserved before the ad script runs -->
+      <!-- TOP BANNER â€” zero-CLS: 90px reserved before the ad script runs -->
       <div></div>
 
-      <!-- TOOL WIDGET — the existing tool markup drops in here untouched -->
+      <!-- TOOL WIDGET â€” the existing tool markup drops in here untouched -->
       <section class="twt-card" aria-labelledby="tool-heading">
         <h1 id="tool-heading" class="twt-h1">Tool Name</h1>
         <p class="twt-lead">One-line description of what this utility computes.</p>
@@ -180,10 +180,10 @@
         </form>
       </section>
 
-      <!-- MID-INLINE AD — zero-CLS: 250px reserved before the ad script runs -->
+      <!-- MID-INLINE AD â€” zero-CLS: 250px reserved before the ad script runs -->
       <div></div>
 
-      <!-- SEO CONTENT — long-form copy uses the .twt-prose type scale -->
+      <!-- SEO CONTENT â€” long-form copy uses the .twt-prose type scale -->
       <section class="twt-seo-content">
         <article class="twt-prose">
           <h2>How this tool works</h2>
@@ -209,3 +209,4 @@
     <script src="../js/context-engine.js" defer></script>
   </body>
 </html>
+

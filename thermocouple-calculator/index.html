@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
   <head>
     <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
@@ -38,7 +38,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png" />
 
     <link rel="manifest" href="../site.webmanifest" />
-    <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#090d16" media="(prefers-color-scheme: dark)" />
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="TopWebTool" />
@@ -58,7 +58,7 @@
         background-color: #fff;
       }
       html.dark {
-        background-color: #0f172a;
+        background-color: #090d16;
       }
       body {
         padding-bottom: 6rem;
@@ -99,7 +99,7 @@
       {
         "@context": "https://schema.org",
         "@type": "WebApplication",
-        "name": "Thermocouple Calculator: mV to °C & °C to mV | TopWebTool",
+        "name": "Thermocouple Calculator: mV to Â°C & Â°C to mV | TopWebTool",
         "url": "https://topwebtool.com/thermocouple-calculator/",
         "applicationCategory": "EngineeringApplication",
         "operatingSystem": "Windows, macOS, Linux, Android, iOS",
@@ -177,7 +177,7 @@
               </h2>
               <span
                 class="text-xs font-bold text-slate-400 uppercase tracking-wide hidden sm:inline"
-                >🌡️ Temperature Measurement</span
+                >ðŸŒ¡ï¸ Temperature Measurement</span
               >
             </div>
 
@@ -199,15 +199,15 @@
                     class="w-full px-3 py-2.5 border border-slate-300 rounded-lg bg-white text-slate-950 focus:ring-2 focus:ring-brand-500 focus:border-brand-500"
                   >
                     <option value="K" selected>
-                      Type K (Nicrosil–Nisil) −270 to 1372 °C
+                      Type K (Nicrosilâ€“Nisil) âˆ’270 to 1372 Â°C
                     </option>
                     <option value="J">
-                      Type J (Iron–Constantan) −210 to 1200 °C
+                      Type J (Ironâ€“Constantan) âˆ’210 to 1200 Â°C
                     </option>
                     <option value="T">
-                      Type T (Copper–Constantan) −270 to 400 °C
+                      Type T (Copperâ€“Constantan) âˆ’270 to 400 Â°C
                     </option>
-                    <option value="RTD">Pt100 RTD (α = 0.00385)</option>
+                    <option value="RTD">Pt100 RTD (Î± = 0.00385)</option>
                   </select>
                 </div>
                 <div>
@@ -221,9 +221,9 @@
                     class="w-full px-3 py-2.5 border border-slate-300 rounded-lg bg-white text-slate-950 focus:ring-2 focus:ring-brand-500 focus:border-brand-500"
                   >
                     <option value="mv2t" selected>
-                      mV &rarr; Temperature (°C)
+                      mV &rarr; Temperature (Â°C)
                     </option>
-                    <option value="t2mv">Temperature (°C) &rarr; mV / Ω</option>
+                    <option value="t2mv">Temperature (Â°C) &rarr; mV / Î©</option>
                   </select>
                 </div>
                 <div id="wrap-mv">
@@ -244,7 +244,7 @@
                   <label
                     for="temp"
                     class="block text-sm font-semibold text-slate-700 mb-2"
-                    >Temperature (°C)</label
+                    >Temperature (Â°C)</label
                   >
                   <input
                     id="temp"
@@ -258,7 +258,7 @@
                   <label
                     for="res"
                     class="block text-sm font-semibold text-slate-700 mb-2"
-                    >Resistance (Ω)</label
+                    >Resistance (Î©)</label
                   >
                   <input
                     id="res"
@@ -272,7 +272,7 @@
                   <label
                     for="tref"
                     class="block text-sm font-semibold text-slate-700 mb-2"
-                    >Reference Junction Temp (°C)</label
+                    >Reference Junction Temp (Â°C)</label
                   >
                   <input
                     id="tref"
@@ -282,7 +282,7 @@
                     class="w-full px-3 py-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-950"
                   />
                   <p class="text-xs text-slate-400 mt-1">
-                    0 °C = ice point. Use the DMM's terminal temperature for
+                    0 Â°C = ice point. Use the DMM's terminal temperature for
                     software compensation.
                   </p>
                 </div>
@@ -332,7 +332,7 @@
                   id="val-c"
                   class="text-2xl font-extrabold text-brand-600 dark:text-brand-400 mt-1"
                 >
-                  —
+                  â€”
                 </p>
                 <p class="text-xs text-slate-400 mt-1">degrees Celsius</p>
               </div>
@@ -348,7 +348,7 @@
                   id="val-f"
                   class="text-2xl font-extrabold text-brand-600 dark:text-brand-400 mt-1"
                 >
-                  —
+                  â€”
                 </p>
                 <p class="text-xs text-slate-400 mt-1">degrees Fahrenheit</p>
               </div>
@@ -364,10 +364,10 @@
                   id="val-sig"
                   class="text-2xl font-extrabold text-brand-600 dark:text-brand-400 mt-1"
                 >
-                  —
+                  â€”
                 </p>
                 <p class="text-xs text-slate-400 mt-1">
-                  mV or Ω for sensor type
+                  mV or Î© for sensor type
                 </p>
               </div>
             </div>
@@ -382,10 +382,10 @@
                 class="bg-slate-950 text-emerald-400 p-4 rounded-xl font-mono text-xs overflow-x-auto break-all shadow-inner"
                 id="out-breakdown"
               >
-Waiting for input…</pre>
+Waiting for inputâ€¦</pre>
             </div>
 
-            <pre class="hidden" id="out-copy">…</pre>
+            <pre class="hidden" id="out-copy">â€¦</pre>
 
             <div class="flex justify-end pt-2">
               <button
@@ -653,7 +653,7 @@ Waiting for input…</pre>
           if (mode === "mv2t") {
             const R = parseFloat(document.getElementById("res").value);
             if (!(R > 0)) {
-              errorEl.textContent = "Resistance must be greater than 0 Ω.";
+              errorEl.textContent = "Resistance must be greater than 0 Î©.";
               errorEl.classList.remove("hidden");
               return;
             }
@@ -661,88 +661,88 @@ Waiting for input…</pre>
             outC = (R / r0 - 1) / alpha;
             if (outC < -200 || outC > 850) {
               warnEl.textContent =
-                "Warning: temperature outside the practical Pt100 range (−200 to 850 °C) — verify the resistance reading.";
+                "Warning: temperature outside the practical Pt100 range (âˆ’200 to 850 Â°C) â€” verify the resistance reading.";
               warnEl.classList.remove("hidden");
             }
             document.getElementById("val-c").textContent =
-              outC.toFixed(2) + " °C";
+              outC.toFixed(2) + " Â°C";
             document.getElementById("val-f").textContent =
-              ((outC * 9) / 5 + 32).toFixed(2) + " °F";
+              ((outC * 9) / 5 + 32).toFixed(2) + " Â°F";
             document.getElementById("val-sig").textContent =
-              R.toFixed(3) + " Ω";
+              R.toFixed(3) + " Î©";
             document.getElementById("out-breakdown").textContent =
-              "Pt100, α = " +
+              "Pt100, Î± = " +
               alpha +
-              " /°C, R₀ = " +
+              " /Â°C, Râ‚€ = " +
               r0 +
-              " Ω\n" +
-              "T = (R ÷ R₀ − 1) ÷ α\n" +
+              " Î©\n" +
+              "T = (R Ã· Râ‚€ âˆ’ 1) Ã· Î±\n" +
               "  = (" +
               R +
-              " ÷ " +
+              " Ã· " +
               r0 +
-              " − 1) ÷ " +
+              " âˆ’ 1) Ã· " +
               alpha +
               "\n" +
               "  = " +
               outC.toFixed(2) +
-              " °C  (" +
+              " Â°C  (" +
               ((outC * 9) / 5 + 32).toFixed(2) +
-              " °F)";
+              " Â°F)";
             document.getElementById("out-copy").textContent =
               "Pt100 RTD Conversion\n" +
               "Resistance: " +
               R.toFixed(3) +
-              " Ω\n" +
+              " Î©\n" +
               "Temperature: " +
               outC.toFixed(2) +
-              " °C (" +
+              " Â°C (" +
               ((outC * 9) / 5 + 32).toFixed(2) +
-              " °F)";
+              " Â°F)";
             return;
           } else {
             const T = parseFloat(document.getElementById("temp").value);
             if (!(T >= -200 && T <= 850)) {
               errorEl.textContent =
-                "Temperature must be between −200 and 850 °C for Pt100.";
+                "Temperature must be between âˆ’200 and 850 Â°C for Pt100.";
               errorEl.classList.remove("hidden");
               return;
             }
             outC = T;
             outSig = r0 * (1 + alpha * T);
             document.getElementById("val-c").textContent =
-              outC.toFixed(2) + " °C";
+              outC.toFixed(2) + " Â°C";
             document.getElementById("val-f").textContent =
-              ((outC * 9) / 5 + 32).toFixed(2) + " °F";
+              ((outC * 9) / 5 + 32).toFixed(2) + " Â°F";
             document.getElementById("val-sig").textContent =
-              outSig.toFixed(3) + " Ω";
+              outSig.toFixed(3) + " Î©";
             document.getElementById("out-breakdown").textContent =
-              "Pt100, α = " +
+              "Pt100, Î± = " +
               alpha +
-              " /°C, R₀ = " +
+              " /Â°C, Râ‚€ = " +
               r0 +
-              " Ω\n" +
-              "R = R₀ × (1 + α × T)\n" +
+              " Î©\n" +
+              "R = Râ‚€ Ã— (1 + Î± Ã— T)\n" +
               "  = " +
               r0 +
-              " × (1 + " +
+              " Ã— (1 + " +
               alpha +
-              " × " +
+              " Ã— " +
               T +
               ")\n" +
               "  = " +
               outSig.toFixed(3) +
-              " Ω";
+              " Î©";
             document.getElementById("out-copy").textContent =
               "Pt100 RTD Conversion\n" +
               "Temperature: " +
               outC.toFixed(2) +
-              " °C (" +
+              " Â°C (" +
               ((outC * 9) / 5 + 32).toFixed(2) +
-              " °F)\n" +
+              " Â°F)\n" +
               "Resistance: " +
               outSig.toFixed(3) +
-              " Ω";
+              " Î©";
             return;
           }
         }
@@ -775,13 +775,13 @@ Waiting for input…</pre>
               d.range[0] +
               " to " +
               d.range[1] +
-              " °C). Check the sensor type and reference junction.";
+              " Â°C). Check the sensor type and reference junction.";
             errorEl.classList.remove("hidden");
             return;
           }
-          document.getElementById("val-c").textContent = Tc.toFixed(2) + " °C";
+          document.getElementById("val-c").textContent = Tc.toFixed(2) + " Â°C";
           document.getElementById("val-f").textContent =
-            ((Tc * 9) / 5 + 32).toFixed(2) + " °F";
+            ((Tc * 9) / 5 + 32).toFixed(2) + " Â°F";
           document.getElementById("val-sig").textContent =
             Etotal.toFixed(4) + " mV";
           document.getElementById("out-breakdown").textContent =
@@ -792,27 +792,27 @@ Waiting for input…</pre>
             " mV\n" +
             "Reference E(" +
             Tref +
-            " °C) = " +
+            " Â°C) = " +
             Eref.toFixed(4) +
             " mV\n" +
             "E_total = E + E_ref = " +
             Etotal.toFixed(4) +
             " mV\n" +
-            "Invert ITS-90 polynomial: E_total → T\n" +
+            "Invert ITS-90 polynomial: E_total â†’ T\n" +
             "T = " +
             Tc.toFixed(2) +
-            " °C  (" +
+            " Â°C  (" +
             ((Tc * 9) / 5 + 32).toFixed(2) +
-            " °F)";
+            " Â°F)";
           document.getElementById("out-copy").textContent =
             d.name +
-            " Conversion (mV → °C)\n" +
+            " Conversion (mV â†’ Â°C)\n" +
             "Measured voltage: " +
             Em.toFixed(4) +
             " mV\n" +
             "Reference junction: " +
             Tref +
-            " °C (E_ref = " +
+            " Â°C (E_ref = " +
             Eref.toFixed(4) +
             " mV)\n" +
             "Total EMF: " +
@@ -820,9 +820,9 @@ Waiting for input…</pre>
             " mV\n" +
             "Temperature: " +
             Tc.toFixed(2) +
-            " °C (" +
+            " Â°C (" +
             ((Tc * 9) / 5 + 32).toFixed(2) +
-            " °F)";
+            " Â°F)";
         } else {
           const Tc = parseFloat(document.getElementById("temp").value);
           if (isNaN(Tc)) {
@@ -839,34 +839,34 @@ Waiting for input…</pre>
               d.range[0] +
               " to " +
               d.range[1] +
-              " °C).";
+              " Â°C).";
             errorEl.classList.remove("hidden");
             return;
           }
-          document.getElementById("val-c").textContent = Tc.toFixed(2) + " °C";
+          document.getElementById("val-c").textContent = Tc.toFixed(2) + " Â°C";
           document.getElementById("val-f").textContent =
-            ((Tc * 9) / 5 + 32).toFixed(2) + " °F";
+            ((Tc * 9) / 5 + 32).toFixed(2) + " Â°F";
           document.getElementById("val-sig").textContent = E.toFixed(4) + " mV";
           document.getElementById("out-breakdown").textContent =
             d.name +
             " (NIST ITS-90)\n" +
             "T = " +
             Tc +
-            " °C\n" +
-            "E = Σ cᵢ × Tⁱ (range polynomial)\n" +
+            " Â°C\n" +
+            "E = Î£ cáµ¢ Ã— Tâ± (range polynomial)\n" +
             "E = " +
             E.toFixed(4) +
             " mV\n" +
-            "(ice-point referenced: 0 °C junction)";
+            "(ice-point referenced: 0 Â°C junction)";
           document.getElementById("out-copy").textContent =
             d.name +
-            " Conversion (°C → mV)\n" +
+            " Conversion (Â°C â†’ mV)\n" +
             "Temperature: " +
             Tc.toFixed(2) +
-            " °C (" +
+            " Â°C (" +
             ((Tc * 9) / 5 + 32).toFixed(2) +
-            " °F)\n" +
-            "EMF (referenced to 0 °C): " +
+            " Â°F)\n" +
+            "EMF (referenced to 0 Â°C): " +
             E.toFixed(4) +
             " mV";
         }
@@ -919,3 +919,4 @@ Waiting for input…</pre>
     <script src="../js/context-engine.js" defer></script>
   </body>
 </html>
+

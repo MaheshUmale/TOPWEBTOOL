@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
   <head>
     <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
@@ -38,7 +38,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png" />
 
     <link rel="manifest" href="../site.webmanifest" />
-    <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#090d16" media="(prefers-color-scheme: dark)" />
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="TopWebTool" />
@@ -58,7 +58,7 @@
         background-color: #fff;
       }
       html.dark {
-        background-color: #0f172a;
+        background-color: #090d16;
       }
       body {
         padding-bottom: 6rem;
@@ -694,7 +694,7 @@
           // rent grows; buying carry is fixed-ish on original; rent savings reinvested
           // We project both paths' investable cash flows.
           // BUY path: down-payment-equivalent cash stays invested (already added). each month the rent-er would have paid rent, instead the owner's carry cost is paid; the delta (rent - carry) if positive is NOT reinvested in buy path (owner pays carry out of income). So buyNet = home value + invested cash from initial dp.
-          // RENT path: invests initial dp (as cash) AND each month invests rent-savings that would have been the down payment — instead, renters invest (rent - carry-equivalent)...
+          // RENT path: invests initial dp (as cash) AND each month invests rent-savings that would have been the down payment â€” instead, renters invest (rent - carry-equivalent)...
           // Standard approach: Rent path invests downPayment + monthly difference(investment return).
           var rentNow = rent * Math.pow(1 + rentInc / 100, mo / 12);
           // amount the renter could invest each month = (what the buyer spends on carry) -> invest instead
@@ -785,3 +785,4 @@
     <script src="../js/context-engine.js" defer></script>
   </body>
 </html>
+

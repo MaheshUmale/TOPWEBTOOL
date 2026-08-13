@@ -1,4 +1,4 @@
-<!doctype html>
+ï»¿<!doctype html>
 <html lang="en">
   <head>
     <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
@@ -38,7 +38,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png" />
 
     <link rel="manifest" href="../../site.webmanifest" />
-    <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#090d16" media="(prefers-color-scheme: dark)" />
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
     <meta property="og:type" content="article" />
     <meta property="og:site_name" content="TopWebTool" />
@@ -130,9 +130,9 @@
               class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4"
             >
               <span>Published: August 2026</span>
-              <span>•</span>
+              <span>â€¢</span>
               <span>Category: Health &amp; Lifestyle</span>
-              <span>•</span>
+              <span>â€¢</span>
               <span class="text-emerald-600 dark:text-emerald-400"
                 >No Sign-Up / 100% Free / No Registration</span
               >
@@ -144,7 +144,7 @@
             >
               <p class="mb-4">
                 Base-conversion mistakes are so regular that they have names.
-                The most common is feeding a base a digit it cannot contain — an
+                The most common is feeding a base a digit it cannot contain â€” an
                 8 or 9 into an octal string, a 2 into binary, a G into hex. The
                 result is not a wrong number; it is no number at all, and any
                 converter worth using tells you so with a clear error rather
@@ -155,7 +155,7 @@
               </p>
               <p class="mb-4">
                 Prefix confusion is the runner-up. Programming languages mark
-                bases with prefixes — 0x for hex, 0b for binary, 0o for octal —
+                bases with prefixes â€” 0x for hex, 0b for binary, 0o for octal â€”
                 and people habitually type "0x1F" or "0b101" into converter
                 boxes that already know the base. The digit alphabet of hex
                 includes A through F, so "0x1F" is doubly invalid: the "x" is
@@ -166,7 +166,7 @@
               </p>
               <p class="mb-4">
                 Hex-case and look-alike typos form a quieter class of errors.
-                Hex digits use A–F, which are easy to misread or mistype — B
+                Hex digits use Aâ€“F, which are easy to misread or mistype â€” B
                 looks like 8 in some fonts, D can be confused with 0, and a
                 lowercase L can masquerade as a one. Because the tool accepts
                 either case but prints uppercase, a single fat-fingered letter
@@ -182,7 +182,7 @@
                 65,535. People who compute a subnet's usable addresses, size a
                 lookup table, or allocate a bitmap routinely trip on 2n versus
                 2n - 1. If your conversion output is one less than the round
-                power of two you expected, that is usually correct — verify your
+                power of two you expected, that is usually correct â€” verify your
                 assumption, not the converter.
               </p>
               <p class="mb-4">
@@ -199,12 +199,12 @@
               <p class="mb-4">
                 Floating-point rounding is the silent killer for large values.
                 JavaScript's ordinary Number type is a 64-bit float that stores
-                integers exactly only to 25³ - 1. Beyond that boundary,
+                integers exactly only to 25Â³ - 1. Beyond that boundary,
                 consecutive representable values start skipping, so converting a
                 64-bit or 128-bit integer with a naive converter quietly changes
                 the number. This is why precision-sensitive tools convert with
-                BigInt — arithmetic over arbitrary-length integers with zero
-                rounding — and why you should reject any converter that cannot
+                BigInt â€” arithmetic over arbitrary-length integers with zero
+                rounding â€” and why you should reject any converter that cannot
                 handle a value like 18,446,744,073,709,551,616.
               </p>
               <p class="mb-4">
@@ -216,13 +216,13 @@
                 demands an exact pattern of digits, so invisible stray
                 characters surface as a rejection instead of a corrupted result.
                 If a number you are certain is valid refuses to parse, re-enter
-                it by hand — the invisible character is almost always the
+                it by hand â€” the invisible character is almost always the
                 culprit.
               </p>
               <p class="mb-4">
                 Finally, misreading the grouped output. Grouping digits for
-                readability — binary and hex in fours, octal and decimal in
-                threes — is a visual aid, and some people mistake the grouping
+                readability â€” binary and hex in fours, octal and decimal in
+                threes â€” is a visual aid, and some people mistake the grouping
                 spaces for part of the value. The value is the digits alone; the
                 spaces are formatting. When you copy a grouped result into code
                 or a form, strip the spaces or copy the raw string. The tool
@@ -236,7 +236,7 @@
                 correct base, paste bare digits, watch for invisible characters,
                 respect fixed-width and two's-complement conventions, and use
                 BigInt-exact tools for large values. Master these five habits
-                and base conversion stops being a source of subtle bugs — it
+                and base conversion stops being a source of subtle bugs â€” it
                 becomes a reliable, checkable step in whatever systems work you
                 are doing.
               </p>
@@ -277,3 +277,4 @@
     <script src="../../js/context-engine.js" defer></script>
   </body>
 </html>
+

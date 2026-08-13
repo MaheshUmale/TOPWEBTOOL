@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
   <head>
     <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
@@ -35,7 +35,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png" />
 
     <link rel="manifest" href="../site.webmanifest" />
-    <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#090d16" media="(prefers-color-scheme: dark)" />
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="TopWebTool" />
@@ -55,7 +55,7 @@
         background-color: #fff;
       }
       html.dark {
-        background-color: #0f172a;
+        background-color: #090d16;
       }
       body {
         padding-bottom: 6rem;
@@ -173,7 +173,7 @@
               </h2>
               <span
                 class="text-xs font-bold text-slate-400 uppercase tracking-wide hidden sm:inline"
-                >⏱️ performance.now()</span
+                >â±ï¸ performance.now()</span
               >
             </div>
 
@@ -267,7 +267,7 @@
                   id="val-best"
                   class="text-2xl font-extrabold text-emerald-600 dark:text-emerald-400 mt-1"
                 >
-                  —
+                  â€”
                 </p>
                 <p class="text-xs text-slate-400 mt-1">fastest split time</p>
               </div>
@@ -283,7 +283,7 @@
                   id="val-worst"
                   class="text-2xl font-extrabold text-amber-600 dark:text-amber-400 mt-1"
                 >
-                  —
+                  â€”
                 </p>
                 <p class="text-xs text-slate-400 mt-1">slowest split time</p>
               </div>
@@ -299,7 +299,7 @@
                   id="val-avg"
                   class="text-2xl font-extrabold text-brand-600 dark:text-brand-400 mt-1"
                 >
-                  —
+                  â€”
                 </p>
                 <p class="text-xs text-slate-400 mt-1">mean of all splits</p>
               </div>
@@ -329,7 +329,7 @@
               </div>
             </div>
 
-            <pre class="hidden" id="out-copy">…</pre>
+            <pre class="hidden" id="out-copy">â€¦</pre>
 
             <div class="flex justify-end pt-2">
               <button
@@ -376,7 +376,7 @@
                   values: the <strong>lap time</strong> (elapsed since the
                   previous lap) and the <strong>cumulative time</strong> (total
                   elapsed since Start). Because the math is pure timestamp
-                  subtraction, the timer never drifts — it always shows exactly
+                  subtraction, the timer never drifts â€” it always shows exactly
                   the measured interval.
                 </p>
               </div>
@@ -412,7 +412,7 @@
                 <li>
                   Human reaction time: the ~200 ms between the finish line and
                   your finger on the button is the largest source of error in
-                  manual lap timing — it applies to every lap equally, so pacing
+                  manual lap timing â€” it applies to every lap equally, so pacing
                   comparisons stay valid.
                 </li>
                 <li>
@@ -432,7 +432,7 @@
                   accumulation.
                 </li>
                 <li>
-                  Offline use: everything runs locally — no network, no server,
+                  Offline use: everything runs locally â€” no network, no server,
                   no data leaves the page.
                 </li>
               </ul>
@@ -450,7 +450,7 @@
                   the chronometer.
                 </li>
                 <li>
-                  Press <strong>Lap</strong> at each split you want to record —
+                  Press <strong>Lap</strong> at each split you want to record â€”
                   the timer keeps running while the lap table fills in.
                 </li>
                 <li>
@@ -583,7 +583,7 @@
                 </h3>
                 <p class="text-xs text-slate-400 dark:text-slate-500 mt-1">
                   Late starts, mistimed splits, unreset counters, and off-by-one
-                  lap numbering — the mistakes that corrupt every timing
+                  lap numbering â€” the mistakes that corrupt every timing
                   session.
                 </p>
                 <span
@@ -681,7 +681,7 @@
         const body = document.getElementById("lap-body");
         if (laps.length === 0) {
           body.innerHTML =
-            '<tr class="border-t border-slate-200 dark:border-slate-800"><td colspan="3" class="px-3 py-3 text-slate-400 dark:text-slate-500 text-center">No laps yet — start the timer and press Lap at each split.</td></tr>';
+            '<tr class="border-t border-slate-200 dark:border-slate-800"><td colspan="3" class="px-3 py-3 text-slate-400 dark:text-slate-500 text-center">No laps yet â€” start the timer and press Lap at each split.</td></tr>';
           return;
         }
         body.innerHTML = laps
@@ -703,9 +703,9 @@
 
       function renderSummary() {
         if (laps.length === 0) {
-          document.getElementById("val-best").textContent = "—";
-          document.getElementById("val-worst").textContent = "—";
-          document.getElementById("val-avg").textContent = "—";
+          document.getElementById("val-best").textContent = "â€”";
+          document.getElementById("val-worst").textContent = "â€”";
+          document.getElementById("val-avg").textContent = "â€”";
           return;
         }
         const deltas = laps.map((l) => l.delta);
@@ -780,7 +780,7 @@
         if (laps.length === 0) {
           const err = document.getElementById("form-error");
           err.textContent =
-            "No laps to export yet — press Lap at least once while the timer runs.";
+            "No laps to export yet â€” press Lap at least once while the timer runs.";
           err.classList.remove("hidden");
           setTimeout(() => err.classList.add("hidden"), 3000);
           return;
@@ -803,7 +803,7 @@
         if (laps.length === 0) {
           const err = document.getElementById("form-error");
           err.textContent =
-            "No laps to copy yet — press Lap at least once while the timer runs.";
+            "No laps to copy yet â€” press Lap at least once while the timer runs.";
           err.classList.remove("hidden");
           setTimeout(() => err.classList.add("hidden"), 3000);
           return;
@@ -836,3 +836,4 @@
     <script src="../js/context-engine.js" defer></script>
   </body>
 </html>
+

@@ -55,3 +55,5 @@ Tracked enhancements to increase engagement and reduce "boring site" perception.
 | 2026-08-13 | Premium card hover (Micro-interactions) | `global.css` | `.tool-card:hover` lifts with `translateY(-3px)` and elevated shadow |
 | 2026-08-13 | Search/input focus glow (Micro-interactions) | `global.css` | Brand-colored glow ring on `#directory-search:focus` and `.form-input:focus` |
 | 2026-08-13 | Smooth scroll + selection polish (Cognitive Fluency) | `global.css` | `html { scroll-behavior: smooth }` and custom `::selection` brand tint |
+| 2026-08-14 | Glassy / velvet design system | `global.css`, `topwebtool-core.css` | Translucent surfaces with `backdrop-filter: blur() saturate()`, warm pearl light mode tokens (`#faf9f7`), animated mesh gradient background, velvet grain overlay, inset highlight shadows, premium glass nav/rail modules/cards/buttons, `--transition-velvet` easing |
+| 2026-08-14 | Rail toggle visibility fix | `topwebtool-core.css` | Collapsed rail toggle now floats fixed at viewport edge with glass pill styling; removed `opacity: 0` cascade issue |

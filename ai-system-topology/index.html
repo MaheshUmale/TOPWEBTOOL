@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
   <head>
     <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
@@ -35,7 +35,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png" />
 
     <link rel="manifest" href="../site.webmanifest" />
-    <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#090d16" media="(prefers-color-scheme: dark)" />
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="TopWebTool" />
@@ -55,7 +55,7 @@
         background-color: #fff;
       }
       html.dark {
-        background-color: #0f172a;
+        background-color: #090d16;
       }
       body {
         padding-bottom: 6rem;
@@ -229,7 +229,7 @@
                 <label
                   for="inp-ntemp"
                   class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2"
-                  >Temperature (0–2)</label
+                  >Temperature (0â€“2)</label
                 >
                 <input
                   type="number"
@@ -325,7 +325,7 @@
                   id="sel-etype"
                   class="block w-full px-3 py-2.5 border border-slate-300 dark:border-slate-700 rounded-lg bg-white dark:bg-slate-950 text-slate-950 dark:text-slate-100 text-sm font-semibold"
                 >
-                  <option value="sequential">Sequential (A → then B)</option>
+                  <option value="sequential">Sequential (A â†’ then B)</option>
                   <option value="parallel">Parallel (run in parallel)</option>
                   <option value="conditional">Conditional (branch)</option>
                 </select>
@@ -400,7 +400,7 @@
                 id="out-text"
                 class="bg-slate-950 text-emerald-400 p-4 rounded-xl font-mono text-xs overflow-x-auto break-all shadow-inner whitespace-pre-wrap"
               >
-Building…</pre>
+Buildingâ€¦</pre>
             </div>
 
             <div class="space-y-3">
@@ -423,7 +423,7 @@ Building…</pre>
                 id="out-py"
                 class="bg-slate-950 text-emerald-400 p-4 rounded-xl font-mono text-xs overflow-x-auto break-all shadow-inner whitespace-pre-wrap"
               >
-Building…</pre>
+Buildingâ€¦</pre>
             </div>
           </form>
 
@@ -467,7 +467,7 @@ Building…</pre>
                   class="list-disc pl-5 space-y-2 text-slate-600 dark:text-slate-300 leading-relaxed"
                 >
                   <li>
-                    Self-referencing edges create infinite loops — a source must
+                    Self-referencing edges create infinite loops â€” a source must
                     never equal its own target.
                   </li>
                   <li>
@@ -780,7 +780,7 @@ cycles       -&gt; reject self-loops; guard long chains</pre>
       }
 
       function trunc(txt, n) {
-        return txt.length > n ? txt.slice(0, n - 1) + "…" : txt;
+        return txt.length > n ? txt.slice(0, n - 1) + "â€¦" : txt;
       }
 
       function resetNodeForm() {
@@ -946,7 +946,7 @@ cycles       -&gt; reject self-loops; guard long chains</pre>
           });
           t3.appendChild(
             document.createTextNode(
-              trunc(n.model, 22) + " • T=" + Number(n.temperature).toFixed(1),
+              trunc(n.model, 22) + " â€¢ T=" + Number(n.temperature).toFixed(1),
             ),
           );
           g.appendChild(t1);
@@ -1011,11 +1011,11 @@ cycles       -&gt; reject self-loops; guard long chains</pre>
               e.id +
               '" class="edge-chip px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 text-[11px] font-bold text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" style="min-height:44px;" title="Remove edge">' +
               a.name +
-              " → " +
+              " â†’ " +
               b.name +
               " [" +
               e.type +
-              "] ✕</button>"
+              "] âœ•</button>"
             );
           })
           .join("");
@@ -1035,7 +1035,7 @@ cycles       -&gt; reject self-loops; guard long chains</pre>
           byId[n.id] = n;
         });
 
-        let text = "# Multi-Agent Topology — ai-system-topology\n";
+        let text = "# Multi-Agent Topology â€” ai-system-topology\n";
         text += "Nodes (" + nodes.length + ")\n";
         nodes.forEach((n, i) => {
           text +=
@@ -1043,7 +1043,7 @@ cycles       -&gt; reject self-loops; guard long chains</pre>
             1 +
             ". " +
             n.name +
-            " — Role: " +
+            " â€” Role: " +
             n.role +
             " | Model: " +
             n.model +
@@ -1069,7 +1069,7 @@ cycles       -&gt; reject self-loops; guard long chains</pre>
         document.getElementById("out-text").textContent =
           text || "(empty topology)";
 
-        let py = "# Multi-Agent System Topology — Python pseudo-skeleton\n";
+        let py = "# Multi-Agent System Topology â€” Python pseudo-skeleton\n";
         py +=
           "# Generated by TopWebTool Multi-Agent System Topology Harness\n\n";
         py += "class Agent:\n";
@@ -1246,7 +1246,7 @@ cycles       -&gt; reject self-loops; guard long chains</pre>
         }
         if (s === t) {
           showMsg(
-            "An edge cannot connect a node to itself — that creates an infinite loop.",
+            "An edge cannot connect a node to itself â€” that creates an infinite loop.",
             "err",
           );
           return;
@@ -1374,3 +1374,4 @@ cycles       -&gt; reject self-loops; guard long chains</pre>
     <script src="../js/context-engine.js" defer></script>
   </body>
 </html>
+

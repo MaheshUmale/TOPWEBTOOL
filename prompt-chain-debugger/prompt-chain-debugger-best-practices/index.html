@@ -1,4 +1,4 @@
-<!doctype html>
+ï»¿<!doctype html>
 <html lang="en">
   <head>
     <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
@@ -34,7 +34,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png" />
 
     <link rel="manifest" href="../../site.webmanifest" />
-    <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#090d16" media="(prefers-color-scheme: dark)" />
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
     <meta property="og:type" content="article" />
     <meta property="og:site_name" content="TopWebTool" />
@@ -126,9 +126,9 @@
               class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4"
             >
               <span>Published: August 2026</span>
-              <span>•</span>
+              <span>â€¢</span>
               <span>Category: AI Agent & Automation</span>
-              <span>•</span>
+              <span>â€¢</span>
               <span class="text-emerald-600 dark:text-emerald-400"
                 >No Sign-Up / 100% Free / No Registration</span
               >
@@ -151,7 +151,7 @@
                 output.length, or config.tone over bare words like query or x.
                 Namespacing prevents collisions when a chain later grows beyond
                 its first author and makes the dependency table instantly
-                readable. Consistent casing — lowercase throughout — removes a
+                readable. Consistent casing â€” lowercase throughout â€” removes a
                 whole class of typo failures.
               </p>
               <p class="mb-4">
@@ -175,7 +175,7 @@
                 step's output. Skipping the middle steps is the classic
                 oversight: teams validate the final answer and miss that step
                 two has been rendering a placeholder for weeks. The per-step
-                output cards exist for this reason — they are the only place a
+                output cards exist for this reason â€” they are the only place a
                 propagated defect is visible before it reaches the model.
               </p>
               <p class="mb-4">
@@ -196,8 +196,8 @@
               </p>
               <p class="mb-4">
                 Validate the raw variable map independently of the templates.
-                Malformed lines — a missing equals sign, an empty key, stray
-                punctuation — should be caught before interpolation, not after.
+                Malformed lines â€” a missing equals sign, an empty key, stray
+                punctuation â€” should be caught before interpolation, not after.
                 A parser that skips malformed lines quietly produces
                 under-populated maps, so prefer explicit errors on anything that
                 does not match the key = value contract.
@@ -206,14 +206,14 @@
                 Version the chain with its outputs. Keep a golden file of the
                 interpolated result for representative inputs and re-run it on
                 every template change. Because interpolation is deterministic,
-                any difference in the golden file is a change you made —
+                any difference in the golden file is a change you made â€”
                 reviewable, reversible, and testable in CI.
               </p>
               <p class="mb-4">
                 Finally, document intent inside the chain. Use step labels that
                 explain what each step is for, and comment variables that are
-                load-bearing. Chains read by future engineers — including future
-                you — repay every ounce of clarity you add today. A
+                load-bearing. Chains read by future engineers â€” including future
+                you â€” repay every ounce of clarity you add today. A
                 well-documented chain is one that survives its author.
               </p>
             </div>
@@ -253,3 +253,4 @@
     <script src="../../js/context-engine.js" defer></script>
   </body>
 </html>
+

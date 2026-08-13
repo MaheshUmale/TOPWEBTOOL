@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
   <head>
     <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
@@ -38,7 +38,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png" />
 
     <link rel="manifest" href="../site.webmanifest" />
-    <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#090d16" media="(prefers-color-scheme: dark)" />
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="TopWebTool" />
@@ -58,7 +58,7 @@
         background-color: #fff;
       }
       html.dark {
-        background-color: #0f172a;
+        background-color: #090d16;
       }
       body {
         padding-bottom: 6rem;
@@ -178,7 +178,7 @@
                 Script Options
               </h2>
               <span class="text-xs font-bold text-brand-700 dark:text-brand-400"
-                >Visual → Runnable Code</span
+                >Visual â†’ Runnable Code</span
               >
             </div>
 
@@ -244,7 +244,7 @@
                 id="action-empty"
                 class="text-sm text-slate-400 dark:text-slate-500"
               >
-                No actions yet — click "Add Action" to start your flow.
+                No actions yet â€” click "Add Action" to start your flow.
               </p>
             </div>
 
@@ -309,7 +309,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
               <div>
                 <h3 class="font-bold text-slate-900 dark:text-white mb-2">
-                  Action → API Mapping
+                  Action â†’ API Mapping
                 </h3>
                 <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
                   Every action in the builder maps to a real framework call: Go
@@ -326,10 +326,10 @@
                   (Puppeteer), Wait emits a timeout, Assert reads the body text
                   and throws if the expected string is missing, Screenshot
                   writes a PNG, and Press Key sends a keyboard event. The
-                  generator also adds launch boilerplate — Playwright's
+                  generator also adds launch boilerplate â€” Playwright's
                   <code class="font-mono text-xs">chromium.launch()</code> or
                   Puppeteer's
-                  <code class="font-mono text-xs">puppeteer.launch()</code> —
+                  <code class="font-mono text-xs">puppeteer.launch()</code> â€”
                   plus <code class="font-mono text-xs">browser.close()</code> so
                   the emitted file runs end-to-end.
                 </p>
@@ -347,7 +347,7 @@
                   </li>
                   <li>
                     Assertions that match text appearing in an iframe will fail
-                    — body text excludes iframe documents.
+                    â€” body text excludes iframe documents.
                   </li>
                   <li>
                     Puppeteer has no official Python binding, so Python output
@@ -378,7 +378,7 @@
                 </li>
                 <li>
                   Reorder with the up/down arrows and delete mistakes with the
-                  remove button — the script regenerates live.
+                  remove button â€” the script regenerates live.
                 </li>
                 <li>
                   Copy the highlighted output into a file, run
@@ -498,7 +498,7 @@
                 </h3>
                 <p class="text-xs text-slate-400 dark:text-slate-500 mt-1">
                   Timeout, strict-mode violations, missing elements, iframes,
-                  and networkidle hangs — fixed.
+                  and networkidle hangs â€” fixed.
                 </p>
                 <span
                   class="text-xs font-semibold text-brand-600 dark:text-brand-400 mt-3 inline-block group-hover:translate-x-1 transition-transform"
@@ -673,9 +673,9 @@
 
         const btnsWrap = document.createElement("div");
         btnsWrap.className = "flex items-center gap-2 shrink-0";
-        btnsWrap.appendChild(mkIconBtn("↑", "Move action up", "up"));
-        btnsWrap.appendChild(mkIconBtn("↓", "Move action down", "down"));
-        btnsWrap.appendChild(mkIconBtn("✕", "Remove action", "del"));
+        btnsWrap.appendChild(mkIconBtn("â†‘", "Move action up", "up"));
+        btnsWrap.appendChild(mkIconBtn("â†“", "Move action down", "down"));
+        btnsWrap.appendChild(mkIconBtn("âœ•", "Remove action", "del"));
 
         row.appendChild(select);
         row.appendChild(fieldsWrap);
@@ -955,7 +955,7 @@
             "text-sm font-semibold text-amber-600 dark:text-amber-400";
         } else {
           status.textContent =
-            "Ready — " +
+            "Ready â€” " +
             actions.length +
             " action" +
             (actions.length > 1 ? "s" : "");
@@ -1047,3 +1047,4 @@
     </script>
   </body>
 </html>
+

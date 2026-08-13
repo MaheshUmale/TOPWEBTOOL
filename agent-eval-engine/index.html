@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
   <head>
     <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
@@ -35,7 +35,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png" />
 
     <link rel="manifest" href="../site.webmanifest" />
-    <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#090d16" media="(prefers-color-scheme: dark)" />
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="TopWebTool" />
@@ -55,7 +55,7 @@
         background-color: #fff;
       }
       html.dark {
-        background-color: #0f172a;
+        background-color: #090d16;
       }
       body {
         padding-bottom: 6rem;
@@ -302,7 +302,7 @@ Your refund of $249.99 has been approved. It will appear on your original paymen
                     string into the other, found with dynamic programming.
                   </li>
                   <li>
-                    Similarity %: 100 × (1 − Levenshtein ÷ max(reference length,
+                    Similarity %: 100 Ã— (1 âˆ’ Levenshtein Ã· max(reference length,
                     candidate length)), so 100% means identical text.
                   </li>
                   <li>
@@ -312,7 +312,7 @@ Your refund of $249.99 has been approved. It will appear on your original paymen
                   </li>
                   <li>
                     Keyword overlap: stopwords and very short words are removed,
-                    then Jaccard = |ref ∩ cand| ÷ |ref ∪ cand| × 100.
+                    then Jaccard = |ref âˆ© cand| Ã· |ref âˆª cand| Ã— 100.
                   </li>
                 </ul>
               </div>
@@ -755,9 +755,9 @@ Your refund of $249.99 has been approved. It will appear on your original paymen
           summary.textContent =
             "Similarity " +
             sim.toFixed(1) +
-            "% · BLEU-1 " +
+            "% Â· BLEU-1 " +
             b1.toFixed(2) +
-            " · BLEU-2 " +
+            " Â· BLEU-2 " +
             b2.toFixed(2);
 
           // Matrix table
@@ -772,28 +772,28 @@ Your refund of $249.99 has been approved. It will appear on your original paymen
           tbody.className = "text-slate-700 dark:text-slate-200";
           tbody.appendChild(
             metricRow(
-              "Characters — reference",
+              "Characters â€” reference",
               String(ref.length),
               "raw string length",
             ),
           );
           tbody.appendChild(
             metricRow(
-              "Characters — candidate",
+              "Characters â€” candidate",
               String(cand.length),
               "raw string length",
             ),
           );
           tbody.appendChild(
             metricRow(
-              "Words — reference",
+              "Words â€” reference",
               String(refT.length),
               "tokenized, lower-cased",
             ),
           );
           tbody.appendChild(
             metricRow(
-              "Words — candidate",
+              "Words â€” candidate",
               String(candT.length),
               "tokenized, lower-cased",
             ),
@@ -807,21 +807,21 @@ Your refund of $249.99 has been approved. It will appear on your original paymen
           );
           tbody.appendChild(
             metricRow(
-              "Similarity (1 − d / maxLen)",
+              "Similarity (1 âˆ’ d / maxLen)",
               sim.toFixed(1) + "%",
               dist === 0 ? "identical text" : "edit-based closeness",
             ),
           );
           tbody.appendChild(
             metricRow(
-              "BLEU-1 — unigram precision",
+              "BLEU-1 â€” unigram precision",
               b1.toFixed(2),
               "clipped matching words",
             ),
           );
           tbody.appendChild(
             metricRow(
-              "BLEU-2 — bigram precision",
+              "BLEU-2 â€” bigram precision",
               b2.toFixed(2),
               candT.length < 2 ? "needs 2+ words" : "clipped matching pairs",
             ),
@@ -940,3 +940,4 @@ Your refund of $249.99 has been approved. It will appear on your original paymen
     <script src="../js/context-engine.js" defer></script>
   </body>
 </html>
+

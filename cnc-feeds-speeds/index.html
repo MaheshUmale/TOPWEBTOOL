@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
   <head>
     <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
@@ -35,7 +35,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png" />
 
     <link rel="manifest" href="../site.webmanifest" />
-    <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#090d16" media="(prefers-color-scheme: dark)" />
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="TopWebTool" />
@@ -55,7 +55,7 @@
         background-color: #fff;
       }
       html.dark {
-        background-color: #0f172a;
+        background-color: #090d16;
       }
       body {
         padding-bottom: 6rem;
@@ -173,7 +173,7 @@
               </h2>
               <span
                 class="text-xs font-bold text-slate-400 uppercase tracking-wide hidden sm:inline"
-                >⚙️ CNC Cutting Data</span
+                >âš™ï¸ CNC Cutting Data</span
               >
             </div>
 
@@ -358,7 +358,7 @@
                   id="val-rpm"
                   class="text-2xl font-extrabold text-brand-600 dark:text-brand-400 mt-1"
                 >
-                  —
+                  â€”
                 </p>
                 <p class="text-xs text-slate-400 mt-1">revolutions / minute</p>
               </div>
@@ -374,7 +374,7 @@
                   id="val-feed"
                   class="text-2xl font-extrabold text-brand-600 dark:text-brand-400 mt-1"
                 >
-                  —
+                  â€”
                 </p>
                 <p class="text-xs text-slate-400 mt-1">inches / minute (IPM)</p>
               </div>
@@ -390,9 +390,9 @@
                   id="val-mrr"
                   class="text-2xl font-extrabold text-brand-600 dark:text-brand-400 mt-1"
                 >
-                  —
+                  â€”
                 </p>
-                <p class="text-xs text-slate-400 mt-1">in³ / minute</p>
+                <p class="text-xs text-slate-400 mt-1">inÂ³ / minute</p>
               </div>
               <div
                 class="rounded-xl border border-slate-100 dark:border-slate-800 p-4"
@@ -406,7 +406,7 @@
                   id="val-fpr"
                   class="text-2xl font-extrabold text-brand-600 dark:text-brand-400 mt-1"
                 >
-                  —
+                  â€”
                 </p>
                 <p class="text-xs text-slate-400 mt-1">inches / rev</p>
               </div>
@@ -422,7 +422,7 @@
                   id="val-chip"
                   class="text-2xl font-extrabold text-brand-600 dark:text-brand-400 mt-1"
                 >
-                  —
+                  â€”
                 </p>
                 <p class="text-xs text-slate-400 mt-1">inches</p>
               </div>
@@ -438,7 +438,7 @@
                   id="val-hp"
                   class="text-2xl font-extrabold text-brand-600 dark:text-brand-400 mt-1"
                 >
-                  —
+                  â€”
                 </p>
                 <p class="text-xs text-slate-400 mt-1">horsepower at spindle</p>
               </div>
@@ -454,10 +454,10 @@
                 class="bg-slate-950 text-emerald-400 p-4 rounded-xl font-mono text-xs overflow-x-auto break-all shadow-inner"
                 id="out-breakdown"
               >
-Waiting for input…</pre>
+Waiting for inputâ€¦</pre>
             </div>
 
-            <pre class="hidden" id="out-copy">…</pre>
+            <pre class="hidden" id="out-copy">â€¦</pre>
 
             <div class="flex justify-end pt-2">
               <button
@@ -709,7 +709,7 @@ Waiting for input…</pre>
               "</td>" +
               '<td class="px-3 py-2 text-slate-500 dark:text-slate-400">' +
               m.sfm[0] +
-              "–" +
+              "â€“" +
               m.sfm[1] +
               " SFM</td>" +
               '<td class="px-3 py-2 text-slate-500 dark:text-slate-400">' +
@@ -783,7 +783,7 @@ Waiting for input…</pre>
         document.getElementById("val-feed").textContent =
           feed.toFixed(1) + " IPM";
         document.getElementById("val-mrr").textContent =
-          mrr.toFixed(2) + " in³/min";
+          mrr.toFixed(2) + " inÂ³/min";
         document.getElementById("val-fpr").textContent =
           feedPerRev.toFixed(4) + " in/rev";
         document.getElementById("val-chip").textContent =
@@ -791,40 +791,40 @@ Waiting for input…</pre>
         document.getElementById("val-hp").textContent = hp.toFixed(2) + " hp";
 
         document.getElementById("out-breakdown").textContent =
-          "RPM   = SFM × 3.82 ÷ D\n" +
+          "RPM   = SFM Ã— 3.82 Ã· D\n" +
           "      = " +
           sfm +
-          " × 3.82 ÷ " +
+          " Ã— 3.82 Ã· " +
           dia +
           "\n" +
           "      = " +
           rpm.toFixed(0) +
           " RPM\n" +
-          "FEED  = RPM × flutes × chip load\n" +
+          "FEED  = RPM Ã— flutes Ã— chip load\n" +
           "      = " +
           rpm.toFixed(0) +
-          " × " +
+          " Ã— " +
           flutes +
-          " × " +
+          " Ã— " +
           chip +
           "\n" +
           "      = " +
           feed.toFixed(1) +
           " IPM\n" +
-          "MRR   = WOC × DOC × feed\n" +
+          "MRR   = WOC Ã— DOC Ã— feed\n" +
           "      = " +
           woc +
-          " × " +
+          " Ã— " +
           doc +
-          " × " +
+          " Ã— " +
           feed.toFixed(1) +
           "\n" +
           "      = " +
           mrr.toFixed(2) +
-          " in³/min";
+          " inÂ³/min";
 
         document.getElementById("out-copy").textContent =
-          "CNC Cutting Data — " +
+          "CNC Cutting Data â€” " +
           m.name +
           " (" +
           OP_LABEL[op] +
@@ -853,7 +853,7 @@ Waiting for input…</pre>
           "Depth of cut: " +
           doc +
           " in\n" +
-          "— Results —\n" +
+          "â€” Results â€”\n" +
           "Spindle speed: " +
           rpm.toFixed(0) +
           " RPM\n" +
@@ -862,7 +862,7 @@ Waiting for input…</pre>
           " IPM\n" +
           "Material removal rate: " +
           mrr.toFixed(2) +
-          " in³/min\n" +
+          " inÂ³/min\n" +
           "Feed per rev: " +
           feedPerRev.toFixed(4) +
           " in/rev\n" +
@@ -878,7 +878,7 @@ Waiting for input…</pre>
 
         if (woc > dia) {
           warnEl.textContent =
-            "Warning: width of cut exceeds cutter diameter — the programmed engagement is physically impossible for a single pass.";
+            "Warning: width of cut exceeds cutter diameter â€” the programmed engagement is physically impossible for a single pass.";
           warnEl.classList.remove("hidden");
         }
       }
@@ -921,3 +921,4 @@ Waiting for input…</pre>
     <script src="../js/context-engine.js" defer></script>
   </body>
 </html>
+

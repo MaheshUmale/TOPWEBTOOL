@@ -1,4 +1,4 @@
-<!doctype html>
+ï»¿<!doctype html>
 <html lang="en">
   <head>
     <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
@@ -34,7 +34,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png" />
 
     <link rel="manifest" href="../../site.webmanifest" />
-    <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#090d16" media="(prefers-color-scheme: dark)" />
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
     <meta property="og:type" content="article" />
     <meta property="og:site_name" content="TopWebTool" />
@@ -126,9 +126,9 @@
               class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4"
             >
               <span>Published: August 2026</span>
-              <span>•</span>
+              <span>â€¢</span>
               <span>Category: AI Agent & Automation</span>
-              <span>•</span>
+              <span>â€¢</span>
               <span class="text-emerald-600 dark:text-emerald-400"
                 >No Sign-Up / 100% Free / No Registration</span
               >
@@ -152,7 +152,7 @@
                 Fixed-size chunking is the baseline everyone starts with. The
                 text is walked left to right and cut at every N characters,
                 ideally snapping to a word boundary so the cut lands at a space.
-                Its virtues are speed and predictability — the chunk count is
+                Its virtues are speed and predictability â€” the chunk count is
                 deterministic and the storage cost is trivial to forecast. Its
                 weakness is semantic blindness: a fixed cut can sever a
                 sentence, a definition, or a numbered list mid-item, leaving
@@ -200,7 +200,7 @@
                 may miss context the answer needs; too large and it dilutes the
                 relevant passage among noise, which confuses semantic similarity
                 scoring. The ideal chunk is the smallest unit that is
-                self-contained — a paragraph that states a complete idea, with
+                self-contained â€” a paragraph that states a complete idea, with
                 any references it depends on either inside it or consistently
                 nearby.
               </p>
@@ -216,7 +216,7 @@
                 The practical workflow is iterative: simulate a strategy,
                 inspect the boundary highlights, read a few retrieved chunks
                 against real questions, and adjust. The color-coded preview in
-                the simulator exists precisely for this — you see the cuts and
+                the simulator exists precisely for this â€” you see the cuts and
                 the repeated overlap text before you commit them to an index.
                 Most teams converge on a hybrid: semantic chunking for
                 structured prose, with a character cap and a small overlap for
@@ -227,7 +227,7 @@
                 Re-embedding a corpus because you chose poorly is expensive and
                 slow, so prototyping with a simulator before re-embedding saves
                 both. Start with your real document, run all three strategies,
-                and let the chunk counts and token estimates — not intuition —
+                and let the chunk counts and token estimates â€” not intuition â€”
                 pick the default.
               </p>
             </div>
@@ -267,3 +267,4 @@
     <script src="../../js/context-engine.js" defer></script>
   </body>
 </html>
+

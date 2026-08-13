@@ -1,4 +1,4 @@
-<!doctype html>
+ï»¿<!doctype html>
 <html lang="en">
   <head>
     <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
@@ -34,7 +34,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png" />
 
     <link rel="manifest" href="../../site.webmanifest" />
-    <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#090d16" media="(prefers-color-scheme: dark)" />
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
     <meta property="og:type" content="article" />
     <meta property="og:site_name" content="TopWebTool" />
@@ -126,9 +126,9 @@
               class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4"
             >
               <span>Published: August 2026</span>
-              <span>•</span>
+              <span>â€¢</span>
               <span>Category: AI Agent & Automation</span>
-              <span>•</span>
+              <span>â€¢</span>
               <span class="text-emerald-600 dark:text-emerald-400"
                 >No Sign-Up / 100% Free / No Registration</span
               >
@@ -140,7 +140,7 @@
             >
               <p class="mb-4">
                 Defense against prompt injection is a set of practices that
-                stack. No single technique is sufficient — not the model's
+                stack. No single technique is sufficient â€” not the model's
                 built-in safety training, not a filter, not a system prompt
                 warning. The systems that hold up under attack are the ones
                 where each layer compensates for the next layer's blind spots.
@@ -150,14 +150,14 @@
                 Your system prompt is instructions; everything a user, website,
                 or document contributes is data. The most effective rule is the
                 simplest: data never becomes instructions. When data must inform
-                behavior, route it through code — a lookup, a structured
-                extraction — rather than letting the model interpret it freely.
+                behavior, route it through code â€” a lookup, a structured
+                extraction â€” rather than letting the model interpret it freely.
               </p>
               <p class="mb-4">
                 Delimit untrusted content explicitly and never interpret the
                 delimiters as data. Wrap external text in clear markers and
                 instruct the model to treat the delimited block as content only.
-                The guardrail catches delimiter-break attempts — inputs that try
+                The guardrail catches delimiter-break attempts â€” inputs that try
                 to close the tag early and inject instructions afterward.
                 Delimiting works best when combined with a filter that watches
                 for tag tampering.
@@ -166,7 +166,7 @@
                 Apply an input filter in front of the model. A fast,
                 deterministic regex guardrail runs before any token is sent to
                 the model, triaging inputs by risk score. It is not a silver
-                bullet — attackers obfuscate — but it catches the common attack
+                bullet â€” attackers obfuscate â€” but it catches the common attack
                 families cheaply, and it gives you a structured signal for
                 routing and logging.
               </p>
@@ -183,7 +183,7 @@
                 Log every flag and review the logs. The threat landscape changes
                 weekly, and your filter's blind spots only become visible in the
                 inputs it let through. Review flagged inputs regularly to refine
-                patterns, and keep an eye on near-misses — inputs that scored
+                patterns, and keep an eye on near-misses â€” inputs that scored
                 low but should not have.
               </p>
               <p class="mb-4">
@@ -205,7 +205,7 @@
                 Keep your guardrail patterns versioned and tested. Store the
                 rule set with a small corpus of known attack samples and benign
                 examples, and re-run the suite whenever you edit a pattern. The
-                matrix on this page is deterministic, which makes it testable —
+                matrix on this page is deterministic, which makes it testable â€”
                 a property worth protecting as you add rules.
               </p>
               <p class="mb-4">
@@ -252,3 +252,4 @@
     <script src="../../js/context-engine.js" defer></script>
   </body>
 </html>
+

@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
   <head>
     <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
@@ -35,7 +35,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png" />
 
     <link rel="manifest" href="../site.webmanifest" />
-    <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#090d16" media="(prefers-color-scheme: dark)" />
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="TopWebTool" />
@@ -55,7 +55,7 @@
         background-color: #fff;
       }
       html.dark {
-        background-color: #0f172a;
+        background-color: #090d16;
       }
       body {
         padding-bottom: 6rem;
@@ -184,16 +184,16 @@
                   id="inp-model"
                   class="block w-full px-3 py-2.5 border border-slate-300 dark:border-slate-700 rounded-lg bg-white dark:bg-slate-950 text-slate-950 dark:text-slate-100 text-sm font-semibold"
                 >
-                  <option value="gpt4o">GPT-4o / GPT-4.1 — 128K</option>
-                  <option value="gpt41mini">GPT-4.1 mini — 1M</option>
-                  <option value="claude-sonnet">Claude Sonnet 4 — 200K</option>
-                  <option value="claude-opus">Claude Opus 4 — 200K</option>
-                  <option value="gemini-pro">Gemini 2.5 Pro — 1M</option>
-                  <option value="gemini-flash">Gemini Flash 2.0 — 1M</option>
-                  <option value="llama8b">Llama 3.1 8B — 8K</option>
-                  <option value="llama70b">Llama 3.3 70B — 128K</option>
-                  <option value="mistral">Mistral Large — 128K</option>
-                  <option value="custom">Custom model…</option>
+                  <option value="gpt4o">GPT-4o / GPT-4.1 â€” 128K</option>
+                  <option value="gpt41mini">GPT-4.1 mini â€” 1M</option>
+                  <option value="claude-sonnet">Claude Sonnet 4 â€” 200K</option>
+                  <option value="claude-opus">Claude Opus 4 â€” 200K</option>
+                  <option value="gemini-pro">Gemini 2.5 Pro â€” 1M</option>
+                  <option value="gemini-flash">Gemini Flash 2.0 â€” 1M</option>
+                  <option value="llama8b">Llama 3.1 8B â€” 8K</option>
+                  <option value="llama70b">Llama 3.3 70B â€” 128K</option>
+                  <option value="mistral">Mistral Large â€” 128K</option>
+                  <option value="custom">Custom modelâ€¦</option>
                 </select>
               </div>
               <div id="custom-context-wrap" class="hidden">
@@ -464,7 +464,7 @@
                   class="list-disc pl-5 space-y-2 text-slate-600 dark:text-slate-300 leading-relaxed"
                 >
                   <li>
-                    Conversation tokens = turns × (avg user tokens + avg
+                    Conversation tokens = turns Ã— (avg user tokens + avg
                     assistant tokens).
                   </li>
                   <li>
@@ -472,11 +472,11 @@
                     output.
                   </li>
                   <li>
-                    Utilization % = total used ÷ max context × 100; remaining
-                    budget = max context − total used.
+                    Utilization % = total used Ã· max context Ã— 100; remaining
+                    budget = max context âˆ’ total used.
                   </li>
                   <li>
-                    Recommended memory = 70% of max context − (system +
+                    Recommended memory = 70% of max context âˆ’ (system +
                     conversation + reserved), clamped at zero, so memory never
                     crowds out working headroom.
                   </li>
@@ -879,11 +879,11 @@
 
           const modelName = MODELS[selModel.value].name;
           summary.textContent =
-            modelName + " · " + fmt(context) + " token window";
+            modelName + " Â· " + fmt(context) + " token window";
 
           utilPctLabel.textContent =
             pct.toFixed(1) +
-            "% used · " +
+            "% used Â· " +
             fmt(Math.round(remaining)) +
             " remaining";
           utilFill.style.width = Math.max(0, Math.min(100, pct)) + "%";
@@ -925,7 +925,7 @@
             breakdownRow(
               "Conversation (" +
                 turns +
-                " turns × " +
+                " turns Ã— " +
                 Math.round(userT + asstT) +
                 " avg)",
               conversation,
@@ -987,7 +987,7 @@
               warning(
                 "Utilization is " +
                   pct.toFixed(0) +
-                  "% — comfortable headroom for the current session.",
+                  "% â€” comfortable headroom for the current session.",
                 "info",
               ),
             );
@@ -1061,3 +1061,4 @@
     <script src="../js/context-engine.js" defer></script>
   </body>
 </html>
+

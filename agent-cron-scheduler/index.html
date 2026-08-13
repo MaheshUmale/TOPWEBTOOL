@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
   <head>
     <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
@@ -35,7 +35,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png" />
 
     <link rel="manifest" href="../site.webmanifest" />
-    <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#090d16" media="(prefers-color-scheme: dark)" />
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="TopWebTool" />
@@ -55,7 +55,7 @@
         background-color: #fff;
       }
       html.dark {
-        background-color: #0f172a;
+        background-color: #090d16;
       }
       body {
         padding-bottom: 6rem;
@@ -210,7 +210,7 @@
                   class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2"
                   >Minute
                   <span class="text-slate-400 dark:text-slate-500"
-                    >(0–59)</span
+                    >(0â€“59)</span
                   ></label
                 >
                 <input
@@ -237,7 +237,7 @@
                   class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2"
                   >Hour
                   <span class="text-slate-400 dark:text-slate-500"
-                    >(0–23)</span
+                    >(0â€“23)</span
                   ></label
                 >
                 <input
@@ -264,7 +264,7 @@
                   class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2"
                   >Day of Month
                   <span class="text-slate-400 dark:text-slate-500"
-                    >(1–31)</span
+                    >(1â€“31)</span
                   ></label
                 >
                 <input
@@ -291,7 +291,7 @@
                   class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2"
                   >Month
                   <span class="text-slate-400 dark:text-slate-500"
-                    >(1–12)</span
+                    >(1â€“12)</span
                   ></label
                 >
                 <input
@@ -318,7 +318,7 @@
                   class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2"
                   >Day of Week
                   <span class="text-slate-400 dark:text-slate-500"
-                    >(0–6)</span
+                    >(0â€“6)</span
                   ></label
                 >
                 <input
@@ -403,7 +403,7 @@
                 id="out-runs"
                 class="list-decimal pl-6 space-y-1 text-sm font-mono text-slate-700 dark:text-slate-300"
               >
-                <li>—</li>
+                <li>â€”</li>
               </ol>
             </div>
             <div class="flex flex-wrap justify-end gap-3 pt-2">
@@ -451,8 +451,8 @@
                   A standard crontab line has five space-separated fields:
                   <code class="font-mono text-xs"
                     >minute hour day-of-month month day-of-week</code
-                  >. Minute runs 0–59, hour 0–23, day-of-month 1–31, month 1–12,
-                  and day-of-week 0–6 (0 = Sunday). Each field accepts a literal
+                  >. Minute runs 0â€“59, hour 0â€“23, day-of-month 1â€“31, month 1â€“12,
+                  and day-of-week 0â€“6 (0 = Sunday). Each field accepts a literal
                   like <code class="font-mono text-xs">9</code>, a range
                   <code class="font-mono text-xs">1-5</code>, a list
                   <code class="font-mono text-xs">0,30</code>, a wildcard
@@ -472,11 +472,11 @@
                 >
                   <li>
                     Impossible dates such as February 30th or the 31st in a
-                    30-day month never fire — the minute-by-minute scan honestly
+                    30-day month never fire â€” the minute-by-minute scan honestly
                     reports no matches within the horizon.
                   </li>
                   <li>
-                    Day-of-week uses 0–6 with 7 also accepted as Sunday; mixing
+                    Day-of-week uses 0â€“6 with 7 also accepted as Sunday; mixing
                     <code class="font-mono text-xs">1-5</code> ranges and
                     <code class="font-mono text-xs">*/n</code> steps requires
                     care.
@@ -511,7 +511,7 @@
                   from a meaningful moment in your local time.
                 </li>
                 <li>
-                  Press "Generate Schedule" — the tool validates every field and
+                  Press "Generate Schedule" â€” the tool validates every field and
                   renders the normalized expression plus the next five matching
                   instants.
                 </li>
@@ -812,7 +812,7 @@
               entry.field.id,
               "Invalid " +
                 entry.field.label +
-                " — use *, lists, ranges (1-5), or steps (*/15).",
+                " â€” use *, lists, ranges (1-5), or steps (*/15).",
             );
           } else {
             clearError(entry.field.id);
@@ -878,7 +878,7 @@
         if (!cron) {
           document.getElementById("out-cron").textContent =
             "Please fix the highlighted fields above.";
-          document.getElementById("out-runs").innerHTML = "<li>—</li>";
+          document.getElementById("out-runs").innerHTML = "<li>â€”</li>";
           status.textContent = "Validation failed";
           status.className =
             "text-sm font-semibold text-red-600 dark:text-red-400";
@@ -906,7 +906,7 @@
         const list = document.getElementById("out-runs");
         if (result.exhausted) {
           list.innerHTML =
-            '<li class="text-amber-600 dark:text-amber-400">No matching times found within ~5.7 years — this combination may never occur (e.g. Feb 30).</li>';
+            '<li class="text-amber-600 dark:text-amber-400">No matching times found within ~5.7 years â€” this combination may never occur (e.g. Feb 30).</li>';
         } else {
           list.innerHTML = result.runs
             .map((r) => "<li>" + formatRun(r) + "</li>")
@@ -914,7 +914,7 @@
         }
         status.textContent = result.exhausted
           ? "No future match found"
-          : "Valid cron expression — " +
+          : "Valid cron expression â€” " +
             (result.runs.length === 5
               ? "next 5 runs computed"
               : "fewer than 5 future matches");
@@ -967,3 +967,4 @@
     </script>
   </body>
 </html>
+

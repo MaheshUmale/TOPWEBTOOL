@@ -1,4 +1,4 @@
-<!doctype html>
+ï»¿<!doctype html>
 <html lang="en">
   <head>
     <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
@@ -34,7 +34,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png" />
 
     <link rel="manifest" href="../../site.webmanifest" />
-    <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#090d16" media="(prefers-color-scheme: dark)" />
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
     <meta property="og:type" content="article" />
     <meta property="og:site_name" content="TopWebTool" />
@@ -126,9 +126,9 @@
               class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4"
             >
               <span>Published: August 2026</span>
-              <span>•</span>
+              <span>â€¢</span>
               <span>Category: AI Agent & Automation</span>
-              <span>•</span>
+              <span>â€¢</span>
               <span class="text-emerald-600 dark:text-emerald-400"
                 >No Sign-Up / 100% Free / No Registration</span
               >
@@ -150,7 +150,7 @@
                 prompt says "You are a concise assistant" in one paragraph and
                 "provide a detailed step-by-step walkthrough" in another. The
                 model resolves the conflict however it happens to weigh it that
-                request — which means the behavior flickers. Read the assembled
+                request â€” which means the behavior flickers. Read the assembled
                 prompt for contradictions the way you would review a contract.
               </p>
               <p class="mb-4">
@@ -159,13 +159,13 @@
                 queries the orders table" gives the model no reason to call it.
                 "Call when the user asks about their orders; returns order
                 numbers and statuses" gives it a trigger. If your agent
-                under-uses a tool, the description — not the model — is usually
+                under-uses a tool, the description â€” not the model â€” is usually
                 the culprit.
               </p>
               <p class="mb-4">
                 Schema mismatches are the silent production bug. The tool
                 handler expects a JSON field called "userId", but the schema
-                says "user_id", so the handler throws — or worse, silently
+                says "user_id", so the handler throws â€” or worse, silently
                 ignores the value. Every schema field must match the handler
                 exactly, including types and case. This is the most common cause
                 of "the tool works in tests but not in prod," because tests call
@@ -182,7 +182,7 @@
               <p class="mb-4">
                 Constraints that contradict the tool set weaken the whole
                 prompt. "Always answer from the database, never guess" is a rule
-                the model cannot honor if no database tool is available — so the
+                the model cannot honor if no database tool is available â€” so the
                 model either ignores the rule or hallucinates to obey it. Audit
                 your negative rules against your declared tools; every rule
                 should be satisfiable.
@@ -190,7 +190,7 @@
               <p class="mb-4">
                 An output format described but never demonstrated produces
                 drift. "Return JSON" without an example invites the model to
-                invent its own shape — array, object, stringified, with or
+                invent its own shape â€” array, object, stringified, with or
                 without a wrapper field. One shown example pins the shape far
                 more reliably than any description, and the example must match
                 the schema you validate against.
@@ -200,7 +200,7 @@
                 sentence of context competes with the goal and constraints for
                 attention. If a system prompt grows past a few hundred words,
                 most of it is usually context the model does not need per
-                request — move it to per-request context or trim it, and keep
+                request â€” move it to per-request context or trim it, and keep
                 the standing instructions short.
               </p>
               <p class="mb-4">
@@ -216,7 +216,7 @@
                 Without an old version to diff, you cannot tell whether the new
                 behavior came from your edit or from a model update. Keep the
                 history, keep the test transcripts, and you keep the ability to
-                reason about why an agent changed — which is the entire job.
+                reason about why an agent changed â€” which is the entire job.
               </p>
             </div>
 
@@ -255,3 +255,4 @@
     <script src="../../js/context-engine.js" defer></script>
   </body>
 </html>
+

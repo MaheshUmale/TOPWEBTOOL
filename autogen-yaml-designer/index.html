@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
   <head>
     <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
@@ -38,7 +38,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png" />
 
     <link rel="manifest" href="../site.webmanifest" />
-    <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#090d16" media="(prefers-color-scheme: dark)" />
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="TopWebTool" />
@@ -58,7 +58,7 @@
         background-color: #fff;
       }
       html.dark {
-        background-color: #0f172a;
+        background-color: #090d16;
       }
       body {
         padding-bottom: 6rem;
@@ -158,7 +158,7 @@
               CrewAI / AutoGen YAML Designer
             </h1>
             <p class="mt-2 text-base text-slate-500 dark:text-slate-400">
-              Visually define agents, roles, goals, tools, and tasks — then
+              Visually define agents, roles, goals, tools, and tasks â€” then
               export a valid, correctly indented YAML config for CrewAI,
               AutoGen, or your own orchestrator.
             </p>
@@ -178,7 +178,7 @@
                 Configuration Designer
               </h2>
               <span class="text-xs font-bold text-brand-700 dark:text-brand-400"
-                >Agents + Tasks → YAML</span
+                >Agents + Tasks â†’ YAML</span
               >
             </div>
 
@@ -351,7 +351,7 @@
                     half-configured agent.
                   </li>
                   <li>
-                    Mixed indentation (spaces + tabs) is the top parser error —
+                    Mixed indentation (spaces + tabs) is the top parser error â€”
                     output here is always two-space indented.
                   </li>
                 </ul>
@@ -574,7 +574,7 @@
       function mkDelBtn() {
         const b = document.createElement("button");
         b.type = "button";
-        b.textContent = "✕";
+        b.textContent = "âœ•";
         b.setAttribute("aria-label", "Remove row");
         b.className =
           "w-10 h-10 shrink-0 self-end md:self-center flex items-center justify-center text-sm font-bold rounded-lg border border-slate-300 dark:border-slate-700 text-red-500 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-950/40 transition-colors";
@@ -772,7 +772,7 @@
             " Agent & Task Configuration",
         );
         lines.push(
-          "# Generated with TopWebTool — https://topwebtool.com/autogen-yaml-designer/",
+          "# Generated with TopWebTool â€” https://topwebtool.com/autogen-yaml-designer/",
         );
 
         if (fw === "crewai") {
@@ -906,7 +906,7 @@
             result.warnings.length +
             " warning" +
             (result.warnings.length > 1 ? "s" : "") +
-            " — review highlighted rows";
+            " â€” review highlighted rows";
           status.className =
             "text-sm font-semibold text-amber-600 dark:text-amber-400";
         } else if (agents === 0 && tasks === 0) {
@@ -922,7 +922,7 @@
             tasks +
             " task" +
             (tasks === 1 ? "" : "s") +
-            " — valid YAML";
+            " â€” valid YAML";
           status.className =
             "text-sm font-semibold text-emerald-600 dark:text-emerald-400";
         }
@@ -972,14 +972,14 @@
       tasksEl.addEventListener("input", renderYAML);
       agentsEl.addEventListener("click", (e) => {
         const btn = e.target.closest("button");
-        if (btn && btn.textContent.trim() === "✕") {
+        if (btn && btn.textContent.trim() === "âœ•") {
           btn.closest("div.border").remove();
           renderYAML();
         }
       });
       tasksEl.addEventListener("click", (e) => {
         const btn = e.target.closest("button");
-        if (btn && btn.textContent.trim() === "✕") {
+        if (btn && btn.textContent.trim() === "âœ•") {
           btn.closest("div.border").remove();
           renderYAML();
         }
@@ -1023,3 +1023,4 @@
     </script>
   </body>
 </html>
+

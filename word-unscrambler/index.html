@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
   <head>
     <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
@@ -35,7 +35,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png" />
 
     <link rel="manifest" href="../site.webmanifest" />
-    <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#090d16" media="(prefers-color-scheme: dark)" />
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="TopWebTool" />
@@ -55,7 +55,7 @@
         background-color: #fff;
       }
       html.dark {
-        background-color: #0f172a;
+        background-color: #090d16;
       }
       body {
         padding-bottom: 6rem;
@@ -293,7 +293,7 @@
                     id="btn-load-dict"
                     class="px-2.5 py-1.5 text-xs font-bold text-white bg-brand-600 hover:bg-brand-700 dark:bg-brand-700 dark:hover:bg-brand-600 rounded-lg transition-all flex items-center gap-1.5 shadow-sm"
                   >
-                    <span>⚡ Load 370k Words</span>
+                    <span>âš¡ Load 370k Words</span>
                   </button>
                 </div>
               </div>
@@ -2026,7 +2026,7 @@
         const statusSpan = document.getElementById("dict-status");
 
         btn.disabled = true;
-        btn.innerHTML = "<span>⏳ Loading...</span>";
+        btn.innerHTML = "<span>â³ Loading...</span>";
         statusSpan.textContent = "Fetching 370k wordlist...";
 
         try {
@@ -2045,7 +2045,7 @@
           if (loadedWords.length > 100) {
             activeDictionary = loadedWords;
             statusSpan.textContent = `Expanded (${loadedWords.length.toLocaleString()} words)`;
-            btn.innerHTML = "<span>✅ Loaded!</span>";
+            btn.innerHTML = "<span>âœ… Loaded!</span>";
             btn.classList.remove("bg-brand-600", "hover:bg-brand-700");
             btn.classList.add("bg-emerald-600", "dark:bg-emerald-700");
             solveUnscramble();
@@ -2055,7 +2055,7 @@
         } catch (err) {
           console.error("Failed to load online dictionary:", err);
           statusSpan.textContent = "Offline Fallback Active";
-          btn.innerHTML = "<span>❌ Fail - Retry</span>";
+          btn.innerHTML = "<span>âŒ Fail - Retry</span>";
           btn.disabled = false;
           alert(
             "Could not download the 370k word list (maybe offline or CORS restricted). Using standard 1,000 words offline list instead.",
@@ -2107,3 +2107,4 @@
     <script src="../js/context-engine.js" defer></script>
   </body>
 </html>
+

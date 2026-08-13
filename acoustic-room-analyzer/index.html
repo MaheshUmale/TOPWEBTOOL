@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
   <head>
     <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
@@ -38,7 +38,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png" />
 
     <link rel="manifest" href="../site.webmanifest" />
-    <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#090d16" media="(prefers-color-scheme: dark)" />
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="TopWebTool" />
@@ -58,7 +58,7 @@
         background-color: #fff;
       }
       html.dark {
-        background-color: #0f172a;
+        background-color: #090d16;
       }
       body {
         padding-bottom: 6rem;
@@ -174,7 +174,7 @@
               <h2 class="text-lg font-bold text-slate-900">Room Geometry</h2>
               <span
                 class="text-xs font-bold text-slate-400 uppercase tracking-wide hidden sm:inline"
-                >🔊 Mode Analysis</span
+                >ðŸ”Š Mode Analysis</span
               >
             </div>
 
@@ -321,7 +321,7 @@
                   id="val-axial"
                   class="text-2xl font-extrabold text-brand-600 dark:text-brand-400 mt-1"
                 >
-                  —
+                  â€”
                 </p>
                 <p class="text-xs text-slate-400 mt-1">Hz along Lx / Ly / Lz</p>
               </div>
@@ -337,7 +337,7 @@
                   id="val-flagged"
                   class="text-2xl font-extrabold text-brand-600 dark:text-brand-400 mt-1"
                 >
-                  —
+                  â€”
                 </p>
                 <p class="text-xs text-slate-400 mt-1">
                   modes below display cutoff
@@ -355,7 +355,7 @@
                   id="val-density"
                   class="text-2xl font-extrabold text-brand-600 dark:text-brand-400 mt-1"
                 >
-                  —
+                  â€”
                 </p>
                 <p class="text-xs text-slate-400 mt-1">modes / Hz at 200 Hz</p>
               </div>
@@ -371,7 +371,7 @@
                   id="val-volume"
                   class="text-2xl font-extrabold text-brand-600 dark:text-brand-400 mt-1"
                 >
-                  —
+                  â€”
                 </p>
                 <p class="text-xs text-slate-400 mt-1">cubic units</p>
               </div>
@@ -438,10 +438,10 @@
                 class="bg-slate-950 text-emerald-400 p-4 rounded-xl font-mono text-xs overflow-x-auto break-all shadow-inner"
                 id="out-breakdown"
               >
-Waiting for input…</pre>
+Waiting for inputâ€¦</pre>
             </div>
 
-            <pre class="hidden" id="out-copy">…</pre>
+            <pre class="hidden" id="out-copy">â€¦</pre>
 
             <div class="flex justify-end pt-2">
               <button
@@ -627,7 +627,7 @@ Waiting for input…</pre>
         const dims = [Lx, Ly, Lz].sort((a, b) => a - b);
         if (new Set(dims).size < 3) {
           warnEl.textContent =
-            "Warning: two or more room dimensions are equal — coincident (clustered) modes are likely. A spread ratio such as Bolt (1:1.14:1.39) avoids this.";
+            "Warning: two or more room dimensions are equal â€” coincident (clustered) modes are likely. A spread ratio such as Bolt (1:1.14:1.39) avoids this.";
           warnEl.classList.remove("hidden");
         }
 
@@ -684,7 +684,7 @@ Waiting for input…</pre>
         document.getElementById("val-density").textContent =
           densityPerHz.toFixed(2) + " /Hz";
         document.getElementById("val-volume").textContent =
-          volume.toFixed(2) + " " + unitLabel + "³";
+          volume.toFixed(2) + " " + unitLabel + "Â³";
 
         const tbody = document.getElementById("mode-table-body");
         let rows = "";
@@ -755,9 +755,9 @@ Waiting for input…</pre>
             "</td>" +
             '<td class="px-3 py-2 text-slate-500 dark:text-slate-400">' +
             dh.toFixed(1) +
-            " × " +
+            " Ã— " +
             dw.toFixed(1) +
-            " × " +
+            " Ã— " +
             dl.toFixed(1) +
             " " +
             unitLabel +
@@ -772,7 +772,7 @@ Waiting for input…</pre>
         rtbody.innerHTML = rrows;
 
         document.getElementById("out-breakdown").textContent =
-          "Room mode resonance:  f = (c/2) × √((nx/Lx)² + (ny/Ly)² + (nz/Lz)²)\n" +
+          "Room mode resonance:  f = (c/2) Ã— âˆš((nx/Lx)Â² + (ny/Ly)Â² + (nz/Lz)Â²)\n" +
           "Speed of sound c = " +
           c +
           " (" +
@@ -780,9 +780,9 @@ Waiting for input…</pre>
           "/s)\n" +
           "Dimensions: " +
           Lx +
-          " × " +
+          " Ã— " +
           Ly +
-          " × " +
+          " Ã— " +
           Lz +
           " " +
           unitLabel +
@@ -790,12 +790,12 @@ Waiting for input…</pre>
           volume.toFixed(2) +
           " " +
           unitLabel +
-          "³)\n" +
-          "Axial fundamentals: Lx→" +
+          "Â³)\n" +
+          "Axial fundamentals: Lxâ†’" +
           fAxialX.toFixed(1) +
-          " Hz,  Ly→" +
+          " Hz,  Lyâ†’" +
           fAxialY.toFixed(1) +
-          " Hz,  Lz→" +
+          " Hz,  Lzâ†’" +
           fAxialZ.toFixed(1) +
           " Hz\n" +
           "First modes:\n" +
@@ -831,9 +831,9 @@ Waiting for input…</pre>
           ")\n" +
           "Dimensions: " +
           Lx +
-          " × " +
+          " Ã— " +
           Ly +
-          " × " +
+          " Ã— " +
           Lz +
           " " +
           unitLabel +
@@ -841,7 +841,7 @@ Waiting for input…</pre>
           volume.toFixed(2) +
           " " +
           unitLabel +
-          "³)\n" +
+          "Â³)\n" +
           "Axial fundamentals: " +
           fAxialX.toFixed(1) +
           " / " +
@@ -859,9 +859,9 @@ Waiting for input…</pre>
           " Hz: " +
           densityPerHz.toFixed(2) +
           " modes/Hz\n" +
-          "— First " +
+          "â€” First " +
           uniq.length +
-          " modes —\n" +
+          " modes â€”\n" +
           uniq
             .map(
               (m) =>
@@ -881,18 +881,18 @@ Waiting for input…</pre>
                 (m.f < hi ? "  [PROBLEM RANGE]" : ""),
             )
             .join("\n") +
-          "\n— Recommended ratios (scaled to shortest side " +
+          "\nâ€” Recommended ratios (scaled to shortest side " +
           shortest.toFixed(2) +
-          ") —\n" +
+          ") â€”\n" +
           RATIOS.map((r) => {
             const scale = shortest / r.h;
             return (
               r.name +
               ": " +
               (r.h * scale).toFixed(1) +
-              " × " +
+              " Ã— " +
               (r.w * scale).toFixed(1) +
-              " × " +
+              " Ã— " +
               (r.l * scale).toFixed(1) +
               " " +
               unitLabel
@@ -932,3 +932,4 @@ Waiting for input…</pre>
     <script src="../js/context-engine.js" defer></script>
   </body>
 </html>
+

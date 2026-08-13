@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
   <head>
     <script>
@@ -34,7 +34,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png" />
 
     <link rel="manifest" href="../site.webmanifest" />
-    <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#090d16" media="(prefers-color-scheme: dark)" />
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="TopWebTool" />
@@ -54,7 +54,7 @@
         background-color: #fff;
       }
       html.dark {
-        background-color: #0f172a;
+        background-color: #090d16;
       }
       body {
         padding-bottom: 6rem;
@@ -396,7 +396,7 @@
                   <p class="text-sm font-medium" id="result-health-label">
                     Health Status
                   </p>
-                  <p class="text-2xl font-bold mt-1" id="result-health">—</p>
+                  <p class="text-2xl font-bold mt-1" id="result-health">â€”</p>
                   <p class="text-xs mt-1" id="result-recommendation">
                     Enter values to see recommendations
                   </p>
@@ -781,7 +781,7 @@
         document.getElementById("result-health-label").className =
           "text-sm font-medium " + healthLabelClass;
         document.getElementById("result-health").textContent =
-          healthStatus || "—";
+          healthStatus || "â€”";
         document.getElementById("result-health").className =
           "text-2xl font-bold mt-1 " + healthTextClass;
         document.getElementById("result-recommendation").textContent =
@@ -820,3 +820,4 @@
     <script src="../js/context-engine.js" defer></script>
   </body>
 </html>
+

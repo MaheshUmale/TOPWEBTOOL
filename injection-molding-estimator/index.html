@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
   <head>
     <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
@@ -38,7 +38,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png" />
 
     <link rel="manifest" href="../site.webmanifest" />
-    <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#090d16" media="(prefers-color-scheme: dark)" />
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="TopWebTool" />
@@ -58,7 +58,7 @@
         background-color: #fff;
       }
       html.dark {
-        background-color: #0f172a;
+        background-color: #090d16;
       }
       body {
         padding-bottom: 6rem;
@@ -176,7 +176,7 @@
               </h2>
               <span
                 class="text-xs font-bold text-slate-400 uppercase tracking-wide hidden sm:inline"
-                >🔩 Injection Molding</span
+                >ðŸ”© Injection Molding</span
               >
             </div>
 
@@ -192,7 +192,7 @@
                   <label
                     for="projected-area"
                     class="block text-sm font-semibold text-slate-700 dark:text-slate-200 mb-2"
-                    >Projected Part Area (in²)</label
+                    >Projected Part Area (inÂ²)</label
                   >
                   <input
                     id="projected-area"
@@ -304,7 +304,7 @@
                   id="val-tonnage"
                   class="text-2xl font-extrabold text-brand-600 dark:text-brand-400 mt-1"
                 >
-                  —
+                  â€”
                 </p>
                 <p class="text-xs text-slate-400 mt-1">US tons (short)</p>
               </div>
@@ -320,10 +320,10 @@
                   id="val-factor"
                   class="text-2xl font-extrabold text-brand-600 dark:text-brand-400 mt-1"
                 >
-                  —
+                  â€”
                 </p>
                 <p class="text-xs text-slate-400 mt-1">
-                  tons per in² (cavity pressure)
+                  tons per inÂ² (cavity pressure)
                 </p>
               </div>
               <div
@@ -338,7 +338,7 @@
                   id="val-machine"
                   class="text-2xl font-extrabold text-brand-600 dark:text-brand-400 mt-1"
                 >
-                  —
+                  â€”
                 </p>
                 <p class="text-xs text-slate-400 mt-1">
                   tons with 15% safety margin
@@ -356,7 +356,7 @@
                   id="val-cooling"
                   class="text-2xl font-extrabold text-brand-600 dark:text-brand-400 mt-1"
                 >
-                  —
+                  â€”
                 </p>
                 <p class="text-xs text-slate-400 mt-1">
                   seconds (Fourier plate model)
@@ -374,7 +374,7 @@
                   id="val-other"
                   class="text-2xl font-extrabold text-brand-600 dark:text-brand-400 mt-1"
                 >
-                  —
+                  â€”
                 </p>
                 <p class="text-xs text-slate-400 mt-1">
                   seconds (fill, pack, clamp motion)
@@ -392,7 +392,7 @@
                   id="val-cycle"
                   class="text-2xl font-extrabold text-brand-600 dark:text-brand-400 mt-1"
                 >
-                  —
+                  â€”
                 </p>
                 <p class="text-xs text-slate-400 mt-1">seconds</p>
               </div>
@@ -408,7 +408,7 @@
                   id="val-shots"
                   class="text-2xl font-extrabold text-brand-600 dark:text-brand-400 mt-1"
                 >
-                  —
+                  â€”
                 </p>
                 <p class="text-xs text-slate-400 mt-1">shots per hour</p>
               </div>
@@ -424,7 +424,7 @@
                   id="val-part-wt"
                   class="text-2xl font-extrabold text-brand-600 dark:text-brand-400 mt-1"
                 >
-                  —
+                  â€”
                 </p>
                 <p class="text-xs text-slate-400 mt-1">grams per cavity</p>
               </div>
@@ -440,7 +440,7 @@
                   id="val-shot-wt"
                   class="text-2xl font-extrabold text-brand-600 dark:text-brand-400 mt-1"
                 >
-                  —
+                  â€”
                 </p>
                 <p class="text-xs text-slate-400 mt-1">
                   grams incl. runner allowance
@@ -458,10 +458,10 @@
                 class="bg-slate-950 text-emerald-400 p-4 rounded-xl font-mono text-xs overflow-x-auto break-all shadow-inner"
                 id="out-breakdown"
               >
-Waiting for input…</pre>
+Waiting for inputâ€¦</pre>
             </div>
 
-            <pre class="hidden" id="out-copy">…</pre>
+            <pre class="hidden" id="out-copy">â€¦</pre>
 
             <div class="flex justify-end pt-2">
               <button
@@ -508,18 +508,18 @@ Waiting for input…</pre>
                 <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
                   Clamp force comes from projected area:
                   <code class="text-brand-600 dark:text-brand-400 font-mono"
-                    >F (tons) = projected area (in²) × cavity pressure (psi) ÷
+                    >F (tons) = projected area (inÂ²) Ã— cavity pressure (psi) Ã·
                     2000</code
-                  >. The resin preset supplies a typical peak cavity pressure —
-                  roughly 4,000–10,000 psi depending on flow — which works out
-                  to the familiar 2–5 tons per square inch rule of thumb.
+                  >. The resin preset supplies a typical peak cavity pressure â€”
+                  roughly 4,000â€“10,000 psi depending on flow â€” which works out
+                  to the familiar 2â€“5 tons per square inch rule of thumb.
                   Cooling time follows the Fourier slab solution:
                   <code class="text-brand-600 dark:text-brand-400 font-mono"
-                    >t = s² ÷ (π²·α) × ln[(4/π)·(T<sub>melt</sub> −
-                    T<sub>mold</sub>) ÷ (T<sub>eject</sub> −
+                    >t = sÂ² Ã· (Ï€Â²Â·Î±) Ã— ln[(4/Ï€)Â·(T<sub>melt</sub> âˆ’
+                    T<sub>mold</sub>) Ã· (T<sub>eject</sub> âˆ’
                     T<sub>mold</sub>)]</code
-                  >, where s is wall thickness in mm and α is the resin thermal
-                  diffusivity. A quick shop-floor approximation is 2·s² seconds.
+                  >, where s is wall thickness in mm and Î± is the resin thermal
+                  diffusivity. A quick shop-floor approximation is 2Â·sÂ² seconds.
                 </p>
               </div>
               <div>
@@ -543,9 +543,9 @@ Waiting for input…</pre>
                       >
                         <th class="px-3 py-2 font-bold">Resin</th>
                         <th class="px-3 py-2 font-bold">Cavity psi</th>
-                        <th class="px-3 py-2 font-bold">Tons/in²</th>
-                        <th class="px-3 py-2 font-bold">α (mm²/s)</th>
-                        <th class="px-3 py-2 font-bold">g/cm³</th>
+                        <th class="px-3 py-2 font-bold">Tons/inÂ²</th>
+                        <th class="px-3 py-2 font-bold">Î± (mmÂ²/s)</th>
+                        <th class="px-3 py-2 font-bold">g/cmÂ³</th>
                       </tr>
                     </thead>
                     <tbody id="material-table"></tbody>
@@ -563,8 +563,8 @@ Waiting for input…</pre>
               >
                 <li>
                   Projected area, not surface area: use the flat shadow of the
-                  part on the parting line. A deep ribbed box can have 5 in² of
-                  surface but only 1.5 in² of projected area.
+                  part on the parting line. A deep ribbed box can have 5 inÂ² of
+                  surface but only 1.5 inÂ² of projected area.
                 </li>
                 <li>
                   Multi-cavity tools: multiply projected area by cavity count,
@@ -578,7 +578,7 @@ Waiting for input…</pre>
                 </li>
                 <li>
                   Non-flat parting lines and side-action cores add clamp loads
-                  that a flat-area estimate cannot capture — add 10–20% tonnage
+                  that a flat-area estimate cannot capture â€” add 10â€“20% tonnage
                   headroom.
                 </li>
               </ul>
@@ -596,7 +596,7 @@ Waiting for input…</pre>
                   shadow on the parting line).
                 </li>
                 <li>
-                  Enter the nominal wall thickness in millimeters — use the
+                  Enter the nominal wall thickness in millimeters â€” use the
                   thickest nominal wall, not the average.
                 </li>
                 <li>
@@ -894,7 +894,7 @@ Waiting for input…</pre>
 
         let firstError = null;
         if (!(area > 0))
-          firstError = "Projected area must be greater than 0 in².";
+          firstError = "Projected area must be greater than 0 inÂ².";
         else if (!(t > 0.05))
           firstError = "Wall thickness must be greater than 0.05 mm.";
         else if (!(cavities >= 1 && cavities <= 64))
@@ -930,7 +930,7 @@ Waiting for input…</pre>
         document.getElementById("val-tonnage").textContent =
           clampTons.toFixed(1) + " tons";
         document.getElementById("val-factor").textContent =
-          tonnageFactor.toFixed(2) + " t/in²";
+          tonnageFactor.toFixed(2) + " t/inÂ²";
         document.getElementById("val-machine").textContent =
           recommended.toFixed(1) + " tons (" + clampKN.toFixed(0) + " kN)";
         document.getElementById("val-cooling").textContent =
@@ -947,25 +947,25 @@ Waiting for input…</pre>
           shotWeightG.toFixed(1) + " g";
 
         document.getElementById("out-breakdown").textContent =
-          "CLAMP  = area × cavity pressure ÷ 2000\n" +
+          "CLAMP  = area Ã— cavity pressure Ã· 2000\n" +
           "       = " +
           area +
-          " × " +
+          " Ã— " +
           mat.psi.toLocaleString() +
-          " ÷ 2000\n" +
+          " Ã· 2000\n" +
           "       = " +
           clampTons.toFixed(1) +
           " tons (factor " +
           tonnageFactor.toFixed(2) +
-          " t/in²)\n" +
-          "COOL   = s² ÷ (π²·α) × ln[(4/π)·(Tm−Tw)/(Te−Tw)]\n" +
+          " t/inÂ²)\n" +
+          "COOL   = sÂ² Ã· (Ï€Â²Â·Î±) Ã— ln[(4/Ï€)Â·(Tmâˆ’Tw)/(Teâˆ’Tw)]\n" +
           "       = " +
           t +
-          "² ÷ (π²·" +
+          "Â² Ã· (Ï€Â²Â·" +
           mat.alpha +
-          ") × ln[" +
+          ") Ã— ln[" +
           (4 / Math.PI).toFixed(3) +
-          "·" +
+          "Â·" +
           (mat.tm - mat.tw) +
           "/" +
           (mat.te - mat.tw) +
@@ -973,9 +973,9 @@ Waiting for input…</pre>
           "       = " +
           cooling.toFixed(2) +
           " s\n" +
-          "FILL   = shot volume ÷ 120 cm³/s = " +
+          "FILL   = shot volume Ã· 120 cmÂ³/s = " +
           shotVolCm3.toFixed(1) +
-          " ÷ 120 = " +
+          " Ã· 120 = " +
           fill.toFixed(2) +
           " s\n" +
           "HOLD   = " +
@@ -990,40 +990,40 @@ Waiting for input…</pre>
           " = " +
           cycle.toFixed(1) +
           " s\n" +
-          "RATE   = 3600 ÷ " +
+          "RATE   = 3600 Ã· " +
           cycle.toFixed(1) +
           " = " +
           shotsPerHour.toFixed(0) +
           " shots/hr\n" +
           "PART   = " +
           partVolCm3.toFixed(1) +
-          " cm³ × " +
+          " cmÂ³ Ã— " +
           mat.rho +
-          " g/cm³ = " +
+          " g/cmÂ³ = " +
           partWeightG.toFixed(1) +
           " g\n" +
           "SHOT   = " +
           partWeightG.toFixed(1) +
-          " g × " +
+          " g Ã— " +
           cavities +
-          " × 1.15 (runner) = " +
+          " Ã— 1.15 (runner) = " +
           shotWeightG.toFixed(1) +
           " g";
 
         document.getElementById("out-copy").textContent =
-          "Injection Molding Estimate — " +
+          "Injection Molding Estimate â€” " +
           mat.name +
           "\n" +
           "Projected area: " +
           area +
-          " in²\n" +
+          " inÂ²\n" +
           "Wall thickness: " +
           t +
           " mm\n" +
           "Cavities: " +
           cavities +
           "\n" +
-          "— Results —\n" +
+          "â€” Results â€”\n" +
           "Required clamp force: " +
           clampTons.toFixed(1) +
           " tons (" +
@@ -1031,7 +1031,7 @@ Waiting for input…</pre>
           " kN)\n" +
           "Tonnage factor: " +
           tonnageFactor.toFixed(2) +
-          " tons/in²\n" +
+          " tons/inÂ²\n" +
           "Recommended machine: " +
           recommended.toFixed(1) +
           " tons\n" +
@@ -1056,7 +1056,7 @@ Waiting for input…</pre>
 
         if (clampTons < 20) {
           warnEl.textContent =
-            "Note: required clamp force is under 20 tons — a hand-press or micro-molding machine may be sufficient.";
+            "Note: required clamp force is under 20 tons â€” a hand-press or micro-molding machine may be sufficient.";
           warnEl.classList.remove("hidden");
         }
       }
@@ -1094,3 +1094,4 @@ Waiting for input…</pre>
     <script src="../js/context-engine.js" defer></script>
   </body>
 </html>
+

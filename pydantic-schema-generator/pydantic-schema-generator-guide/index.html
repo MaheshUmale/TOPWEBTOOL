@@ -1,4 +1,4 @@
-<!doctype html>
+ï»¿<!doctype html>
 <html lang="en">
   <head>
     <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
@@ -38,7 +38,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png" />
 
     <link rel="manifest" href="../../site.webmanifest" />
-    <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#090d16" media="(prefers-color-scheme: dark)" />
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
     <meta property="og:type" content="article" />
     <meta property="og:site_name" content="TopWebTool" />
@@ -130,9 +130,9 @@
               class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4"
             >
               <span>Published: August 2026</span>
-              <span>•</span>
+              <span>â€¢</span>
               <span>Category: AI Agent & Automation</span>
-              <span>•</span>
+              <span>â€¢</span>
               <span class="text-emerald-600 dark:text-emerald-400"
                 >No Sign-Up / 100% Free / No Registration</span
               >
@@ -149,14 +149,14 @@
                 validates incoming data against that contract, converting or
                 rejecting values before your business logic ever touches them.
                 Because it is declared in plain Python, the contract is also
-                executable documentation — the model is both the type spec and
+                executable documentation â€” the model is both the type spec and
                 the validator, and it generates the schema that other systems
                 consume.
               </p>
               <p class="mb-4">
                 Every field in a Pydantic model has three core attributes: a
                 name, a type, and a requirement status. A field declared without
-                a default is required — constructing the model without it raises
+                a default is required â€” constructing the model without it raises
                 a ValidationError. A field with a default is optional. This
                 distinction is the single most important decision you make per
                 field, and it should match the real world: is this value always
@@ -167,13 +167,13 @@
               </p>
               <p class="mb-4">
                 Types are the second decision. The generator supports the
-                workhorse built-ins —
+                workhorse built-ins â€”
                 <code class="font-mono text-xs">str</code>,
                 <code class="font-mono text-xs">int</code>,
                 <code class="font-mono text-xs">float</code>,
                 <code class="font-mono text-xs">bool</code>,
                 <code class="font-mono text-xs">list</code>,
-                <code class="font-mono text-xs">dict</code> — plus the useful
+                <code class="font-mono text-xs">dict</code> â€” plus the useful
                 pydantic extras
                 <code class="font-mono text-xs">EmailStr</code> for validated
                 email addresses and
@@ -192,7 +192,7 @@
                 the field's meaning, its units, its allowed range, or the
                 business rule that governs it. When you export the JSON Schema,
                 these descriptions become the
-                <code class="font-mono text-xs">description</code> property —
+                <code class="font-mono text-xs">description</code> property â€”
                 the documentation that OpenAPI tools, API consumers, and future
                 maintainers read. A schema with rich descriptions is
                 self-documenting; a schema without them is a skeleton that
@@ -213,7 +213,7 @@
               <p class="mb-4">
                 Before exporting, validate your field definitions. The
                 generator's sample validation step builds a representative JSON
-                payload and checks each value against its declared type — a
+                payload and checks each value against its declared type â€” a
                 field typed
                 <code class="font-mono text-xs">int</code> that receives a
                 string, or an
@@ -238,7 +238,7 @@
                 inspect the generated artifacts, paste into code, and revisit
                 whenever the data shape evolves. Because the generator makes
                 iteration nearly free, you can refine the contract to match
-                reality precisely — and a contract that matches reality is the
+                reality precisely â€” and a contract that matches reality is the
                 difference between an API that integrates cleanly and one that
                 produces a steady stream of validation failures.
               </p>
@@ -250,7 +250,7 @@
                 also the tool-calling spec. Designing models with the generator,
                 then wiring them as agent output contracts, gives you
                 deterministic, validated structure around otherwise freeform
-                model output — the same guarantee a database schema gives a
+                model output â€” the same guarantee a database schema gives a
                 database.
               </p>
               <p class="mb-4">
@@ -271,7 +271,7 @@
                 generator emits the v2 idioms so you can paste the class
                 directly into a modern project without translation. If you are
                 maintaining an older codebase, the differences are mostly
-                mechanical — the conceptual model of fields, types, defaults,
+                mechanical â€” the conceptual model of fields, types, defaults,
                 and validators is unchanged, and the same schema design
                 discipline applies to both major versions.
               </p>
@@ -312,3 +312,4 @@
     <script src="../../js/context-engine.js" defer></script>
   </body>
 </html>
+

@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
   <head>
     <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
@@ -38,7 +38,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png" />
 
     <link rel="manifest" href="../site.webmanifest" />
-    <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#090d16" media="(prefers-color-scheme: dark)" />
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="TopWebTool" />
@@ -58,7 +58,7 @@
         background-color: #fff;
       }
       html.dark {
-        background-color: #0f172a;
+        background-color: #090d16;
       }
       body {
         padding-bottom: 6rem;
@@ -291,7 +291,7 @@ Semantic chunking respects the document's natural structure. Paragraphs become c
                       id="st-source"
                       class="text-right py-2 font-extrabold text-slate-900 dark:text-white"
                     >
-                      –
+                      â€“
                     </td>
                   </tr>
                   <tr class="border-b border-slate-100 dark:border-slate-800">
@@ -305,7 +305,7 @@ Semantic chunking respects the document's natural structure. Paragraphs become c
                       id="st-size"
                       class="text-right py-2 font-extrabold text-slate-900 dark:text-white"
                     >
-                      –
+                      â€“
                     </td>
                   </tr>
                   <tr class="border-b border-slate-100 dark:border-slate-800">
@@ -319,7 +319,7 @@ Semantic chunking respects the document's natural structure. Paragraphs become c
                       id="st-overlap"
                       class="text-right py-2 font-extrabold text-slate-900 dark:text-white"
                     >
-                      –
+                      â€“
                     </td>
                   </tr>
                   <tr class="border-b border-slate-100 dark:border-slate-800">
@@ -333,7 +333,7 @@ Semantic chunking respects the document's natural structure. Paragraphs become c
                       id="st-total"
                       class="text-right py-2 font-extrabold text-slate-900 dark:text-white"
                     >
-                      –
+                      â€“
                     </td>
                   </tr>
                   <tr class="border-b border-slate-100 dark:border-slate-800">
@@ -347,7 +347,7 @@ Semantic chunking respects the document's natural structure. Paragraphs become c
                       id="st-avg"
                       class="text-right py-2 font-extrabold text-slate-900 dark:text-white"
                     >
-                      –
+                      â€“
                     </td>
                   </tr>
                   <tr class="border-b border-slate-100 dark:border-slate-800">
@@ -355,13 +355,13 @@ Semantic chunking respects the document's natural structure. Paragraphs become c
                       scope="row"
                       class="text-left py-2 pr-3 font-semibold text-slate-500 dark:text-slate-400"
                     >
-                      Token Estimate (chars ÷ 4)
+                      Token Estimate (chars Ã· 4)
                     </th>
                     <td
                       id="st-tokens"
                       class="text-right py-2 font-extrabold text-slate-900 dark:text-white"
                     >
-                      –
+                      â€“
                     </td>
                   </tr>
                 </tbody>
@@ -417,7 +417,7 @@ Semantic chunking respects the document's natural structure. Paragraphs become c
                     <th scope="col" class="py-2 pr-2 font-bold">Range</th>
                     <th scope="col" class="py-2 pr-2 font-bold">Chars</th>
                     <th scope="col" class="py-2 pr-2 font-bold">Overlap</th>
-                    <th scope="col" class="py-2 font-bold">Tokens (≈)</th>
+                    <th scope="col" class="py-2 font-bold">Tokens (â‰ˆ)</th>
                   </tr>
                 </thead>
                 <tbody id="chunk-tbody"></tbody>
@@ -449,7 +449,7 @@ Semantic chunking respects the document's natural structure. Paragraphs become c
                 <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
                   Before text is embedded and stored in a vector index, it is
                   split into chunks. Fixed-size chunking cuts every N
-                  characters; sliding-window chunking moves forward by N −
+                  characters; sliding-window chunking moves forward by N âˆ’
                   overlap characters so each new chunk reuses a tail of the
                   previous one; semantic chunking splits on paragraph and
                   sentence boundaries. The retriever then scores chunks against
@@ -911,7 +911,7 @@ semantic        = paragraphs, capped at chunk_size, split on sentences</pre>
                 "</td>" +
                 '<td class="py-2 pr-2 font-mono text-xs text-slate-600 dark:text-slate-300">' +
                 c.start +
-                "–" +
+                "â€“" +
                 c.end +
                 "</td>" +
                 '<td class="py-2 pr-2 font-semibold text-slate-900 dark:text-white">' +
@@ -954,7 +954,7 @@ semantic        = paragraphs, capped at chunk_size, split on sentences</pre>
                 1 +
                 ". [" +
                 c.start +
-                "–" +
+                "â€“" +
                 c.end +
                 "] " +
                 c.text.length +
@@ -994,3 +994,4 @@ semantic        = paragraphs, capped at chunk_size, split on sentences</pre>
     <script src="../js/context-engine.js" defer></script>
   </body>
 </html>
+

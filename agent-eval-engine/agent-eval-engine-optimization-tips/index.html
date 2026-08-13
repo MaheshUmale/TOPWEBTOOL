@@ -1,4 +1,4 @@
-<!doctype html>
+ï»¿<!doctype html>
 <html lang="en">
   <head>
     <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
@@ -34,7 +34,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png" />
 
     <link rel="manifest" href="../../site.webmanifest" />
-    <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#090d16" media="(prefers-color-scheme: dark)" />
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
     <meta property="og:type" content="article" />
     <meta property="og:site_name" content="TopWebTool" />
@@ -126,9 +126,9 @@
               class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4"
             >
               <span>Published: August 2026</span>
-              <span>•</span>
+              <span>â€¢</span>
               <span>Category: AI Agent & Automation</span>
-              <span>•</span>
+              <span>â€¢</span>
               <span class="text-emerald-600 dark:text-emerald-400"
                 >No Sign-Up / 100% Free / No Registration</span
               >
@@ -145,7 +145,7 @@
                 strings but wasteful for the long paragraphs that LLMs produce.
                 Optimize by keeping only two rows of the dynamic-programming
                 table in memory, the previous row and the current row. This
-                drops memory usage from O(m × n) to O(n) while producing exactly
+                drops memory usage from O(m Ã— n) to O(n) while producing exactly
                 the same distance, and the browser's garbage collector stays
                 happy even when you score hundreds of paragraph-length pairs in
                 one session.
@@ -197,8 +197,8 @@
 
               <p class="mb-4">
                 Design a weighted composite score only after you understand the
-                individual metrics. A composite such as 0.5 × similarity + 0.3 ×
-                BLEU-1 + 0.2 × keyword overlap can be useful as a single release
+                individual metrics. A composite such as 0.5 Ã— similarity + 0.3 Ã—
+                BLEU-1 + 0.2 Ã— keyword overlap can be useful as a single release
                 gate, but its weights must be tuned against your own golden
                 data. Score every reference pair individually first, look at
                 where the bad outputs cluster, then set weights so the composite
@@ -287,3 +287,4 @@
     <script src="../../js/context-engine.js" defer></script>
   </body>
 </html>
+

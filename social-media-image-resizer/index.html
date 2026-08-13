@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
   <head>
     <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
@@ -38,7 +38,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png" />
 
     <link rel="manifest" href="../site.webmanifest" />
-    <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#090d16" media="(prefers-color-scheme: dark)" />
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="TopWebTool" />
@@ -58,7 +58,7 @@
         background-color: #fff;
       }
       html.dark {
-        background-color: #0f172a;
+        background-color: #090d16;
       }
       body {
         padding-bottom: 6rem;
@@ -324,7 +324,7 @@
                   <div class="flex justify-between text-xs">
                     <span class="text-slate-500 font-semibold">Rotation</span>
                     <span id="rotate-value" class="font-bold text-brand-600"
-                      >0°</span
+                      >0Â°</span
                     >
                   </div>
                   <input
@@ -791,7 +791,7 @@
         imgY = cropH / 2;
         rotation = 0;
         document.getElementById("slider-rotate").value = 0;
-        document.getElementById("rotate-value").textContent = "0°";
+        document.getElementById("rotate-value").textContent = "0Â°";
         mirrorH = 1;
         mirrorV = 1;
       }
@@ -832,7 +832,7 @@
 
       function updateRotation(value) {
         rotation = parseInt(value);
-        document.getElementById("rotate-value").textContent = `${value}°`;
+        document.getElementById("rotate-value").textContent = `${value}Â°`;
         redraw();
       }
 
@@ -892,3 +892,4 @@
     <script src="../js/context-engine.js" defer></script>
   </body>
 </html>
+

@@ -101,7 +101,7 @@ TopWebTool is a **100% static, client-side web tool directory** deployed to Clou
 
 - Logo/tile: indigo→sky gradient (`#4f46e5 → #0ea5e9`), white "T", amber spark (`#fbbf24`)
 - `site.webmanifest`: description "85 free premium web utilities", `background_color: #ffffff`, `theme_color: #4f46e5`
-- Theme: dark (`#0f172a`) / light (`#ffffff`) via `localStorage` + early blocking script in `<head>`
+- Theme: dark (`#090d16`) / light (`#faf9f7`) via `localStorage` + early blocking script in `<head>`
 
 ## Conventions (MUST follow for new/edited pages)
 

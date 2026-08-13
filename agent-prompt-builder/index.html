@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
   <head>
     <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
@@ -35,7 +35,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png" />
 
     <link rel="manifest" href="../site.webmanifest" />
-    <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#090d16" media="(prefers-color-scheme: dark)" />
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="TopWebTool" />
@@ -55,7 +55,7 @@
         background-color: #fff;
       }
       html.dark {
-        background-color: #0f172a;
+        background-color: #090d16;
       }
       body {
         padding-bottom: 6rem;
@@ -292,7 +292,7 @@ Keep answers under 300 words unless asked for detail.</textarea>
                 id="out-prompt"
                 class="bg-slate-950 text-emerald-400 p-4 rounded-xl font-mono text-xs overflow-x-auto break-all shadow-inner whitespace-pre-wrap"
               >
-…</pre>
+â€¦</pre>
             </div>
 
             <div class="space-y-3">
@@ -314,7 +314,7 @@ Keep answers under 300 words unless asked for detail.</textarea>
                 id="out-tools"
                 class="bg-slate-950 text-emerald-400 p-4 rounded-xl font-mono text-xs overflow-x-auto break-all shadow-inner whitespace-pre-wrap"
               >
-…</pre>
+â€¦</pre>
             </div>
 
             <div class="flex justify-end pt-2">
@@ -404,7 +404,7 @@ Keep answers under 300 words unless asked for detail.</textarea>
                   to bound its behavior.
                 </li>
                 <li>
-                  Choose the output format — Markdown, XML, or JSON — to fix the
+                  Choose the output format â€” Markdown, XML, or JSON â€” to fix the
                   response contract.
                 </li>
                 <li>
@@ -429,7 +429,7 @@ Keep answers under 300 words unless asked for detail.</textarea>
   "type": "function",
   "function": {
     "name": "web_search",
-    "description": "Search the web for up-to-date facts…",
+    "description": "Search the web for up-to-date factsâ€¦",
     "parameters": {
       "type": "object",
       "properties": { "query": { "type": "string" } },
@@ -437,7 +437,7 @@ Keep answers under 300 words unless asked for detail.</textarea>
     }
   }
 }
-prompt_tokens  ≈ words * 1.33        // rough system prompt cost
+prompt_tokens  â‰ˆ words * 1.33        // rough system prompt cost
 format_contract: Markdown | XML | JSON</pre>
             </div>
 
@@ -933,3 +933,4 @@ format_contract: Markdown | XML | JSON</pre>
     <script src="../js/context-engine.js" defer></script>
   </body>
 </html>
+

@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
   <head>
     <script>
@@ -28,7 +28,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png" />
     <link rel="manifest" href="../site.webmanifest" />
-    <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#090d16" media="(prefers-color-scheme: dark)" />
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="TopWebTool" />
@@ -45,7 +45,7 @@
     <meta name="twitter:image" content="https://topwebtool.com/og-image.png" />
     <style>
       html { background-color: #fff; }
-      html.dark { background-color: #0f172a; }
+      html.dark { background-color: #090d16; }
       body { padding-bottom: 6rem; }
       main.flex-grow { min-height: 60vh; }
       #global-header { min-height: 65px; }
@@ -124,7 +124,7 @@
             </div>
             <div class="bg-slate-50 dark:bg-slate-950 p-4 rounded-xl border border-slate-200 dark:border-slate-800">
               <p class="text-xs font-bold text-slate-400 uppercase tracking-wider">Result</p>
-              <p id="result" class="text-2xl font-extrabold text-brand-600 dark:text-brand-400 mt-1">—</p>
+              <p id="result" class="text-2xl font-extrabold text-brand-600 dark:text-brand-400 mt-1">â€”</p>
             </div>
           </div>
           <section class="mt-8 p-6 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-lg shadow-sm space-y-6">
@@ -140,7 +140,7 @@
               <div>
                 <h3 class="font-bold text-slate-900 dark:text-white mb-2">Troubleshooting & Edge Cases</h3>
                 <ul class="list-disc pl-5 space-y-2 text-slate-600 dark:text-slate-300 leading-relaxed">
-                  <li>Temperature conversions require offset adjustments (°C ↔ °F).</li>
+                  <li>Temperature conversions require offset adjustments (Â°C â†” Â°F).</li>
                   <li>Very large or very small numbers may show scientific notation.</li>
                   <li>All conversions are approximate for imperial units.</li>
                 </ul>
@@ -203,7 +203,7 @@
         const to = document.getElementById('to-unit').value;
         const val = parseFloat(document.getElementById('from-value').value);
         const out = document.getElementById('result');
-        if (isNaN(val)) { out.textContent = '—'; return; }
+        if (isNaN(val)) { out.textContent = 'â€”'; return; }
         let result;
         if (cat === 'temperature') {
           if (from === to) result = val;
@@ -231,3 +231,4 @@
     </script>
   </body>
 </html>
+

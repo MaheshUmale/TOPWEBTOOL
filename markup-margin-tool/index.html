@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
   <head>
     <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
@@ -35,7 +35,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png" />
 
     <link rel="manifest" href="../site.webmanifest" />
-    <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#090d16" media="(prefers-color-scheme: dark)" />
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="TopWebTool" />
@@ -55,7 +55,7 @@
         background-color: #fff;
       }
       html.dark {
-        background-color: #0f172a;
+        background-color: #090d16;
       }
       body {
         padding-bottom: 6rem;
@@ -124,7 +124,7 @@
           {
             "@type": "ListItem",
             "position": 2,
-            "name": "🏷️ Markup vs. Margin Tool",
+            "name": "ðŸ·ï¸ Markup vs. Margin Tool",
             "item": "https://topwebtool.com/markup-margin-tool/"
           }
         ]
@@ -152,7 +152,7 @@
             <h1
               class="text-3xl font-extrabold text-slate-900 tracking-tight sm:text-4xl"
             >
-              🏷️ Markup vs. Margin Tool
+              ðŸ·ï¸ Markup vs. Margin Tool
             </h1>
             <p class="mt-2 text-base text-slate-500">
               Convert markup and margin in both directions. Enter a product cost
@@ -404,16 +404,16 @@
                   financial reports and buyer agreements talk about margin (a
                   percentage of the selling price). This tool converts in both
                   directions so a 40% markup on a $50 product becomes a 28.57%
-                  margin — and lets you back into a sale price from either a
+                  margin â€” and lets you back into a sale price from either a
                   target markup or a target margin.
                 </p>
                 <div
                   class="mt-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg p-4 font-mono text-xs text-slate-700 dark:text-slate-300 space-y-1 overflow-x-auto"
                 >
-                  <div>markup% = (price − cost) / cost × 100</div>
-                  <div>margin% = (price − cost) / price × 100</div>
-                  <div>price = cost × (1 + markup%)</div>
-                  <div>price = cost / (1 − margin%)</div>
+                  <div>markup% = (price âˆ’ cost) / cost Ã— 100</div>
+                  <div>margin% = (price âˆ’ cost) / price Ã— 100</div>
+                  <div>price = cost Ã— (1 + markup%)</div>
+                  <div>price = cost / (1 âˆ’ margin%)</div>
                 </div>
               </div>
               <div>
@@ -430,7 +430,7 @@
                   </li>
                   <li>
                     A margin of 100% (price = double the cost) equals a markup
-                    of 100%, but a markup of 100% equals only a 50% margin — the
+                    of 100%, but a markup of 100% equals only a 50% margin â€” the
                     two are not interchangeable.
                   </li>
                   <li>
@@ -463,8 +463,8 @@
                   margin percentage, or a target sale price.
                 </li>
                 <li>
-                  Review all four outputs — sale price, profit per unit, markup
-                  %, and margin % — and use the Copy button to save a summary.
+                  Review all four outputs â€” sale price, profit per unit, markup
+                  %, and margin % â€” and use the Copy button to save a summary.
                 </li>
               </ol>
             </div>
@@ -666,7 +666,7 @@
       }
 
       function fmtMoney(v) {
-        if (!isFinite(v)) return "—";
+        if (!isFinite(v)) return "â€”";
         return v.toLocaleString("en-US", {
           style: "currency",
           currency: "USD",
@@ -676,7 +676,7 @@
       }
 
       function fmtPct(v) {
-        if (!isFinite(v)) return "—";
+        if (!isFinite(v)) return "â€”";
         return v.toFixed(2) + "%";
       }
 
@@ -709,7 +709,7 @@
             "Markup must be greater than -100% (below that the price goes negative).";
         if (mode === "margin" && !errSecond && second >= 100)
           errSecond =
-            "Margin must be less than 100% — a 100% margin would mean an infinite price.";
+            "Margin must be less than 100% â€” a 100% margin would mean an infinite price.";
         if (mode === "price" && !errSecond && second <= 0)
           errSecond = "Selling price must be greater than 0.";
 
@@ -749,7 +749,7 @@
             "Fix the highlighted fields to see your pricing snapshot.";
         } else if (profit < 0) {
           note.textContent =
-            "This price is below cost — you lose " +
+            "This price is below cost â€” you lose " +
             fmtMoney(Math.abs(profit)) +
             " on every unit sold. Raise the price or lower the cost.";
         } else if (margin > 0 && margin < 5) {
@@ -824,3 +824,4 @@
     <script src="../js/context-engine.js" defer></script>
   </body>
 </html>
+

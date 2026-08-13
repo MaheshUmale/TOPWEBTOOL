@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
   <head>
     <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
@@ -35,7 +35,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png" />
 
     <link rel="manifest" href="../site.webmanifest" />
-    <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#090d16" media="(prefers-color-scheme: dark)" />
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="TopWebTool" />
@@ -55,7 +55,7 @@
         background-color: #fff;
       }
       html.dark {
-        background-color: #0f172a;
+        background-color: #090d16;
       }
       body {
         padding-bottom: 6rem;
@@ -171,7 +171,7 @@
               <h2 class="text-lg font-bold text-slate-900">System Inputs</h2>
               <span
                 class="text-xs font-bold text-slate-400 uppercase tracking-wide hidden sm:inline"
-                >💧 Pump Hydraulics</span
+                >ðŸ’§ Pump Hydraulics</span
               >
             </div>
 
@@ -354,16 +354,16 @@
                     class="w-full px-3 py-2.5 border border-slate-300 rounded-lg bg-white text-slate-950 focus:ring-2 focus:ring-brand-500 focus:border-brand-500"
                   >
                     <option value="hw" selected>
-                      Hazen–Williams (C value)
+                      Hazenâ€“Williams (C value)
                     </option>
-                    <option value="darcy">Darcy–Weisbach (f factor)</option>
+                    <option value="darcy">Darcyâ€“Weisbach (f factor)</option>
                   </select>
                 </div>
                 <div id="c-wrap">
                   <label
                     for="c-value"
                     class="block text-sm font-semibold text-slate-700 mb-2"
-                    >Hazen–Williams C</label
+                    >Hazenâ€“Williams C</label
                   >
                   <select
                     id="c-value"
@@ -448,7 +448,7 @@
                   id="val-tdh"
                   class="text-2xl font-extrabold text-brand-600 dark:text-brand-400 mt-1"
                 >
-                  —
+                  â€”
                 </p>
                 <p class="text-xs text-slate-400 mt-1">feet of liquid</p>
               </div>
@@ -464,9 +464,9 @@
                   id="val-static"
                   class="text-2xl font-extrabold text-brand-600 dark:text-brand-400 mt-1"
                 >
-                  —
+                  â€”
                 </p>
-                <p class="text-xs text-slate-400 mt-1">discharge − suction</p>
+                <p class="text-xs text-slate-400 mt-1">discharge âˆ’ suction</p>
               </div>
               <div
                 class="rounded-xl border border-slate-100 dark:border-slate-800 p-4"
@@ -480,7 +480,7 @@
                   id="val-friction"
                   class="text-2xl font-extrabold text-brand-600 dark:text-brand-400 mt-1"
                 >
-                  —
+                  â€”
                 </p>
                 <p class="text-xs text-slate-400 mt-1">pipe + fittings</p>
               </div>
@@ -496,7 +496,7 @@
                   id="val-hp"
                   class="text-2xl font-extrabold text-brand-600 dark:text-brand-400 mt-1"
                 >
-                  —
+                  â€”
                 </p>
                 <p class="text-xs text-slate-400 mt-1">water horsepower</p>
               </div>
@@ -512,7 +512,7 @@
                   id="val-shaft"
                   class="text-2xl font-extrabold text-brand-600 dark:text-brand-400 mt-1"
                 >
-                  —
+                  â€”
                 </p>
                 <p class="text-xs text-slate-400 mt-1">at pump efficiency</p>
               </div>
@@ -528,7 +528,7 @@
                   id="val-motor"
                   class="text-2xl font-extrabold text-brand-600 dark:text-brand-400 mt-1"
                 >
-                  —
+                  â€”
                 </p>
                 <p class="text-xs text-slate-400 mt-1">next standard size</p>
               </div>
@@ -544,10 +544,10 @@
                 class="bg-slate-950 text-emerald-400 p-4 rounded-xl font-mono text-xs overflow-x-auto break-all shadow-inner"
                 id="out-breakdown"
               >
-Waiting for input…</pre>
+Waiting for inputâ€¦</pre>
             </div>
 
-            <pre class="hidden" id="out-copy">…</pre>
+            <pre class="hidden" id="out-copy">â€¦</pre>
 
             <div class="flex justify-end pt-2">
               <button
@@ -717,10 +717,10 @@ Waiting for input…</pre>
 
     <script>
       const FITTINGS = [
-        { key: "elbow90", name: "90° Long-Radius Elbow", k: 0.9 },
-        { key: "elbow45", name: "45° Elbow", k: 0.4 },
-        { key: "tee-branch", name: "Tee — Branch Flow", k: 1.8 },
-        { key: "tee-run", name: "Tee — Straight Run", k: 0.6 },
+        { key: "elbow90", name: "90Â° Long-Radius Elbow", k: 0.9 },
+        { key: "elbow45", name: "45Â° Elbow", k: 0.4 },
+        { key: "tee-branch", name: "Tee â€” Branch Flow", k: 1.8 },
+        { key: "tee-run", name: "Tee â€” Straight Run", k: 0.6 },
         { key: "gate", name: "Gate Valve (open)", k: 0.2 },
         { key: "globe", name: "Globe Valve (open)", k: 10.0 },
         { key: "check", name: "Swing Check Valve", k: 2.5 },
@@ -811,7 +811,7 @@ Waiting for input…</pre>
           firstError = "Pipe internal diameter must be greater than 0 inches.";
         else if (!(Lpipe >= 0)) firstError = "Pipe length cannot be negative.";
         else if (method === "hw" && !(C > 30))
-          firstError = "Hazen–Williams C must be greater than 30.";
+          firstError = "Hazenâ€“Williams C must be greater than 30.";
         else if (method === "darcy" && !(f > 0))
           firstError = "Darcy friction factor must be greater than 0.";
         if (firstError) {
@@ -866,46 +866,46 @@ Waiting for input…</pre>
 
         const methodLabel =
           method === "hw"
-            ? "Hazen–Williams, C = " + C
-            : "Darcy–Weisbach, f = " + f;
+            ? "Hazenâ€“Williams, C = " + C
+            : "Darcyâ€“Weisbach, f = " + f;
 
         document.getElementById("out-breakdown").textContent =
           "Q = " +
           Q +
           " gpm, SG = " +
           SG +
-          ", η = " +
+          ", Î· = " +
           eff * 100 +
           "%\n" +
           "Static head    H_s = " +
           hdis +
-          " − " +
+          " âˆ’ " +
           hsuc +
           " = " +
           staticHead.toFixed(1) +
           " ft\n" +
           "Pressure head  H_p = (" +
           pdis +
-          " − " +
+          " âˆ’ " +
           psuc +
-          ") × 2.31 ÷ " +
+          ") Ã— 2.31 Ã· " +
           SG +
           " = " +
           pressureHead.toFixed(1) +
           " ft\n" +
           "Velocity       V = " +
           Q +
-          " ÷ 448.8 ÷ " +
+          " Ã· 448.8 Ã· " +
           Aft2.toFixed(4) +
-          " ft² = " +
+          " ftÂ² = " +
           Vfps.toFixed(2) +
           " ft/s\n" +
-          "Velocity head  H_v = V² ÷ 2g = " +
+          "Velocity head  H_v = VÂ² Ã· 2g = " +
           velHead.toFixed(2) +
           " ft\n" +
-          "Fitting loss   ΣK = " +
+          "Fitting loss   Î£K = " +
           totalK.toFixed(2) +
-          ", Le = ΣK × D ÷ f = " +
+          ", Le = Î£K Ã— D Ã· f = " +
           Le.toFixed(1) +
           " ft\n" +
           "Total run      L = " +
@@ -920,7 +920,7 @@ Waiting for input…</pre>
           ") = " +
           frictionHead.toFixed(1) +
           " ft\n" +
-          "— TDH —\n" +
+          "â€” TDH â€”\n" +
           "TDH = " +
           staticHead.toFixed(1) +
           " + " +
@@ -933,13 +933,13 @@ Waiting for input…</pre>
           "TDH = " +
           tdh.toFixed(1) +
           " ft\n" +
-          "— Power —\n" +
-          "Hydraulic HP = Q × TDH × SG ÷ 3960 = " +
+          "â€” Power â€”\n" +
+          "Hydraulic HP = Q Ã— TDH Ã— SG Ã· 3960 = " +
           hp.toFixed(2) +
           " hp\n" +
           "Shaft HP = " +
           hp.toFixed(2) +
-          " ÷ " +
+          " Ã· " +
           eff * 100 +
           "% = " +
           shaft.toFixed(2) +
@@ -951,7 +951,7 @@ Waiting for input…</pre>
           " hp";
 
         document.getElementById("out-copy").textContent =
-          "Pump Sizing — TDH Calculation\n" +
+          "Pump Sizing â€” TDH Calculation\n" +
           "Flow: " +
           Q +
           " gpm\n" +
@@ -972,12 +972,12 @@ Waiting for input…</pre>
           " ft (" +
           methodLabel +
           ")\n" +
-          "Fittings: ΣK = " +
+          "Fittings: Î£K = " +
           totalK.toFixed(2) +
-          " → Le = " +
+          " â†’ Le = " +
           Le.toFixed(1) +
           " ft\n" +
-          "— Results —\n" +
+          "â€” Results â€”\n" +
           "Total dynamic head: " +
           tdh.toFixed(1) +
           " ft\n" +
@@ -998,11 +998,11 @@ Waiting for input…</pre>
 
         if (Vfps > 10) {
           warnEl.textContent =
-            "Warning: velocity exceeds ~10 ft/s in the discharge line — high velocity raises friction, erosion, and water hammer risk. Consider a larger pipe.";
+            "Warning: velocity exceeds ~10 ft/s in the discharge line â€” high velocity raises friction, erosion, and water hammer risk. Consider a larger pipe.";
           warnEl.classList.remove("hidden");
         } else if (hsuc < 0 && staticHead < -5) {
           warnEl.textContent =
-            "Note: suction lift of more than ~5 ft increases cavitation risk — check NPSH available against NPSH required.";
+            "Note: suction lift of more than ~5 ft increases cavitation risk â€” check NPSH available against NPSH required.";
           warnEl.classList.remove("hidden");
         }
       }
@@ -1065,3 +1065,4 @@ Waiting for input…</pre>
     <script src="../js/context-engine.js" defer></script>
   </body>
 </html>
+

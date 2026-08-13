@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
   <head>
     <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
@@ -35,7 +35,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png" />
 
     <link rel="manifest" href="../site.webmanifest" />
-    <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#090d16" media="(prefers-color-scheme: dark)" />
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="TopWebTool" />
@@ -55,7 +55,7 @@
         background-color: #fff;
       }
       html.dark {
-        background-color: #0f172a;
+        background-color: #090d16;
       }
       body {
         padding-bottom: 6rem;
@@ -778,11 +778,11 @@ Generate the plan to see the step &rarr; approval gate &rarr; continue/fallback 
               approveCell.className =
                 "py-2 pr-2 font-semibold text-slate-400 dark:text-slate-500";
             }
-            tr.children[3].textContent = s.approve ? TYPE_LABELS[s.type] : "—";
-            tr.children[4].textContent = s.approve ? s.timeout + " min" : "—";
+            tr.children[3].textContent = s.approve ? TYPE_LABELS[s.type] : "â€”";
+            tr.children[4].textContent = s.approve ? s.timeout + " min" : "â€”";
             tr.children[5].textContent = s.approve
               ? FALLBACK_LABELS[s.fallback]
-              : "—";
+              : "â€”";
             planBody.appendChild(tr);
           });
 
@@ -858,3 +858,4 @@ Generate the plan to see the step &rarr; approval gate &rarr; continue/fallback 
     <script src="../js/context-engine.js" defer></script>
   </body>
 </html>
+

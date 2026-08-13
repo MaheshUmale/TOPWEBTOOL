@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
   <head>
     <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
@@ -38,7 +38,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png" />
 
     <link rel="manifest" href="../site.webmanifest" />
-    <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#090d16" media="(prefers-color-scheme: dark)" />
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="TopWebTool" />
@@ -58,7 +58,7 @@
         background-color: #fff;
       }
       html.dark {
-        background-color: #0f172a;
+        background-color: #090d16;
       }
       body {
         padding-bottom: 6rem;
@@ -159,7 +159,7 @@
             </h1>
             <p class="mt-2 text-base text-slate-500">
               Convert any integer between binary, octal, decimal, and
-              hexadecimal instantly with exact BigInt precision — with
+              hexadecimal instantly with exact BigInt precision â€” with
               step-by-step positional math.
             </p>
           </div>
@@ -176,7 +176,7 @@
               </h2>
               <span
                 class="text-xs font-bold text-slate-400 uppercase tracking-wide hidden sm:inline"
-                >0️⃣ Base-2 / 8 / 10 / 16</span
+                >0ï¸âƒ£ Base-2 / 8 / 10 / 16</span
               >
             </div>
 
@@ -262,7 +262,7 @@
                     id="out-binary"
                     class="font-mono text-sm text-slate-800 dark:text-slate-200 overflow-x-auto break-all mt-1"
                   >
-—</pre>
+â€”</pre>
                 </div>
                 <button
                   class="copy-btn shrink-0 px-3 py-2 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 rounded-lg text-xs font-bold transition-colors"
@@ -284,7 +284,7 @@
                     id="out-octal"
                     class="font-mono text-sm text-slate-800 dark:text-slate-200 overflow-x-auto break-all mt-1"
                   >
-—</pre>
+â€”</pre>
                 </div>
                 <button
                   class="copy-btn shrink-0 px-3 py-2 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 rounded-lg text-xs font-bold transition-colors"
@@ -306,7 +306,7 @@
                     id="out-decimal"
                     class="font-mono text-sm text-slate-800 dark:text-slate-200 overflow-x-auto break-all mt-1"
                   >
-—</pre>
+â€”</pre>
                 </div>
                 <button
                   class="copy-btn shrink-0 px-3 py-2 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 rounded-lg text-xs font-bold transition-colors"
@@ -328,7 +328,7 @@
                     id="out-hex"
                     class="font-mono text-sm text-slate-800 dark:text-slate-200 overflow-x-auto break-all mt-1"
                   >
-—</pre>
+â€”</pre>
                 </div>
                 <button
                   class="copy-btn shrink-0 px-3 py-2 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 rounded-lg text-xs font-bold transition-colors"
@@ -343,7 +343,7 @@
               id="bigint-note"
               class="hidden mt-2 text-xs font-semibold text-amber-600 dark:text-amber-400 bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-900 rounded-lg px-3 py-2"
             >
-              Value exceeds 2⁵³ − 1 (9,007,199,254,740,991). Exact BigInt
+              Value exceeds 2âµÂ³ âˆ’ 1 (9,007,199,254,740,991). Exact BigInt
               arithmetic is used, so no rounding occurs.
             </p>
 
@@ -357,7 +357,7 @@
                 class="bg-slate-950 text-emerald-400 p-4 rounded-xl font-mono text-xs overflow-x-auto break-all shadow-inner"
                 id="out-steps"
               >
-Waiting for input…</pre>
+Waiting for inputâ€¦</pre>
             </div>
 
             <div class="flex justify-end pt-2">
@@ -383,7 +383,7 @@ Waiting for input…</pre>
               </h2>
               <p class="text-sm text-slate-600 dark:text-slate-300 mt-1">
                 Learn the positional notation math behind binary, octal,
-                decimal, and hex — and why exact BigInt arithmetic matters for
+                decimal, and hex â€” and why exact BigInt arithmetic matters for
                 large integers.
               </p>
             </div>
@@ -396,17 +396,17 @@ Waiting for input…</pre>
                 <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
                   Every base-b number is a weighted sum of its digits:
                   <code class="text-brand-600 dark:text-brand-400 font-mono"
-                    >N = Σ (digit × b^position)</code
+                    >N = Î£ (digit Ã— b^position)</code
                   >, counting positions from the right starting at 0. The
                   decimal number 255 is
                   <code class="text-brand-600 dark:text-brand-400 font-mono"
-                    >2×10² + 5×10¹ + 5×10⁰</code
+                    >2Ã—10Â² + 5Ã—10Â¹ + 5Ã—10â°</code
                   >. The same value in binary,
                   <code class="text-brand-600 dark:text-brand-400 font-mono"
                     >11111111</code
                   >, is
                   <code class="text-brand-600 dark:text-brand-400 font-mono"
-                    >1×2⁷ + 1×2⁶ + … + 1×2⁰ = 255</code
+                    >1Ã—2â· + 1Ã—2â¶ + â€¦ + 1Ã—2â° = 255</code
                   >. Converting between bases is simply re-expressing the same
                   quantity in a different weighted sum.
                 </p>
@@ -416,14 +416,14 @@ Waiting for input…</pre>
                   Base Relationships & BigInt Precision
                 </h3>
                 <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
-                  Because 8 = 2³ and 16 = 2⁴, octal digits map to 3-bit groups
-                  and hex digits to 4-bit groups — making binary, octal, and hex
+                  Because 8 = 2Â³ and 16 = 2â´, octal digits map to 3-bit groups
+                  and hex digits to 4-bit groups â€” making binary, octal, and hex
                   trivially interchangeable by chunking. Decimal is the odd one
                   out because 10 is not a power of two. JavaScript's native
                   <code class="text-brand-600 dark:text-brand-400 font-mono"
                     >Number</code
                   >
-                  is a 64-bit float that rounds integers above 2⁵³ − 1, so this
+                  is a 64-bit float that rounds integers above 2âµÂ³ âˆ’ 1, so this
                   tool performs every parse and re-emit with
                   <code class="text-brand-600 dark:text-brand-400 font-mono"
                     >BigInt</code
@@ -441,9 +441,9 @@ Waiting for input…</pre>
                 class="list-disc pl-5 space-y-2 text-slate-600 dark:text-slate-300 leading-relaxed"
               >
                 <li>
-                  Invalid digits: each base only accepts its own digit set —
-                  binary accepts only 0 and 1, octal only 0–7, hex only 0–9 and
-                  A–F. A stray "9" in an octal string is rejected with a clear
+                  Invalid digits: each base only accepts its own digit set â€”
+                  binary accepts only 0 and 1, octal only 0â€“7, hex only 0â€“9 and
+                  Aâ€“F. A stray "9" in an octal string is rejected with a clear
                   error.
                 </li>
                 <li>
@@ -458,7 +458,7 @@ Waiting for input…</pre>
                   negative values.
                 </li>
                 <li>
-                  Very large integers: values beyond 2⁵³ − 1 are handled exactly
+                  Very large integers: values beyond 2âµÂ³ âˆ’ 1 are handled exactly
                   with BigInt; a note appears so you know no float rounding has
                   occurred.
                 </li>
@@ -478,7 +478,7 @@ Waiting for input…</pre>
                 class="list-decimal pl-5 space-y-2 text-slate-600 dark:text-slate-300 leading-relaxed"
               >
                 <li>
-                  Pick the input base from the dropdown — binary, octal,
+                  Pick the input base from the dropdown â€” binary, octal,
                   decimal, or hexadecimal.
                 </li>
                 <li>
@@ -610,7 +610,7 @@ Waiting for input…</pre>
                 </h3>
                 <p class="text-xs text-slate-400 dark:text-slate-500 mt-1">
                   Invalid digits, 0x and 0b prefixes, two's complement
-                  confusion, and float rounding — identify and fix them fast.
+                  confusion, and float rounding â€” identify and fix them fast.
                 </p>
                 <span
                   class="text-xs font-semibold text-brand-600 dark:text-brand-400 mt-3 inline-block group-hover:translate-x-1 transition-transform"
@@ -718,12 +718,12 @@ Waiting for input…</pre>
 
         if (!raw.trim()) {
           document.getElementById("out-binary").textContent =
-            "Enter a value to convert…";
-          document.getElementById("out-octal").textContent = "—";
-          document.getElementById("out-decimal").textContent = "—";
-          document.getElementById("out-hex").textContent = "—";
+            "Enter a value to convertâ€¦";
+          document.getElementById("out-octal").textContent = "â€”";
+          document.getElementById("out-decimal").textContent = "â€”";
+          document.getElementById("out-hex").textContent = "â€”";
           document.getElementById("out-steps").textContent =
-            "Waiting for input…";
+            "Waiting for inputâ€¦";
           document.getElementById("bigint-note").classList.add("hidden");
           return;
         }
@@ -733,10 +733,10 @@ Waiting for input…</pre>
             base === "2"
               ? "0 and 1"
               : base === "8"
-                ? "0–7"
+                ? "0â€“7"
                 : base === "10"
-                  ? "0–9"
-                  : "0–9 and A–F";
+                  ? "0â€“9"
+                  : "0â€“9 and Aâ€“F";
           errorEl.textContent =
             "Invalid " +
             BASE_LABELS[base] +
@@ -801,7 +801,7 @@ Waiting for input…</pre>
           ")\n";
         if (neg)
           steps +=
-            "Sign: negative → the minus sign is carried into every representation\n";
+            "Sign: negative â†’ the minus sign is carried into every representation\n";
         steps += "Positional expansion:\n";
 
         const digits = (neg ? raw.trim().slice(1) : raw.trim())
@@ -818,7 +818,7 @@ Waiting for input…</pre>
           lines.push(
             "  " +
               digits[i].toUpperCase() +
-              " × " +
+              " Ã— " +
               base +
               "^" +
               pos +
@@ -910,3 +910,4 @@ Waiting for input…</pre>
     <script src="../js/context-engine.js" defer></script>
   </body>
 </html>
+

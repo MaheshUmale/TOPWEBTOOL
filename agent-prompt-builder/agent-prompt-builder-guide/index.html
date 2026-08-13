@@ -1,4 +1,4 @@
-<!doctype html>
+ï»¿<!doctype html>
 <html lang="en">
   <head>
     <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
@@ -34,7 +34,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png" />
 
     <link rel="manifest" href="../../site.webmanifest" />
-    <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#090d16" media="(prefers-color-scheme: dark)" />
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
     <meta property="og:type" content="article" />
     <meta property="og:site_name" content="TopWebTool" />
@@ -126,9 +126,9 @@
               class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4"
             >
               <span>Published: August 2026</span>
-              <span>•</span>
+              <span>â€¢</span>
               <span>Category: AI Agent & Automation</span>
-              <span>•</span>
+              <span>â€¢</span>
               <span class="text-emerald-600 dark:text-emerald-400"
                 >No Sign-Up / 100% Free / No Registration</span
               >
@@ -144,12 +144,12 @@
                 is trying to do, what it knows, what it must not do, and what
                 its answers should look like. When it is well structured, a
                 modest system prompt does more than a page of vague instructions
-                — and when it is disorganized, the model improvises in all the
+                â€” and when it is disorganized, the model improvises in all the
                 wrong directions.
               </p>
               <p class="mb-4">
-                Start with the role. A single sentence that names the persona —
-                "You are a senior data analyst" — anchors everything downstream.
+                Start with the role. A single sentence that names the persona â€”
+                "You are a senior data analyst" â€” anchors everything downstream.
                 The role is the lens through which the model interprets every
                 other instruction, so be specific enough that the persona is
                 usable but not so theatrical that it distracts. "You are a
@@ -170,7 +170,7 @@
                 that is too long to repeat per request, or too sensitive to rely
                 on the user to provide. It can be a style guide, a product
                 description, a list of conventions, or a short data dictionary.
-                Keep it scannable — bullets beat paragraphs — because the model
+                Keep it scannable â€” bullets beat paragraphs â€” because the model
                 will weigh every word in context, and buried instructions behave
                 like weak hints.
               </p>
@@ -180,7 +180,7 @@
                 unclear input. "Never invent data; say 'unknown' instead." "Do
                 not apologize." "Only use the tools listed below." Constraints
                 work best as short negative rules, and they should match the
-                tools you actually expose — an instruction to always use a
+                tools you actually expose â€” an instruction to always use a
                 database tool fails if the tool is not available.
               </p>
               <p class="mb-4">
@@ -188,15 +188,15 @@
                 so and show the shape. If answers are prose, say how long and at
                 what reading level. The output format is a constraint the model
                 honors far more reliably when you demonstrate it than when you
-                describe it abstractly — one example of a valid output is worth
+                describe it abstractly â€” one example of a valid output is worth
                 three sentences of specification.
               </p>
               <p class="mb-4">
                 Declare tools as a contract. Tool-calling agents receive a list
                 of tools, each described by a name, a description, and a
                 parameter schema. The description is what the model uses to
-                decide when to call a tool, so write it in terms of outcome —
-                "search for a merchant by name, returns match confidence" — not
+                decide when to call a tool, so write it in terms of outcome â€”
+                "search for a merchant by name, returns match confidence" â€” not
                 implementation details. The parameter schema must match exactly
                 what your handler expects; a mismatch produces calls your code
                 cannot serve.
@@ -215,7 +215,7 @@
                 test it against representative requests, and review the
                 generated prompt in full before deploying. The difference
                 between a toy agent and a reliable one is rarely a cleverer
-                model — it is a system prompt that has been edited, measured,
+                model â€” it is a system prompt that has been edited, measured,
                 and trimmed until every sentence earns its place.
               </p>
             </div>
@@ -255,3 +255,4 @@
     <script src="../../js/context-engine.js" defer></script>
   </body>
 </html>
+

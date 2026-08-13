@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
   <head>
     <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
@@ -35,7 +35,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png" />
 
     <link rel="manifest" href="../site.webmanifest" />
-    <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#090d16" media="(prefers-color-scheme: dark)" />
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="TopWebTool" />
@@ -55,7 +55,7 @@
         background-color: #fff;
       }
       html.dark {
-        background-color: #0f172a;
+        background-color: #090d16;
       }
       body {
         padding-bottom: 6rem;
@@ -156,7 +156,7 @@
             </h1>
             <p class="mt-2 text-base text-slate-500">
               Find your exact age in years, months, and days between any two
-              dates — with total days lived, your next birthday countdown, and
+              dates â€” with total days lived, your next birthday countdown, and
               the weekday you were born.
             </p>
           </div>
@@ -171,7 +171,7 @@
               <h2 class="text-lg font-bold text-slate-900">Date Inputs</h2>
               <span
                 class="text-xs font-bold text-slate-400 uppercase tracking-wide hidden sm:inline"
-                >🎂 Millisecond-accurate</span
+                >ðŸŽ‚ Millisecond-accurate</span
               >
             </div>
 
@@ -253,7 +253,7 @@
                   id="val-ymd"
                   class="text-2xl font-extrabold text-brand-600 dark:text-brand-400 mt-1"
                 >
-                  —
+                  â€”
                 </p>
                 <p class="text-xs text-slate-400 mt-1">
                   completed units between the two dates
@@ -271,7 +271,7 @@
                   id="val-born"
                   class="text-2xl font-extrabold text-brand-600 dark:text-brand-400 mt-1"
                 >
-                  —
+                  â€”
                 </p>
                 <p class="text-xs text-slate-400 mt-1">
                   weekday of your birth date
@@ -289,7 +289,7 @@
                   id="val-days"
                   class="text-2xl font-extrabold text-brand-600 dark:text-brand-400 mt-1"
                 >
-                  —
+                  â€”
                 </p>
                 <p class="text-xs text-slate-400 mt-1">
                   days elapsed (and weeks)
@@ -307,7 +307,7 @@
                   id="val-months"
                   class="text-2xl font-extrabold text-brand-600 dark:text-brand-400 mt-1"
                 >
-                  —
+                  â€”
                 </p>
                 <p class="text-xs text-slate-400 mt-1">
                   complete months elapsed
@@ -325,7 +325,7 @@
                   id="val-next"
                   class="text-2xl font-extrabold text-brand-600 dark:text-brand-400 mt-1"
                 >
-                  —
+                  â€”
                 </p>
                 <p class="text-xs text-slate-400 mt-1">
                   date and days remaining
@@ -343,10 +343,10 @@
                 class="bg-slate-950 text-emerald-400 p-4 rounded-xl font-mono text-xs overflow-x-auto break-all shadow-inner"
                 id="out-breakdown"
               >
-Waiting for input…</pre>
+Waiting for inputâ€¦</pre>
             </div>
 
-            <pre class="hidden" id="out-copy">…</pre>
+            <pre class="hidden" id="out-copy">â€¦</pre>
 
             <div class="flex justify-end pt-2">
               <button
@@ -371,7 +371,7 @@ Waiting for input…</pre>
                 How Exact Age Calculation Works
               </h2>
               <p class="text-sm text-slate-600 dark:text-slate-300 mt-1">
-                The rules for completed years, months, and days — including leap
+                The rules for completed years, months, and days â€” including leap
                 years and month-end clamping.
               </p>
             </div>
@@ -386,7 +386,7 @@ Waiting for input…</pre>
                   counted as full 365/366-day anniversary cycles from the birth
                   date; months are counted as full calendar months from the last
                   anniversary; the remainder is the leftover number of days.
-                  Month-end dates clamp to the target month's last day — someone
+                  Month-end dates clamp to the target month's last day â€” someone
                   born on January 31 has their month anniversary on February 28
                   (or 29 in a leap year), not on a non-existent February 31.
                   Leap days are handled by this same clamping rule, so a person
@@ -401,7 +401,7 @@ Waiting for input…</pre>
                 <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
                   "Age" is conventionally the largest completed set of units:
                   years, then months, then days. Total days simply counts every
-                  day between the dates and is independent of calendar quirks —
+                  day between the dates and is independent of calendar quirks â€”
                   it is the raw elapsed duration. The weekday of birth is
                   derived from the calendar itself. All arithmetic in this page
                   runs on UTC dates, so time zones and daylight-saving shifts
@@ -433,7 +433,7 @@ Waiting for input…</pre>
                 </li>
                 <li>
                   Month-end drift: Jan 31 to Feb 28 is one month, but Jan 31 to
-                  Mar 2 is one month and two days — the clamping rule keeps
+                  Mar 2 is one month and two days â€” the clamping rule keeps
                   these consistent.
                 </li>
                 <li>
@@ -464,7 +464,7 @@ Waiting for input…</pre>
                   measure from).
                 </li>
                 <li>
-                  Enter a target date — it defaults to today, but you can pick
+                  Enter a target date â€” it defaults to today, but you can pick
                   any past or future date to compute an age at that point.
                 </li>
                 <li>
@@ -557,7 +557,7 @@ Waiting for input…</pre>
                   Ultimate Guide to Age Calculator
                 </h3>
                 <p class="text-xs text-slate-400 dark:text-slate-500 mt-1">
-                  How exact age math works — leap years, month-end clamping, and
+                  How exact age math works â€” leap years, month-end clamping, and
                   the difference between elapsed and completed time units.
                 </p>
                 <span
@@ -878,3 +878,4 @@ Waiting for input…</pre>
     <script src="../js/context-engine.js" defer></script>
   </body>
 </html>
+
