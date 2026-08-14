@@ -193,7 +193,7 @@
               <div class="flex flex-wrap gap-3">
                 <button
                   onclick="beautifyJSON()"
-                  class="px-4 py-2 bg-brand-600 text-white hover:bg-brand-700 transition-colors font-bold text-xs rounded-lg"
+                  class="px-4 py-2 bg-brand-600 text-white hover:bg-brand-700 transition-colors font-bold text-xs rounded-lg active:scale-95 cursor-pointer transition-all duration-200"
                 >
                   Beautify (Format)
                 </button>
@@ -255,7 +255,7 @@
               <button
                 onclick="copyFormatted()"
                 id="btn-copy"
-                class="px-5 py-2.5 bg-brand-600 text-white hover:bg-brand-700 transition-colors font-bold text-sm rounded-lg shadow-sm"
+                class="px-5 py-2.5 bg-brand-600 text-white hover:bg-brand-700 active:scale-95 transition-all font-bold text-sm rounded-lg shadow-sm cursor-pointer flex items-center gap-2"
               >
                 <span>Copy Code</span>
               </button>
@@ -547,8 +547,14 @@
         const text = btn.querySelector("span");
         const code = document.getElementById("out-formatted").textContent;
         navigator.clipboard.writeText(code).then(() => {
-          text.textContent = "Copied!";
+          btn.classList.add("bg-emerald-600", "hover:bg-emerald-700");
+          text.innerHTML = '🛡️ <span class="font-semibold">Verified & Copied!</span>';
+          if (typeof window.fireConfetti === "function") {
+            const rect = btn.getBoundingClientRect();
+            window.fireConfetti(rect.left + rect.width / 2, rect.top + rect.height / 2);
+          }
           setTimeout(() => {
+            btn.classList.remove("bg-emerald-600", "hover:bg-emerald-700");
             text.textContent = "Copy Code";
           }, 2000);
         });

@@ -278,7 +278,7 @@
                   <button
                     type="submit"
                     id="generate-btn"
-                    class="px-6 py-2.5 bg-brand-600 text-white hover:bg-brand-700 transition-colors font-bold text-sm rounded-lg shadow-sm"
+                    class="px-6 py-2.5 bg-brand-600 text-white hover:bg-brand-700 transition-colors font-bold text-sm rounded-lg shadow-sm active:scale-95 cursor-pointer transition-all duration-200"
                   >
                     Generate Numbers
                   </button>
@@ -370,7 +370,7 @@ Parker</textarea>
                   <button
                     type="submit"
                     id="assign-btn"
-                    class="px-6 py-2.5 bg-brand-600 text-white hover:bg-brand-700 transition-colors font-bold text-sm rounded-lg shadow-sm"
+                    class="px-6 py-2.5 bg-brand-600 text-white hover:bg-brand-700 transition-colors font-bold text-sm rounded-lg shadow-sm active:scale-95 cursor-pointer transition-all duration-200"
                   >
                     Assign Teams
                   </button>
@@ -399,7 +399,7 @@ Parker</textarea>
                   <button
                     onclick="copyGroups()"
                     id="btn-copy-groups"
-                    class="px-5 py-2.5 bg-brand-600 text-white hover:bg-brand-700 transition-colors font-bold text-sm rounded-lg shadow-sm"
+                    class="px-5 py-2.5 bg-brand-600 text-white hover:bg-brand-700 transition-colors font-bold text-sm rounded-lg shadow-sm active:scale-95 cursor-pointer transition-all duration-200"
                   >
                     <span>Copy Groups</span>
                   </button>
@@ -907,6 +907,9 @@ Parker</textarea>
           return;
         }
         navigator.clipboard.writeText(lastGroups).then(() => {
+          if (typeof window.fireConfetti === "function") {
+            window.fireConfetti();
+          }
           span.textContent = "Copied!";
           setTimeout(() => {
             span.textContent = "Copy Groups";

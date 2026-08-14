@@ -238,7 +238,7 @@
                 <button
                   type="submit"
                   id="convert-btn"
-                  class="px-6 py-2.5 bg-brand-600 text-white hover:bg-brand-700 transition-colors font-bold text-sm rounded-lg shadow-sm"
+                  class="px-6 py-2.5 bg-brand-600 text-white hover:bg-brand-700 transition-colors font-bold text-sm rounded-lg shadow-sm active:scale-95 cursor-pointer transition-all duration-200"
                 >
                   Convert Number
                 </button>
@@ -372,7 +372,7 @@ Waiting for input…</pre>
               <button
                 onclick="copyAll()"
                 id="btn-copy"
-                class="px-5 py-2.5 bg-brand-600 text-white hover:bg-brand-700 transition-colors font-bold text-sm rounded-lg shadow-sm"
+                class="px-5 py-2.5 bg-brand-600 text-white hover:bg-brand-700 transition-colors font-bold text-sm rounded-lg shadow-sm active:scale-95 cursor-pointer transition-all duration-200"
               >
                 <span>Copy All Representations</span>
               </button>
@@ -873,6 +873,9 @@ Waiting for input…</pre>
           "Hex:      " +
           document.getElementById("out-hex").textContent;
         navigator.clipboard.writeText(text).then(() => {
+          if (typeof window.fireConfetti === "function") {
+            window.fireConfetti();
+          }
           span.textContent = "Copied!";
           setTimeout(() => {
             span.textContent = "Copy All Representations";

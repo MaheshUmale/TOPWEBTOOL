@@ -299,7 +299,7 @@
                   <button
                     onclick="loadExpandedDictionary()"
                     id="btn-load-dict"
-                    class="px-2.5 py-1.5 text-xs font-bold text-white bg-brand-600 hover:bg-brand-700 dark:bg-brand-700 dark:hover:bg-brand-600 rounded-lg transition-all flex items-center gap-1.5 shadow-sm"
+                    class="px-2.5 py-1.5 text-xs font-bold text-white bg-brand-600 hover:bg-brand-700 dark:bg-brand-700 dark:hover:bg-brand-600 rounded-lg transition-all flex items-center gap-1.5 shadow-sm active:scale-95 cursor-pointer transition-all duration-200"
                   >
                     <span>⚡ Load 370k Words</span>
                   </button>
@@ -326,7 +326,7 @@
               <button
                 onclick="copyWordList()"
                 id="btn-copy"
-                class="px-4 py-2 bg-brand-600 text-white hover:bg-brand-700 transition-colors font-bold text-xs rounded-lg shadow-sm"
+                class="px-4 py-2 bg-brand-600 text-white hover:bg-brand-700 transition-colors font-bold text-xs rounded-lg shadow-sm active:scale-95 cursor-pointer transition-all duration-200"
               >
                 <span>Copy Words List</span>
               </button>
@@ -2083,6 +2083,9 @@
 
       function copySingleWord(word) {
         navigator.clipboard.writeText(word).then(() => {
+          if (typeof window.fireConfetti === "function") {
+            window.fireConfetti();
+          }
           console.log(`Copied ${word}`);
         });
       }

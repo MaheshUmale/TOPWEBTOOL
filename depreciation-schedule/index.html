@@ -350,13 +350,13 @@
               <div class="flex gap-3 mb-6">
                 <button
                   onclick="copyResults()"
-                  class="px-4 py-2 bg-brand-600 text-white rounded-lg hover:bg-brand-700 transition-colors text-sm font-semibold"
+                  class="px-4 py-2 bg-brand-600 text-white rounded-lg hover:bg-brand-700 transition-colors text-sm font-semibold active:scale-95 cursor-pointer transition-all duration-200"
                 >
                   Copy Results
                 </button>
                 <button
                   onclick="copySchedule()"
-                  class="px-4 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 transition-colors text-sm font-semibold"
+                  class="px-4 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 transition-colors text-sm font-semibold active:scale-95 cursor-pointer transition-all duration-200"
                 >
                   Copy Schedule to Clipboard
                 </button>
@@ -802,6 +802,9 @@
           document.getElementById("result-book-value").textContent;
         const text = `Depreciation Schedule Results\nMethod: ${method}\nAnnual Depreciation: ${annual}\nBook Value (End of Year): ${bookValue}`;
         navigator.clipboard.writeText(text).then(() => {
+          if (typeof window.fireConfetti === "function") {
+            window.fireConfetti();
+          }
           const btn = event.target;
           const originalText = btn.textContent;
           btn.textContent = "Copied!";

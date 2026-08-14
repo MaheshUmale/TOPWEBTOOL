@@ -295,7 +295,7 @@
               <div class="flex justify-end">
                 <button
                   type="submit"
-                  class="px-5 py-2.5 bg-brand-600 text-white hover:bg-brand-700 transition-colors font-bold text-sm rounded-lg shadow-sm"
+                  class="px-5 py-2.5 bg-brand-600 text-white hover:bg-brand-700 transition-colors font-bold text-sm rounded-lg shadow-sm active:scale-95 cursor-pointer transition-all duration-200"
                 >
                   Calculate
                 </button>
@@ -378,7 +378,7 @@
             <button
               onclick="copyResult()"
               id="btn-copy"
-              class="px-4 py-2 bg-brand-600 text-white hover:bg-brand-700 transition-colors font-bold text-xs rounded-lg shadow-sm"
+              class="px-4 py-2 bg-brand-600 text-white hover:bg-brand-700 transition-colors font-bold text-xs rounded-lg shadow-sm active:scale-95 cursor-pointer transition-all duration-200"
             >
               <span>Copy Pricing Summary</span>
             </button>
@@ -815,6 +815,9 @@
             "Enter a valid cost and second value, then recalculate before copying.";
         }
         navigator.clipboard.writeText(summary).then(() => {
+          if (typeof window.fireConfetti === "function") {
+            window.fireConfetti();
+          }
           text.textContent = "Copied!";
           setTimeout(() => {
             text.textContent = "Copy Pricing Summary";

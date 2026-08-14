@@ -282,15 +282,19 @@ write an email about a late invoice payment</textarea>
 
           <!-- Output Cards -->
           <div
-            class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-4"
+            class="bg-slate-900 text-slate-100 p-6 rounded-2xl border border-cyan-500/30 shadow-[0_0_20px_rgba(6,182,212,0.15)] space-y-4 transition-all duration-300"
           >
-            <h2
-              class="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2"
-            >
-              Optimized System Prompt Output
-            </h2>
+            <div class="flex items-center justify-between border-b border-cyan-500/20 pb-2">
+              <h2
+                class="text-lg font-bold text-cyan-400 tracking-wide font-mono flex items-center gap-2"
+              >
+                <span class="inline-block w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
+                SYSTEM_PROMPT_GENERATOR // AI Matrix
+              </h2>
+              <span class="text-[10px] font-mono uppercase tracking-widest text-cyan-300/70">100% Offline Local</span>
+            </div>
             <div
-              class="bg-slate-950 text-slate-200 p-4 rounded-xl font-mono text-xs whitespace-pre-wrap break-words shadow-inner"
+              class="bg-slate-950 text-cyan-300 p-5 rounded-xl font-mono text-xs whitespace-pre-wrap break-words border border-cyan-900/50 shadow-inner min-h-[120px]"
               id="out-optimized"
             >
               ...
@@ -299,7 +303,7 @@ write an email about a late invoice payment</textarea>
               <button
                 onclick="copyPrompt()"
                 id="btn-copy"
-                class="px-5 py-2.5 bg-brand-600 text-white hover:bg-brand-700 transition-colors font-bold text-sm rounded-lg shadow-sm"
+                class="px-5 py-2.5 bg-cyan-600 text-slate-950 hover:bg-cyan-400 transition-all font-bold text-sm rounded-lg shadow-[0_0_12px_rgba(6,182,212,0.4)] active:scale-95 cursor-pointer"
               >
                 <span>Copy Optimized Prompt</span>
               </button>
@@ -596,15 +600,17 @@ write an email about a late invoice payment</textarea>
     </main>
 
     <script>
+      let typeTimer = null;
+
       function optimizePrompt() {
         const raw = document.getElementById("input-raw").value.trim();
         const persona = document.getElementById("input-persona").value;
         const format = document.getElementById("input-format").value;
         const tone = document.getElementById("input-tone").value;
+        const outEl = document.getElementById("out-optimized");
 
         if (!raw) {
-          document.getElementById("out-optimized").textContent =
-            "Please write a raw prompt input first...";
+          outEl.textContent = "// Awaiting input... Type a raw prompt above.";
           return;
         }
 
@@ -615,7 +621,21 @@ Strict Guidelines for Execution:
 2. Format Rules: Present the final response strictly in the style of: ${format}.
 3. Logic & Completeness: Ensure everything is structured, easy to digest, actionable, and completely comprehensive with zero missing details. Do not summarize or shortcut logic.`;
 
-        document.getElementById("out-optimized").textContent = optimized;
+        if (typeTimer) clearInterval(typeTimer);
+
+        outEl.textContent = "";
+        let idx = 0;
+        const chunk = Math.max(2, Math.floor(optimized.length / 35));
+        typeTimer = setInterval(() => {
+          if (idx < optimized.length) {
+            outEl.textContent += optimized.substr(idx, chunk);
+            idx += chunk;
+          } else {
+            outEl.textContent = optimized;
+            clearInterval(typeTimer);
+            typeTimer = null;
+          }
+        }, 12);
       }
 
       function copyPrompt() {
@@ -623,8 +643,14 @@ Strict Guidelines for Execution:
         const text = btn.querySelector("span");
         const prompt = document.getElementById("out-optimized").textContent;
         navigator.clipboard.writeText(prompt).then(() => {
-          text.textContent = "Copied Prompt!";
+          btn.classList.add("bg-emerald-500", "text-slate-950", "shadow-[0_0_15px_rgba(16,185,129,0.5)]");
+          text.textContent = "✓ Prompt Copied!";
+          if (typeof window.fireConfetti === "function") {
+            const rect = btn.getBoundingClientRect();
+            window.fireConfetti(rect.left + rect.width / 2, rect.top + rect.height / 2);
+          }
           setTimeout(() => {
+            btn.classList.remove("bg-emerald-500", "text-slate-950", "shadow-[0_0_15px_rgba(16,185,129,0.5)]");
             text.textContent = "Copy Optimized Prompt";
           }, 2000);
         });

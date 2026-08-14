@@ -251,7 +251,7 @@
             <div class="flex flex-wrap gap-3 pt-1">
               <button
                 type="submit"
-                class="px-5 py-3 bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm rounded-lg shadow-sm transition-colors"
+                class="px-5 py-3 bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm rounded-lg shadow-sm transition-colors active:scale-95 cursor-pointer transition-all duration-200"
                 style="min-height: 48px"
               >
                 Convert to Tool Definitions
@@ -296,7 +296,7 @@
                 <button
                   type="button"
                   id="btn-copy-openai"
-                  class="px-4 py-2.5 bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs rounded-lg shadow-sm transition-colors"
+                  class="px-4 py-2.5 bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs rounded-lg shadow-sm transition-colors active:scale-95 cursor-pointer transition-all duration-200"
                   style="min-height: 44px"
                 >
                   <span>Copy OpenAI JSON</span>
@@ -321,7 +321,7 @@ Press Convert to generate the OpenAI functions array.</pre>
                 <button
                   type="button"
                   id="btn-copy-anthropic"
-                  class="px-4 py-2.5 bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs rounded-lg shadow-sm transition-colors"
+                  class="px-4 py-2.5 bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs rounded-lg shadow-sm transition-colors active:scale-95 cursor-pointer transition-all duration-200"
                   style="min-height: 44px"
                 >
                   <span>Copy Anthropic JSON</span>
@@ -881,6 +881,9 @@ Press Convert to generate the Anthropic tools array.</pre>
             return;
           }
           navigator.clipboard.writeText(text).then(() => {
+          if (typeof window.fireConfetti === "function") {
+            window.fireConfetti();
+          }
             span.textContent = "Copied!";
             setTimeout(() => {
               span.textContent = btn.dataset.label;

@@ -498,7 +498,7 @@
               <div class="mt-6 flex gap-3">
                 <button
                   onclick="copyResults()"
-                  class="px-4 py-2 bg-brand-600 text-white rounded-lg hover:bg-brand-700 transition-colors text-sm font-semibold"
+                  class="px-4 py-2 bg-brand-600 text-white rounded-lg hover:bg-brand-700 transition-colors text-sm font-semibold active:scale-95 cursor-pointer transition-all duration-200"
                 >
                   Copy Results
                 </button>
@@ -874,6 +874,9 @@
         ).textContent;
         const text = `W2 vs 1099 Comparison\nW2 Take-Home: ${w2TakeHome}\nW2 Total Comp: ${w2Total}\nW2 Hourly: ${w2Hourly}\n1099 Take-Home: ${takeHome1099}\n1099 Hourly: ${hourly1099}\nNet Difference: ${difference} (${percentDiff})`;
         navigator.clipboard.writeText(text).then(() => {
+          if (typeof window.fireConfetti === "function") {
+            window.fireConfetti();
+          }
           const btn = event.target;
           const originalText = btn.textContent;
           btn.textContent = "Copied!";

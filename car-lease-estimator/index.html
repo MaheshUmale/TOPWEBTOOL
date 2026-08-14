@@ -352,7 +352,7 @@
               <button
                 onclick="copySummary()"
                 id="btn-copy"
-                class="px-4 py-2 bg-brand-600 text-white hover:bg-brand-700 transition-colors font-bold text-xs rounded-lg shadow-sm"
+                class="px-4 py-2 bg-brand-600 text-white hover:bg-brand-700 transition-colors font-bold text-xs rounded-lg shadow-sm active:scale-95 cursor-pointer transition-all duration-200"
               >
                 <span>Copy Shareable Summary</span>
               </button>
@@ -741,6 +741,9 @@
         const text = btn.querySelector("span");
         const summaryText = `Car Lease Summary:\nTotal Monthly Payment: ${document.getElementById("out-total-payment").textContent}\nMonthly Depreciation: ${document.getElementById("out-monthly-dep").textContent}\nFinance Charge: ${document.getElementById("out-monthly-fin").textContent}`;
         navigator.clipboard.writeText(summaryText).then(() => {
+          if (typeof window.fireConfetti === "function") {
+            window.fireConfetti();
+          }
           text.textContent = "Copied!";
           setTimeout(() => {
             text.textContent = "Copy Shareable Summary";

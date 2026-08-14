@@ -752,7 +752,7 @@
 
               <!-- Savings card if Extra Payments are applied -->
               <div
-                class="bg-emerald-50 border border-emerald-200 p-6 rounded-2xl shadow-sm"
+                class="bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-950/40 dark:to-teal-950/30 border border-emerald-200 dark:border-emerald-800 p-6 rounded-2xl shadow-sm transition-all duration-300 transform"
                 id="extra-savings-card"
               >
                 <div
@@ -983,7 +983,7 @@
               <button
                 onclick="copyCalculationSummary()"
                 id="btn-copy-summary"
-                class="inline-flex items-center space-x-2 px-4 py-2 bg-brand-600 text-white hover:bg-brand-700 transition-colors font-bold text-xs rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-brand-500"
+                class="inline-flex items-center space-x-2 px-4 py-2 bg-brand-600 text-white hover:bg-brand-700 transition-colors font-bold text-xs rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-brand-500 active:scale-95 cursor-pointer transition-all duration-200"
               >
                 <svg
                   class="w-4 h-4"
@@ -1929,10 +1929,27 @@
         );
         const yearsSaved = Math.max(0, (totalMonths - monthPaidOff) / 12);
 
+        const prevSavings = window.__lastInterestSaved || 0;
+        window.__lastInterestSaved = interestSaved;
+
         document.getElementById("result-interest-saved").textContent =
           `$${Math.round(interestSaved).toLocaleString()}`;
         document.getElementById("result-years-shaved").textContent =
           `${yearsSaved.toFixed(1)} Years`;
+
+        if (interestSaved > 0 && Math.round(interestSaved) !== Math.round(prevSavings)) {
+          const savingsCard = document.getElementById("extra-savings-card");
+          if (savingsCard) {
+            savingsCard.classList.add("ring-4", "ring-emerald-400/50", "scale-[1.02]");
+            setTimeout(() => {
+              savingsCard.classList.remove("ring-4", "ring-emerald-400/50", "scale-[1.02]");
+            }, 600);
+            const rect = savingsCard.getBoundingClientRect();
+            if (typeof window.fireConfetti === "function") {
+              window.fireConfetti(rect.left + rect.width / 2, rect.top + rect.height / 2);
+            }
+          }
+        }
 
         document.getElementById("sum-total-interest").textContent =
           `$${Math.round(viewSchedule.reduce((sum, item) => sum + item.interestPaid, 0)).toLocaleString()}`;

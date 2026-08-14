@@ -256,7 +256,7 @@
               <button
                 onclick="copyPassword()"
                 id="btn-copy"
-                class="px-5 py-2.5 bg-brand-600 text-white hover:bg-brand-700 transition-colors font-bold text-sm rounded-lg shadow-sm"
+                class="px-5 py-2.5 bg-brand-600 text-white hover:bg-brand-700 transition-colors font-bold text-sm rounded-lg shadow-sm active:scale-95 cursor-pointer transition-all duration-200"
               >
                 <span>Copy Password</span>
               </button>
@@ -527,6 +527,9 @@
         const text = btn.querySelector("span");
         const password = document.getElementById("out-password").textContent;
         navigator.clipboard.writeText(password).then(() => {
+          if (typeof window.fireConfetti === "function") {
+            window.fireConfetti();
+          }
           text.textContent = "Copied Password!";
           setTimeout(() => {
             text.textContent = "Copy Password";
