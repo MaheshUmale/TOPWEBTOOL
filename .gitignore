@@ -12,6 +12,10 @@ node_modules/
 .kilo/
 .agent_state/
 
+# Python
+__pycache__/
+*.pyc
+
 # Local agent/tooling config
 .opencode/
 .vscode/

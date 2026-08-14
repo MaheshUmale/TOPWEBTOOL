@@ -9,6 +9,7 @@ ZIP = ROOT / "deployment.zip"
 EXCLUDE_DIRS = {
     '.git', '.kilo', '.opencode', '.vscode', 'node_modules',
     'dist', '.agent-zero', '.playwright-mcp', '.well-known', '.test', 'js',
+    '__pycache__', '.pytest_cache', '.mypy_cache', '.ruff_cache',
 }
 EXCLUDE_FILES = {
     '.gitignore', 'opencode.json', '.session-state.json',
@@ -182,7 +183,7 @@ def build_zip():
         ZIP.unlink()
 
     count = 0
-    with zipfile.ZipFile(ZIP, 'w', zipfile.ZIP_DEFLATED, compresslevel=6) as zf:
+    with zipfile.ZipFile(ZIP, 'w', zipfile.ZIP_DEFLATED, compresslevel=9) as zf:
         for dirpath, dirnames, filenames in os.walk(ROOT):
             # Filter dirs in-place to skip excluded (keep js for whitelisted files)
             dirnames[:] = [
