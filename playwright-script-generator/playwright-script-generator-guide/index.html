@@ -18,6 +18,10 @@
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://googlesyndication.com">
+    <link rel="preconnect" href="https://doubleclick.net">
+    <link rel="preconnect" href="https://google-analytics.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
         
     
     <meta charset="UTF-8" />
@@ -134,9 +138,9 @@
               class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4"
             >
               <span>Published: August 2026</span>
-              <span>•</span>
+              <span>ï¿½</span>
               <span>Category: AI Agent & Automation</span>
-              <span>•</span>
+              <span>ï¿½</span>
               <span class="text-emerald-600 dark:text-emerald-400"
                 >No Sign-Up / 100% Free / No Registration</span
               >
@@ -154,7 +158,7 @@
                 Playwright, created by Microsoft, extends the same idea across
                 Chromium, Firefox, and WebKit, with first-class support in both
                 Node.js and Python. For AI-agent workflows, browser automation
-                is how an agent performs actions no API exposes — filling a
+                is how an agent performs actions no API exposes ï¿½ filling a
                 form, scraping a rendered page, capturing a screenshot, or
                 walking through a checkout.
               </p>
@@ -187,7 +191,7 @@
               <p class="mb-4">
                 Navigation is the foundation of any flow.
                 <code class="font-mono text-xs">page.goto(url)</code> loads a
-                page, and both libraries support a wait condition — Playwright's
+                page, and both libraries support a wait condition ï¿½ Playwright's
                 <code class="font-mono text-xs">waitUntil: 'networkidle'</code>
                 or the simpler default
                 <code class="font-mono text-xs">load</code>. Modern best
@@ -209,7 +213,7 @@
                 input, or <code class="font-mono text-xs">page.click</code> for
                 mouse interaction. In Playwright, typing into a field uses
                 <code class="font-mono text-xs">page.fill(selector, text)</code
-                >, which clears the field before writing — safer than raw
+                >, which clears the field before writing ï¿½ safer than raw
                 keystrokes when a field has a pre-filled value. The action
                 builder in this tool maps each step to the correct API call for
                 the library you selected.
@@ -253,7 +257,7 @@
                 (Playwright accepts
                 <code class="font-mono text-xs">headless: true</code> in both JS
                 and Python; Puppeteer defaults to headless). CI runners also
-                need the browser binaries installed — Playwright handles this
+                need the browser binaries installed ï¿½ Playwright handles this
                 with
                 <code class="font-mono text-xs">npx playwright install</code>,
                 Puppeteer downloads Chromium during
@@ -284,7 +288,7 @@
               <p class="mb-4">
                 Selectors are the language you use to tell Playwright what to
                 interact with, and getting them right is most of the craft.
-                Prefer user-visible locators — text, roles, labels — over
+                Prefer user-visible locators ï¿½ text, roles, labels ï¿½ over
                 brittle CSS that breaks when a class is renamed. A button that
                 says "Submit" should be found as a role of type button with the
                 name Submit, not as a container query dependent on styling. For

@@ -18,6 +18,10 @@
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://googlesyndication.com">
+    <link rel="preconnect" href="https://doubleclick.net">
+    <link rel="preconnect" href="https://google-analytics.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
         
     
     <meta charset="UTF-8" />
@@ -134,9 +138,9 @@
               class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4"
             >
               <span>Published: August 2026</span>
-              <span>•</span>
+              <span>ï¿½</span>
               <span>Category: AI Agent & Automation</span>
-              <span>•</span>
+              <span>ï¿½</span>
               <span class="text-emerald-600 dark:text-emerald-400"
                 >No Sign-Up / 100% Free / No Registration</span
               >
@@ -154,7 +158,7 @@
                 crew-of-agents model, while Microsoft's AutoGen introduced
                 flexible conversation-driven multi-agent orchestration. Both
                 frameworks increasingly support declarative configuration, and
-                YAML is the format of choice — human-readable, diff-friendly,
+                YAML is the format of choice ï¿½ human-readable, diff-friendly,
                 and structured enough to describe roles, models, and task flows
                 without writing orchestration code.
               </p>
@@ -171,10 +175,10 @@
               </p>
               <p class="mb-4">
                 Every agent also carries configuration for tools and model.
-                Tools are referenced by name —
+                Tools are referenced by name ï¿½
                 <code class="font-mono text-xs">search_tool</code>,
                 <code class="font-mono text-xs">web_search_tool</code>, or
-                custom registered tools — and must exist in your runtime
+                custom registered tools ï¿½ and must exist in your runtime
                 environment or the agent will fail at execution. The model is
                 declared with a provider prefix like
                 <code class="font-mono text-xs">openai/gpt-4o</code> or
@@ -187,8 +191,8 @@
               <p class="mb-4">
                 Tasks describe the work each agent performs. A task has a
                 description, an expected output, and an agent assignment. The
-                description is the working instruction — the concrete
-                deliverable you want — while the expected output states the
+                description is the working instruction ï¿½ the concrete
+                deliverable you want ï¿½ while the expected output states the
                 format (bullet list, Markdown article, JSON object). In CrewAI,
                 tasks live in a
                 <code class="font-mono text-xs">tasks:</code> mapping and
@@ -204,15 +208,15 @@
                 the model and generation parameters like temperature, and a task
                 or workflow that wires them together. Because AutoGen emphasizes
                 conversable agents, the system message is more prominent than
-                role/goal/backstory fields — it is the full instruction the
+                role/goal/backstory fields ï¿½ it is the full instruction the
                 agent converses under. The TopWebTool CrewAI / AutoGen YAML
                 Designer bridges this gap by merging role and goal into the
                 system message for AutoGen output automatically.
               </p>
               <p class="mb-4">
                 YAML's rules make correct generation a real skill. Indentation
-                defines structure — two spaces per level is the community
-                standard — and colons must be followed by a space. A scalar
+                defines structure ï¿½ two spaces per level is the community
+                standard ï¿½ and colons must be followed by a space. A scalar
                 containing a colon, a hash, or a leading special character must
                 be quoted, or the parser misreads it. This is the single largest
                 source of broken configs, which is why the designer always
@@ -231,8 +235,8 @@
                 before you deploy."
               </p>
               <p class="mb-4">
-                A realistic workflow with the designer is: define two agents — a
-                researcher and a writer — with roles, goals, and models; define
+                A realistic workflow with the designer is: define two agents ï¿½ a
+                researcher and a writer ï¿½ with roles, goals, and models; define
                 two tasks that chain their work; generate the YAML; then drop
                 the file into your project next to the Python bootstrap that
                 loads it. The configuration stays declarative and reviewable,
@@ -244,15 +248,15 @@
                 Declarative multi-agent configuration is where framework
                 ergonomics are headed. YAML is the interface, roles and goals
                 are the design surface, and tasks are the workflow. Master the
-                three-agent pattern — define, validate, delegate — and you can
+                three-agent pattern ï¿½ define, validate, delegate ï¿½ and you can
                 compose crews of specialists that handle research, writing,
                 review, and delivery as a single reproducible pipeline.
               </p>
               <p class="mb-4">
                 The structure of a YAML design follows the shape of the
                 conversation you want the crew to have. The agent definitions
-                describe who is in the room — their role, their system prompt,
-                which tools they can reach — and the task definitions describe
+                describe who is in the room ï¿½ their role, their system prompt,
+                which tools they can reach ï¿½ and the task definitions describe
                 what the group must produce, in what order, and for whom. Two
                 rules keep the file readable as it grows: name things with
                 intent, so a reader can guess what an agent does from its name,
@@ -262,7 +266,7 @@
                 listed is the sequence in which work flows, so arrange
                 dependencies explicitly and let one task's output flow into the
                 next task's context. When the design is coherent, the rendered
-                YAML reads almost like a spec for the whole crew — and because
+                YAML reads almost like a spec for the whole crew ï¿½ and because
                 it is data, it can be versioned, reviewed, and diffed the way
                 code is.
               </p>

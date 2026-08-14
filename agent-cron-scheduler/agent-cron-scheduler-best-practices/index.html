@@ -18,6 +18,10 @@
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://googlesyndication.com">
+    <link rel="preconnect" href="https://doubleclick.net">
+    <link rel="preconnect" href="https://google-analytics.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
         
     
     <meta charset="UTF-8" />
@@ -134,9 +138,9 @@
               class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4"
             >
               <span>Published: August 2026</span>
-              <span>•</span>
+              <span>ï¿½</span>
               <span>Category: AI Agent & Automation</span>
-              <span>•</span>
+              <span>ï¿½</span>
               <span class="text-emerald-600 dark:text-emerald-400"
                 >No Sign-Up / 100% Free / No Registration</span
               >
@@ -169,14 +173,14 @@
                 invocations fail fast instead of corrupting state.
               </p>
               <p class="mb-4">
-                Timezone discipline is the second pillar. Decide once — ideally
-                "schedule in UTC, display in local" — and never mix. A job that
+                Timezone discipline is the second pillar. Decide once ï¿½ ideally
+                "schedule in UTC, display in local" ï¿½ and never mix. A job that
                 means 09:00 Wall Street time should be expressed relative to a
                 fixed instant, because daylight-saving transitions make
                 local-time crons ambiguous twice a year. Document the intended
                 timezone in a comment above every expression:
                 <code class="font-mono text-xs"
-                  ># 06:30 UTC daily — equals 01:30 EST during winter</code
+                  ># 06:30 UTC daily ï¿½ equals 01:30 EST during winter</code
                 >. When you build expressions with the Cron-Job & Automation
                 Scheduler, the next-run preview is computed in your browser's
                 local zone, so it is the perfect moment to confirm the
@@ -188,7 +192,7 @@
                 behavior. Every cron handler should write a structured line with
                 the job name, run start, duration, exit status, and a
                 correlation ID. Rotate logs and retain enough history to answer
-                "what ran at 03:00 last Tuesday?" — this becomes invaluable when
+                "what ran at 03:00 last Tuesday?" ï¿½ this becomes invaluable when
                 a downstream consumer reports stale data. For agent jobs, also
                 record the input snapshot: the URL, query, or document set that
                 the agent consumed, so a later analysis can reproduce exactly
@@ -199,7 +203,7 @@
                 Configure retries with bounded backoff for transient errors
                 (rate limits, flaky network calls) and immediate alerts for
                 persistent ones. Distinguish "the job ran and failed" from "the
-                job never started" — the latter requires a watchdog or a
+                job never started" ï¿½ the latter requires a watchdog or a
                 synthetic heartbeat check. A common pattern is a daily health
                 job that verifies the previous day's runs all completed, sending
                 an alert if any scheduled execution is missing from the log.
@@ -208,10 +212,10 @@
                 Resource contention is a subtle but frequent failure. If three
                 jobs all launch at the top of the hour and each hits the same
                 database, queue, or third-party API, you get thundering-herd
-                latency and spurious timeouts. Stagger start minutes —
+                latency and spurious timeouts. Stagger start minutes ï¿½
                 <code class="font-mono text-xs">07</code>,
                 <code class="font-mono text-xs">19</code>,
-                <code class="font-mono text-xs">43</code> — so bursts never
+                <code class="font-mono text-xs">43</code> ï¿½ so bursts never
                 align. For agent jobs that call paid LLM APIs, a staggered
                 schedule also smooths your token spend and keeps you under
                 provider rate limits.
@@ -253,9 +257,9 @@
                 you schedule anything that has side effects, ask what happens if
                 the trigger fires twice, whether through a manual replay, a
                 clock adjustment, or a flaky scheduler that retries. Design the
-                underlying operation to be idempotent where possible — keyed by
+                underlying operation to be idempotent where possible ï¿½ keyed by
                 a stable identifier so re-running detects the work is already
-                done — and where it cannot be idempotent, add a guard that
+                done ï¿½ and where it cannot be idempotent, add a guard that
                 rejects duplicates. This discipline matters more than any timing
                 precision, because every production scheduler occasionally
                 misbehaves and the cost of a double-run is measured in support

@@ -18,6 +18,10 @@
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://googlesyndication.com">
+    <link rel="preconnect" href="https://doubleclick.net">
+    <link rel="preconnect" href="https://google-analytics.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
         
     
     <meta charset="UTF-8" />
@@ -134,9 +138,9 @@
               class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4"
             >
               <span>Published: August 2026</span>
-              <span>•</span>
+              <span>ï¿½</span>
               <span>Category: AI Agent & Automation</span>
-              <span>•</span>
+              <span>ï¿½</span>
               <span class="text-emerald-600 dark:text-emerald-400"
                 >No Sign-Up / 100% Free / No Registration</span
               >
@@ -162,7 +166,7 @@
                 cap max tokens per response, and the right cap prevents a
                 runaway agent from generating a fifteen-thousand-token artifact
                 when the expected output is two paragraphs. Budgets also make
-                cost forecasting possible — multiply expected tokens per task by
+                cost forecasting possible ï¿½ multiply expected tokens per task by
                 the call count and the model's price, and you can predict a
                 run's cost before it starts. A config with visible budgets is a
                 config you can plan around.
@@ -173,7 +177,7 @@
                 brief. Task chaining is an optimization lever: define
                 intermediate tasks that distill context so each downstream agent
                 receives a focused summary instead of a growing raw dump. The
-                expected-output field is your distillation contract — the
+                expected-output field is your distillation contract ï¿½ the
                 sharper it is, the smaller the context that flows downstream.
               </p>
               <p class="mb-4">
@@ -187,7 +191,7 @@
               </p>
               <p class="mb-4">
                 Parallelize independent tasks. Not every crew is a strict chain
-                — two tasks that both depend only on shared inputs can run
+                ï¿½ two tasks that both depend only on shared inputs can run
                 concurrently, cutting wall time roughly in half for a two-branch
                 pipeline. Framework support varies, so express parallel intent
                 in the config where supported and document the dependency graph
@@ -202,7 +206,7 @@
                 task gets the frontier model. Assigning models per agent in the
                 config is the lever, and it can cut total cost by a large factor
                 while keeping quality where it matters. Revisit model
-                assignments as new model tiers ship — the config makes swapping
+                assignments as new model tiers ship ï¿½ the config makes swapping
                 one line per agent trivial.
               </p>
               <p class="mb-4">
@@ -231,7 +235,7 @@
                 right-size models, and measure every task. Apply the loop to the
                 config you design, and the crew gets faster and cheaper on every
                 iteration while the output stays consistent. The declarative
-                YAML is precisely what makes this loop practical — every lever
+                YAML is precisely what makes this loop practical ï¿½ every lever
                 is one field, one line, one review away.
               </p>
               <p class="mb-4">
@@ -244,7 +248,7 @@
                 actually hits. Within each agent, the prompt is the cost lever:
                 a shorter, sharper system prompt produces cheaper calls and
                 fewer off-target responses, and tightening it is free. The other
-                structural lever is task sequencing — overlapping or re-entrant
+                structural lever is task sequencing ï¿½ overlapping or re-entrant
                 task graphs cause redundant work and confused context, while a
                 clean dependency order lets each agent build on finished output.
                 When you measure, look at cost per completed mission and time
@@ -256,13 +260,13 @@
                 Keep the rendered file reviewable as the source of truth. When
                 the design is complete, the YAML it produces is what actually
                 deploys, so every optimization should be verified against the
-                rendered output rather than against the intent in your head —
+                rendered output rather than against the intent in your head ï¿½
                 render, read, and confirm that the agents, tasks, and
                 dependencies in the file are exactly the ones you planned. Treat
                 the rendered file as the review artifact in pull requests: a
                 reviewer should be able to read it top to bottom and understand
                 the crew's behavior without opening the editor. If the rendered
-                file has grown hard to read, that is a design signal — the file
+                file has grown hard to read, that is a design signal ï¿½ the file
                 should be the concise spec, not a sprawling artifact that needs
                 another document to explain it. A crew that is easy to describe
                 is easy to operate, and a rendered design that reads cleanly is

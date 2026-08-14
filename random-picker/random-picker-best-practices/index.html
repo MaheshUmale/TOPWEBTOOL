@@ -18,6 +18,10 @@
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://googlesyndication.com">
+    <link rel="preconnect" href="https://doubleclick.net">
+    <link rel="preconnect" href="https://google-analytics.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
         
     
     <meta charset="UTF-8" />
@@ -134,9 +138,9 @@
               class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4"
             >
               <span>Published: August 2026</span>
-              <span>•</span>
+              <span>ï¿½</span>
               <span>Category: Health &amp; Lifestyle</span>
-              <span>•</span>
+              <span>ï¿½</span>
               <span class="text-emerald-600 dark:text-emerald-400"
                 >No Sign-Up / 100% Free / No Registration</span
               >
@@ -163,8 +167,8 @@
                 Professionals still trip on the off-by-one: setting a max of 99
                 when you meant 100 shrinks the pool, and asking for values "up
                 to" a number often hides a decision about inclusivity. State the
-                range the way you would describe a dice roll — 1d100 means 1
-                through 100 — and confirm the tool's inclusivity matches.
+                range the way you would describe a dice roll ï¿½ 1d100 means 1
+                through 100 ï¿½ and confirm the tool's inclusivity matches.
               </p>
               <p class="mb-4">
                 Respect the no-repeat constraint as a design decision, not an
@@ -172,7 +176,7 @@
                 replacement, choosing distinct seats, or running a round-robin
                 where nobody repeats. But the constraint only works when the
                 range is large enough: ten unique draws need a range of at least
-                ten. Plan the numbers together — count and range — before
+                ten. Plan the numbers together ï¿½ count and range ï¿½ before
                 generating, so you never discover halfway through that the pool
                 is smaller than your draw size.
               </p>
@@ -181,8 +185,8 @@
                 integer by taking a random float, scaling it, and rounding, if
                 you need perfect fairness. Scaling and flooring introduces tiny
                 biases whenever the range does not divide evenly into the
-                underlying generator's resolution. Rejection sampling — draw,
-                test, redraw — removes the bias completely. The picker does
+                underlying generator's resolution. Rejection sampling ï¿½ draw,
+                test, redraw ï¿½ removes the bias completely. The picker does
                 exactly this, so your draws are as close to perfectly uniform as
                 a software generator can get; if you are rolling your own
                 elsewhere, use rejection sampling too.
@@ -195,23 +199,23 @@
                 confirm the outcome. Because the tool hashes the seed text
                 deterministically, you can even reuse the same memorable phrase
                 and get a stable, explainable stream. Never assume an unseeded
-                draw is reproducible — it is not, by design.
+                draw is reproducible ï¿½ it is not, by design.
               </p>
               <p class="mb-4">
                 For group picking, fairness is about both composition and size.
-                The Fisher–Yates shuffle makes every assignment of names to
+                The Fisherï¿½Yates shuffle makes every assignment of names to
                 positions equally likely, and round-robin dealing keeps group
                 sizes balanced to within one member. That combination means
                 nobody can legitimately complain that the shuffle was rigged or
                 that a team was drastically oversized. If your real constraint
-                is different — say, friends who should stay together or skill
-                levels that should split — random assignment is only a starting
+                is different ï¿½ say, friends who should stay together or skill
+                levels that should split ï¿½ random assignment is only a starting
                 point; plan to adjust after the draw.
               </p>
               <p class="mb-4">
                 Keep the input list clean before you shuffle. Duplicate names
-                are treated as separate members — two "Alex" lines mean two
-                people named Alex or one person listed twice — so deduplicate
+                are treated as separate members ï¿½ two "Alex" lines mean two
+                people named Alex or one person listed twice ï¿½ so deduplicate
                 first if each person should appear exactly once. Blank lines are
                 ignored, but trailing spaces and inconsistent capitalization are
                 preserved, which can produce slightly different display text. A

@@ -18,6 +18,10 @@
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://googlesyndication.com">
+    <link rel="preconnect" href="https://doubleclick.net">
+    <link rel="preconnect" href="https://google-analytics.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
         
     
     <meta charset="UTF-8" />
@@ -134,9 +138,9 @@
               class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4"
             >
               <span>Published: August 2026</span>
-              <span>•</span>
+              <span>ï¿½</span>
               <span>Category: Industrial &amp; Engineering</span>
-              <span>•</span>
+              <span>ï¿½</span>
               <span class="text-emerald-600 dark:text-emerald-400"
                 >No Sign-Up / 100% Free / No Registration</span
               >
@@ -149,8 +153,8 @@
               <p class="mb-4">
                 Every pump selection begins with two numbers: the flow rate in
                 gallons per minute and the total dynamic head in feet. The flow
-                is dictated by the process — how much water the cooling tower
-                needs, how fast the tank must fill — and the total dynamic head
+                is dictated by the process ï¿½ how much water the cooling tower
+                needs, how fast the tank must fill ï¿½ and the total dynamic head
                 is dictated by the system the pump must push against. Get the
                 head right and the pump lands on its best-efficiency point; get
                 it wrong by a few feet and the pump runs off its curve,
@@ -168,23 +172,23 @@
                 suction tank above the pump contributes a positive suction head
                 that helps the pump, while a lift below the pump enters as a
                 negative number that adds demand. Static head depends only on
-                geometry, not on flow — it is the same whether the pump runs at
+                geometry, not on flow ï¿½ it is the same whether the pump runs at
                 ten gallons per minute or a thousand.
               </p>
               <p class="mb-4">
                 The second component is friction head, the pressure the liquid
                 loses overcoming friction in the pipe walls and fittings.
-                Friction head grows with flow — roughly as the 1.85th power in
-                the Hazen–Williams relation — so doubling the flow more than
+                Friction head grows with flow ï¿½ roughly as the 1.85th power in
+                the Hazenï¿½Williams relation ï¿½ so doubling the flow more than
                 triples the friction losses. The dominant factors are pipe
                 length, pipe diameter, pipe roughness, and the number and type
                 of fittings. The calculator offers the two standard methods:
-                Hazen–Williams with a roughness coefficient C that suits the
-                pipe material, and Darcy–Weisbach with a dimensionless friction
+                Hazenï¿½Williams with a roughness coefficient C that suits the
+                pipe material, and Darcyï¿½Weisbach with a dimensionless friction
                 factor f. The fitting losses are handled by converting each
-                fitting's K-factor to an equivalent length of straight pipe — a
-                90° elbow counts roughly like 30 pipe diameters of extra length
-                — and adding that to the straight run.
+                fitting's K-factor to an equivalent length of straight pipe ï¿½ a
+                90ï¿½ elbow counts roughly like 30 pipe diameters of extra length
+                ï¿½ and adding that to the straight run.
               </p>
               <p class="mb-4">
                 The third component is pressure head, the head equivalent of any
@@ -194,17 +198,17 @@
                 that must be converted from pounds per square inch to feet of
                 liquid. The conversion is 2.31 feet of water per psi at specific
                 gravity 1.0, adjusted by dividing by the specific gravity for
-                any other fluid: h = psi × 2.31 ÷ SG. A 50 psi tank pressure
-                adds roughly 115 feet of water head — easily the difference
-                between a small pump and a large one — which is why forgetting
+                any other fluid: h = psi ï¿½ 2.31 ï¿½ SG. A 50 psi tank pressure
+                adds roughly 115 feet of water head ï¿½ easily the difference
+                between a small pump and a large one ï¿½ which is why forgetting
                 the pressure term is one of the classic pump-sizing failures.
               </p>
               <p class="mb-4">
                 The fourth component is velocity head, the kinetic energy of the
-                moving liquid. It is V² ÷ 2g, where V is the flow velocity in
+                moving liquid. It is Vï¿½ ï¿½ 2g, where V is the flow velocity in
                 the pipe and g is the acceleration of gravity. In most practical
-                systems the velocity head is small — at a typical 6 ft/s
-                velocity it is under a foot — but in short, high-velocity
+                systems the velocity head is small ï¿½ at a typical 6 ft/s
+                velocity it is under a foot ï¿½ but in short, high-velocity
                 suction lines it can matter, and the calculator includes it for
                 completeness. The flow velocity also appears implicitly in the
                 friction terms, and it is the quantity that the velocity-head
@@ -218,19 +222,19 @@
                 head-flow characteristic, and the pump should be selected so
                 that its best-efficiency point sits at or near the duty flow.
                 This is the sense in which TDH is the single most consequential
-                number in pump selection: the entire pump curve — impeller
-                diameter, casing size, speed — is chosen to deliver that head at
+                number in pump selection: the entire pump curve ï¿½ impeller
+                diameter, casing size, speed ï¿½ is chosen to deliver that head at
                 that flow.
               </p>
               <p class="mb-4">
                 From the TDH the required power follows directly. The hydraulic
-                horsepower, the power delivered to the liquid, is HP = Q × TDH ×
-                SG ÷ 3960, where Q is in gpm, TDH in feet, and the constant 3960
+                horsepower, the power delivered to the liquid, is HP = Q ï¿½ TDH ï¿½
+                SG ï¿½ 3960, where Q is in gpm, TDH in feet, and the constant 3960
                 converts the mixed units. The shaft horsepower, what the motor
                 must actually deliver, is the hydraulic horsepower divided by
-                the pump efficiency — a typical centrifugal pump at its
-                best-efficiency point runs 60–80% efficient, so the shaft power
-                is routinely 25–60% above the hydraulic power. The calculator
+                the pump efficiency ï¿½ a typical centrifugal pump at its
+                best-efficiency point runs 60ï¿½80% efficient, so the shaft power
+                is routinely 25ï¿½60% above the hydraulic power. The calculator
                 applies a 15% motor margin and rounds up to the nearest standard
                 motor size, which is the professional habit: motors are
                 purchased in standard ratings, and a pump running at its margin
@@ -255,7 +259,7 @@
                 fitting counts; the calculator returns the four head components,
                 the TDH, the hydraulic and shaft power, and a recommended motor,
                 with the full formula trace underneath. It is the same
-                calculation a pump engineer would do on a spreadsheet —
+                calculation a pump engineer would do on a spreadsheet ï¿½
                 automated, transparent, and free to use for as many systems as
                 you need to size.
               </p>

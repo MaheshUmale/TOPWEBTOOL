@@ -9,7 +9,7 @@ ZIP = ROOT / "deployment.zip"
 EXCLUDE_DIRS = {
     '.git', '.kilo', '.opencode', '.vscode', 'node_modules',
     'dist', '.agent-zero', '.playwright-mcp', '.well-known', '.test', 'js',
-    '__pycache__', '.pytest_cache', '.mypy_cache', '.ruff_cache',
+    '__pycache__', '.pytest_cache', '.mypy_cache', '.ruff_cache', 'build-tools',
 }
 EXCLUDE_FILES = {
     '.gitignore', 'opencode.json', '.session-state.json',

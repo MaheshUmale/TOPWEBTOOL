@@ -18,6 +18,10 @@
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://googlesyndication.com">
+    <link rel="preconnect" href="https://doubleclick.net">
+    <link rel="preconnect" href="https://google-analytics.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
         
     <meta charset="UTF-8" />
     
@@ -131,9 +135,9 @@
               class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4"
             >
               <span>Published: August 2026</span>
-              <span>•</span>
+              <span>ï¿½</span>
               <span>Category: AI Agent & Automation</span>
-              <span>•</span>
+              <span>ï¿½</span>
               <span class="text-emerald-600 dark:text-emerald-400"
                 >No Sign-Up / 100% Free / No Registration</span
               >
@@ -153,7 +157,7 @@
               </p>
               <p class="mb-4">
                 Misspelled placeholders are the number one offender. The
-                template says {{tone}} but the map defines tone — or worse, tone
+                template says {{tone}} but the map defines tone ï¿½ or worse, tone
                 is defined with a trailing space, so the key is "tone " and
                 never matches. The result is a literal {{tone}} in the final
                 prompt. The debugger flags it, but the deeper fix is discipline:
@@ -162,8 +166,8 @@
               <p class="mb-4">
                 Shadowed variables quietly rewrite history. If a map defines
                 persona once and then redefines it lower in the file, every step
-                referencing persona — including steps written above the
-                redefinition — picks up the new value. The chain's dependency
+                referencing persona ï¿½ including steps written above the
+                redefinition ï¿½ picks up the new value. The chain's dependency
                 table exposes all consumers of a key at once, which is exactly
                 the view that makes this bug visible.
               </p>
@@ -180,8 +184,8 @@
                 Literal single braces get interpolated by mistake in sloppy
                 chains. A template containing {json} or {code} is corrupted if
                 the interpeter treats any brace pair as a variable. Strict
-                double-brace-only interpolation — with whitespace tolerated
-                inside — prevents this, and the debugger's rule set should be
+                double-brace-only interpolation ï¿½ with whitespace tolerated
+                inside ï¿½ prevents this, and the debugger's rule set should be
                 enforced, not assumed.
               </p>
               <p class="mb-4">
@@ -204,8 +208,8 @@
                 Reading only the final step hides propagated defects. A template
                 error in step two is faithfully copied into every downstream
                 output, so the final answer looks broken without pointing to its
-                cause. Per-step review — reading each interpolated step in order
-                — is the only way to locate the origin instead of the symptom.
+                cause. Per-step review ï¿½ reading each interpolated step in order
+                ï¿½ is the only way to locate the origin instead of the symptom.
               </p>
               <p class="mb-4">
                 Version drift is the operational error. Someone edits a template

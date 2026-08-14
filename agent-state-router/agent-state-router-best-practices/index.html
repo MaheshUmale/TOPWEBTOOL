@@ -18,6 +18,10 @@
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://googlesyndication.com">
+    <link rel="preconnect" href="https://doubleclick.net">
+    <link rel="preconnect" href="https://google-analytics.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
         
     
     <meta charset="UTF-8" />
@@ -134,9 +138,9 @@
               class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4"
             >
               <span>Published: August 2026</span>
-              <span>•</span>
+              <span>ï¿½</span>
               <span>Category: AI Agent & Automation</span>
-              <span>•</span>
+              <span>ï¿½</span>
               <span class="text-emerald-600 dark:text-emerald-400"
                 >No Sign-Up / 100% Free / No Registration</span
               >
@@ -149,7 +153,7 @@
               <p class="mb-4">
                 The best state machines are boring to read and expensive to
                 break. Start with explicit error states. A machine that only
-                models the happy path — idle, running, done — has nowhere to go
+                models the happy path ï¿½ idle, running, done ï¿½ has nowhere to go
                 when something fails, so the runtime falls back to implicit
                 behavior you cannot reason about. Add a
                 <code class="font-mono text-xs">failed</code> state, a
@@ -183,7 +187,7 @@
                 per outcome. Modeling guards as states instead of conditions
                 explodes the state count and buries the real logic. In the
                 transition-table model, guards are documented alongside the edge
-                — "submit [valid]" — keeping the machine small and the condition
+                ï¿½ "submit [valid]" ï¿½ keeping the machine small and the condition
                 explicit.
               </p>
               <p class="mb-4">
@@ -207,8 +211,8 @@
               </p>
               <p class="mb-4">
                 Document transitions with the event that owns them. Each edge
-                should be attributable to a real trigger in your system — an API
-                response, a user action, a cron event, a tool result — not a
+                should be attributable to a real trigger in your system ï¿½ an API
+                response, a user action, a cron event, a tool result ï¿½ not a
                 speculative "just in case" edge. Edges without a firing event
                 are untestable claims. When you review the transition table, ask
                 "what code path actually raises this event?" and delete any edge
@@ -218,7 +222,7 @@
                 Version and review the machine like code. The transition table
                 is a specification; put it in version control beside the
                 implementation, and require a review whenever it changes. The
-                DOT output doubles as the review diagram — paste it into the
+                DOT output doubles as the review diagram ï¿½ paste it into the
                 pull request so reviewers see the graph diff, not just a list of
                 strings. Machines that are reviewed as artifacts accumulate
                 fewer surprises than machines that evolve in someone's memory.
@@ -226,7 +230,7 @@
               <p class="mb-4">
                 Finally, couple the machine to observability. Log every state
                 entry and event, and emit a metric for time spent per state. For
-                AI agents this is especially valuable — a retry loop that spins
+                AI agents this is especially valuable ï¿½ a retry loop that spins
                 is invisible without state telemetry, and the cycle warning from
                 the analyzer is a preview of exactly the incident metrics will
                 reveal. A machine you can see in production is a machine you can
@@ -237,7 +241,7 @@
                 states, noun/verb naming, guards on edges, an agreed start,
                 verified reachability, attributable events, reviewed diffs, and
                 state telemetry. Practice them together and your state machines
-                — and the agents they govern — become models of clarity and
+                ï¿½ and the agents they govern ï¿½ become models of clarity and
                 reliability.
               </p>
               <p class="mb-4">
@@ -247,7 +251,7 @@
                 and runtime implementers consult. When a new engineer asks how
                 the agent reaches a particular outcome, the answer should be a
                 pointer to the table, not a verbal explanation that drifts from
-                the code. Keep the vocabulary — state names, event names —
+                the code. Keep the vocabulary ï¿½ state names, event names ï¿½
                 consistent across the table, the code, and the diagrams, because
                 the moment naming diverges is the moment analysis stops being
                 trustworthy. A single source of truth for the machine's topology
@@ -256,14 +260,14 @@
               <p class="mb-4">
                 Version the machine the way you version code. Because the
                 transition table is data, it can live in version control, be
-                reviewed in a diff, and be reverted when a change misbehaves —
+                reviewed in a diff, and be reverted when a change misbehaves ï¿½
                 and every change to routing behavior should arrive as a reviewed
                 change to the table, not as an edit that bypasses review. Before
                 a change is merged, run the analyzer on the new table and
                 confirm the reachability, cycle, and dead-end reports are still
                 clean; a machine whose analysis fails review is a machine that
                 should not ship. Over time, the table accumulates history that
-                explains why the agent routes the way it does — the record of
+                explains why the agent routes the way it does ï¿½ the record of
                 decisions that a verbal handoff never preserves. That history is
                 what makes the state machine maintainable long after the
                 original designer has moved on.

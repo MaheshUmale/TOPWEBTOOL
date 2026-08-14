@@ -18,6 +18,10 @@
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://googlesyndication.com">
+    <link rel="preconnect" href="https://doubleclick.net">
+    <link rel="preconnect" href="https://google-analytics.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
         
     
     <meta charset="UTF-8" />
@@ -135,9 +139,9 @@
               class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4"
             >
               <span>Published: August 2026</span>
-              <span>•</span>
+              <span>ï¿½</span>
               <span>Category: AI Agent & Automation</span>
-              <span>•</span>
+              <span>ï¿½</span>
               <span class="text-emerald-600 dark:text-emerald-400"
                 >No Sign-Up / 100% Free / No Registration</span
               >
@@ -172,7 +176,7 @@
                 on every run. Modern practice is to wait for a condition: a
                 selector to appear, an element to become visible, text to show
                 up, or a network response to arrive. Playwright's auto-waiting
-                actions do this implicitly —
+                actions do this implicitly ï¿½
                 <code class="font-mono text-xs">click</code> waits for the
                 element to be attached, visible, stable, and enabled. Only use
                 an explicit wait for genuinely asynchronous transitions that no
@@ -185,15 +189,15 @@
                 <code class="font-mono text-xs">getByText</code> locators
                 because they describe what a user sees rather than how the page
                 is built. Role-based queries also double as accessibility checks
-                — a button that cannot be found by its role is often a button
+                ï¿½ a button that cannot be found by its role is often a button
                 that assistive technology cannot reach either. When generated
                 scripts use selector inputs, structure them with the same
                 mindset: choose IDs and test-ids that stay constant while the
                 styling evolves.
               </p>
               <p class="mb-4">
-                Keep actions atomic and ordered. Each step should do one thing —
-                click this, fill that, assert this — so failures pinpoint the
+                Keep actions atomic and ordered. Each step should do one thing ï¿½
+                click this, fill that, assert this ï¿½ so failures pinpoint the
                 exact break. The action-builder model of the TopWebTool
                 Playwright / Puppeteer Script Generator enforces this naturally:
                 each row is a single verb, and reordering is a drag-and-arrow
@@ -231,7 +235,7 @@
                 <code class="font-mono text-xs">node_modules</code> and browser
                 directories so pipelines are fast and deterministic.
                 Network-restricted CI environments often need the bundled
-                Chromium rather than a system-installed browser — Pin the
+                Chromium rather than a system-installed browser ï¿½ Pin the
                 browser version alongside the library version to eliminate
                 surprise upgrades.
               </p>
@@ -254,22 +258,22 @@
                 list in sync with the UI contract, and run the suite on a
                 schedule so regressions surface early. With stable test-ids,
                 web-first waits, atomic actions, and failure artifacts, your
-                browser automation becomes boringly dependable — exactly what
+                browser automation becomes boringly dependable ï¿½ exactly what
                 production demands.
               </p>
               <p class="mb-4">
                 Treat each script as a test that must be reproducible in
                 isolation. A browser-automation script that depends on the state
-                left behind by a previous run — a session cookie, an unclosed
-                dialog, a scrolled page — will fail unpredictably when run
+                left behind by a previous run ï¿½ a session cookie, an unclosed
+                dialog, a scrolled page ï¿½ will fail unpredictably when run
                 fresh, and worse, it can pass in your environment while failing
                 in CI. Begin every run from a known state: navigate to the entry
                 point, clear storage when the scenario calls for it, and avoid
                 relying on timings that another run may have disturbed.
                 Structure the script so setup, action, and verification are
                 separable, which lets you run the verification step in isolation
-                when something regresses. When you assert on the outcome — an
-                element is visible, a value changed, navigation happened — use
+                when something regresses. When you assert on the outcome ï¿½ an
+                element is visible, a value changed, navigation happened ï¿½ use
                 explicit waits for that condition rather than sleeping for a
                 fixed time, because a fixed sleep is either too short on a slow
                 machine or wastefully long on a fast one. Reproducibility is the

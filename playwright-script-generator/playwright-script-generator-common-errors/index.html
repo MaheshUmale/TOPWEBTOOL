@@ -18,6 +18,10 @@
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://googlesyndication.com">
+    <link rel="preconnect" href="https://doubleclick.net">
+    <link rel="preconnect" href="https://google-analytics.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
         
     
     <meta charset="UTF-8" />
@@ -134,9 +138,9 @@
               class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4"
             >
               <span>Published: August 2026</span>
-              <span>•</span>
+              <span>ï¿½</span>
               <span>Category: AI Agent & Automation</span>
-              <span>•</span>
+              <span>ï¿½</span>
               <span class="text-emerald-600 dark:text-emerald-400"
                 >No Sign-Up / 100% Free / No Registration</span
               >
@@ -164,7 +168,7 @@
                 default in test runner mode), a locator that matches more than
                 one element refuses to act, forcing you to disambiguate. The
                 message "resolved to 4 elements" means your selector is too
-                broad — a bare <code class="font-mono text-xs">button</code> may
+                broad ï¿½ a bare <code class="font-mono text-xs">button</code> may
                 match every button on the page. Narrow it with role, name, or
                 test-id, or use
                 <code class="font-mono text-xs">.first()</code> deliberately.
@@ -219,8 +223,8 @@
                 persistent source of flakiness. Clicking a link and immediately
                 querying the next page can read the old DOM, because navigation
                 is asynchronous. The reliable pattern is to act, then wait for
-                something that can only exist on the new page — the URL, a
-                heading, or a specific element — before asserting. Scripts
+                something that can only exist on the new page ï¿½ the URL, a
+                heading, or a specific element ï¿½ before asserting. Scripts
                 generated from atomic actions avoid this naturally when each
                 assert step waits on content that follows the previous action.
               </p>
@@ -230,7 +234,7 @@
                 string, or a double quote inside Python, ends the string early
                 and produces a syntax error. The TopWebTool generator escapes
                 quotes and backslashes in every emitted string precisely so
-                pasted text cannot corrupt the output file — but if you
+                pasted text cannot corrupt the output file ï¿½ but if you
                 hand-edit a generated script, keep the same escaping discipline.
                 A quick
                 <code class="font-mono text-xs">node -c</code> or
@@ -250,7 +254,7 @@
               <p class="mb-4">
                 Most browser-automation failures reduce to four categories:
                 timing, selectors, frames, and environment. Approach each error
-                as a signal — a timeout says "wait differently," a strict-mode
+                as a signal ï¿½ a timeout says "wait differently," a strict-mode
                 error says "be more specific," a frame miss says "step into the
                 frame," and a launch failure says "fix the runtime." With those
                 reflexes, generated scripts go from flaky experiments to
@@ -260,8 +264,8 @@
                 Strict-mode violations are the error that surfaces after a
                 refactor. Playwright's default assumption is that a locator
                 should match exactly one element, so when a page suddenly
-                contains two elements that both match — a hidden helper button
-                and the visible one, an icon duplicated in a menu — the run
+                contains two elements that both match ï¿½ a hidden helper button
+                and the visible one, an icon duplicated in a menu ï¿½ the run
                 fails with a strict-mode error instead of silently clicking the
                 wrong thing. The remedy is better locators, not looser ones:
                 scope the query, use the visible element, or add a filter for
@@ -271,8 +275,8 @@
                 tells you which condition was unmet, and the fix is to make the
                 wait conditional on the true precondition of the next step
                 rather than adding blanket timeouts. Reading these two errors
-                correctly — strict-mode means ambiguity, timeout means the
-                precondition failed — turns most automation debugging into a
+                correctly ï¿½ strict-mode means ambiguity, timeout means the
+                precondition failed ï¿½ turns most automation debugging into a
                 two-minute investigation instead of an afternoon.
               </p>
             </div>

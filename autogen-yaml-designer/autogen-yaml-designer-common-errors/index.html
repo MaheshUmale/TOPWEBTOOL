@@ -18,6 +18,10 @@
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://googlesyndication.com">
+    <link rel="preconnect" href="https://doubleclick.net">
+    <link rel="preconnect" href="https://google-analytics.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
         
     
     <meta charset="UTF-8" />
@@ -134,9 +138,9 @@
               class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4"
             >
               <span>Published: August 2026</span>
-              <span>•</span>
+              <span>ï¿½</span>
               <span>Category: AI Agent & Automation</span>
-              <span>•</span>
+              <span>ï¿½</span>
               <span class="text-emerald-600 dark:text-emerald-400"
                 >No Sign-Up / 100% Free / No Registration</span
               >
@@ -149,7 +153,7 @@
               <p class="mb-4">
                 YAML's quiet killer is indentation. Because structure is defined
                 by spaces rather than braces, a single misaligned line silently
-                changes the meaning of everything beneath it — an agent property
+                changes the meaning of everything beneath it ï¿½ an agent property
                 can land at the wrong nesting level, become a child of the wrong
                 key, or vanish entirely. Tabs mixed with spaces cause immediate
                 parse failures in most loaders. The remedy is mechanical: use
@@ -167,14 +171,14 @@
                 interpreted as a key separator. Hashes start comments, leading
                 asterisks and brackets have structural meaning, and an ampersand
                 begins an anchor. The robust fix is to quote any value
-                containing these characters — and the safest generator simply
+                containing these characters ï¿½ and the safest generator simply
                 quotes every string, which is exactly what the CrewAI / AutoGen
                 YAML Designer does to guarantee its output parses.
               </p>
               <p class="mb-4">
                 Missing agent references fail late and confusingly. A task that
                 assigns an agent name that doesn't exist in the agents mapping
-                parses fine — YAML doesn't know it's a reference — and then the
+                parses fine ï¿½ YAML doesn't know it's a reference ï¿½ and then the
                 framework raises at execution, often deep inside orchestration
                 code. The error message may name the missing key or may not.
                 Checking references at authoring time, as the designer does with
@@ -183,12 +187,12 @@
               </p>
               <p class="mb-4">
                 Wrong model identifiers are deceptively common. Providers expose
-                model strings with precise prefixes —
+                model strings with precise prefixes ï¿½
                 <code class="font-mono text-xs">openai/gpt-4o</code>,
                 <code class="font-mono text-xs"
                   >anthropic/claude-sonnet-4-20250514</code
                 >
-                — and a near-miss like
+                ï¿½ and a near-miss like
                 <code class="font-mono text-xs">gpt-4o</code> without the
                 provider, or a stale snapshot suffix, produces an authentication
                 or not-found error at first agent turn. Keep model strings in
@@ -228,9 +232,9 @@
                 >
                 block into an AutoGen loader silently ignores the keys it
                 doesn't recognize, producing an agent with almost no
-                instruction. The designer emits framework-specific shapes —
+                instruction. The designer emits framework-specific shapes ï¿½
                 keyed maps for CrewAI, component lists for AutoGen, merging role
-                and goal into a system message — so the output matches the
+                and goal into a system message ï¿½ so the output matches the
                 loader's expectations.
               </p>
               <p class="mb-4">
@@ -258,12 +262,12 @@
                 author didn't intend, and multi-line text that isn't indented or
                 quoted can swallow the lines that follow it. The classic result
                 is a config that parses successfully but loads with subtly wrong
-                values — the worst kind of bug, because nothing is red and
+                values ï¿½ the worst kind of bug, because nothing is red and
                 everything is slightly off. The defenses are mechanical: quote
                 strings that could be misread, use block scalars for multi-line
                 prompts, and re-validate the rendered output after every edit. A
                 second common failure is the missing key that a runtime required
-                — a task without a description, an agent without a role — which
+                ï¿½ a task without a description, an agent without a role ï¿½ which
                 usually surfaces not at parse time but at the first run. Because
                 the designer renders the file deterministically from your rows,
                 these two classes of error are prevented at the source rather
