@@ -165,11 +165,10 @@ Always include 3-level breadcrumb for articles:
 ```html
 <script>/* early theme blocker */</script>
 <link rel="stylesheet" href="./styles.css">          <!-- Tailwind output -->
-<link rel="stylesheet" href="./global.css">
-<link rel="stylesheet" href="./topwebtool-core.css">
-<script src="../js/global.js"></script>               <!-- UTILITIES_REGISTRY -->
-<script src="../js/twt-shell.js"></script>             <!-- Shell renderer -->
-<script src="../js/context-engine.js" defer></script>  <!-- Context rail -->
+<link rel="stylesheet" href="./site.min.css">         <!-- Custom CSS bundle -->
+<script src="./js/global.js"></script>               <!-- UTILITIES_REGISTRY -->
+<script src="./js/twt-shell.js"></script>             <!-- Shell renderer -->
+<script src="./js/context-engine.js" defer></script>  <!-- Context rail -->
 ```
 
 **Note**: Paths vary by depth (`./js/`, `../js/`, `../../js/`).
@@ -177,9 +176,9 @@ Always include 3-level breadcrumb for articles:
 ### Key Files
 | File | Purpose |
 |------|---------|
-| `global.css` | Theme variables, layout, emotional design animations |
-| `topwebtool-core.css` | Shell layout, rail modules, responsive breakpoints |
-| `src.css` | Tailwind source with brand color theme |
+| `src.css` | Tailwind source |
+| `styles.css` | Compiled Tailwind output (`npm run build`) |
+| `site.min.css` | Custom CSS bundle (global layout, theme variables, shell layout, rail modules, responsive breakpoints) |
 | `twt-shell.js` | Header/footer/sidebar injection |
 | `js/context-engine.js` | Right-rail context modules |
 

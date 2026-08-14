@@ -34,7 +34,7 @@ D:\TOPWEBTOOL\
 ├── global.js                           # ★ UTILITIES_REGISTRY (single source of truth)
 ├── twt-shell.js                        # Shared shell: header, footer, sidebar, rail
 ├── worker.js                           # Cloudflare Pages Function (AI crawler markdown)
-├── styles.css / global.css / topwebtool-core.css / src.css
+├── styles.css / site.min.css / src.css
 │
 ├── sitemap.xml                         # 515 canonical URLs
 ├── llms.txt                            # AI-crawler index (85 tools)
@@ -175,8 +175,7 @@ Each tool owns this structure:
 ```html
 <script>/* early theme blocker */</script>
 <link rel="stylesheet" href="./styles.css">          <!-- Tailwind output -->
-<link rel="stylesheet" href="./global.css">
-<link rel="stylesheet" href="./topwebtool-core.css">
+<link rel="stylesheet" href="./site.min.css">         <!-- Custom CSS bundle -->
 <script src="../js/global.js"></script>               <!-- UTILITIES_REGISTRY -->
 <script src="../js/twt-shell.js"></script>             <!-- Shell renderer -->
 <script src="../js/context-engine.js" defer></script>  <!-- Context rail -->
@@ -208,8 +207,7 @@ Each tool owns this structure:
 |------|---------|
 | `src.css` | Tailwind source |
 | `styles.css` | Compiled Tailwind output (`npm run build`) |
-| `global.css` | Global layout, theme variables |
-| `topwebtool-core.css` | Component styles (sidebar, rail, mobile, collapse animations) |
+| `site.min.css` | Custom CSS bundle (layout, theme variables, shell layout, rail modules, responsive breakpoints) |
 
 ---
 

@@ -85,7 +85,7 @@ TopWebTool is a **100% static, client-side web tool directory** deployed to Clou
 - `<tool-name>/index.html` — one directory per tool (84 total), e.g. `age-calculator/`
 - `<tool-name>/<slug>/index.html` — SEO article pages per tool (one directory per article), e.g. `age-calculator/age-calculator-guide/index.html`
 - `global.js` — shared JS: theme loader, header, footer, sidebar, ad placement (header logo mark is inline at ~line 794)
-- `styles.css` / `global.css` / `src.css` — styling (Tailwind CSS v4)
+- `styles.css` / `site.min.css` / `src.css` — styling (Tailwind CSS v4)
 - `worker.js` — Cloudflare Pages **Function** (`/functions` compatible single-file worker) that serves real markdown to AI crawlers when `Accept: text/markdown`
 - `_headers` — response headers (CSP, cache, security, `Vary: Accept`, `Link:` to `.well-known/api-catalog` and `llms.txt`)
 - **No `_redirects` file exists by design.** Cloudflare Pages natively serves `/dir/` → `/dir/index.html`, redirects `.html` → extensionless, and adds trailing slashes to directories. Do NOT reintroduce `_redirects` — a `/tool/` → `/tool/index.html` rewrite (or any `.html` → clean 301 combined with a rewrite) LOOPs with the native redirect (`ERR_TOO_MANY_REDIRECTS`).
