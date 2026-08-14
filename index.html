@@ -2907,7 +2907,7 @@
         const resultsCount = document.getElementById("search-results-count");
         let activeFilter = "all";
 
-        function applyFilters() {
+function applyFilters() {
           const q = searchInput.value.toLowerCase().trim();
           let visibleCards = 0;
           const animatedCards = [];
@@ -2950,7 +2950,12 @@
               }
             });
 
-            section.classList.toggle("hidden", !hasVisibleCard);
+            // Hide entire section if no visible cards
+            if (!hasVisibleCard && activeFilter !== "all") {
+              section.classList.add("hidden");
+            } else {
+              section.classList.remove("hidden");
+            }
           });
 
           requestAnimationFrame(() => {

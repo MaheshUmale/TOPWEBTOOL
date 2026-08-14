@@ -1009,3 +1009,55 @@ body.twt-theme-wipe {
   100% { opacity: 1; }
 }
 }
+
+/* ---- Mascot Float ---- */
+.twt-mascot-float {
+  animation: twt-float 3s ease-in-out infinite;
+}
+
+/* ---- Streak Badge ---- */
+.twt-streak-badge {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  background: linear-gradient(135deg, #4f46e5, #0ea5e9);
+  color: #fff;
+  padding: 0.5rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 9999;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 300ms, transform 300ms;
+}
+
+/* ---- Onboarding Snippet ---- */
+.twt-onboarding-snippet {
+  position: fixed;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(-12px);
+  background: var(--surface-primary, #fff);
+  color: var(--text-primary, #0f172a);
+  border: 1px solid var(--border-color, #cbd5e1);
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+  z-index: 9999;
+  opacity: 0;
+  transition: opacity 300ms, transform 300ms;
+  max-width: 90vw;
+  text-align: center;
+}
+
+/* ---- Result Storytelling ---- */
+.twt-result-story {
+  font-size: 0.875rem;
+  color: var(--text-secondary, #334155);
+  margin-top: 0.5rem;
+  font-style: italic;
+}

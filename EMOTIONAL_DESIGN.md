@@ -26,9 +26,9 @@ Tracked enhancements to increase engagement and reduce "boring site" perception.
 ## Tier 3: High Effort, High Retention
 
 - [x] **Session streak counter** — track unique days visited
-- [x] **Tool completion badges** — mark tools as completed in sidebar
+- [ ] **Tool completion badges** — mark tools as completed in sidebar (removed: `isToolCompleted` dead code, `markToolComplete` still records visits)
 - [x] **Onboarding snippets** — rotating contextual tips
-- [x] **Result storytelling** — narrative wrappers for raw numbers
+- [ ] **Result storytelling** — narrative wrappers for raw numbers (removed: `addResultStorytelling` dead code, never invoked)
 
 ---
 
@@ -48,12 +48,13 @@ Tracked enhancements to increase engagement and reduce "boring site" perception.
 | 2026-08-13 | First-visit coach mark | `global.css`, `global.js` | `showCoachMark()` displays contextual tooltip on first visit; auto-dismisses after 5s; stored in `localStorage` |
 | 2026-08-13 | Sound toggle + click feedback | `global.css`, `global.js` | `setupSoundToggle()` adds speaker button; uses Web Audio API for synthesized click; default off, persisted in `localStorage` |
 | 2026-08-13 | Session streak counter | `global.js` | `updateStreak()` tracks unique days in `localStorage`; renders fixed bottom-right badge |
-| 2026-08-13 | Tool completion badges | `global.js` | `markToolComplete()` records visited tools in `localStorage`; `isToolCompleted()` checks status |
+| 2026-08-13 | Tool completion badges | `global.js` | `markToolComplete()` records visited tools in `localStorage`; `isToolCompleted()` removed — was dead code, never invoked |
 | 2026-08-13 | Onboarding snippets | `global.css`, `global.js` | `showOnboardingSnippet()` rotates 5 contextual tips; auto-dismisses after 6s |
-| 2026-08-13 | Result storytelling | `global.js` | `addResultStorytelling()` appends narrative sentence after tool results |
+| 2026-08-13 | Result storytelling | `global.js` | `addResultStorytelling()` removed — was dead code, never invoked |
 | 2026-08-13 | Premium hero section (Halo Effect) | `global.css`, `index.html` | Added `.twt-hero` with radial gradient background and `twt-heroIn` entrance animation |
 | 2026-08-13 | Premium card hover (Micro-interactions) | `global.css` | `.tool-card:hover` lifts with `translateY(-3px)` and elevated shadow |
 | 2026-08-13 | Search/input focus glow (Micro-interactions) | `global.css` | Brand-colored glow ring on `#directory-search:focus` and `.form-input:focus` |
 | 2026-08-13 | Smooth scroll + selection polish (Cognitive Fluency) | `global.css` | `html { scroll-behavior: smooth }` and custom `::selection` brand tint |
+| 2026-08-14 | Dead code cleanup | `global.js` | Removed `isToolCompleted()` and `addResultStorytelling()` — both were defined but never called; added missing CSS classes `twt-mascot-float`, `twt-streak-badge`, `twt-onboarding-snippet`, `twt-result-story` |
 | 2026-08-14 | Glassy / velvet design system | `global.css`, `topwebtool-core.css` | Translucent surfaces with `backdrop-filter: blur() saturate()`, warm pearl light mode tokens (`#faf9f7`), animated mesh gradient background, velvet grain overlay, inset highlight shadows, premium glass nav/rail modules/cards/buttons, `--transition-velvet` easing |
 | 2026-08-14 | Rail toggle visibility fix | `topwebtool-core.css` | Collapsed rail toggle now floats fixed at viewport edge with glass pill styling; removed `opacity: 0` cascade issue |
