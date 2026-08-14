@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
@@ -19,10 +19,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-    />
+    
     <meta charset="UTF-8" />
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -132,9 +129,16 @@
         ]
       }
     </script>
-    <link rel="stylesheet" href="../styles.css" />
-    <link rel="stylesheet" href="../global.css" />
-    <link rel="stylesheet" href="../topwebtool-core.css" />
+    
+    
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../site.min.css">
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+      <link rel="stylesheet" href="../styles.css">
+      <link rel="stylesheet" href="../site.min.css">
+    </noscript>
       <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3901061173891576" crossorigin="anonymous"></script>
   </head>
   <body
@@ -241,8 +245,8 @@
                   id="inp-material"
                   class="block w-full px-3 py-2.5 border border-slate-300 dark:border-slate-700 rounded-lg bg-white dark:bg-slate-950 text-slate-950 dark:text-slate-100 text-sm font-semibold"
                 >
-                  <option value="copper" selected>Copper (8.96 g/cmÂ³)</option>
-                  <option value="aluminum">Aluminum (2.70 g/cmÂ³)</option>
+                  <option value="copper" selected>Copper (8.96 g/cm³)</option>
+                  <option value="aluminum">Aluminum (2.70 g/cm³)</option>
                 </select>
               </div>
             </div>
@@ -275,7 +279,7 @@
                 <span
                   id="out-wires"
                   class="font-extrabold text-slate-900 dark:text-white"
-                  >â€“</span
+                  >–</span
                 >
               </div>
               <div
@@ -287,7 +291,7 @@
                 <span
                   id="out-area"
                   class="font-extrabold text-slate-900 dark:text-white"
-                  >â€“</span
+                  >–</span
                 >
               </div>
               <div
@@ -299,7 +303,7 @@
                 <span
                   id="out-equiv"
                   class="font-extrabold text-slate-900 dark:text-white"
-                  >â€“</span
+                  >–</span
                 >
               </div>
               <div
@@ -311,7 +315,7 @@
                 <span
                   id="out-diameter"
                   class="font-extrabold text-slate-900 dark:text-white"
-                  >â€“</span
+                  >–</span
                 >
               </div>
               <div
@@ -323,7 +327,7 @@
                 <span
                   id="out-gpm"
                   class="font-extrabold text-slate-900 dark:text-white"
-                  >â€“</span
+                  >–</span
                 >
               </div>
               <div
@@ -335,7 +339,7 @@
                 <span
                   id="out-gpf"
                   class="font-extrabold text-slate-900 dark:text-white"
-                  >â€“</span
+                  >–</span
                 >
               </div>
             </div>
@@ -403,7 +407,7 @@
                   circle, then multiplying by a fill factor of roughly 1.22
                   yields the true outside bundle diameter. The same table drives
                   weight estimation: mass per meter equals the total conductor
-                  area multiplied by the metal density (8.96 g/cmÂ³ for copper).
+                  area multiplied by the metal density (8.96 g/cm³ for copper).
                 </p>
               </div>
               <div>
@@ -446,7 +450,7 @@
                   its quantity.
                 </li>
                 <li>
-                  Set the packing density factor (1.20â€“1.25 is standard for
+                  Set the packing density factor (1.20–1.25 is standard for
                   aerospace fill) and the insulation size factor for your wire
                   spec.
                 </li>
@@ -553,7 +557,7 @@ weight_per_ft = weight_per_m * 0.3048</pre>
                   circle, then multiplying by a fill factor of roughly 1.22
                   yields the true outside bundle diameter. The same table drives
                   weight estimation: mass per meter equals the total conductor
-                  area multiplied by the metal density (8.96 g/cmÂ³ for copper).
+                  area multiplied by the metal density (8.96 g/cm³ for copper).
                 </p>
               </div>
               <div>
@@ -596,7 +600,7 @@ weight_per_ft = weight_per_m * 0.3048</pre>
                   its quantity.
                 </li>
                 <li>
-                  Set the packing density factor (1.20â€“1.25 is standard for
+                  Set the packing density factor (1.20–1.25 is standard for
                   aerospace fill) and the insulation size factor for your wire
                   spec.
                 </li>
@@ -850,11 +854,11 @@ weight_per_ft = weight_per_m * 0.3048</pre>
             (e.g === g ? " selected" : "") +
             ">AWG " +
             e.g +
-            " â€” " +
+            " — " +
             e.d.toFixed(3) +
             " mm, " +
             e.a.toFixed(3) +
-            " mmÂ²</option>",
+            " mm²</option>",
         ).join("");
         return (
           '<div class="wire-row flex flex-wrap items-center gap-2">' +
@@ -864,7 +868,7 @@ weight_per_ft = weight_per_m * 0.3048</pre>
           '<input type="number" min="1" step="1" value="' +
           qty +
           '" aria-label="Wire quantity" class="wire-qty px-3 py-2 border border-slate-300 dark:border-slate-700 rounded-lg bg-white dark:bg-slate-950 text-slate-950 dark:text-slate-100 text-xs font-semibold" style="width:88px;">' +
-          '<button type="button" aria-label="Remove wire row" class="wire-remove px-3 py-2 text-xs font-bold text-rose-600 dark:text-rose-400 hover:bg-rose-50 dark:hover:bg-rose-950 rounded-lg transition-colors" style="min-height:40px;">âœ•</button>' +
+          '<button type="button" aria-label="Remove wire row" class="wire-remove px-3 py-2 text-xs font-bold text-rose-600 dark:text-rose-400 hover:bg-rose-50 dark:hover:bg-rose-950 rounded-lg transition-colors" style="min-height:40px;">✕</button>' +
           "</div>"
         );
       }
@@ -937,12 +941,12 @@ weight_per_ft = weight_per_m * 0.3048</pre>
           errEl.textContent =
             "Add at least one valid wire row (quantity 1 or more) and check packing/insulation factors.";
           errEl.classList.remove("hidden");
-          document.getElementById("out-wires").textContent = "â€”";
-          document.getElementById("out-area").textContent = "â€”";
-          document.getElementById("out-equiv").textContent = "â€”";
-          document.getElementById("out-diameter").textContent = "â€”";
-          document.getElementById("out-gpm").textContent = "â€”";
-          document.getElementById("out-gpf").textContent = "â€”";
+          document.getElementById("out-wires").textContent = "—";
+          document.getElementById("out-area").textContent = "—";
+          document.getElementById("out-equiv").textContent = "—";
+          document.getElementById("out-diameter").textContent = "—";
+          document.getElementById("out-gpm").textContent = "—";
+          document.getElementById("out-gpf").textContent = "—";
           drawBundle(null);
           return;
         }
@@ -958,7 +962,7 @@ weight_per_ft = weight_per_m * 0.3048</pre>
         document.getElementById("out-wires").textContent =
           totalWires.toLocaleString();
         document.getElementById("out-area").textContent =
-          totalCondArea.toFixed(3) + " mmÂ²";
+          totalCondArea.toFixed(3) + " mm²";
         document.getElementById("out-equiv").textContent =
           D_eq.toFixed(3) + " mm";
         document.getElementById("out-diameter").textContent =
@@ -975,7 +979,7 @@ weight_per_ft = weight_per_m * 0.3048</pre>
           "\n" +
           "Conductor cross-section: " +
           totalCondArea.toFixed(3) +
-          " mmÂ²\n" +
+          " mm²\n" +
           "Equivalent solid diameter: " +
           D_eq.toFixed(3) +
           " mm\n" +
@@ -1076,7 +1080,7 @@ weight_per_ft = weight_per_m * 0.3048</pre>
         ctx.fillStyle = dark ? "#94a3b8" : "#475569";
         ctx.font = "11px Inter, sans-serif";
         ctx.textAlign = "center";
-        ctx.fillText("Bundle Ã˜ " + D_bundle.toFixed(2) + " mm", cx, h - 8);
+        ctx.fillText("Bundle Ø " + D_bundle.toFixed(2) + " mm", cx, h - 8);
       }
 
       document.getElementById("btn-add-wire").addEventListener("click", () => {

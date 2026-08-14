@@ -1,4 +1,4 @@
-ï»¿<!doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
@@ -19,10 +19,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-    />
+    
     <meta charset="UTF-8" />
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -53,9 +50,16 @@
     <meta name="twitter:title" content="Best Practices for Hydraulic Pressure Drop | TopWebTool" />
     <meta name="twitter:description" content="Best practices for hydraulic and HVAC piping: fluid selection, pipe sizing, fitting losses, velocity limits, and design margins." />
     <meta name="twitter:image" content="https://topwebtool.com/og-image.png" />
-    <link rel="stylesheet" href="../../styles.css" />
-    <link rel="stylesheet" href="../../global.css" />
-    <link rel="stylesheet" href="../../topwebtool-core.css" />
+    
+    
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="../../site.min.css">
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+      <link rel="stylesheet" href="../../styles.css">
+      <link rel="stylesheet" href="../../site.min.css">
+    </noscript>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -130,9 +134,9 @@
               class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4"
             >
               <span>Published: August 2026</span>
-              <span>â€¢</span>
+              <span>•</span>
               <span>Category: Industrial & Engineering</span>
-              <span>â€¢</span>
+              <span>•</span>
               <span class="text-emerald-600 dark:text-emerald-400"
                 >No Sign-Up / 100% Free / No Registration</span
               >
@@ -146,7 +150,7 @@
                 A piping system that performs on paper and fails in the field
                 almost always failed at the same step: the pressure-drop
                 estimate was optimistic. The discipline of hydraulic design is
-                applying the correct formula, then applying judgment around it â€”
+                applying the correct formula, then applying judgment around it —
                 realistic fluid properties, realistic lengths, and a design
                 margin that covers everything the formula cannot. These best
                 practices keep pressure-drop calculations honest from the first
@@ -158,8 +162,8 @@
                 oil's kinematic viscosity can triple between startup temperature
                 and operating temperature, and water chemistry, dissolved gas,
                 and temperature all move its value. Model both ends of the
-                operating envelope â€” the coldest viscosity the system will see
-                at startup and the hottest at full load â€” and design the pump
+                operating envelope — the coldest viscosity the system will see
+                at startup and the hottest at full load — and design the pump
                 for the worse of the two. A pump sized for the warm average will
                 be undersized for a cold-morning start, and no formula can fix a
                 system that was never given a chance.
@@ -180,9 +184,9 @@
                 Count every fitting as equivalent length. The straight-pipe
                 formula is exact for the straight run, but a system with thirty
                 elbows has thirty extra lengths of "pipe" that the formula does
-                not see. Use equivalent-length values from the standard charts â€”
+                not see. Use equivalent-length values from the standard charts —
                 a 90-degree standard elbow adds roughly 30 pipe diameters, a tee
-                through-flow about 20, a wide-open gate valve 8 to 12 â€” and add
+                through-flow about 20, a wide-open gate valve 8 to 12 — and add
                 them to the geometric length before modeling. Under-counting
                 fittings is the most common reason a modeled system
                 under-predicts real loss by 20 to 40 percent.
@@ -191,7 +195,7 @@
                 Model the worst case, not the nominal case. The pump must
                 deliver flow at the highest-pressure-drop condition the system
                 will see: peak flow, fouled pipe, cold fluid, and partly closed
-                valves. Piping fouls over service life â€” roughness climbs,
+                valves. Piping fouls over service life — roughness climbs,
                 effective diameter shrinks, and the friction factor rises. A
                 system designed at brand-new commercial-steel roughness will be
                 undersized after years of scale. Add the expected fouling
@@ -204,7 +208,7 @@
                 transitional, or turbulent changes the friction factor by an
                 order of magnitude, and the transitional band is genuinely
                 unpredictable. When a design lands in the transitional zone, it
-                is a signal to change the operating point â€” adjust flow or
+                is a signal to change the operating point — adjust flow or
                 diameter to push decisively into one regime or the other. The
                 Hydraulic Pressure Drop Modeler reports the regime explicitly so
                 the decision is visible instead of hidden in an unexamined
@@ -216,7 +220,7 @@
                 between them depends on fluid density, so the same gauge
                 pressure represents different heads in water versus oil. When
                 comparing a computed ?P in psi against a pump rated in feet of
-                head, convert through the fluid's density and gravity â€” the
+                head, convert through the fluid's density and gravity — the
                 modeler outputs both precisely so the comparison is always
                 apples to apples. Mixing units here is how a correctly sized
                 pump gets specified with the wrong power rating.
@@ -224,8 +228,8 @@
               <p class="mb-4">
                 Verify with a test before commissioning. Pressure-drop models
                 are the planning layer; the real system is the proof. A simple
-                commissioning check â€” reading pressure across a known straight
-                run at a measured flow and comparing to the prediction â€”
+                commissioning check — reading pressure across a known straight
+                run at a measured flow and comparing to the prediction —
                 calibrates the entire model, exposing whether the roughness
                 assumption, the viscosity choice, or the fitting count was off.
                 Because the modeler produces a complete, copyable parameter set,
@@ -238,7 +242,7 @@
                 calculation without its assumptions is useless in five years,
                 when someone reuses the pipe for a different fluid or flow.
                 Record the fluid properties, roughness, equivalent length, and
-                the operating envelope next to the result â€” the modeler's output
+                the operating envelope next to the result — the modeler's output
                 block captures all of them in one copyable text block. That
                 habit turns every hydraulic design into a reusable baseline, and
                 it is the difference between a plant that learns from its piping

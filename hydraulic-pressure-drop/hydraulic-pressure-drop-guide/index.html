@@ -1,4 +1,4 @@
-ï»¿<!doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
@@ -19,10 +19,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-    />
+    
     <meta charset="UTF-8" />
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -53,9 +50,16 @@
     <meta name="twitter:title" content="Guide to Hydraulic Pressure Drop | TopWebTool" />
     <meta name="twitter:description" content="Learn Reynolds number, Darcy-Weisbach friction factor, and pressure-drop modeling for water, oil, and glycol piping systems." />
     <meta name="twitter:image" content="https://topwebtool.com/og-image.png" />
-    <link rel="stylesheet" href="../../styles.css" />
-    <link rel="stylesheet" href="../../global.css" />
-    <link rel="stylesheet" href="../../topwebtool-core.css" />
+    
+    
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="../../site.min.css">
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+      <link rel="stylesheet" href="../../styles.css">
+      <link rel="stylesheet" href="../../site.min.css">
+    </noscript>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -130,9 +134,9 @@
               class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4"
             >
               <span>Published: August 2026</span>
-              <span>â€¢</span>
+              <span>•</span>
               <span>Category: Industrial & Engineering</span>
-              <span>â€¢</span>
+              <span>•</span>
               <span class="text-emerald-600 dark:text-emerald-400"
                 >No Sign-Up / 100% Free / No Registration</span
               >
@@ -146,7 +150,7 @@
                 Every pump in every plant exists to overcome pressure loss.
                 Whatever the fluid, whatever the pipe, the work a pump does is
                 measured by the head it must generate to push the flow through
-                the system â€” and the single largest component of that head, in
+                the system — and the single largest component of that head, in
                 most piping systems, is friction between the moving fluid and
                 the pipe wall. Modeling that friction correctly is the
                 difference between a pump that quietly delivers its flow and a
@@ -161,17 +165,17 @@
                 In US practice the flow rate is usually gallons per minute and
                 the pipe diameter is quoted in inches, so the modeler converts
                 gallons to cubic feet and inches to feet before dividing. The
-                velocity matters twice over â€” it appears squared in the kinetic
+                velocity matters twice over — it appears squared in the kinetic
                 energy term of the friction equation, which is why doubling the
                 flow rate quadruples the friction loss, all else being equal.
               </p>
               <p class="mb-4">
                 The second quantity is the Reynolds number, the dimensionless
                 ratio of inertial to viscous forces in the flow. It is computed
-                as Re = v Ã— D / ?, where D is the pipe diameter and ? is the
+                as Re = v × D / ?, where D is the pipe diameter and ? is the
                 kinematic viscosity. The Reynolds number is the single most
                 important number in pipe flow because it decides the flow
-                regime. Below about 2300 the flow is laminar â€” smooth, layered,
+                regime. Below about 2300 the flow is laminar — smooth, layered,
                 dominated by viscosity. Above 4000 it is turbulent, churned by
                 eddies and dominated by inertia. Between the two sits a
                 transitional band where the flow is unstable and hard to
@@ -182,10 +186,10 @@
                 In laminar flow, the friction factor has an exact analytical
                 solution: f = 64/Re, a relationship discovered experimentally by
                 Poiseuille and derived from the parabolic velocity profile. In
-                turbulent flow there is no exact solution â€” the Colebrook
+                turbulent flow there is no exact solution — the Colebrook
                 equation is an empirical fit to the measured data, and the
-                Haaland approximation f = 1/(-1.8Â·log10((e/D/3.7)^1.11 +
-                6.9/Re))Â² reproduces it within a few percent while being much
+                Haaland approximation f = 1/(-1.8·log10((e/D/3.7)^1.11 +
+                6.9/Re))² reproduces it within a few percent while being much
                 easier to evaluate. The relative roughness e/D, the ratio of the
                 pipe's surface irregularities to its diameter, enters here: a
                 rough, corroded pipe loses far more energy than a smooth one at
@@ -193,7 +197,7 @@
               </p>
               <p class="mb-4">
                 With the friction factor in hand, the Darcy-Weisbach equation
-                gives the pressure drop directly: ?P = f Ã— (L/D) Ã— (? Ã— vÂ²/2).
+                gives the pressure drop directly: ?P = f × (L/D) × (? × v²/2).
                 The equation says the loss is the friction factor, times the
                 pipe length in diameters (how many pipe widths the flow must
                 traverse), times the kinetic energy density of the flow. The
@@ -204,26 +208,26 @@
               </p>
               <p class="mb-4">
                 The fluid properties do the heavy lifting, which is why presets
-                matter. Water at 68 Â°F has a density of 62.4 lb/ftÂ³ and a
-                kinematic viscosity of about 1.0 centistoke â€” so thin that 50
+                matter. Water at 68 °F has a density of 62.4 lb/ft³ and a
+                kinematic viscosity of about 1.0 centistoke — so thin that 50
                 GPM in a 2-inch pipe is comfortably turbulent. A 50/50
                 ethylene-glycol coolant at the same temperature is roughly eight
                 times more viscous and about 5 percent denser, shifting the
                 Reynolds number down and the friction loss up. SAE 10W and SAE
                 30 oils are more viscous still, and their viscosity swings with
-                temperature â€” a cold hydraulic circuit running SAE 30 can be
+                temperature — a cold hydraulic circuit running SAE 30 can be
                 several times harder to push than the same circuit at operating
                 temperature.
               </p>
               <p class="mb-4">
                 Head loss is the pressure drop expressed as a column of the
-                fluid itself: head = ?P / (? Ã— g). It is the number engineers
+                fluid itself: head = ?P / (? × g). It is the number engineers
                 use for pump selection, because pumps are rated in feet of head
                 of the fluid they move, and it is independent of fluid density.
                 A system that drops 40 psi of water is losing roughly 92 feet of
                 water head; the same pressure drop in a dense fluid corresponds
-                to fewer feet of head. Converting between the two â€” pressure and
-                head â€” is where confusion arises in mixed-unit designs, and why
+                to fewer feet of head. Converting between the two — pressure and
+                head — is where confusion arises in mixed-unit designs, and why
                 the modeler reports both.
               </p>
               <p class="mb-4">
@@ -235,14 +239,14 @@
                 straight run before applying Darcy-Weisbach captures most of the
                 real system loss. The modeler takes the total effective length
                 as its input, so the fitting calculation stays where it belongs
-                â€” in the engineer's head or a fitting chart.
+                — in the engineer's head or a fitting chart.
               </p>
               <p class="mb-4">
                 Use the Hydraulic Pressure Drop Modeler to run the numbers fast:
                 velocity, Reynolds number, regime, friction factor, ?P in psi
                 and kPa, and head loss, all from flow, pipe size, length, fluid,
-                and roughness. Model the nominal case and the worst case â€” cold
-                oil, fouled pipe, peak flow â€” because the pump must cover the
+                and roughness. Model the nominal case and the worst case — cold
+                oil, fouled pipe, peak flow — because the pump must cover the
                 worst case, not the average. The formulas are the same ones used
                 for a century of piping design, and the modeler simply removes
                 the arithmetic so you can focus on the engineering judgment.

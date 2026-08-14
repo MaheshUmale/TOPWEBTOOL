@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
@@ -19,10 +19,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-    />
+    
     <meta charset="UTF-8" />
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -130,9 +127,16 @@
         ]
       }
     </script>
-    <link rel="stylesheet" href="../styles.css" />
-    <link rel="stylesheet" href="../global.css" />
-    <link rel="stylesheet" href="../topwebtool-core.css" />
+    
+    
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../site.min.css">
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+      <link rel="stylesheet" href="../styles.css">
+      <link rel="stylesheet" href="../site.min.css">
+    </noscript>
       <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3901061173891576" crossorigin="anonymous"></script>
   </head>
   <body
@@ -778,11 +782,11 @@ Generate the plan to see the step &rarr; approval gate &rarr; continue/fallback 
               approveCell.className =
                 "py-2 pr-2 font-semibold text-slate-400 dark:text-slate-500";
             }
-            tr.children[3].textContent = s.approve ? TYPE_LABELS[s.type] : "â€”";
-            tr.children[4].textContent = s.approve ? s.timeout + " min" : "â€”";
+            tr.children[3].textContent = s.approve ? TYPE_LABELS[s.type] : "—";
+            tr.children[4].textContent = s.approve ? s.timeout + " min" : "—";
             tr.children[5].textContent = s.approve
               ? FALLBACK_LABELS[s.fallback]
-              : "â€”";
+              : "—";
             planBody.appendChild(tr);
           });
 

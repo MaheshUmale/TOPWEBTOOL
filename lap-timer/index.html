@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
@@ -19,10 +19,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-    />
+    
     <meta charset="UTF-8" />
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -130,9 +127,16 @@
         ]
       }
     </script>
-    <link rel="stylesheet" href="../styles.css" />
-    <link rel="stylesheet" href="../global.css" />
-    <link rel="stylesheet" href="../topwebtool-core.css" />
+    
+    
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../site.min.css">
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+      <link rel="stylesheet" href="../styles.css">
+      <link rel="stylesheet" href="../site.min.css">
+    </noscript>
       <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3901061173891576" crossorigin="anonymous"></script>
   </head>
   <body
@@ -173,7 +177,7 @@
               </h2>
               <span
                 class="text-xs font-bold text-slate-400 uppercase tracking-wide hidden sm:inline"
-                >â±ï¸ performance.now()</span
+                >⏱️ performance.now()</span
               >
             </div>
 
@@ -267,7 +271,7 @@
                   id="val-best"
                   class="text-2xl font-extrabold text-emerald-600 dark:text-emerald-400 mt-1"
                 >
-                  â€”
+                  —
                 </p>
                 <p class="text-xs text-slate-400 mt-1">fastest split time</p>
               </div>
@@ -283,7 +287,7 @@
                   id="val-worst"
                   class="text-2xl font-extrabold text-amber-600 dark:text-amber-400 mt-1"
                 >
-                  â€”
+                  —
                 </p>
                 <p class="text-xs text-slate-400 mt-1">slowest split time</p>
               </div>
@@ -299,7 +303,7 @@
                   id="val-avg"
                   class="text-2xl font-extrabold text-brand-600 dark:text-brand-400 mt-1"
                 >
-                  â€”
+                  —
                 </p>
                 <p class="text-xs text-slate-400 mt-1">mean of all splits</p>
               </div>
@@ -329,7 +333,7 @@
               </div>
             </div>
 
-            <pre class="hidden" id="out-copy">â€¦</pre>
+            <pre class="hidden" id="out-copy">…</pre>
 
             <div class="flex justify-end pt-2">
               <button
@@ -376,7 +380,7 @@
                   values: the <strong>lap time</strong> (elapsed since the
                   previous lap) and the <strong>cumulative time</strong> (total
                   elapsed since Start). Because the math is pure timestamp
-                  subtraction, the timer never drifts â€” it always shows exactly
+                  subtraction, the timer never drifts — it always shows exactly
                   the measured interval.
                 </p>
               </div>
@@ -412,7 +416,7 @@
                 <li>
                   Human reaction time: the ~200 ms between the finish line and
                   your finger on the button is the largest source of error in
-                  manual lap timing â€” it applies to every lap equally, so pacing
+                  manual lap timing — it applies to every lap equally, so pacing
                   comparisons stay valid.
                 </li>
                 <li>
@@ -432,7 +436,7 @@
                   accumulation.
                 </li>
                 <li>
-                  Offline use: everything runs locally â€” no network, no server,
+                  Offline use: everything runs locally — no network, no server,
                   no data leaves the page.
                 </li>
               </ul>
@@ -450,7 +454,7 @@
                   the chronometer.
                 </li>
                 <li>
-                  Press <strong>Lap</strong> at each split you want to record â€”
+                  Press <strong>Lap</strong> at each split you want to record —
                   the timer keeps running while the lap table fills in.
                 </li>
                 <li>
@@ -583,7 +587,7 @@
                 </h3>
                 <p class="text-xs text-slate-400 dark:text-slate-500 mt-1">
                   Late starts, mistimed splits, unreset counters, and off-by-one
-                  lap numbering â€” the mistakes that corrupt every timing
+                  lap numbering — the mistakes that corrupt every timing
                   session.
                 </p>
                 <span
@@ -681,7 +685,7 @@
         const body = document.getElementById("lap-body");
         if (laps.length === 0) {
           body.innerHTML =
-            '<tr class="border-t border-slate-200 dark:border-slate-800"><td colspan="3" class="px-3 py-3 text-slate-400 dark:text-slate-500 text-center">No laps yet â€” start the timer and press Lap at each split.</td></tr>';
+            '<tr class="border-t border-slate-200 dark:border-slate-800"><td colspan="3" class="px-3 py-3 text-slate-400 dark:text-slate-500 text-center">No laps yet — start the timer and press Lap at each split.</td></tr>';
           return;
         }
         body.innerHTML = laps
@@ -703,9 +707,9 @@
 
       function renderSummary() {
         if (laps.length === 0) {
-          document.getElementById("val-best").textContent = "â€”";
-          document.getElementById("val-worst").textContent = "â€”";
-          document.getElementById("val-avg").textContent = "â€”";
+          document.getElementById("val-best").textContent = "—";
+          document.getElementById("val-worst").textContent = "—";
+          document.getElementById("val-avg").textContent = "—";
           return;
         }
         const deltas = laps.map((l) => l.delta);
@@ -780,7 +784,7 @@
         if (laps.length === 0) {
           const err = document.getElementById("form-error");
           err.textContent =
-            "No laps to export yet â€” press Lap at least once while the timer runs.";
+            "No laps to export yet — press Lap at least once while the timer runs.";
           err.classList.remove("hidden");
           setTimeout(() => err.classList.add("hidden"), 3000);
           return;
@@ -803,7 +807,7 @@
         if (laps.length === 0) {
           const err = document.getElementById("form-error");
           err.textContent =
-            "No laps to copy yet â€” press Lap at least once while the timer runs.";
+            "No laps to copy yet — press Lap at least once while the timer runs.";
           err.classList.remove("hidden");
           setTimeout(() => err.classList.add("hidden"), 3000);
           return;

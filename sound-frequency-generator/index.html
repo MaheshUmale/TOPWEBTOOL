@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
@@ -19,15 +19,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-    />
+    
     <meta charset="UTF-8" />
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sound Frequency Generator &amp; Tone Tester | TopWebTool</title>
-    <meta name="description" content="Generate sine, square, sawtooth, or triangle tones from 20â€“20,000 Hz with volume control and tuning presets. Start on click, safe defaults." />
+    <meta name="description" content="Generate sine, square, sawtooth, or triangle tones from 20–20,000 Hz with volume control and tuning presets. Start on click, safe defaults." />
     <link
       rel="canonical"
       href="https://topwebtool.com/sound-frequency-generator/"
@@ -43,7 +40,7 @@
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="TopWebTool" />
     <meta property="og:title" content="Sound Frequency Generator &amp; Tone Tester | TopWebTool" />
-    <meta property="og:description" content="Generate sine, square, sawtooth, or triangle tones from 20â€“20,000 Hz with volume control and tuning presets. Start on click, safe defaults." />
+    <meta property="og:description" content="Generate sine, square, sawtooth, or triangle tones from 20–20,000 Hz with volume control and tuning presets. Start on click, safe defaults." />
     <meta property="og:url" content="https://topwebtool.com/sound-frequency-generator/" />
     <meta property="og:image" content="https://topwebtool.com/og-image.png" />
     <meta property="og:image:width" content="1200" />
@@ -51,7 +48,7 @@
     <meta property="og:locale" content="en_US" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Sound Frequency Generator &amp; Tone Tester | TopWebTool" />
-    <meta name="twitter:description" content="Generate sine, square, sawtooth, or triangle tones from 20â€“20,000 Hz with volume control and tuning presets. Start on click, safe defaults." />
+    <meta name="twitter:description" content="Generate sine, square, sawtooth, or triangle tones from 20–20,000 Hz with volume control and tuning presets. Start on click, safe defaults." />
     <meta name="twitter:image" content="https://topwebtool.com/og-image.png" />
     <style>
       html {
@@ -104,7 +101,7 @@
         "applicationCategory": "MultimediaApplication",
         "operatingSystem": "Windows, macOS, Linux, Android, iOS",
         "browserRequirements": "Requires HTML5 compatible web browser with Web Audio API support",
-        "description": "Generate sine, square, sawtooth, or triangle tones from 20â€“20,000 Hz with volume control and tuning presets. Start on click, safe defaults.",
+        "description": "Generate sine, square, sawtooth, or triangle tones from 20–20,000 Hz with volume control and tuning presets. Start on click, safe defaults.",
         "offers": {
           "@type": "Offer",
           "price": "0",
@@ -133,9 +130,16 @@
         ]
       }
     </script>
-    <link rel="stylesheet" href="../styles.css" />
-    <link rel="stylesheet" href="../global.css" />
-    <link rel="stylesheet" href="../topwebtool-core.css" />
+    
+    
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../site.min.css">
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+      <link rel="stylesheet" href="../styles.css">
+      <link rel="stylesheet" href="../site.min.css">
+    </noscript>
       <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3901061173891576" crossorigin="anonymous"></script>
   </head>
   <body
@@ -159,7 +163,7 @@
             </h1>
             <p class="mt-2 text-base text-slate-500">
               A pure Web Audio oscillator from 20 Hz to 20 kHz with waveform,
-              volume, and tuning presets â€” great for tuning instruments, testing
+              volume, and tuning presets — great for tuning instruments, testing
               speakers, or sound therapy.
             </p>
           </div>
@@ -176,14 +180,14 @@
               </h2>
               <span
                 class="text-xs font-bold text-slate-400 uppercase tracking-wide hidden sm:inline"
-                >ðŸŽµ Web Audio Oscillator</span
+                >🎵 Web Audio Oscillator</span
               >
             </div>
 
             <form
               id="tone-form"
               tool-name="sound-frequency-generator"
-              tool-description="Generate an oscillator tone in the Web Audio API with a 20â€“20,000 Hz frequency slider, tuning presets (A4=440, C4=261.63, 432 Hz), waveform select, and volume control with safe defaults."
+              tool-description="Generate an oscillator tone in the Web Audio API with a 20–20,000 Hz frequency slider, tuning presets (A4=440, C4=261.63, 432 Hz), waveform select, and volume control with safe defaults."
               onsubmit="return false;"
             >
               <div class="space-y-5">
@@ -222,7 +226,7 @@
                       aria-label="Exact frequency value"
                     />
                     <span class="text-xs text-slate-400 font-semibold"
-                      >Hz (20â€“20,000)</span
+                      >Hz (20–20,000)</span
                     >
                   </div>
                   <div class="flex flex-wrap gap-2 mt-3">
@@ -231,14 +235,14 @@
                       class="preset-btn px-3 py-2 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 rounded-lg text-xs font-bold transition-colors"
                       data-freq="261.63"
                     >
-                      C4 Â· 261.63 Hz
+                      C4 · 261.63 Hz
                     </button>
                     <button
                       type="button"
                       class="preset-btn px-3 py-2 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 rounded-lg text-xs font-bold transition-colors"
                       data-freq="440"
                     >
-                      A4 Â· 440 Hz
+                      A4 · 440 Hz
                     </button>
                     <button
                       type="button"
@@ -310,7 +314,7 @@
                       id="volume-warning"
                       class="hidden mt-1 text-xs font-semibold text-amber-600 dark:text-amber-400 bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-900 rounded-lg px-3 py-2"
                     >
-                      High volume â€” sustained tones near 80%+ can damage
+                      High volume — sustained tones near 80%+ can damage
                       hearing. Lower the level before starting.
                     </p>
                   </div>
@@ -322,13 +326,13 @@
                     id="toggle-btn"
                     class="px-6 py-2.5 bg-brand-600 text-white hover:bg-brand-700 transition-colors font-bold text-sm rounded-lg shadow-sm"
                   >
-                    â–¶ Start Tone
+                    ▶ Start Tone
                   </button>
                   <p
                     id="status-text"
                     class="text-xs text-slate-400 font-semibold"
                   >
-                    Stopped. Browsers require a click to start audio â€” press
+                    Stopped. Browsers require a click to start audio — press
                     Start Tone.
                   </p>
                 </div>
@@ -389,7 +393,7 @@
                 Acoustics &amp; the Web Audio API
               </h2>
               <p class="text-sm text-slate-600 dark:text-slate-300 mt-1">
-                How frequency, period, and waveform shape the tone you hear â€”
+                How frequency, period, and waveform shape the tone you hear —
                 and how the browser renders it on demand.
               </p>
             </div>
@@ -403,7 +407,7 @@
                   Frequency measures how many pressure cycles occur per second,
                   in hertz (Hz). The human hearing range spans roughly 20 Hz to
                   20 kHz, which is why the slider is bounded to exactly that
-                  window. The period â€” the length of one full cycle â€” is simply
+                  window. The period — the length of one full cycle — is simply
                   <code class="text-brand-600 dark:text-brand-400 font-mono"
                     >period = 1 / frequency</code
                   >: at 440 Hz each cycle lasts about 2.27 ms. Musical pitch
@@ -419,12 +423,12 @@
                 </h3>
                 <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
                   A waveform's shape determines its timbre. A sine wave is a
-                  single frequency with no harmonics â€” the purest, softest tone.
-                  A square wave adds only odd harmonics at 1/3, 1/5, 1/7â€¦ of the
+                  single frequency with no harmonics — the purest, softest tone.
+                  A square wave adds only odd harmonics at 1/3, 1/5, 1/7… of the
                   fundamental amplitude, giving it a hollow, buzzy character. A
-                  sawtooth contains every harmonic at 1/1, 1/2, 1/3â€¦, producing
+                  sawtooth contains every harmonic at 1/1, 1/2, 1/3…, producing
                   a bright, reedy sound. A triangle wave keeps only the odd
-                  harmonics but at 1/9, 1/25â€¦, making it warm and flute-like.
+                  harmonics but at 1/9, 1/25…, making it warm and flute-like.
                   The spectrum hint in the tool draws these component bars and
                   lists the first harmonic frequencies so you can reason about
                   what you hear.
@@ -442,7 +446,7 @@
                 <li>
                   No sound after clicking Start: browsers block audio until a
                   user gesture, so the AudioContext is only created inside the
-                  Start button click â€” clicking elsewhere first still counts,
+                  Start button click — clicking elsewhere first still counts,
                   but a fresh page needs that one tap.
                 </li>
                 <li>
@@ -451,7 +455,7 @@
                   volume.
                 </li>
                 <li>
-                  Out-of-range frequency: the input clamps to 20â€“20,000 Hz;
+                  Out-of-range frequency: the input clamps to 20–20,000 Hz;
                   values outside the audible window are rejected with an error.
                 </li>
                 <li>
@@ -476,7 +480,7 @@
                 class="list-decimal pl-5 space-y-2 text-slate-600 dark:text-slate-300 leading-relaxed"
               >
                 <li>
-                  Set a low volume (the default 25%) before you start â€” protect
+                  Set a low volume (the default 25%) before you start — protect
                   your ears and your speakers.
                 </li>
                 <li>
@@ -488,11 +492,11 @@
                   spectrum hint update to match.
                 </li>
                 <li>
-                  Click "â–¶ Start Tone" â€” the AudioContext initializes inside the
+                  Click "▶ Start Tone" — the AudioContext initializes inside the
                   click, satisfying the browser's autoplay policy.
                 </li>
                 <li>
-                  Adjust frequency and volume live while playing; click "â–  Stop
+                  Adjust frequency and volume live while playing; click "■ Stop
                   Tone" to ramp the gain down smoothly and stop the oscillator.
                 </li>
               </ol>
@@ -571,7 +575,7 @@
                   Ultimate Guide to Sound Frequency Generator
                 </h3>
                 <p class="text-xs text-slate-400 dark:text-slate-500 mt-1">
-                  Frequency, pitch, waveforms, and the Web Audio API â€” how an
+                  Frequency, pitch, waveforms, and the Web Audio API — how an
                   oscillator makes sound and how to use it safely.
                 </p>
                 <span
@@ -608,7 +612,7 @@
                 </h3>
                 <p class="text-xs text-slate-400 dark:text-slate-500 mt-1">
                   Autoplay blocks, no-sound after start, clipping, and NaN
-                  frequency â€” the classic Web Audio pitfalls fixed.
+                  frequency — the classic Web Audio pitfalls fixed.
                 </p>
                 <span
                   class="text-xs font-semibold text-brand-600 dark:text-brand-400 mt-3 inline-block group-hover:translate-x-1 transition-transform"
@@ -740,19 +744,19 @@
         const btn = document.getElementById("toggle-btn");
         const status = document.getElementById("status-text");
         if (isPlaying) {
-          btn.textContent = "â–  Stop Tone";
+          btn.textContent = "■ Stop Tone";
           status.textContent =
             "Playing " +
             currentFreq().toFixed(currentFreq() % 1 === 0 ? 0 : 2) +
-            " Hz Â· " +
+            " Hz · " +
             document.getElementById("waveform").value +
-            " wave Â· volume " +
+            " wave · volume " +
             Math.round(currentVolume() * 100) +
             "%.";
         } else {
-          btn.textContent = "â–¶ Start Tone";
+          btn.textContent = "▶ Start Tone";
           status.textContent =
-            "Stopped. Browsers require a click to start audio â€” press Start Tone.";
+            "Stopped. Browsers require a click to start audio — press Start Tone.";
         }
       }
 
@@ -837,17 +841,17 @@
           const parts = [1, 3, 5, 7]
             .map((n) => (freq * n).toFixed(1))
             .join(", ");
-          text = "Square = odd harmonics: " + parts + " Hzâ€¦ amplitude 1/n.";
+          text = "Square = odd harmonics: " + parts + " Hz… amplitude 1/n.";
         } else if (type === "sawtooth") {
           const parts = [1, 2, 3, 4]
             .map((n) => (freq * n).toFixed(1))
             .join(", ");
-          text = "Sawtooth = all harmonics: " + parts + " Hzâ€¦ amplitude 1/n.";
+          text = "Sawtooth = all harmonics: " + parts + " Hz… amplitude 1/n.";
         } else {
           const parts = [1, 3, 5, 7]
             .map((n) => (freq * n).toFixed(1))
             .join(", ");
-          text = "Triangle = odd harmonics: " + parts + " Hzâ€¦ amplitude 1/nÂ².";
+          text = "Triangle = odd harmonics: " + parts + " Hz… amplitude 1/n².";
         }
         const period = (1000 / freq).toFixed(2);
         text += " Period = " + period + " ms.";

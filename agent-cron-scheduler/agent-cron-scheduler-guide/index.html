@@ -1,4 +1,4 @@
-ï»¿<!doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
@@ -19,10 +19,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-    />
+    
     <meta charset="UTF-8" />
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -53,9 +50,16 @@
     <meta name="twitter:title" content="Guide to Cron-Job Automation | TopWebTool" />
     <meta name="twitter:description" content="A comprehensive guide to the 5-field crontab syntax, presets, next-run computation, timezones, and scheduling AI agent jobs reliably." />
     <meta name="twitter:image" content="https://topwebtool.com/og-image.png" />
-    <link rel="stylesheet" href="../../styles.css" />
-    <link rel="stylesheet" href="../../global.css" />
-    <link rel="stylesheet" href="../../topwebtool-core.css" />
+    
+    
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="../../site.min.css">
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+      <link rel="stylesheet" href="../../styles.css">
+      <link rel="stylesheet" href="../../site.min.css">
+    </noscript>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -130,9 +134,9 @@
               class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4"
             >
               <span>Published: August 2026</span>
-              <span>â€¢</span>
+              <span>•</span>
               <span>Category: AI Agent & Automation</span>
-              <span>â€¢</span>
+              <span>•</span>
               <span class="text-emerald-600 dark:text-emerald-400"
                 >No Sign-Up / 100% Free / No Registration</span
               >
@@ -146,9 +150,9 @@
                 Cron has been the backbone of Unix-style task scheduling since
                 the early 1980s, and it remains the most widely used trigger
                 mechanism for everything from database backups to nightly report
-                generation. As AI agents take on recurring jobs â€” scraping
+                generation. As AI agents take on recurring jobs — scraping
                 competitor pages, refreshing vector indexes, generating daily
-                briefs â€” understanding crontab syntax is no longer an
+                briefs — understanding crontab syntax is no longer an
                 operations-only skill. It is the difference between an agent
                 that runs when you remember it and an automation that fires
                 exactly when it should, every single time, without supervision.
@@ -219,9 +223,9 @@
               <p class="mb-4">
                 For AI-agent workflows, cron remains the most predictable
                 orchestration primitive available. Agents are often stateless on
-                the schedule itself â€” a morning job ingests the day's data, an
+                the schedule itself — a morning job ingests the day's data, an
                 hourly job re-ranks a queue, a weekly job retrains a classifier
-                â€” and the fixed cadence gives you natural recovery points.
+                — and the fixed cadence gives you natural recovery points.
                 Pairing cron with idempotent job handlers (so a double-fire does
                 no harm) and structured logging turns a fragile recurring
                 pipeline into a system you can trust to run for months
@@ -245,14 +249,14 @@
                 Start with presets, verify with the next-run preview, respect
                 the day-of-week OR rule, and decide your timezone stance once.
                 With those four habits, you will write schedules that other
-                engineers read and understand at a glance â€” and your agents will
+                engineers read and understand at a glance — and your agents will
                 run like clockwork.
               </p>
               <p class="mb-4">
                 Timezone is where most real-world schedules hide their second
                 layer of complexity. A cron expression describes local
                 wall-clock time, so a job set for 09:00 runs at whatever 09:00
-                means on the server that hosts it â€” which may be a different
+                means on the server that hosts it — which may be a different
                 hour for the user it serves, and may shift when daylight-saving
                 time changes. The professional pattern is to run agents on UTC
                 and to express business-hour schedules in the timezone where the
@@ -263,7 +267,7 @@
                 not an afterthought. The scheduler builder keeps the expression
                 separate from its meaning precisely so this conversation stays
                 visible. Decide the timezone at design time, convert once, and
-                store the expression in the canonical form â€” then the next five
+                store the expression in the canonical form — then the next five
                 runs shown by the preview will match reality instead of drifting
                 with the calendar.
               </p>

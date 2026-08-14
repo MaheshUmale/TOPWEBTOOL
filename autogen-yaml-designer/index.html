@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
@@ -19,10 +19,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-    />
+    
     <meta charset="UTF-8" />
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -133,9 +130,16 @@
         ]
       }
     </script>
-    <link rel="stylesheet" href="../styles.css" />
-    <link rel="stylesheet" href="../global.css" />
-    <link rel="stylesheet" href="../topwebtool-core.css" />
+    
+    
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../site.min.css">
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+      <link rel="stylesheet" href="../styles.css">
+      <link rel="stylesheet" href="../site.min.css">
+    </noscript>
       <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3901061173891576" crossorigin="anonymous"></script>
   </head>
   <body
@@ -158,7 +162,7 @@
               CrewAI / AutoGen YAML Designer
             </h1>
             <p class="mt-2 text-base text-slate-500 dark:text-slate-400">
-              Visually define agents, roles, goals, tools, and tasks â€” then
+              Visually define agents, roles, goals, tools, and tasks — then
               export a valid, correctly indented YAML config for CrewAI,
               AutoGen, or your own orchestrator.
             </p>
@@ -178,7 +182,7 @@
                 Configuration Designer
               </h2>
               <span class="text-xs font-bold text-brand-700 dark:text-brand-400"
-                >Agents + Tasks â†’ YAML</span
+                >Agents + Tasks → YAML</span
               >
             </div>
 
@@ -351,7 +355,7 @@
                     half-configured agent.
                   </li>
                   <li>
-                    Mixed indentation (spaces + tabs) is the top parser error â€”
+                    Mixed indentation (spaces + tabs) is the top parser error —
                     output here is always two-space indented.
                   </li>
                 </ul>
@@ -574,7 +578,7 @@
       function mkDelBtn() {
         const b = document.createElement("button");
         b.type = "button";
-        b.textContent = "âœ•";
+        b.textContent = "✕";
         b.setAttribute("aria-label", "Remove row");
         b.className =
           "w-10 h-10 shrink-0 self-end md:self-center flex items-center justify-center text-sm font-bold rounded-lg border border-slate-300 dark:border-slate-700 text-red-500 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-950/40 transition-colors";
@@ -772,7 +776,7 @@
             " Agent & Task Configuration",
         );
         lines.push(
-          "# Generated with TopWebTool â€” https://topwebtool.com/autogen-yaml-designer/",
+          "# Generated with TopWebTool — https://topwebtool.com/autogen-yaml-designer/",
         );
 
         if (fw === "crewai") {
@@ -906,7 +910,7 @@
             result.warnings.length +
             " warning" +
             (result.warnings.length > 1 ? "s" : "") +
-            " â€” review highlighted rows";
+            " — review highlighted rows";
           status.className =
             "text-sm font-semibold text-amber-600 dark:text-amber-400";
         } else if (agents === 0 && tasks === 0) {
@@ -922,7 +926,7 @@
             tasks +
             " task" +
             (tasks === 1 ? "" : "s") +
-            " â€” valid YAML";
+            " — valid YAML";
           status.className =
             "text-sm font-semibold text-emerald-600 dark:text-emerald-400";
         }
@@ -972,14 +976,14 @@
       tasksEl.addEventListener("input", renderYAML);
       agentsEl.addEventListener("click", (e) => {
         const btn = e.target.closest("button");
-        if (btn && btn.textContent.trim() === "âœ•") {
+        if (btn && btn.textContent.trim() === "✕") {
           btn.closest("div.border").remove();
           renderYAML();
         }
       });
       tasksEl.addEventListener("click", (e) => {
         const btn = e.target.closest("button");
-        if (btn && btn.textContent.trim() === "âœ•") {
+        if (btn && btn.textContent.trim() === "✕") {
           btn.closest("div.border").remove();
           renderYAML();
         }

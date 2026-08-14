@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
@@ -19,15 +19,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-    />
+    
     <meta charset="UTF-8" />
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Gear Tooth Generator | TopWebTool</title>
-    <meta name="description" content="Generate involute gear tooth geometry â€” pitch, addendum, dedendum, outside and base circles â€” from module or diametral pitch with live drawing." />
+    <meta name="description" content="Generate involute gear tooth geometry — pitch, addendum, dedendum, outside and base circles — from module or diametral pitch with live drawing." />
     <link rel="canonical" href="https://topwebtool.com/gear-tooth-generator/" />
     <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
     <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
@@ -40,7 +37,7 @@
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="TopWebTool" />
     <meta property="og:title" content="Gear Tooth Generator | TopWebTool" />
-    <meta property="og:description" content="Generate involute gear tooth geometry â€” pitch, addendum, dedendum, outside and base circles â€” from module or diametral pitch with live drawing." />
+    <meta property="og:description" content="Generate involute gear tooth geometry — pitch, addendum, dedendum, outside and base circles — from module or diametral pitch with live drawing." />
     <meta property="og:url" content="https://topwebtool.com/gear-tooth-generator/" />
     <meta property="og:image" content="https://topwebtool.com/og-image.png" />
     <meta property="og:image:width" content="1200" />
@@ -48,7 +45,7 @@
     <meta property="og:locale" content="en_US" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Gear Tooth Generator | TopWebTool" />
-    <meta name="twitter:description" content="Generate involute gear tooth geometry â€” pitch, addendum, dedendum, outside and base circles â€” from module or diametral pitch with live drawing." />
+    <meta name="twitter:description" content="Generate involute gear tooth geometry — pitch, addendum, dedendum, outside and base circles — from module or diametral pitch with live drawing." />
     <meta name="twitter:image" content="https://topwebtool.com/og-image.png" />
     <style>
       html {
@@ -101,7 +98,7 @@
         "applicationCategory": "EngineeringApplication",
         "operatingSystem": "Windows, macOS, Linux, Android, iOS",
         "browserRequirements": "Requires HTML5 compatible web browser",
-        "description": "Generate involute gear tooth geometry â€” pitch, addendum, dedendum, outside and base circles â€” from module or diametral pitch with live drawing.",
+        "description": "Generate involute gear tooth geometry — pitch, addendum, dedendum, outside and base circles — from module or diametral pitch with live drawing.",
         "offers": {
           "@type": "Offer",
           "price": "0",
@@ -130,9 +127,16 @@
         ]
       }
     </script>
-    <link rel="stylesheet" href="../styles.css" />
-    <link rel="stylesheet" href="../global.css" />
-    <link rel="stylesheet" href="../topwebtool-core.css" />
+    
+    
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../site.min.css">
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+      <link rel="stylesheet" href="../styles.css">
+      <link rel="stylesheet" href="../site.min.css">
+    </noscript>
       <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3901061173891576" crossorigin="anonymous"></script>
   </head>
   <body
@@ -155,8 +159,8 @@
               Gear Tooth Generator
             </h1>
             <p class="mt-2 text-base text-slate-500">
-              Compute the complete involute gear geometry â€” pitch diameter,
-              addendum, dedendum, outside and base circles â€” from module or
+              Compute the complete involute gear geometry — pitch diameter,
+              addendum, dedendum, outside and base circles — from module or
               diametral pitch, and see a live drawing of the gear.
             </p>
           </div>
@@ -171,14 +175,14 @@
               <h2 class="text-lg font-bold text-slate-900">Gear Parameters</h2>
               <span
                 class="text-xs font-bold text-slate-400 uppercase tracking-wide hidden sm:inline"
-                >âš™ï¸ Involute Gearing</span
+                >⚙️ Involute Gearing</span
               >
             </div>
 
             <form
               id="gear-tooth-generator-form"
               tool-name="gear-tooth-generator"
-              tool-description="Compute involute gear tooth geometry â€” pitch diameter, addendum, dedendum, outside and base circle diameters â€” from module or diametral pitch and pressure angle."
+              tool-description="Compute involute gear tooth geometry — pitch diameter, addendum, dedendum, outside and base circle diameters — from module or diametral pitch and pressure angle."
               onsubmit="return false;"
             >
               <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -237,9 +241,9 @@
                     id="pressure-angle"
                     class="w-full px-3 py-2.5 border border-slate-300 rounded-lg bg-white text-slate-950 focus:ring-2 focus:ring-brand-500 focus:border-brand-500"
                   >
-                    <option value="14.5">14.5Â° (legacy)</option>
-                    <option value="20" selected>20Â° (standard)</option>
-                    <option value="25">25Â° (high strength)</option>
+                    <option value="14.5">14.5° (legacy)</option>
+                    <option value="20" selected>20° (standard)</option>
+                    <option value="25">25° (high strength)</option>
                   </select>
                 </div>
                 <div>
@@ -304,9 +308,9 @@
                   id="val-pitch"
                   class="text-2xl font-extrabold text-brand-600 dark:text-brand-400 mt-1"
                 >
-                  â€”
+                  —
                 </p>
-                <p class="text-xs text-slate-400 mt-1">D = N Ã— module</p>
+                <p class="text-xs text-slate-400 mt-1">D = N × module</p>
               </div>
               <div
                 class="rounded-xl border border-slate-100 dark:border-slate-800 p-4"
@@ -320,7 +324,7 @@
                   id="val-od"
                   class="text-2xl font-extrabold text-brand-600 dark:text-brand-400 mt-1"
                 >
-                  â€”
+                  —
                 </p>
                 <p class="text-xs text-slate-400 mt-1">addendum + pitch</p>
               </div>
@@ -336,9 +340,9 @@
                   id="val-root"
                   class="text-2xl font-extrabold text-brand-600 dark:text-brand-400 mt-1"
                 >
-                  â€”
+                  —
                 </p>
-                <p class="text-xs text-slate-400 mt-1">pitch âˆ’ 2 Ã— dedendum</p>
+                <p class="text-xs text-slate-400 mt-1">pitch − 2 × dedendum</p>
               </div>
               <div
                 class="rounded-xl border border-slate-100 dark:border-slate-800 p-4"
@@ -352,10 +356,10 @@
                   id="val-base"
                   class="text-2xl font-extrabold text-brand-600 dark:text-brand-400 mt-1"
                 >
-                  â€”
+                  —
                 </p>
                 <p class="text-xs text-slate-400 mt-1">
-                  D Ã— cos(pressure angle)
+                  D × cos(pressure angle)
                 </p>
               </div>
               <div
@@ -370,9 +374,9 @@
                   id="val-cp"
                   class="text-2xl font-extrabold text-brand-600 dark:text-brand-400 mt-1"
                 >
-                  â€”
+                  —
                 </p>
-                <p class="text-xs text-slate-400 mt-1">Ï€ Ã— module</p>
+                <p class="text-xs text-slate-400 mt-1">π × module</p>
               </div>
               <div
                 class="rounded-xl border border-slate-100 dark:border-slate-800 p-4"
@@ -386,7 +390,7 @@
                   id="val-center"
                   class="text-2xl font-extrabold text-brand-600 dark:text-brand-400 mt-1"
                 >
-                  â€”
+                  —
                 </p>
                 <p class="text-xs text-slate-400 mt-1">
                   requires meshing gear teeth
@@ -404,10 +408,10 @@
                 class="bg-slate-950 text-emerald-400 p-4 rounded-xl font-mono text-xs overflow-x-auto break-all shadow-inner"
                 id="out-breakdown"
               >
-Waiting for inputâ€¦</pre>
+Waiting for input…</pre>
             </div>
 
-            <pre class="hidden" id="out-copy">â€¦</pre>
+            <pre class="hidden" id="out-copy">…</pre>
 
             <div class="flex justify-end pt-2">
               <button
@@ -645,18 +649,18 @@ Waiting for inputâ€¦</pre>
         const pLabel =
           system === "module"
             ? "module m = " + m + " mm"
-            : "diametral pitch P = " + 25.4 / m + " inâ»Â¹";
+            : "diametral pitch P = " + 25.4 / m + " in⁻¹";
 
-        let centerLine = "â€”";
+        let centerLine = "—";
         let ratioLine = "";
         if (N2 !== null) {
           const D2 = N2 * m;
           const center = (D + D2) / 2;
           centerLine = fmt(center, metric);
           ratioLine =
-            "Speed ratio = Nâ‚‚ Ã· Nâ‚ = " +
+            "Speed ratio = N₂ ÷ N₁ = " +
             N2 +
-            " Ã· " +
+            " ÷ " +
             N +
             " = " +
             (N2 / N).toFixed(3) +
@@ -669,12 +673,12 @@ Waiting for inputâ€¦</pre>
           N +
           " teeth, " +
           pLabel +
-          ", Î± = " +
+          ", α = " +
           alpha +
-          "Â°\n" +
-          "Pitch diameter    D   = N Ã— m = " +
+          "°\n" +
+          "Pitch diameter    D   = N × m = " +
           N +
-          " Ã— " +
+          " × " +
           m +
           " = " +
           fmt(D, metric) +
@@ -684,7 +688,7 @@ Waiting for inputâ€¦</pre>
           " " +
           unit +
           "\n" +
-          "Dedendum          b   = 1.25 Ã— m = " +
+          "Dedendum          b   = 1.25 × m = " +
           1.25 * m +
           " " +
           unit +
@@ -692,18 +696,18 @@ Waiting for inputâ€¦</pre>
           "Outside diameter  OD  = D + 2a = " +
           fmt(OD, metric) +
           "\n" +
-          "Root diameter     DR  = D âˆ’ 2b = " +
+          "Root diameter     DR  = D − 2b = " +
           fmt(rootD, metric) +
           "\n" +
-          "Circular pitch    p   = Ï€ Ã— m = " +
+          "Circular pitch    p   = π × m = " +
           fmt(cp, metric) +
           "\n" +
-          "Base circle       Db  = D Ã— cos " +
+          "Base circle       Db  = D × cos " +
           alpha +
-          "Â° = " +
+          "° = " +
           fmt(baseD, metric) +
           "\n" +
-          "Tooth thickness   t   = p Ã· 2 = " +
+          "Tooth thickness   t   = p ÷ 2 = " +
           fmt(toothThk, metric) +
           "\n" +
           "Whole depth       ht  = a + b = " +
@@ -713,17 +717,17 @@ Waiting for inputâ€¦</pre>
           "\n" +
           (ratioLine || "") +
           (N2 !== null
-            ? "Center distance   a0  = (Dâ‚ + Dâ‚‚) Ã· 2 = " + centerLine + "\n"
+            ? "Center distance   a0  = (D₁ + D₂) ÷ 2 = " + centerLine + "\n"
             : "");
 
         document.getElementById("out-copy").textContent =
-          "Involute Gear Geometry â€” " +
+          "Involute Gear Geometry — " +
           N +
           " teeth, " +
           pLabel +
           ", " +
           alpha +
-          "Â° PA\n" +
+          "° PA\n" +
           "Pitch diameter: " +
           fmt(D, metric) +
           "\n" +
@@ -765,7 +769,7 @@ Waiting for inputâ€¦</pre>
 
         if (N < 17 && alpha === 20) {
           warnEl.textContent =
-            "Warning: below roughly 17 teeth at 20Â° pressure angle the gear is prone to undercutting â€” consider profile shift or a larger pinion.";
+            "Warning: below roughly 17 teeth at 20° pressure angle the gear is prone to undercutting — consider profile shift or a larger pinion.";
           warnEl.classList.remove("hidden");
         }
 

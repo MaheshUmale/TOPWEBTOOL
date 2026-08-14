@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
@@ -19,10 +19,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-    />
+    
     <meta charset="UTF-8" />
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -133,9 +130,16 @@
         ]
       }
     </script>
-    <link rel="stylesheet" href="../styles.css" />
-    <link rel="stylesheet" href="../global.css" />
-    <link rel="stylesheet" href="../topwebtool-core.css" />
+    
+    
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../site.min.css">
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+      <link rel="stylesheet" href="../styles.css">
+      <link rel="stylesheet" href="../site.min.css">
+    </noscript>
       <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3901061173891576" crossorigin="anonymous"></script>
   </head>
   <body
@@ -176,7 +180,7 @@
               </h2>
               <span
                 class="text-xs font-bold text-slate-400 uppercase tracking-wide hidden sm:inline"
-                >ðŸ—ï¸ Rigging Trigonometry</span
+                >🏗️ Rigging Trigonometry</span
               >
             </div>
 
@@ -225,7 +229,7 @@
                     <option value="2" selected>2 legs (2-leg bridle)</option>
                     <option value="3">3 legs (3-leg bridle)</option>
                     <option value="4">
-                      4 legs (4-leg bridle â€” uses 3-leg share)
+                      4 legs (4-leg bridle — uses 3-leg share)
                     </option>
                   </select>
                 </div>
@@ -233,7 +237,7 @@
                   <label
                     for="angle"
                     class="block text-sm font-semibold text-slate-700 mb-2"
-                    >Sling Angle from Horizontal Î¸ (Â°)</label
+                    >Sling Angle from Horizontal θ (°)</label
                   >
                   <input
                     id="angle"
@@ -306,7 +310,7 @@
                   id="val-tension"
                   class="text-2xl font-extrabold text-brand-600 dark:text-brand-400 mt-1"
                 >
-                  â€”
+                  —
                 </p>
                 <p class="text-xs text-slate-400 mt-1">lb per sling leg</p>
               </div>
@@ -322,10 +326,10 @@
                   id="val-share"
                   class="text-2xl font-extrabold text-brand-600 dark:text-brand-400 mt-1"
                 >
-                  â€”
+                  —
                 </p>
                 <p class="text-xs text-slate-400 mt-1">
-                  lb (W Ã· effective legs)
+                  lb (W ÷ effective legs)
                 </p>
               </div>
               <div
@@ -334,15 +338,15 @@
                 <p
                   class="text-xs font-bold text-slate-400 uppercase tracking-wider"
                 >
-                  Derated Capacity at Î¸
+                  Derated Capacity at θ
                 </p>
                 <p
                   id="val-derated"
                   class="text-2xl font-extrabold text-brand-600 dark:text-brand-400 mt-1"
                 >
-                  â€”
+                  —
                 </p>
-                <p class="text-xs text-slate-400 mt-1">WLL Ã— sin(Î¸), lb</p>
+                <p class="text-xs text-slate-400 mt-1">WLL × sin(θ), lb</p>
               </div>
               <div
                 class="rounded-xl border border-slate-100 dark:border-slate-800 p-4"
@@ -356,7 +360,7 @@
                   id="val-horizontal"
                   class="text-2xl font-extrabold text-brand-600 dark:text-brand-400 mt-1"
                 >
-                  â€”
+                  —
                 </p>
                 <p class="text-xs text-slate-400 mt-1">
                   lb on each anchor point
@@ -374,10 +378,10 @@
                   id="val-util"
                   class="text-2xl font-extrabold text-brand-600 dark:text-brand-400 mt-1"
                 >
-                  â€”
+                  —
                 </p>
                 <p class="text-xs text-slate-400 mt-1">
-                  tension Ã· derated capacity
+                  tension ÷ derated capacity
                 </p>
               </div>
               <div
@@ -388,7 +392,7 @@
                 >
                   Safety Check
                 </p>
-                <p id="val-check" class="text-2xl font-extrabold mt-1">â€”</p>
+                <p id="val-check" class="text-2xl font-extrabold mt-1">—</p>
                 <p class="text-xs text-slate-400 mt-1">
                   vs. rated capacity per leg
                 </p>
@@ -406,7 +410,7 @@
                     <th class="px-3 py-2 font-bold">
                       Sling Angle (from horizontal)
                     </th>
-                    <th class="px-3 py-2 font-bold">Derating Factor sin(Î¸)</th>
+                    <th class="px-3 py-2 font-bold">Derating Factor sin(θ)</th>
                     <th class="px-3 py-2 font-bold">Derated Capacity %</th>
                     <th class="px-3 py-2 font-bold">Guidance</th>
                   </tr>
@@ -414,7 +418,7 @@
                 <tbody>
                   <tr class="border-t border-slate-200 dark:border-slate-800">
                     <td class="px-3 py-2 text-slate-600 dark:text-slate-300">
-                      90Â° (vertical)
+                      90° (vertical)
                     </td>
                     <td class="px-3 py-2 text-slate-600 dark:text-slate-300">
                       1.000
@@ -430,7 +434,7 @@
                   </tr>
                   <tr class="border-t border-slate-200 dark:border-slate-800">
                     <td class="px-3 py-2 text-slate-600 dark:text-slate-300">
-                      60Â°
+                      60°
                     </td>
                     <td class="px-3 py-2 text-slate-600 dark:text-slate-300">
                       0.866
@@ -446,7 +450,7 @@
                   </tr>
                   <tr class="border-t border-slate-200 dark:border-slate-800">
                     <td class="px-3 py-2 text-slate-600 dark:text-slate-300">
-                      45Â°
+                      45°
                     </td>
                     <td class="px-3 py-2 text-slate-600 dark:text-slate-300">
                       0.707
@@ -462,7 +466,7 @@
                   </tr>
                   <tr class="border-t border-slate-200 dark:border-slate-800">
                     <td class="px-3 py-2 text-slate-600 dark:text-slate-300">
-                      30Â°
+                      30°
                     </td>
                     <td class="px-3 py-2 text-slate-600 dark:text-slate-300">
                       0.500
@@ -473,12 +477,12 @@
                     <td
                       class="px-3 py-2 text-red-600 dark:text-red-400 font-bold"
                     >
-                      Absolute minimum â€” avoid
+                      Absolute minimum — avoid
                     </td>
                   </tr>
                   <tr class="border-t border-slate-200 dark:border-slate-800">
                     <td class="px-3 py-2 text-slate-600 dark:text-slate-300">
-                      15Â°
+                      15°
                     </td>
                     <td class="px-3 py-2 text-slate-600 dark:text-slate-300">
                       0.259
@@ -494,7 +498,7 @@
                   </tr>
                   <tr class="border-t border-slate-200 dark:border-slate-800">
                     <td class="px-3 py-2 text-slate-600 dark:text-slate-300">
-                      10Â°
+                      10°
                     </td>
                     <td class="px-3 py-2 text-slate-600 dark:text-slate-300">
                       0.174
@@ -505,7 +509,7 @@
                     <td
                       class="px-3 py-2 text-red-600 dark:text-red-400 font-bold"
                     >
-                      Extreme loading â€” never use
+                      Extreme loading — never use
                     </td>
                   </tr>
                 </tbody>
@@ -522,10 +526,10 @@
                 class="bg-slate-950 text-emerald-400 p-4 rounded-xl font-mono text-xs overflow-x-auto break-all shadow-inner"
                 id="out-breakdown"
               >
-Waiting for inputâ€¦</pre>
+Waiting for input…</pre>
             </div>
 
-            <pre class="hidden" id="out-copy">â€¦</pre>
+            <pre class="hidden" id="out-copy">…</pre>
 
             <div class="flex justify-end pt-2">
               <button
@@ -728,23 +732,23 @@ Waiting for inputâ€¦</pre>
           checkEl.className =
             "text-2xl font-extrabold mt-1 text-emerald-600 dark:text-emerald-400";
         } else {
-          checkEl.textContent = "FAIL â€” oversize sling";
+          checkEl.textContent = "FAIL — oversize sling";
           checkEl.className =
             "text-2xl font-extrabold mt-1 text-red-600 dark:text-red-400";
         }
 
         if (theta < 30) {
           warnEl.textContent =
-            "Warning: sling angle below 30Â° from horizontal. Tension is " +
+            "Warning: sling angle below 30° from horizontal. Tension is " +
             (1 / Math.sin(rad)).toFixed(1) +
-            "Ã— the per-leg share â€” most codes and best practice prohibit rigging at this angle. Increase the angle.";
+            "× the per-leg share — most codes and best practice prohibit rigging at this angle. Increase the angle.";
           warnEl.classList.remove("hidden");
         }
 
         document.getElementById("out-breakdown").textContent =
           "Effective load-sharing legs n = " +
           effectiveLegs +
-          (legsSel === 4 ? "  (4 legs â†’ conservative 3-leg share)" : "") +
+          (legsSel === 4 ? "  (4 legs → conservative 3-leg share)" : "") +
           "\n" +
           "Load share per leg = W / n = " +
           W +
@@ -753,12 +757,12 @@ Waiting for inputâ€¦</pre>
           " = " +
           share.toFixed(0) +
           " lb\n" +
-          "Tension per leg  T = (W/n) / sin(Î¸)\n" +
+          "Tension per leg  T = (W/n) / sin(θ)\n" +
           "  = " +
           share.toFixed(0) +
           " / sin(" +
           theta +
-          "Â°)\n" +
+          "°)\n" +
           "  = " +
           share.toFixed(0) +
           " / " +
@@ -766,7 +770,7 @@ Waiting for inputâ€¦</pre>
           " = " +
           tension.toFixed(0) +
           " lb\n" +
-          "Horizontal force  H = (W/n) / tan(Î¸)\n" +
+          "Horizontal force  H = (W/n) / tan(θ)\n" +
           "  = " +
           share.toFixed(0) +
           " / " +
@@ -774,17 +778,17 @@ Waiting for inputâ€¦</pre>
           " = " +
           horizontal.toFixed(0) +
           " lb per anchor\n" +
-          "Derated capacity = WLL Ã— sin(Î¸)\n" +
+          "Derated capacity = WLL × sin(θ)\n" +
           "  = " +
           wll +
-          " Ã— " +
+          " × " +
           Math.sin(rad).toFixed(3) +
           " = " +
           derated.toFixed(0) +
           " lb\n" +
           "Utilization = tension / derated capacity = " +
           util.toFixed(1) +
-          "%  â†’  " +
+          "%  →  " +
           (pass ? "PASS" : "FAIL");
 
         document.getElementById("out-copy").textContent =
@@ -799,11 +803,11 @@ Waiting for inputâ€¦</pre>
           ")\n" +
           "Sling angle from horizontal: " +
           theta +
-          "Â°\n" +
+          "°\n" +
           "Rated capacity (WLL) per leg: " +
           wll +
           " lb\n" +
-          "â€” Results â€”\n" +
+          "— Results —\n" +
           "Load share per leg: " +
           share.toFixed(0) +
           " lb\n" +
@@ -815,14 +819,14 @@ Waiting for inputâ€¦</pre>
           " lb\n" +
           "Derated capacity at " +
           theta +
-          "Â°: " +
+          "°: " +
           derated.toFixed(0) +
           " lb\n" +
           "Utilization: " +
           util.toFixed(1) +
           "%\n" +
           "Safety check: " +
-          (pass ? "PASS" : "FAIL â€” select a higher-capacity sling");
+          (pass ? "PASS" : "FAIL — select a higher-capacity sling");
       }
 
       function copyResult() {

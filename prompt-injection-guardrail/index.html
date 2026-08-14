@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
@@ -19,15 +19,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-    />
+    
     <meta charset="UTF-8" />
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Prompt Injection Guardrail Matrix | TopWebTool</title>
-    <meta name="description" content="Scan prompts for injection patterns: instruction override, jailbreak, system-prompt leak, delimiter breaking and data exfiltration, with a 0â€“100 risk score." />
+    <meta name="description" content="Scan prompts for injection patterns: instruction override, jailbreak, system-prompt leak, delimiter breaking and data exfiltration, with a 0–100 risk score." />
     <link
       rel="canonical"
       href="https://topwebtool.com/prompt-injection-guardrail/"
@@ -43,7 +40,7 @@
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="TopWebTool" />
     <meta property="og:title" content="Prompt Injection Guardrail Matrix | TopWebTool" />
-    <meta property="og:description" content="Scan prompts for injection patterns: instruction override, jailbreak, system-prompt leak, delimiter breaking and data exfiltration, with a 0â€“100 risk score." />
+    <meta property="og:description" content="Scan prompts for injection patterns: instruction override, jailbreak, system-prompt leak, delimiter breaking and data exfiltration, with a 0–100 risk score." />
     <meta property="og:url" content="https://topwebtool.com/prompt-injection-guardrail/" />
     <meta property="og:image" content="https://topwebtool.com/og-image.png" />
     <meta property="og:image:width" content="1200" />
@@ -51,7 +48,7 @@
     <meta property="og:locale" content="en_US" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Prompt Injection Guardrail Matrix | TopWebTool" />
-    <meta name="twitter:description" content="Scan prompts for injection patterns: instruction override, jailbreak, system-prompt leak, delimiter breaking and data exfiltration, with a 0â€“100 risk score." />
+    <meta name="twitter:description" content="Scan prompts for injection patterns: instruction override, jailbreak, system-prompt leak, delimiter breaking and data exfiltration, with a 0–100 risk score." />
     <meta name="twitter:image" content="https://topwebtool.com/og-image.png" />
     <style>
       html {
@@ -103,7 +100,7 @@
         "applicationCategory": "SecurityApplication",
         "operatingSystem": "Windows, macOS, Linux, Android, iOS",
         "browserRequirements": "Requires HTML5 compatible web browser",
-        "description": "Scan prompts for injection patterns: instruction override, jailbreak, system-prompt leak, delimiter breaking and data exfiltration, with a 0â€“100 risk score.",
+        "description": "Scan prompts for injection patterns: instruction override, jailbreak, system-prompt leak, delimiter breaking and data exfiltration, with a 0–100 risk score.",
         "offers": {
           "@type": "Offer",
           "price": "0",
@@ -132,9 +129,16 @@
         ]
       }
     </script>
-    <link rel="stylesheet" href="../styles.css" />
-    <link rel="stylesheet" href="../global.css" />
-    <link rel="stylesheet" href="../topwebtool-core.css" />
+    
+    
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../site.min.css">
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+      <link rel="stylesheet" href="../styles.css">
+      <link rel="stylesheet" href="../site.min.css">
+    </noscript>
       <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3901061173891576" crossorigin="anonymous"></script>
   </head>
   <body
@@ -158,9 +162,9 @@
             </h1>
             <p class="mt-2 text-base text-slate-500 dark:text-slate-400">
               Paste a prompt or suspect text and scan it against a library of
-              injection patterns â€” instruction override, jailbreak,
-              system-prompt leak, delimiter breaking and data exfiltration â€”
-              with a 0â€“100 risk score.
+              injection patterns — instruction override, jailbreak,
+              system-prompt leak, delimiter breaking and data exfiltration —
+              with a 0–100 risk score.
             </p>
           </div>
 
@@ -230,13 +234,13 @@
                   id="risk-score"
                   class="text-5xl font-black tracking-tight text-slate-900 dark:text-white"
                 >
-                  â€“
+                  –
                 </div>
                 <div
                   id="risk-level"
                   class="mt-1 inline-block px-3 py-1 rounded-full text-xs font-bold"
                 >
-                  â€“
+                  –
                 </div>
               </div>
               <div class="w-full">
@@ -378,7 +382,7 @@
                   against the text.
                 </li>
                 <li>
-                  Read the 0â€“100 risk score, the per-rule pass/fail table, and
+                  Read the 0–100 risk score, the per-rule pass/fail table, and
                   the triggered severity levels.
                 </li>
                 <li>
@@ -831,7 +835,7 @@ severity: low(5-10) | medium(12-20) | high(20-25)</pre>
         } else {
           suggEl.innerHTML =
             '<div class="p-3 rounded-lg border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/40">' +
-            '<p class="text-xs font-semibold text-emerald-700 dark:text-emerald-400">âœ“ No injection patterns detected. Keep your defense-in-depth layers in place â€” a clean scan is not a guarantee.</p></div>';
+            '<p class="text-xs font-semibold text-emerald-700 dark:text-emerald-400">✓ No injection patterns detected. Keep your defense-in-depth layers in place — a clean scan is not a guarantee.</p></div>';
         }
 
         window.__pigReport =

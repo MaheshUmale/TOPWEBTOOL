@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
@@ -19,10 +19,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-    />
+    
     <meta charset="UTF-8" />
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -130,9 +127,16 @@
         ]
       }
     </script>
-    <link rel="stylesheet" href="../styles.css" />
-    <link rel="stylesheet" href="../global.css" />
-    <link rel="stylesheet" href="../topwebtool-core.css" />
+    
+    
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../site.min.css">
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+      <link rel="stylesheet" href="../styles.css">
+      <link rel="stylesheet" href="../site.min.css">
+    </noscript>
       <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3901061173891576" crossorigin="anonymous"></script>
   </head>
   <body
@@ -155,7 +159,7 @@
               HEX to RGBA Color Tool
             </h1>
             <p class="mt-2 text-base text-slate-500">
-              Parse HEX, rgb(), rgba(), hsl(), hsla(), or any named CSS color â€”
+              Parse HEX, rgb(), rgba(), hsl(), hsla(), or any named CSS color —
               and get HEX, RGB, RGBA, and HSL with a live preview and WCAG
               contrast check.
             </p>
@@ -171,7 +175,7 @@
               <h2 class="text-lg font-bold text-slate-900">Color Input</h2>
               <span
                 class="text-xs font-bold text-slate-400 uppercase tracking-wide hidden sm:inline"
-                >ðŸŽ¨ #RGB Â· #RRGGBB Â· #RRGGBBAA Â· rgb Â· hsl</span
+                >🎨 #RGB · #RRGGBB · #RRGGBBAA · rgb · hsl</span
               >
             </div>
 
@@ -276,7 +280,7 @@
                         <span
                           class="text-sm font-extrabold text-slate-900 dark:text-white"
                           id="contrast-black"
-                          >â€”</span
+                          >—</span
                         >
                       </div>
                       <div
@@ -289,12 +293,12 @@
                         <span
                           class="text-sm font-extrabold text-slate-900 dark:text-white"
                           id="contrast-white"
-                          >â€”</span
+                          >—</span
                         >
                       </div>
                       <p class="text-xs text-slate-400">
-                        Measured against the color composited over white. AA â‰¥
-                        4.5, AAA â‰¥ 7 for normal text.
+                        Measured against the color composited over white. AA ≥
+                        4.5, AAA ≥ 7 for normal text.
                       </p>
                     </div>
                   </div>
@@ -417,7 +421,7 @@ hsl(204, 70%, 53%)</pre>
               </h2>
               <p class="text-sm text-slate-600 dark:text-slate-300 mt-1">
                 How hex channels, RGBA alpha, HSL conversion, and WCAG luminance
-                actually work â€” explained with the exact formulas.
+                actually work — explained with the exact formulas.
               </p>
             </div>
 
@@ -431,19 +435,19 @@ hsl(204, 70%, 53%)</pre>
                   <code class="text-brand-600 dark:text-brand-400 font-mono"
                     >#RRGGBB</code
                   >
-                  splits into red, green, and blue values from 0â€“255. A fourth
+                  splits into red, green, and blue values from 0–255. A fourth
                   pair
                   <code class="text-brand-600 dark:text-brand-400 font-mono"
                     >#RRGGBBAA</code
                   >
-                  holds alpha, written as 00â€“FF and read as
+                  holds alpha, written as 00–FF and read as
                   <code class="text-brand-600 dark:text-brand-400 font-mono"
                     >alpha = AA/255</code
                   >. The three-digit shorthand
                   <code class="text-brand-600 dark:text-brand-400 font-mono"
                     >#RGB</code
                   >
-                  doubles each digit â€”
+                  doubles each digit —
                   <code class="text-brand-600 dark:text-brand-400 font-mono"
                     >#39c</code
                   >
@@ -451,7 +455,7 @@ hsl(204, 70%, 53%)</pre>
                   <code class="text-brand-600 dark:text-brand-400 font-mono"
                     >#3399cc</code
                   >. RGBA stores the same channels as decimal with an alpha from
-                  0â€“1:
+                  0–1:
                   <code class="text-brand-600 dark:text-brand-400 font-mono"
                     >rgba(51, 153, 204, 0.8)</code
                   >. The two formats are interchangeable; the converter simply
@@ -463,19 +467,19 @@ hsl(204, 70%, 53%)</pre>
                   HSL Conversion &amp; WCAG Contrast
                 </h3>
                 <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
-                  HSL expresses the same color as hue (0â€“360Â°), saturation, and
+                  HSL expresses the same color as hue (0–360°), saturation, and
                   lightness percentages, converted to RGB with a standard
                   piecewise formula. Contrast follows the WCAG
-                  relative-luminance model: each 0â€“255 channel is linearized
+                  relative-luminance model: each 0–255 channel is linearized
                   with
                   <code class="text-brand-600 dark:text-brand-400 font-mono"
-                    >L(c) = (câ‰¤0.03928 ? c/12.92 : ((c+0.055)/1.055)^2.4)</code
+                    >L(c) = (c≤0.03928 ? c/12.92 : ((c+0.055)/1.055)^2.4)</code
                   >, then
                   <code class="text-brand-600 dark:text-brand-400 font-mono"
-                    >L = 0.2126Â·R + 0.7152Â·G + 0.0722Â·B</code
+                    >L = 0.2126·R + 0.7152·G + 0.0722·B</code
                   >, and contrast is
                   <code class="text-brand-600 dark:text-brand-400 font-mono"
-                    >(Lâ‚+0.05)/(Lâ‚‚+0.05)</code
+                    >(L₁+0.05)/(L₂+0.05)</code
                   >
                   for the lighter and darker of the two colors. The tool reports
                   black text (luminance 0) and white text (luminance 1) against
@@ -498,11 +502,11 @@ hsl(204, 70%, 53%)</pre>
                 </li>
                 <li>
                   Non-hex characters: values like #GGH are refused; the tool
-                  accepts only 0â€“9 and Aâ€“F in hex notation.
+                  accepts only 0–9 and A–F in hex notation.
                 </li>
                 <li>
                   Alpha units: rgb() with a fourth value is actually rgba();
-                  alpha must be 0â€“1 (or 0â€“100%), never 0â€“255.
+                  alpha must be 0–1 (or 0–100%), never 0–255.
                 </li>
                 <li>
                   HSL percentages: saturation and lightness require the "%"
@@ -524,11 +528,11 @@ hsl(204, 70%, 53%)</pre>
                 class="list-decimal pl-5 space-y-2 text-slate-600 dark:text-slate-300 leading-relaxed"
               >
                 <li>
-                  Type or paste any CSS color â€” #RGB, #RRGGBB, #RRGGBBAA, rgb(),
+                  Type or paste any CSS color — #RGB, #RRGGBB, #RRGGBBAA, rgb(),
                   rgba(), hsl(), hsla(), or a named color like "tomato".
                 </li>
                 <li>
-                  Drag the alpha slider from 0â€“100% to adjust opacity; all
+                  Drag the alpha slider from 0–100% to adjust opacity; all
                   outputs update live.
                 </li>
                 <li>
@@ -619,7 +623,7 @@ hsl(204, 70%, 53%)</pre>
                   Ultimate Guide to HEX to RGBA Color Tool
                 </h3>
                 <p class="text-xs text-slate-400 dark:text-slate-500 mt-1">
-                  Hex, RGB, RGBA, and HSL explained â€” how alpha works, how
+                  Hex, RGB, RGBA, and HSL explained — how alpha works, how
                   channels map, and why consistent formats matter in CSS.
                 </p>
                 <span
@@ -655,7 +659,7 @@ hsl(204, 70%, 53%)</pre>
                   Common Errors in HEX to RGBA Color Tool
                 </h3>
                 <p class="text-xs text-slate-400 dark:text-slate-500 mt-1">
-                  Wrong hex length, alpha as 0â€“255 instead of 0â€“1, missing % in
+                  Wrong hex length, alpha as 0–255 instead of 0–1, missing % in
                   HSL, and forgiving-browser parsing traps.
                 </p>
                 <span
@@ -987,7 +991,7 @@ hsl(204, 70%, 53%)</pre>
 
         if (lower.startsWith("hsl")) {
           const m = s.match(
-            /^hsla?\(\s*([\d.]+)(?:deg|Â°)?\s*,\s*([\d.]+)%\s*,\s*([\d.]+)%\s*(?:,\s*([\d.]+%?)\s*)?\)$/i,
+            /^hsla?\(\s*([\d.]+)(?:deg|°)?\s*,\s*([\d.]+)%\s*,\s*([\d.]+)%\s*(?:,\s*([\d.]+%?)\s*)?\)$/i,
           );
           if (!m) return null;
           const h = parseFloat(m[1]);
@@ -1070,7 +1074,7 @@ hsl(204, 70%, 53%)</pre>
         const hex8 =
           "#" + toHex2(r) + toHex2(g) + toHex2(b) + toHex2(Math.round(a * 255));
         document.getElementById("out-hex").textContent =
-          a >= 1 ? hex6 : hex8 + "  Â·  " + hex6;
+          a >= 1 ? hex6 : hex8 + "  ·  " + hex6;
         document.getElementById("out-rgb").textContent =
           "rgb(" + r + ", " + g + ", " + b + ")";
         document.getElementById("out-rgba").textContent =

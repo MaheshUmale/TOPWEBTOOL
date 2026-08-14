@@ -1,4 +1,4 @@
-ï»¿<!doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
@@ -19,10 +19,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-    />
+    
     <meta charset="UTF-8" />
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -53,9 +50,16 @@
     <meta name="twitter:title" content="Common Errors in CrewAI/AutoGen YAML | TopWebTool" />
     <meta name="twitter:description" content="Debug the most common CrewAI and AutoGen YAML errors: indentation bugs, missing agent references, unquoted colons, and bad model IDs." />
     <meta name="twitter:image" content="https://topwebtool.com/og-image.png" />
-    <link rel="stylesheet" href="../../styles.css" />
-    <link rel="stylesheet" href="../../global.css" />
-    <link rel="stylesheet" href="../../topwebtool-core.css" />
+    
+    
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="../../site.min.css">
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+      <link rel="stylesheet" href="../../styles.css">
+      <link rel="stylesheet" href="../../site.min.css">
+    </noscript>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -130,9 +134,9 @@
               class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4"
             >
               <span>Published: August 2026</span>
-              <span>â€¢</span>
+              <span>•</span>
               <span>Category: AI Agent & Automation</span>
-              <span>â€¢</span>
+              <span>•</span>
               <span class="text-emerald-600 dark:text-emerald-400"
                 >No Sign-Up / 100% Free / No Registration</span
               >
@@ -145,7 +149,7 @@
               <p class="mb-4">
                 YAML's quiet killer is indentation. Because structure is defined
                 by spaces rather than braces, a single misaligned line silently
-                changes the meaning of everything beneath it â€” an agent property
+                changes the meaning of everything beneath it — an agent property
                 can land at the wrong nesting level, become a child of the wrong
                 key, or vanish entirely. Tabs mixed with spaces cause immediate
                 parse failures in most loaders. The remedy is mechanical: use
@@ -163,14 +167,14 @@
                 interpreted as a key separator. Hashes start comments, leading
                 asterisks and brackets have structural meaning, and an ampersand
                 begins an anchor. The robust fix is to quote any value
-                containing these characters â€” and the safest generator simply
+                containing these characters — and the safest generator simply
                 quotes every string, which is exactly what the CrewAI / AutoGen
                 YAML Designer does to guarantee its output parses.
               </p>
               <p class="mb-4">
                 Missing agent references fail late and confusingly. A task that
                 assigns an agent name that doesn't exist in the agents mapping
-                parses fine â€” YAML doesn't know it's a reference â€” and then the
+                parses fine — YAML doesn't know it's a reference — and then the
                 framework raises at execution, often deep inside orchestration
                 code. The error message may name the missing key or may not.
                 Checking references at authoring time, as the designer does with
@@ -179,12 +183,12 @@
               </p>
               <p class="mb-4">
                 Wrong model identifiers are deceptively common. Providers expose
-                model strings with precise prefixes â€”
+                model strings with precise prefixes —
                 <code class="font-mono text-xs">openai/gpt-4o</code>,
                 <code class="font-mono text-xs"
                   >anthropic/claude-sonnet-4-20250514</code
                 >
-                â€” and a near-miss like
+                — and a near-miss like
                 <code class="font-mono text-xs">gpt-4o</code> without the
                 provider, or a stale snapshot suffix, produces an authentication
                 or not-found error at first agent turn. Keep model strings in
@@ -224,9 +228,9 @@
                 >
                 block into an AutoGen loader silently ignores the keys it
                 doesn't recognize, producing an agent with almost no
-                instruction. The designer emits framework-specific shapes â€”
+                instruction. The designer emits framework-specific shapes —
                 keyed maps for CrewAI, component lists for AutoGen, merging role
-                and goal into a system message â€” so the output matches the
+                and goal into a system message — so the output matches the
                 loader's expectations.
               </p>
               <p class="mb-4">
@@ -254,12 +258,12 @@
                 author didn't intend, and multi-line text that isn't indented or
                 quoted can swallow the lines that follow it. The classic result
                 is a config that parses successfully but loads with subtly wrong
-                values â€” the worst kind of bug, because nothing is red and
+                values — the worst kind of bug, because nothing is red and
                 everything is slightly off. The defenses are mechanical: quote
                 strings that could be misread, use block scalars for multi-line
                 prompts, and re-validate the rendered output after every edit. A
                 second common failure is the missing key that a runtime required
-                â€” a task without a description, an agent without a role â€” which
+                — a task without a description, an agent without a role — which
                 usually surfaces not at parse time but at the first run. Because
                 the designer renders the file deterministically from your rows,
                 these two classes of error are prevented at the source rather

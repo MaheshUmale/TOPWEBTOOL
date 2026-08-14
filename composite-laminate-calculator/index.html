@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
@@ -19,10 +19,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-    />
+    
     <meta charset="UTF-8" />
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -133,9 +130,16 @@
         ]
       }
     </script>
-    <link rel="stylesheet" href="../styles.css" />
-    <link rel="stylesheet" href="../global.css" />
-    <link rel="stylesheet" href="../topwebtool-core.css" />
+    
+    
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../site.min.css">
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+      <link rel="stylesheet" href="../styles.css">
+      <link rel="stylesheet" href="../site.min.css">
+    </noscript>
       <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3901061173891576" crossorigin="anonymous"></script>
   </head>
   <body
@@ -176,7 +180,7 @@
               </h2>
               <span
                 class="text-xs font-bold text-slate-400 uppercase tracking-wide hidden sm:inline"
-                >ðŸ§¬ Composite Engineering</span
+                >🧬 Composite Engineering</span
               >
             </div>
 
@@ -192,7 +196,7 @@
                     <label
                       for="part-area"
                       class="block text-sm font-semibold text-slate-700 mb-2"
-                      >Part Area (mÂ²)</label
+                      >Part Area (m²)</label
                     >
                     <input
                       id="part-area"
@@ -208,7 +212,7 @@
                 <div>
                   <div class="flex items-center justify-between mb-2">
                     <label class="block text-sm font-semibold text-slate-700"
-                      >Ply Sequence (material Ã— orientation Ã— quantity)</label
+                      >Ply Sequence (material × orientation × quantity)</label
                     >
                     <button
                       type="button"
@@ -266,7 +270,7 @@
                   id="val-thickness"
                   class="text-2xl font-extrabold text-brand-600 dark:text-brand-400 mt-1"
                 >
-                  â€”
+                  —
                 </p>
                 <p class="text-xs text-slate-400 mt-1">millimeters</p>
               </div>
@@ -282,9 +286,9 @@
                   id="val-areal"
                   class="text-2xl font-extrabold text-brand-600 dark:text-brand-400 mt-1"
                 >
-                  â€”
+                  —
                 </p>
-                <p class="text-xs text-slate-400 mt-1">grams / mÂ²</p>
+                <p class="text-xs text-slate-400 mt-1">grams / m²</p>
               </div>
               <div
                 class="rounded-xl border border-slate-100 dark:border-slate-800 p-4"
@@ -298,7 +302,7 @@
                   id="val-weight"
                   class="text-2xl font-extrabold text-brand-600 dark:text-brand-400 mt-1"
                 >
-                  â€”
+                  —
                 </p>
                 <p class="text-xs text-slate-400 mt-1">
                   grams for entered area
@@ -316,7 +320,7 @@
                   id="val-vf"
                   class="text-2xl font-extrabold text-brand-600 dark:text-brand-400 mt-1"
                 >
-                  â€”
+                  —
                 </p>
                 <p class="text-xs text-slate-400 mt-1">
                   % (thickness-weighted)
@@ -334,10 +338,10 @@
                   id="val-ex"
                   class="text-2xl font-extrabold text-brand-600 dark:text-brand-400 mt-1"
                 >
-                  â€”
+                  —
                 </p>
                 <p class="text-xs text-slate-400 mt-1">
-                  GPa (0Â° reference axis)
+                  GPa (0° reference axis)
                 </p>
               </div>
               <div
@@ -352,7 +356,7 @@
                   id="val-cost"
                   class="text-2xl font-extrabold text-brand-600 dark:text-brand-400 mt-1"
                 >
-                  â€”
+                  —
                 </p>
                 <p class="text-xs text-slate-400 mt-1">USD for entered area</p>
               </div>
@@ -368,10 +372,10 @@
                 class="bg-slate-950 text-emerald-400 p-4 rounded-xl font-mono text-xs overflow-x-auto break-all shadow-inner"
                 id="out-breakdown"
               >
-Waiting for inputâ€¦</pre>
+Waiting for input…</pre>
             </div>
 
-            <pre class="hidden" id="out-copy">â€¦</pre>
+            <pre class="hidden" id="out-copy">…</pre>
 
             <div class="flex justify-end pt-2">
               <button
@@ -407,7 +411,7 @@ Waiting for inputâ€¦</pre>
                   >
                     <th class="px-3 py-2">Material</th>
                     <th class="px-3 py-2">Thickness (mm)</th>
-                    <th class="px-3 py-2">Areal Wt (g/mÂ²)</th>
+                    <th class="px-3 py-2">Areal Wt (g/m²)</th>
                     <th class="px-3 py-2">E1 (GPa)</th>
                     <th class="px-3 py-2">E2 (GPa)</th>
                     <th class="px-3 py-2">Vf %</th>
@@ -643,9 +647,9 @@ Waiting for inputâ€¦</pre>
             a +
             '"' +
             (a === angle ? " selected" : "") +
-            ">Â±" +
+            ">±" +
             a +
-            "Â°</option>",
+            "°</option>",
         ).join("");
         return (
           '<div class="ply-row grid grid-cols-2 md:grid-cols-[1fr_120px_90px_auto] gap-2">' +
@@ -702,7 +706,7 @@ Waiting for inputâ€¦</pre>
         const area = parseFloat(document.getElementById("part-area").value);
         const rows = Array.from(document.querySelectorAll(".ply-row"));
         if (!(area > 0)) {
-          errorEl.textContent = "Part area must be greater than 0 mÂ².";
+          errorEl.textContent = "Part area must be greater than 0 m².";
           errorEl.classList.remove("hidden");
           return;
         }
@@ -737,7 +741,7 @@ Waiting for inputâ€¦</pre>
           vfSum += qty * m.t * m.vf;
           exSum += qty * m.t * effE(m.e1, m.e2, ang);
           plyCount += qty;
-          lines.push(m.name + " @ Â±" + ang + "Â° Ã— " + qty);
+          lines.push(m.name + " @ ±" + ang + "° × " + qty);
         }
 
         const vf = totalT > 0 ? vfSum / totalT : 0;
@@ -748,7 +752,7 @@ Waiting for inputâ€¦</pre>
         document.getElementById("val-thickness").textContent =
           totalT.toFixed(3) + " mm";
         document.getElementById("val-areal").textContent =
-          totalAW.toFixed(0) + " g/mÂ²";
+          totalAW.toFixed(0) + " g/m²";
         document.getElementById("val-weight").textContent =
           partWeightG.toFixed(0) + " g";
         document.getElementById("val-vf").textContent =
@@ -762,51 +766,51 @@ Waiting for inputâ€¦</pre>
           plyCount +
           " plies)\n" +
           lines.join("\n") +
-          "\nâ€” Thickness â€”\n" +
-          "t = Î£ qáµ¢Ã—tâ‚šáµ¢ = " +
+          "\n— Thickness —\n" +
+          "t = Σ qᵢ×tₚᵢ = " +
           totalT.toFixed(3) +
           " mm\n" +
-          "â€” Areal weight â€”\n" +
-          "AW = Î£ qáµ¢Ã—awáµ¢ = " +
+          "— Areal weight —\n" +
+          "AW = Σ qᵢ×awᵢ = " +
           totalAW.toFixed(0) +
-          " g/mÂ²\n" +
+          " g/m²\n" +
           "Part weight = " +
           area +
-          " mÂ² Ã— " +
+          " m² × " +
           totalAW.toFixed(0) +
           " = " +
           partWeightG.toFixed(0) +
           " g\n" +
-          "â€” Fiber volume â€”\n" +
-          "Vf = Î£(qáµ¢Ã—tâ‚šáµ¢Ã—Vfáµ¢) Ã· Î£(qáµ¢Ã—tâ‚šáµ¢) = " +
+          "— Fiber volume —\n" +
+          "Vf = Σ(qᵢ×tₚᵢ×Vfᵢ) ÷ Σ(qᵢ×tₚᵢ) = " +
           (vf * 100).toFixed(1) +
           " %\n" +
-          "â€” Stiffness (0Â° axis) â€”\n" +
-          "Ex = Î£(qáµ¢Ã—tâ‚šáµ¢Ã—E(Î¸áµ¢)) Ã· t = " +
+          "— Stiffness (0° axis) —\n" +
+          "Ex = Σ(qᵢ×tₚᵢ×E(θᵢ)) ÷ t = " +
           ex.toFixed(1) +
           " GPa\n" +
-          "â€” Cost â€”\n" +
+          "— Cost —\n" +
           "Cost = " +
           area +
-          " mÂ² Ã— $" +
+          " m² × $" +
           totalCost.toFixed(2) +
-          "/mÂ² = $" +
+          "/m² = $" +
           totalCostForArea.toFixed(2);
 
         document.getElementById("out-copy").textContent =
           "Composite Laminate Summary\n" +
           "Area: " +
           area +
-          " mÂ²\n" +
+          " m²\n" +
           "Stacking sequence:\n" +
           lines.map((l) => "  " + l).join("\n") +
-          "\nâ€” Results â€”\n" +
+          "\n— Results —\n" +
           "Laminate thickness: " +
           totalT.toFixed(3) +
           " mm\n" +
           "Areal weight: " +
           totalAW.toFixed(0) +
-          " g/mÂ²\n" +
+          " g/m²\n" +
           "Part weight: " +
           partWeightG.toFixed(0) +
           " g (" +
@@ -823,7 +827,7 @@ Waiting for inputâ€¦</pre>
 
         if (vf > 0.68) {
           warnEl.textContent =
-            "Warning: fiber volume fraction above 68% is difficult to achieve with hand or prepreg consolidation â€” check the plies for sufficient resin.";
+            "Warning: fiber volume fraction above 68% is difficult to achieve with hand or prepreg consolidation — check the plies for sufficient resin.";
           warnEl.classList.remove("hidden");
         }
       }

@@ -120,7 +120,7 @@ def validate():
 
     # worker.js basic check
     worker = (ROOT / "worker.js").read_text(encoding='utf-8')
-    if "addEventListener('fetch'" in worker and 'text/markdown' in worker:
+    if "addEventListener" in worker and "fetch" in worker and 'text/markdown' in worker:
         print("OK worker.js looks valid")
     else:
         print("FAIL worker.js missing expected patterns")

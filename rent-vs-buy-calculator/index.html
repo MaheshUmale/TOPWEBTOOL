@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
@@ -19,10 +19,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-    />
+    
     <meta charset="UTF-8" />
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -125,9 +122,16 @@
         ]
       }
     </script>
-    <link rel="stylesheet" href="../styles.css" />
-    <link rel="stylesheet" href="../global.css" />
-    <link rel="stylesheet" href="../topwebtool-core.css" />
+    
+    
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../site.min.css">
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+      <link rel="stylesheet" href="../styles.css">
+      <link rel="stylesheet" href="../site.min.css">
+    </noscript>
       <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3901061173891576" crossorigin="anonymous"></script>
   </head>
   <body
@@ -694,7 +698,7 @@
           // rent grows; buying carry is fixed-ish on original; rent savings reinvested
           // We project both paths' investable cash flows.
           // BUY path: down-payment-equivalent cash stays invested (already added). each month the rent-er would have paid rent, instead the owner's carry cost is paid; the delta (rent - carry) if positive is NOT reinvested in buy path (owner pays carry out of income). So buyNet = home value + invested cash from initial dp.
-          // RENT path: invests initial dp (as cash) AND each month invests rent-savings that would have been the down payment â€” instead, renters invest (rent - carry-equivalent)...
+          // RENT path: invests initial dp (as cash) AND each month invests rent-savings that would have been the down payment — instead, renters invest (rent - carry-equivalent)...
           // Standard approach: Rent path invests downPayment + monthly difference(investment return).
           var rentNow = rent * Math.pow(1 + rentInc / 100, mo / 12);
           // amount the renter could invest each month = (what the buyer spends on carry) -> invest instead

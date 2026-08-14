@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
@@ -19,10 +19,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-    />
+    
     <meta charset="UTF-8" />
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -133,9 +130,16 @@
         ]
       }
     </script>
-    <link rel="stylesheet" href="../styles.css" />
-    <link rel="stylesheet" href="../global.css" />
-    <link rel="stylesheet" href="../topwebtool-core.css" />
+    
+    
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../site.min.css">
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+      <link rel="stylesheet" href="../styles.css">
+      <link rel="stylesheet" href="../site.min.css">
+    </noscript>
       <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3901061173891576" crossorigin="anonymous"></script>
   </head>
   <body
@@ -174,7 +178,7 @@
               <h2 class="text-lg font-bold text-slate-900">Room Geometry</h2>
               <span
                 class="text-xs font-bold text-slate-400 uppercase tracking-wide hidden sm:inline"
-                >ðŸ”Š Mode Analysis</span
+                >🔊 Mode Analysis</span
               >
             </div>
 
@@ -321,7 +325,7 @@
                   id="val-axial"
                   class="text-2xl font-extrabold text-brand-600 dark:text-brand-400 mt-1"
                 >
-                  â€”
+                  —
                 </p>
                 <p class="text-xs text-slate-400 mt-1">Hz along Lx / Ly / Lz</p>
               </div>
@@ -337,7 +341,7 @@
                   id="val-flagged"
                   class="text-2xl font-extrabold text-brand-600 dark:text-brand-400 mt-1"
                 >
-                  â€”
+                  —
                 </p>
                 <p class="text-xs text-slate-400 mt-1">
                   modes below display cutoff
@@ -355,7 +359,7 @@
                   id="val-density"
                   class="text-2xl font-extrabold text-brand-600 dark:text-brand-400 mt-1"
                 >
-                  â€”
+                  —
                 </p>
                 <p class="text-xs text-slate-400 mt-1">modes / Hz at 200 Hz</p>
               </div>
@@ -371,7 +375,7 @@
                   id="val-volume"
                   class="text-2xl font-extrabold text-brand-600 dark:text-brand-400 mt-1"
                 >
-                  â€”
+                  —
                 </p>
                 <p class="text-xs text-slate-400 mt-1">cubic units</p>
               </div>
@@ -438,10 +442,10 @@
                 class="bg-slate-950 text-emerald-400 p-4 rounded-xl font-mono text-xs overflow-x-auto break-all shadow-inner"
                 id="out-breakdown"
               >
-Waiting for inputâ€¦</pre>
+Waiting for input…</pre>
             </div>
 
-            <pre class="hidden" id="out-copy">â€¦</pre>
+            <pre class="hidden" id="out-copy">…</pre>
 
             <div class="flex justify-end pt-2">
               <button
@@ -627,7 +631,7 @@ Waiting for inputâ€¦</pre>
         const dims = [Lx, Ly, Lz].sort((a, b) => a - b);
         if (new Set(dims).size < 3) {
           warnEl.textContent =
-            "Warning: two or more room dimensions are equal â€” coincident (clustered) modes are likely. A spread ratio such as Bolt (1:1.14:1.39) avoids this.";
+            "Warning: two or more room dimensions are equal — coincident (clustered) modes are likely. A spread ratio such as Bolt (1:1.14:1.39) avoids this.";
           warnEl.classList.remove("hidden");
         }
 
@@ -684,7 +688,7 @@ Waiting for inputâ€¦</pre>
         document.getElementById("val-density").textContent =
           densityPerHz.toFixed(2) + " /Hz";
         document.getElementById("val-volume").textContent =
-          volume.toFixed(2) + " " + unitLabel + "Â³";
+          volume.toFixed(2) + " " + unitLabel + "³";
 
         const tbody = document.getElementById("mode-table-body");
         let rows = "";
@@ -755,9 +759,9 @@ Waiting for inputâ€¦</pre>
             "</td>" +
             '<td class="px-3 py-2 text-slate-500 dark:text-slate-400">' +
             dh.toFixed(1) +
-            " Ã— " +
+            " × " +
             dw.toFixed(1) +
-            " Ã— " +
+            " × " +
             dl.toFixed(1) +
             " " +
             unitLabel +
@@ -772,7 +776,7 @@ Waiting for inputâ€¦</pre>
         rtbody.innerHTML = rrows;
 
         document.getElementById("out-breakdown").textContent =
-          "Room mode resonance:  f = (c/2) Ã— âˆš((nx/Lx)Â² + (ny/Ly)Â² + (nz/Lz)Â²)\n" +
+          "Room mode resonance:  f = (c/2) × √((nx/Lx)² + (ny/Ly)² + (nz/Lz)²)\n" +
           "Speed of sound c = " +
           c +
           " (" +
@@ -780,9 +784,9 @@ Waiting for inputâ€¦</pre>
           "/s)\n" +
           "Dimensions: " +
           Lx +
-          " Ã— " +
+          " × " +
           Ly +
-          " Ã— " +
+          " × " +
           Lz +
           " " +
           unitLabel +
@@ -790,12 +794,12 @@ Waiting for inputâ€¦</pre>
           volume.toFixed(2) +
           " " +
           unitLabel +
-          "Â³)\n" +
-          "Axial fundamentals: Lxâ†’" +
+          "³)\n" +
+          "Axial fundamentals: Lx→" +
           fAxialX.toFixed(1) +
-          " Hz,  Lyâ†’" +
+          " Hz,  Ly→" +
           fAxialY.toFixed(1) +
-          " Hz,  Lzâ†’" +
+          " Hz,  Lz→" +
           fAxialZ.toFixed(1) +
           " Hz\n" +
           "First modes:\n" +
@@ -831,9 +835,9 @@ Waiting for inputâ€¦</pre>
           ")\n" +
           "Dimensions: " +
           Lx +
-          " Ã— " +
+          " × " +
           Ly +
-          " Ã— " +
+          " × " +
           Lz +
           " " +
           unitLabel +
@@ -841,7 +845,7 @@ Waiting for inputâ€¦</pre>
           volume.toFixed(2) +
           " " +
           unitLabel +
-          "Â³)\n" +
+          "³)\n" +
           "Axial fundamentals: " +
           fAxialX.toFixed(1) +
           " / " +
@@ -859,9 +863,9 @@ Waiting for inputâ€¦</pre>
           " Hz: " +
           densityPerHz.toFixed(2) +
           " modes/Hz\n" +
-          "â€” First " +
+          "— First " +
           uniq.length +
-          " modes â€”\n" +
+          " modes —\n" +
           uniq
             .map(
               (m) =>
@@ -881,18 +885,18 @@ Waiting for inputâ€¦</pre>
                 (m.f < hi ? "  [PROBLEM RANGE]" : ""),
             )
             .join("\n") +
-          "\nâ€” Recommended ratios (scaled to shortest side " +
+          "\n— Recommended ratios (scaled to shortest side " +
           shortest.toFixed(2) +
-          ") â€”\n" +
+          ") —\n" +
           RATIOS.map((r) => {
             const scale = shortest / r.h;
             return (
               r.name +
               ": " +
               (r.h * scale).toFixed(1) +
-              " Ã— " +
+              " × " +
               (r.w * scale).toFixed(1) +
-              " Ã— " +
+              " × " +
               (r.l * scale).toFixed(1) +
               " " +
               unitLabel

@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
@@ -19,10 +19,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-    />
+    
     <meta charset="UTF-8" />
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -132,9 +129,16 @@
         ]
       }
     </script>
-    <link rel="stylesheet" href="../styles.css" />
-    <link rel="stylesheet" href="../global.css" />
-    <link rel="stylesheet" href="../topwebtool-core.css" />
+    
+    
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../site.min.css">
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+      <link rel="stylesheet" href="../styles.css">
+      <link rel="stylesheet" href="../site.min.css">
+    </noscript>
       <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3901061173891576" crossorigin="anonymous"></script>
   </head>
   <body
@@ -291,7 +295,7 @@ Semantic chunking respects the document's natural structure. Paragraphs become c
                       id="st-source"
                       class="text-right py-2 font-extrabold text-slate-900 dark:text-white"
                     >
-                      â€“
+                      –
                     </td>
                   </tr>
                   <tr class="border-b border-slate-100 dark:border-slate-800">
@@ -305,7 +309,7 @@ Semantic chunking respects the document's natural structure. Paragraphs become c
                       id="st-size"
                       class="text-right py-2 font-extrabold text-slate-900 dark:text-white"
                     >
-                      â€“
+                      –
                     </td>
                   </tr>
                   <tr class="border-b border-slate-100 dark:border-slate-800">
@@ -319,7 +323,7 @@ Semantic chunking respects the document's natural structure. Paragraphs become c
                       id="st-overlap"
                       class="text-right py-2 font-extrabold text-slate-900 dark:text-white"
                     >
-                      â€“
+                      –
                     </td>
                   </tr>
                   <tr class="border-b border-slate-100 dark:border-slate-800">
@@ -333,7 +337,7 @@ Semantic chunking respects the document's natural structure. Paragraphs become c
                       id="st-total"
                       class="text-right py-2 font-extrabold text-slate-900 dark:text-white"
                     >
-                      â€“
+                      –
                     </td>
                   </tr>
                   <tr class="border-b border-slate-100 dark:border-slate-800">
@@ -347,7 +351,7 @@ Semantic chunking respects the document's natural structure. Paragraphs become c
                       id="st-avg"
                       class="text-right py-2 font-extrabold text-slate-900 dark:text-white"
                     >
-                      â€“
+                      –
                     </td>
                   </tr>
                   <tr class="border-b border-slate-100 dark:border-slate-800">
@@ -355,13 +359,13 @@ Semantic chunking respects the document's natural structure. Paragraphs become c
                       scope="row"
                       class="text-left py-2 pr-3 font-semibold text-slate-500 dark:text-slate-400"
                     >
-                      Token Estimate (chars Ã· 4)
+                      Token Estimate (chars ÷ 4)
                     </th>
                     <td
                       id="st-tokens"
                       class="text-right py-2 font-extrabold text-slate-900 dark:text-white"
                     >
-                      â€“
+                      –
                     </td>
                   </tr>
                 </tbody>
@@ -417,7 +421,7 @@ Semantic chunking respects the document's natural structure. Paragraphs become c
                     <th scope="col" class="py-2 pr-2 font-bold">Range</th>
                     <th scope="col" class="py-2 pr-2 font-bold">Chars</th>
                     <th scope="col" class="py-2 pr-2 font-bold">Overlap</th>
-                    <th scope="col" class="py-2 font-bold">Tokens (â‰ˆ)</th>
+                    <th scope="col" class="py-2 font-bold">Tokens (≈)</th>
                   </tr>
                 </thead>
                 <tbody id="chunk-tbody"></tbody>
@@ -449,7 +453,7 @@ Semantic chunking respects the document's natural structure. Paragraphs become c
                 <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
                   Before text is embedded and stored in a vector index, it is
                   split into chunks. Fixed-size chunking cuts every N
-                  characters; sliding-window chunking moves forward by N âˆ’
+                  characters; sliding-window chunking moves forward by N −
                   overlap characters so each new chunk reuses a tail of the
                   previous one; semantic chunking splits on paragraph and
                   sentence boundaries. The retriever then scores chunks against
@@ -911,7 +915,7 @@ semantic        = paragraphs, capped at chunk_size, split on sentences</pre>
                 "</td>" +
                 '<td class="py-2 pr-2 font-mono text-xs text-slate-600 dark:text-slate-300">' +
                 c.start +
-                "â€“" +
+                "–" +
                 c.end +
                 "</td>" +
                 '<td class="py-2 pr-2 font-semibold text-slate-900 dark:text-white">' +
@@ -954,7 +958,7 @@ semantic        = paragraphs, capped at chunk_size, split on sentences</pre>
                 1 +
                 ". [" +
                 c.start +
-                "â€“" +
+                "–" +
                 c.end +
                 "] " +
                 c.text.length +

@@ -1,4 +1,4 @@
-ï»¿<!doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
@@ -19,10 +19,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-    />
+    
     <meta charset="UTF-8" />
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -53,9 +50,16 @@
     <meta name="twitter:title" content="Best Practices for HEX to RGBA Color Work | TopWebTool" />
     <meta name="twitter:description" content="Choose the right color format per use case, respect alpha, and hit accessibility contrast targets every time." />
     <meta name="twitter:image" content="https://topwebtool.com/og-image.png" />
-    <link rel="stylesheet" href="../../styles.css" />
-    <link rel="stylesheet" href="../../global.css" />
-    <link rel="stylesheet" href="../../topwebtool-core.css" />
+    
+    
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="../../site.min.css">
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+      <link rel="stylesheet" href="../../styles.css">
+      <link rel="stylesheet" href="../../site.min.css">
+    </noscript>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -130,9 +134,9 @@
               class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4"
             >
               <span>Published: August 2026</span>
-              <span>â€¢</span>
+              <span>•</span>
               <span>Category: Health &amp; Lifestyle</span>
-              <span>â€¢</span>
+              <span>•</span>
               <span class="text-emerald-600 dark:text-emerald-400"
                 >No Sign-Up / 100% Free / No Registration</span
               >
@@ -145,12 +149,12 @@
               <p class="mb-4">
                 Professionals treat color format as a matter of intent, not
                 habit. The first rule is to match the format to the job. Hex is
-                the right choice for brand assets and hard-coded values â€” it is
+                the right choice for brand assets and hard-coded values — it is
                 compact, exact, and everywhere in design files. RGB is the
                 workhorse for dynamic UI because JavaScript and CSS animation
                 libraries interpolate channels cleanly, and CSS variables are
                 most maintainable when they store raw channel numbers. HSL is
-                the thinking format â€” it lets you reason about hue and lightness
+                the thinking format — it lets you reason about hue and lightness
                 without mental math, which makes it ideal for palettes and
                 theming. Convert deliberately, and let the destination dictate
                 the spelling.
@@ -160,7 +164,7 @@
                 alpha as an 8-bit pair, 00 through FF, where FF is fully opaque.
                 RGBA writes the same value as a 0-to-1 fraction, and hsl/hsla
                 accept either a fraction or a percentage. Confusing these is the
-                classic color bug â€” treating rgba(â€¦, 128) as 50% opacity when it
+                classic color bug — treating rgba(…, 128) as 50% opacity when it
                 is actually 128/255, or writing #RRGGBB00 expecting it to mean
                 fully opaque. Normalize every input to one internal RGBA model
                 before converting, exactly as the tool does, and you eliminate
@@ -173,8 +177,8 @@
                 between text and its background, so a button color that looks
                 fine at full opacity can fail once it sits under 40% alpha over
                 a dark image. The reliable workflow is to measure against the
-                actual composited background â€” the tool composites your color
-                over white for this reason â€” and to check both black and white
+                actual composited background — the tool composites your color
+                over white for this reason — and to check both black and white
                 text so you know which combination passes before you write the
                 CSS rule.
               </p>
@@ -182,8 +186,8 @@
                 Fourth, standardize a palette before the project grows. A
                 handful of hand-typed hex values scattered across files is how
                 contrast failures and inconsistent greys get born. Collect the
-                colors into tokens â€” brand primary, brand hover, surface, text
-                muted, and so on â€” stored once as canonical RGB or HSL values,
+                colors into tokens — brand primary, brand hover, surface, text
+                muted, and so on — stored once as canonical RGB or HSL values,
                 and convert to hex only where a format demands it. The converter
                 is the verification step in that pipeline: when a new token is
                 proposed, convert it, check its contrast on the relevant
@@ -197,7 +201,7 @@
                 from it, which keeps the palette small and the UI visually
                 coherent. The trick is to remember alpha is a blend, not a
                 paint: a 50% overlay of brand blue over a white page is not half
-                the color â€” it is the exact blend the converter shows you in the
+                the color — it is the exact blend the converter shows you in the
                 swatch and in the composited contrast number.
               </p>
               <p class="mb-6">
@@ -222,8 +226,8 @@
               </p>
               <p class="mb-4">
                 Finally, make conversion a reflexive cross-check. Whenever a
-                color is handed off â€” from a brand guide, a Figma export, a
-                marketing brief, or another developer's CSS â€” convert it and
+                color is handed off — from a brand guide, a Figma export, a
+                marketing brief, or another developer's CSS — convert it and
                 confirm the RGB channels match the stated intent. A single-digit
                 typo in a hex pair changes the color silently, while converting
                 the value and comparing it against the known brand number

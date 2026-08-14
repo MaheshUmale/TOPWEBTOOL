@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
@@ -19,10 +19,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-    />
+    
     <meta charset="UTF-8" />
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -124,15 +121,22 @@
           {
             "@type": "ListItem",
             "position": 2,
-            "name": "ðŸ·ï¸ Markup vs. Margin Tool",
+            "name": "🏷️ Markup vs. Margin Tool",
             "item": "https://topwebtool.com/markup-margin-tool/"
           }
         ]
       }
     </script>
-    <link rel="stylesheet" href="../styles.css" />
-    <link rel="stylesheet" href="../global.css" />
-    <link rel="stylesheet" href="../topwebtool-core.css" />
+    
+    
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../site.min.css">
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+      <link rel="stylesheet" href="../styles.css">
+      <link rel="stylesheet" href="../site.min.css">
+    </noscript>
       <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3901061173891576" crossorigin="anonymous"></script>
   </head>
   <body
@@ -152,7 +156,7 @@
             <h1
               class="text-3xl font-extrabold text-slate-900 tracking-tight sm:text-4xl"
             >
-              ðŸ·ï¸ Markup vs. Margin Tool
+              🏷️ Markup vs. Margin Tool
             </h1>
             <p class="mt-2 text-base text-slate-500">
               Convert markup and margin in both directions. Enter a product cost
@@ -404,16 +408,16 @@
                   financial reports and buyer agreements talk about margin (a
                   percentage of the selling price). This tool converts in both
                   directions so a 40% markup on a $50 product becomes a 28.57%
-                  margin â€” and lets you back into a sale price from either a
+                  margin — and lets you back into a sale price from either a
                   target markup or a target margin.
                 </p>
                 <div
                   class="mt-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg p-4 font-mono text-xs text-slate-700 dark:text-slate-300 space-y-1 overflow-x-auto"
                 >
-                  <div>markup% = (price âˆ’ cost) / cost Ã— 100</div>
-                  <div>margin% = (price âˆ’ cost) / price Ã— 100</div>
-                  <div>price = cost Ã— (1 + markup%)</div>
-                  <div>price = cost / (1 âˆ’ margin%)</div>
+                  <div>markup% = (price − cost) / cost × 100</div>
+                  <div>margin% = (price − cost) / price × 100</div>
+                  <div>price = cost × (1 + markup%)</div>
+                  <div>price = cost / (1 − margin%)</div>
                 </div>
               </div>
               <div>
@@ -430,7 +434,7 @@
                   </li>
                   <li>
                     A margin of 100% (price = double the cost) equals a markup
-                    of 100%, but a markup of 100% equals only a 50% margin â€” the
+                    of 100%, but a markup of 100% equals only a 50% margin — the
                     two are not interchangeable.
                   </li>
                   <li>
@@ -463,8 +467,8 @@
                   margin percentage, or a target sale price.
                 </li>
                 <li>
-                  Review all four outputs â€” sale price, profit per unit, markup
-                  %, and margin % â€” and use the Copy button to save a summary.
+                  Review all four outputs — sale price, profit per unit, markup
+                  %, and margin % — and use the Copy button to save a summary.
                 </li>
               </ol>
             </div>
@@ -666,7 +670,7 @@
       }
 
       function fmtMoney(v) {
-        if (!isFinite(v)) return "â€”";
+        if (!isFinite(v)) return "—";
         return v.toLocaleString("en-US", {
           style: "currency",
           currency: "USD",
@@ -676,7 +680,7 @@
       }
 
       function fmtPct(v) {
-        if (!isFinite(v)) return "â€”";
+        if (!isFinite(v)) return "—";
         return v.toFixed(2) + "%";
       }
 
@@ -709,7 +713,7 @@
             "Markup must be greater than -100% (below that the price goes negative).";
         if (mode === "margin" && !errSecond && second >= 100)
           errSecond =
-            "Margin must be less than 100% â€” a 100% margin would mean an infinite price.";
+            "Margin must be less than 100% — a 100% margin would mean an infinite price.";
         if (mode === "price" && !errSecond && second <= 0)
           errSecond = "Selling price must be greater than 0.";
 
@@ -749,7 +753,7 @@
             "Fix the highlighted fields to see your pricing snapshot.";
         } else if (profit < 0) {
           note.textContent =
-            "This price is below cost â€” you lose " +
+            "This price is below cost — you lose " +
             fmtMoney(Math.abs(profit)) +
             " on every unit sold. Raise the price or lower the cost.";
         } else if (margin > 0 && margin < 5) {

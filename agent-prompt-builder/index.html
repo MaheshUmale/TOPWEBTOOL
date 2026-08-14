@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
@@ -19,10 +19,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-    />
+    
     <meta charset="UTF-8" />
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -129,9 +126,16 @@
         ]
       }
     </script>
-    <link rel="stylesheet" href="../styles.css" />
-    <link rel="stylesheet" href="../global.css" />
-    <link rel="stylesheet" href="../topwebtool-core.css" />
+    
+    
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../site.min.css">
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+      <link rel="stylesheet" href="../styles.css">
+      <link rel="stylesheet" href="../site.min.css">
+    </noscript>
       <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3901061173891576" crossorigin="anonymous"></script>
   </head>
   <body
@@ -292,7 +296,7 @@ Keep answers under 300 words unless asked for detail.</textarea>
                 id="out-prompt"
                 class="bg-slate-950 text-emerald-400 p-4 rounded-xl font-mono text-xs overflow-x-auto break-all shadow-inner whitespace-pre-wrap"
               >
-â€¦</pre>
+…</pre>
             </div>
 
             <div class="space-y-3">
@@ -314,7 +318,7 @@ Keep answers under 300 words unless asked for detail.</textarea>
                 id="out-tools"
                 class="bg-slate-950 text-emerald-400 p-4 rounded-xl font-mono text-xs overflow-x-auto break-all shadow-inner whitespace-pre-wrap"
               >
-â€¦</pre>
+…</pre>
             </div>
 
             <div class="flex justify-end pt-2">
@@ -404,7 +408,7 @@ Keep answers under 300 words unless asked for detail.</textarea>
                   to bound its behavior.
                 </li>
                 <li>
-                  Choose the output format â€” Markdown, XML, or JSON â€” to fix the
+                  Choose the output format — Markdown, XML, or JSON — to fix the
                   response contract.
                 </li>
                 <li>
@@ -429,7 +433,7 @@ Keep answers under 300 words unless asked for detail.</textarea>
   "type": "function",
   "function": {
     "name": "web_search",
-    "description": "Search the web for up-to-date factsâ€¦",
+    "description": "Search the web for up-to-date facts…",
     "parameters": {
       "type": "object",
       "properties": { "query": { "type": "string" } },
@@ -437,7 +441,7 @@ Keep answers under 300 words unless asked for detail.</textarea>
     }
   }
 }
-prompt_tokens  â‰ˆ words * 1.33        // rough system prompt cost
+prompt_tokens  ≈ words * 1.33        // rough system prompt cost
 format_contract: Markdown | XML | JSON</pre>
             </div>
 

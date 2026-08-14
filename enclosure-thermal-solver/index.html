@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
@@ -19,10 +19,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-    />
+    
     <meta charset="UTF-8" />
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -132,9 +129,16 @@
         ]
       }
     </script>
-    <link rel="stylesheet" href="../styles.css" />
-    <link rel="stylesheet" href="../global.css" />
-    <link rel="stylesheet" href="../topwebtool-core.css" />
+    
+    
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../site.min.css">
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+      <link rel="stylesheet" href="../styles.css">
+      <link rel="stylesheet" href="../site.min.css">
+    </noscript>
       <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3901061173891576" crossorigin="anonymous"></script>
   </head>
   <body
@@ -251,9 +255,9 @@
                   id="inp-material"
                   class="block w-full px-3 py-2.5 border border-slate-300 dark:border-slate-700 rounded-lg bg-white dark:bg-slate-950 text-slate-950 dark:text-slate-100 text-sm font-semibold"
                 >
-                  <option value="steel" selected>Steel (~5.5 W/mÂ²Â·K)</option>
-                  <option value="aluminum">Aluminum (~6.8 W/mÂ²Â·K)</option>
-                  <option value="polyester">Polyester (~4.2 W/mÂ²Â·K)</option>
+                  <option value="steel" selected>Steel (~5.5 W/m²·K)</option>
+                  <option value="aluminum">Aluminum (~6.8 W/m²·K)</option>
+                  <option value="polyester">Polyester (~4.2 W/m²·K)</option>
                 </select>
               </div>
               <div>
@@ -294,7 +298,7 @@
                 <label
                   for="inp-ambient"
                   class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2"
-                  >Ambient Temperature (Â°C)</label
+                  >Ambient Temperature (°C)</label
                 >
                 <input
                   type="number"
@@ -310,7 +314,7 @@
                 <label
                   for="inp-tmax"
                   class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2"
-                  >Max Allowed Internal Temp (Â°C)</label
+                  >Max Allowed Internal Temp (°C)</label
                 >
                 <input
                   type="number"
@@ -353,7 +357,7 @@
                 <span
                   id="out-area"
                   class="font-extrabold text-slate-900 dark:text-white"
-                  >â€“</span
+                  >–</span
                 >
               </div>
               <div
@@ -365,7 +369,7 @@
                 <span
                   id="out-h"
                   class="font-extrabold text-slate-900 dark:text-white"
-                  >â€“</span
+                  >–</span
                 >
               </div>
               <div
@@ -377,7 +381,7 @@
                 <span
                   id="out-heatden"
                   class="font-extrabold text-slate-900 dark:text-white"
-                  >â€“</span
+                  >–</span
                 >
               </div>
               <div
@@ -389,7 +393,7 @@
                 <span
                   id="out-deltat"
                   class="font-extrabold text-slate-900 dark:text-white"
-                  >â€“</span
+                  >–</span
                 >
               </div>
               <div
@@ -401,7 +405,7 @@
                 <span
                   id="out-internal"
                   class="font-extrabold text-slate-900 dark:text-white"
-                  >â€“</span
+                  >–</span
                 >
               </div>
               <div
@@ -413,7 +417,7 @@
                 <span
                   id="out-cfm"
                   class="font-extrabold text-slate-900 dark:text-white"
-                  >â€“</span
+                  >–</span
                 >
               </div>
               <div
@@ -425,7 +429,7 @@
                 <span
                   id="out-fan"
                   class="font-extrabold text-slate-900 dark:text-white"
-                  >â€“</span
+                  >–</span
                 >
               </div>
               <div
@@ -437,7 +441,7 @@
                 <span
                   id="out-fanrise"
                   class="font-extrabold text-slate-900 dark:text-white"
-                  >â€“</span
+                  >–</span
                 >
               </div>
             </div>
@@ -490,7 +494,7 @@
                   resistance: temperature rise equals heat dissipation divided
                   by the product of a heat-transfer coefficient and the total
                   surface area. Steel and painted finishes give roughly 5.5
-                  W/mÂ²Â·K; aluminum and dark finishes do a little better. When
+                  W/m²·K; aluminum and dark finishes do a little better. When
                   the rise exceeds the component limit, venting or a filter fan
                   must move heat out of the air directly.
                 </p>
@@ -512,12 +516,12 @@
                     sun needs an allowance beyond pure internal watts.
                   </li>
                   <li>
-                    Filter derating: a filter fan delivers only ~60â€“75% of its
+                    Filter derating: a filter fan delivers only ~60–75% of its
                     free-air CFM through a mat; size for the derated value.
                   </li>
                   <li>
                     Recirculation: an exhaust fan placed beside the intake just
-                    cycles hot air â€” the flow path must cross the heat sources.
+                    cycles hot air — the flow path must cross the heat sources.
                   </li>
                 </ul>
               </div>
@@ -565,7 +569,7 @@ dT      = P / (h * A)                    // sealed temperature rise (K)
 CFM     = 1.76 * P / dT_C                // required airflow for rise dT (degC)
 CFM_F   = 3.16 * P / dT_F                // equivalent in Fahrenheit
 Recommended = required CFM / 0.7         // 70% filter efficiency allowance
-Rule: &gt;100 W/m2 â†’ fan ; &gt;300 W/m2 â†’ air conditioner</pre>
+Rule: &gt;100 W/m2 → fan ; &gt;300 W/m2 → air conditioner</pre>
             </div>
 
             <!-- Semantic SEO Related Tool Matrix Silo -->
@@ -641,7 +645,7 @@ Rule: &gt;100 W/m2 â†’ fan ; &gt;300 W/m2 â†’ air conditioner</pre>
                   resistance: temperature rise equals heat dissipation divided
                   by the product of a heat-transfer coefficient and the total
                   surface area. Steel and painted finishes give roughly 5.5
-                  W/mÂ²Â·K; aluminum and dark finishes do a little better. When
+                  W/m²·K; aluminum and dark finishes do a little better. When
                   the rise exceeds the component limit, venting or a filter fan
                   must move heat out of the air directly.
                 </p>
@@ -663,12 +667,12 @@ Rule: &gt;100 W/m2 â†’ fan ; &gt;300 W/m2 â†’ air conditioner</pre>
                     sun needs an allowance beyond pure internal watts.
                   </li>
                   <li>
-                    Filter derating: a filter fan delivers only ~60â€“75% of its
+                    Filter derating: a filter fan delivers only ~60–75% of its
                     free-air CFM through a mat; size for the derated value.
                   </li>
                   <li>
                     Recirculation: an exhaust fan placed beside the intake just
-                    cycles hot air â€” the flow path must cross the heat sources.
+                    cycles hot air — the flow path must cross the heat sources.
                   </li>
                 </ul>
               </div>
@@ -716,7 +720,7 @@ dT      = P / (h * A)                    // sealed temperature rise (K)
 CFM     = 1.76 * P / dT_C                // required airflow for rise dT (degC)
 CFM_F   = 3.16 * P / dT_F                // equivalent in Fahrenheit
 Recommended = required CFM / 0.7         // 70% filter efficiency allowance
-Rule: &gt;100 W/m2 â†’ fan ; &gt;300 W/m2 â†’ air conditioner</pre>
+Rule: &gt;100 W/m2 → fan ; &gt;300 W/m2 → air conditioner</pre>
             </div>
 
             <!-- Semantic SEO Related Tool Matrix Silo -->
@@ -783,8 +787,8 @@ Rule: &gt;100 W/m2 â†’ fan ; &gt;300 W/m2 â†’ air conditioner</pre>
                   Ultimate Guide to Enclosure Thermal Solver
                 </h3>
                 <p class="text-xs text-slate-400 dark:text-slate-500 mt-1">
-                  The Î”T = P/(hÂ·A) formula, material heat-transfer coefficients,
-                  venting effects, and the CFM = 1.76Â·P/Î”T fan-sizing rule.
+                  The ΔT = P/(h·A) formula, material heat-transfer coefficients,
+                  venting effects, and the CFM = 1.76·P/ΔT fan-sizing rule.
                 </p>
                 <span
                   class="text-xs font-semibold text-brand-600 dark:text-brand-400 mt-3 inline-block group-hover:translate-x-1 transition-transform"
@@ -932,7 +936,7 @@ Rule: &gt;100 W/m2 â†’ fan ; &gt;300 W/m2 â†’ air conditioner</pre>
             "out-cfm",
             "out-fan",
             "out-fanrise",
-          ].forEach((id) => (document.getElementById(id).textContent = "â€”"));
+          ].forEach((id) => (document.getElementById(id).textContent = "—"));
           document.getElementById("out-verdict").textContent = "";
           return;
         }
@@ -963,23 +967,23 @@ Rule: &gt;100 W/m2 â†’ fan ; &gt;300 W/m2 â†’ air conditioner</pre>
               ? "vented"
               : "sealed";
 
-        document.getElementById("out-area").textContent = A.toFixed(2) + " mÂ²";
+        document.getElementById("out-area").textContent = A.toFixed(2) + " m²";
         document.getElementById("out-h").textContent =
-          hEff.toFixed(2) + " W/mÂ²Â·K";
+          hEff.toFixed(2) + " W/m²·K";
         document.getElementById("out-heatden").textContent =
-          heatDen.toFixed(1) + " W/mÂ²";
+          heatDen.toFixed(1) + " W/m²";
         document.getElementById("out-deltat").textContent =
-          deltaT.toFixed(1) + " Â°C (" + modeLabel + ")";
+          deltaT.toFixed(1) + " °C (" + modeLabel + ")";
         document.getElementById("out-internal").textContent =
-          Tinternal.toFixed(1) + " Â°C";
+          Tinternal.toFixed(1) + " °C";
         document.getElementById("out-cfm").textContent =
           cfmReq.toFixed(0) + " CFM";
         document.getElementById("out-fan").textContent =
           cfmRec.toFixed(0) + " CFM";
         document.getElementById("out-fanrise").textContent =
           vent === "fan"
-            ? fanRise.toFixed(1) + " Â°C â†’ " + fanInternal.toFixed(1) + " Â°C"
-            : "â€” (select fan-assisted)";
+            ? fanRise.toFixed(1) + " °C → " + fanInternal.toFixed(1) + " °C"
+            : "— (select fan-assisted)";
 
         let verdict;
         const overTarget = Tinternal > Tmax;
@@ -987,15 +991,15 @@ Rule: &gt;100 W/m2 â†’ fan ; &gt;300 W/m2 â†’ air conditioner</pre>
           verdict =
             "High heat density (" +
             heatDen.toFixed(1) +
-            " W/mÂ²). A filter fan alone will struggle â€” evaluate an air conditioner or heat exchanger.";
+            " W/m²). A filter fan alone will struggle — evaluate an air conditioner or heat exchanger.";
         } else if (heatDen > 100 || overTarget) {
           verdict =
             "Predicted internal temperature " +
             Tinternal.toFixed(1) +
-            " Â°C " +
+            " °C " +
             (overTarget
-              ? "exceeds the " + Tmax.toFixed(0) + " Â°C target"
-              : "is within the " + Tmax.toFixed(0) + " Â°C target") +
+              ? "exceeds the " + Tmax.toFixed(0) + " °C target"
+              : "is within the " + Tmax.toFixed(0) + " °C target") +
             ". Install a filter fan sized to the recommended " +
             cfmRec.toFixed(0) +
             " CFM.";
@@ -1003,22 +1007,22 @@ Rule: &gt;100 W/m2 â†’ fan ; &gt;300 W/m2 â†’ air conditioner</pre>
           verdict =
             "Sealed natural convection keeps the internal temperature at " +
             Tinternal.toFixed(1) +
-            " Â°C â€” within the " +
+            " °C — within the " +
             Tmax.toFixed(0) +
-            " Â°C target. No forced airflow required.";
+            " °C target. No forced airflow required.";
         }
         document.getElementById("out-verdict").textContent = verdict;
 
         const warns = [];
         if (deltaT > 10)
           warns.push(
-            "âš  Sealed rise of " +
+            "⚠ Sealed rise of " +
               deltaT.toFixed(1) +
-              " Â°C exceeds the common 10 K rule of thumb for component lifetime â€” venting or a fan is strongly recommended.",
+              " °C exceeds the common 10 K rule of thumb for component lifetime — venting or a fan is strongly recommended.",
           );
         if (cfmReq > 500)
           warns.push(
-            "âš  Required airflow is " +
+            "⚠ Required airflow is " +
               cfmReq.toFixed(0) +
               " CFM. Large filter fans or an air-conditioning unit may be needed; re-check the heat load.",
           );
@@ -1033,31 +1037,31 @@ Rule: &gt;100 W/m2 â†’ fan ; &gt;300 W/m2 â†’ air conditioner</pre>
             .join("");
         } else {
           warn.innerHTML =
-            '<p class="p-3 bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800 rounded-lg text-xs font-semibold text-emerald-700 dark:text-emerald-400">âœ“ Thermal solution is within conventional enclosure sizing limits.</p>';
+            '<p class="p-3 bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800 rounded-lg text-xs font-semibold text-emerald-700 dark:text-emerald-400">✓ Thermal solution is within conventional enclosure sizing limits.</p>';
         }
 
         window.__enclosureSummary =
           "Enclosure Thermal Results\n" +
           "Surface area: " +
           A.toFixed(2) +
-          " mÂ² | Heat transfer: " +
+          " m² | Heat transfer: " +
           hEff.toFixed(2) +
-          " W/mÂ²Â·K\n" +
+          " W/m²·K\n" +
           "Heat density: " +
           heatDen.toFixed(1) +
-          " W/mÂ²\n" +
+          " W/m²\n" +
           "Temp rise (" +
           modeLabel +
           "): " +
           deltaT.toFixed(1) +
-          " Â°C â†’ internal " +
+          " °C → internal " +
           Tinternal.toFixed(1) +
-          " Â°C (ambient " +
+          " °C (ambient " +
           Tamb.toFixed(0) +
-          " Â°C)\n" +
+          " °C)\n" +
           "Required CFM to reach " +
           Tmax.toFixed(0) +
-          " Â°C: " +
+          " °C: " +
           cfmReq.toFixed(0) +
           " CFM\n" +
           "Recommended fan (70% filter allowance): " +

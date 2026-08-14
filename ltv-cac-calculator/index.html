@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <script>
@@ -18,10 +18,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-    />
+    
     <meta charset="UTF-8" />
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -129,9 +126,16 @@
         ]
       }
     </script>
-    <link rel="stylesheet" href="../styles.css" />
-    <link rel="stylesheet" href="../global.css" />
-    <link rel="stylesheet" href="../topwebtool-core.css" />
+    
+    
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../site.min.css">
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+      <link rel="stylesheet" href="../styles.css">
+      <link rel="stylesheet" href="../site.min.css">
+    </noscript>
       <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3901061173891576" crossorigin="anonymous"></script>
   </head>
   <body
@@ -396,7 +400,7 @@
                   <p class="text-sm font-medium" id="result-health-label">
                     Health Status
                   </p>
-                  <p class="text-2xl font-bold mt-1" id="result-health">â€”</p>
+                  <p class="text-2xl font-bold mt-1" id="result-health">—</p>
                   <p class="text-xs mt-1" id="result-recommendation">
                     Enter values to see recommendations
                   </p>
@@ -781,7 +785,7 @@
         document.getElementById("result-health-label").className =
           "text-sm font-medium " + healthLabelClass;
         document.getElementById("result-health").textContent =
-          healthStatus || "â€”";
+          healthStatus || "—";
         document.getElementById("result-health").className =
           "text-2xl font-bold mt-1 " + healthTextClass;
         document.getElementById("result-recommendation").textContent =

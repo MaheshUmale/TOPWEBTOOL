@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
@@ -19,10 +19,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-    />
+    
     <meta charset="UTF-8" />
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -132,9 +129,16 @@
         ]
       }
     </script>
-    <link rel="stylesheet" href="../styles.css" />
-    <link rel="stylesheet" href="../global.css" />
-    <link rel="stylesheet" href="../topwebtool-core.css" />
+    
+    
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../site.min.css">
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+      <link rel="stylesheet" href="../styles.css">
+      <link rel="stylesheet" href="../site.min.css">
+    </noscript>
       <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3901061173891576" crossorigin="anonymous"></script>
   </head>
   <body
@@ -854,7 +858,7 @@ Wire color sequence: MIL-STD-681 base 10 + pink/sky</pre>
         (D38999[shell] || []).forEach((a) => {
           const opt = document.createElement("option");
           opt.value = a.arr;
-          opt.textContent = a.arr + " â€” " + a.pins + " contacts (" + a.c + ")";
+          opt.textContent = a.arr + " — " + a.pins + " contacts (" + a.c + ")";
           sel.appendChild(opt);
         });
       }
@@ -863,7 +867,7 @@ Wire color sequence: MIL-STD-681 base 10 + pink/sky</pre>
         const arr = currentArrangement();
         const tbody = document.getElementById("pin-table-body");
         document.getElementById("pin-count-label").textContent = arr
-          ? arr.arr + " Â· " + arr.pins + " contacts Â· contact size " + arr.c
+          ? arr.arr + " · " + arr.pins + " contacts · contact size " + arr.c
           : "";
         document.getElementById("arrangement-info").textContent = arr
           ? "Insert arrangement " +
@@ -959,7 +963,7 @@ Wire color sequence: MIL-STD-681 base 10 + pink/sky</pre>
               " (" +
               r.color +
               ")" +
-              (r.notes ? " â€” " + r.notes : ""),
+              (r.notes ? " — " + r.notes : ""),
           )
           .join("\n");
         window.__csv = csv.textContent;
@@ -1026,7 +1030,7 @@ Wire color sequence: MIL-STD-681 base 10 + pink/sky</pre>
         }
         ctx.fillStyle = dark ? "#94a3b8" : "#475569";
         ctx.font = "11px Inter, sans-serif";
-        ctx.fillText(count + " contacts Â· schematic only", cx, h - 12);
+        ctx.fillText(count + " contacts · schematic only", cx, h - 12);
       }
 
       function downloadCSV() {

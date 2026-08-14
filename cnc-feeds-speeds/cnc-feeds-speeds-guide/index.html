@@ -1,4 +1,4 @@
-ï»¿<!doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
@@ -19,10 +19,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-    />
+    
     <meta charset="UTF-8" />
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -53,9 +50,16 @@
     <meta name="twitter:title" content="Guide to CNC Feeds, Speeds &amp; MRR | TopWebTool" />
     <meta name="twitter:description" content="Master CNC cutting data: surface speed, RPM, chip load, feed rate, and material removal rate formulas explained for machinists." />
     <meta name="twitter:image" content="https://topwebtool.com/og-image.png" />
-    <link rel="stylesheet" href="../../styles.css" />
-    <link rel="stylesheet" href="../../global.css" />
-    <link rel="stylesheet" href="../../topwebtool-core.css" />
+    
+    
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="../../site.min.css">
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+      <link rel="stylesheet" href="../../styles.css">
+      <link rel="stylesheet" href="../../site.min.css">
+    </noscript>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -130,9 +134,9 @@
               class="flex items-center space-x-2 text-xs text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800/80 pb-4"
             >
               <span>Published: August 2026</span>
-              <span>â€¢</span>
+              <span>•</span>
               <span>Category: Industrial & Engineering</span>
-              <span>â€¢</span>
+              <span>•</span>
               <span class="text-emerald-600 dark:text-emerald-400"
                 >No Sign-Up / 100% Free / No Registration</span
               >
@@ -166,7 +170,7 @@
                 window. Because edge speed climbs as the tool gets bigger, a
                 larger cutter must turn fewer revolutions to maintain the same
                 surface speed. That relationship is the classic rule: RPM = SFM
-                Ã— 3.82 Ã· cutter diameter in inches, where 3.82 = 12 Ã· p converts
+                × 3.82 ÷ cutter diameter in inches, where 3.82 = 12 ÷ p converts
                 linear feet per minute of edge travel into revolutions per
                 minute of the spindle.
               </p>
@@ -176,7 +180,7 @@
                 chip on every revolution, and the thickness of that chip is the
                 chip load, usually quoted in inches per tooth. Multiply spindle
                 RPM by the flute count and the chip load and you get the linear
-                table feed: IPM = RPM Ã— flutes Ã— chip load. The chip load is
+                table feed: IPM = RPM × flutes × chip load. The chip load is
                 where material data becomes critical. A 4-flute carbide end mill
                 slotting Aluminium 6061 runs comfortably around 0.010 to 0.012
                 inches per tooth, but the same geometry in Stainless Steel 304
@@ -188,12 +192,12 @@
               <p class="mb-4">
                 Multiplying the width of cut (radial engagement) by the depth of
                 cut (axial engagement) by the feed rate yields the material
-                removal rate in cubic inches per minute: MRR = WOC Ã— DOC Ã— feed.
+                removal rate in cubic inches per minute: MRR = WOC × DOC × feed.
                 MRR is the shop-floor productivity number. Doubling the depth of
                 cut doubles the metal removed per minute, but it also doubles
                 the load on every cutting edge and multiplies the heat sunk into
                 the tool. This is why the practical limit on MRR is almost never
-                the arithmetic â€” it is the torque the spindle can deliver, the
+                the arithmetic — it is the torque the spindle can deliver, the
                 rigidity of the machine and toolholder, and the ability of the
                 coolant to carry heat away.
               </p>
@@ -243,14 +247,14 @@
                 the middle of the SFM range, run the first part, and listen: a
                 clear ring indicates a stable cut, while a dull thud or harmonic
                 squeal is chatter. Inspecting chip color and curl provides more
-                information than any chart â€” blue-tinted chips in steel mean the
+                information than any chart — blue-tinted chips in steel mean the
                 edge is getting hot, while tightly coiled silver chips show the
                 feed and speed are balanced.
               </p>
               <p class="mb-4">
                 Use the CNC Feeds, Speeds & MRR Matrix to generate a complete
-                cutting-data block â€” RPM, IPM, MRR, chip thickness, feed per
-                revolution, and estimated spindle power â€” then copy it straight
+                cutting-data block — RPM, IPM, MRR, chip thickness, feed per
+                revolution, and estimated spindle power — then copy it straight
                 into your setup sheet or CAM tool. The tool runs entirely in
                 your browser, needs no account, and keeps your shop data
                 private. Start near the middle of the recommended range, verify
