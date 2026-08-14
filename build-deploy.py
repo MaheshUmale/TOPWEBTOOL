@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """TopWebTool build script: validate + zip directly from source, no temp copy."""
-import os, re, sys, json, zipfile
+import os, re, sys, json, zipfile, datetime
 from pathlib import Path
 
 ROOT = Path(r"D:\TOPWEBTOOL")
-ZIP = ROOT / "deployment.zip"
+ZIP = ROOT / f"deployment_{datetime.datetime.now():%d%m%y_%H%M%S}.zip"
 
 EXCLUDE_DIRS = {
     '.git', '.kilo', '.opencode', '.vscode', 'node_modules',
