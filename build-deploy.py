@@ -14,6 +14,7 @@ EXCLUDE_DIRS = {
 EXCLUDE_FILES = {
     '.gitignore', 'opencode.json', '.session-state.json',
     'AGENTS.md', 'README.md', 'ACTION_PLAN.md',
+    'DEVELOPER_GUIDE.md', 'TODO.md', 'EMOTIONAL_DESIGN.md', 'PROJECT_STRUCTURE.md',
     'build-deploy.py', 'build-deploy.ps1', 'BUILD_ZIP_LIVE_SITE.ps1',
 }
 EXCLUDE_SUFFIXES = {'.ps1', '.zip', '.py'}
