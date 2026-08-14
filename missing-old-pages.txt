@@ -1,0 +1,5 @@
+Locale paths redirected to home (no target page needed):
+- /fr → /
+- /hr → /
+- /hz → /
+- /pt → /
