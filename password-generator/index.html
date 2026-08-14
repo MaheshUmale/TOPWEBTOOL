@@ -247,16 +247,17 @@
               Generated Safe Password
             </h2>
             <div
-              class="bg-slate-950 text-slate-200 p-4 rounded-xl font-mono text-base break-all text-center tracking-wider shadow-inner"
+              class="bg-slate-950 text-emerald-400 p-4 rounded-xl font-mono text-base break-all text-center tracking-wider shadow-inner border border-emerald-500/30 transition-all duration-300"
               id="out-password"
+              aria-live="polite"
             >
               ...
             </div>
             <div class="flex justify-end pt-2">
               <button
-                onclick="copyPassword()"
+                onclick="copyPassword(event)"
                 id="btn-copy"
-                class="px-5 py-2.5 bg-brand-600 text-white hover:bg-brand-700 transition-colors font-bold text-sm rounded-lg shadow-sm"
+                class="px-5 py-2.5 bg-indigo-600 hover:bg-indigo-500 text-white transition-all duration-200 font-bold text-sm rounded-lg shadow-lg flex items-center space-x-2"
               >
                 <span>Copy Password</span>
               </button>
@@ -522,14 +523,21 @@
         document.getElementById("out-password").textContent = password;
       }
 
-      function copyPassword() {
-        const btn = document.getElementById("btn-copy");
+      function copyPassword(event) {
+        const btn = (event && event.currentTarget) ? event.currentTarget : document.getElementById("btn-copy");
         const text = btn.querySelector("span");
         const password = document.getElementById("out-password").textContent;
         navigator.clipboard.writeText(password).then(() => {
-          text.textContent = "Copied Password!";
+          if (text) text.textContent = "✓ Verified & Copied Safe Password!";
+          btn.classList.remove("bg-indigo-600", "hover:bg-indigo-500");
+          btn.classList.add("bg-emerald-600", "hover:bg-emerald-500");
+          if (typeof window.fireConfetti === "function") {
+            window.fireConfetti();
+          }
           setTimeout(() => {
-            text.textContent = "Copy Password";
+            if (text) text.textContent = "Copy Password";
+            btn.classList.remove("bg-emerald-600", "hover:bg-emerald-500");
+            btn.classList.add("bg-indigo-600", "hover:bg-indigo-500");
           }, 2000);
         });
       }

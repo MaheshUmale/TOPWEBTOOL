@@ -752,7 +752,7 @@
 
               <!-- Savings card if Extra Payments are applied -->
               <div
-                class="bg-emerald-50 border border-emerald-200 p-6 rounded-2xl shadow-sm"
+                class="bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800/80 p-6 rounded-2xl shadow-sm transition-all duration-300 transform hover:scale-[1.02]"
                 id="extra-savings-card"
               >
                 <div
@@ -1929,10 +1929,27 @@
         );
         const yearsSaved = Math.max(0, (totalMonths - monthPaidOff) / 12);
 
-        document.getElementById("result-interest-saved").textContent =
-          `$${Math.round(interestSaved).toLocaleString()}`;
+        const interestSavedElem = document.getElementById("result-interest-saved");
+        const prevSavedText = interestSavedElem.textContent;
+        const newSavedText = `$${Math.round(interestSaved).toLocaleString()}`;
+        interestSavedElem.textContent = newSavedText;
         document.getElementById("result-years-shaved").textContent =
           `${yearsSaved.toFixed(1)} Years`;
+
+        // Wow Moment: Celebrate when extra payments save money
+        if (interestSaved > 0 && prevSavedText !== newSavedText) {
+          const savingsCard = document.getElementById("extra-savings-card");
+          if (savingsCard) {
+            savingsCard.classList.add("ring-2", "ring-emerald-400", "scale-[1.03]");
+            setTimeout(() => {
+              savingsCard.classList.remove("ring-2", "ring-emerald-400", "scale-[1.03]");
+            }, 600);
+          }
+          if (interestSaved > 5000 && typeof window.fireConfetti === "function" && !window._hasFiredMortgageConfetti) {
+            window._hasFiredMortgageConfetti = true;
+            window.fireConfetti();
+          }
+        }
 
         document.getElementById("sum-total-interest").textContent =
           `$${Math.round(viewSchedule.reduce((sum, item) => sum + item.interestPaid, 0)).toLocaleString()}`;

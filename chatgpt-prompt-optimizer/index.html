@@ -290,16 +290,17 @@ write an email about a late invoice payment</textarea>
               Optimized System Prompt Output
             </h2>
             <div
-              class="bg-slate-950 text-slate-200 p-4 rounded-xl font-mono text-xs whitespace-pre-wrap break-words shadow-inner"
+              class="bg-slate-950 text-cyan-300 p-4 rounded-xl font-mono text-xs whitespace-pre-wrap break-words shadow-inner border border-cyan-500/30 transition-all duration-300 focus-within:ring-2 focus-within:ring-cyan-400"
               id="out-optimized"
+              aria-live="polite"
             >
               ...
             </div>
             <div class="flex justify-end pt-2">
               <button
-                onclick="copyPrompt()"
+                onclick="copyPrompt(event)"
                 id="btn-copy"
-                class="px-5 py-2.5 bg-brand-600 text-white hover:bg-brand-700 transition-colors font-bold text-sm rounded-lg shadow-sm"
+                class="px-5 py-2.5 bg-indigo-600 hover:bg-indigo-500 text-white transition-all duration-200 font-bold text-sm rounded-lg shadow-lg flex items-center space-x-2"
               >
                 <span>Copy Optimized Prompt</span>
               </button>
@@ -601,10 +602,10 @@ write an email about a late invoice payment</textarea>
         const persona = document.getElementById("input-persona").value;
         const format = document.getElementById("input-format").value;
         const tone = document.getElementById("input-tone").value;
+        const outElem = document.getElementById("out-optimized");
 
         if (!raw) {
-          document.getElementById("out-optimized").textContent =
-            "Please write a raw prompt input first...";
+          outElem.textContent = "Please write a raw prompt input first...";
           return;
         }
 
@@ -615,17 +616,28 @@ Strict Guidelines for Execution:
 2. Format Rules: Present the final response strictly in the style of: ${format}.
 3. Logic & Completeness: Ensure everything is structured, easy to digest, actionable, and completely comprehensive with zero missing details. Do not summarize or shortcut logic.`;
 
-        document.getElementById("out-optimized").textContent = optimized;
+        outElem.textContent = optimized;
+        outElem.classList.add("opacity-80");
+        requestAnimationFrame(() => {
+          outElem.classList.remove("opacity-80");
+        });
       }
 
-      function copyPrompt() {
-        const btn = document.getElementById("btn-copy");
+      function copyPrompt(event) {
+        const btn = (event && event.currentTarget) ? event.currentTarget : document.getElementById("btn-copy");
         const text = btn.querySelector("span");
         const prompt = document.getElementById("out-optimized").textContent;
         navigator.clipboard.writeText(prompt).then(() => {
-          text.textContent = "Copied Prompt!";
+          if (text) text.textContent = "✓ Copied Shield Verification!";
+          btn.classList.remove("bg-indigo-600", "hover:bg-indigo-500");
+          btn.classList.add("bg-emerald-600", "hover:bg-emerald-500");
+          if (typeof window.fireConfetti === "function") {
+            window.fireConfetti();
+          }
           setTimeout(() => {
-            text.textContent = "Copy Optimized Prompt";
+            if (text) text.textContent = "Copy Optimized Prompt";
+            btn.classList.remove("bg-emerald-600", "hover:bg-emerald-500");
+            btn.classList.add("bg-indigo-600", "hover:bg-indigo-500");
           }, 2000);
         });
       }

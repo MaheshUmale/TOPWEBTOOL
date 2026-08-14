@@ -253,9 +253,9 @@
 ...</pre>
             <div class="flex justify-end pt-2">
               <button
-                onclick="copyFormatted()"
+                onclick="copyFormatted(event)"
                 id="btn-copy"
-                class="px-5 py-2.5 bg-brand-600 text-white hover:bg-brand-700 transition-colors font-bold text-sm rounded-lg shadow-sm"
+                class="px-5 py-2.5 bg-indigo-600 hover:bg-indigo-500 text-white transition-all duration-200 font-bold text-sm rounded-lg shadow-lg flex items-center space-x-2"
               >
                 <span>Copy Code</span>
               </button>
@@ -542,14 +542,21 @@
         }
       }
 
-      function copyFormatted() {
-        const btn = document.getElementById("btn-copy");
+      function copyFormatted(event) {
+        const btn = (event && event.currentTarget) ? event.currentTarget : document.getElementById("btn-copy");
         const text = btn.querySelector("span");
         const code = document.getElementById("out-formatted").textContent;
         navigator.clipboard.writeText(code).then(() => {
-          text.textContent = "Copied!";
+          if (text) text.textContent = "✓ Verified & Copied Code!";
+          btn.classList.remove("bg-indigo-600", "hover:bg-indigo-500");
+          btn.classList.add("bg-emerald-600", "hover:bg-emerald-500");
+          if (typeof window.fireConfetti === "function") {
+            window.fireConfetti();
+          }
           setTimeout(() => {
-            text.textContent = "Copy Code";
+            if (text) text.textContent = "Copy Code";
+            btn.classList.remove("bg-emerald-600", "hover:bg-emerald-500");
+            btn.classList.add("bg-indigo-600", "hover:bg-indigo-500");
           }, 2000);
         });
       }

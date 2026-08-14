@@ -343,34 +343,36 @@
                   <p class="text-xs text-slate-400 mt-1">Over full loan term</p>
                 </div>
                 <div
-                  class="bg-emerald-50 rounded-xl p-4 border border-emerald-200"
+                  class="bg-emerald-50 dark:bg-emerald-950/40 rounded-xl p-4 border border-emerald-200 dark:border-emerald-800 transition-all duration-300 transform hover:scale-[1.02]"
+                  id="biweekly-savings-card"
                 >
-                  <p class="text-sm font-medium text-emerald-700">
+                  <p class="text-sm font-medium text-emerald-700 dark:text-emerald-300">
                     Interest Savings
                   </p>
                   <p
-                    class="text-2xl font-bold text-emerald-900 mt-1"
+                    class="text-2xl font-extrabold text-emerald-900 dark:text-emerald-200 mt-1"
                     id="result-savings"
                   >
                     $0
                   </p>
-                  <p class="text-xs text-emerald-600 mt-1">
+                  <p class="text-xs text-emerald-600 dark:text-emerald-400 mt-1">
                     By switching to biweekly
                   </p>
                 </div>
                 <div
-                  class="bg-emerald-50 rounded-xl p-4 border border-emerald-200"
+                  class="bg-emerald-50 dark:bg-emerald-950/40 rounded-xl p-4 border border-emerald-200 dark:border-emerald-800 transition-all duration-300 transform hover:scale-[1.02]"
+                  id="biweekly-years-card"
                 >
-                  <p class="text-sm font-medium text-emerald-700">
+                  <p class="text-sm font-medium text-emerald-700 dark:text-emerald-300">
                     Years Saved
                   </p>
                   <p
-                    class="text-2xl font-bold text-emerald-900 mt-1"
+                    class="text-2xl font-extrabold text-emerald-900 dark:text-emerald-200 mt-1"
                     id="result-years-saved"
                   >
                     0
                   </p>
-                  <p class="text-xs text-emerald-600 mt-1">Off loan term</p>
+                  <p class="text-xs text-emerald-600 dark:text-emerald-400 mt-1">Off loan term</p>
                 </div>
               </div>
               <div class="mt-6 flex gap-3">
@@ -677,18 +679,30 @@
         ).toFixed(1);
       }
 
-      function copyResults() {
+      function copyResults(event) {
         const monthly = document.getElementById("result-monthly").textContent;
         const biweekly = document.getElementById("result-biweekly").textContent;
         const savings = document.getElementById("result-savings").textContent;
         const yearsSaved =
           document.getElementById("result-years-saved").textContent;
         const text = `Biweekly Mortgage Comparison\nMonthly Payment: ${monthly}\nBiweekly Payment: ${biweekly}\nInterest Savings: ${savings}\nYears Saved: ${yearsSaved}`;
+
+        const btn = (event && event.currentTarget) ? event.currentTarget : document.querySelector('button[onclick*="copyResults"]');
         navigator.clipboard.writeText(text).then(() => {
-          const btn = event.target;
-          const originalText = btn.textContent;
-          btn.textContent = "Copied!";
-          setTimeout(() => (btn.textContent = originalText), 2000);
+          if (btn) {
+            const originalText = btn.textContent;
+            btn.textContent = "✓ Copied Summary!";
+            btn.classList.remove("bg-brand-600");
+            btn.classList.add("bg-emerald-600");
+            setTimeout(() => {
+              btn.textContent = originalText;
+              btn.classList.remove("bg-emerald-600");
+              btn.classList.add("bg-brand-600");
+            }, 2000);
+          }
+          if (typeof window.fireConfetti === "function") {
+            window.fireConfetti();
+          }
         });
       }
 

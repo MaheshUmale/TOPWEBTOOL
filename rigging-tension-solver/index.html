@@ -537,9 +537,9 @@ Waiting for input…</pre>
 
             <div class="flex justify-end pt-2">
               <button
-                onclick="copyResult()"
+                onclick="copyResult(event)"
                 id="btn-copy"
-                class="px-5 py-2.5 bg-brand-600 text-white hover:bg-brand-700 transition-colors font-bold text-sm rounded-lg shadow-sm"
+                class="px-5 py-2.5 bg-indigo-600 hover:bg-indigo-500 text-white transition-all duration-200 font-bold text-sm rounded-lg shadow-lg flex items-center space-x-2"
               >
                 <span>Copy Result</span>
               </button>
@@ -833,15 +833,22 @@ Waiting for input…</pre>
           (pass ? "PASS" : "FAIL — select a higher-capacity sling");
       }
 
-      function copyResult() {
-        const btn = document.getElementById("btn-copy");
+      function copyResult(event) {
+        const btn = (event && event.currentTarget) ? event.currentTarget : document.getElementById("btn-copy");
         const text = btn.querySelector("span");
         navigator.clipboard
           .writeText(document.getElementById("out-copy").textContent)
           .then(() => {
-            text.textContent = "Copied!";
+            if (text) text.textContent = "✓ Verified & Copied Rigging Data!";
+            btn.classList.remove("bg-indigo-600", "hover:bg-indigo-500");
+            btn.classList.add("bg-emerald-600", "hover:bg-emerald-500");
+            if (typeof window.fireConfetti === "function") {
+              window.fireConfetti();
+            }
             setTimeout(() => {
-              text.textContent = "Copy Result";
+              if (text) text.textContent = "Copy Result";
+              btn.classList.remove("bg-emerald-600", "hover:bg-emerald-500");
+              btn.classList.add("bg-indigo-600", "hover:bg-indigo-500");
             }, 2000);
           });
       }
