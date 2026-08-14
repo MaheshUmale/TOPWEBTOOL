@@ -136,9 +136,10 @@ python build-deploy.py --skip-generate  # Validates only (for CI checks)
 
 ## Validation Commands
 ```powershell
-node scripts/generate-seo.js          # Regenerates sitemap, llms.txt, llms-full.txt
-python build-deploy.py --generate      # Generates + validates + builds ZIP
+npm run build                           # Full build: CSS + JS minify + validate + ZIP
 npx htmlhint                            # Expect: "Scanned 517 files, no errors found"
+node verify-heads.js                    # Expect: "issues: 0"
+node validate-jsonld.js                 # Expect: "INVALID blocks: 0"
 ```
 
 ## Rollout Order

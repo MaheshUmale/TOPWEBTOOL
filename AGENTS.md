@@ -95,7 +95,7 @@ TopWebTool is a **100% static, client-side web tool directory** deployed to Clou
 - `llms-full.txt` — full-content markdown index for AI crawlers
 - `.well-known/api-catalog` — catalog of machine-readable AI resources
 - `favicon.svg`, `logo.svg`, `og-image.png` (+ PNG favicon sizes), `site.webmanifest` — brand assets
-- `package.json` — `npm run build` regenerates `styles.css` from `src.css` via Tailwind CLI; `playwright` is a dev dependency
+- `package.json` — `npm run build` compiles Tailwind CSS, minifies JS, validates cross-references, and creates `deployment.zip`; `playwright` is a dev dependency
 
 ## Brand System
 

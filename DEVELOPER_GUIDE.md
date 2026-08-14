@@ -100,7 +100,7 @@ Add tool section with heading, description, and content summary.
 npx htmlhint                           # Expect: "Scanned X files, no errors found"
 node verify-heads.js                   # Expect: "issues: 0"
 node validate-jsonld.js                # Expect: "INVALID blocks: 0"
-python build-deploy.py                 # Validates sitemap, llms, robots, headers
+npm run build                          # Full build: CSS + JS minify + validate + ZIP
 ```
 
 ---
@@ -197,7 +197,7 @@ Add these to tool pages for engagement:
 npx htmlhint                    # All HTML files valid
 node verify-heads.js            # Head/meta integrity
 node validate-jsonld.js         # JSON-LD valid
-python build-deploy.py          # Cross-reference validation
+npm run build                    # Full build: CSS + JS minify + validate + ZIP
 ```
 
 ### Manual Browser Tests
@@ -274,7 +274,7 @@ When adding new tools, consider these engagement patterns:
 
 ### Build ZIP
 ```powershell
-python build-deploy.py
+npm run build
 ```
 
 ### What Gets Excluded
@@ -298,7 +298,7 @@ python -m http.server 3000
 npx htmlhint
 node verify-heads.js
 node validate-jsonld.js
-python build-deploy.py
+npm run build
 
 # Git
 git status --short

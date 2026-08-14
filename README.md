@@ -43,6 +43,7 @@ Or manually stage then zip, excluding `.git/`, `node_modules/`, `.kilo/`, `.open
 npx htmlhint  # expect "Scanned 507 files, no errors found"
 node verify-heads.js  # expect "issues: 0"
 node validate-jsonld.js  # expect "INVALID blocks: 0"
+npm run build  # full build: CSS + JS minify + validate + ZIP
 ```
 
 ## Production Notes
