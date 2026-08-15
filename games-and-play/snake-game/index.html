@@ -330,6 +330,7 @@
       } catch(e){}
     }
     document.addEventListener('keydown', (e) => {
+      if (ready && !gameLoop) { restart(); return; }
       if (ready) { ready = false; draw(); }
       if (e.key === 'Escape') { e.preventDefault(); togglePause(); return; }
       switch(e.key) {
