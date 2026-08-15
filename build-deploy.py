@@ -18,6 +18,7 @@ EXCLUDE_FILES = {
     'build-deploy.py', 'build-deploy.ps1', 'BUILD_ZIP_LIVE_SITE.ps1',
     'outdated URLS.txt', 'HOW_TO_FIX_AUDIT.txt', 'OTHER_AUDIT_ISSUES.txt',
     'NON INDEXABLE PAGES LIST.csv', 'missing-old-pages.txt',
+    'package-lock.json', 'src.css',
 }
 EXCLUDE_SUFFIXES = {'.ps1', '.zip', '.py'}
 RESERVED_NAMES = {
