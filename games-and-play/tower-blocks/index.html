@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
+  <script>
+    (function () {
+      try {
+        const theme = localStorage.getItem("theme");
+        if (theme === "dark") {
+          document.documentElement.classList.add("dark");
+          document.documentElement.classList.remove("light");
+        } else {
+          document.documentElement.classList.remove("dark");
+          document.documentElement.classList.add("light");
+        }
+      } catch (e) {}
+    })();
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tower Blocks | TopWebTool</title>
+  <meta name="description" content="Stack blocks as high as you can in Tower Blocks. Drop perfectly to keep the tower growing and beat your best score." />
+  <link rel="canonical" href="https://topwebtool.com/games-and-play/tower-blocks/" />
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+  <link rel="apple-touch-icon" href="../../apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png" />
+  <link rel="manifest" href="../../site.webmanifest" />
+  <meta name="theme-color" content="#090d16" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="TopWebTool" />
+  <meta property="og:title" content="Tower Blocks | TopWebTool" />
+  <meta property="og:description" content="Stack blocks as high as you can in Tower Blocks. Drop perfectly to keep the tower growing and beat your best score." />
+  <meta property="og:url" content="https://topwebtool.com/games-and-play/tower-blocks/" />
+  <meta property="og:image" content="https://topwebtool.com/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Tower Blocks | TopWebTool" />
+  <meta name="twitter:description" content="Stack blocks as high as you can in Tower Blocks. Drop perfectly to keep the tower growing and beat your best score." />
+  <meta name="twitter:image" content="https://topwebtool.com/og-image.png" />
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Tower Blocks | TopWebTool",
+      "url": "https://topwebtool.com/games-and-play/tower-blocks/",
+      "applicationCategory": "GameApplication",
+      "operatingSystem": "Windows, macOS, Linux, Android, iOS",
+      "browserRequirements": "Requires HTML5 compatible web browser",
+      "description": "Stack blocks as high as you can in Tower Blocks. Drop perfectly to keep the tower growing and beat your best score.",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://topwebtool.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Games & Play", "item": "https://topwebtool.com/games-and-play/" },
+        { "@type": "ListItem", "position": 3, "name": "Tower Blocks", "item": "https://topwebtool.com/games-and-play/tower-blocks/" }
+      ]
+    }
+  </script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="../../site.min.css">
+  <style>
+    html {
+      background-color: #fff;
+    }
+    html.dark {
+      background-color: #090d16;
+    }
+    body {
+      padding-bottom: 6rem;
+    }
+    #global-header {
+      min-height: 65px;
+    }
+    #global-footer {
+      min-height: 85px;
+    }
+    #trending-sidebar {
+      min-height: 700px;
+    }
+    @media (max-width: 767px) {
+      #global-header {
+        min-height: 200px;
+      }
+      #global-footer {
+        min-height: 120px;
+      }
+    }
+    .tower-wrap { max-width: 560px; margin: 0 auto; }
+    .tower-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem; }
+    .tower-score { font-size: 1.25rem; font-weight: 700; color: #4f46e5; }
+    .dark .tower-score { color: #818cf8; }
+    .tower-best { font-size: 1rem; color: #94a3b8; }
+    .tower-stats { display: flex; gap: 1rem; }
+    .tower-stat { font-size: 0.875rem; color: #64748b; }
+    canvas#gameCanvas { display: block; margin: 0 auto; border-radius: 16px; border: 2px solid #e2e8f0; background: #0f172a; }
+    .dark canvas#gameCanvas { border-color: #1e293b; }
+    .game-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.6); display: flex; align-items: center; justify-content: center; z-index: 100; opacity: 0; pointer-events: none; transition: opacity 300ms; }
+    .game-overlay.active { opacity: 1; pointer-events: auto; }
+    .overlay-box { background: white; border-radius: 24px; padding: 2rem; text-align: center; max-width: 400px; margin: 1rem; box-shadow: 0 25px 50px rgba(0,0,0,0.25); }
+    .dark .overlay-box { background: #1e293b; }
+    .overlay-title { font-size: 1.5rem; font-weight: 800; color: #1e293b; margin-bottom: 0.5rem; }
+    .dark .overlay-title { color: #f1f5f9; }
+    .overlay-score { font-size: 2rem; font-weight: 800; color: #4f46e5; margin: 1rem 0; }
+    .dark .overlay-score { color: #818cf8; }
+    .controls-hint { text-align: center; margin-top: 1rem; font-size: 0.875rem; color: #94a3b8; }
+    .start-hint { text-align: center; margin-top: 0.75rem; font-size: 0.875rem; color: #fbbf24; }
+  </style>
+</head>
+<body>
+  <header id="global-header"></header>
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <div class="grid grid-cols-1 lg:grid-cols-4 gap-4">
+      <div class="lg:col-span-3">
+        <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+          <h1 class="text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">Tower Blocks</h1>
+          <p class="mt-2 text-base text-slate-500 dark:text-slate-400">Stack the swinging blocks as high as you can. Cut off the overhang and aim for perfect drops.</p>
+        </div>
+        <div class="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-xl p-4 mt-4">
+          <p class="text-sm text-amber-800 dark:text-amber-200"><strong>How to Play:</strong> Objective: Stack blocks to build the tallest tower. Controls: Press Space or click/tap to drop the block.</p>
+        </div>
+        <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm mt-4">
+          <div class="tower-wrap">
+            <div class="tower-header">
+              <div>
+                <div class="tower-score">Score: <span id="score">0</span></div>
+                <div class="tower-best">Best: <span id="highScore">0</span></div>
+              </div>
+              <div class="tower-stats">
+                <div class="tower-stat">Drops: <span id="totalDrops">0</span></div>
+                <div class="tower-stat">Perfect: <span id="perfectStacks">0</span></div>
+              </div>
+            </div>
+            <canvas id="gameCanvas" width="400" height="520"></canvas>
+            <div class="controls-hint">Press Space or click to drop block</div>
+            <div class="start-hint" id="startHint">Click or press Space to start</div>
+          </div>
+        </div>
+      </div>
+      <div class="lg:col-span-1">
+        <div id="trending-sidebar"></div>
+      </div>
+    </div>
+  </main>
+  <div class="game-overlay" id="overlay">
+    <div class="overlay-box">
+      <div class="overlay-title" id="overlayTitle">Game Over</div>
+      <div class="overlay-score" id="overlayScore">0</div>
+      <button class="btn btn-primary" onclick="restart()" style="padding:12px 32px;font-size:1rem;margin-right:8px;">Play Again</button>
+      <button class="btn btn-secondary" onclick="exitGame()" style="padding:12px 32px;font-size:1rem;">Exit</button>
+    </div>
+  </div>
+  <footer id="global-footer"></footer>
+  <script src="../../global.js" defer></script>
+  <script src="../../twt-shell.js" defer></script>
+  <script src="../../js/context-engine.js" defer></script>
+  <script>
+    const canvas = document.getElementById('gameCanvas');
+    const ctx = canvas.getContext('2d');
+    const W = canvas.width;
+    const H = canvas.height;
+    const blockH = 32;
+    const baseY = H - 60;
+    const spawnY = 90;
+    const baseW = 220;
+    const perfectThreshold = 4;
+    let score = 0;
+    let highScore = 0;
+    let totalDrops = 0;
+    let perfectStacks = 0;
+    let blocks = [];
+    let current = null;
+    let dropping = false;
+    let gameOver = false;
+    let started = false;
+    let swingDir = 1;
+    let swingSpeed = 2.2;
+    let dropVel = 0;
+    const gravity = 0.55;
+    let lastTime = 0;
+    let animId = null;
+    const storageKey = 'topwebtool-tower';
+    try {
+      const data = JSON.parse(localStorage.getItem(storageKey) || '{}');
+      highScore = data.highScore || 0;
+      totalDrops = data.totalDrops || 0;
+      perfectStacks = data.perfectStacks || 0;
+    } catch (e) {}
+    document.getElementById('highScore').textContent = highScore;
+    document.getElementById('totalDrops').textContent = totalDrops;
+    document.getElementById('perfectStacks').textContent = perfectStacks;
+    const colors = ['#818cf8', '#6366f1', '#4f46e5', '#3b82f6', '#0ea5e9', '#14b8a6'];
+    function randColor() {
+      return colors[Math.floor(Math.random() * colors.length)];
+    }
+    function playTone(freq, type, dur, vol) {
+      try {
+        const AC = new (window.AudioContext || window.webkitAudioContext)();
+        const osc = AC.createOscillator();
+        const gain = AC.createGain();
+        osc.type = type || 'sine';
+        osc.frequency.setValueAtTime(freq, AC.currentTime);
+        gain.gain.setValueAtTime(vol || 0.08, AC.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.0001, AC.currentTime + (dur || 0.12));
+        osc.connect(gain);
+        gain.connect(AC.destination);
+        osc.start();
+        osc.stop(AC.currentTime + (dur || 0.12));
+      } catch (e) {}
+    }
+    function sfxDrop() { playTone(120, 'triangle', 0.18, 0.12); }
+    function sfxCut() { playTone(900, 'sine', 0.08, 0.06); }
+    function sfxMiss() { playTone(90, 'sawtooth', 0.35, 0.14); }
+    function sfxPerfect() { playTone(880, 'sine', 0.12, 0.1); setTimeout(() => playTone(1320, 'sine', 0.18, 0.08), 80); }
+    function drawBlock(x, y, w, color, alpha) {
+      const a = alpha || 1;
+      ctx.save();
+      ctx.globalAlpha = a;
+      ctx.fillStyle = color;
+      ctx.shadowColor = 'rgba(0,0,0,0.35)';
+      ctx.shadowBlur = 8;
+      ctx.shadowOffsetY = 3;
+      const r = 6;
+      ctx.beginPath();
+      ctx.moveTo(x + r, y);
+      ctx.lineTo(x + w - r, y);
+      ctx.quadraticCurveTo(x + w, y, x + w, y + r);
+      ctx.lineTo(x + w, y + blockH - r);
+      ctx.quadraticCurveTo(x + w, y + blockH, x + w - r, y + blockH);
+      ctx.lineTo(x + r, y + blockH);
+      ctx.quadraticCurveTo(x, y + blockH, x, y + blockH - r);
+      ctx.lineTo(x, y + r);
+      ctx.quadraticCurveTo(x, y, x + r, y);
+      ctx.closePath();
+      ctx.fill();
+      ctx.shadowColor = 'transparent';
+      ctx.shadowBlur = 0;
+      ctx.shadowOffsetY = 0;
+      ctx.restore();
+    }
+    function drawGuideLine() {
+      if (!current || dropping) return;
+      ctx.save();
+      ctx.setLineDash([6, 8]);
+      ctx.strokeStyle = 'rgba(251, 191, 36, 0.35)';
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.moveTo(current.x + current.width / 2, current.y + blockH);
+      ctx.lineTo(current.x + current.width / 2, baseY);
+      ctx.stroke();
+      ctx.setLineDash([]);
+      ctx.restore();
+    }
+    function draw() {
+      ctx.clearRect(0, 0, W, H);
+      ctx.fillStyle = '#0f172a';
+      ctx.fillRect(0, 0, W, H);
+      ctx.fillStyle = '#1e293b';
+      ctx.fillRect(0, baseY, W, H - baseY);
+      if (blocks.length === 0) {
+        const bx = (W - baseW) / 2;
+        drawBlock(bx, baseY, baseW, '#475569');
+      }
+      blocks.forEach(b => drawBlock(b.x, b.y, b.width, b.color));
+      if (current) {
+        drawGuideLine();
+        drawBlock(current.x, current.y, current.width, current.color);
+      }
+    }
+    function spawnBlock() {
+      const prev = blocks.length > 0 ? blocks[blocks.length - 1] : { x: (W - baseW) / 2, width: baseW, y: baseY };
+      const width = prev.width;
+      const x = (W / 2 - width / 2) * (Math.random() > 0.5 ? 1 : -1) + (Math.random() * 40 - 20);
+      current = { x: Math.max(0, Math.min(W - width, x)), y: spawnY, width: width, color: randColor(), dir: Math.random() > 0.5 ? 1 : -1 };
+      swingSpeed = Math.min(6, 2.2 + blocks.length * 0.18);
+      dropping = false;
+      dropVel = 0;
+    }
+    function saveStats() {
+      try { localStorage.setItem(storageKey, JSON.stringify({ highScore, totalDrops, perfectStacks })); } catch (e) {}
+    }
+    function endGame() {
+      gameOver = true;
+      dropping = false;
+      sfxMiss();
+      if (score > highScore) {
+        highScore = score;
+        document.getElementById('highScore').textContent = highScore;
+      }
+      saveStats();
+      document.getElementById('overlayScore').textContent = 'Score: ' + score;
+      document.getElementById('overlayTitle').textContent = 'Game Over';
+      document.getElementById('overlay').classList.add('active');
+      document.getElementById('startHint').style.display = 'none';
+    }
+    function placeBlock() {
+      if (!current || dropping) return;
+      const prev = blocks.length > 0 ? blocks[blocks.length - 1] : { x: (W - baseW) / 2, width: baseW, y: baseY };
+      const overlapLeft = Math.max(current.x, prev.x);
+      const overlapRight = Math.min(current.x + current.width, prev.x + prev.width);
+      const overlapW = overlapRight - overlapLeft;
+      if (overlapW <= 0) {
+        endGame();
+        return;
+      }
+      const perfect = overlapW >= current.width - perfectThreshold && Math.abs(current.x + current.width / 2 - (prev.x + prev.width / 2)) < perfectThreshold;
+      if (perfect) {
+        const targetX = prev.x + (prev.width - overlapW) / 2;
+        current.x = targetX;
+        current.width = overlapW;
+        sfxPerfect();
+        perfectStacks++;
+        document.getElementById('perfectStacks').textContent = perfectStacks;
+      } else {
+        current.x = overlapLeft;
+        current.width = overlapW;
+        sfxCut();
+      }
+      current.y = prev.y - blockH;
+      blocks.push(current);
+      score++;
+      totalDrops++;
+      document.getElementById('score').textContent = score;
+      document.getElementById('totalDrops').textContent = totalDrops;
+      saveStats();
+      sfxDrop();
+      spawnBlock();
+    }
+    function update() {
+      if (!started || gameOver) return;
+      if (current && !dropping) {
+        current.x += swingDir * swingSpeed;
+        if (current.x + current.width > W) { current.x = W - current.width; swingDir = -1; }
+        if (current.x < 0) { current.x = 0; swingDir = 1; }
+      }
+      if (current && dropping) {
+        dropVel += gravity;
+        current.y += dropVel;
+        const prev = blocks.length > 0 ? blocks[blocks.length - 1] : { x: (W - baseW) / 2, width: baseW, y: baseY };
+        if (current.y + blockH >= prev.y) {
+          current.y = prev.y - blockH;
+          placeBlock();
+        }
+      }
+      draw();
+    }
+    function loop() {
+      update();
+      animId = requestAnimationFrame(loop);
+    }
+    function restart() {
+      cancelAnimationFrame(animId);
+      blocks = [];
+      score = 0;
+      gameOver = false;
+      dropping = false;
+      started = true;
+      document.getElementById('score').textContent = '0';
+      document.getElementById('overlay').classList.remove('active');
+      document.getElementById('startHint').style.display = 'none';
+      spawnBlock();
+      loop();
+    }
+    function exitGame() {
+      cancelAnimationFrame(animId);
+      blocks = [];
+      score = 0;
+      gameOver = false;
+      dropping = false;
+      started = false;
+      current = null;
+      document.getElementById('score').textContent = '0';
+      document.getElementById('overlay').classList.remove('active');
+      document.getElementById('startHint').style.display = 'block';
+      draw();
+    }
+    function drop() {
+      if (!started) { restart(); return; }
+      if (gameOver) { restart(); return; }
+      if (current && !dropping) {
+        dropping = true;
+        dropVel = 0;
+      }
+    }
+    document.addEventListener('keydown', (e) => {
+      if (e.key === ' ' || e.code === 'Space') {
+        e.preventDefault();
+        drop();
+      }
+    });
+    canvas.addEventListener('pointerdown', (e) => {
+      e.preventDefault();
+      drop();
+    });
+    document.getElementById('overlay').addEventListener('click', (e) => {
+      if (e.target.tagName === 'BUTTON') return;
+      restart();
+    });
+    draw();
+  </script>
+</body>
+</html>

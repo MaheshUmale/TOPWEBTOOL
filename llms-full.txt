@@ -1205,3 +1205,31 @@ TopWebTool is a curated directory of 84+ free, 100% client-side web utilities de
 - Heading: Archery
 - Description: Hit the bullseye against wind and distance. 10 arrows per round.
 - Sections: Wind Simulation; Distance Scaling; 10 Arrows Per Round; Bullseye Scoring
+
+### Tower Blocks
+
+- URL: https://topwebtool.com/games-and-play/tower-blocks/
+- Heading: Tower Blocks
+- Description: Stack blocks as high as you can. Time your drops perfectly. Precision stacking arcade.
+- Sections: Tower Stacking; Perfect Drops; Score Tracking; Game Over
+
+### Insect Catch
+
+- URL: https://topwebtool.com/games-and-play/insect-catch/
+- Heading: Insect Catch
+- Description: Catch target insects before time runs out. 60-second reflex challenge.
+- Sections: Target Insects; Timer; Combo System; High Score
+
+### Speak Number Guessing
+
+- URL: https://topwebtool.com/games-and-play/speak-number-guessing/
+- Heading: Speak Number Guessing
+- Description: Guess the secret number using your voice. Say it out loud, get Higher/Lower hints.
+- Sections: Voice Input; Higher/Lower Hints; Attempt Tracking; Best Score
+
+### Doodle Jump
+
+- URL: https://topwebtool.com/games-and-play/doodle-jump/
+- Heading: Doodle Jump
+- Description: Classic endless jumper. Bounce on platforms, go higher, avoid falling.
+- Sections: Platform Jumping; Moving Platforms; Score Climbing; Game Over

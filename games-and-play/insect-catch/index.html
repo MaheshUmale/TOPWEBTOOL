@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>
+    (function () {
+      try {
+        const theme = localStorage.getItem("theme");
+        if (theme === "dark") {
+          document.documentElement.classList.add("dark");
+          document.documentElement.classList.remove("light");
+        } else {
+          document.documentElement.classList.remove("dark");
+          document.documentElement.classList.add("light");
+        }
+      } catch (e) {}
+    })();
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Insect Catch | TopWebTool</title>
+  <meta name="description" content="Play Insect Catch online. Catch the target insects, avoid wrong ones, and beat your high score in this fast-paced clicking game." />
+  <link rel="canonical" href="https://topwebtool.com/games-and-play/insect-catch/" />
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+  <link rel="apple-touch-icon" href="../../apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png" />
+  <link rel="manifest" href="../../site.webmanifest" />
+  <meta name="theme-color" content="#090d16" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="TopWebTool" />
+  <meta property="og:title" content="Insect Catch | TopWebTool" />
+  <meta property="og:description" content="Play Insect Catch online. Catch the target insects, avoid wrong ones, and beat your high score in this fast-paced clicking game." />
+  <meta property="og:url" content="https://topwebtool.com/games-and-play/insect-catch/" />
+  <meta property="og:image" content="https://topwebtool.com/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Insect Catch | TopWebTool" />
+  <meta name="twitter:description" content="Play Insect Catch online. Catch the target insects, avoid wrong ones, and beat your high score in this fast-paced clicking game." />
+  <meta name="twitter:image" content="https://topwebtool.com/og-image.png" />
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Insect Catch | TopWebTool",
+      "url": "https://topwebtool.com/games-and-play/insect-catch/",
+      "applicationCategory": "GameApplication",
+      "operatingSystem": "Windows, macOS, Linux, Android, iOS",
+      "browserRequirements": "Requires HTML5 compatible web browser",
+      "description": "Play Insect Catch online. Catch the target insects, avoid wrong ones, and beat your high score in this fast-paced clicking game.",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://topwebtool.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Games & Play", "item": "https://topwebtool.com/games-and-play/" },
+        { "@type": "ListItem", "position": 3, "name": "Insect Catch", "item": "https://topwebtool.com/games-and-play/insect-catch/" }
+      ]
+    }
+  </script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="../../site.min.css">
+  <style>
+    html { background-color: #fff; }
+    html.dark { background-color: #090d16; }
+    body { padding-bottom: 6rem; }
+    #global-header { min-height: 65px; }
+    #global-footer { min-height: 85px; }
+    #trending-sidebar { min-height: 700px; }
+    @media (max-width: 767px) {
+      #global-header { min-height: 200px; }
+      #global-footer { min-height: 120px; }
+    }
+    .insect-container { max-width: 800px; margin: 0 auto; }
+    .insect-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem; }
+    .insect-score { font-size: 1.25rem; font-weight: 700; color: #4f46e5; }
+    .dark .insect-score { color: #818cf8; }
+    .insect-high { font-size: 1rem; color: #94a3b8; }
+    .insect-timer { font-size: 1.5rem; font-weight: 800; color: #f59e0b; }
+    .dark .insect-timer { color: #fbbf24; }
+    .insect-timer.warning { color: #ef4444; animation: pulse 1s infinite; }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+    .target-list { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 1rem; padding: 12px; background: #f8fafc; border-radius: 12px; border: 2px dashed #e2e8f0; }
+    .dark .target-list { background: #0f172a; border-color: #1e293b; }
+    .target-item { display: flex; align-items: center; gap: 8px; padding: 8px 16px; background: white; border-radius: 9999px; border: 2px solid #e2e8f0; font-weight: 600; font-size: 0.95rem; transition: all 300ms; }
+    .dark .target-item { background: #1e293b; border-color: #334155; color: #f1f5f9; }
+    .target-item.matched { background: #dcfce7; border-color: #22c55e; color: #15803d; }
+    .dark .target-item.matched { background: #14532d; border-color: #22c55e; color: #86efac; }
+    .target-emoji { font-size: 1.5rem; }
+    .target-points { font-size: 0.8rem; color: #94a3b8; font-weight: 500; }
+    .game-area { position: relative; width: 100%; height: 500px; background: #0f172a; border-radius: 16px; border: 2px solid #e2e8f0; overflow: hidden; touch-action: manipulation; }
+    .dark .game-area { border-color: #1e293b; }
+    .insect { position: absolute; font-size: 2.5rem; cursor: pointer; user-select: none; transition: transform 100ms linear; z-index: 10; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3)); }
+    .insect:active { transform: scale(1.3); }
+    .insect.correct { animation: catchPop 400ms ease-out forwards; }
+    @keyframes catchPop { 0% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.5); opacity: 0.8; } 100% { transform: scale(0); opacity: 0; } }
+    .insect.wrong { animation: wrongShake 400ms ease-out; }
+    @keyframes wrongShake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-8px); } 75% { transform: translateX(8px); } }
+    .score-pop { position: absolute; font-weight: 800; font-size: 1.25rem; pointer-events: none; z-index: 20; animation: scoreFloat 800ms ease-out forwards; }
+    @keyframes scoreFloat { 0% { opacity: 1; transform: translateY(0); } 100% { opacity: 0; transform: translateY(-40px); } }
+    .game-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.6); display: flex; align-items: center; justify-content: center; z-index: 100; opacity: 0; pointer-events: none; transition: opacity 300ms; }
+    .game-overlay.active { opacity: 1; pointer-events: auto; }
+    .overlay-box { background: white; border-radius: 24px; padding: 2rem; text-align: center; max-width: 400px; margin: 1rem; box-shadow: 0 25px 50px rgba(0,0,0,0.25); }
+    .dark .overlay-box { background: #1e293b; }
+    .overlay-title { font-size: 1.5rem; font-weight: 800; color: #1e293b; margin-bottom: 0.5rem; }
+    .dark .overlay-title { color: #f1f5f9; }
+    .overlay-score { font-size: 2rem; font-weight: 800; color: #4f46e5; margin: 1rem 0; }
+    .dark .overlay-score { color: #818cf8; }
+    .controls-hint { text-align: center; margin-top: 1rem; font-size: 0.875rem; color: #94a3b8; }
+    .stats-row { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 0.75rem; }
+    .stat-chip { padding: 6px 14px; border-radius: 9999px; background: #f1f5f9; font-size: 0.85rem; font-weight: 600; color: #475569; }
+    .dark .stat-chip { background: #0f172a; color: #94a3b8; }
+    @media (max-width: 767px) {
+      .game-area { height: 400px; }
+      .insect { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+  <header id="global-header"></header>
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <div class="grid grid-cols-1 lg:grid-cols-4 gap-4">
+      <div class="lg:col-span-3">
+        <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+          <h1 class="text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">Insect Catch</h1>
+          <p class="mt-2 text-base text-slate-500 dark:text-slate-400">Catch the target insects, avoid the wrong ones. Speed increases as time runs out!</p>
+        </div>
+        <div class="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-xl p-4 mt-4">
+          <p class="text-sm text-amber-800 dark:text-amber-200"><strong>How to Play:</strong> Catch only the insects shown in the target list. Wrong catches reduce your score. Timer counts down from 60 seconds.</p>
+        </div>
+        <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm mt-4">
+          <div class="insect-container">
+            <div class="insect-header">
+              <div>
+                <div class="insect-score">Score: <span id="score">0</span></div>
+                <div class="insect-high">Best: <span id="highScore">0</span> &bull; Caught: <span id="totalCatches">0</span></div>
+              </div>
+              <div class="insect-timer" id="timer">60</div>
+            </div>
+            <div class="target-list" id="targetList"></div>
+            <div class="game-area" id="gameArea"></div>
+            <div class="controls-hint">Click the target insects</div>
+            <div class="stats-row">
+              <div class="stat-chip" id="comboDisplay">Combo: x1</div>
+              <div class="stat-chip" id="spawnDisplay">Spawn rate: Normal</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="lg:col-span-1">
+        <div id="trending-sidebar"></div>
+      </div>
+    </div>
+  </main>
+  <div class="game-overlay" id="overlay">
+    <div class="overlay-box">
+      <div class="overlay-title" id="overlayTitle">Time's Up!</div>
+      <div class="overlay-score" id="overlayScore">0</div>
+      <div id="overlayStats" style="color:#64748b;margin-bottom:1rem;font-size:0.95rem;"></div>
+      <button class="btn btn-primary" onclick="restart()" style="padding:12px 32px;font-size:1rem;margin-right:8px;">Play Again</button>
+      <button class="btn btn-secondary" onclick="exitGame()" style="padding:12px 32px;font-size:1rem;">Exit</button>
+    </div>
+  </div>
+  <footer id="global-footer"></footer>
+  <script src="../../global.js" defer></script>
+  <script src="../../twt-shell.js" defer></script>
+  <script src="../../js/context-engine.js" defer></script>
+  <script>
+    const INSECTS = [
+      { id: 'bee', emoji: '🐝', points: 10, speed: 2.5 },
+      { id: 'butterfly', emoji: '🦋', points: 15, speed: 3.2 },
+      { id: 'ladybug', emoji: '🐞', points: 20, speed: 1.8 },
+      { id: 'mosquito', emoji: '🦟', points: 5, speed: 4.0 },
+      { id: 'spider', emoji: '🕷️', points: 25, speed: 1.5 },
+      { id: 'cricket', emoji: '🦗', points: 10, speed: 3.8 },
+      { id: 'ant', emoji: '🐜', points: 8, speed: 3.5 },
+      { id: 'beetle', emoji: '🪲', points: 12, speed: 2.0 }
+    ];
+    const gameArea = document.getElementById('gameArea');
+    const scoreEl = document.getElementById('score');
+    const highScoreEl = document.getElementById('highScore');
+    const totalCatchesEl = document.getElementById('totalCatches');
+    const timerEl = document.getElementById('timer');
+    const targetListEl = document.getElementById('targetList');
+    const overlay = document.getElementById('overlay');
+    const overlayTitle = document.getElementById('overlayTitle');
+    const overlayScore = document.getElementById('overlayScore');
+    const overlayStats = document.getElementById('overlayStats');
+    const comboDisplay = document.getElementById('comboDisplay');
+    const spawnDisplay = document.getElementById('spawnDisplay');
+    let score = 0;
+    let timeLeft = 60;
+    let highScore = 0;
+    let totalCatches = 0;
+    let combo = 0;
+    let comboTimer = null;
+    let spawnRate = 1200;
+    let spawnInterval = null;
+    let timerInterval = null;
+    let gameActive = false;
+    let insects = [];
+    let targetIds = [];
+    let animFrame = null;
+    try {
+      const saved = JSON.parse(localStorage.getItem('topwebtool-insect') || '{}');
+      highScore = saved.highScore || 0;
+      totalCatches = saved.totalCatches || 0;
+    } catch (e) {}
+    highScoreEl.textContent = highScore;
+    totalCatchesEl.textContent = totalCatches;
+    function getRandomTargets() {
+      const shuffled = [...INSECTS].sort(() => Math.random() - 0.5);
+      return shuffled.slice(0, 3).map(i => i.id);
+    }
+    function renderTargets() {
+      targetListEl.innerHTML = '';
+      targetIds.forEach(id => {
+        const insect = INSECTS.find(i => i.id === id);
+        const div = document.createElement('div');
+        div.className = 'target-item';
+        div.id = 'target-' + id;
+        div.innerHTML = '<span class="target-emoji">' + insect.emoji + '</span><span>' + insect.points + ' pts</span><span class="target-points">' + insect.id + '</span>';
+        targetListEl.appendChild(div);
+      });
+    }
+    function flashTarget(id, matched) {
+      const el = document.getElementById('target-' + id);
+      if (!el) return;
+      if (matched) {
+        el.classList.add('matched');
+        setTimeout(() => { el.classList.remove('matched'); }, 600);
+      } else {
+        el.style.borderColor = '#ef4444';
+        el.style.background = '#fef2f2';
+        setTimeout(() => { el.style.borderColor = ''; el.style.background = ''; }, 400);
+      }
+    }
+    function spawnInsect() {
+      if (!gameActive) return;
+      const areaRect = gameArea.getBoundingClientRect();
+      const type = INSECTS[Math.floor(Math.random() * INSECTS.length)];
+      const size = 48;
+      const x = Math.random() * (areaRect.width - size);
+      const y = Math.random() * (areaRect.height - size);
+      const angle = Math.random() * Math.PI * 2;
+      const el = document.createElement('div');
+      el.className = 'insect';
+      el.textContent = type.emoji;
+      el.style.left = x + 'px';
+      el.style.top = y + 'px';
+      el.style.width = size + 'px';
+      el.style.height = size + 'px';
+      el.style.lineHeight = size + 'px';
+      el.style.textAlign = 'center';
+      const insect = {
+        el: el,
+        type: type,
+        x: x,
+        y: y,
+        vx: Math.cos(angle) * type.speed,
+        vy: Math.sin(angle) * type.speed,
+        life: 0,
+        maxLife: 400 + Math.random() * 400,
+        id: Date.now() + '-' + Math.random()
+      };
+      el.addEventListener('click', (e) => { e.preventDefault(); catchInsect(insect); });
+      el.addEventListener('touchstart', (e) => { e.preventDefault(); e.stopPropagation(); catchInsect(insect); }, { passive: false });
+      gameArea.appendChild(el);
+      insects.push(insect);
+    }
+    function catchInsect(insect) {
+      if (!gameActive) return;
+      const isTarget = targetIds.includes(insect.type.id);
+      const rect = insect.el.getBoundingClientRect();
+      const areaRect = gameArea.getBoundingClientRect();
+      const popX = rect.left - areaRect.left + rect.width / 2;
+      const popY = rect.top - areaRect.top;
+      if (isTarget) {
+        combo++;
+        clearTimeout(comboTimer);
+        comboTimer = setTimeout(() => { combo = 0; updateCombo(); }, 1500);
+        const multiplier = Math.min(combo, 5);
+        const gained = insect.type.points * multiplier;
+        score += gained;
+        scoreEl.textContent = score;
+        insect.el.classList.add('correct');
+        flashTarget(insect.type.id, true);
+        showScorePop(popX, popY, '+' + gained, '#22c55e');
+        playSound('catch');
+        updateCombo();
+        setTimeout(() => { if (insect.el.parentNode) insect.el.remove(); }, 400);
+        insects = insects.filter(i => i !== insect);
+      } else {
+        combo = 0;
+        score = Math.max(0, score - 5);
+        scoreEl.textContent = score;
+        insect.el.classList.add('wrong');
+        flashTarget(insect.type.id, false);
+        showScorePop(popX, popY, '-5', '#ef4444');
+        playSound('wrong');
+        updateCombo();
+        setTimeout(() => { insect.el.classList.remove('wrong'); }, 400);
+      }
+    }
+    function showScorePop(x, y, text, color) {
+      const pop = document.createElement('div');
+      pop.className = 'score-pop';
+      pop.textContent = text;
+      pop.style.left = x + 'px';
+      pop.style.top = y + 'px';
+      pop.style.color = color;
+      gameArea.appendChild(pop);
+      setTimeout(() => pop.remove(), 800);
+    }
+    function updateCombo() {
+      const mult = Math.min(combo || 1, 5);
+      comboDisplay.textContent = 'Combo: x' + mult;
+    }
+    function updateSpawnDisplay() {
+      if (spawnRate <= 600) spawnDisplay.textContent = 'Spawn rate: Extreme';
+      else if (spawnRate <= 800) spawnDisplay.textContent = 'Spawn rate: Fast';
+      else if (spawnRate <= 1000) spawnDisplay.textContent = 'Spawn rate: Quick';
+      else spawnDisplay.textContent = 'Spawn rate: Normal';
+    }
+    function moveInsects() {
+      if (!gameActive) return;
+      const areaRect = gameArea.getBoundingClientRect();
+      insects.forEach(insect => {
+        insect.x += insect.vx;
+        insect.y += insect.vy;
+        insect.life++;
+        if (insect.x <= 0 || insect.x >= areaRect.width - 48) { insect.vx *= -1; insect.x = Math.max(0, Math.min(insect.x, areaRect.width - 48)); }
+        if (insect.y <= 0 || insect.y >= areaRect.height - 48) { insect.vy *= -1; insect.y = Math.max(0, Math.min(insect.y, areaRect.height - 48)); }
+        insect.el.style.left = insect.x + 'px';
+        insect.el.style.top = insect.y + 'px';
+        if (insect.life > insect.maxLife) {
+          if (insect.el.parentNode) insect.el.remove();
+          insects = insects.filter(i => i !== insect);
+        }
+      });
+      animFrame = requestAnimationFrame(moveInsects);
+    }
+    function startGame() {
+      gameActive = true;
+      score = 0;
+      timeLeft = 60;
+      combo = 0;
+      spawnRate = 1200;
+      insects = [];
+      gameArea.innerHTML = '';
+      scoreEl.textContent = '0';
+      timerEl.textContent = '60';
+      timerEl.classList.remove('warning');
+      targetIds = getRandomTargets();
+      renderTargets();
+      updateCombo();
+      updateSpawnDisplay();
+      spawnInterval = setInterval(spawnInsect, spawnRate);
+      timerInterval = setInterval(() => {
+        timeLeft--;
+        timerEl.textContent = timeLeft;
+        if (timeLeft <= 10) {
+          timerEl.classList.add('warning');
+          if (timeLeft > 0 && timeLeft % 2 === 0) playSound('tick');
+        }
+        if (timeLeft <= 0) {
+          endGame();
+        }
+      }, 1000);
+      moveInsects();
+      setTimeout(() => { spawnInsect(); spawnInsect(); }, 300);
+    }
+    function endGame() {
+      gameActive = false;
+      clearInterval(timerInterval);
+      clearInterval(spawnInterval);
+      cancelAnimationFrame(animFrame);
+      insects.forEach(i => { if (i.el.parentNode) i.el.remove(); });
+      insects = [];
+      const caught = Math.floor(score / 10);
+      totalCatches += caught;
+      if (score > highScore) {
+        highScore = score;
+        highScoreEl.textContent = highScore;
+        overlayTitle.textContent = 'New High Score!';
+      } else {
+        overlayTitle.textContent = "Time's Up!";
+      }
+      overlayScore.textContent = 'Score: ' + score;
+      overlayStats.innerHTML = 'Caught: ' + caught + ' &bull; Total caught: ' + totalCatches;
+      try { localStorage.setItem('topwebtool-insect', JSON.stringify({ highScore, totalCatches })); } catch(e){}
+      totalCatchesEl.textContent = totalCatches;
+      overlay.classList.add('active');
+    }
+    function restart() {
+      overlay.classList.remove('active');
+      setTimeout(startGame, 300);
+    }
+    function exitGame() {
+      gameActive = false;
+      clearInterval(timerInterval);
+      clearInterval(spawnInterval);
+      cancelAnimationFrame(animFrame);
+      insects.forEach(i => { if (i.el.parentNode) i.el.remove(); });
+      insects = [];
+      overlay.classList.remove('active');
+      timerEl.classList.remove('warning');
+      scoreEl.textContent = '0';
+      timerEl.textContent = '60';
+      gameArea.innerHTML = '';
+    }
+    function playSound(type) {
+      try {
+        const ctx = new (window.AudioContext || window.webkitAudioContext)();
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        if (type === 'catch') {
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(800, ctx.currentTime);
+          osc.frequency.exponentialRampToValueAtTime(1200, ctx.currentTime + 0.1);
+          gain.gain.setValueAtTime(0.1, ctx.currentTime);
+          gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.1);
+          osc.start(); osc.stop(ctx.currentTime + 0.1);
+        } else if (type === 'wrong') {
+          osc.type = 'sawtooth';
+          osc.frequency.setValueAtTime(150, ctx.currentTime);
+          osc.frequency.linearRampToValueAtTime(80, ctx.currentTime + 0.2);
+          gain.gain.setValueAtTime(0.1, ctx.currentTime);
+          gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.2);
+          osc.start(); osc.stop(ctx.currentTime + 0.2);
+        } else if (type === 'tick') {
+          osc.type = 'square';
+          osc.frequency.setValueAtTime(1000, ctx.currentTime);
+          gain.gain.setValueAtTime(0.05, ctx.currentTime);
+          gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.05);
+          osc.start(); osc.stop(ctx.currentTime + 0.05);
+        }
+      } catch (e) {}
+    }
+    setInterval(() => {
+      if (gameActive && spawnRate > 400) {
+        spawnRate -= 15;
+        clearInterval(spawnInterval);
+        spawnInterval = setInterval(spawnInsect, spawnRate);
+        updateSpawnDisplay();
+      }
+    }, 3000);
+    startGame();
+  </script>
+</body>
+</html>
