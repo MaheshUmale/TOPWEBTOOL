@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Snake Game | TopWebTool</title>
+  <meta name="description" content="Play Snake Game online. Guide the snake to eat food, grow longer, and beat your high score." />
+  <link rel="canonical" href="https://topwebtool.com/games-and-play/snake-game/" />
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+  <link rel="apple-touch-icon" href="../../apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png" />
+  <link rel="manifest" href="../../site.webmanifest" />
+  <meta name="theme-color" content="#090d16" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="TopWebTool" />
+  <meta property="og:title" content="Snake Game | TopWebTool" />
+  <meta property="og:description" content="Play Snake Game online. Guide the snake to eat food, grow longer, and beat your high score." />
+  <meta property="og:url" content="https://topwebtool.com/games-and-play/snake-game/" />
+  <meta property="og:image" content="https://topwebtool.com/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Snake Game | TopWebTool" />
+  <meta name="twitter:description" content="Play Snake Game online. Guide the snake to eat food, grow longer, and beat your high score." />
+  <meta name="twitter:image" content="https://topwebtool.com/og-image.png" />
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Snake Game | TopWebTool",
+      "url": "https://topwebtool.com/games-and-play/snake-game/",
+      "applicationCategory": "GameApplication",
+      "operatingSystem": "Windows, macOS, Linux, Android, iOS",
+      "browserRequirements": "Requires HTML5 compatible web browser",
+      "description": "Play Snake Game online. Guide the snake to eat food, grow longer, and beat your high score.",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://topwebtool.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Games & Play", "item": "https://topwebtool.com/games-and-play/" },
+        { "@type": "ListItem", "position": 3, "name": "Snake Game", "item": "https://topwebtool.com/games-and-play/snake-game/" }
+      ]
+    }
+  </script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="../../site.min.css">
+  <style>
+    .snake-container { max-width: 600px; margin: 0 auto; }
+    .snake-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem; }
+    .snake-score { font-size: 1.25rem; font-weight: 700; color: #4f46e5; }
+    .dark .snake-score { color: #818cf8; }
+    .snake-high { font-size: 1rem; color: #94a3b8; }
+    .snake-speed-selector { display: flex; gap: 8px; }
+    .speed-btn { padding: 4px 12px; border-radius: 9999px; font-size: 0.75rem; font-weight: 600; border: 1px solid #e2e8f0; background: white; color: #475569; cursor: pointer; }
+    .dark .speed-btn { background: #0f172a; border-color: #1e293b; color: #94a3b8; }
+    .speed-btn.active { background: #4f46e5; color: white; border-color: #4f46e5; }
+    canvas { display: block; margin: 0 auto; border-radius: 16px; border: 2px solid #e2e8f0; background: #0f172a; }
+    .dark canvas { border-color: #1e293b; }
+    .game-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.6); display: flex; align-items: center; justify-content: center; z-index: 100; opacity: 0; pointer-events: none; transition: opacity 300ms; }
+    .game-overlay.active { opacity: 1; pointer-events: auto; }
+    .overlay-box { background: white; border-radius: 24px; padding: 2rem; text-align: center; max-width: 400px; margin: 1rem; box-shadow: 0 25px 50px rgba(0,0,0,0.25); }
+    .dark .overlay-box { background: #1e293b; }
+    .overlay-title { font-size: 1.5rem; font-weight: 800; color: #1e293b; margin-bottom: 0.5rem; }
+    .dark .overlay-title { color: #f1f5f9; }
+    .overlay-score { font-size: 2rem; font-weight: 800; color: #4f46e5; margin: 1rem 0; }
+    .dark .overlay-score { color: #818cf8; }
+    .controls-hint { text-align: center; margin-top: 1rem; font-size: 0.875rem; color: #94a3b8; }
+    .mobile-controls { display: none; justify-content: center; gap: 8px; margin-top: 1rem; }
+    .dpad-btn { width: 56px; height: 56px; border-radius: 12px; border: 1px solid #e2e8f0; background: white; color: #475569; font-size: 1.25rem; display: flex; align-items: center; justify-content: center; cursor: pointer; touch-action: manipulation; }
+    .dark .dpad-btn { background: #0f172a; border-color: #1e293b; color: #94a3b8; }
+    .dpad-btn:active { background: #4f46e5; color: white; border-color: #4f46e5; }
+    #pauseOverlay { z-index: 101; }
+    @media (max-width: 767px) {
+      .mobile-controls { display: flex; }
+    }
+  </style>
+</head>
+<body>
+  <header id="global-header"></header>
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <div class="grid grid-cols-1 lg:grid-cols-4 gap-4">
+      <div class="lg:col-span-3">
+        <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+          <h1 class="text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">Snake Game</h1>
+          <p class="mt-2 text-base text-slate-500 dark:text-slate-400">Guide the snake, eat the food, grow longer. Don't hit the walls or yourself.</p>
+        </div>
+        <div class="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-xl p-4 mt-4">
+          <p class="text-sm text-amber-800 dark:text-amber-200"><strong>How to Play:</strong> Objective: Eat food, grow longer, avoid walls and self. Controls: Arrow keys / WASD to move, Space to pause, R to restart.</p>
+        </div>
+        <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm mt-4">
+          <div class="snake-container">
+            <div class="snake-header">
+              <div>
+                <div class="snake-score">Score: <span id="score">0</span></div>
+                <div class="snake-high">Best: <span id="highScore">0</span></div>
+              </div>
+              <div class="snake-speed-selector">
+                <button class="speed-btn" data-speed="200" onclick="setSpeed(200)">Slow</button>
+                <button class="speed-btn active" data-speed="150" onclick="setSpeed(150)">Normal</button>
+                <button class="speed-btn" data-speed="60" onclick="setSpeed(60)">Fast</button>
+              </div>
+            </div>
+            <canvas id="gameCanvas" width="400" height="400"></canvas>
+            <div class="controls-hint">Arrow keys or WASD to move • Space to pause • R to restart</div>
+            <div class="mobile-controls">
+              <button class="dpad-btn" ontouchstart="setDir(0,-1)" onclick="setDir(0,-1)">↑</button>
+              <div style="display:flex;flex-direction:column;align-items:center;gap:8px;">
+                <div style="display:flex;gap:8px;">
+                  <button class="dpad-btn" ontouchstart="setDir(-1,0)" onclick="setDir(-1,0)">←</button>
+                  <button class="dpad-btn" ontouchstart="setDir(1,0)" onclick="setDir(1,0)">→</button>
+                </div>
+                <button class="dpad-btn" ontouchstart="setDir(0,1)" onclick="setDir(0,1)">↓</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="lg:col-span-1">
+        <div id="trending-sidebar"></div>
+      </div>
+    </div>
+  </main>
+  <div class="game-overlay" id="overlay">
+    <div class="overlay-box">
+      <div class="overlay-title" id="overlayTitle">Game Over</div>
+      <div class="overlay-score" id="overlayScore">0</div>
+      <button class="btn btn-primary" onclick="restart()" style="padding:12px 32px;font-size:1rem;margin-right:8px;">Play Again</button>
+      <button class="btn btn-secondary" onclick="goHome()" style="padding:12px 32px;font-size:1rem;">Menu</button>
+    </div>
+  </div>
+  <div class="game-overlay" id="pauseOverlay">
+    <div class="overlay-box">
+      <div class="overlay-title">Paused</div>
+      <p class="text-slate-500 dark:text-slate-400 mt-2">Press Space to resume</p>
+      <button class="btn btn-primary" onclick="togglePause()" style="padding:12px 32px;font-size:1rem;margin-top:1rem;">Resume</button>
+      <button class="btn btn-secondary" onclick="goHome()" style="padding:12px 32px;font-size:1rem;margin-left:8px;">Quit to Menu</button>
+    </div>
+  </div>
+  <footer id="global-footer"></footer>
+  <script src="../../global.js" defer></script>
+  <script src="../../twt-shell.js" defer></script>
+  <script src="../../js/context-engine.js" defer></script>
+  <script>
+    const canvas = document.getElementById('gameCanvas');
+    const ctx = canvas.getContext('2d');
+    const gridSize = 20;
+    const tileCount = canvas.width / gridSize;
+    let snake = [{x: 10, y: 10}];
+    let food = {x: 15, y: 15};
+    let dx = 1, dy = 0;
+    let score = 0;
+    let speed = 150;
+    let gameLoop = null;
+    let paused = false;
+    let highScore = 0;
+    try { highScore = parseInt(localStorage.getItem('topwebtool-snake')?.highScore) || 0; } catch(e){}
+    document.getElementById('highScore').textContent = highScore;
+    function spawnFood() {
+      food = { x: Math.floor(Math.random() * tileCount), y: Math.floor(Math.random() * tileCount) };
+    }
+    function draw() {
+      ctx.fillStyle = '#0f172a';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.strokeStyle = '#1e293b';
+      ctx.lineWidth = 0.5;
+      for (let i = 0; i <= tileCount; i++) {
+        ctx.beginPath(); ctx.moveTo(i * gridSize, 0); ctx.lineTo(i * gridSize, canvas.height); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(0, i * gridSize); ctx.lineTo(canvas.width, i * gridSize); ctx.stroke();
+      }
+      ctx.fillStyle = '#fbbf24';
+      ctx.shadowColor = '#fbbf24';
+      ctx.shadowBlur = 10;
+      ctx.beginPath();
+      ctx.arc(food.x * gridSize + gridSize/2, food.y * gridSize + gridSize/2, gridSize/2 - 2, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.shadowBlur = 0;
+      snake.forEach((seg, i) => {
+        const alpha = 1 - (i / snake.length) * 0.4;
+        ctx.fillStyle = i === 0 ? '#818cf8' : `rgba(79, 70, 229, ${alpha})`;
+        ctx.shadowColor = i === 0 ? '#818cf8' : 'transparent';
+        ctx.shadowBlur = i === 0 ? 8 : 0;
+        ctx.beginPath();
+        ctx.roundRect(seg.x * gridSize + 1, seg.y * gridSize + 1, gridSize - 2, gridSize - 2, 4);
+        ctx.fill();
+      });
+      ctx.shadowBlur = 0;
+    }
+    function update() {
+      if (paused) return;
+      const head = { x: snake[0].x + dx, y: snake[0].y + dy };
+      if (head.x < 0 || head.x >= tileCount || head.y < 0 || head.y >= tileCount || snake.some(s => s.x === head.x && s.y === head.y)) {
+        gameOver();
+        return;
+      }
+      snake.unshift(head);
+      if (head.x === food.x && head.y === food.y) {
+        score += 10;
+        document.getElementById('score').textContent = score;
+        playBeep(600, 'sine', 0.1);
+        spawnFood();
+      } else {
+        snake.pop();
+      }
+      draw();
+    }
+    function gameOver() {
+      clearInterval(gameLoop);
+      playBeep(200, 'sawtooth', 0.3);
+      if (score > highScore) {
+        highScore = score;
+        document.getElementById('highScore').textContent = highScore;
+        try { localStorage.setItem('topwebtool-snake', JSON.stringify({ highScore })); } catch(e){}
+      }
+      document.getElementById('overlayTitle').textContent = 'Game Over';
+      document.getElementById('overlayScore').textContent = `Score: ${score}`;
+      document.getElementById('overlay').classList.add('active');
+      document.getElementById('pauseOverlay').classList.remove('active');
+    }
+    function togglePause() {
+      paused = !paused;
+      document.getElementById('pauseOverlay').classList.toggle('active', paused);
+    }
+    function goHome() {
+      clearInterval(gameLoop);
+      window.location.href = '../../';
+    }
+    function restart() {
+      snake = [{x: 10, y: 10}];
+      dx = 1; dy = 0;
+      score = 0;
+      paused = false;
+      document.getElementById('score').textContent = '0';
+      document.getElementById('overlay').classList.remove('active');
+      document.getElementById('pauseOverlay').classList.remove('active');
+      spawnFood();
+      draw();
+      clearInterval(gameLoop);
+      gameLoop = setInterval(update, speed);
+    }
+    function setSpeed(s) {
+      speed = s;
+      document.querySelectorAll('.speed-btn').forEach(btn => btn.classList.toggle('active', parseInt(btn.dataset.speed) === s));
+      if (gameLoop) { clearInterval(gameLoop); gameLoop = setInterval(update, speed); }
+    }
+    function setDir(x, y) {
+      if (x === -dx && y === -dy) return;
+      dx = x; dy = y;
+    }
+    function playBeep(freq, type, dur) {
+      try {
+        const ctx = new (window.AudioContext || window.webkitAudioContext)();
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = type;
+        osc.frequency.setValueAtTime(freq, ctx.currentTime);
+        gain.gain.setValueAtTime(0.1, ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + dur);
+        osc.connect(gain); gain.connect(ctx.destination);
+        osc.start(); osc.stop(ctx.currentTime + dur);
+      } catch(e){}
+    }
+    document.addEventListener('keydown', (e) => {
+      switch(e.key) {
+        case 'ArrowUp': case 'w': case 'W': e.preventDefault(); setDir(0, -1); break;
+        case 'ArrowDown': case 's': case 'S': e.preventDefault(); setDir(0, 1); break;
+        case 'ArrowLeft': case 'a': case 'A': e.preventDefault(); setDir(-1, 0); break;
+        case 'ArrowRight': case 'd': case 'D': e.preventDefault(); setDir(1, 0); break;
+        case ' ': e.preventDefault(); togglePause(); break;
+        case 'r': case 'R': restart(); break;
+      }
+    });
+    spawnFood();
+    draw();
+    gameLoop = setInterval(update, speed);
+  </script>
+</body>
+</html>

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Online Flute | TopWebTool</title>
+  <meta name="description" content="Play Online Flute. Use keys 1-6 to cover finger holes and Space to blow to change pitch dynamically." />
+  <link rel="canonical" href="https://topwebtool.com/games-and-play/online-flute/" />
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+  <link rel="apple-touch-icon" href="../../apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png" />
+  <link rel="manifest" href="../../site.webmanifest" />
+  <meta name="theme-color" content="#090d16" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="TopWebTool" />
+  <meta property="og:title" content="Online Flute | TopWebTool" />
+  <meta property="og:description" content="Play Online Flute. Use keys 1-6 to cover finger holes and Space to blow to change pitch dynamically." />
+  <meta property="og:url" content="https://topwebtool.com/games-and-play/online-flute/" />
+  <meta property="og:image" content="https://topwebtool.com/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Online Flute | TopWebTool" />
+  <meta name="twitter:description" content="Play Online Flute. Use keys 1-6 to cover finger holes and Space to blow to change pitch dynamically." />
+  <meta name="twitter:image" content="https://topwebtool.com/og-image.png" />
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Online Flute | TopWebTool",
+      "url": "https://topwebtool.com/games-and-play/online-flute/",
+      "applicationCategory": "GameApplication",
+      "operatingSystem": "Windows, macOS, Linux, Android, iOS",
+      "browserRequirements": "Requires HTML5 compatible web browser",
+      "description": "Play Online Flute. Use keys 1-6 to cover finger holes and Space to blow to change pitch dynamically.",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://topwebtool.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Games & Play", "item": "https://topwebtool.com/games-and-play/" },
+        { "@type": "ListItem", "position": 3, "name": "Online Flute", "item": "https://topwebtool.com/games-and-play/online-flute/" }
+      ]
+    }
+  </script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="../../site.min.css">
+  <style>
+    .flute-container { max-width: 600px; margin: 0 auto; }
+    .flute-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem; }
+    .flute-note { font-size: 1.5rem; font-weight: 800; color: #4f46e5; }
+    .dark .flute-note { color: #818cf8; }
+    .flute-freq { font-size: 0.875rem; color: #94a3b8; }
+    .flute-volume { display: flex; align-items: center; gap: 8px; font-size: 0.875rem; color: #475569; }
+    .dark .flute-volume { color: #94a3b8; }
+    .flute-volume input[type="range"] { width: 120px; accent-color: #4f46e5; }
+    .flute-visual { position: relative; display: flex; justify-content: center; margin: 2rem 0; }
+    .flute-body { position: relative; width: 280px; height: 60px; background: linear-gradient(180deg, #fbbf24 0%, #d97706 100%); border-radius: 30px; box-shadow: 0 8px 24px rgba(0,0,0,0.15); }
+    .dark .flute-body { background: linear-gradient(180deg, #f59e0b 0%, #b45309 100%); }
+    .flute-blow { position: absolute; right: -8px; top: 50%; transform: translateY(-50%); width: 20px; height: 24px; background: #1e293b; border-radius: 4px; }
+    .dark .flute-blow { background: #0f172a; }
+    .flute-hole { position: absolute; top: 50%; transform: translateY(-50%); width: 32px; height: 32px; border-radius: 50%; background: #0f172a; border: 2px solid #334155; box-sizing: border-box; transition: all 150ms ease; }
+    .dark .flute-hole { background: #1e293b; border-color: #475569; }
+    .flute-hole.covered { background: #4f46e5; border-color: #6366f1; box-shadow: 0 0 12px rgba(99,102,241,0.5); transform: translateY(-50%) scale(0.92); }
+    .dark .flute-hole.covered { background: #6366f1; border-color: #818cf8; box-shadow: 0 0 16px rgba(129,140,248,0.5); }
+    .flute-hole-label { position: absolute; bottom: -24px; left: 50%; transform: translateX(-50%); font-size: 0.75rem; font-weight: 700; color: #64748b; }
+    .dark .flute-hole-label { color: #94a3b8; }
+    .breath-overlay { position: absolute; top: -60px; left: 50%; transform: translateX(-50%); pointer-events: none; opacity: 0; transition: opacity 200ms ease; }
+    .breath-overlay.active { opacity: 1; }
+    .breath-particles { display: flex; gap: 4px; }
+    .breath-particle { width: 8px; height: 8px; border-radius: 50%; background: rgba(148,163,184,0.6); animation: breathFloat 600ms ease-out forwards; }
+    @keyframes breathFloat { 0% { transform: translateY(0) scale(1); opacity: 0.8; } 100% { transform: translateY(-40px) scale(0.3); opacity: 0; } }
+    .flute-controls { text-align: center; margin-top: 1rem; font-size: 0.875rem; color: #94a3b8; }
+    .key-hint { display: inline-block; padding: 2px 8px; border-radius: 4px; background: #f1f5f9; border: 1px solid #e2e8f0; font-weight: 600; font-size: 0.75rem; color: #475569; margin: 0 2px; }
+    .dark .key-hint { background: #1e293b; border-color: #334155; color: #94a3b8; }
+  </style>
+</head>
+<body>
+  <header id="global-header"></header>
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <div class="grid grid-cols-1 lg:grid-cols-4 gap-4">
+      <div class="lg:col-span-3">
+        <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+          <h1 class="text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">Online Flute</h1>
+          <p class="mt-2 text-base text-slate-500 dark:text-slate-400">Press keys 1-6 to cover finger holes and Space to blow. Change pitch by opening and closing holes like a real flute.</p>
+        </div>
+        <div class="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-xl p-4 mt-4">
+          <p class="text-sm text-amber-800 dark:text-amber-200"><strong>How to Play:</strong> Use keys 1-6 to cover or uncover holes. Press Space to blow and play the note.</p>
+        </div>
+        <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm mt-4">
+          <div class="flute-container">
+            <div class="flute-header">
+              <div>
+                <div class="flute-note">Note: <span id="currentNote">D4</span></div>
+                <div class="flute-freq">Frequency: <span id="currentFreq">293.66</span> Hz</div>
+              </div>
+              <div class="flute-volume">
+                <label for="volume">Volume</label>
+                <input type="range" id="volume" min="0" max="100" value="70" />
+              </div>
+            </div>
+            <div class="flute-visual">
+              <div class="breath-overlay" id="breathOverlay">
+                <div class="breath-particles" id="breathParticles"></div>
+              </div>
+              <div class="flute-body">
+                <div class="flute-blow"></div>
+                <div class="flute-hole" data-hole="1" style="left: 40px;"><span class="flute-hole-label">1</span></div>
+                <div class="flute-hole" data-hole="2" style="left: 80px;"><span class="flute-hole-label">2</span></div>
+                <div class="flute-hole" data-hole="3" style="left: 120px;"><span class="flute-hole-label">3</span></div>
+                <div class="flute-hole" data-hole="4" style="left: 160px;"><span class="flute-hole-label">4</span></div>
+                <div class="flute-hole" data-hole="5" style="left: 200px;"><span class="flute-hole-label">5</span></div>
+                <div class="flute-hole" data-hole="6" style="left: 240px;"><span class="flute-hole-label">6</span></div>
+              </div>
+            </div>
+            <div class="flute-controls">
+              Keys <span class="key-hint">1</span> - <span class="key-hint">6</span> cover holes, <span class="key-hint">Space</span> to blow
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="lg:col-span-1">
+        <div id="trending-sidebar"></div>
+      </div>
+    </div>
+  </main>
+  <footer id="global-footer"></footer>
+  <script src="../../global.js" defer></script>
+  <script src="../../twt-shell.js" defer></script>
+  <script src="../../js/context-engine.js" defer></script>
+  <script>
+    const NOTE_NAMES = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'];
+    const BASE_MIDI = 62;
+    const baseFreq = 293.66;
+    const holes = Array.from({ length: 6 }, () => false);
+    let volume = 0.7;
+    let audioCtx = null;
+    try {
+      const saved = localStorage.getItem('topwebtool-flute');
+      if (saved) { const parsed = JSON.parse(saved); if (typeof parsed.volume === 'number') volume = Math.max(0, Math.min(1, parsed.volume)); }
+    } catch (e) {}
+    document.getElementById('volume').value = volume * 100;
+    document.getElementById('volume').addEventListener('input', (e) => {
+      volume = parseInt(e.target.value) / 100;
+      try { localStorage.setItem('topwebtool-flute', JSON.stringify({ volume })); } catch (e) {}
+    });
+    function midiToFreq(midi) { return baseFreq * Math.pow(2, (midi - BASE_MIDI) / 12); }
+    function getNoteName(midi) {
+      const octave = Math.floor(midi / 12) - 1;
+      const noteIndex = midi % 12;
+      return NOTE_NAMES[noteIndex] + octave;
+    }
+    function getCurrentMidi() {
+      let count = 0;
+      for (let i = 0; i < 6; i++) { if (holes[i]) count++; }
+      const openCount = 6 - count;
+      const closedCount = count;
+      const midi = BASE_MIDI - closedCount * 2 + Math.floor(openCount / 2);
+      return Math.max(BASE_MIDI - 12, Math.min(BASE_MIDI + 12, midi));
+    }
+    function updateHoleVisuals() {
+      document.querySelectorAll('.flute-hole').forEach((el) => {
+        const idx = parseInt(el.dataset.hole) - 1;
+        el.classList.toggle('covered', holes[idx]);
+      });
+      const midi = getCurrentMidi();
+      document.getElementById('currentNote').textContent = getNoteName(midi);
+      document.getElementById('currentFreq').textContent = midiToFreq(midi).toFixed(2);
+    }
+    function showBreath() {
+      const overlay = document.getElementById('breathOverlay');
+      const container = document.getElementById('breathParticles');
+      container.innerHTML = '';
+      for (let i = 0; i < 5; i++) {
+        const p = document.createElement('div');
+        p.className = 'breath-particle';
+        p.style.animationDelay = `${i * 50}ms`;
+        container.appendChild(p);
+      }
+      overlay.classList.add('active');
+      setTimeout(() => overlay.classList.remove('active'), 700);
+    }
+    function playFluteNote() {
+      if (!audioCtx) { audioCtx = new (window.AudioContext || window.webkitAudioContext)(); }
+      const midi = getCurrentMidi();
+      const freq = midiToFreq(midi);
+      const masterGain = audioCtx.createGain();
+      masterGain.gain.setValueAtTime(volume * 0.4, audioCtx.currentTime);
+      masterGain.connect(audioCtx.destination);
+      const osc1 = audioCtx.createOscillator();
+      osc1.type = 'sine';
+      osc1.frequency.setValueAtTime(freq, audioCtx.currentTime);
+      const osc2 = audioCtx.createOscillator();
+      osc2.type = 'triangle';
+      osc2.frequency.setValueAtTime(freq * 2, audioCtx.currentTime);
+      const osc2Gain = audioCtx.createGain();
+      osc2Gain.gain.setValueAtTime(0.15, audioCtx.currentTime);
+      osc2.connect(osc2Gain);
+      osc2Gain.connect(masterGain);
+      const breathNoise = audioCtx.createOscillator();
+      breathNoise.type = 'sawtooth';
+      breathNoise.frequency.setValueAtTime(freq * 4, audioCtx.currentTime);
+      const breathGain = audioCtx.createGain();
+      breathGain.gain.setValueAtTime(0.03, audioCtx.currentTime);
+      breathGain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.8);
+      breathNoise.connect(breathGain);
+      breathGain.connect(masterGain);
+      masterGain.gain.setValueAtTime(volume * 0.4, audioCtx.currentTime);
+      masterGain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 1.2);
+      osc1.connect(masterGain);
+      osc1.start();
+      osc2.start();
+      breathNoise.start();
+      osc1.stop(audioCtx.currentTime + 1.2);
+      osc2.stop(audioCtx.currentTime + 1.2);
+      breathNoise.stop(audioCtx.currentTime + 0.8);
+      showBreath();
+    }
+    document.addEventListener('keydown', (e) => {
+      if (e.key >= '1' && e.key <= '6') {
+        e.preventDefault();
+        const idx = parseInt(e.key) - 1;
+        holes[idx] = !holes[idx];
+        updateHoleVisuals();
+      } else if (e.key === ' ') {
+        e.preventDefault();
+        playFluteNote();
+      }
+    });
+    document.querySelectorAll('.flute-hole').forEach((el) => {
+      el.addEventListener('click', () => {
+        const idx = parseInt(el.dataset.hole) - 1;
+        holes[idx] = !holes[idx];
+        updateHoleVisuals();
+      });
+    });
+    updateHoleVisuals();
+  </script>
+</body>
+</html>

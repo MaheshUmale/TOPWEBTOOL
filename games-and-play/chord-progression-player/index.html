@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chord Progression Player | TopWebTool</title>
+  <meta name="description" content="Play common chord progressions with a built-in metronome. Use keys 1-9 to trigger chords or press Space to loop a progression." />
+  <link rel="canonical" href="https://topwebtool.com/games-and-play/chord-progression-player/" />
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+  <link rel="apple-touch-icon" href="../../apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png" />
+  <link rel="manifest" href="../../site.webmanifest" />
+  <meta name="theme-color" content="#090d16" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="TopWebTool" />
+  <meta property="og:title" content="Chord Progression Player | TopWebTool" />
+  <meta property="og:description" content="Play common chord progressions with a built-in metronome. Use keys 1-9 to trigger chords or press Space to loop a progression." />
+  <meta property="og:url" content="https://topwebtool.com/games-and-play/chord-progression-player/" />
+  <meta property="og:image" content="https://topwebtool.com/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Chord Progression Player | TopWebTool" />
+  <meta name="twitter:description" content="Play common chord progressions with a built-in metronome. Use keys 1-9 to trigger chords or press Space to loop a progression." />
+  <meta name="twitter:image" content="https://topwebtool.com/og-image.png" />
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Chord Progression Player | TopWebTool",
+      "url": "https://topwebtool.com/games-and-play/chord-progression-player/",
+      "applicationCategory": "MusicApplication",
+      "operatingSystem": "Windows, macOS, Linux, Android, iOS",
+      "browserRequirements": "Requires HTML5 compatible web browser",
+      "description": "Play common chord progressions with a built-in metronome. Use keys 1-9 to trigger chords or press Space to loop a progression.",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://topwebtool.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Games & Play", "item": "https://topwebtool.com/games-and-play/" },
+        { "@type": "ListItem", "position": 3, "name": "Chord Progression Player", "item": "https://topwebtool.com/games-and-play/chord-progression-player/" }
+      ]
+    }
+  </script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="../../site.min.css">
+  <style>
+    .chord-container { max-width: 800px; margin: 0 auto; }
+    .chord-controls { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; margin-bottom: 1.5rem; }
+    .chord-select { padding: 0.5rem 1rem; border-radius: 9999px; border: 1px solid #e2e8f0; background: white; color: #475569; font-weight: 600; font-size: 0.875rem; cursor: pointer; }
+    .dark .chord-select { background: #0f172a; border-color: #1e293b; color: #94a3b8; }
+    .chord-slider { width: 140px; accent-color: #4f46e5; }
+    .play-btn { padding: 0.5rem 1.25rem; border-radius: 9999px; border: none; background: #4f46e5; color: white; font-weight: 700; font-size: 0.875rem; cursor: pointer; display: inline-flex; align-items: center; gap: 0.5rem; }
+    .play-btn:hover { background: #4338ca; }
+    .play-btn.stop { background: #ef4444; }
+    .play-btn.stop:hover { background: #dc2626; }
+    .metronome { display: flex; gap: 6px; align-items: flex-end; height: 32px; }
+    .beat { width: 10px; background: #e2e8f0; border-radius: 9999px; transition: background 120ms, height 120ms; height: 12px; }
+    .dark .beat { background: #334155; }
+    .beat.active { background: #fbbf24; height: 32px; }
+    .chord-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); gap: 0.75rem; margin-top: 1.5rem; }
+    .chord-btn { padding: 1rem 0.5rem; border-radius: 12px; border: 2px solid #e2e8f0; background: white; color: #1e293b; font-weight: 700; font-size: 1.125rem; cursor: pointer; text-align: center; transition: all 120ms; position: relative; }
+    .dark .chord-btn { background: #0f172a; border-color: #1e293b; color: #f1f5f9; }
+    .chord-btn:hover { border-color: #4f46e5; }
+    .chord-btn.active { background: #fbbf24; border-color: #fbbf24; color: #1e293b; box-shadow: 0 10px 25px rgba(251, 191, 36, 0.25); }
+    .chord-btn .key-hint { position: absolute; top: 4px; right: 6px; font-size: 0.7rem; color: #94a3b8; font-weight: 600; }
+    .chord-btn.active .key-hint { color: #92400e; }
+    .progression-display { text-align: center; font-size: 1.25rem; font-weight: 700; color: #1e293b; margin-top: 1.5rem; }
+    .dark .progression-display { color: #f1f5f9; }
+    .progression-display span { color: #fbbf24; }
+    .controls-hint { text-align: center; margin-top: 1rem; font-size: 0.875rem; color: #94a3b8; }
+    @media (max-width: 640px) {
+      .chord-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+  </style>
+</head>
+<body>
+  <header id="global-header"></header>
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <div class="grid grid-cols-1 lg:grid-cols-4 gap-4">
+      <div class="lg:col-span-3">
+        <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+          <h1 class="text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">Chord Progression Player</h1>
+          <p class="mt-2 text-base text-slate-500 dark:text-slate-400">Select a progression, set the tempo, and hear the chords. Use keys 1-9 to trigger individual chords, or Space to loop the full progression.</p>
+        </div>
+        <div class="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-xl p-4 mt-4">
+          <p class="text-sm text-amber-800 dark:text-amber-200"><strong>How to Play:</strong> Select a progression from the dropdown, adjust BPM with the slider, then press Play or Space to loop. Keys 1-9 play each chord in the current progression.</p>
+        </div>
+        <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm mt-4">
+          <div class="chord-container">
+            <div class="chord-controls">
+              <select id="progressionSelect" class="chord-select">
+                <option value="I-IV-V-I">I - IV - V - I (Classic)</option>
+                <option value="ii-V-I">ii - V - I (Jazz turnaround)</option>
+                <option value="I-V-vi-IV">I - V - vi - IV (Pop)</option>
+                <option value="I-vi-IV-V">I - vi - IV - V (50s)</option>
+                <option value="vi-IV-I-V">vi - IV - I - V (Emotional)</option>
+                <option value="I-IV-I-V">I - IV - I - V (Simple)</option>
+                <option value="I-iii-IV-V">I - iii - IV - V (Folk)</option>
+                <option value="IV-V-I-iii">IV - V - I - iii</option>
+                <option value="I-V-IV-I">I - V - IV - I</option>
+                <option value="I-IV-V-vi">I - IV - V - vi</option>
+              </select>
+              <label style="font-size: 0.875rem; font-weight: 600; color: #475569;">BPM</label>
+              <input type="range" id="bpmSlider" class="chord-slider" min="40" max="200" value="100">
+              <span id="bpmValue" style="font-weight:700;color:#4f46e5;min-width:48px;">100</span>
+              <label style="font-size: 0.875rem; font-weight: 600; color: #475569;">Vol</label>
+              <input type="range" id="volumeSlider" class="chord-slider" min="0" max="100" value="60">
+              <button id="playBtn" class="play-btn" onclick="toggleLoop()">▶ Play</button>
+            </div>
+            <div class="metronome" id="metronome"></div>
+            <div class="progression-display" id="progressionDisplay"></div>
+            <div class="chord-grid" id="chordGrid"></div>
+            <div class="controls-hint">Keys 1-9 to play chords • Space to start/stop loop</div>
+          </div>
+        </div>
+      </div>
+      <div class="lg:col-span-1">
+        <div id="trending-sidebar"></div>
+      </div>
+    </div>
+  </main>
+  <div class="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-xl p-4 mt-4">
+    <p class="text-sm text-amber-800 dark:text-amber-200"><strong>Instructions:</strong> Use the dropdown to pick a progression. Drag the BPM slider to set tempo. Click Play (or press Space) to loop through the progression automatically. Keys 1 through 9 play each chord individually. Amber highlights show the active chord and current beat.</p>
+  </div>
+  <footer id="global-footer"></footer>
+  <script src="../../global.js" defer></script>
+  <script src="../../twt-shell.js" defer></script>
+  <script src="../../js/context-engine.js" defer></script>
+  <script>
+    const PROGRESSIONS = {
+      'I-IV-V-I': ['C', 'F', 'G', 'C'],
+      'ii-V-I': ['Dm', 'G', 'C', 'C'],
+      'I-V-vi-IV': ['C', 'G', 'Am', 'F'],
+      'I-vi-IV-V': ['C', 'Am', 'F', 'G'],
+      'vi-IV-I-V': ['Am', 'F', 'C', 'G'],
+      'I-IV-I-V': ['C', 'F', 'C', 'G'],
+      'I-iii-IV-V': ['C', 'Em', 'F', 'G'],
+      'IV-V-I-iii': ['F', 'G', 'C', 'Em'],
+      'I-V-IV-I': ['C', 'G', 'F', 'C'],
+      'I-IV-V-vi': ['C', 'F', 'G', 'Am']
+    };
+    const NOTE_FREQS = { C: 261.63, D: 293.66, E: 329.63, F: 349.23, G: 392.00, A: 440.00, B: 493.88 };
+    const CHORD_TYPES = {
+      '': [0, 4, 7],
+      'm': [0, 3, 7],
+      'dim': [0, 3, 6],
+      'aug': [0, 4, 8]
+    };
+    const NOTE_INDEX = { C: 0, D: 2, E: 4, F: 5, G: 7, A: 9, B: 11 };
+    const KEY_MAP = { '1': 0, '2': 1, '3': 2, '4': 3, '5': 4, '6': 5, '7': 6, '8': 7, '9': 8 };
+
+    let audioCtx = null;
+    let currentProgression = 'I-IV-V-I';
+    let bpm = 100;
+    let volume = 0.6;
+    let loopInterval = null;
+    let loopBeat = 0;
+    let loopProgression = [];
+    let isPlaying = false;
+    let currentChordIndex = -1;
+
+    const progressionSelect = document.getElementById('progressionSelect');
+    const bpmSlider = document.getElementById('bpmSlider');
+    const bpmValue = document.getElementById('bpmValue');
+    const volumeSlider = document.getElementById('volumeSlider');
+    const playBtn = document.getElementById('playBtn');
+    const chordGrid = document.getElementById('chordGrid');
+    const progressionDisplay = document.getElementById('progressionDisplay');
+    const metronome = document.getElementById('metronome');
+
+    function loadSettings() {
+      try {
+        const raw = localStorage.getItem('topwebtool-chords');
+        if (raw) {
+          const data = JSON.parse(raw);
+          if (data.volume !== undefined) { volume = data.volume; volumeSlider.value = Math.round(volume * 100); }
+          if (data.lastProgression && PROGRESSIONS[data.lastProgression]) { currentProgression = data.lastProgression; progressionSelect.value = currentProgression; }
+          if (data.bpm) { bpm = data.bpm; bpmSlider.value = bpm; bpmValue.textContent = bpm; }
+        }
+      } catch (e) {}
+    }
+
+    function saveSettings() {
+      try {
+        localStorage.setItem('topwebtool-chords', JSON.stringify({ volume, lastProgression: currentProgression, bpm }));
+      } catch (e) {}
+    }
+
+    function getNoteFreq(noteName) {
+      const match = noteName.match(/^([A-G])(m|dim|aug)?$/);
+      if (!match) return 440;
+      const root = match[1];
+      const type = match[2] || '';
+      const base = NOTE_FREQS[root];
+      const intervals = CHORD_TYPES[type];
+      return intervals.map(interval => base * Math.pow(2, interval / 12));
+    }
+
+    function playChord(noteName, duration = 1.2) {
+      if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      if (audioCtx.state === 'suspended') audioCtx.resume();
+      const freqs = getNoteFreq(noteName);
+      const now = audioCtx.currentTime;
+      const masterGain = audioCtx.createGain();
+      masterGain.gain.setValueAtTime(volume * 0.6, now);
+      masterGain.gain.exponentialRampToValueAtTime(0.0001, now + duration);
+      masterGain.connect(audioCtx.destination);
+      freqs.forEach((freq, i) => {
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = i === 0 ? 'triangle' : 'sine';
+        osc.frequency.setValueAtTime(freq, now);
+        if (i === 0) osc.frequency.setValueAtTime(freq * 0.5, now);
+        gain.gain.setValueAtTime(0.35, now);
+        gain.gain.exponentialRampToValueAtTime(0.0001, now + duration);
+        osc.connect(gain);
+        gain.connect(masterGain);
+        osc.start(now);
+        osc.stop(now + duration + 0.1);
+      });
+    }
+
+    function renderProgression() {
+      const chords = PROGRESSIONS[currentProgression] || [];
+      loopProgression = chords;
+      chordGrid.innerHTML = '';
+      progressionDisplay.innerHTML = chords.map((c, i) => `<span id="pd-${i}">${c}</span>`).join(' <span style="color:#94a3b8;">→</span> ');
+      chords.forEach((chord, i) => {
+        const btn = document.createElement('button');
+        btn.className = 'chord-btn';
+        btn.dataset.index = i;
+        btn.innerHTML = `${chord}<span class="key-hint">${i + 1}</span>`;
+        btn.onclick = () => playChordIndex(i);
+        chordGrid.appendChild(btn);
+      });
+      updateMetronomeBeats();
+    }
+
+    function updateMetronomeBeats() {
+      metronome.innerHTML = '';
+      const count = Math.min(loopProgression.length, 9);
+      for (let i = 0; i < count; i++) {
+        const beat = document.createElement('div');
+        beat.className = 'beat';
+        beat.id = `beat-${i}`;
+        metronome.appendChild(beat);
+      }
+    }
+
+    function highlightChord(index) {
+      if (currentChordIndex >= 0 && currentChordIndex < loopProgression.length) {
+        const pd = document.getElementById(`pd-${currentChordIndex}`);
+        if (pd) pd.style.color = '';
+        const oldBtn = chordGrid.querySelector(`.chord-btn[data-index="${currentChordIndex}"]`);
+        if (oldBtn) oldBtn.classList.remove('active');
+      }
+      currentChordIndex = index;
+      if (index >= 0 && index < loopProgression.length) {
+        const pd = document.getElementById(`pd-${index}`);
+        if (pd) pd.style.color = '#fbbf24';
+        const btn = chordGrid.querySelector(`.chord-btn[data-index="${index}"]`);
+        if (btn) btn.classList.add('active');
+      }
+    }
+
+    function advanceLoop() {
+      const chords = loopProgression;
+      if (!chords.length) return;
+      const beatIdx = loopBeat % chords.length;
+      highlightChord(beatIdx);
+      for (let i = 0; i < chords.length; i++) {
+        const b = document.getElementById(`beat-${i}`);
+        if (b) b.classList.toggle('active', i === beatIdx);
+      }
+      playChord(chords[beatIdx], (60 / bpm) * 0.9);
+      loopBeat++;
+    }
+
+    function startLoop() {
+      if (isPlaying) return;
+      isPlaying = true;
+      playBtn.innerHTML = '⏹ Stop';
+      playBtn.classList.add('stop');
+      loopBeat = 0;
+      const intervalMs = (60 / bpm) * 1000;
+      advanceLoop();
+      loopInterval = setInterval(advanceLoop, intervalMs);
+    }
+
+    function stopLoop() {
+      isPlaying = false;
+      playBtn.innerHTML = '▶ Play';
+      playBtn.classList.remove('stop');
+      if (loopInterval) { clearInterval(loopInterval); loopInterval = null; }
+      highlightChord(-1);
+      for (let i = 0; i < loopProgression.length; i++) {
+        const b = document.getElementById(`beat-${i}`);
+        if (b) b.classList.remove('active');
+      }
+    }
+
+    function toggleLoop() {
+      if (isPlaying) stopLoop();
+      else startLoop();
+    }
+
+    function playChordIndex(index) {
+      const chords = loopProgression;
+      if (index >= 0 && index < chords.length) {
+        playChord(chords[index], 1.2);
+        highlightChord(index);
+        setTimeout(() => { if (currentChordIndex === index) highlightChord(-1); }, 400);
+      }
+    }
+
+    progressionSelect.addEventListener('change', (e) => {
+      currentProgression = e.target.value;
+      saveSettings();
+      renderProgression();
+      if (isPlaying) { stopLoop(); startLoop(); }
+    });
+
+    bpmSlider.addEventListener('input', (e) => {
+      bpm = parseInt(e.target.value);
+      bpmValue.textContent = bpm;
+      saveSettings();
+      if (isPlaying) { stopLoop(); startLoop(); }
+    });
+
+    volumeSlider.addEventListener('input', (e) => {
+      volume = parseInt(e.target.value) / 100;
+      saveSettings();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === ' ') {
+        e.preventDefault();
+        toggleLoop();
+        return;
+      }
+      const idx = KEY_MAP[e.key];
+      if (idx !== undefined) playChordIndex(idx);
+    });
+
+    loadSettings();
+    renderProgression();
+  </script>
+</body>
+</html>

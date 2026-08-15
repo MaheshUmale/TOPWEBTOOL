@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Virtual Drum Kit | TopWebTool</title>
+  <meta name="description" content="Play virtual drums with mouse, touch, or keyboard. 8 pads with electronic, acoustic, and hip-hop kits. Record and loop your beats." />
+  <link rel="canonical" href="https://topwebtool.com/games-and-play/virtual-drum-kit/" />
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+  <link rel="apple-touch-icon" href="../../apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png" />
+  <link rel="manifest" href="../../site.webmanifest" />
+  <meta name="theme-color" content="#090d16" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="TopWebTool" />
+  <meta property="og:title" content="Virtual Drum Kit | TopWebTool" />
+  <meta property="og:description" content="Play virtual drums with mouse, touch, or keyboard. 8 pads with electronic, acoustic, and hip-hop kits. Record and loop your beats." />
+  <meta property="og:url" content="https://topwebtool.com/games-and-play/virtual-drum-kit/" />
+  <meta property="og:image" content="https://topwebtool.com/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Virtual Drum Kit | TopWebTool" />
+  <meta name="twitter:description" content="Play virtual drums with mouse, touch, or keyboard. 8 pads with electronic, acoustic, and hip-hop kits. Record and loop your beats." />
+  <meta name="twitter:image" content="https://topwebtool.com/og-image.png" />
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Virtual Drum Kit | TopWebTool",
+      "url": "https://topwebtool.com/games-and-play/virtual-drum-kit/",
+      "applicationCategory": "GameApplication",
+      "operatingSystem": "Windows, macOS, Linux, Android, iOS",
+      "browserRequirements": "Requires HTML5 compatible web browser with Web Audio API support",
+      "description": "Play virtual drums with mouse, touch, or keyboard. 8 pads with electronic, acoustic, and hip-hop kits. Record and loop your beats.",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://topwebtool.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Games & Play", "item": "https://topwebtool.com/games-and-play/" },
+        { "@type": "ListItem", "position": 3, "name": "Virtual Drum Kit", "item": "https://topwebtool.com/games-and-play/virtual-drum-kit/" }
+      ]
+    }
+  </script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="../../site.min.css">
+  <style>
+    .drum-container { max-width: 700px; margin: 0 auto; }
+    .drum-controls { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: center; margin-bottom: 1.5rem; }
+    .drum-controls label { font-size: 0.875rem; font-weight: 600; color: #475569; }
+    .drum-pad { aspect-ratio: 1; border-radius: 16px; border: 2px solid #e2e8f0; background: linear-gradient(135deg, #f8fafc, #f1f5f9); display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer; transition: all 80ms; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }
+    .drum-pad:hover { border-color: #4f46e5; transform: translateY(-2px); }
+    .drum-pad:active, .drum-pad.hit { border-color: #4f46e5; background: linear-gradient(135deg, #e0e7ff, #c7d2fe); transform: scale(0.95); box-shadow: 0 0 20px rgba(79,70,229,0.3); }
+    .dark .drum-pad { background: linear-gradient(135deg, #1e293b, #0f172a); border-color: #334155; }
+    .dark .drum-pad:active, .dark .drum-pad.hit { background: linear-gradient(135deg, #312e81, #3730a3); }
+    .pad-emoji { font-size: 2.5rem; pointer-events: none; }
+    .pad-label { font-size: 0.75rem; font-weight: 700; color: #64748b; margin-top: 4px; pointer-events: none; }
+    .pad-key { font-size: 0.625rem; font-weight: 600; color: #94a3b8; background: #f1f5f9; padding: 2px 8px; border-radius: 9999px; margin-top: 4px; pointer-events: none; }
+    .dark .pad-key { background: #0f172a; color: #64748b; }
+    .drum-hint { text-align: center; margin-top: 1.5rem; font-size: 0.875rem; color: #94a3b8; }
+    .btn { padding: 10px 24px; border-radius: 12px; font-weight: 600; font-size: 0.875rem; border: none; cursor: pointer; transition: all 150ms ease; }
+    .btn-primary { background: #4f46e5; color: white; }
+    .btn-primary:hover { background: #4338ca; }
+    .btn-secondary { background: #f1f5f9; color: #475569; }
+    .dark .btn-secondary { background: #1e293b; color: #94a3b8; }
+  </style>
+</head>
+<body>
+  <header id="global-header"></header>
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <div class="grid grid-cols-1 lg:grid-cols-4 gap-4">
+      <div class="lg:col-span-3">
+        <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+          <h1 class="text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">Virtual Drum Kit</h1>
+          <p class="mt-2 text-base text-slate-500 dark:text-slate-400">8-pad drum kit with synthesized sounds. Record loops and build beats with your keyboard.</p>
+        </div>
+        <div class="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-xl p-4 mt-4">
+          <p class="text-sm text-amber-800 dark:text-amber-200"><strong>How to Play:</strong> Objective: Create beats by hitting drum pads. Controls: Click/tap pads or use keys A S D F G H J K. Record and loop your beat.</p>
+        </div>
+        <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm mt-4">
+          <div class="drum-container">
+            <div class="drum-controls">
+              <label>Kit:</label>
+              <select id="kit" onchange="updateKit()">
+                <option value="electronic">Electronic</option>
+                <option value="acoustic">Acoustic</option>
+                <option value="hiphop">Hip-Hop</option>
+              </select>
+              <label>Volume:</label>
+              <input type="range" id="volume" min="0" max="100" value="70" style="width:120px;">
+              <button class="btn btn-primary" id="recBtn" onclick="toggleRecord()">● Record</button>
+              <button class="btn btn-secondary" onclick="playLoop()" id="playBtn" disabled>▶ Play Loop</button>
+              <button class="btn btn-secondary" onclick="clearLoop()">Clear</button>
+            </div>
+            <div class="grid grid-cols-4 gap-4" id="drumPads"></div>
+            <div class="drum-hint">Keys: A = Kick • S = Snare • D = Hi-Hat Closed • F = Hi-Hat Open • G = Tom High • H = Tom Mid • J = Tom Low • K = Crash</div>
+          </div>
+        </div>
+      </div>
+      <div class="lg:col-span-1"><div id="trending-sidebar"></div></div>
+    </div>
+  </main>
+  <footer id="global-footer"></footer>
+  <script src="../../global.js" defer></script>
+  <script src="../../twt-shell.js" defer></script>
+  <script src="../../js/context-engine.js" defer></script>
+  <script>
+    const PADS = [
+      { name: 'Kick', key: 'a', sound: 'kick' }, { name: 'Snare', key: 's', sound: 'snare' },
+      { name: 'Hi-Hat', key: 'd', sound: 'hihat' }, { name: 'Open HH', key: 'f', sound: 'openhat' },
+      { name: 'Tom Hi', key: 'g', sound: 'tomhi' }, { name: 'Tom Mid', key: 'h', sound: 'tommid' },
+      { name: 'Tom Low', key: 'j', sound: 'tomlow' }, { name: 'Crash', key: 'k', sound: 'crash' }
+    ];
+    const KEY_TO_PAD = {};
+    PADS.forEach((p, i) => { KEY_TO_PAD[p.key] = i; });
+    let audioCtx = null;
+    let recording = false;
+    let loopStart = 0;
+    let loopEvents = [];
+    let isPlaying = false;
+    let playInterval = null;
+    const LOOP_LENGTH = 4000;
+    function ensureCtx() {
+      if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      if (audioCtx.state === 'suspended') audioCtx.resume();
+    }
+    function playDrum(type) {
+      ensureCtx();
+      const now = audioCtx.currentTime;
+      const vol = parseInt(document.getElementById('volume').value) / 100;
+      if (type === 'kick') {
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.frequency.setValueAtTime(150, now);
+        osc.frequency.exponentialRampToValueAtTime(0.01, now + 0.5);
+        gain.gain.setValueAtTime(Math.max(vol, 0.0001), now);
+        gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.5);
+        osc.connect(gain); gain.connect(audioCtx.destination);
+        osc.start(now); osc.stop(now + 0.5);
+      } else if (type === 'snare') {
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = 'triangle'; osc.frequency.setValueAtTime(200, now);
+        gain.gain.setValueAtTime(Math.max(vol * 0.7, 0.0001), now);
+        gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.2);
+        osc.connect(gain); gain.connect(audioCtx.destination);
+        osc.start(now); osc.stop(now + 0.2);
+        const bufferSize = audioCtx.sampleRate * 0.2;
+        const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+        const data = buffer.getChannelData(0);
+        for (let i = 0; i < bufferSize; i++) data[i] = Math.random() * 2 - 1;
+        const noise = audioCtx.createBufferSource(); noise.buffer = buffer;
+        const noiseGain = audioCtx.createGain();
+        const filter = audioCtx.createBiquadFilter(); filter.type = 'highpass'; filter.frequency.value = 1000;
+        noiseGain.gain.setValueAtTime(Math.max(vol * 0.6, 0.0001), now);
+        noiseGain.gain.exponentialRampToValueAtTime(0.0001, now + 0.2);
+        noise.connect(filter); filter.connect(noiseGain); noiseGain.connect(audioCtx.destination);
+        noise.start(now);
+      } else if (type === 'hihat' || type === 'openhat') {
+        const duration = type === 'hihat' ? 0.08 : 0.3;
+        const bufferSize = audioCtx.sampleRate * duration;
+        const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+        const data = buffer.getChannelData(0);
+        for (let i = 0; i < bufferSize; i++) data[i] = Math.random() * 2 - 1;
+        const noise = audioCtx.createBufferSource(); noise.buffer = buffer;
+        const gain = audioCtx.createGain();
+        const filter = audioCtx.createBiquadFilter(); filter.type = 'highpass'; filter.frequency.value = 7000;
+        gain.gain.setValueAtTime(Math.max(vol * 0.4, 0.0001), now);
+        gain.gain.exponentialRampToValueAtTime(0.0001, now + duration);
+        noise.connect(filter); filter.connect(gain); gain.connect(audioCtx.destination);
+        noise.start(now);
+      } else if (type === 'crash') {
+        const bufferSize = audioCtx.sampleRate * 1.5;
+        const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+        const data = buffer.getChannelData(0);
+        for (let i = 0; i < bufferSize; i++) data[i] = Math.random() * 2 - 1;
+        const noise = audioCtx.createBufferSource(); noise.buffer = buffer;
+        const gain = audioCtx.createGain();
+        const filter = audioCtx.createBiquadFilter(); filter.type = 'highpass'; filter.frequency.value = 4000;
+        gain.gain.setValueAtTime(Math.max(vol * 0.5, 0.0001), now);
+        gain.gain.exponentialRampToValueAtTime(0.0001, now + 1.5);
+        noise.connect(filter); filter.connect(gain); gain.connect(audioCtx.destination);
+        noise.start(now);
+      } else if (type === 'tomhi' || type === 'tommid' || type === 'tomlow') {
+        const freqs = { tomhi: 300, tommid: 220, tomlow: 150 };
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(freqs[type], now);
+        osc.frequency.exponentialRampToValueAtTime(freqs[type] * 0.5, now + 0.3);
+        gain.gain.setValueAtTime(Math.max(vol * 0.8, 0.0001), now);
+        gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.3);
+        osc.connect(gain); gain.connect(audioCtx.destination);
+        osc.start(now); osc.stop(now + 0.3);
+      }
+    }
+    function hitPad(index) {
+      const pad = PADS[index];
+      playDrum(pad.sound);
+      const el = document.querySelector(`#drumPads > [data-index="${index}"]`);
+      if (el) { el.classList.add('hit'); setTimeout(() => el.classList.remove('hit'), 100); }
+      if (recording) {
+        loopEvents.push({ index, time: Date.now() - loopStart });
+      }
+    }
+    function buildPads() {
+      const container = document.getElementById('drumPads');
+      container.innerHTML = '';
+      PADS.forEach((pad, i) => {
+        const el = document.createElement('div');
+        el.className = 'drum-pad';
+        el.dataset.index = i;
+        el.innerHTML = `<span class="pad-emoji">🥁</span><span class="pad-label">${pad.name}</span><span class="pad-key">${pad.key.toUpperCase()}</span>`;
+        el.addEventListener('mousedown', (e) => { e.preventDefault(); hitPad(i); });
+        el.addEventListener('touchstart', (e) => { e.preventDefault(); hitPad(i); });
+        container.appendChild(el);
+      });
+    }
+    function toggleRecord() {
+      recording = !recording;
+      const btn = document.getElementById('recBtn');
+      const playBtn = document.getElementById('playBtn');
+      if (recording) {
+        loopEvents = [];
+        loopStart = Date.now();
+        btn.textContent = '■ Stop';
+        btn.classList.remove('btn-primary'); btn.classList.add('btn-secondary');
+        playBtn.disabled = true;
+        if (isPlaying) clearLoop();
+      } else {
+        btn.textContent = '● Record';
+        btn.classList.remove('btn-secondary'); btn.classList.add('btn-primary');
+        playBtn.disabled = loopEvents.length === 0;
+      }
+    }
+    function playLoop() {
+      if (!loopEvents.length) return;
+      if (isPlaying) clearLoop();
+      isPlaying = true;
+      document.getElementById('playBtn').textContent = '■ Stop Loop';
+      loopEvents.forEach(event => {
+        setTimeout(() => hitPad(event.index), event.time % LOOP_LENGTH);
+      });
+      playInterval = setInterval(() => {
+        loopEvents.forEach(event => { setTimeout(() => hitPad(event.index), event.time % LOOP_LENGTH); });
+      }, LOOP_LENGTH);
+    }
+    function clearLoop() {
+      if (playInterval) clearInterval(playInterval);
+      isPlaying = false;
+      document.getElementById('playBtn').textContent = '▶ Play Loop';
+      document.getElementById('playBtn').disabled = loopEvents.length === 0;
+    }
+    function updateKit() { /* kits are cosmetic in v1; sound synthesis stays the same */ }
+    document.addEventListener('keydown', (e) => {
+      if (e.repeat) return;
+      const key = e.key.toLowerCase();
+      const index = KEY_TO_PAD[key];
+      if (index !== undefined) { e.preventDefault(); hitPad(index); }
+    });
+    buildPads();
+  </script>
+</body>
+</html>

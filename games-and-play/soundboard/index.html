@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Soundboard | TopWebTool</title>
+  <meta name="description" content="Free online soundboard with 9 synthesized sound effects. Press keys Q-C to play laughs, applause, boos, cheers, and more." />
+  <link rel="canonical" href="https://topwebtool.com/games-and-play/soundboard/" />
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+  <link rel="apple-touch-icon" href="../../apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png" />
+  <link rel="manifest" href="../../site.webmanifest" />
+  <meta name="theme-color" content="#090d16" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="TopWebTool" />
+  <meta property="og:title" content="Soundboard | TopWebTool" />
+  <meta property="og:description" content="Free online soundboard with 9 synthesized sound effects. Press keys Q-C to play laughs, applause, boos, cheers, and more." />
+  <meta property="og:url" content="https://topwebtool.com/games-and-play/soundboard/" />
+  <meta property="og:image" content="https://topwebtool.com/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Soundboard | TopWebTool" />
+  <meta name="twitter:description" content="Free online soundboard with 9 synthesized sound effects. Press keys Q-C to play laughs, applause, boos, cheers, and more." />
+  <meta name="twitter:image" content="https://topwebtool.com/og-image.png" />
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Soundboard | TopWebTool",
+      "url": "https://topwebtool.com/games-and-play/soundboard/",
+      "applicationCategory": "GameApplication",
+      "operatingSystem": "Windows, macOS, Linux, Android, iOS",
+      "browserRequirements": "Requires HTML5 compatible web browser",
+      "description": "Free online soundboard with 9 synthesized sound effects. Press keys Q-C to play laughs, applause, boos, cheers, and more.",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://topwebtool.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Games & Play", "item": "https://topwebtool.com/games-and-play/" },
+        { "@type": "ListItem", "position": 3, "name": "Soundboard", "item": "https://topwebtool.com/games-and-play/soundboard/" }
+      ]
+    }
+  </script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="../../site.min.css">
+  <style>
+    .soundboard-container { max-width: 600px; margin: 0 auto; }
+    .category-tabs { display: flex; gap: 8px; margin-bottom: 1rem; flex-wrap: wrap; }
+    .category-tab { padding: 6px 16px; border-radius: 9999px; font-size: 0.875rem; font-weight: 600; border: 1px solid #e2e8f0; background: white; color: #475569; cursor: pointer; transition: all 150ms; }
+    .dark .category-tab { background: #0f172a; border-color: #1e293b; color: #94a3b8; }
+    .category-tab.active { background: #4f46e5; color: white; border-color: #4f46e5; }
+    .volume-control { display: flex; align-items: center; gap: 12px; margin-bottom: 1rem; padding: 12px 16px; background: #f8fafc; border-radius: 12px; border: 1px solid #e2e8f0; }
+    .dark .volume-control { background: #0f172a; border-color: #1e293b; }
+    .volume-control label { font-size: 0.875rem; font-weight: 600; color: #475569; white-space: nowrap; }
+    .dark .volume-control label { color: #94a3b8; }
+    .volume-control input[type="range"] { flex: 1; accent-color: #4f46e5; }
+    .volume-value { font-size: 0.875rem; font-weight: 700; color: #4f46e5; min-width: 40px; text-align: right; }
+    .sound-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .sound-btn { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 1.25rem 0.75rem; border-radius: 16px; border: 2px solid #e2e8f0; background: white; color: #1e293b; cursor: pointer; transition: all 150ms; user-select: none; -webkit-tap-highlight-color: transparent; }
+    .dark .sound-btn { background: #0f172a; border-color: #1e293b; color: #f1f5f9; }
+    .sound-btn:hover { border-color: #4f46e5; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(79, 70, 229, 0.15); }
+    .sound-btn:active { transform: scale(0.95); }
+    .sound-btn.flash { border-color: #fbbf24; background: #fef3c7; box-shadow: 0 0 20px rgba(251, 191, 36, 0.4); }
+    .dark .sound-btn.flash { background: #78350f; border-color: #fbbf24; }
+    .sound-btn .key-badge { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 8px; background: #f1f5f9; border: 1px solid #e2e8f0; font-size: 0.75rem; font-weight: 700; color: #475569; margin-bottom: 8px; }
+    .dark .sound-btn .key-badge { background: #1e293b; border-color: #334155; color: #94a3b8; }
+    .sound-btn .sound-name { font-size: 0.875rem; font-weight: 600; text-transform: capitalize; }
+    .sound-btn .sound-icon { font-size: 1.5rem; margin-bottom: 4px; }
+    .controls-hint { text-align: center; margin-top: 1rem; font-size: 0.875rem; color: #94a3b8; }
+    @media (max-width: 640px) {
+      .sound-grid { gap: 8px; }
+      .sound-btn { padding: 1rem 0.5rem; border-radius: 12px; }
+      .sound-btn .key-badge { width: 24px; height: 24px; font-size: 0.7rem; }
+      .sound-btn .sound-name { font-size: 0.75rem; }
+    }
+  </style>
+</head>
+<body>
+  <header id="global-header"></header>
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <div class="grid grid-cols-1 lg:grid-cols-4 gap-4">
+      <div class="lg:col-span-3">
+        <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+          <h1 class="text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">Soundboard</h1>
+          <p class="mt-2 text-base text-slate-500 dark:text-slate-400">Play 9 fun sound effects with your keyboard or by tapping the buttons.</p>
+        </div>
+        <div class="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-xl p-4 mt-4">
+          <p class="text-sm text-amber-800 dark:text-amber-200"><strong>How to Play:</strong> Click a sound button or press the matching key to play a sound effect. Use the category tabs to filter sounds. Adjust volume with the slider.</p>
+        </div>
+        <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm mt-4">
+          <div class="soundboard-container">
+            <div class="category-tabs" id="categoryTabs"></div>
+            <div class="volume-control">
+              <label for="volumeSlider">Volume</label>
+              <input type="range" id="volumeSlider" min="0" max="100" value="80" />
+              <span class="volume-value" id="volumeValue">80%</span>
+            </div>
+            <div class="sound-grid" id="soundGrid"></div>
+            <div class="controls-hint">Keys Q-C to play sounds</div>
+          </div>
+        </div>
+      </div>
+      <div class="lg:col-span-1">
+        <div id="trending-sidebar"></div>
+      </div>
+    </div>
+  </main>
+  <footer id="global-footer"></footer>
+  <script src="../../global.js" defer></script>
+  <script src="../../twt-shell.js" defer></script>
+  <script src="../../js/context-engine.js" defer></script>
+  <script>
+    const sounds = [
+      { id: 'laugh', name: 'Laugh', key: 'Q', category: 'Comedy', icon: '😂' },
+      { id: 'applause', name: 'Applause', key: 'W', category: 'Comedy', icon: '👏' },
+      { id: 'boo', name: 'Boo', key: 'E', category: 'Comedy', icon: '👎' },
+      { id: 'cheer', name: 'Cheer', key: 'A', category: 'Animals', icon: '🎉' },
+      { id: 'drumroll', name: 'Drumroll', key: 'S', category: 'SFX', icon: '🥁' },
+      { id: 'zap', name: 'Zap', key: 'D', category: 'SFX', icon: '⚡' },
+      { id: 'boing', name: 'Boing', key: 'Z', category: 'SFX', icon: '🏀' },
+      { id: 'click', name: 'Click', key: 'X', category: 'SFX', icon: '👆' },
+      { id: 'chime', name: 'Chime', key: 'C', category: 'Nature', icon: '🔔' }
+    ];
+
+    const categories = ['All', 'SFX', 'Animals', 'Nature', 'Comedy'];
+    let currentCategory = 'All';
+    let volume = 0.8;
+    let audioCtx = null;
+
+    function getAudioContext() {
+      if (!audioCtx) {
+        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      }
+      return audioCtx;
+    }
+
+    function playLaugh(ctx, dest) {
+      const now = ctx.currentTime;
+      for (let i = 0; i < 6; i++) {
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = 'sawtooth';
+        osc.frequency.setValueAtTime(300 + Math.random() * 200, now + i * 0.08);
+        gain.gain.setValueAtTime(0.15, now + i * 0.08);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + i * 0.08 + 0.06);
+        osc.connect(gain); gain.connect(dest);
+        osc.start(now + i * 0.08); osc.stop(now + i * 0.08 + 0.06);
+      }
+    }
+
+    function playApplause(ctx, dest) {
+      const now = ctx.currentTime;
+      for (let i = 0; i < 20; i++) {
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        const filter = ctx.createBiquadFilter();
+        osc.type = 'square';
+        osc.frequency.setValueAtTime(800 + Math.random() * 1200, now + i * 0.03);
+        filter.type = 'bandpass';
+        filter.frequency.setValueAtTime(2000, now);
+        filter.Q.setValueAtTime(0.5, now);
+        gain.gain.setValueAtTime(0.04 + Math.random() * 0.03, now + i * 0.03);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + i * 0.03 + 0.04);
+        osc.connect(filter); filter.connect(gain); gain.connect(dest);
+        osc.start(now + i * 0.03); osc.stop(now + i * 0.03 + 0.04);
+      }
+    }
+
+    function playBoo(ctx, dest) {
+      const now = ctx.currentTime;
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = 'sawtooth';
+      osc.frequency.setValueAtTime(400, now);
+      osc.frequency.exponentialRampToValueAtTime(150, now + 0.6);
+      gain.gain.setValueAtTime(0.15, now);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.6);
+      osc.connect(gain); gain.connect(dest);
+      osc.start(now); osc.stop(now + 0.6);
+    }
+
+    function playCheer(ctx, dest) {
+      const now = ctx.currentTime;
+      [523, 659, 784, 1047].forEach((freq, i) => {
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = 'triangle';
+        osc.frequency.setValueAtTime(freq, now + i * 0.1);
+        gain.gain.setValueAtTime(0.15, now + i * 0.1);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + i * 0.1 + 0.15);
+        osc.connect(gain); gain.connect(dest);
+        osc.start(now + i * 0.1); osc.stop(now + i * 0.1 + 0.15);
+      });
+    }
+
+    function playDrumroll(ctx, dest) {
+      const now = ctx.currentTime;
+      for (let i = 0; i < 40; i++) {
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = 'triangle';
+        osc.frequency.setValueAtTime(80 + Math.random() * 40, now + i * 0.03);
+        gain.gain.setValueAtTime(0.2, now + i * 0.03);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + i * 0.03 + 0.03);
+        osc.connect(gain); gain.connect(dest);
+        osc.start(now + i * 0.03); osc.stop(now + i * 0.03 + 0.03);
+      }
+    }
+
+    function playZap(ctx, dest) {
+      const now = ctx.currentTime;
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = 'sawtooth';
+      osc.frequency.setValueAtTime(1200, now);
+      osc.frequency.exponentialRampToValueAtTime(100, now + 0.15);
+      gain.gain.setValueAtTime(0.2, now);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.15);
+      osc.connect(gain); gain.connect(dest);
+      osc.start(now); osc.stop(now + 0.15);
+    }
+
+    function playBoing(ctx, dest) {
+      const now = ctx.currentTime;
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(600, now);
+      osc.frequency.exponentialRampToValueAtTime(150, now + 0.3);
+      gain.gain.setValueAtTime(0.25, now);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.3);
+      osc.connect(gain); gain.connect(dest);
+      osc.start(now); osc.stop(now + 0.3);
+    }
+
+    function playClick(ctx, dest) {
+      const now = ctx.currentTime;
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = 'square';
+      osc.frequency.setValueAtTime(1200, now);
+      gain.gain.setValueAtTime(0.1, now);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.02);
+      osc.connect(gain); gain.connect(dest);
+      osc.start(now); osc.stop(now + 0.02);
+    }
+
+    function playChime(ctx, dest) {
+      const now = ctx.currentTime;
+      [880, 1109, 1320, 1760].forEach((freq, i) => {
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(freq, now + i * 0.05);
+        gain.gain.setValueAtTime(0.12 / (i + 1), now + i * 0.05);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + i * 0.05 + 0.8);
+        osc.connect(gain); gain.connect(dest);
+        osc.start(now + i * 0.05); osc.stop(now + i * 0.05 + 0.8);
+      });
+    }
+
+    const soundPlayers = {
+      laugh: playLaugh, applause: playApplause, boo: playBoo, cheer: playCheer,
+      drumroll: playDrumroll, zap: playZap, boing: playBoing, click: playClick, chime: playChime
+    };
+
+    function playSound(id) {
+      const ctx = getAudioContext();
+      if (ctx.state === 'suspended') ctx.resume();
+      const master = ctx.createGain();
+      master.gain.setValueAtTime(volume, ctx.currentTime);
+      master.connect(ctx.destination);
+      const player = soundPlayers[id];
+      if (player) player(ctx, master);
+      flashButton(id);
+    }
+
+    function flashButton(id) {
+      const btn = document.querySelector(`[data-sound="${id}"]`);
+      if (!btn) return;
+      btn.classList.add('flash');
+      setTimeout(() => btn.classList.remove('flash'), 150);
+    }
+
+    function renderTabs() {
+      const container = document.getElementById('categoryTabs');
+      container.innerHTML = categories.map(cat =>
+        `<button class="category-tab${cat === currentCategory ? ' active' : ''}" data-cat="${cat}">${cat}</button>`
+      ).join('');
+      container.querySelectorAll('.category-tab').forEach(btn => {
+        btn.addEventListener('click', () => {
+          currentCategory = btn.dataset.cat;
+          renderTabs();
+          renderGrid();
+          try { localStorage.setItem('topwebtool-soundboard', JSON.stringify({ volume, lastCategory: currentCategory })); } catch(e){}
+        });
+      });
+    }
+
+    function renderGrid() {
+      const grid = document.getElementById('soundGrid');
+      const filtered = currentCategory === 'All' ? sounds : sounds.filter(s => s.category === currentCategory);
+      grid.innerHTML = filtered.map(s =>
+        `<button class="sound-btn" data-sound="${s.id}" data-key="${s.key}">
+          <span class="key-badge">${s.key}</span>
+          <span class="sound-icon">${s.icon}</span>
+          <span class="sound-name">${s.name}</span>
+        </button>`
+      ).join('');
+      grid.querySelectorAll('.sound-btn').forEach(btn => {
+        btn.addEventListener('click', () => playSound(btn.dataset.sound));
+        btn.addEventListener('touchstart', (e) => { e.preventDefault(); playSound(btn.dataset.sound); }, { passive: false });
+      });
+    }
+
+    function loadSettings() {
+      try {
+        const data = JSON.parse(localStorage.getItem('topwebtool-soundboard'));
+        if (data) {
+          volume = typeof data.volume === 'number' ? data.volume : 0.8;
+          currentCategory = data.lastCategory || 'All';
+        }
+      } catch(e){}
+    }
+
+    const slider = document.getElementById('volumeSlider');
+    const volValue = document.getElementById('volumeValue');
+    slider.value = Math.round(volume * 100);
+    volValue.textContent = Math.round(volume * 100) + '%';
+    slider.addEventListener('input', () => {
+      volume = parseInt(slider.value) / 100;
+      volValue.textContent = slider.value + '%';
+      try { localStorage.setItem('topwebtool-soundboard', JSON.stringify({ volume, lastCategory: currentCategory })); } catch(e){}
+    });
+
+    loadSettings();
+    renderTabs();
+    renderGrid();
+
+    document.addEventListener('keydown', (e) => {
+      if (e.repeat) return;
+      const key = e.key.toUpperCase();
+      const sound = sounds.find(s => s.key === key);
+      if (sound) { e.preventDefault(); playSound(sound.id); }
+    });
+  </script>
+</body>
+</html>

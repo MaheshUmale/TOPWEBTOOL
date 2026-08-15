@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kalimba | TopWebTool</title>
+  <meta name="description" content="Play a free virtual Kalimba (Thumb Piano) online. 8 tines, keyboard and touch support, with realistic decay and overtones." />
+  <link rel="canonical" href="https://topwebtool.com/games-and-play/kalimba/" />
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+  <link rel="apple-touch-icon" href="../../apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png" />
+  <link rel="manifest" href="../../site.webmanifest" />
+  <meta name="theme-color" content="#090d16" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="TopWebTool" />
+  <meta property="og:title" content="Kalimba | TopWebTool" />
+  <meta property="og:description" content="Play a free virtual Kalimba (Thumb Piano) online. 8 tines, keyboard and touch support, with realistic decay and overtones." />
+  <meta property="og:url" content="https://topwebtool.com/games-and-play/kalimba/" />
+  <meta property="og:image" content="https://topwebtool.com/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Kalimba | TopWebTool" />
+  <meta name="twitter:description" content="Play a free virtual Kalimba (Thumb Piano) online. 8 tines, keyboard and touch support, with realistic decay and overtones." />
+  <meta name="twitter:image" content="https://topwebtool.com/og-image.png" />
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Kalimba | TopWebTool",
+      "url": "https://topwebtool.com/games-and-play/kalimba/",
+      "applicationCategory": "GameApplication",
+      "operatingSystem": "Windows, macOS, Linux, Android, iOS",
+      "browserRequirements": "Requires HTML5 compatible web browser",
+      "description": "Play a free virtual Kalimba (Thumb Piano) online. 8 tines, keyboard and touch support, with realistic decay and overtones.",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://topwebtool.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Games & Play", "item": "https://topwebtool.com/games-and-play/" },
+        { "@type": "ListItem", "position": 3, "name": "Kalimba", "item": "https://topwebtool.com/games-and-play/kalimba/" }
+      ]
+    }
+  </script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="../../site.min.css">
+  <style>
+    .kalimba-container { max-width: 720px; margin: 0 auto; }
+    .kalimba-board {
+      background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
+      border-radius: 24px;
+      padding: 2rem 1.5rem 1.5rem;
+      border: 2px solid #334155;
+      box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.05);
+      position: relative;
+      overflow: hidden;
+    }
+    .kalimba-board::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; height: 40%;
+      background: linear-gradient(180deg, rgba(255,255,255,0.03) 0%, transparent 100%);
+      pointer-events: none;
+    }
+    .tines-row {
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      gap: 12px;
+      height: 280px;
+      padding: 0 0.5rem;
+    }
+    .tine-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+    .tine {
+      width: 14px;
+      border-radius: 7px 7px 3px 3px;
+      background: linear-gradient(180deg, #f8fafc 0%, #cbd5e1 60%, #94a3b8 100%);
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.3), inset 0 2px 4px rgba(255,255,255,0.6);
+      cursor: pointer;
+      touch-action: manipulation;
+      transition: background 150ms, box-shadow 150ms;
+      position: relative;
+    }
+    .tine.plucked {
+      animation: wiggle 0.35s ease-out;
+      box-shadow: 0 0 20px rgba(251, 191, 36, 0.6), 0 0 40px rgba(251, 191, 36, 0.3), 0 4px 6px -1px rgba(0,0,0,0.3);
+    }
+    @keyframes wiggle {
+      0% { transform: rotate(0deg) scale(1); }
+      15% { transform: rotate(6deg) scale(1.05); }
+      30% { transform: rotate(-5deg) scale(1.03); }
+      45% { transform: rotate(4deg) scale(1.02); }
+      60% { transform: rotate(-2deg) scale(1.01); }
+      75% { transform: rotate(1deg) scale(1); }
+      100% { transform: rotate(0deg) scale(1); }
+    }
+    .tine-key {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #94a3b8;
+      background: rgba(15,23,42,0.6);
+      border-radius: 6px;
+      padding: 2px 8px;
+      min-width: 28px;
+      text-align: center;
+      border: 1px solid #334155;
+    }
+    .tine-note {
+      font-size: 0.625rem;
+      color: #64748b;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .kalimba-controls {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 1.25rem;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+    .volume-control {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .volume-control label {
+      font-size: 0.75rem;
+      color: #94a3b8;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .volume-control input[type="range"] {
+      width: 100px;
+      accent-color: #4f46e5;
+    }
+    .controls-hint {
+      text-align: center;
+      margin-top: 1rem;
+      font-size: 0.875rem;
+      color: #94a3b8;
+    }
+    .dark .kalimba-board { border-color: #1e293b; }
+  </style>
+</head>
+<body>
+  <header id="global-header"></header>
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <div class="grid grid-cols-1 lg:grid-cols-4 gap-4">
+      <div class="lg:col-span-3">
+        <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+          <h1 class="text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">Kalimba</h1>
+          <p class="mt-2 text-base text-slate-500 dark:text-slate-400">A virtual thumb piano. Pluck the tines with your mouse, finger, or keyboard to play gentle melodies.</p>
+        </div>
+        <div class="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-xl p-4 mt-4">
+          <p class="text-sm text-amber-800 dark:text-amber-200"><strong>How to Play:</strong> Click or tap a tine to pluck it. Keys A through K map to the 8 tines left to right. Adjust volume with the slider.</p>
+        </div>
+        <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm mt-4">
+          <div class="kalimba-container">
+            <div class="kalimba-board">
+              <div class="tines-row" id="tinesRow"></div>
+              <div class="kalimba-controls">
+                <div class="volume-control">
+                  <label for="volume">Volume</label>
+                  <input type="range" id="volume" min="0" max="1" step="0.01" value="0.5" />
+                </div>
+              </div>
+            </div>
+            <div class="controls-hint">Keys A-H to pluck tines</div>
+          </div>
+        </div>
+      </div>
+      <div class="lg:col-span-1">
+        <div id="trending-sidebar"></div>
+      </div>
+    </div>
+  </main>
+  <footer id="global-footer"></footer>
+  <script src="../../global.js" defer></script>
+  <script src="../../twt-shell.js" defer></script>
+  <script src="../../js/context-engine.js" defer></script>
+  <script>
+    const notes = [
+      { name: 'C4', freq: 261.63, key: 'a', height: 240 },
+      { name: 'D4', freq: 293.66, key: 's', height: 220 },
+      { name: 'E4', freq: 329.63, key: 'd', height: 200 },
+      { name: 'F4', freq: 349.23, key: 'f', height: 185 },
+      { name: 'G4', freq: 392.00, key: 'g', height: 170 },
+      { name: 'A4', freq: 440.00, key: 'h', height: 155 },
+      { name: 'B4', freq: 493.88, key: 'j', height: 140 },
+      { name: 'C5', freq: 523.25, key: 'k', height: 125 }
+    ];
+    const tinesRow = document.getElementById('tinesRow');
+    const volumeInput = document.getElementById('volume');
+    let volume = 0.5;
+    try {
+      const stored = localStorage.getItem('topwebtool-kalimba');
+      if (stored) { const p = JSON.parse(stored); if (typeof p.volume === 'number') volume = p.volume; }
+    } catch(e){}
+    volumeInput.value = volume;
+    function saveVolume() {
+      try { localStorage.setItem('topwebtool-kalimba', JSON.stringify({ volume })); } catch(e){}
+    }
+    volumeInput.addEventListener('input', () => { volume = parseFloat(volumeInput.value); saveVolume(); });
+    function buildTines() {
+      notes.forEach((note, i) => {
+        const wrapper = document.createElement('div');
+        wrapper.className = 'tine-wrapper';
+        const tine = document.createElement('div');
+        tine.className = 'tine';
+        tine.style.height = note.height + 'px';
+        tine.dataset.index = i;
+        const keyLabel = document.createElement('div');
+        keyLabel.className = 'tine-key';
+        keyLabel.textContent = note.key.toUpperCase();
+        const noteLabel = document.createElement('div');
+        noteLabel.className = 'tine-note';
+        noteLabel.textContent = note.name;
+        wrapper.appendChild(tine);
+        wrapper.appendChild(keyLabel);
+        wrapper.appendChild(noteLabel);
+        tinesRow.appendChild(wrapper);
+        const pluck = () => playNote(i);
+        tine.addEventListener('mousedown', pluck);
+        tine.addEventListener('touchstart', (e) => { e.preventDefault(); pluck(); }, { passive: false });
+      });
+    }
+    let audioCtx = null;
+    function getAudioCtx() {
+      if (!audioCtx) {
+        try { audioCtx = new (window.AudioContext || window.webkitAudioContext)(); } catch(e){ audioCtx = null; }
+      }
+      if (audioCtx && audioCtx.state === 'suspended') audioCtx.resume();
+      return audioCtx;
+    }
+    function playNote(index) {
+      const ctx = getAudioCtx();
+      if (!ctx) return;
+      const note = notes[index];
+      const now = ctx.currentTime;
+      const gain = ctx.createGain();
+      gain.gain.setValueAtTime(volume * 0.8, now);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + 1.2);
+      const osc = ctx.createOscillator();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(note.freq, now);
+      const osc2 = ctx.createOscillator();
+      osc2.type = 'sine';
+      osc2.frequency.setValueAtTime(note.freq * 2, now);
+      const g2 = ctx.createGain();
+      g2.gain.setValueAtTime(volume * 0.15, now);
+      g2.gain.exponentialRampToValueAtTime(0.001, now + 0.4);
+      osc.connect(gain);
+      osc2.connect(g2);
+      gain.connect(ctx.destination);
+      g2.connect(ctx.destination);
+      osc.start(now);
+      osc.stop(now + 1.2);
+      osc2.start(now);
+      osc2.stop(now + 0.4);
+      const tine = tinesRow.children[index]?.querySelector('.tine');
+      if (tine) {
+        tine.classList.remove('plucked');
+        void tine.offsetWidth;
+        tine.classList.add('plucked');
+      }
+    }
+    const keyMap = {};
+    notes.forEach((n, i) => { keyMap[n.key] = i; });
+    document.addEventListener('keydown', (e) => {
+      const k = e.key.toLowerCase();
+      if (k in keyMap) { e.preventDefault(); playNote(keyMap[k]); }
+    });
+    buildTines();
+  </script>
+</body>
+</html>

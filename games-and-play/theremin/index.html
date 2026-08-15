@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Theremin | TopWebTool</title>
+  <meta name="description" content="Free online Theremin. Control pitch and volume with your mouse to create eerie electronic sounds using the Web Audio API." />
+  <link rel="canonical" href="https://topwebtool.com/games-and-play/theremin/" />
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+  <link rel="apple-touch-icon" href="../../apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png" />
+  <link rel="manifest" href="../../site.webmanifest" />
+  <meta name="theme-color" content="#090d16" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="TopWebTool" />
+  <meta property="og:title" content="Theremin | TopWebTool" />
+  <meta property="og:description" content="Free online Theremin. Control pitch and volume with your mouse to create eerie electronic sounds using the Web Audio API." />
+  <meta property="og:url" content="https://topwebtool.com/games-and-play/theremin/" />
+  <meta property="og:image" content="https://topwebtool.com/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Theremin | TopWebTool" />
+  <meta name="twitter:description" content="Free online Theremin. Control pitch and volume with your mouse to create eerie electronic sounds using the Web Audio API." />
+  <meta name="twitter:image" content="https://topwebtool.com/og-image.png" />
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Theremin | TopWebTool",
+      "url": "https://topwebtool.com/games-and-play/theremin/",
+      "applicationCategory": "GameApplication",
+      "operatingSystem": "Windows, macOS, Linux, Android, iOS",
+      "browserRequirements": "Requires HTML5 compatible web browser with Web Audio API",
+      "description": "Free online Theremin. Control pitch and volume with your mouse to create eerie electronic sounds using the Web Audio API.",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://topwebtool.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Games & Play", "item": "https://topwebtool.com/games-and-play/" },
+        { "@type": "ListItem", "position": 3, "name": "Theremin", "item": "https://topwebtool.com/games-and-play/theremin/" }
+      ]
+    }
+  </script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="../../site.min.css">
+  <style>
+    .theremin-container { max-width: 900px; margin: 0 auto; }
+    .theremin-canvas-wrap { position: relative; border-radius: 16px; overflow: hidden; border: 2px solid #e2e8f0; background: #0f172a; cursor: crosshair; }
+    .dark .theremin-canvas-wrap { border-color: #1e293b; }
+    #thereminCanvas { display: block; width: 100%; height: auto; touch-action: none; }
+    .theremin-controls { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; align-items: center; }
+    .waveform-selector { display: flex; gap: 8px; }
+    .wave-btn { padding: 6px 16px; border-radius: 9999px; font-size: 0.875rem; font-weight: 600; border: 1px solid #e2e8f0; background: white; color: #475569; cursor: pointer; transition: all 150ms; }
+    .dark .wave-btn { background: #0f172a; border-color: #1e293b; color: #94a3b8; }
+    .wave-btn.active { background: #4f46e5; color: white; border-color: #4f46e5; }
+    .wave-btn:hover:not(.active) { border-color: #4f46e5; color: #4f46e5; }
+    .theremin-display { font-variant-numeric: tabular-nums; }
+    .pitch-val { color: #4f46e5; }
+    .dark .pitch-val { color: #818cf8; }
+    .vol-val { color: #f59e0b; }
+    .dark .vol-val { color: #fbbf24; }
+    .start-hint { text-align: center; margin-top: 1rem; font-size: 0.875rem; color: #94a3b8; }
+    @media (max-width: 767px) {
+      .theremin-controls { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+  <header id="global-header"></header>
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <div class="grid grid-cols-1 lg:grid-cols-4 gap-4">
+      <div class="lg:col-span-3">
+        <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+          <h1 class="text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">Theremin</h1>
+          <p class="mt-2 text-base text-slate-500 dark:text-slate-400">Move your mouse across the canvas to control pitch and volume. Click anywhere to start the sound engine.</p>
+        </div>
+        <div class="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-xl p-4 mt-4">
+          <p class="text-sm text-amber-800 dark:text-amber-200"><strong>How to Play:</strong> Move mouse to play, click to start sound. X axis controls pitch, Y axis controls volume. Use Arrow keys to fine-tune, Space to toggle sound on/off.</p>
+        </div>
+        <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm mt-4">
+          <div class="theremin-container">
+            <div class="theremin-canvas-wrap">
+              <canvas id="thereminCanvas" width="860" height="500"></canvas>
+            </div>
+            <div class="theremin-controls">
+              <div class="waveform-selector">
+                <button class="wave-btn active" data-wave="sine" onclick="setWaveform('sine')">Sine</button>
+                <button class="wave-btn" data-wave="triangle" onclick="setWaveform('triangle')">Triangle</button>
+                <button class="wave-btn" data-wave="sawtooth" onclick="setWaveform('sawtooth')">Sawtooth</button>
+              </div>
+              <div class="theremin-display text-sm text-slate-600 dark:text-slate-400">
+                Pitch: <span id="pitchDisplay" class="pitch-val font-semibold">--</span> Hz &nbsp;|&nbsp; Volume: <span id="volDisplay" class="vol-val font-semibold">--</span>%
+              </div>
+            </div>
+            <div class="start-hint">Move mouse to play, click to start sound</div>
+          </div>
+        </div>
+      </div>
+      <div class="lg:col-span-1">
+        <div id="trending-sidebar"></div>
+      </div>
+    </div>
+  </main>
+  <footer id="global-footer"></footer>
+  <script src="../../global.js" defer></script>
+  <script src="../../twt-shell.js" defer></script>
+  <script src="../../js/context-engine.js" defer></script>
+  <script>
+    const canvas = document.getElementById('thereminCanvas');
+    const ctx = canvas.getContext('2d');
+    const W = canvas.width, H = canvas.height;
+
+    let audioCtx = null;
+    let osc = null;
+    let gainNode = null;
+    let analyser = null;
+    let started = false;
+    let mouseX = W / 2, mouseY = H / 2;
+    let targetFreq = 440, targetVol = 0;
+    let currentFreq = 440, currentVol = 0;
+    let waveform = 'sine';
+    let smoothFreq = 440, smoothVol = 0;
+    let keysDown = { ArrowLeft: false, ArrowRight: false, ArrowUp: false, ArrowDown: false, Space: false };
+    let keyAccum = { freq: 0, vol: 0 };
+
+    const settings = loadSettings();
+    waveform = settings.waveform || 'sine';
+
+    function loadSettings() {
+      try { return JSON.parse(localStorage.getItem('topwebtool-theremin')) || {}; } catch(e) { return {}; }
+    }
+    function saveSettings() {
+      try { localStorage.setItem('topwebtool-theremin', JSON.stringify({ waveform, volume: Math.round(currentVol * 100) })); } catch(e){}
+    }
+
+    function initAudio() {
+      if (audioCtx) return;
+      audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      osc = audioCtx.createOscillator();
+      gainNode = audioCtx.createGain();
+      analyser = audioCtx.createAnalyser();
+      analyser.fftSize = 2048;
+      osc.type = waveform;
+      osc.frequency.value = currentFreq;
+      gainNode.gain.value = 0;
+      osc.connect(gainNode);
+      gainNode.connect(analyser);
+      analyser.connect(audioCtx.destination);
+      osc.start();
+      started = true;
+    }
+
+    function updateAudio() {
+      if (!started || !audioCtx) return;
+      const glideRate = 0.15;
+      smoothFreq += (targetFreq - smoothFreq) * glideRate;
+      smoothVol += (targetVol - smoothVol) * glideRate;
+      currentFreq = smoothFreq;
+      currentVol = smoothVol;
+      osc.frequency.setTargetAtTime(currentFreq, audioCtx.currentTime, 0.01);
+      gainNode.gain.setTargetAtTime(currentVol, audioCtx.currentTime, 0.01);
+      document.getElementById('pitchDisplay').textContent = currentFreq > 0 ? currentFreq.toFixed(1) : '--';
+      document.getElementById('volDisplay').textContent = currentVol > 0 ? Math.round(currentVol * 100) : '--';
+    }
+
+    function setWaveform(w) {
+      waveform = w;
+      document.querySelectorAll('.wave-btn').forEach(btn => btn.classList.toggle('active', btn.dataset.wave === w));
+      if (osc) osc.type = w;
+      saveSettings();
+    }
+    setWaveform(waveform);
+
+    function freqFromX(x) { return 65 + (x / W) * 1560; }
+    function volFromY(y) { return Math.max(0, 1 - y / H) * 0.5; }
+
+    canvas.addEventListener('mousemove', e => {
+      const rect = canvas.getBoundingClientRect();
+      const scaleX = W / rect.width, scaleY = H / rect.height;
+      mouseX = (e.clientX - rect.left) * scaleX;
+      mouseY = (e.clientY - rect.top) * scaleY;
+      targetFreq = freqFromX(mouseX);
+      targetVol = volFromY(mouseY);
+    });
+    canvas.addEventListener('touchmove', e => {
+      e.preventDefault();
+      const rect = canvas.getBoundingClientRect();
+      const scaleX = W / rect.width, scaleY = H / rect.height;
+      const t = e.touches[0];
+      mouseX = (t.clientX - rect.left) * scaleX;
+      mouseY = (t.clientY - rect.top) * scaleY;
+      targetFreq = freqFromX(mouseX);
+      targetVol = volFromY(mouseY);
+    }, { passive: false });
+    canvas.addEventListener('click', () => { initAudio(); if (audioCtx.state === 'suspended') audioCtx.resume(); });
+    canvas.addEventListener('touchstart', e => { initAudio(); if (audioCtx.state === 'suspended') audioCtx.resume(); });
+
+    document.addEventListener('keydown', e => {
+      if (e.key in keysDown) keysDown[e.key] = true;
+      if (e.key === ' ') { e.preventDefault(); if (!started) initAudio(); else if (audioCtx && audioCtx.state === 'suspended') audioCtx.resume(); }
+    });
+    document.addEventListener('keyup', e => { if (e.key in keysDown) keysDown[e.key] = false; });
+
+    function processKeys() {
+      const kf = 15, kv = 0.02;
+      if (keysDown.ArrowLeft) keyAccum.freq = Math.max(-300, keyAccum.freq - kf);
+      if (keysDown.ArrowRight) keyAccum.freq = Math.min(300, keyAccum.freq + kf);
+      if (keysDown.ArrowUp) keyAccum.vol = Math.min(0.5, keyAccum.vol + kv);
+      if (keysDown.ArrowDown) keyAccum.vol = Math.max(0, keyAccum.vol - kv);
+      if (!keysDown.ArrowLeft && !keysDown.ArrowRight) keyAccum.freq *= 0.9;
+      if (!keysDown.ArrowUp && !keysDown.ArrowDown) keyAccum.vol *= 0.9;
+      targetFreq = Math.max(65, Math.min(1625, targetFreq + keyAccum.freq));
+      targetVol = Math.max(0, Math.min(0.5, targetVol + keyAccum.vol));
+    }
+
+    function drawGrid() {
+      ctx.fillStyle = '#0f172a';
+      ctx.fillRect(0, 0, W, H);
+      ctx.strokeStyle = '#1e293b';
+      ctx.lineWidth = 1;
+      const step = 40;
+      for (let x = step; x < W; x += step) { ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, H); ctx.stroke(); }
+      for (let y = step; y < H; y += step) { ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke(); }
+    }
+
+    function drawOrb(x, y) {
+      const grad = ctx.createRadialGradient(x, y, 0, x, y, 50);
+      grad.addColorStop(0, 'rgba(129, 140, 248, 0.9)');
+      grad.addColorStop(0.5, 'rgba(79, 70, 229, 0.4)');
+      grad.addColorStop(1, 'rgba(79, 70, 229, 0)');
+      ctx.fillStyle = grad;
+      ctx.beginPath();
+      ctx.arc(x, y, 50, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.fillStyle = '#e0e7ff';
+      ctx.shadowColor = '#818cf8';
+      ctx.shadowBlur = 20;
+      ctx.beginPath();
+      ctx.arc(x, y, 8, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.shadowBlur = 0;
+    }
+
+    function drawWaveform() {
+      if (!analyser || !started) return;
+      const bufLen = analyser.frequencyBinCount;
+      const data = new Uint8Array(bufLen);
+      analyser.getByteTimeDomainData(data);
+      ctx.lineWidth = 2;
+      ctx.strokeStyle = '#fbbf24';
+      ctx.shadowColor = '#fbbf24';
+      ctx.shadowBlur = 10;
+      ctx.beginPath();
+      const sliceW = W / bufLen;
+      for (let i = 0; i < bufLen; i++) {
+        const v = data[i] / 128.0;
+        const y = (v * H) / 2;
+        if (i === 0) ctx.moveTo(0, y); else ctx.lineTo(i * sliceW, y);
+      }
+      ctx.stroke();
+      ctx.shadowBlur = 0;
+    }
+
+    function drawFreqBars() {
+      if (!analyser || !started) return;
+      const bufLen = analyser.frequencyBinCount;
+      const data = new Uint8Array(bufLen);
+      analyser.getByteFrequencyData(data);
+      const barW = W / 64;
+      for (let i = 0; i < 64; i++) {
+        const val = data[i] / 255;
+        const barH = val * 80;
+        ctx.fillStyle = `rgba(79, 70, 229, ${0.3 + val * 0.5})`;
+        ctx.fillRect(i * barW, H - barH, barW - 2, barH);
+      }
+    }
+
+    function draw() {
+      drawGrid();
+      drawFreqBars();
+      drawWaveform();
+      drawOrb(mouseX, mouseY);
+      if (started) {
+        ctx.fillStyle = '#94a3b8';
+        ctx.font = '12px Inter, sans-serif';
+        ctx.fillText(`X: ${mouseX.toFixed(0)}  Y: ${mouseY.toFixed(0)}`, 10, 20);
+      } else {
+        ctx.fillStyle = '#fbbf24';
+        ctx.font = 'bold 16px Inter, sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText('Click anywhere to start', W / 2, H / 2);
+        ctx.textAlign = 'start';
+      }
+    }
+
+    function loop() {
+      processKeys();
+      updateAudio();
+      draw();
+      requestAnimationFrame(loop);
+    }
+    loop();
+
+    function goHome() { window.location.href = '../../'; }
+  </script>
+</body>
+</html>

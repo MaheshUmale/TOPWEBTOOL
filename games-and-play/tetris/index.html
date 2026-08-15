@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tetris | TopWebTool</title>
+  <meta name="description" content="Play Tetris online. Classic block puzzle game. Rotate and stack falling blocks to clear lines. Free, no sign-up." />
+  <link rel="canonical" href="https://topwebtool.com/games-and-play/tetris/" />
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+  <link rel="apple-touch-icon" href="../../apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png" />
+  <link rel="manifest" href="../../site.webmanifest" />
+  <meta name="theme-color" content="#090d16" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="TopWebTool" />
+  <meta property="og:title" content="Tetris | TopWebTool" />
+  <meta property="og:description" content="Play Tetris online. Classic block puzzle game. Rotate and stack falling blocks to clear lines." />
+  <meta property="og:url" content="https://topwebtool.com/games-and-play/tetris/" />
+  <meta property="og:image" content="https://topwebtool.com/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Tetris | TopWebTool" />
+  <meta name="twitter:description" content="Play Tetris online. Classic block puzzle game. Rotate and stack falling blocks to clear lines." />
+  <meta name="twitter:image" content="https://topwebtool.com/og-image.png" />
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Tetris | TopWebTool",
+      "url": "https://topwebtool.com/games-and-play/tetris/",
+      "applicationCategory": "GameApplication",
+      "operatingSystem": "Windows, macOS, Linux, Android, iOS",
+      "browserRequirements": "Requires HTML5 compatible web browser",
+      "description": "Play Tetris online. Classic block puzzle game. Rotate and stack falling blocks to clear lines.",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://topwebtool.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Games & Play", "item": "https://topwebtool.com/games-and-play/" },
+        { "@type": "ListItem", "position": 3, "name": "Tetris", "item": "https://topwebtool.com/games-and-play/tetris/" }
+      ]
+    }
+  </script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="../../site.min.css">
+  <style>
+    .tetris-container { max-width: 500px; margin: 0 auto; display: flex; gap: 20px; justify-content: center; align-items: flex-start; }
+    canvas { border-radius: 8px; border: 2px solid #e2e8f0; }
+    .dark canvas { border-color: #1e293b; }
+    .tetris-side { text-align: center; }
+    .tetris-score { font-size: 1.5rem; font-weight: 800; color: #4f46e5; margin: 0.5rem 0; }
+    .dark .tetris-score { color: #818cf8; }
+    .tetris-next { font-size: 0.875rem; font-weight: 700; color: #64748b; margin-top: 1rem; }
+    .game-controls { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 1.5rem; }
+    .btn { padding: 10px 24px; border-radius: 12px; font-weight: 600; font-size: 0.875rem; border: none; cursor: pointer; transition: all 150ms ease; }
+    .btn-primary { background: #4f46e5; color: white; }
+    .btn-primary:hover { background: #4338ca; }
+    .btn-secondary { background: #f1f5f9; color: #475569; }
+    .dark .btn-secondary { background: #1e293b; color: #94a3b8; }
+  </style>
+</head>
+<body>
+  <header id="global-header"></header>
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <div class="grid grid-cols-1 lg:grid-cols-4 gap-4">
+      <div class="lg:col-span-3">
+        <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+          <h1 class="text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">Tetris</h1>
+          <p class="mt-2 text-base text-slate-500 dark:text-slate-400">Classic block puzzle. Rotate and stack falling pieces to clear lines. How high can you score?</p>
+        </div>
+        <div class="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-xl p-4 mt-4">
+          <p class="text-sm text-amber-800 dark:text-amber-200"><strong>How to Play:</strong> Objective: Stack falling blocks to clear horizontal lines. Controls: Arrow keys to move/rotate, Up to rotate, Space to hard drop, P to pause. Clear 4 lines at once for a Tetris.</p>
+        </div>
+        <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm mt-4">
+          <div class="tetris-container">
+            <canvas id="gameCanvas" width="240" height="480"></canvas>
+            <div class="tetris-side">
+              <div class="tetris-score">Score: <span id="score">0</span></div>
+              <div class="tetris-score">Level: <span id="level">1</span></div>
+              <div class="tetris-score">Lines: <span id="lines">0</span></div>
+              <div class="tetris-next">Next:</div>
+              <canvas id="nextCanvas" width="80" height="80"></canvas>
+            </div>
+          </div>
+          <div class="game-controls">
+            <button class="btn btn-primary" onclick="resetGame()">New Game</button>
+          </div>
+        </div>
+      </div>
+      <div class="lg:col-span-1"><div id="trending-sidebar"></div></div>
+    </div>
+  </main>
+  <footer id="global-footer"></footer>
+  <script src="../../global.js" defer></script>
+  <script src="../../twt-shell.js" defer></script>
+  <script src="../../js/context-engine.js" defer></script>
+  <script>
+    const COLS = 10, ROWS = 20, BLOCK = 24;
+    const SHAPES = [
+      [], [[1,1,1,1]], [[1,1],[1,1]], [[1,1,1],[0,1,0]], [[0,1,1],[1,1,0]],
+      [[0,1,0],[1,1,1]], [[1,0,0],[1,1,1]], [[0,0,1],[1,1,1]]
+    ];
+    const COLORS = ['#ef4444','#f97316','#fbbf24','#10b981','#3b82f6','#6366f1','#ec4899'];
+    let board, current, next, score, level, lines, gameLoop, paused;
+    function newPiece() {
+      const type = Math.floor(Math.random() * 7) + 1;
+      current = { shape: SHAPES[type], color: COLORS[type-1], x: Math.floor(COLS/2) - Math.floor(SHAPES[type][0].length/2), y: 0 };
+    }
+    function nextPiece() { const type = Math.floor(Math.random() * 7) + 1; next = { shape: SHAPES[type], color: COLORS[type-1] }; }
+    function collide(shape, offsetX, offsetY) { for (let r = 0; r < shape.length; r++) for (let c = 0; c < shape[r].length; c++) if (shape[r][c]) { const newX = offsetX + c, newY = offsetY + r; if (newX < 0 || newX >= COLS || newY >= ROWS) return true; if (newY >= 0 && board[newY][newX]) return true; } } return false; }
+    function merge() { for (let r = 0; r < current.shape.length; r++) for (let c = 0; c < current.shape[r].length; c++) if (current.shape[r][c]) { const y = current.y + r, x = current.x + c; if (y >= 0) board[y][x] = current.color; } }
+    function clearLines() { let cleared = 0; for (let r = ROWS - 1; r >= 0; r--) { if (board[r].every(c => c)) { board.splice(r, 1); board.unshift(Array(COLS).fill('')); cleared++; r++; } } if (cleared) { lines += cleared; score += cleared * 100 * level; level = Math.floor(lines / 10) + 1; document.getElementById('score').textContent = score; document.getElementById('level').textContent = level; document.getElementById('lines').textContent = lines; playBeep(cleared > 1 ? 1000 : 600, 'sine', 0.15); } }
+    function rotate() { const shape = current.shape[0].map((_, i) => current.shape.map(row => row[i]).reverse()); if (!collide(shape, current.x, current.y)) current.shape = shape; }
+    function drop() { if (!collide(current.shape, current.x, current.y + 1)) { current.y++; } else { merge(); clearLines(); newPiece(); nextPiece(); drawNext(); if (collide(current.shape, current.x, current.y)) { gameOver(); } } }
+    function gameOver() { clearInterval(gameLoop); document.getElementById('score').textContent = score; alert('Game Over! Score: ' + score); }
+    function draw() {
+      const canvas = document.getElementById('gameCanvas');
+      const ctx = canvas.getContext('2d');
+      ctx.fillStyle = '#0f172a'; ctx.fillRect(0, 0, canvas.width, canvas.height);
+      for (let r = 0; r < ROWS; r++) for (let c = 0; c < COLS; c++) { if (board[r][c]) { ctx.fillStyle = board[r][c]; ctx.fillRect(c*BLOCK, r*BLOCK, BLOCK-1, BLOCK-1); } }
+      for (let r = 0; r < current.shape.length; r++) for (let c = 0; c < current.shape[r].length; c++) if (current.shape[r][c]) { ctx.fillStyle = current.color; ctx.fillRect((current.x+c)*BLOCK, (current.y+r)*BLOCK, BLOCK-1, BLOCK-1); }
+    }
+    function drawNext() {
+      const canvas = document.getElementById('nextCanvas');
+      const ctx = canvas.getContext('2d');
+      ctx.fillStyle = '#0f172a'; ctx.fillRect(0, 0, canvas.width, canvas.height);
+      if (!next) return;
+      const offsetX = (4 - next.shape[0].length) / 2;
+      const offsetY = (4 - next.shape.length) / 2;
+      for (let r = 0; r < next.shape.length; r++) for (let c = 0; c < next.shape[r].length; c++) if (next.shape[r][c]) { ctx.fillStyle = next.color; ctx.fillRect((offsetX+c)*BLOCK, (offsetY+r)*BLOCK, BLOCK-1, BLOCK-1); }
+    }
+    function playBeep(freq, type, dur) { try { const ctx = new (window.AudioContext || window.webkitAudioContext)(); const osc = ctx.createOscillator(); const g = ctx.createGain(); osc.type = type; osc.frequency.setValueAtTime(freq, ctx.currentTime); g.gain.setValueAtTime(0.1, ctx.currentTime); g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + dur); osc.connect(g); g.connect(ctx.destination); osc.start(); osc.stop(ctx.currentTime + dur); } catch(e){} }
+    function resetGame() { board = Array(ROWS).fill().map(() => Array(COLS).fill('')); score = 0; level = 1; lines = 0; paused = false; document.getElementById('score').textContent = '0'; document.getElementById('level').textContent = '1'; document.getElementById('lines').textContent = '0'; newPiece(); nextPiece(); drawNext(); clearInterval(gameLoop); gameLoop = setInterval(() => { drop(); draw(); }, 1000/level + 200); }
+    document.addEventListener('keydown', (e) => {
+      if (!current) return;
+      if (e.key === 'ArrowLeft') { if (!collide(current.shape, current.x - 1, current.y)) current.x--; draw(); }
+      else if (e.key === 'ArrowRight') { if (!collide(current.shape, current.x + 1, current.y)) current.x++; draw(); }
+      else if (e.key === 'ArrowDown') { drop(); draw(); }
+      else if (e.key === 'ArrowUp' || e.key === 'x') { rotate(); draw(); }
+      else if (e.key === ' ') { e.preventDefault(); while (!collide(current.shape, current.x, current.y + 1)) { current.y++; } merge(); clearLines(); newPiece(); nextPiece(); drawNext(); draw(); }
+      else if (e.key === 'p' || e.key === 'P') { if (paused) { paused = false; gameLoop = setInterval(() => { drop(); draw(); }, 1000/level + 200); } else { clearInterval(gameLoop); paused = true; } }
+    });
+    resetGame();
+  </script>
+</body>
+</html>

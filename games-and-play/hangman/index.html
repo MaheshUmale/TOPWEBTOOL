@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hangman | TopWebTool</title>
+  <meta name="description" content="Play Hangman online. Guess the hidden word letter by letter before the drawing completes. Classic word puzzle game." />
+  <link rel="canonical" href="https://topwebtool.com/games-and-play/hangman/" />
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+  <link rel="apple-touch-icon" href="../../apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png" />
+  <link rel="manifest" href="../../site.webmanifest" />
+  <meta name="theme-color" content="#090d16" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="TopWebTool" />
+  <meta property="og:title" content="Hangman | TopWebTool" />
+  <meta property="og:description" content="Play Hangman online. Guess the hidden word letter by letter before the drawing completes. Classic word puzzle game." />
+  <meta property="og:url" content="https://topwebtool.com/games-and-play/hangman/" />
+  <meta property="og:image" content="https://topwebtool.com/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Hangman | TopWebTool" />
+  <meta name="twitter:description" content="Play Hangman online. Guess the hidden word letter by letter before the drawing completes. Classic word puzzle game." />
+  <meta name="twitter:image" content="https://topwebtool.com/og-image.png" />
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Hangman | TopWebTool",
+      "url": "https://topwebtool.com/games-and-play/hangman/",
+      "applicationCategory": "GameApplication",
+      "operatingSystem": "Windows, macOS, Linux, Android, iOS",
+      "browserRequirements": "Requires HTML5 compatible web browser",
+      "description": "Play Hangman online. Guess the hidden word letter by letter before the drawing completes. Classic word puzzle game.",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://topwebtool.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Games & Play", "item": "https://topwebtool.com/games-and-play/" },
+        { "@type": "ListItem", "position": 3, "name": "Hangman", "item": "https://topwebtool.com/games-and-play/hangman/" }
+      ]
+    }
+  </script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="../../site.min.css">
+  <style>
+    .hangman-container { max-width: 500px; margin: 0 auto; text-align: center; }
+    .hangman-drawing { font-size: 6rem; margin: 1rem 0; min-height: 120px; }
+    .hangman-word { font-size: 2rem; font-weight: 800; letter-spacing: 0.5rem; margin: 1.5rem 0; color: #4f46e5; }
+    .dark .hangman-word { color: #818cf8; }
+    .hangman-letters { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin: 1.5rem 0; }
+    .hangman-letter { width: 40px; height: 40px; border-radius: 8px; border: 1px solid #e2e8f0; background: white; font-weight: 700; cursor: pointer; transition: all 150ms; }
+    .dark .hangman-letter { background: #0f172a; border-color: #1e293b; color: #f1f5f9; }
+    .hangman-letter:hover:not(.used) { border-color: #4f46e5; background: #e0e7ff; }
+    .dark .hangman-letter:hover:not(.used) { background: #312e81; }
+    .hangman-letter.used { opacity: 0.4; cursor: not-allowed; }
+    .game-controls { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 1.5rem; }
+    .btn { padding: 10px 24px; border-radius: 12px; font-weight: 600; font-size: 0.875rem; border: none; cursor: pointer; transition: all 150ms ease; }
+    .btn-primary { background: #4f46e5; color: white; }
+    .btn-primary:hover { background: #4338ca; }
+    .btn-secondary { background: #f1f5f9; color: #475569; }
+    .dark .btn-secondary { background: #1e293b; color: #94a3b8; }
+  </style>
+</head>
+<body>
+  <header id="global-header"></header>
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <div class="grid grid-cols-1 lg:grid-cols-4 gap-4">
+      <div class="lg:col-span-3">
+        <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+          <h1 class="text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">Hangman</h1>
+          <p class="mt-2 text-base text-slate-500 dark:text-slate-400">Guess the hidden word before the hangman is complete. 6 wrong guesses and it's game over!</p>
+        </div>
+        <div class="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-xl p-4 mt-4">
+          <p class="text-sm text-amber-800 dark:text-amber-200"><strong>How to Play:</strong> Objective: Guess the hidden word by clicking letters. You get 6 wrong guesses. Controls: Click letter buttons or type on keyboard. New Game to reset.</p>
+        </div>
+        <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm mt-4">
+          <div class="hangman-container">
+            <div class="hangman-drawing" id="drawing">🟩🟩🟩</div>
+            <div class="hangman-word" id="wordDisplay"></div>
+            <div class="hangman-letters" id="letters"></div>
+            <div class="rps-result" id="result"></div>
+            <div class="game-controls">
+              <button class="btn btn-primary" onclick="newGame()">New Game</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="lg:col-span-1"><div id="trending-sidebar"></div></div>
+    </div>
+  </main>
+  <footer id="global-footer"></footer>
+  <script src="../../global.js" defer></script>
+  <script src="../../twt-shell.js" defer></script>
+  <script src="../../js/context-engine.js" defer></script>
+  <script>
+    const WORDS = ['apple','banana','cherry','dragon','eagle','flower','guitar','house','island','jungle','kite','lemon','mountain','ocean','puzzle','rainbow','sunset','thunder','umbrella','volcano','whisper','xylophone','yacht','zebra','algorithm','browser','computer','database','encrypt','function','gigabyte','hardware','internet','javascript','keyboard','monitor','network','object','protocol','query','router','server','terminal','user','virtual','wireless','xml','yaml','zip'];
+    const DRAWINGS = ['🟩🟩🟩','⬜⬜⬜','⬜🟫⬜','🟫│⬜','🟫│🟫','🟫/│🟫','🟫/│\\🟫'];
+    let word, guessed, wrong, gameOver;
+    function newGame() {
+      word = WORDS[Math.floor(Math.random() * WORDS.length)].toUpperCase();
+      guessed = new Set(); wrong = 0; gameOver = false;
+      document.getElementById('drawing').textContent = DRAWINGS[0];
+      document.getElementById('result').textContent = '';
+      renderWord(); renderLetters();
+    }
+    function renderWord() {
+      const display = word.split('').map(c => guessed.has(c) ? c : '_').join(' ');
+      document.getElementById('wordDisplay').textContent = display;
+      if (!display.includes('_')) { gameOver = true; document.getElementById('result').textContent = 'You won! The word was ' + word; playBeep(1000, 'sine', 0.3); }
+    }
+    function renderLetters() {
+      const container = document.getElementById('letters');
+      container.innerHTML = '';
+      for (let i = 65; i <= 90; i++) {
+        const letter = String.fromCharCode(i);
+        const btn = document.createElement('button');
+        btn.className = 'hangman-letter' + (guessed.has(letter) ? ' used' : '');
+        btn.textContent = letter;
+        btn.onclick = () => guess(letter);
+        container.appendChild(btn);
+      }
+    }
+    function guess(letter) {
+      if (gameOver || guessed.has(letter)) return;
+      guessed.add(letter);
+      if (!word.includes(letter)) { wrong++; document.getElementById('drawing').textContent = DRAWINGS[Math.min(wrong, 6)]; playBeep(200, 'sawtooth', 0.2); if (wrong >= 6) { gameOver = true; document.getElementById('result').textContent = 'Game Over! The word was ' + word; } }
+      else playBeep(800, 'sine', 0.1);
+      renderWord(); renderLetters();
+    }
+    function playBeep(freq, type, dur) { try { const ctx = new (window.AudioContext || window.webkitAudioContext)(); const osc = ctx.createOscillator(); const g = ctx.createGain(); osc.type = type; osc.frequency.setValueAtTime(freq, ctx.currentTime); g.gain.setValueAtTime(0.1, ctx.currentTime); g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + dur); osc.connect(g); g.connect(ctx.destination); osc.start(); osc.stop(ctx.currentTime + dur); } catch(e){} }
+    document.addEventListener('keydown', (e) => { const letter = e.key.toUpperCase(); if (letter >= 'A' && letter <= 'Z') guess(letter); });
+    newGame();
+  </script>
+</body>
+</html>

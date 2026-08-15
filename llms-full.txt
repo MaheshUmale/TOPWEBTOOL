@@ -930,6 +930,70 @@ The fastest way to reach us is by email: contact@topwebtool.com. We typically re
 
 ---
 
+### Online Piano
+
+- URL: https://topwebtool.com/games-and-play/online-piano/
+- Heading: Online Piano
+- Description: Play online piano with mouse or keyboard. 2 octaves, sustain, recording, and multiple waveforms.
+- Sections: Piano Keyboard; Waveform Select; Sustain Pedal; Octave Shift; Recording & Playback
+
+### Virtual Drum Kit
+
+- URL: https://topwebtool.com/games-and-play/virtual-drum-kit/
+- Heading: Virtual Drum Kit
+- Description: Play virtual drums with mouse, touch, or keyboard. 8 pads with synthesized sounds and loop recording.
+- Sections: 8 Drum Pads; Kit Selector; Loop Recorder; Keyboard Mapping; Velocity Sensitivity
+### Rock Paper Scissors
+- URL: https://topwebtool.com/games-and-play/rock-paper-scissors/
+- Heading: Rock Paper Scissors
+- Description: Classic hand game against computer. First to 5 wins the match.
+- Sections: Player vs CPU; Score Tracking; Win Streaks; Keyboard Controls; Sound Effects
+### Number Guessing Game
+- URL: https://topwebtool.com/games-and-play/number-guessing/
+- Heading: Number Guessing Game
+- Description: Guess the secret number between 1 and 100 with hints and streak tracking.
+- Sections: Secret Number Logic; Guess History; High Score Tracking; Streak System; Input Validation
+### Speed Typing Test
+- URL: https://topwebtool.com/games-and-play/speed-typing/
+- Heading: Speed Typing Test
+- Description: Test typing speed and accuracy. Free WPM test with real-time results.
+- Sections: Random Text Samples; Live WPM Calculation; Accuracy Tracking; Timer Mode; Character Highlighting
+### Hangman
+- URL: https://topwebtool.com/games-and-play/hangman/
+- Heading: Hangman
+- Description: Guess the hidden word letter by letter. Classic word puzzle with 6 wrong guesses.
+- Sections: Word Bank; Letter Guessing; Drawing Progress; Keyboard Input; Win/Lose States
+### Minesweeper
+- URL: https://topwebtool.com/games-and-play/minesweeper/
+- Heading: Minesweeper
+- Description: Classic Minesweeper puzzle. Clear the board without hitting a mine. Multiple difficulties.
+- Sections: 3 Difficulty Levels; Flagging System; Timer; Number Hints; Safe Cell Revealing
+### Breakout
+- URL: https://topwebtool.com/games-and-play/breakout/
+- Heading: Breakout
+- Description: Classic brick breaker arcade game. Destroy all bricks with the ball and paddle.
+- Sections: Canvas Rendering; Paddle Physics; Ball Bounce; Brick Collision; Score and Lives
+
+### Metronome
+- URL: https://topwebtool.com/games-and-play/metronome/
+- Heading: Metronome
+- Description: Precision online metronome with adjustable BPM, time signatures, and visual beat indicator.
+- Sections: BPM Slider; Time Signature; Tap Tempo; Visual Beats; Sound Modes
+
+### Wordle
+- URL: https://topwebtool.com/games-and-play/wordle/
+- Heading: Wordle
+- Description: Guess the 5-letter word in 6 tries. Color hints show correct letters and positions.
+- Sections: 6x5 Grid; Color Hints; Keyboard Input; Word Validation; New Game
+
+### Tetris
+- URL: https://topwebtool.com/games-and-play/tetris/
+- Heading: Tetris
+- Description: Classic block puzzle game. Rotate and stack falling blocks to clear lines.
+- Sections: Falling Pieces; Line Clearing; Next Piece Preview; Score & Level; Keyboard Controls
+
+---
+
 ### About Us
 
 - URL: https://topwebtool.com/about/
@@ -940,3 +1004,141 @@ TopWebTool is a curated directory of 84+ free, 100% client-side web utilities de
 
 ---
 
+### Whack A Mole
+
+- URL: https://topwebtool.com/games-and-play/whack-a-mole/
+- Heading: Whack A Mole
+- Description: Classic whack-a-mole arcade game with combo multipliers, difficulty ramp, and high score tracking.
+- Sections: Game HUD; 3x3 Grid; Combo System; Difficulty Ramp; High Score & Persistence
+
+### Tic Tac Toe
+
+- URL: https://topwebtool.com/games-and-play/tic-tac-toe/
+- Heading: Tic Tac Toe
+- Description: Classic 3x3 strategy game. Play against a friend or challenge the AI.
+- Sections: Game Board; Score Tracking; AI Mode; Confetti Win Animation; Sound Effects
+
+### Snake Game
+
+- URL: https://topwebtool.com/games-and-play/snake-game/
+- Heading: Snake Game
+- Description: Guide the snake to eat food, grow longer, and beat your high score.
+- Sections: Canvas Game Board; Score & High Score; Speed Levels; Particle Trail; Mobile D-Pad
+
+### Memory Card Game
+
+- URL: https://topwebtool.com/games-and-play/memory-card/
+- Heading: Memory Card Game
+- Description: Flip cards and match pairs. Train your memory with emoji pairs.
+- Sections: Card Grid; 3D Flip Animation; Move Counter; Timer; Difficulty Levels
+
+### Simon Says
+
+- URL: https://topwebtool.com/games-and-play/simon-says/
+- Heading: Simon Says
+- Description: Repeat the color sequence to advance through increasingly challenging levels.
+- Sections: Color Buttons; Sequence Playback; Level Counter; Audio Tones; Flash Animation
+
+### 2048
+
+- URL: https://topwebtool.com/games-and-play/2048/
+- Heading: 2048
+- Description: Slide tiles to merge numbers. Reach 2048 to win!
+- Sections: 4x4 Grid; Tile Merging; Score Tracking; Best Score; Keyboard Controls
+
+### Sudoku
+
+- URL: https://topwebtool.com/games-and-play/sudoku/
+- Heading: Sudoku
+- Description: Fill the 9x9 grid so each row, column, and 3x3 box contains 1-9.
+- Sections: 9x9 Grid; Number Pad; Difficulty Selector; Timer; Validation
+
+### Beat Pad
+
+- URL: https://topwebtool.com/games-and-play/beat-pad/
+- Heading: Beat Pad
+- Description: 16-pad MPC-style beat maker. Tap pads or use keys A-I and Q-I to trigger drums, percussion, and synth sounds.
+- Sections: 16-Pad Grid; Key Mapping; Sound Engine; Recording
+
+### Xylophone
+
+- URL: https://topwebtool.com/games-and-play/xylophone/
+- Heading: Xylophone
+- Description: Play a 2-octave xylophone online. Use keys A-; and W E T Y U O P for realistic mallet percussion sounds.
+- Sections: 2-Octave Keys; Mallet Sounds; Visual Feedback
+
+### Kalimba
+
+- URL: https://topwebtool.com/games-and-play/kalimba/
+- Heading: Kalimba
+- Description: Virtual kalimba (thumb piano) with 8 tines. Pluck notes with keys A-H for relaxing African instrument sounds.
+- Sections: 8 Tines; Key Mapping; Relaxing Tones
+
+### Trumpet
+
+- URL: https://topwebtool.com/games-and-play/trumpet/
+- Heading: Trumpet
+- Description: Play trumpet online with 3 valves. Press 1/2/3 valves and Space to buzz notes from E4 to C6.
+- Sections: 3 Valves; Space to Buzz; Note Range E4-C6
+
+### Ukulele
+
+- URL: https://topwebtool.com/games-and-play/ukulele/
+- Heading: Ukulele
+- Description: Virtual ukulele with 4 strings. Pluck with keys A S D F, strum chords, and record your island vibe.
+- Sections: 4 Strings; Key Mapping; Chord Strumming; Recording
+
+### Online Flute
+
+- URL: https://topwebtool.com/games-and-play/online-flute/
+- Heading: Online Flute
+- Description: Play flute online. Cover holes 1-6 and blow with Space to produce notes from D4 to C6.
+- Sections: 6 Holes; Space to Blow; Note Range D4-C6
+
+
+### Bell Set
+
+- URL: https://topwebtool.com/games-and-play/bell-set/
+- Heading: Bell Set
+- Description: Play a set of 8 bells online. Ring bright bell tones with keys A-H or mouse click.
+- Sections: 8 Bells; Keys A-H; Mouse Click
+
+
+### Bongos
+
+- URL: https://topwebtool.com/games-and-play/bongos/
+- Heading: Bongos
+- Description: Virtual bongos with high and low drums. Hit with keys A/S or mouse for Latin rhythm sounds.
+- Sections: High/Low Drums; Keys A/S; Latin Sounds
+
+
+### Chord Progression Player
+
+- URL: https://topwebtool.com/games-and-play/chord-progression-player/
+- Heading: Chord Progression Player
+- Description: Hear common chord progressions. Play chords with keys 1-9, loop progressions at adjustable tempo.
+- Sections: Chord Buttons 1-9; Progression Loop; Tempo Control
+
+
+### Soundboard
+
+- URL: https://topwebtool.com/games-and-play/soundboard/
+- Heading: Soundboard
+- Description: Trigger 9 sound effects with keys Q-C. Categories include SFX, animals, nature, and comedy sounds.
+- Sections: 9 Sound Pads; Keys Q-C; Categories
+
+
+### Beat Sequencer
+
+- URL: https://topwebtool.com/games-and-play/beat-sequencer/
+- Heading: Beat Sequencer
+- Description: 16-step drum sequencer with 4 instruments. Click to program beats, Space to play, presets included.
+- Sections: 16 Steps; 4 Instruments; Space to Play; Presets
+
+
+### Theremin
+
+- URL: https://topwebtool.com/games-and-play/theremin/
+- Heading: Theremin
+- Description: Play a theremin by moving your mouse. X controls pitch, Y controls volume. Weird and wonderful.
+- Sections: Mouse X Pitch; Mouse Y Volume; Continuous Sound

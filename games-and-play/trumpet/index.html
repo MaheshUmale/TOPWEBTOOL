@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trumpet | TopWebTool</title>
+  <meta name="description" content="Play trumpet online. Press valves 1/2/3 and Space to buzz. Hear brass-like notes with realistic valve combinations." />
+  <link rel="canonical" href="https://topwebtool.com/games-and-play/trumpet/" />
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+  <link rel="apple-touch-icon" href="../../apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png" />
+  <link rel="manifest" href="../../site.webmanifest" />
+  <meta name="theme-color" content="#090d16" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="TopWebTool" />
+  <meta property="og:title" content="Trumpet | TopWebTool" />
+  <meta property="og:description" content="Play trumpet online. Press valves 1/2/3 and Space to buzz. Hear brass-like notes with realistic valve combinations." />
+  <meta property="og:url" content="https://topwebtool.com/games-and-play/trumpet/" />
+  <meta property="og:image" content="https://topwebtool.com/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Trumpet | TopWebTool" />
+  <meta name="twitter:description" content="Play trumpet online. Press valves 1/2/3 and Space to buzz. Hear brass-like notes with realistic valve combinations." />
+  <meta name="twitter:image" content="https://topwebtool.com/og-image.png" />
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Trumpet | TopWebTool",
+      "url": "https://topwebtool.com/games-and-play/trumpet/",
+      "applicationCategory": "GameApplication",
+      "operatingSystem": "Windows, macOS, Linux, Android, iOS",
+      "browserRequirements": "Requires HTML5 compatible web browser",
+      "description": "Play trumpet online. Press valves 1/2/3 and Space to buzz. Hear brass-like notes with realistic valve combinations.",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://topwebtool.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Games & Play", "item": "https://topwebtool.com/games-and-play/" },
+        { "@type": "ListItem", "position": 3, "name": "Trumpet", "item": "https://topwebtool.com/games-and-play/trumpet/" }
+      ]
+    }
+  </script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="../../site.min.css">
+  <style>
+    .trumpet-container { max-width: 700px; margin: 0 auto; }
+    .trumpet-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem; }
+    .trumpet-note { font-size: 2rem; font-weight: 800; color: #4f46e5; }
+    .dark .trumpet-note { color: #818cf8; }
+    .trumpet-freq { font-size: 0.875rem; color: #94a3b8; }
+    canvas { display: block; margin: 0 auto; border-radius: 16px; border: 2px solid #e2e8f0; background: #0f172a; }
+    .dark canvas { border-color: #1e293b; }
+    .trumpet-controls { display: flex; align-items: center; justify-content: center; gap: 1rem; margin-top: 1rem; flex-wrap: wrap; }
+    .trumpet-vol { display: flex; align-items: center; gap: 0.5rem; font-size: 0.875rem; color: #475569; }
+    .dark .trumpet-vol { color: #94a3b8; }
+    .trumpet-vol input { width: 120px; accent-color: #4f46e5; }
+    .controls-hint { text-align: center; margin-top: 1rem; font-size: 0.875rem; color: #94a3b8; }
+  </style>
+</head>
+<body>
+  <header id="global-header"></header>
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <div class="grid grid-cols-1 lg:grid-cols-4 gap-4">
+      <div class="lg:col-span-3">
+        <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+          <h1 class="text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">Trumpet</h1>
+          <p class="mt-2 text-base text-slate-500 dark:text-slate-400">Play brass notes using valve combinations and buzz your mouthpiece.</p>
+        </div>
+        <div class="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-xl p-4 mt-4">
+          <p class="text-sm text-amber-800 dark:text-amber-200"><strong>How to Play:</strong> Press valves 1/2/3 to change pitch, hold Space to buzz and play notes. Release Space to stop sound.</p>
+        </div>
+        <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm mt-4">
+          <div class="trumpet-container">
+            <div class="trumpet-header">
+              <div>
+                <div class="trumpet-note" id="noteDisplay">—</div>
+                <div class="trumpet-freq" id="freqDisplay">Hold Space to play</div>
+              </div>
+            </div>
+            <canvas id="trumpetCanvas" width="600" height="300"></canvas>
+            <div class="trumpet-controls">
+              <div class="trumpet-vol">
+                <span>Volume</span>
+                <input type="range" id="volume" min="0" max="1" step="0.01" value="0.3" />
+              </div>
+            </div>
+            <div class="controls-hint">Hold 1 / 2 / 3 for valves • Hold Space to buzz</div>
+          </div>
+        </div>
+      </div>
+      <div class="lg:col-span-1">
+        <div id="trending-sidebar"></div>
+      </div>
+    </div>
+  </main>
+  <footer id="global-footer"></footer>
+  <script src="../../global.js" defer></script>
+  <script src="../../twt-shell.js" defer></script>
+  <script src="../../js/context-engine.js" defer></script>
+  <script>
+    const canvas = document.getElementById('trumpetCanvas');
+    const ctx = canvas.getContext('2d');
+    const noteDisplay = document.getElementById('noteDisplay');
+    const freqDisplay = document.getElementById('freqDisplay');
+    const volumeInput = document.getElementById('volume');
+
+    const NOTES = {
+      '':      { name: 'C5',  freq: 523.25 },
+      '1':     { name: 'B4',  freq: 493.88 },
+      '2':     { name: 'A4',  freq: 440.00 },
+      '3':     { name: 'G4',  freq: 392.00 },
+      '12':    { name: 'G#4', freq: 415.30 },
+      '13':    { name: 'F#4', freq: 369.99 },
+      '23':    { name: 'F4',  freq: 349.23 },
+      '123':   { name: 'E4',  freq: 329.63 }
+    };
+
+    const VALVE_KEYS = { '1': false, '2': false, '3': false };
+    let buzzing = false;
+    let audioCtx = null;
+    let osc = null;
+    let gain = null;
+    let filter = null;
+    let volume = 0.3;
+
+    try {
+      const saved = localStorage.getItem('topwebtool-trumpet');
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        if (typeof parsed.volume === 'number') volume = Math.max(0, Math.min(1, parsed.volume));
+      }
+    } catch(e){}
+    volumeInput.value = volume;
+    volumeInput.addEventListener('input', () => {
+      volume = parseFloat(volumeInput.value);
+      try { localStorage.setItem('topwebtool-trumpet', JSON.stringify({ volume })); } catch(e){}
+      if (gain) gain.gain.setTargetAtTime(volume * 0.4, audioCtx.currentTime, 0.05);
+    });
+
+    function getValveState() {
+      const v = [];
+      if (VALVE_KEYS['1']) v.push('1');
+      if (VALVE_KEYS['2']) v.push('2');
+      if (VALVE_KEYS['3']) v.push('3');
+      return v.sort().join('');
+    }
+
+    function startBuzzing() {
+      if (buzzing) return;
+      if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      if (audioCtx.state === 'suspended') audioCtx.resume();
+
+      const combo = getValveState();
+      const note = NOTES[combo] || NOTES[''];
+
+      osc = audioCtx.createOscillator();
+      gain = audioCtx.createGain();
+      filter = audioCtx.createBiquadFilter();
+
+      osc.type = 'sawtooth';
+      osc.frequency.setValueAtTime(note.freq, audioCtx.currentTime);
+
+      filter.type = 'lowpass';
+      filter.frequency.setValueAtTime(300, audioCtx.currentTime);
+      filter.Q.setValueAtTime(1, audioCtx.currentTime);
+
+      gain.gain.setValueAtTime(0, audioCtx.currentTime);
+      gain.gain.linearRampToValueAtTime(volume * 0.4, audioCtx.currentTime + 0.05);
+
+      filter.frequency.linearRampToValueAtTime(1800, audioCtx.currentTime + 0.08);
+
+      osc.connect(filter);
+      filter.connect(gain);
+      gain.connect(audioCtx.destination);
+
+      osc.start();
+      buzzing = true;
+      noteDisplay.textContent = note.name;
+      freqDisplay.textContent = note.freq.toFixed(1) + ' Hz';
+    }
+
+    function stopBuzzing() {
+      if (!buzzing) return;
+      try {
+        if (gain) gain.gain.cancelScheduledValues(audioCtx.currentTime);
+        if (gain) gain.gain.linearRampToValueAtTime(0, audioCtx.currentTime + 0.1);
+        if (osc) {
+          osc.stop(audioCtx.currentTime + 0.12);
+          setTimeout(() => { try { osc.disconnect(); } catch(e){} }, 150);
+        }
+      } catch(e){}
+      buzzing = false;
+      if (!VALVE_KEYS['1'] && !VALVE_KEYS['2'] && !VALVE_KEYS['3']) {
+        noteDisplay.textContent = '—';
+        freqDisplay.textContent = 'Hold Space to play';
+      } else {
+        const combo = getValveState();
+        const note = NOTES[combo] || NOTES[''];
+        noteDisplay.textContent = note.name;
+        freqDisplay.textContent = note.freq.toFixed(1) + ' Hz';
+      }
+    }
+
+    function updateNote() {
+      if (!buzzing && !VALVE_KEYS['1'] && !VALVE_KEYS['2'] && !VALVE_KEYS['3']) {
+        noteDisplay.textContent = '—';
+        freqDisplay.textContent = 'Hold Space to play';
+        return;
+      }
+      const combo = getValveState();
+      const note = NOTES[combo] || NOTES[''];
+      noteDisplay.textContent = note.name;
+      freqDisplay.textContent = note.freq.toFixed(1) + ' Hz';
+      if (osc) {
+        osc.frequency.setTargetAtTime(note.freq, audioCtx.currentTime, 0.03);
+      }
+    }
+
+    function drawTrumpet() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      const brass = '#d4a843';
+      const brassDark = '#b8922e';
+      const valvePressed = '#fbbf24';
+      const mouthGlow = buzzing ? '#fbbf24' : 'transparent';
+
+      ctx.save();
+      ctx.translate(0, 40);
+
+      ctx.fillStyle = brass;
+      ctx.strokeStyle = brassDark;
+      ctx.lineWidth = 2;
+
+      const bellX = 60;
+      const bellTop = 80;
+      const bellBot = 160;
+      const tubeY = 110;
+      const tubeH = 40;
+      const tubeX1 = 180;
+      const tubeX2 = 440;
+      const mouthX = 500;
+      const mouthY = 130;
+      const mouthR = 18;
+
+      ctx.beginPath();
+      ctx.moveTo(bellX, bellTop + 20);
+      ctx.bezierCurveTo(bellX - 10, bellTop + 5, bellX + 20, bellTop - 10, tubeX1, tubeY);
+      ctx.lineTo(tubeX1, tubeY + tubeH);
+      ctx.bezierCurveTo(bellX + 20, bellBot + 10, bellX - 10, bellBot - 5, bellX, bellBot - 20);
+      ctx.closePath();
+      ctx.fill();
+      ctx.stroke();
+
+      ctx.fillStyle = brass;
+      ctx.fillRect(tubeX1, tubeY, tubeX2 - tubeX1, tubeH);
+      ctx.strokeRect(tubeX1, tubeY, tubeX2 - tubeX1, tubeH);
+
+      ctx.beginPath();
+      ctx.arc(mouthX, mouthY, mouthR, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.arc(mouthX, mouthY, mouthR * 0.55, 0, Math.PI * 2);
+      ctx.fillStyle = '#1e293b';
+      ctx.fill();
+
+      if (mouthGlow !== 'transparent') {
+        const grad = ctx.createRadialGradient(mouthX, mouthY, mouthR * 0.5, mouthX, mouthY, mouthR * 3);
+        grad.addColorStop(0, 'rgba(251, 191, 36, 0.6)');
+        grad.addColorStop(1, 'rgba(251, 191, 36, 0)');
+        ctx.fillStyle = grad;
+        ctx.beginPath();
+        ctx.arc(mouthX, mouthY, mouthR * 3, 0, Math.PI * 2);
+        ctx.fill();
+      }
+
+      const valves = [
+        { x: 220, label: '1', pressed: VALVE_KEYS['1'] },
+        { x: 290, label: '2', pressed: VALVE_KEYS['2'] },
+        { x: 360, label: '3', pressed: VALVE_KEYS['3'] }
+      ];
+
+      valves.forEach(v => {
+        const baseY = tubeY + tubeH + 10;
+        const topY = baseY - 5;
+        const botY = baseY + 35;
+        const curY = v.pressed ? botY : topY;
+        const w = 22;
+        const h = 40;
+
+        ctx.fillStyle = v.pressed ? valvePressed : brass;
+        ctx.strokeStyle = brassDark;
+        ctx.lineWidth = 2;
+
+        ctx.beginPath();
+        ctx.roundRect(v.x - w/2, curY, w, h, 6);
+        ctx.fill();
+        ctx.stroke();
+
+        ctx.fillStyle = '#1e293b';
+        ctx.font = 'bold 14px Inter, sans-serif';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText(v.label, v.x, curY + h/2);
+      });
+
+      ctx.restore();
+    }
+
+    drawTrumpet();
+
+    document.addEventListener('keydown', (e) => {
+      if (e.repeat) return;
+      if (e.key === '1') { VALVE_KEYS['1'] = true; updateNote(); drawTrumpet(); }
+      if (e.key === '2') { VALVE_KEYS['2'] = true; updateNote(); drawTrumpet(); }
+      if (e.key === '3') { VALVE_KEYS['3'] = true; updateNote(); drawTrumpet(); }
+      if (e.key === ' ') { e.preventDefault(); startBuzzing(); drawTrumpet(); }
+    });
+
+    document.addEventListener('keyup', (e) => {
+      if (e.key === '1') { VALVE_KEYS['1'] = false; updateNote(); drawTrumpet(); if (!buzzing) stopBuzzing(); }
+      if (e.key === '2') { VALVE_KEYS['2'] = false; updateNote(); drawTrumpet(); if (!buzzing) stopBuzzing(); }
+      if (e.key === '3') { VALVE_KEYS['3'] = false; updateNote(); drawTrumpet(); if (!buzzing) stopBuzzing(); }
+      if (e.key === ' ') { e.preventDefault(); stopBuzzing(); drawTrumpet(); }
+    });
+  </script>
+</body>
+</html>

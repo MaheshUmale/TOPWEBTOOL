@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simon Says | TopWebTool</title>
+  <meta name="description" content="Test your memory with Simon Says. Repeat the color sequence to advance through increasingly challenging levels." />
+  <link rel="canonical" href="https://topwebtool.com/games-and-play/simon-says/" />
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+  <link rel="apple-touch-icon" href="../../apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png" />
+  <link rel="manifest" href="../../site.webmanifest" />
+  <meta name="theme-color" content="#090d16" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="TopWebTool" />
+  <meta property="og:title" content="Simon Says | TopWebTool" />
+  <meta property="og:description" content="Test your memory with Simon Says. Repeat the color sequence to advance through increasingly challenging levels." />
+  <meta property="og:url" content="https://topwebtool.com/games-and-play/simon-says/" />
+  <meta property="og:image" content="https://topwebtool.com/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Simon Says | TopWebTool" />
+  <meta name="twitter:description" content="Test your memory with Simon Says. Repeat the color sequence to advance through increasingly challenging levels." />
+  <meta name="twitter:image" content="https://topwebtool.com/og-image.png" />
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Simon Says | TopWebTool",
+      "url": "https://topwebtool.com/games-and-play/simon-says/",
+      "applicationCategory": "GameApplication",
+      "operatingSystem": "Windows, macOS, Linux, Android, iOS",
+      "browserRequirements": "Requires HTML5 compatible web browser",
+      "description": "Test your memory with Simon Says. Repeat the color sequence to advance through increasingly challenging levels.",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://topwebtool.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Games & Play", "item": "https://topwebtool.com/games-and-play/" },
+        { "@type": "ListItem", "position": 3, "name": "Simon Says", "item": "https://topwebtool.com/games-and-play/simon-says/" }
+      ]
+    }
+  </script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="../../site.min.css">
+  <style>
+    .simon-container { max-width: 400px; margin: 0 auto; text-align: center; }
+    .simon-board { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 1.5rem; }
+    .simon-btn { aspect-ratio: 1; border: none; border-radius: 16px; cursor: pointer; transition: all 100ms; opacity: 0.7; }
+    .simon-btn:active, .simon-btn.active { opacity: 1; transform: scale(0.95); }
+    .simon-btn.green { background: #10b981; }
+    .simon-btn.red { background: #ef4444; }
+    .simon-btn.yellow { background: #f59e0b; }
+    .simon-btn.blue { background: #3b82f6; }
+    .simon-btn.green.active { box-shadow: 0 0 30px rgba(16,185,129,0.6); }
+    .simon-btn.red.active { box-shadow: 0 0 30px rgba(239,68,68,0.6); }
+    .simon-btn.yellow.active { box-shadow: 0 0 30px rgba(245,158,11,0.6); }
+    .simon-btn.blue.active { box-shadow: 0 0 30px rgba(59,130,246,0.6); }
+    .simon-center { grid-column: span 2; background: #1e293b; border-radius: 16px; padding: 1rem; color: white; }
+    .dark .simon-center { background: #0f172a; }
+    .simon-level { font-size: 1.5rem; font-weight: 800; color: #4f46e5; }
+    .dark .simon-level { color: #818cf8; }
+    .simon-status { font-size: 0.875rem; color: #94a3b8; margin-top: 0.25rem; }
+    .game-controls { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 1.5rem; }
+    .btn { padding: 10px 24px; border-radius: 12px; font-weight: 600; font-size: 0.875rem; border: none; cursor: pointer; transition: all 150ms ease; }
+    .btn-primary { background: #4f46e5; color: white; }
+    .btn-primary:hover { background: #4338ca; }
+  </style>
+</head>
+<body>
+  <header id="global-header"></header>
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <div class="grid grid-cols-1 lg:grid-cols-4 gap-4">
+      <div class="lg:col-span-3">
+        <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+          <h1 class="text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">Simon Says</h1>
+          <p class="mt-2 text-base text-slate-500 dark:text-slate-400">Watch the sequence, repeat it correctly. How many levels can you remember?</p>
+        </div>
+        <div class="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-xl p-4 mt-4">
+          <p class="text-sm text-amber-800 dark:text-amber-200"><strong>How to Play:</strong> Objective: Watch the color sequence, then repeat it correctly. Controls: Click colored buttons or use keys 1/2/3/4. Space to start.</p>
+        </div>
+        <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm mt-4">
+          <div class="simon-container">
+            <div class="simon-board">
+              <button class="simon-btn green" data-color="0" aria-label="Green"></button>
+              <button class="simon-btn red" data-color="1" aria-label="Red"></button>
+              <button class="simon-btn yellow" data-color="2" aria-label="Yellow"></button>
+              <button class="simon-btn blue" data-color="3" aria-label="Blue"></button>
+              <div class="simon-center">
+                <div class="simon-level" id="level">Level 0</div>
+                <div class="simon-status" id="status">Press Start to play</div>
+              </div>
+            </div>
+            <div class="game-controls">
+              <button class="btn btn-primary" id="startBtn" onclick="startGame()">Start Game</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="lg:col-span-1"><div id="trending-sidebar"></div></div>
+    </div>
+  </main>
+  <footer id="global-footer"></footer>
+  <script src="../../global.js" defer></script>
+  <script src="../../twt-shell.js" defer></script>
+  <script src="../../js/context-engine.js" defer></script>
+  <script>
+    const buttons = document.querySelectorAll('.simon-btn');
+    const levelEl = document.getElementById('level');
+    const statusEl = document.getElementById('status');
+    const startBtn = document.getElementById('startBtn');
+    let sequence = [];
+    let playerIdx = 0;
+    let level = 0;
+    let playing = false;
+    const tones = [261.63, 329.63, 392.00, 523.25];
+    function playTone(freq, dur) {
+      try { const ctx = new (window.AudioContext || window.webkitAudioContext)(); const osc = ctx.createOscillator(); const g = ctx.createGain(); osc.type = 'sine'; osc.frequency.setValueAtTime(freq, ctx.currentTime); g.gain.setValueAtTime(0.15, ctx.currentTime); g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + dur); osc.connect(g); g.connect(ctx.destination); osc.start(); osc.stop(ctx.currentTime + dur); } catch(e){}
+    }
+    function flash(idx, dur = 300) {
+      const btn = buttons[idx];
+      btn.classList.add('active');
+      playTone(tones[idx], dur / 1000);
+      setTimeout(() => btn.classList.remove('active'), dur);
+    }
+    function playSequence() {
+      playing = false;
+      statusEl.textContent = 'Watch...';
+      let i = 0;
+      const interval = setInterval(() => {
+        flash(sequence[i], 400);
+        i++;
+        if (i >= sequence.length) { clearInterval(interval); setTimeout(() => { playing = true; statusEl.textContent = 'Your turn!'; }, 600); }
+      }, 600);
+    }
+    function startGame() {
+      sequence = [];
+      level = 0;
+      nextLevel();
+    }
+    function nextLevel() {
+      level++;
+      levelEl.textContent = 'Level ' + level;
+      sequence.push(Math.floor(Math.random() * 4));
+      playerIdx = 0;
+      playSequence();
+    }
+    buttons.forEach((btn, idx) => {
+      btn.addEventListener('click', () => {
+        if (!playing) return;
+        flash(idx, 200);
+        if (idx === sequence[playerIdx]) {
+          playerIdx++;
+          if (playerIdx === sequence.length) {
+            playing = false;
+            statusEl.textContent = 'Correct! Next level...';
+            setTimeout(nextLevel, 1000);
+          }
+        } else {
+          playing = false;
+          statusEl.textContent = 'Game Over! Level ' + level;
+          playTone(150, 0.5);
+          startBtn.textContent = 'Try Again';
+          startBtn.disabled = false;
+        }
+      });
+    });
+    startBtn.addEventListener('click', () => { startBtn.disabled = true; startGame(); });
+  </script>
+</body>
+</html>

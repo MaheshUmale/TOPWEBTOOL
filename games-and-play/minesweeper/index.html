@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minesweeper | TopWebTool</title>
+  <meta name="description" content="Play Minesweeper online. Classic puzzle game with flagging, timer, and multiple difficulty levels. Clear the board without hitting a mine." />
+  <link rel="canonical" href="https://topwebtool.com/games-and-play/minesweeper/" />
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+  <link rel="apple-touch-icon" href="../../apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png" />
+  <link rel="manifest" href="../../site.webmanifest" />
+  <meta name="theme-color" content="#090d16" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="TopWebTool" />
+  <meta property="og:title" content="Minesweeper | TopWebTool" />
+  <meta property="og:description" content="Play Minesweeper online. Classic puzzle game with flagging, timer, and multiple difficulty levels." />
+  <meta property="og:url" content="https://topwebtool.com/games-and-play/minesweeper/" />
+  <meta property="og:image" content="https://topwebtool.com/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Minesweeper | TopWebTool" />
+  <meta name="twitter:description" content="Play Minesweeper online. Classic puzzle game with flagging, timer, and multiple difficulty levels." />
+  <meta name="twitter:image" content="https://topwebtool.com/og-image.png" />
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Minesweeper | TopWebTool",
+      "url": "https://topwebtool.com/games-and-play/minesweeper/",
+      "applicationCategory": "GameApplication",
+      "operatingSystem": "Windows, macOS, Linux, Android, iOS",
+      "browserRequirements": "Requires HTML5 compatible web browser",
+      "description": "Play Minesweeper online. Classic puzzle game with flagging, timer, and multiple difficulty levels.",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://topwebtool.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Games & Play", "item": "https://topwebtool.com/games-and-play/" },
+        { "@type": "ListItem", "position": 3, "name": "Minesweeper", "item": "https://topwebtool.com/games-and-play/minesweeper/" }
+      ]
+    }
+  </script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="../../site.min.css">
+  <style>
+    .mine-container { max-width: 500px; margin: 0 auto; }
+    .mine-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem; }
+    .mine-grid { display: grid; gap: 2px; background: #1e293b; padding: 4px; border-radius: 12px; }
+    .mine-cell { width: 32px; height: 32px; background: #e2e8f0; border: 1px solid #cbd5e1; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.875rem; cursor: pointer; transition: background 80ms; }
+    .dark .mine-cell { background: #1e293b; border-color: #334155; color: #f1f5f9; }
+    .mine-cell:hover:not(.revealed) { background: #c7d2fe; }
+    .dark .mine-cell:hover:not(.revealed) { background: #312e81; }
+    .mine-cell.revealed { background: #f1f5f9; cursor: default; }
+    .dark .mine-cell.revealed { background: #0f172a; }
+    .mine-cell.mine { background: #fecaca; }
+    .dark .mine-cell.mine { background: #7f1d1d; }
+    .mine-cell.flagged { background: #fef3c7; }
+    .dark .mine-cell.flagged { background: #78350f; }
+    .game-controls { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 1.5rem; }
+    .btn { padding: 10px 24px; border-radius: 12px; font-weight: 600; font-size: 0.875rem; border: none; cursor: pointer; transition: all 150ms ease; }
+    .btn-primary { background: #4f46e5; color: white; }
+    .btn-primary:hover { background: #4338ca; }
+    .btn-secondary { background: #f1f5f9; color: #475569; }
+    .dark .btn-secondary { background: #1e293b; color: #94a3b8; }
+  </style>
+</head>
+<body>
+  <header id="global-header"></header>
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <div class="grid grid-cols-1 lg:grid-cols-4 gap-4">
+      <div class="lg:col-span-3">
+        <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+          <h1 class="text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">Minesweeper</h1>
+          <p class="mt-2 text-base text-slate-500 dark:text-slate-400">Clear the board without hitting a mine. Numbers show adjacent mines. Right-click to flag.</p>
+        </div>
+        <div class="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-xl p-4 mt-4">
+          <p class="text-sm text-amber-800 dark:text-amber-200"><strong>How to Play:</strong> Objective: Reveal all safe cells without hitting a mine. Left-click to reveal, right-click to flag suspected mines. Numbers indicate adjacent mine count. Clear all non-mine cells to win.</p>
+        </div>
+        <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm mt-4">
+          <div class="mine-container">
+            <div class="mine-header">
+              <div class="rps-score">
+                <div class="rps-score-item"><div class="rps-score-value" id="minesLeft">10</div><div class="rps-score-label">Mines</div></div>
+                <div class="rps-score-item"><div class="rps-score-value" id="timer">0</div><div class="rps-score-label">Time</div></div>
+              </div>
+              <select id="difficulty" onchange="newGame()" class="px-3 py-2 border border-slate-300 rounded-lg text-sm">
+                <option value="easy">Easy (9x9, 10 mines)</option>
+                <option value="medium" selected>Medium (16x16, 40 mines)</option>
+                <option value="hard">Hard (16x30, 99 mines)</option>
+              </select>
+            </div>
+            <div class="mine-grid" id="grid"></div>
+            <div class="game-controls">
+              <button class="btn btn-primary" onclick="newGame()">New Game</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="lg:col-span-1"><div id="trending-sidebar"></div></div>
+    </div>
+  </main>
+  <footer id="global-footer"></footer>
+  <script src="../../global.js" defer></script>
+  <script src="../../twt-shell.js" defer></script>
+  <script src="../../js/context-engine.js" defer></script>
+  <script>
+    const DIFF = { easy: { rows: 9, cols: 9, mines: 10 }, medium: { rows: 16, cols: 16, mines: 40 }, hard: { rows: 16, cols: 30, mines: 99 } };
+    let board = [], revealed = [], flagged = [], gameOver, timerInterval, seconds, minesLeft;
+    function newGame() {
+      const d = DIFF[document.getElementById('difficulty').value];
+      board = Array(d.rows).fill().map(() => Array(d.cols).fill(0));
+      revealed = Array(d.rows).fill().map(() => Array(d.cols).fill(false));
+      flagged = Array(d.rows).fill().map(() => Array(d.cols).fill(false));
+      gameOver = false; seconds = 0; minesLeft = d.mines;
+      document.getElementById('minesLeft').textContent = minesLeft;
+      document.getElementById('timer').textContent = '0';
+      clearInterval(timerInterval);
+      let placed = 0;
+      while (placed < d.mines) { const r = Math.floor(Math.random()*d.rows); const c = Math.floor(Math.random()*d.cols); if (board[r][c] !== -1) { board[r][c] = -1; placed++; } }
+      for (let r = 0; r < d.rows; r++) for (let c = 0; c < d.cols; c++) if (board[r][c] !== -1) { let count = 0; for (let dr = -1; dr <= 1; dr++) for (let dc = -1; dc <= 1; dc++) { const nr=r+dr, nc=c+dc; if (nr>=0 && nr<d.rows && nc>=0 && nc<d.cols && board[nr][nc]===-1) count++; } board[r][c] = count; }
+      render(); timerInterval = setInterval(() => { seconds++; document.getElementById('timer').textContent = seconds; }, 1000);
+    }
+    function render() {
+      const d = DIFF[document.getElementById('difficulty').value];
+      const grid = document.getElementById('grid');
+      grid.style.gridTemplateColumns = `repeat(${d.cols}, 32px)`;
+      grid.innerHTML = '';
+      for (let r = 0; r < d.rows; r++) {
+        for (let c = 0; c < d.cols; c++) {
+          const cell = document.createElement('div');
+          cell.className = 'mine-cell';
+          if (revealed[r][c]) { cell.classList.add('revealed'); if (board[r][c] === -1) { cell.classList.add('mine'); cell.textContent = '💣'; } else if (board[r][c] > 0) { cell.textContent = board[r][c]; cell.style.color = ['#3b82f6','#10b981','#ef4444','#6366f1','#f59e0b','#06b6d4'][board[r][c]-1] || '#1e293b'; } }
+          else if (flagged[r][c]) { cell.classList.add('flagged'); cell.textContent = '🚩'; }
+          cell.addEventListener('click', () => reveal(r, c));
+          cell.addEventListener('contextmenu', (e) => { e.preventDefault(); flag(r, c); });
+          grid.appendChild(cell);
+        }
+      }
+    }
+    function reveal(r, c) {
+      if (gameOver || revealed[r][c] || flagged[r][c]) return;
+      const d = DIFF[document.getElementById('difficulty').value];
+      revealed[r][c] = true;
+      if (board[r][c] === -1) { gameOver = true; clearInterval(timerInterval); alert('Game Over! You hit a mine.'); return; }
+      if (board[r][c] === 0) { for (let dr = -1; dr <= 1; dr++) for (let dc = -1; dc <= 1; dc++) { const nr=r+dr, nc=c+dc; if (nr>=0 && nr<d.rows && nc>=0 && nc<d.cols && !revealed[nr][nc]) reveal(nr, nc); } }
+      render(); checkWin();
+    }
+    function flag(r, c) {
+      if (gameOver || revealed[r][c]) return;
+      flagged[r][c] = !flagged[r][c];
+      minesLeft += flagged[r][c] ? -1 : 1;
+      document.getElementById('minesLeft').textContent = minesLeft;
+      render();
+    }
+    function checkWin() {
+      const d = DIFF[document.getElementById('difficulty').value];
+      let unrevealed = 0;
+      for (let r = 0; r < d.rows; r++) for (let c = 0; c < d.cols; c++) if (!revealed[r][c]) unrevealed++;
+      if (unrevealed === d.mines) { gameOver = true; clearInterval(timerInterval); alert('You win! Time: ' + seconds + 's'); }
+    }
+    function playBeep(freq, type, dur) { try { const ctx = new (window.AudioContext || window.webkitAudioContext)(); const osc = ctx.createOscillator(); const g = ctx.createGain(); osc.type = type; osc.frequency.setValueAtTime(freq, ctx.currentTime); g.gain.setValueAtTime(0.1, ctx.currentTime); g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + dur); osc.connect(g); g.connect(ctx.destination); osc.start(); osc.stop(ctx.currentTime + dur); } catch(e){} }
+    newGame();
+  </script>
+</body>
+</html>

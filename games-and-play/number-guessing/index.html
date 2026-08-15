@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Number Guessing Game | TopWebTool</title>
+  <meta name="description" content="Guess the secret number between 1 and 100. Get hints and track your streaks in this classic brain training game." />
+  <link rel="canonical" href="https://topwebtool.com/games-and-play/number-guessing/" />
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+  <link rel="apple-touch-icon" href="../../apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png" />
+  <link rel="manifest" href="../../site.webmanifest" />
+  <meta name="theme-color" content="#090d16" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="TopWebTool" />
+  <meta property="og:title" content="Number Guessing Game | TopWebTool" />
+  <meta property="og:description" content="Guess the secret number between 1 and 100. Get hints and track your streaks in this classic brain training game." />
+  <meta property="og:url" content="https://topwebtool.com/games-and-play/number-guessing/" />
+  <meta property="og:image" content="https://topwebtool.com/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Number Guessing Game | TopWebTool" />
+  <meta name="twitter:description" content="Guess the secret number between 1 and 100. Get hints and track your streaks in this classic brain training game." />
+  <meta name="twitter:image" content="https://topwebtool.com/og-image.png" />
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Number Guessing Game | TopWebTool",
+      "url": "https://topwebtool.com/games-and-play/number-guessing/",
+      "applicationCategory": "GameApplication",
+      "operatingSystem": "Windows, macOS, Linux, Android, iOS",
+      "browserRequirements": "Requires HTML5 compatible web browser",
+      "description": "Guess the secret number between 1 and 100. Get hints and track your streaks in this classic brain training game.",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://topwebtool.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Games & Play", "item": "https://topwebtool.com/games-and-play/" },
+        { "@type": "ListItem", "position": 3, "name": "Number Guessing Game", "item": "https://topwebtool.com/games-and-play/number-guessing/" }
+      ]
+    }
+  </script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="../../site.min.css">
+  <style>
+    .guess-container { max-width: 420px; margin: 0 auto; text-align: center; }
+    .guess-input { width: 100%; padding: 16px; font-size: 1.25rem; font-weight: 700; text-align: center; border: 2px solid #e2e8f0; border-radius: 16px; margin: 1.5rem 0; }
+    .dark .guess-input { background: #0f172a; border-color: #1e293b; color: #f1f5f9; }
+    .guess-input:focus { outline: none; border-color: #4f46e5; }
+    .guess-history { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin: 1rem 0; }
+    .guess-chip { padding: 6px 14px; border-radius: 9999px; font-size: 0.875rem; font-weight: 700; }
+    .guess-chip.high { background: #fee2e2; color: #dc2626; }
+    .guess-chip.low { background: #dbeafe; color: #2563eb; }
+    .guess-chip.win { background: #d1fae5; color: #059669; }
+    .dark .guess-chip.high { background: #7f1d1d; color: #fca5a5; }
+    .dark .guess-chip.low { background: #1e3a8a; color: #93c5fd; }
+    .dark .guess-chip.win { background: #064e3b; color: #6ee7b7; }
+    .game-controls { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 1.5rem; }
+    .btn { padding: 10px 24px; border-radius: 12px; font-weight: 600; font-size: 0.875rem; border: none; cursor: pointer; transition: all 150ms ease; }
+    .btn-primary { background: #4f46e5; color: white; }
+    .btn-primary:hover { background: #4338ca; }
+    .btn-secondary { background: #f1f5f9; color: #475569; }
+    .dark .btn-secondary { background: #1e293b; color: #94a3b8; }
+  </style>
+</head>
+<body>
+  <header id="global-header"></header>
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <div class="grid grid-cols-1 lg:grid-cols-4 gap-4">
+      <div class="lg:col-span-3">
+        <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+          <h1 class="text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">Number Guessing Game</h1>
+          <p class="mt-2 text-base text-slate-500 dark:text-slate-400">I'm thinking of a number between 1 and 100. Can you guess it?</p>
+        </div>
+        <div class="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-xl p-4 mt-4">
+          <p class="text-sm text-amber-800 dark:text-amber-200"><strong>How to Play:</strong> Objective: Guess the secret number with as few tries as possible. Controls: Type a number and press Enter, or click Submit. Range is 1-100.</p>
+        </div>
+        <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm mt-4">
+          <div class="guess-container">
+            <div class="rps-score">
+              <div class="rps-score-item"><div class="rps-score-value" id="attempts">0</div><div class="rps-score-label">Attempts</div></div>
+              <div class="rps-score-item"><div class="rps-score-value" id="best">-</div><div class="rps-score-label">Best</div></div>
+              <div class="rps-score-item"><div class="rps-score-value" id="streak">0</div><div class="rps-score-label">Streak</div></div>
+            </div>
+            <input type="number" id="guessInput" class="guess-input" placeholder="Enter number (1-100)" min="1" max="100">
+            <div class="guess-history" id="history"></div>
+            <div class="rps-result" id="result"></div>
+            <div class="game-controls">
+              <button class="btn btn-primary" onclick="submitGuess()">Submit</button>
+              <button class="btn btn-secondary" onclick="newGame()">New Game</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="lg:col-span-1"><div id="trending-sidebar"></div></div>
+    </div>
+  </main>
+  <footer id="global-footer"></footer>
+  <script src="../../global.js" defer></script>
+  <script src="../../twt-shell.js" defer></script>
+  <script src="../../js/context-engine.js" defer></script>
+  <script>
+    let secret, attempts, history, streak, best;
+    function init() {
+      secret = Math.floor(Math.random() * 100) + 1;
+      attempts = 0; history = [];
+      streak = parseInt(localStorage.getItem('topwebtool-guess-streak')) || 0;
+      best = localStorage.getItem('topwebtool-guess-best') || '-';
+      document.getElementById('streak').textContent = streak;
+      document.getElementById('best').textContent = best;
+      document.getElementById('attempts').textContent = '0';
+      document.getElementById('history').innerHTML = '';
+      document.getElementById('result').textContent = '';
+      document.getElementById('guessInput').value = '';
+      document.getElementById('guessInput').disabled = false;
+    }
+    function submitGuess() {
+      const input = document.getElementById('guessInput');
+      const val = parseInt(input.value);
+      if (isNaN(val) || val < 1 || val > 100) { document.getElementById('result').textContent = 'Enter a number between 1 and 100'; return; }
+      attempts++;
+      document.getElementById('attempts').textContent = attempts;
+      let type, msg;
+      if (val === secret) { type = 'win'; msg = `Correct! The number was ${secret}. Attempts: ${attempts}`; streak++; document.getElementById('streak').textContent = streak; localStorage.setItem('topwebtool-guess-streak', streak); if (best === '-' || attempts < parseInt(best)) { best = attempts; document.getElementById('best').textContent = best; localStorage.setItem('topwebtool-guess-best', best); } playBeep(1000, 'sine', 0.2); setTimeout(() => { alert(msg); init(); }, 100); }
+      else if (val > secret) { type = 'high'; msg = `${val} is too high!`; playBeep(300, 'sine', 0.1); }
+      else { type = 'low'; msg = `${val} is too low!`; playBeep(300, 'sine', 0.1); }
+      const chip = document.createElement('span'); chip.className = 'guess-chip ' + type; chip.textContent = val; document.getElementById('history').appendChild(chip);
+      document.getElementById('result').textContent = msg;
+      input.value = ''; input.focus();
+    }
+    function newGame() { init(); }
+    function playBeep(freq, type, dur) { try { const ctx = new (window.AudioContext || window.webkitAudioContext)(); const osc = ctx.createOscillator(); const g = ctx.createGain(); osc.type = type; osc.frequency.setValueAtTime(freq, ctx.currentTime); g.gain.setValueAtTime(0.1, ctx.currentTime); g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + dur); osc.connect(g); g.connect(ctx.destination); osc.start(); osc.stop(ctx.currentTime + dur); } catch(e){} }
+    document.getElementById('guessInput').addEventListener('keydown', (e) => { if (e.key === 'Enter') submitGuess(); });
+    init();
+  </script>
+</body>
+</html>

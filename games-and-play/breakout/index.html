@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Breakout | TopWebTool</title>
+  <meta name="description" content="Play Breakout online. Classic brick breaker arcade game. Destroy all bricks with the ball and paddle. No sign-up required." />
+  <link rel="canonical" href="https://topwebtool.com/games-and-play/breakout/" />
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+  <link rel="apple-touch-icon" href="../../apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png" />
+  <link rel="manifest" href="../../site.webmanifest" />
+  <meta name="theme-color" content="#090d16" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="TopWebTool" />
+  <meta property="og:title" content="Breakout | TopWebTool" />
+  <meta property="og:description" content="Play Breakout online. Classic brick breaker arcade game. Destroy all bricks with the ball and paddle." />
+  <meta property="og:url" content="https://topwebtool.com/games-and-play/breakout/" />
+  <meta property="og:image" content="https://topwebtool.com/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Breakout | TopWebTool" />
+  <meta name="twitter:description" content="Play Breakout online. Classic brick breaker arcade game. Destroy all bricks with the ball and paddle." />
+  <meta name="twitter:image" content="https://topwebtool.com/og-image.png" />
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Breakout | TopWebTool",
+      "url": "https://topwebtool.com/games-and-play/breakout/",
+      "applicationCategory": "GameApplication",
+      "operatingSystem": "Windows, macOS, Linux, Android, iOS",
+      "browserRequirements": "Requires HTML5 compatible web browser",
+      "description": "Play Breakout online. Classic brick breaker arcade game. Destroy all bricks with the ball and paddle.",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://topwebtool.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Games & Play", "item": "https://topwebtool.com/games-and-play/" },
+        { "@type": "ListItem", "position": 3, "name": "Breakout", "item": "https://topwebtool.com/games-and-play/breakout/" }
+      ]
+    }
+  </script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="../../site.min.css">
+  <style>
+    .breakout-container { max-width: 600px; margin: 0 auto; text-align: center; }
+    canvas { display: block; margin: 0 auto; border-radius: 16px; border: 2px solid #e2e8f0; background: #0f172a; }
+    .dark canvas { border-color: #1e293b; }
+    .game-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.6); display: flex; align-items: center; justify-content: center; z-index: 100; opacity: 0; pointer-events: none; transition: opacity 300ms; }
+    .game-overlay.active { opacity: 1; pointer-events: auto; }
+    .overlay-box { background: white; border-radius: 24px; padding: 2rem; text-align: center; max-width: 400px; margin: 1rem; box-shadow: 0 25px 50px rgba(0,0,0,0.25); }
+    .dark .overlay-box { background: #1e293b; }
+    .overlay-title { font-size: 1.5rem; font-weight: 800; color: #1e293b; margin-bottom: 0.5rem; }
+    .dark .overlay-title { color: #f1f5f9; }
+    .overlay-score { font-size: 2rem; font-weight: 800; color: #4f46e5; margin: 1rem 0; }
+    .dark .overlay-score { color: #818cf8; }
+    .game-controls { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 1.5rem; }
+    .btn { padding: 10px 24px; border-radius: 12px; font-weight: 600; font-size: 0.875rem; border: none; cursor: pointer; transition: all 150ms ease; }
+    .btn-primary { background: #4f46e5; color: white; }
+    .btn-primary:hover { background: #4338ca; }
+    .btn-secondary { background: #f1f5f9; color: #475569; }
+    .dark .btn-secondary { background: #1e293b; color: #94a3b8; }
+  </style>
+</head>
+<body>
+  <header id="global-header"></header>
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <div class="grid grid-cols-1 lg:grid-cols-4 gap-4">
+      <div class="lg:col-span-3">
+        <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+          <h1 class="text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">Breakout</h1>
+          <p class="mt-2 text-base text-slate-500 dark:text-slate-400">Classic brick breaker. Destroy all bricks with the ball. Don't let it fall!</p>
+        </div>
+        <div class="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-xl p-4 mt-4">
+          <p class="text-sm text-amber-800 dark:text-amber-200"><strong>How to Play:</strong> Objective: Destroy all bricks by bouncing the ball with the paddle. Controls: Mouse or Arrow keys to move paddle. Click or Space to launch ball.</p>
+        </div>
+        <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm mt-4">
+          <div class="breakout-container">
+            <div class="rps-score">
+              <div class="rps-score-item"><div class="rps-score-value" id="score">0</div><div class="rps-score-label">Score</div></div>
+              <div class="rps-score-item"><div class="rps-score-value" id="lives">3</div><div class="rps-score-label">Lives</div></div>
+            </div>
+            <canvas id="gameCanvas" width="500" height="400"></canvas>
+            <div class="game-controls">
+              <button class="btn btn-primary" onclick="resetGame()">New Game</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="lg:col-span-1"><div id="trending-sidebar"></div></div>
+    </div>
+  </main>
+  <div class="game-overlay" id="overlay">
+    <div class="overlay-box">
+      <div class="overlay-title" id="overlayTitle">Game Over</div>
+      <div class="overlay-score" id="overlayScore">0</div>
+      <button class="btn btn-primary" onclick="resetGame()" style="padding:12px 32px;font-size:1rem;margin-right:8px;">Play Again</button>
+    </div>
+  </div>
+  <footer id="global-footer"></footer>
+  <script src="../../global.js" defer></script>
+  <script src="../../twt-shell.js" defer></script>
+  <script src="../../js/context-engine.js" defer></script>
+  <script>
+    const canvas = document.getElementById('gameCanvas');
+    const ctx = canvas.getContext('2d');
+    const paddle = { x: 200, y: 360, w: 80, h: 12, dx: 0 };
+    const ball = { x: 250, y: 340, r: 6, dx: 4, dy: -4 };
+    let bricks = [], score = 0, lives = 3, gameLoop = null, launched = false;
+    function initBricks() {
+      bricks = [];
+      const colors = ['#ef4444','#f97316','#f59e0b','#10b981','#3b82f6','#6366f1'];
+      for (let r = 0; r < 6; r++) for (let c = 0; c < 8; c++) bricks.push({ x: 40 + c * 55, y: 40 + r * 25, w: 50, h: 20, alive: true, color: colors[r] });
+    }
+    function draw() {
+      ctx.fillStyle = '#0f172a'; ctx.fillRect(0, 0, canvas.width, canvas.height);
+      bricks.forEach(b => { if (b.alive) { ctx.fillStyle = b.color; ctx.fillRect(b.x, b.y, b.w, b.h); ctx.strokeStyle = 'rgba(255,255,255,0.2)'; ctx.strokeRect(b.x, b.y, b.w, b.h); } });
+      ctx.fillStyle = '#818cf8'; ctx.fillRect(paddle.x, paddle.y, paddle.w, paddle.h);
+      ctx.beginPath(); ctx.arc(ball.x, ball.y, ball.r, 0, Math.PI * 2); ctx.fillStyle = '#fbbf24'; ctx.fill();
+    }
+    function update() {
+      if (!launched) { ball.x = paddle.x + paddle.w / 2; ball.y = paddle.y - ball.r - 1; draw(); return; }
+      ball.x += ball.dx; ball.y += ball.dy;
+      if (ball.x < 0 || ball.x > canvas.width) ball.dx *= -1;
+      if (ball.y < 0) ball.dy *= -1;
+      if (ball.y > canvas.height) { lives--; document.getElementById('lives').textContent = lives; playBeep(200, 'sawtooth', 0.3); if (lives <= 0) gameOver(); else { launched = false; ball.dx = 4; ball.dy = -4; } }
+      if (ball.x > paddle.x && ball.x < paddle.x + paddle.w && ball.y + ball.r > paddle.y && ball.y - ball.r < paddle.y + paddle.h) { ball.dy = -Math.abs(ball.dy); const hit = (ball.x - paddle.x) / paddle.w - 0.5; ball.dx = hit * 8; playBeep(600, 'sine', 0.05); }
+      bricks.forEach(b => { if (b.alive && ball.x > b.x && ball.x < b.x + b.w && ball.y > b.y && ball.y < b.y + b.h) { b.alive = false; ball.dy *= -1; score += 10; document.getElementById('score').textContent = score; playBeep(800, 'sine', 0.1); } });
+      if (bricks.every(b => !b.alive)) { alert('You win! Score: ' + score); resetGame(); }
+      paddle.x += paddle.dx;
+      if (paddle.x < 0) paddle.x = 0;
+      if (paddle.x + paddle.w > canvas.width) paddle.x = canvas.width - paddle.w;
+      draw();
+    }
+    function gameOver() { clearInterval(gameLoop); document.getElementById('overlayTitle').textContent = 'Game Over'; document.getElementById('overlayScore').textContent = 'Score: ' + score; document.getElementById('overlay').classList.add('active'); }
+    function resetGame() { document.getElementById('overlay').classList.remove('active'); score = 0; lives = 3; launched = false; ball.x = 250; ball.y = 340; ball.dx = 4; ball.dy = -4; paddle.x = 200; document.getElementById('score').textContent = '0'; document.getElementById('lives').textContent = '3'; initBricks(); clearInterval(gameLoop); gameLoop = setInterval(update, 1000/60); }
+    function playBeep(freq, type, dur) { try { const ctx = new (window.AudioContext || window.webkitAudioContext)(); const osc = ctx.createOscillator(); const g = ctx.createGain(); osc.type = type; osc.frequency.setValueAtTime(freq, ctx.currentTime); g.gain.setValueAtTime(0.1, ctx.currentTime); g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + dur); osc.connect(g); g.connect(ctx.destination); osc.start(); osc.stop(ctx.currentTime + dur); } catch(e){} }
+    document.addEventListener('keydown', (e) => { if (e.key==='ArrowLeft') paddle.dx = -8; else if (e.key==='ArrowRight') paddle.dx = 8; else if (e.key===' ' && !launched) { e.preventDefault(); launched = true; } });
+    document.addEventListener('keyup', (e) => { if (e.key==='ArrowLeft' || e.key==='ArrowRight') paddle.dx = 0; });
+    canvas.addEventListener('mousemove', (e) => { const rect = canvas.getBoundingClientRect(); paddle.x = e.clientX - rect.left - paddle.w / 2; if (paddle.x < 0) paddle.x = 0; if (paddle.x + paddle.w > canvas.width) paddle.x = canvas.width - paddle.w; });
+    canvas.addEventListener('click', () => { if (!launched) launched = true; });
+    initBricks(); gameLoop = setInterval(update, 1000/60);
+  </script>
+</body>
+</html>

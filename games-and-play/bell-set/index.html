@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bell Set | TopWebTool</title>
+  <meta name="description" content="Play Bell Set online. Ring 8 colorful bells using your keyboard or mouse. A free interactive musical instrument." />
+  <link rel="canonical" href="https://topwebtool.com/games-and-play/bell-set/" />
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+  <link rel="apple-touch-icon" href="../../apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png" />
+  <link rel="manifest" href="../../site.webmanifest" />
+  <meta name="theme-color" content="#090d16" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="TopWebTool" />
+  <meta property="og:title" content="Bell Set | TopWebTool" />
+  <meta property="og:description" content="Play Bell Set online. Ring 8 colorful bells using your keyboard or mouse. A free interactive musical instrument." />
+  <meta property="og:url" content="https://topwebtool.com/games-and-play/bell-set/" />
+  <meta property="og:image" content="https://topwebtool.com/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Bell Set | TopWebTool" />
+  <meta name="twitter:description" content="Play Bell Set online. Ring 8 colorful bells using your keyboard or mouse. A free interactive musical instrument." />
+  <meta name="twitter:image" content="https://topwebtool.com/og-image.png" />
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Bell Set | TopWebTool",
+      "url": "https://topwebtool.com/games-and-play/bell-set/",
+      "applicationCategory": "GameApplication",
+      "operatingSystem": "Windows, macOS, Linux, Android, iOS",
+      "browserRequirements": "Requires HTML5 compatible web browser",
+      "description": "Play Bell Set online. Ring 8 colorful bells using your keyboard or mouse. A free interactive musical instrument.",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://topwebtool.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Games & Play", "item": "https://topwebtool.com/games-and-play/" },
+        { "@type": "ListItem", "position": 3, "name": "Bell Set", "item": "https://topwebtool.com/games-and-play/bell-set/" }
+      ]
+    }
+  </script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="../../site.min.css">
+  <style>
+    .bell-stage { display: flex; justify-content: center; align-items: flex-end; gap: 12px; padding: 24px 0; min-height: 320px; position: relative; }
+    .bell-wrapper { display: flex; flex-direction: column; align-items: center; position: relative; }
+    .bell { width: 72px; height: 90px; border-radius: 50% 50% 48% 48% / 60% 60% 40% 40%; background: linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%); border: 3px solid #cbd5e1; position: relative; cursor: pointer; transition: transform 80ms ease, box-shadow 150ms ease, border-color 150ms ease; box-shadow: 0 8px 0 #94a3b8, 0 12px 16px rgba(0,0,0,0.15); }
+    .dark .bell { background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%); border-color: #334155; box-shadow: 0 8px 0 #1e293b, 0 12px 16px rgba(0,0,0,0.4); }
+    .bell::after { content: ''; position: absolute; left: 50%; bottom: -6px; transform: translateX(-50%); width: 24px; height: 10px; background: #cbd5e1; border-radius: 2px; }
+    .dark .bell::after { background: #475569; }
+    .bell.clapper { position: absolute; left: 50%; bottom: -22px; transform: translateX(-50%); width: 10px; height: 18px; background: #475569; border-radius: 50%; z-index: 2; }
+    .bell.active { border-color: #f59e0b; box-shadow: 0 0 0 6px rgba(245, 158, 11, 0.25), 0 8px 0 #b45309, 0 12px 16px rgba(0,0,0,0.15); transform: translateY(3px); }
+    .dark .bell.active { box-shadow: 0 0 0 6px rgba(245, 158, 11, 0.3), 0 8px 0 #78350f, 0 12px 16px rgba(0,0,0,0.4); }
+    .mallet { position: absolute; left: 50%; top: -18px; width: 8px; height: 28px; background: #78350f; border-radius: 4px; transform: translateX(-50%) rotate(-25deg); transform-origin: bottom center; opacity: 0; transition: opacity 120ms ease; pointer-events: none; }
+    .mallet-head { position: absolute; top: -6px; left: 50%; transform: translateX(-50%); width: 18px; height: 18px; background: #f59e0b; border-radius: 50%; }
+    .bell-wrapper.striking .mallet { opacity: 1; animation: malletStrike 220ms ease-out forwards; }
+    @keyframes malletStrike { 0% { transform: translateX(-50%) rotate(-25deg) translateY(-8px); } 60% { transform: translateX(-50%) rotate(8deg) translateY(4px); } 100% { transform: translateX(-50%) rotate(0deg) translateY(0); } }
+    .bell-label { margin-top: 12px; font-size: 0.875rem; font-weight: 600; color: #475569; }
+    .dark .bell-label { color: #cbd5e1; }
+    .bell-key { font-size: 0.75rem; color: #94a3b8; margin-top: 2px; }
+    .ripple { position: absolute; top: 50%; left: 50%; width: 10px; height: 10px; border-radius: 50%; background: rgba(245, 158, 11, 0.5); transform: translate(-50%, -50%) scale(0); animation: rippleOut 500ms ease-out forwards; pointer-events: none; }
+    @keyframes rippleOut { 0% { transform: translate(-50%, -50%) scale(0); opacity: 0.8; } 100% { transform: translate(-50%, -50%) scale(6); opacity: 0; } }
+    .volume-row { display: flex; align-items: center; justify-content: center; gap: 12px; margin-top: 8px; }
+    .volume-row label { font-size: 0.875rem; color: #475569; font-weight: 500; }
+    .dark .volume-row label { color: #cbd5e1; }
+    input[type=range] { accent-color: #4f46e5; }
+    .controls-hint { text-align: center; margin-top: 1rem; font-size: 0.875rem; color: #94a3b8; }
+    .x-rail { position: absolute; top: 10px; left: -8px; right: -8px; height: 14px; background: linear-gradient(180deg, #e2e8f0, #cbd5e1); border-radius: 6px; z-index: 0; }
+    .dark .x-rail { background: linear-gradient(180deg, #1e293b, #0f172a); }
+    .bell-stage-top { position: relative; width: 100%; max-width: 720px; margin: 0 auto; }
+  </style>
+</head>
+<body>
+  <header id="global-header"></header>
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <div class="grid grid-cols-1 lg:grid-cols-4 gap-4">
+      <div class="lg:col-span-3">
+        <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+          <h1 class="text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">Bell Set</h1>
+          <p class="mt-2 text-base text-slate-500 dark:text-slate-400">Ring 8 bells like a xylophone. Use keys A-H or tap to play the C major scale.</p>
+        </div>
+        <div class="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-xl p-4 mt-4">
+          <p class="text-sm text-amber-800 dark:text-amber-200"><strong>How to Play:</strong> Objective: Play the scale by ringing bells in order. Controls: Keys A-H to ring bells. Tip: Click or tap a bell, or use the keyboard.</p>
+        </div>
+        <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm mt-4">
+          <div class="bell-stage-top">
+            <div class="x-rail"></div>
+            <div class="bell-stage" id="bellStage"></div>
+          </div>
+          <div class="volume-row">
+            <label for="volume">Volume</label>
+            <input type="range" id="volume" min="0" max="100" value="60" />
+          </div>
+          <div class="controls-hint">Keys A-H to ring bells</div>
+        </div>
+      </div>
+      <div class="lg:col-span-1">
+        <div id="trending-sidebar"></div>
+      </div>
+    </div>
+  </main>
+  <footer id="global-footer"></footer>
+  <script src="../../global.js" defer></script>
+  <script src="../../twt-shell.js" defer></script>
+  <script src="../../js/context-engine.js" defer></script>
+  <script>
+    const notes = [
+      { name: 'C4', freq: 261.63, key: 'a' },
+      { name: 'D4', freq: 293.66, key: 's' },
+      { name: 'E4', freq: 329.63, key: 'd' },
+      { name: 'F4', freq: 349.23, key: 'f' },
+      { name: 'G4', freq: 392.00, key: 'g' },
+      { name: 'A4', freq: 440.00, key: 'h' },
+      { name: 'B4', freq: 493.88, key: 'j' },
+      { name: 'C5', freq: 523.25, key: 'k' }
+    ];
+    const stage = document.getElementById('bellStage');
+    const volumeInput = document.getElementById('volume');
+    let audioCtx = null;
+    let volume = 0.6;
+    const storageKey = 'topwebtool-bellset';
+    try { const saved = JSON.parse(localStorage.getItem(storageKey)); if (saved && typeof saved.volume === 'number') { volume = Math.max(0, Math.min(1, saved.volume)); volumeInput.value = Math.round(volume * 100); } } catch(e){}
+    volumeInput.addEventListener('input', (e) => { volume = parseInt(e.target.value, 10) / 100; try { localStorage.setItem(storageKey, JSON.stringify({ volume })); } catch(err){} });
+    function getAudioCtx() { if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)(); return audioCtx; }
+    function playBell(freq) {
+      try {
+        const ctx = getAudioCtx();
+        const now = ctx.currentTime;
+        const master = ctx.createGain();
+        master.gain.setValueAtTime(volume * 0.8, now);
+        master.connect(ctx.destination);
+        const partials = [1, 2, 3];
+        partials.forEach((mult, i) => {
+          const osc = ctx.createOscillator();
+          const g = ctx.createGain();
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(freq * mult, now);
+          const amp = mult === 1 ? 1 : 0.35 / mult;
+          g.gain.setValueAtTime(amp * 0.25, now);
+          g.gain.exponentialRampToValueAtTime(0.001, now + (1.8 - i * 0.4));
+          osc.connect(g); g.connect(master);
+          osc.start(now); osc.stop(now + (2.2 - i * 0.4));
+        });
+      } catch(e){}
+    }
+    function strikeBell(index) {
+      const wrapper = stage.children[index];
+      if (!wrapper) return;
+      wrapper.querySelector('.bell').classList.remove('active');
+      void wrapper.querySelector('.bell').offsetWidth;
+      wrapper.querySelector('.bell').classList.add('active');
+      wrapper.classList.remove('striking');
+      void wrapper.offsetWidth;
+      wrapper.classList.add('striking');
+      const ripple = document.createElement('div');
+      ripple.className = 'ripple';
+      wrapper.querySelector('.bell').appendChild(ripple);
+      setTimeout(() => { wrapper.querySelector('.bell').classList.remove('active'); wrapper.classList.remove('striking'); ripple.remove(); }, 500);
+      playBell(notes[index].freq);
+    }
+    notes.forEach((note, i) => {
+      const wrapper = document.createElement('div');
+      wrapper.className = 'bell-wrapper';
+      wrapper.innerHTML = `<div class="mallet"><div class="mallet-head"></div></div><div class="bell" data-index="${i}"><div class="bell clapper"></div></div><div class="bell-label">${note.name}</div><div class="bell-key">${note.key.toUpperCase()}</div>`;
+      wrapper.addEventListener('pointerdown', (e) => { e.preventDefault(); strikeBell(i); });
+      stage.appendChild(wrapper);
+    });
+    const keyMap = {};
+    notes.forEach((n, i) => { keyMap[n.key] = i; });
+    const pressed = new Set();
+    document.addEventListener('keydown', (e) => { if (e.repeat) return; const k = e.key.toLowerCase(); if (k in keyMap && !pressed.has(k)) { pressed.add(k); strikeBell(keyMap[k]); } });
+    document.addEventListener('keyup', (e) => { pressed.delete(e.key.toLowerCase()); });
+  </script>
+</body>
+</html>

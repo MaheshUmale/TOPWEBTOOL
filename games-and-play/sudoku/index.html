@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sudoku | TopWebTool</title>
+  <meta name="description" content="Play Sudoku online. Free puzzle game with multiple difficulty levels. Train your brain with this classic number logic game." />
+  <link rel="canonical" href="https://topwebtool.com/games-and-play/sudoku/" />
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+  <link rel="apple-touch-icon" href="../../apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png" />
+  <link rel="manifest" href="../../site.webmanifest" />
+  <meta name="theme-color" content="#090d16" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="TopWebTool" />
+  <meta property="og:title" content="Sudoku | TopWebTool" />
+  <meta property="og:description" content="Play Sudoku online. Free puzzle game with multiple difficulty levels. Train your brain with this classic number logic game." />
+  <meta property="og:url" content="https://topwebtool.com/games-and-play/sudoku/" />
+  <meta property="og:image" content="https://topwebtool.com/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Sudoku | TopWebTool" />
+  <meta name="twitter:description" content="Play Sudoku online. Free puzzle game with multiple difficulty levels. Train your brain with this classic number logic game." />
+  <meta name="twitter:image" content="https://topwebtool.com/og-image.png" />
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Sudoku | TopWebTool",
+      "url": "https://topwebtool.com/games-and-play/sudoku/",
+      "applicationCategory": "GameApplication",
+      "operatingSystem": "Windows, macOS, Linux, Android, iOS",
+      "browserRequirements": "Requires HTML5 compatible web browser",
+      "description": "Play Sudoku online. Free puzzle game with multiple difficulty levels. Train your brain with this classic number logic game.",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://topwebtool.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Games & Play", "item": "https://topwebtool.com/games-and-play/" },
+        { "@type": "ListItem", "position": 3, "name": "Sudoku", "item": "https://topwebtool.com/games-and-play/sudoku/" }
+      ]
+    }
+  </script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="../../site.min.css">
+  <style>
+    .sudoku-container { max-width: 420px; margin: 0 auto; }
+    .sudoku-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem; }
+    .sudoku-difficulty { display: flex; gap: 8px; }
+    .diff-btn { padding: 6px 16px; border-radius: 9999px; font-size: 0.75rem; font-weight: 600; border: 1px solid #e2e8f0; background: white; color: #475569; cursor: pointer; }
+    .dark .diff-btn { background: #0f172a; border-color: #1e293b; color: #94a3b8; }
+    .diff-btn.active { background: #4f46e5; color: white; border-color: #4f46e5; }
+    .sudoku-grid { display: grid; grid-template-columns: repeat(9, 1fr); gap: 1px; background: #cbd5e1; border: 2px solid #cbd5e1; border-radius: 12px; overflow: hidden; }
+    .sudoku-cell { aspect-ratio: 1; background: white; display: flex; align-items: center; justify-content: center; font-size: 1.25rem; font-weight: 700; cursor: pointer; border: 1px solid #e2e8f0; transition: background 150ms; }
+    .dark .sudoku-cell { background: #0f172a; border-color: #1e293b; color: #f1f5f9; }
+    .sudoku-cell.fixed { background: #f1f5f9; color: #1e293b; cursor: default; }
+    .dark .sudoku-cell.fixed { background: #1e293b; color: #94a3b8; }
+    .sudoku-cell.selected { background: #e0e7ff; outline: 2px solid #4f46e5; }
+    .dark .sudoku-cell.selected { background: #312e81; }
+    .sudoku-cell.highlight { background: #f8fafc; }
+    .dark .sudoku-cell.highlight { background: #1e293b; }
+    .sudoku-cell.error { background: #fee2e2; color: #dc2626; }
+    .dark .sudoku-cell.error { background: #7f1d1d; color: #fca5a5; }
+    .sudoku-cell:nth-child(3n) { border-right: 2px solid #94a3b8; }
+    .sudoku-cell:nth-child(9n) { border-right: none; }
+    .sudoku-cell:nth-child(n+19):nth-child(-n+27),
+    .sudoku-cell:nth-child(n+46):nth-child(-n+54) { border-bottom: 2px solid #94a3b8; }
+    .numpad { display: grid; grid-template-columns: repeat(9, 1fr); gap: 6px; margin-top: 1rem; }
+    .num-btn { aspect-ratio: 1; border-radius: 8px; border: 1px solid #e2e8f0; background: white; color: #4f46e5; font-weight: 700; font-size: 1rem; cursor: pointer; }
+    .dark .num-btn { background: #0f172a; border-color: #1e293b; color: #818cf8; }
+    .num-btn:hover { background: #4f46e5; color: white; }
+    .game-controls { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 1rem; }
+    .btn { padding: 10px 24px; border-radius: 12px; font-weight: 600; font-size: 0.875rem; border: none; cursor: pointer; transition: all 150ms ease; }
+    .btn-primary { background: #4f46e5; color: white; }
+    .btn-primary:hover { background: #4338ca; }
+  </style>
+</head>
+<body>
+  <header id="global-header"></header>
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <div class="grid grid-cols-1 lg:grid-cols-4 gap-4">
+      <div class="lg:col-span-3">
+        <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+          <h1 class="text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">Sudoku</h1>
+          <p class="mt-2 text-base text-slate-500 dark:text-slate-400">Fill the 9x9 grid so each row, column, and 3x3 box contains 1-9.</p>
+        </div>
+        <div class="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-xl p-4 mt-4">
+          <p class="text-sm text-amber-800 dark:text-amber-200"><strong>How to Play:</strong> Objective: Fill the 9x9 grid so each row, column, and 3x3 box contains digits 1-9 exactly once, with no repeats. Controls: Click a cell to select it, then click a number on the pad or press 1-9 keys.</p>
+        </div>
+        <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm mt-4">
+          <div class="sudoku-container">
+            <div class="sudoku-header">
+              <div class="sudoku-difficulty">
+                <button class="diff-btn" data-diff="easy" onclick="setDifficulty('easy')">Easy</button>
+                <button class="diff-btn active" data-diff="medium" onclick="setDifficulty('medium')">Medium</button>
+                <button class="diff-btn" data-diff="hard" onclick="setDifficulty('hard')">Hard</button>
+              </div>
+              <button class="btn btn-primary" onclick="newGame()">New Game</button>
+            </div>
+            <div class="sudoku-grid" id="grid"></div>
+            <div class="numpad" id="numpad"></div>
+          </div>
+        </div>
+      </div>
+      <div class="lg:col-span-1"><div id="trending-sidebar"></div></div>
+    </div>
+  </main>
+  <footer id="global-footer"></footer>
+  <script src="../../global.js" defer></script>
+  <script src="../../twt-shell.js" defer></script>
+  <script src="../../js/context-engine.js" defer></script>
+  <script>
+    let board = Array(9).fill().map(() => Array(9).fill(0));
+    let fixed = Array(9).fill().map(() => Array(9).fill(false));
+    let selected = null;
+    let difficulty = 'medium';
+    const clues = { easy: 40, medium: 30, hard: 25 };
+    function randPerm() { const a = [1,2,3,4,5,6,7,8,9]; for (let i = 8; i > 0; i--) { const j = Math.floor(Math.random() * (i+1)); [a[i],a[j]] = [a[j],a[i]]; } return a; }
+    function isValid(board, r, c, n) { for (let i = 0; i < 9; i++) if (board[r][i] === n || board[i][c] === n) return false; const br = Math.floor(r/3)*3, bc = Math.floor(c/3)*3; for (let i = 0; i < 3; i++) for (let j = 0; j < 3; j++) if (board[br+i][bc+j] === n) return false; return true; }
+    function solve(board) { for (let r = 0; r < 9; r++) { for (let c = 0; c < 9; c++) { if (!board[r][c]) { for (let n = 1; n <= 9; n++) { if (isValid(board, r, c, n)) { board[r][c] = n; if (solve(board)) return true; board[r][c] = 0; } } return false; } } } return true; }
+    function generate() {
+      board = Array(9).fill().map(() => Array(9).fill(0));
+      const diag = randPerm();
+      for (let i = 0; i < 9; i++) board[i][i] = diag[i];
+      solve(board);
+      const solution = board.map(r => [...r]);
+      const cells = []; for (let r = 0; r < 9; r++) for (let c = 0; c < 9; c++) cells.push({r,c});
+      const toRemove = 81 - clues[difficulty];
+      shuffle(cells);
+      for (let i = 0; i < toRemove; i++) { const {r,c} = cells[i]; board[r][c] = 0; }
+      fixed = board.map(r => r.map(v => v !== 0));
+      return solution;
+    }
+    function shuffle(arr) { for (let i = arr.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i+1)); [arr[i],arr[j]] = [arr[j],arr[i]]; } }
+    function render() {
+      const grid = document.getElementById('grid');
+      grid.innerHTML = '';
+      for (let r = 0; r < 9; r++) {
+        for (let c = 0; c < 9; c++) {
+          const cell = document.createElement('div');
+          cell.className = 'sudoku-cell';
+          if (fixed[r][c]) cell.classList.add('fixed');
+          if (selected && selected.r === r && selected.c === c) cell.classList.add('selected');
+          if (board[r][c]) cell.textContent = board[r][c];
+          cell.addEventListener('click', () => { selected = {r,c}; render(); });
+          grid.appendChild(cell);
+        }
+      }
+      const numpad = document.getElementById('numpad');
+      numpad.innerHTML = '';
+      for (let n = 1; n <= 9; n++) {
+        const btn = document.createElement('button');
+        btn.className = 'num-btn';
+        btn.textContent = n;
+        btn.addEventListener('click', () => placeNumber(n));
+        numpad.appendChild(btn);
+      }
+    }
+    function placeNumber(n) {
+      if (!selected || fixed[selected.r][selected.c]) return;
+      board[selected.r][selected.c] = n;
+      render();
+      if (checkWin()) { setTimeout(() => alert('You solved it!'), 100); }
+    }
+    function checkWin() {
+      for (let r = 0; r < 9; r++) for (let c = 0; c < 9; c++) if (!board[r][c]) return false;
+      for (let r = 0; r < 9; r++) for (let c = 0; c < 9; c++) if (!isValid(board, r, c, board[r][c])) return false;
+      return true;
+    }
+    function setDifficulty(d) {
+      difficulty = d;
+      document.querySelectorAll('.diff-btn').forEach(b => b.classList.toggle('active', b.dataset.diff === d));
+      newGame();
+    }
+    function newGame() { generate(); selected = null; render(); }
+    document.addEventListener('keydown', (e) => { if (e.key >= '1' && e.key <= '9') placeNumber(parseInt(e.key)); });
+    newGame();
+  </script>
+</body>
+</html>
