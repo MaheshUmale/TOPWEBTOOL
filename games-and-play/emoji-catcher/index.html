@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
+  <script>
+    (function () {
+      try {
+        const theme = localStorage.getItem("theme");
+        if (theme === "dark") {
+          document.documentElement.classList.add("dark");
+          document.documentElement.classList.remove("light");
+        } else {
+          document.documentElement.classList.remove("dark");
+          document.documentElement.classList.add("light");
+        }
+      } catch (e) {}
+    })();
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Emoji Catcher | TopWebTool</title>
+  <meta name="description" content="Play Emoji Catcher online. Catch falling emojis, avoid bombs, beat your high score in this fun arcade game." />
+  <link rel="canonical" href="https://topwebtool.com/games-and-play/emoji-catcher/" />
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+  <link rel="apple-touch-icon" href="../../apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png" />
+  <link rel="manifest" href="../../site.webmanifest" />
+  <meta name="theme-color" content="#090d16" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="TopWebTool" />
+  <meta property="og:title" content="Emoji Catcher | TopWebTool" />
+  <meta property="og:description" content="Play Emoji Catcher online. Catch falling emojis, avoid bombs, beat your high score in this fun arcade game." />
+  <meta property="og:url" content="https://topwebtool.com/games-and-play/emoji-catcher/" />
+  <meta property="og:image" content="https://topwebtool.com/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Emoji Catcher | TopWebTool" />
+  <meta name="twitter:description" content="Play Emoji Catcher online. Catch falling emojis, avoid bombs, beat your high score in this fun arcade game." />
+  <meta name="twitter:image" content="https://topwebtool.com/og-image.png" />
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Emoji Catcher | TopWebTool",
+      "url": "https://topwebtool.com/games-and-play/emoji-catcher/",
+      "applicationCategory": "GameApplication",
+      "operatingSystem": "Windows, macOS, Linux, Android, iOS",
+      "browserRequirements": "Requires HTML5 compatible web browser",
+      "description": "Play Emoji Catcher online. Catch falling emojis, avoid bombs, beat your high score in this fun arcade game.",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://topwebtool.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Games & Play", "item": "https://topwebtool.com/games-and-play/" },
+        { "@type": "ListItem", "position": 3, "name": "Emoji Catcher", "item": "https://topwebtool.com/games-and-play/emoji-catcher/" }
+      ]
+    }
+  </script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="../../site.min.css">
+  <style>
+    html { background-color: #fff; }
+    html.dark { background-color: #090d16; }
+    body { padding-bottom: 6rem; }
+    #global-header { min-height: 65px; }
+    #global-footer { min-height: 85px; }
+    #trending-sidebar { min-height: 700px; }
+    @media (max-width: 767px) {
+      #global-header { min-height: 200px; }
+      #global-footer { min-height: 120px; }
+    }
+    .emoji-container { max-width: 600px; margin: 0 auto; }
+    .emoji-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem; }
+    .emoji-score { font-size: 1.25rem; font-weight: 700; color: #4f46e5; }
+    .dark .emoji-score { color: #818cf8; }
+    .emoji-high { font-size: 1rem; color: #94a3b8; }
+    .emoji-lives { display: flex; gap: 6px; align-items: center; }
+    .life-pip { width: 12px; height: 12px; border-radius: 50%; background: #ef4444; box-shadow: 0 0 6px #ef4444; transition: all 300ms; }
+    .life-pip.lost { background: #475569; box-shadow: none; }
+    .emoji-multiplier { font-size: 0.875rem; font-weight: 700; color: #f59e0b; }
+    .dark .emoji-multiplier { color: #fbbf24; }
+    canvas { display: block; margin: 0 auto; border-radius: 16px; border: 2px solid #e2e8f0; background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%); cursor: none; }
+    .dark canvas { border-color: #1e293b; }
+    .game-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.6); display: flex; align-items: center; justify-content: center; z-index: 100; opacity: 0; pointer-events: none; transition: opacity 300ms; }
+    .game-overlay.active { opacity: 1; pointer-events: auto; }
+    .overlay-box { background: white; border-radius: 24px; padding: 2rem; text-align: center; max-width: 400px; margin: 1rem; box-shadow: 0 25px 50px rgba(0,0,0,0.25); }
+    .dark .overlay-box { background: #1e293b; }
+    .overlay-title { font-size: 1.5rem; font-weight: 800; color: #1e293b; margin-bottom: 0.5rem; }
+    .dark .overlay-title { color: #f1f5f9; }
+    .overlay-score { font-size: 2rem; font-weight: 800; color: #4f46e5; margin: 1rem 0; }
+    .dark .overlay-score { color: #818cf8; }
+    .controls-hint { text-align: center; margin-top: 1rem; font-size: 0.875rem; color: #94a3b8; }
+    .mobile-controls { display: none; justify-content: center; gap: 8px; margin-top: 1rem; }
+    .dpad-btn { width: 56px; height: 56px; border-radius: 12px; border: 1px solid #e2e8f0; background: white; color: #475569; font-size: 1.25rem; display: flex; align-items: center; justify-content: center; cursor: pointer; touch-action: manipulation; }
+    .dark .dpad-btn { background: #0f172a; border-color: #1e293b; color: #94a3b8; }
+    .dpad-btn:active { background: #4f46e5; color: white; border-color: #4f46e5; }
+    #pauseOverlay { z-index: 101; }
+    @media (max-width: 767px) {
+      .mobile-controls { display: flex; }
+    }
+  </style>
+</head>
+<body>
+  <header id="global-header"></header>
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <div class="grid grid-cols-1 lg:grid-cols-4 gap-4">
+      <div class="lg:col-span-3">
+        <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+          <h1 class="text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">Emoji Catcher</h1>
+          <p class="mt-2 text-base text-slate-500 dark:text-slate-400">Catch falling emojis, avoid bombs, and beat your high score.</p>
+        </div>
+        <div class="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-xl p-4 mt-4">
+          <p class="text-sm text-amber-800 dark:text-amber-200"><strong>How to Play:</strong> Catch good emojis (fruit, stars) for points. Avoid bad emojis (bombs, skulls). Build combos for multipliers. Arrow keys / mouse to move catcher</p>
+        </div>
+        <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm mt-4">
+          <div class="emoji-container">
+            <div class="emoji-header">
+              <div>
+                <div class="emoji-score">Score: <span id="score">0</span></div>
+                <div class="emoji-high">Best: <span id="highScore">0</span></div>
+              </div>
+              <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;">
+                <div class="emoji-lives" id="livesDisplay"></div>
+                <div class="emoji-multiplier" id="multiplierDisplay">x1</div>
+              </div>
+            </div>
+            <canvas id="gameCanvas" width="500" height="600"></canvas>
+            <div class="controls-hint">Arrow keys / mouse to move catcher • Space to pause • R to restart</div>
+            <div class="mobile-controls">
+              <button class="dpad-btn" ontouchstart="moveCatcher(-1)" onclick="moveCatcher(-1)">←</button>
+              <button class="dpad-btn" ontouchstart="moveCatcher(1)" onclick="moveCatcher(1)">→</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="lg:col-span-1">
+        <div id="trending-sidebar"></div>
+      </div>
+    </div>
+  </main>
+  <div class="game-overlay" id="overlay">
+    <div class="overlay-box">
+      <div class="overlay-title" id="overlayTitle">Game Over</div>
+      <div class="overlay-score" id="overlayScore">0</div>
+      <button class="btn btn-primary" onclick="restart()" style="padding:12px 32px;font-size:1rem;margin-right:8px;">Play Again</button>
+      <button class="btn btn-secondary" onclick="exitGame()" style="padding:12px 32px;font-size:1rem;">Exit</button>
+    </div>
+  </div>
+  <div class="game-overlay" id="pauseOverlay">
+    <div class="overlay-box">
+      <div class="overlay-title">Paused</div>
+      <p class="text-slate-500 dark:text-slate-400 mt-2">Press Space or ESC to resume</p>
+      <button class="btn btn-primary" onclick="togglePause()" style="padding:12px 32px;font-size:1rem;margin-top:1rem;">Resume</button>
+      <button class="btn btn-secondary" onclick="exitGame()" style="padding:12px 32px;font-size:1rem;margin-left:8px;">Exit</button>
+    </div>
+  </div>
+  <footer id="global-footer"></footer>
+  <script src="../../global.js" defer></script>
+  <script src="../../twt-shell.js" defer></script>
+  <script src="../../js/context-engine.js" defer></script>
+  <script>
+    const canvas = document.getElementById('gameCanvas');
+    const ctx = canvas.getContext('2d');
+    const W = canvas.width;
+    const H = canvas.height;
+    const catcherW = 80;
+    const catcherH = 20;
+    const goodEmojis = ['🍎','🍊','🍋','🍇','🍓','⭐','🌟','💎','🎵','🎈'];
+    const badEmojis = ['💣','💀','☠️','🔥','👾'];
+    let catcherX = W / 2;
+    let score = 0;
+    let lives = 3;
+    let multiplier = 1;
+    let combo = 0;
+    let highScore = 0;
+    let totalCatches = 0;
+    let emojis = [];
+    let gameLoop = null;
+    let paused = false;
+    let ready = true;
+    let spawnTimer = 0;
+    let spawnInterval = 60;
+    let speedMultiplier = 1;
+    let keysDown = {};
+    let audioCtx = null;
+    try {
+      const saved = localStorage.getItem('topwebtool-emoji');
+      if (saved) {
+        const data = JSON.parse(saved);
+        highScore = data.highScore || 0;
+        totalCatches = data.totalCatches || 0;
+      }
+    } catch(e){}
+    document.getElementById('highScore').textContent = highScore;
+    function initLives() {
+      const container = document.getElementById('livesDisplay');
+      container.innerHTML = '';
+      for (let i = 0; i < 3; i++) {
+        const pip = document.createElement('div');
+        pip.className = 'life-pip';
+        pip.id = 'life-' + i;
+        container.appendChild(pip);
+      }
+    }
+    function updateLives() {
+      for (let i = 0; i < 3; i++) {
+        const pip = document.getElementById('life-' + i);
+        if (pip) pip.classList.toggle('lost', i >= lives);
+      }
+    }
+    function updateMultiplier() {
+      const el = document.getElementById('multiplierDisplay');
+      if (combo >= 10) el.textContent = 'x5';
+      else if (combo >= 7) el.textContent = 'x4';
+      else if (combo >= 5) el.textContent = 'x3';
+      else if (combo >= 3) el.textContent = 'x2';
+      else el.textContent = 'x1';
+    }
+    function playSound(type) {
+      try {
+        if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        if (type === 'catch') {
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(880, audioCtx.currentTime);
+          osc.frequency.exponentialRampToValueAtTime(1760, audioCtx.currentTime + 0.1);
+          gain.gain.setValueAtTime(0.1, audioCtx.currentTime);
+          gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.15);
+          osc.start(); osc.stop(audioCtx.currentTime + 0.15);
+        } else if (type === 'miss') {
+          osc.type = 'sawtooth';
+          osc.frequency.setValueAtTime(150, audioCtx.currentTime);
+          osc.frequency.exponentialRampToValueAtTime(60, audioCtx.currentTime + 0.3);
+          gain.gain.setValueAtTime(0.08, audioCtx.currentTime);
+          gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.3);
+          osc.start(); osc.stop(audioCtx.currentTime + 0.3);
+        } else if (type === 'gameover') {
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(440, audioCtx.currentTime);
+          osc.frequency.linearRampToValueAtTime(220, audioCtx.currentTime + 0.5);
+          osc.frequency.linearRampToValueAtTime(110, audioCtx.currentTime + 1.0);
+          gain.gain.setValueAtTime(0.12, audioCtx.currentTime);
+          gain.gain.linearRampToValueAtTime(0.001, audioCtx.currentTime + 1.0);
+          osc.start(); osc.stop(audioCtx.currentTime + 1.0);
+        }
+      } catch(e){}
+    }
+    function spawnEmoji() {
+      const isBad = Math.random() < 0.25;
+      const list = isBad ? badEmojis : goodEmojis;
+      const emoji = list[Math.floor(Math.random() * list.length)];
+      const x = Math.random() * (W - 40) + 20;
+      const baseSpeed = 1.5 + Math.random() * 1.5;
+      emojis.push({ x, y: -20, emoji, isBad, speed: baseSpeed, caught: false });
+    }
+    function drawCatcher() {
+      ctx.fillStyle = '#4f46e5';
+      ctx.shadowColor = '#818cf8';
+      ctx.shadowBlur = 12;
+      ctx.beginPath();
+      ctx.roundRect(catcherX - catcherW/2, H - catcherH - 10, catcherW, catcherH, 8);
+      ctx.fill();
+      ctx.fillStyle = '#fbbf24';
+      ctx.shadowBlur = 0;
+      ctx.beginPath();
+      ctx.arc(catcherX, H - catcherH - 10, 8, 0, Math.PI * 2);
+      ctx.fill();
+    }
+    function draw() {
+      ctx.fillStyle = '#0f172a';
+      ctx.fillRect(0, 0, W, H);
+      ctx.strokeStyle = '#1e293b';
+      ctx.lineWidth = 0.5;
+      for (let i = 0; i < W; i += 40) {
+        ctx.beginPath(); ctx.moveTo(i, 0); ctx.lineTo(i, H); ctx.stroke();
+      }
+      for (let i = 0; i < H; i += 40) {
+        ctx.beginPath(); ctx.moveTo(0, i); ctx.lineTo(W, i); ctx.stroke();
+      }
+      emojis.forEach(e => {
+        ctx.font = '28px Inter, sans-serif';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText(e.emoji, e.x, e.y);
+      });
+      drawCatcher();
+      if (ready) {
+        ctx.fillStyle = 'rgba(0,0,0,0.5)';
+        ctx.fillRect(0, H/2 - 30, W, 60);
+        ctx.fillStyle = '#fbbf24';
+        ctx.font = 'bold 20px Inter, sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText('Get Ready... (ESC to pause)', W/2, H/2 + 7);
+      }
+    }
+    function update() {
+      if (paused || ready) return;
+      spawnTimer++;
+      if (spawnTimer >= spawnInterval) {
+        spawnTimer = 0;
+        spawnEmoji();
+      }
+      if (keysDown['ArrowLeft'] || keysDown['a']) catcherX -= 8;
+      if (keysDown['ArrowRight'] || keysDown['d']) catcherX += 8;
+      catcherX = Math.max(catcherW/2, Math.min(W - catcherW/2, catcherX));
+      emojis.forEach(e => { e.y += e.speed * speedMultiplier; });
+      const toRemove = [];
+      emojis.forEach((e, i) => {
+        if (e.caught) { toRemove.push(i); return; }
+        if (e.y > H + 20) {
+          if (!e.isBad) {
+            lives--;
+            combo = 0;
+            updateMultiplier();
+            updateLives();
+            playSound('miss');
+            if (lives <= 0) { gameOver(); }
+          }
+          toRemove.push(i);
+        } else if (e.y > H - catcherH - 20 && Math.abs(e.x - catcherX) < catcherW/2 + 10) {
+          e.caught = true;
+          if (e.isBad) {
+            lives--;
+            combo = 0;
+            updateMultiplier();
+            updateLives();
+            playSound('miss');
+            if (lives <= 0) { gameOver(); }
+          } else {
+            combo++;
+            const pts = 10 * multiplier;
+            score += pts;
+            totalCatches++;
+            document.getElementById('score').textContent = score;
+            updateMultiplier();
+            playSound('catch');
+          }
+          toRemove.push(i);
+        }
+      });
+      for (let i = toRemove.length - 1; i >= 0; i--) { emojis.splice(toRemove[i], 1); }
+      speedMultiplier = 1 + (score / 500);
+      spawnInterval = Math.max(20, 60 - Math.floor(score / 100));
+      draw();
+    }
+    function gameOver() {
+      clearInterval(gameLoop);
+      gameLoop = null;
+      playSound('gameover');
+      if (score > highScore) {
+        highScore = score;
+        document.getElementById('highScore').textContent = highScore;
+      }
+      try { localStorage.setItem('topwebtool-emoji', JSON.stringify({ highScore, totalCatches })); } catch(e){}
+      document.getElementById('overlayTitle').textContent = 'Game Over';
+      document.getElementById('overlayScore').textContent = `Score: ${score}`;
+      document.getElementById('overlay').classList.add('active');
+      document.getElementById('pauseOverlay').classList.remove('active');
+    }
+    function togglePause() {
+      paused = !paused;
+      document.getElementById('pauseOverlay').classList.toggle('active', paused);
+    }
+    function exitGame() {
+      clearInterval(gameLoop);
+      gameLoop = null;
+      paused = true;
+      ready = true;
+      document.getElementById('overlay').classList.remove('active');
+      document.getElementById('pauseOverlay').classList.remove('active');
+      draw();
+    }
+    function restart() {
+      catcherX = W / 2;
+      score = 0;
+      lives = 3;
+      multiplier = 1;
+      combo = 0;
+      emojis = [];
+      spawnTimer = 0;
+      spawnInterval = 60;
+      speedMultiplier = 1;
+      paused = false;
+      ready = true;
+      document.getElementById('score').textContent = '0';
+      document.getElementById('overlay').classList.remove('active');
+      document.getElementById('pauseOverlay').classList.remove('active');
+      initLives();
+      updateMultiplier();
+      draw();
+      clearTimeout(restart.readyTimer);
+      restart.readyTimer = setTimeout(() => { ready = false; draw(); }, 1500);
+      if (gameLoop) clearInterval(gameLoop);
+      gameLoop = setInterval(update, 1000/60);
+    }
+    function moveCatcher(dir) {
+      catcherX += dir * 40;
+      catcherX = Math.max(catcherW/2, Math.min(W - catcherW/2, catcherX));
+    }
+    document.addEventListener('keydown', (e) => {
+      if (ready) { ready = false; draw(); }
+      if (e.key === 'Escape') { e.preventDefault(); togglePause(); return; }
+      if (e.key === ' ') { e.preventDefault(); togglePause(); return; }
+      if (e.key === 'r' || e.key === 'R') { restart(); return; }
+      keysDown[e.key] = true;
+    });
+    document.addEventListener('keyup', (e) => {
+      keysDown[e.key] = false;
+    });
+    canvas.addEventListener('mousemove', (e) => {
+      const rect = canvas.getBoundingClientRect();
+      catcherX = e.clientX - rect.left;
+      catcherX = Math.max(catcherW/2, Math.min(W - catcherW/2, catcherX));
+    });
+    canvas.addEventListener('touchmove', (e) => {
+      e.preventDefault();
+      const rect = canvas.getBoundingClientRect();
+      catcherX = e.touches[0].clientX - rect.left;
+      catcherX = Math.max(catcherW/2, Math.min(W - catcherW/2, catcherX));
+    }, { passive: false });
+    initLives();
+    draw();
+    gameLoop = setInterval(update, 1000/60);
+    setTimeout(() => { if (ready) { ready = false; draw(); } }, 1500);
+  </script>
+</body>
+</html>

@@ -168,6 +168,7 @@
     }
     function submitGuess() {
       if (gameOver || currentCol < 5) return;
+      currentRow++;
       const guess = guesses[currentRow - 1].join('');
       let msg = '';
       if (guess === target) { gameOver = true; msg = 'Brilliant! You got it!'; playBeep(1000, 'sine', 0.3); }

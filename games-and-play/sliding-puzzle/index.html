@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
+  <script>
+    (function () {
+      try {
+        const theme = localStorage.getItem("theme");
+        if (theme === "dark") {
+          document.documentElement.classList.add("dark");
+          document.documentElement.classList.remove("light");
+        } else {
+          document.documentElement.classList.remove("dark");
+          document.documentElement.classList.add("light");
+        }
+      } catch (e) {}
+    })();
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sliding Puzzle | TopWebTool</title>
+  <meta name="description" content="Solve the classic 15-puzzle (or 8-puzzle, 24-puzzle) by sliding numbered tiles into order. Track your best moves and time." />
+  <link rel="canonical" href="https://topwebtool.com/games-and-play/sliding-puzzle/" />
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+  <link rel="apple-touch-icon" href="../../apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png" />
+  <link rel="manifest" href="../../site.webmanifest" />
+  <meta name="theme-color" content="#090d16" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="TopWebTool" />
+  <meta property="og:title" content="Sliding Puzzle | TopWebTool" />
+  <meta property="og:description" content="Solve the classic 15-puzzle (or 8-puzzle, 24-puzzle) by sliding numbered tiles into order. Track your best moves and time." />
+  <meta property="og:url" content="https://topwebtool.com/games-and-play/sliding-puzzle/" />
+  <meta property="og:image" content="https://topwebtool.com/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Sliding Puzzle | TopWebTool" />
+  <meta name="twitter:description" content="Solve the classic 15-puzzle (or 8-puzzle, 24-puzzle) by sliding numbered tiles into order. Track your best moves and time." />
+  <meta name="twitter:image" content="https://topwebtool.com/og-image.png" />
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Sliding Puzzle | TopWebTool",
+      "url": "https://topwebtool.com/games-and-play/sliding-puzzle/",
+      "applicationCategory": "GameApplication",
+      "operatingSystem": "Windows, macOS, Linux, Android, iOS",
+      "browserRequirements": "Requires HTML5 compatible web browser",
+      "description": "Solve the classic 15-puzzle (or 8-puzzle, 24-puzzle) by sliding numbered tiles into order. Track your best moves and time.",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://topwebtool.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Games & Play", "item": "https://topwebtool.com/games-and-play/" },
+        { "@type": "ListItem", "position": 3, "name": "Sliding Puzzle", "item": "https://topwebtool.com/games-and-play/sliding-puzzle/" }
+      ]
+    }
+  </script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="../../site.min.css">
+  <style>
+    html { background-color: #fff; }
+    html.dark { background-color: #090d16; }
+    body { padding-bottom: 6rem; }
+    #global-header { min-height: 65px; }
+    #global-footer { min-height: 85px; }
+    #trending-sidebar { min-height: 700px; }
+    @media (max-width: 767px) {
+      #global-header { min-height: 200px; }
+      #global-footer { min-height: 120px; }
+    }
+    .puzzle-container { max-width: 600px; margin: 0 auto; }
+    .puzzle-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem; }
+    .puzzle-stat { font-size: 1.125rem; font-weight: 700; color: #4f46e5; }
+    .dark .puzzle-stat { color: #818cf8; }
+    .puzzle-controls { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 1rem; }
+    .puzzle-btn { padding: 8px 16px; border-radius: 9999px; font-size: 0.875rem; font-weight: 600; border: 1px solid #e2e8f0; background: white; color: #475569; cursor: pointer; transition: all 150ms; }
+    .dark .puzzle-btn { background: #0f172a; border-color: #1e293b; color: #94a3b8; }
+    .puzzle-btn:hover { border-color: #4f46e5; color: #4f46e5; }
+    .dark .puzzle-btn:hover { border-color: #818cf8; color: #818cf8; }
+    .puzzle-btn.active { background: #4f46e5; color: white; border-color: #4f46e5; }
+    .puzzle-grid { display: grid; gap: 6px; margin: 0 auto; max-width: 400px; aspect-ratio: 1; }
+    .puzzle-tile { display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700; color: #1e293b; background: white; border: 2px solid #e2e8f0; border-radius: 12px; cursor: pointer; user-select: none; transition: all 150ms; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+    .dark .puzzle-tile { background: #1e293b; border-color: #334155; color: #f1f5f9; box-shadow: 0 1px 3px rgba(0,0,0,0.3); }
+    .puzzle-tile:hover { border-color: #4f46e5; transform: translateY(-1px); }
+    .dark .puzzle-tile:hover { border-color: #818cf8; }
+    .puzzle-tile.empty { background: transparent; border-color: transparent; box-shadow: none; cursor: default; color: transparent; }
+    .puzzle-tile.empty:hover { transform: none; border-color: transparent; }
+    .puzzle-tile.correct { background: #dcfce7; border-color: #86efac; color: #166534; }
+    .dark .puzzle-tile.correct { background: #052e16; border-color: #22c55e; color: #4ade80; }
+    .controls-hint { text-align: center; margin-top: 1rem; font-size: 0.875rem; color: #94a3b8; }
+    .game-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.6); display: flex; align-items: center; justify-content: center; z-index: 100; opacity: 0; pointer-events: none; transition: opacity 300ms; }
+    .game-overlay.active { opacity: 1; pointer-events: auto; }
+    .overlay-box { background: white; border-radius: 24px; padding: 2rem; text-align: center; max-width: 400px; margin: 1rem; box-shadow: 0 25px 50px rgba(0,0,0,0.25); }
+    .dark .overlay-box { background: #1e293b; }
+    .overlay-title { font-size: 1.5rem; font-weight: 800; color: #1e293b; margin-bottom: 0.5rem; }
+    .dark .overlay-title { color: #f1f5f9; }
+    .overlay-score { font-size: 2rem; font-weight: 800; color: #4f46e5; margin: 1rem 0; }
+    .dark .overlay-score { color: #818cf8; }
+    .puzzle-info { margin-top: 1.5rem; padding: 1rem; border-radius: 12px; background: #f8fafc; border: 1px solid #e2e8f0; }
+    .dark .puzzle-info { background: #0f172a; border-color: #1e293b; }
+    .puzzle-info-title { font-weight: 700; color: #1e293b; margin-bottom: 0.5rem; }
+    .dark .puzzle-info-title { color: #f1f5f9; }
+    .puzzle-info-row { display: flex; justify-content: space-between; font-size: 0.875rem; color: #64748b; margin-top: 0.25rem; }
+    .dark .puzzle-info-row { color: #94a3b8; }
+    @media (max-width: 767px) {
+      .puzzle-grid { max-width: 320px; }
+      .puzzle-tile { font-size: 1.25rem; border-radius: 8px; }
+    }
+  </style>
+</head>
+<body>
+  <header id="global-header"></header>
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <div class="grid grid-cols-1 lg:grid-cols-4 gap-4">
+      <div class="lg:col-span-3">
+        <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+          <h1 class="text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">Sliding Puzzle</h1>
+          <p class="mt-2 text-base text-slate-500 dark:text-slate-400">Slide the numbered tiles into ascending order. Only one empty space remains at the end.</p>
+        </div>
+        <div class="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-xl p-4 mt-4">
+          <p class="text-sm text-amber-800 dark:text-amber-200"><strong>How to Play:</strong> Objective: Arrange tiles in order (1, 2, 3...). Controls: Click tiles or use arrow keys to slide. The empty space moves in the direction you press.</p>
+        </div>
+        <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm mt-4">
+          <div class="puzzle-container">
+            <div class="puzzle-header">
+              <div>
+                <div class="puzzle-stat">Moves: <span id="moveCount">0</span></div>
+                <div class="puzzle-stat" style="font-size:0.875rem;color:#64748b;">Best: <span id="bestMoves">--</span></div>
+              </div>
+              <div style="text-align:right;">
+                <div class="puzzle-stat" id="timer">00:00</div>
+                <div class="puzzle-stat" style="font-size:0.875rem;color:#64748b;">Best: <span id="bestTime">--</span></div>
+              </div>
+            </div>
+            <div class="puzzle-controls">
+              <button class="puzzle-btn active" data-size="3" onclick="setDifficulty(3)">3x3</button>
+              <button class="puzzle-btn" data-size="4" onclick="setDifficulty(4)">4x4</button>
+              <button class="puzzle-btn" data-size="5" onclick="setDifficulty(5)">5x5</button>
+              <button class="puzzle-btn" onclick="shufflePuzzle()" style="margin-left:auto;">Shuffle</button>
+            </div>
+            <div class="puzzle-grid" id="puzzleGrid"></div>
+            <div class="controls-hint">Click tiles or use arrow keys to slide</div>
+            <div class="puzzle-info">
+              <div class="puzzle-info-title">Best Scores</div>
+              <div class="puzzle-info-row"><span>Difficulty</span><span id="infoDiff">3x3</span></div>
+              <div class="puzzle-info-row"><span>Best Moves</span><span id="infoBestMoves">--</span></div>
+              <div class="puzzle-info-row"><span>Best Time</span><span id="infoBestTime">--</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="lg:col-span-1">
+        <div id="trending-sidebar"></div>
+      </div>
+    </div>
+  </main>
+  <div class="game-overlay" id="winOverlay">
+    <div class="overlay-box">
+      <div class="overlay-title">Solved!</div>
+      <div class="overlay-score" id="winScore">0 moves</div>
+      <p class="text-slate-500 dark:text-slate-400 mt-2" id="winTime">Time: 00:00</p>
+      <button class="btn btn-primary" onclick="shufflePuzzle()" style="padding:12px 32px;font-size:1rem;margin-right:8px;">Play Again</button>
+      <button class="btn btn-secondary" onclick="exitGame()" style="padding:12px 32px;font-size:1rem;">Exit</button>
+    </div>
+  </div>
+  <footer id="global-footer"></footer>
+  <script src="../../global.js" defer></script>
+  <script src="../../twt-shell.js" defer></script>
+  <script src="../../js/context-engine.js" defer></script>
+  <script>
+    const grid = document.getElementById('puzzleGrid');
+    const moveDisplay = document.getElementById('moveCount');
+    const timerDisplay = document.getElementById('timer');
+    const bestMovesDisplay = document.getElementById('bestMoves');
+    const bestTimeDisplay = document.getElementById('bestTime');
+    const infoDiff = document.getElementById('infoDiff');
+    const infoBestMoves = document.getElementById('infoBestMoves');
+    const infoBestTime = document.getElementById('infoBestTime');
+    const winOverlay = document.getElementById('winOverlay');
+    const winScore = document.getElementById('winScore');
+    const winTime = document.getElementById('winTime');
+
+    let size = 3;
+    let tiles = [];
+    let emptyIdx = 0;
+    let moves = 0;
+    let timerInterval = null;
+    let seconds = 0;
+    let running = false;
+    let bests = {};
+
+    function loadBest() {
+      try { bests = JSON.parse(localStorage.getItem('topwebtool-sliding')) || {}; } catch(e) { bests = {}; }
+    }
+    function saveBest() {
+      try { localStorage.setItem('topwebtool-sliding', JSON.stringify(bests)); } catch(e){}
+    }
+    function bestKey(sz) { return sz + 'x' + sz; }
+    function updateBestUI() {
+      const k = bestKey(size);
+      const b = bests[k] || {};
+      bestMovesDisplay.textContent = b.moves ? b.moves : '--';
+      bestTimeDisplay.textContent = b.time ? formatTime(b.time) : '--';
+      infoDiff.textContent = k;
+      infoBestMoves.textContent = b.moves ? b.moves : '--';
+      infoBestTime.textContent = b.time ? formatTime(b.time) : '--';
+    }
+
+    function formatTime(s) {
+      const m = Math.floor(s / 60);
+      const sec = s % 60;
+      return String(m).padStart(2,'0') + ':' + String(sec).padStart(2,'0');
+    }
+
+    function isSolved(arr) {
+      for (let i = 0; i < arr.length - 1; i++) if (arr[i] !== i + 1) return false;
+      return arr[arr.length - 1] === 0;
+    }
+
+    function generateSolvable(sz) {
+      const total = sz * sz;
+      const arr = Array.from({length: total}, (_, i) => i + 1);
+      arr[total - 1] = 0;
+      do {
+        for (let i = arr.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [arr[i], arr[j]] = [arr[j], arr[i]];
+        }
+      } while (!isSolved(arr));
+      return arr;
+    }
+
+    function init() {
+      tiles = generateSolvable(size);
+      emptyIdx = tiles.indexOf(0);
+      moves = 0;
+      seconds = 0;
+      running = false;
+      if (timerInterval) clearInterval(timerInterval);
+      timerInterval = null;
+      moveDisplay.textContent = '0';
+      timerDisplay.textContent = '00:00';
+      updateBestUI();
+      render();
+    }
+
+    function render() {
+      grid.innerHTML = '';
+      grid.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
+      tiles.forEach((val, idx) => {
+        const tile = document.createElement('div');
+        tile.className = 'puzzle-tile' + (val === 0 ? ' empty' : '');
+        if (val !== 0) {
+          tile.textContent = val;
+          if (val === idx + 1) tile.classList.add('correct');
+          tile.addEventListener('click', () => moveTile(idx));
+        }
+        grid.appendChild(tile);
+      });
+    }
+
+    function moveTile(idx) {
+      if (running && isSolved()) return;
+      const row = Math.floor(idx / size);
+      const col = idx % size;
+      const er = Math.floor(emptyIdx / size);
+      const ec = emptyIdx % size;
+      const adjacent = (Math.abs(row - er) + Math.abs(col - ec)) === 1;
+      if (!adjacent) return;
+      startTimer();
+      [tiles[idx], tiles[emptyIdx]] = [tiles[emptyIdx], tiles[idx]];
+      emptyIdx = idx;
+      moves++;
+      moveDisplay.textContent = moves;
+      playSlide();
+      render();
+      if (isSolved()) winGame();
+    }
+
+    function slide(dir) {
+      const er = Math.floor(emptyIdx / size);
+      const ec = emptyIdx % size;
+      let tr = er, tc = ec;
+      if (dir === 'up') tr = er + 1;
+      else if (dir === 'down') tr = er - 1;
+      else if (dir === 'left') tc = ec + 1;
+      else if (dir === 'right') tc = ec - 1;
+      if (tr < 0 || tr >= size || tc < 0 || tc >= size) return;
+      const idx = tr * size + tc;
+      moveTile(idx);
+    }
+
+    function startTimer() {
+      if (running) return;
+      running = true;
+      timerInterval = setInterval(() => {
+        seconds++;
+        timerDisplay.textContent = formatTime(seconds);
+      }, 1000);
+    }
+
+    function stopTimer() {
+      running = false;
+      if (timerInterval) clearInterval(timerInterval);
+    }
+
+    function winGame() {
+      stopTimer();
+      playFanfare();
+      const k = bestKey(size);
+      if (!bests[k] || moves < bests[k].moves) bests[k].moves = moves;
+      if (!bests[k] || seconds < bests[k].time) bests[k].time = seconds;
+      saveBest();
+      updateBestUI();
+      winScore.textContent = moves + ' moves';
+      winTime.textContent = 'Time: ' + formatTime(seconds);
+      winOverlay.classList.add('active');
+    }
+
+    function shufflePuzzle() {
+      winOverlay.classList.remove('active');
+      init();
+    }
+
+    function exitGame() {
+      winOverlay.classList.remove('active');
+      stopTimer();
+      running = false;
+      tiles = Array.from({length: size * size}, (_, i) => (i + 1) % (size * size));
+      emptyIdx = tiles.indexOf(0);
+      moves = 0;
+      seconds = 0;
+      moveDisplay.textContent = '0';
+      timerDisplay.textContent = '00:00';
+      render();
+    }
+
+    function setDifficulty(sz) {
+      size = sz;
+      document.querySelectorAll('.puzzle-btn[data-size]').forEach(btn => {
+        btn.classList.toggle('active', parseInt(btn.dataset.size) === sz);
+      });
+      shufflePuzzle();
+    }
+
+    function playSlide() {
+      try {
+        const ctx = new (window.AudioContext || window.webkitAudioContext)();
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(800, ctx.currentTime);
+        gain.gain.setValueAtTime(0.08, ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.05);
+        osc.connect(gain); gain.connect(ctx.destination);
+        osc.start(); osc.stop(ctx.currentTime + 0.05);
+      } catch(e){}
+    }
+
+    function playFanfare() {
+      try {
+        const ctx = new (window.AudioContext || window.webkitAudioContext)();
+        [523, 659, 784, 1047].forEach((freq, i) => {
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+          osc.type = 'triangle';
+          osc.frequency.setValueAtTime(freq, ctx.currentTime + i * 0.12);
+          gain.gain.setValueAtTime(0.12, ctx.currentTime + i * 0.12);
+          gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + i * 0.12 + 0.2);
+          osc.connect(gain); gain.connect(ctx.destination);
+          osc.start(ctx.currentTime + i * 0.12);
+          osc.stop(ctx.currentTime + i * 0.12 + 0.2);
+        });
+      } catch(e){}
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (winOverlay.classList.contains('active')) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); shufflePuzzle(); }
+        return;
+      }
+      switch(e.key) {
+        case 'ArrowUp': e.preventDefault(); slide('up'); break;
+        case 'ArrowDown': e.preventDefault(); slide('down'); break;
+        case 'ArrowLeft': e.preventDefault(); slide('left'); break;
+        case 'ArrowRight': e.preventDefault(); slide('right'); break;
+        case 'r': case 'R': shufflePuzzle(); break;
+      }
+    });
+
+    loadBest();
+    init();
+  </script>
+</body>
+</html>
