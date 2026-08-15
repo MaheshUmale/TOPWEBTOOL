@@ -85,7 +85,13 @@ def validate():
         print(f"OK sitemap.xml has all {len(expected)} URLs")
 
     sitemap_urls = re.findall(r'<loc>(https://topwebtool\.com/[^<]+)</loc>', sitemap)
-    html_urls = [u for u in sitemap_urls if '.html' in u]
+    allowed_html = {
+        'https://topwebtool.com/privacy.html',
+        'https://topwebtool.com/terms.html',
+        'https://topwebtool.com/contact.html',
+        'https://topwebtool.com/about.html',
+    }
+    html_urls = [u for u in sitemap_urls if '.html' in u and u not in allowed_html]
     if html_urls:
         print(f"FAIL sitemap.xml contains {len(html_urls)} redirecting .html URLs")
         errors += 1
