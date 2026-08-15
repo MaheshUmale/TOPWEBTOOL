@@ -16,8 +16,8 @@ TopWebTool is a 100% static, client-side web utility directory deployed to Cloud
 D:\TOPWEBTOOL\
 ├── index.html                          # Homepage (85-tool directory)
 ├── 404.html                            # Not-found page
-├── about.html, contact.html,
-│   privacy.html, terms.html            # Legal/info core pages
+├── about/, contact/,
+│   privacy/, terms/                      # Legal/info core pages (directory-style index.html)
 ├── twt-shell.html                      # Shell template (depth 0)
 │
 ├── <tool-slug>/                        # 85 tool directories

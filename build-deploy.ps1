@@ -79,7 +79,7 @@ if (-not $SkipValidation) {
             }
         }
         # Check core pages
-        $corePages = @('privacy.html', 'terms.html', 'contact.html', 'about.html')
+        $corePages = @('privacy/', 'terms/', 'contact/', 'about/')
         foreach ($page in $corePages) {
             if ($llmsContent -notmatch [regex]::Escape("https://topwebtool.com/$page")) {
                 $missingFromLlms += $page
