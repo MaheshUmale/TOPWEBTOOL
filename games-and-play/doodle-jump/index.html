@@ -168,14 +168,14 @@
     const ctx = canvas.getContext('2d');
     const W = canvas.width;
     const H = canvas.height;
-    const GRAVITY = 0.4;
-    const BOUNCE_VEL = -11;
-    const MOVE_SPEED = 5;
+    const GRAVITY = 0.25;
+    const BOUNCE_VEL = -9;
+    const MOVE_SPEED = 4;
     const PLATFORM_COUNT = 8;
     const PLATFORM_W = 70;
     const PLATFORM_H = 14;
-    const DOODLE_W = 34;
-    const DOODLE_H = 38;
+    const DOODLE_W = 40;
+    const DOODLE_H = 44;
 
     let doodle = { x: W / 2 - DOODLE_W / 2, y: H - 150, vx: 0, vy: 0, dir: 1 };
     let platforms = [];
@@ -240,10 +240,13 @@
     }
 
     function resetGame() {
-      doodle = { x: W / 2 - DOODLE_W / 2, y: H - 150, vx: 0, vy: BOUNCE_VEL, dir: 1 };
+      doodle = { x: W / 2 - DOODLE_W / 2, y: H - 180, vx: 0, vy: BOUNCE_VEL, dir: 1 };
       platforms = [];
-      for (let i = 0; i < PLATFORM_COUNT; i++) {
-        platforms.push(createPlatform(H - i * (H / PLATFORM_COUNT)));
+      // Start platform directly under doodle
+      platforms.push({ x: W / 2 - PLATFORM_W / 2, y: H - 130, w: PLATFORM_W, h: PLATFORM_H, type: 'normal', broken: false, moveDir: 1, moveSpeed: 1 });
+      // Fill rest above
+      for (let i = 1; i < PLATFORM_COUNT; i++) {
+        platforms.push(createPlatform(H - 130 - i * (H / PLATFORM_COUNT)));
       }
       score = 0;
       gameOverFlag = false;
@@ -404,21 +407,21 @@
 
       ctx.fillStyle = '#fbbf24';
       ctx.shadowColor = '#fbbf24';
-      ctx.shadowBlur = 10;
+      ctx.shadowBlur = 12;
       ctx.beginPath();
-      ctx.arc(0, -6, 8, 0, Math.PI * 2);
+      ctx.arc(0, -8, 10, 0, Math.PI * 2);
       ctx.fill();
 
       ctx.fillStyle = '#f59e0b';
-      ctx.fillRect(-10, -2, 20, 18);
+      ctx.fillRect(-12, -2, 24, 20);
       ctx.fillStyle = '#fbbf24';
-      ctx.fillRect(-8, 4, 6, 6);
-      ctx.fillRect(2, 4, 6, 6);
+      ctx.fillRect(-10, 4, 8, 8);
+      ctx.fillRect(2, 4, 8, 8);
 
-      ctx.fillStyle = '#1e293b';
+      ctx.fillStyle = '#0f172a';
       ctx.beginPath();
-      ctx.arc(-4, -8, 2, 0, Math.PI * 2);
-      ctx.arc(4, -8, 2, 0, Math.PI * 2);
+      ctx.arc(-5, -10, 3, 0, Math.PI * 2);
+      ctx.arc(5, -10, 3, 0, Math.PI * 2);
       ctx.fill();
 
       ctx.restore();
