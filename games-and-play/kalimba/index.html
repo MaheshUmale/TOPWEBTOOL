@@ -236,6 +236,7 @@
   <script src="../../twt-shell.js" defer></script>
   <script src="../../js/context-engine.js" defer></script>
   <script>
+(function() {
     const notes = [
       { name: 'C4', freq: 261.63, key: 'a', height: 240 },
       { name: 'D4', freq: 293.66, key: 's', height: 220 },
@@ -328,6 +329,7 @@
       if (k in keyMap) { e.preventDefault(); playNote(keyMap[k]); }
     });
     buildTines();
+  })();
   </script>
 </body>
 </html>

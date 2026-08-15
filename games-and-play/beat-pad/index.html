@@ -152,6 +152,7 @@
   <script src="../../twt-shell.js" defer></script>
   <script src="../../js/context-engine.js" defer></script>
   <script>
+(function() {
     const PADS = [
       { key: 'a', name: 'Kick', sound: 'kick' },
       { key: 's', name: 'Snare', sound: 'snare' },
@@ -315,6 +316,7 @@
       const k = e.key.toLowerCase();
       if (k in keyMap) { e.preventDefault(); triggerPad(keyMap[k]); }
     });
+  })();
   </script>
 </body>
 </html>

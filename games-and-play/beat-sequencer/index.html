@@ -183,6 +183,7 @@
   <script src="../../twt-shell.js" defer></script>
   <script src="../../js/context-engine.js" defer></script>
   <script>
+(function() {
     const instruments = ['Kick', 'Snare', 'Hi-Hat', 'Clap'];
     const steps = 16;
     let pattern = Array.from({ length: 4 }, () => Array(steps).fill(false));
@@ -436,6 +437,7 @@
     loadState();
     buildGrid();
     highlightSelectedRow();
+  })();
   </script>
 </body>
 </html>

@@ -150,6 +150,7 @@
   <script src="../../twt-shell.js" defer></script>
   <script src="../../js/context-engine.js" defer></script>
   <script>
+    (function() {
     const canvas = document.getElementById('gameCanvas');
     const ctx = canvas.getContext('2d');
     const W = canvas.width;
@@ -394,7 +395,8 @@
     });
     resetBall(Math.random() < 0.5 ? 1 : -1);
     draw();
-  </script>
+
+  })();  </script>
   <style>
     .speed-btn { padding: 4px 12px; border-radius: 9999px; font-size: 0.75rem; font-weight: 600; border: 1px solid #e2e8f0; background: white; color: #475569; cursor: pointer; }
     .dark .speed-btn { background: #0f172a; border-color: #1e293b; color: #94a3b8; }

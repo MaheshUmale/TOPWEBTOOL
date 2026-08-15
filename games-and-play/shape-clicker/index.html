@@ -182,6 +182,7 @@
   <script src="../../twt-shell.js" defer></script>
   <script src="../../js/context-engine.js" defer></script>
   <script>
+    (function() {
     const canvas = document.getElementById('gameCanvas');
     const ctx = canvas.getContext('2d');
     const W = canvas.width, H = canvas.height;
@@ -501,6 +502,7 @@
     gameLoop = requestAnimationFrame(loop);
     clearTimeout(readyTimer);
     readyTimer = setTimeout(() => { ready = false; gameActive = true; draw(); }, 1500);
-  </script>
+
+  })();  </script>
 </body>
 </html>

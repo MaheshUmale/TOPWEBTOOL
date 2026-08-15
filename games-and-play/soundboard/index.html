@@ -160,6 +160,7 @@
   <script src="../../twt-shell.js" defer></script>
   <script src="../../js/context-engine.js" defer></script>
   <script>
+(function() {
     const sounds = [
       { id: 'laugh', name: 'Laugh', key: 'Q', category: 'Comedy', icon: '😂' },
       { id: 'applause', name: 'Applause', key: 'W', category: 'Comedy', icon: '👏' },
@@ -393,6 +394,7 @@
       const sound = sounds.find(s => s.key === key);
       if (sound) { e.preventDefault(); playSound(sound.id); }
     });
+  })();
   </script>
 </body>
 </html>

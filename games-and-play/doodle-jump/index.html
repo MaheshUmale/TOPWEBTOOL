@@ -164,6 +164,7 @@
   <script src="../../twt-shell.js" defer></script>
   <script src="../../js/context-engine.js" defer></script>
   <script>
+(function() {
     (function() {
       const canvas = document.getElementById('gameCanvas');
     const ctx = canvas.getContext('2d');
@@ -446,6 +447,7 @@
     resetGame();
     loop();
     })();
+  })();
   </script>
 </body>
 </html>

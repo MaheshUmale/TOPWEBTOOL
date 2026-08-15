@@ -154,6 +154,7 @@
   <script src="../../twt-shell.js" defer></script>
   <script src="../../js/context-engine.js" defer></script>
   <script>
+(function() {
     const PADS = [
       { name: 'Kick', key: 'a', sound: 'kick' }, { name: 'Snare', key: 's', sound: 'snare' },
       { name: 'Hi-Hat', key: 'd', sound: 'hihat' }, { name: 'Open HH', key: 'f', sound: 'openhat' },
@@ -308,6 +309,7 @@
       if (index !== undefined) { e.preventDefault(); hitPad(index); }
     });
     buildPads();
+  })();
   </script>
 </body>
 </html>

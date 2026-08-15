@@ -157,6 +157,7 @@
   <script src="../../twt-shell.js" defer></script>
   <script src="../../js/context-engine.js" defer></script>
   <script>
+    (function() {
     const canvas = document.getElementById('thereminCanvas');
     const ctx = canvas.getContext('2d');
     const W = canvas.width, H = canvas.height;
@@ -373,6 +374,7 @@
     loop();
 
     function goHome() { window.location.href = '../../'; }
-  </script>
+
+  })();  </script>
 </body>
 </html>

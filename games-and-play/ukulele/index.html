@@ -152,6 +152,7 @@
   <script src="../../twt-shell.js" defer></script>
   <script src="../../js/context-engine.js" defer></script>
   <script>
+    (function() {
     const canvas = document.getElementById('ukuleleCanvas');
     const ctx = canvas.getContext('2d');
     const chordDisplay = document.getElementById('chordDisplay');
@@ -360,6 +361,7 @@
     });
 
     draw();
-  </script>
+
+  })();  </script>
 </body>
 </html>

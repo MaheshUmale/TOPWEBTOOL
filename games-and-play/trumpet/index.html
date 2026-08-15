@@ -149,6 +149,7 @@
   <script src="../../twt-shell.js" defer></script>
   <script src="../../js/context-engine.js" defer></script>
   <script>
+    (function() {
     const canvas = document.getElementById('trumpetCanvas');
     const ctx = canvas.getContext('2d');
     const noteDisplay = document.getElementById('noteDisplay');
@@ -374,6 +375,7 @@
       if (e.key === '3') { VALVE_KEYS['3'] = false; updateNote(); drawTrumpet(); if (!buzzing) stopBuzzing(); }
       if (e.key === ' ') { e.preventDefault(); stopBuzzing(); drawTrumpet(); }
     });
-  </script>
+
+  })();  </script>
 </body>
 </html>

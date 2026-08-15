@@ -168,6 +168,7 @@
   <script src="../../twt-shell.js" defer></script>
   <script src="../../js/context-engine.js" defer></script>
   <script>
+    (function() {
     const canvas = document.getElementById('gameCanvas');
     const ctx = canvas.getContext('2d');
     const W = canvas.width;
@@ -434,6 +435,7 @@
     draw();
     gameLoop = setInterval(update, 1000/60);
     setTimeout(() => { if (ready) { ready = false; draw(); } }, 1500);
+  })();
   </script>
 </body>
 </html>

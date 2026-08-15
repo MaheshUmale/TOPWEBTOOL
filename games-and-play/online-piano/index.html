@@ -162,6 +162,7 @@
   <script src="../../twt-shell.js" defer></script>
   <script src="../../js/context-engine.js" defer></script>
   <script>
+(function() {
     const NOTES = [
       { note: 'C', type: 'white', key: 'a' }, { note: 'C#', type: 'black', key: 'w' },
       { note: 'D', type: 'white', key: 's' }, { note: 'D#', type: 'black', key: 'e' },
@@ -312,6 +313,7 @@
       }
     });
     buildKeyboard();
+  })();
   </script>
 </body>
 </html>

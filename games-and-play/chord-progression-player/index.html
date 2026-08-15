@@ -177,6 +177,7 @@
   <script src="../../twt-shell.js" defer></script>
   <script src="../../js/context-engine.js" defer></script>
   <script>
+(function() {
     const PROGRESSIONS = {
       'I-IV-V-I': ['C', 'F', 'G', 'C'],
       'ii-V-I': ['Dm', 'G', 'C', 'C'],
@@ -394,6 +395,7 @@
 
     loadSettings();
     renderProgression();
+  })();
   </script>
 </body>
 </html>

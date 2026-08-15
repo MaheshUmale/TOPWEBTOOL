@@ -166,6 +166,7 @@
   <script src="../../twt-shell.js" defer></script>
   <script src="../../js/context-engine.js" defer></script>
   <script>
+(function() {
     (function() {
       const notes = [
         { note: 'C4', freq: 261.63, type: 'white', key: 'a' },
@@ -303,6 +304,7 @@
       });
       buildPiano();
     })();
+  })();
   </script>
 </body>
 </html>

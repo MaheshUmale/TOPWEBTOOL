@@ -156,6 +156,7 @@
   <script src="../../twt-shell.js" defer></script>
   <script src="../../js/context-engine.js" defer></script>
   <script>
+(function() {
     const notes = [
       { name: 'C4', freq: 261.63, key: 'a' },
       { name: 'D4', freq: 293.66, key: 's' },
@@ -222,6 +223,7 @@
     const pressed = new Set();
     document.addEventListener('keydown', (e) => { if (e.repeat) return; const k = e.key.toLowerCase(); if (k in keyMap && !pressed.has(k)) { pressed.add(k); strikeBell(keyMap[k]); } });
     document.addEventListener('keyup', (e) => { pressed.delete(e.key.toLowerCase()); });
+  })();
   </script>
 </body>
 </html>
