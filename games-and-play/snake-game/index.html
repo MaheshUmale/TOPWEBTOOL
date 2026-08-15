@@ -292,6 +292,7 @@
       draw();
     }
     function restart() {
+      clearInterval(gameLoop);
       snake = [{x: 10, y: 10}];
       dx = 1; dy = 0;
       score = 0;
@@ -304,6 +305,7 @@
       draw();
       clearTimeout(restart.readyTimer);
       restart.readyTimer = setTimeout(() => { ready = false; draw(); }, 1500);
+      gameLoop = setInterval(update, speed);
     }
     function setSpeed(s) {
       speed = s;
