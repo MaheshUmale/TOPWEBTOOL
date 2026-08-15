@@ -1,0 +1,169 @@
+#4xx HTTP status codes indicate that the requested page or resource cannot be accessed. 401 - Unauthorized, 403 - Forbidden, 408 - Request Timeout, and 404 - Not Found are the most common "Client Errors".
+4xx URLs damage the user experience on your website as people cannot access the page or file via a link they click. Besides, internal links to 4xx URLs create unnecessary "dead ends" for the search engine crawlers and can waste your crawl budget.
+
+Pages of your website that changed their response code to 4xx will be removed from Google's index.
+
+How to fix:
+Review the list of 4xx URLs. Click on the number of inlinks to a given 4xx URL to access the list of pages that link to it.
+
+You should review the internal outgoing links to all the 4xx pages reported and either remove these links or replace them with relevant links to live pages.
+
+Alternatively, you can set the appropriate 301 redirects. It is especially important when for moved or deleted pages on your website.
+
+This will provide smooth crawlability for your website and guarantee good user experience.
+
+The HTTP 429 (Too Many Requests) response code may indicate that the crawling speed set in the crawl settings for your project is too high for a web server. Reduce it in the crawl settings and run a project re-crawl.
+
+
+#3XX redirect in sitemap 
+
+How to fix:
+Issue details
+URLs included in sitemap file that redirect.
+
+Sitemap must list all the pages you want search engines to crawl and index.
+
+#Redirecting URLs in sitemaps can result in indexability issues on your website.
+
+How to fix:
+Replace the redirecting URLs in the sitemaps with the destination URL. If the destination URL is already listed, simply remove the URL that redirects to it from the sitemap file.
+
+#HTTP to HTTPS redirect 
+URLs using HTTP protocol that redirect to HTTPS.
+
+How to fix:
+It is recommended to use direct links to HTTPS versions of the pages on your website to avoid unnecessary redirects.
+
+#Redirects
+##3XX redirect 
+
+How to fix:
+Issue details
+Even though Google announced that any redirection method is good and will pass PageRank, Googlebot is not the only visitor of your website.
+
+Redirects always require caution. They may hurt your website performance, especially for mobile users, or confuse website visitors.
+
+How to fix:
+It is recommended to replace the links to the internal redirected URLs on your website with the direct links to the destination pages where possible.
+
+
+
+#Links
+##Orphan page (has no incoming internal links) 
+
+How to fix:
+Issue details
+Orphan pages of a website have no incoming internal links.
+
+Search engine crawlers can only discover such pages from the sitemap file or from external backlinks. Website visitors won't be able to get to this page from any other page on your website.
+
+How to fix:
+Check your website navigation and link architecture to make sure all relevant pages are easily accessible.
+
+
+
+##Page has no outgoing links 
+
+How to fix:
+Issue details
+If a page has no outgoing links, it is a "dead end" for both website visitors and search engine crawlers.
+
+How to fix:
+Check your website navigation and link architecture to make sure your website has no "dead ends."
+
+
+
+
+##Page has only one dofollow incoming internal link 
+
+How to fix:
+Issue details
+Pages that only have one "dofollow" internal link.
+
+The number of internal links pointing to a page is a signal to search engines about the relative importance of that page.
+
+Besides, their anchor text helps search engines to understand the context better.
+
+How to fix:
+Make sure the most important pages on your website have at least a few internal "dofollow" links.
+
+
+#Links
+##Page has no outgoing links 
+
+How to fix:
+Issue details
+If a page has no outgoing links, it is a "dead end" for both website visitors and search engine crawlers.
+
+How to fix:
+Check your website navigation and link architecture to make sure your website has no "dead ends."
+
+
+
+
+#Links
+##Page has links to broken page 
+
+How to fix:
+Issue details
+Pages on your website that link to internal or external URLs returning 404 or 410 HTTP response codes. These links are widely known as "broken links."
+
+Broken links on your website damage your visitors' browsing experience as people cannot access the page or file via a link they click. Besides, broken links create unnecessary "dead ends" for the search engine crawlers and can waste your crawl budget.
+
+How to fix:
+Remove the broken links from the affected pages or replace them with links to other relevant live pages.
+
+Additionally, you can set redirects for the deleted or moved pages, which is especially relevant for the pages with external backlinks.
+
+
+
+
+#3XX redirect in sitemap 
+
+How to fix:
+Issue details
+URLs included in sitemap file that redirect.
+
+Sitemap must list all the pages you want search engines to crawl and index.
+
+##Redirecting URLs in sitemaps can result in indexability issues on your website.
+
+How to fix:
+Replace the redirecting URLs in the sitemaps with the destination URL. If the destination URL is already listed, simply remove the URL that redirects to it from the sitemap file.
+
+
+#FOR 404 ERRORS 
+Issue details
+404 – Not Found is one of the most common 4xx errors and indicates that the requested URL does not exist.
+
+Links pointing to the 404 URLs are widely known as "broken links".
+
+404 URLs on your website damage the user experience, as people cannot access the page or file via a link they click. Besides, internal links to 404 URLs create unnecessary "dead ends" for the search engine crawlers and can waste your crawl budget.
+
+How to fix:
+Review the list of 404 URLs on your website. Click on the number of inlinks to a given 404 URL to access the list of pages that link to it.
+
+You should review the internal outgoing links to all the 404 pages reported and either remove these links or replace them with relevant links to live pages.
+
+Alternatively, you can set the appropriate 301 redirects. It is especially important for the 404 pages with a decent number of external backlinks.
+
+
+4xx HTTP status codes indicate that the requested page or resource cannot be accessed. 401 - Unauthorized, 403 - Forbidden, 408 - Request Timeout, and 404 - Not Found are the most common "Client Errors".
+
+4xx URLs damage the user experience on your website as people cannot access the page or file via a link they click. Besides, internal links to 4xx URLs create unnecessary "dead ends" for the search engine crawlers and can waste your crawl budget.
+
+Pages of your website that changed their response code to 4xx will be removed from Google's index.
+
+How to fix:
+Review the list of 4xx URLs. Click on the number of inlinks to a given 4xx URL to access the list of pages that link to it.
+
+You should review the internal outgoing links to all the 4xx pages reported and either remove these links or replace them with relevant links to live pages.
+
+Alternatively, you can set the appropriate 301 redirects. It is especially important when for moved or deleted pages on your website.
+
+This will provide smooth crawlability for your website and guarantee good user experience.
+
+The HTTP 429 (Too Many Requests) response code may indicate that the crawling speed set in the crawl settings for your project is too high for a web server. Reduce it in the crawl settings and run a project re-crawl.
+
+
+

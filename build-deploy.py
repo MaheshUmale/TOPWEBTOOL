@@ -16,7 +16,8 @@ EXCLUDE_FILES = {
     'AGENTS.md', 'README.md', 'ACTION_PLAN.md',
     'DEVELOPER_GUIDE.md', 'TODO.md', 'EMOTIONAL_DESIGN.md', 'PROJECT_STRUCTURE.md',
     'build-deploy.py', 'build-deploy.ps1', 'BUILD_ZIP_LIVE_SITE.ps1',
-    'outdated URLS.txt',
+    'outdated URLS.txt', 'HOW_TO_FIX_AUDIT.txt', 'OTHER_AUDIT_ISSUES.txt',
+    'NON INDEXABLE PAGES LIST.csv', 'missing-old-pages.txt',
 }
 EXCLUDE_SUFFIXES = {'.ps1', '.zip', '.py'}
 RESERVED_NAMES = {
@@ -81,6 +82,14 @@ def validate():
         errors += 1
     else:
         print(f"OK sitemap.xml has all {len(expected)} URLs")
+
+    sitemap_urls = re.findall(r'<loc>(https://topwebtool\.com/[^<]+)</loc>', sitemap)
+    html_urls = [u for u in sitemap_urls if '.html' in u]
+    if html_urls:
+        print(f"FAIL sitemap.xml contains {len(html_urls)} redirecting .html URLs")
+        errors += 1
+    else:
+        print("OK sitemap.xml has no redirecting .html URLs")
 
     # robots.txt
     robots = (ROOT / "robots.txt").read_text(encoding='utf-8')
