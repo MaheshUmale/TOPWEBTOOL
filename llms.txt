@@ -136,6 +136,10 @@ TopWebTool is a 100% client-side web utility directory offering 85 free online t
 - [Quiz Game](https://topwebtool.com/games-and-play/quiz-game/) — Test your knowledge with multiple choice questions. 10 rounds across General Knowledge, Science, History, Geography.
 - [Flappy Bird](https://topwebtool.com/games-and-play/flappy-bird/) — Classic flappy bird endless runner. Tap or press Space to fly through pipes. How high can you score?
 - [Sliding Puzzle](https://topwebtool.com/games-and-play/sliding-puzzle/) — Solve the number sliding puzzle. 3x3 to 5x5 grids. Click or use arrow keys to slide tiles.
+- [Ping Pong](https://topwebtool.com/games-and-play/ping-pong/) — Classic paddle vs AI. First to 5 wins. Mouse or keyboard controls.
+- [Tilting Maze](https://topwebtool.com/games-and-play/tilting-maze/) — Roll a ball through the maze by tilting. Avoid holes, reach the goal.
+- [Fruit Slicer](https://topwebtool.com/games-and-play/fruit-slicer/) — Slice flying fruits, avoid bombs. Swipe or click for combo points.
+- [Archery](https://topwebtool.com/games-and-play/archery/) — Hit the bullseye against wind and distance. 10 arrows per round.
 
 ## Legal & Info Pages
 

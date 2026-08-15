@@ -1177,3 +1177,31 @@ TopWebTool is a curated directory of 84+ free, 100% client-side web utilities de
 - Heading: Sliding Puzzle
 - Description: Solve the number sliding puzzle. 3x3 to 5x5 grids. Click or use arrow keys to slide tiles.
 - Sections: Numbered Tile Grid; Grid Size Selector; Move Counter; Click/Keyboard Controls; Win Detection
+
+### Ping Pong
+
+- URL: https://topwebtool.com/games-and-play/ping-pong/
+- Heading: Ping Pong
+- Description: Classic paddle vs AI. First to 5 wins. Mouse or keyboard controls.
+- Sections: Paddle vs AI; First to 5 Wins; Mouse/Keyboard Controls; Score Tracking
+
+### Tilting Maze
+
+- URL: https://topwebtool.com/games-and-play/tilting-maze/
+- Heading: Tilting Maze
+- Description: Roll a ball through the maze by tilting. Avoid holes, reach the goal.
+- Sections: Ball Physics; Maze Tilting; Hole Hazards; Goal Detection
+
+### Fruit Slicer
+
+- URL: https://topwebtool.com/games-and-play/fruit-slicer/
+- Heading: Fruit Slicer
+- Description: Slice flying fruits, avoid bombs. Swipe or click for combo points.
+- Sections: Flying Fruits; Slice Gestures; Bomb Avoidance; Combo System
+
+### Archery
+
+- URL: https://topwebtool.com/games-and-play/archery/
+- Heading: Archery
+- Description: Hit the bullseye against wind and distance. 10 arrows per round.
+- Sections: Wind Simulation; Distance Scaling; 10 Arrows Per Round; Bullseye Scoring

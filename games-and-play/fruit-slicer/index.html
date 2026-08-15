@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
+  <script>
+    (function () {
+      try {
+        const theme = localStorage.getItem("theme");
+        if (theme === "dark") {
+          document.documentElement.classList.add("dark");
+          document.documentElement.classList.remove("light");
+        } else {
+          document.documentElement.classList.remove("dark");
+          document.documentElement.classList.add("light");
+        }
+      } catch (e) {}
+    })();
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fruit Slicer | TopWebTool</title>
+  <meta name="description" content="Play Fruit Slicer online. Slice flying fruits, avoid bombs, and beat your high score in this fast-paced arcade game." />
+  <link rel="canonical" href="https://topwebtool.com/games-and-play/fruit-slicer/" />
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+  <link rel="apple-touch-icon" href="../../apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png" />
+  <link rel="manifest" href="../../site.webmanifest" />
+  <meta name="theme-color" content="#090d16" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="TopWebTool" />
+  <meta property="og:title" content="Fruit Slicer | TopWebTool" />
+  <meta property="og:description" content="Play Fruit Slicer online. Slice flying fruits, avoid bombs, and beat your high score in this fast-paced arcade game." />
+  <meta property="og:url" content="https://topwebtool.com/games-and-play/fruit-slicer/" />
+  <meta property="og:image" content="https://topwebtool.com/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Fruit Slicer | TopWebTool" />
+  <meta name="twitter:description" content="Play Fruit Slicer online. Slice flying fruits, avoid bombs, and beat your high score in this fast-paced arcade game." />
+  <meta name="twitter:image" content="https://topwebtool.com/og-image.png" />
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Fruit Slicer | TopWebTool",
+      "url": "https://topwebtool.com/games-and-play/fruit-slicer/",
+      "applicationCategory": "GameApplication",
+      "operatingSystem": "Windows, macOS, Linux, Android, iOS",
+      "browserRequirements": "Requires HTML5 compatible web browser",
+      "description": "Play Fruit Slicer online. Slice flying fruits, avoid bombs, and beat your high score in this fast-paced arcade game.",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://topwebtool.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Games & Play", "item": "https://topwebtool.com/games-and-play/" },
+        { "@type": "ListItem", "position": 3, "name": "Fruit Slicer", "item": "https://topwebtool.com/games-and-play/fruit-slicer/" }
+      ]
+    }
+  </script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="../../site.min.css">
+  <style>
+    html {
+      background-color: #fff;
+    }
+    html.dark {
+      background-color: #090d16;
+    }
+    body {
+      padding-bottom: 6rem;
+    }
+    #global-header {
+      min-height: 65px;
+    }
+    #global-footer {
+      min-height: 85px;
+    }
+    #trending-sidebar {
+      min-height: 700px;
+    }
+    @media (max-width: 767px) {
+      #global-header {
+        min-height: 200px;
+      }
+      #global-footer {
+        min-height: 120px;
+      }
+    }
+    .slicer-container { max-width: 600px; margin: 0 auto; }
+    .slicer-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem; }
+    .slicer-score { font-size: 1.25rem; font-weight: 700; color: #4f46e5; }
+    .dark .slicer-score { color: #818cf8; }
+    .slicer-high { font-size: 1rem; color: #94a3b8; }
+    .slicer-lives { font-size: 1.25rem; letter-spacing: 4px; }
+    .slicer-combo { font-size: 1rem; font-weight: 700; color: #f59e0b; opacity: 0; transition: opacity 200ms; }
+    .slicer-combo.active { opacity: 1; }
+    canvas { display: block; margin: 0 auto; border-radius: 16px; border: 2px solid #e2e8f0; background: #0f172a; touch-action: none; }
+    .dark canvas { border-color: #1e293b; }
+    .game-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.6); display: flex; align-items: center; justify-content: center; z-index: 100; opacity: 0; pointer-events: none; transition: opacity 300ms; }
+    .game-overlay.active { opacity: 1; pointer-events: auto; }
+    .overlay-box { background: white; border-radius: 24px; padding: 2rem; text-align: center; max-width: 400px; margin: 1rem; box-shadow: 0 25px 50px rgba(0,0,0,0.25); }
+    .dark .overlay-box { background: #1e293b; }
+    .overlay-title { font-size: 1.5rem; font-weight: 800; color: #1e293b; margin-bottom: 0.5rem; }
+    .dark .overlay-title { color: #f1f5f9; }
+    .overlay-score { font-size: 2rem; font-weight: 800; color: #4f46e5; margin: 1rem 0; }
+    .dark .overlay-score { color: #818cf8; }
+    .controls-hint { text-align: center; margin-top: 1rem; font-size: 0.875rem; color: #94a3b8; }
+    #pauseOverlay { z-index: 101; }
+  </style>
+</head>
+<body>
+  <header id="global-header"></header>
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <div class="grid grid-cols-1 lg:grid-cols-4 gap-4">
+      <div class="lg:col-span-3">
+        <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+          <h1 class="text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">Fruit Slicer</h1>
+          <p class="mt-2 text-base text-slate-500 dark:text-slate-400">Slice flying fruits, avoid bombs, and beat your high score.</p>
+        </div>
+        <div class="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-xl p-4 mt-4">
+          <p class="text-sm text-amber-800 dark:text-amber-200"><strong>How to Play:</strong> Swipe or click to slice fruits. Avoid bombs and ice blocks. Chain slices for combo bonuses.</p>
+        </div>
+        <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm mt-4">
+          <div class="slicer-container">
+            <div class="slicer-header">
+              <div>
+                <div class="slicer-score">Score: <span id="score">0</span></div>
+                <div class="slicer-high">Best: <span id="highScore">0</span></div>
+              </div>
+              <div style="display:flex;align-items:center;gap:12px;">
+                <div class="slicer-combo" id="comboText">Combo x1</div>
+                <div class="slicer-lives" id="livesText">❤️❤️❤️</div>
+              </div>
+            </div>
+            <canvas id="gameCanvas" width="500" height="600"></canvas>
+            <div class="controls-hint">Swipe or click to slice fruits</div>
+          </div>
+        </div>
+      </div>
+      <div class="lg:col-span-1">
+        <div id="trending-sidebar"></div>
+      </div>
+    </div>
+  </main>
+  <div class="game-overlay" id="overlay">
+    <div class="overlay-box">
+      <div class="overlay-title" id="overlayTitle">Game Over</div>
+      <div class="overlay-score" id="overlayScore">0</div>
+      <button class="btn btn-primary" onclick="restart()" style="padding:12px 32px;font-size:1rem;margin-right:8px;">Play Again</button>
+      <button class="btn btn-secondary" onclick="exitGame()" style="padding:12px 32px;font-size:1rem;">Exit</button>
+    </div>
+  </div>
+  <div class="game-overlay" id="pauseOverlay">
+    <div class="overlay-box">
+      <div class="overlay-title">Paused</div>
+      <p class="text-slate-500 dark:text-slate-400 mt-2">Press Space or ESC to resume</p>
+      <button class="btn btn-primary" onclick="togglePause()" style="padding:12px 32px;font-size:1rem;margin-top:1rem;">Resume</button>
+      <button class="btn btn-secondary" onclick="exitGame()" style="padding:12px 32px;font-size:1rem;margin-left:8px;">Exit</button>
+    </div>
+  </div>
+  <footer id="global-footer"></footer>
+  <script src="../../global.js" defer></script>
+  <script src="../../twt-shell.js" defer></script>
+  <script src="../../js/context-engine.js" defer></script>
+  <script>
+    const canvas = document.getElementById('gameCanvas');
+    const ctx = canvas.getContext('2d');
+    const W = canvas.width;
+    const H = canvas.height;
+    let score = 0;
+    let lives = 3;
+    let highScore = 0;
+    let stats = { totalSlices: 0, combos: 0 };
+    let paused = false;
+    let gameOver = false;
+    let combo = 0;
+    let comboTimer = null;
+    let difficulty = 1;
+    let spawnTimer = null;
+    let animFrame = null;
+    let lastTime = 0;
+    let fruits = [];
+    let particles = [];
+    let sliceTrail = [];
+    let isSlicing = false;
+    let mouseX = 0;
+    let mouseY = 0;
+    let prevMouseX = 0;
+    let prevMouseY = 0;
+    const GOOD_FRUITS = [
+      { emoji: '🍎', color: '#ef4444', points: 1 },
+      { emoji: '🍊', color: '#f97316', points: 1 },
+      { emoji: '🍋', color: '#eab308', points: 1 },
+      { emoji: '🍇', color: '#a855f7', points: 2 },
+      { emoji: '🍓', color: '#ec4899', points: 2 }
+    ];
+    const BAD_FRUITS = [
+      { emoji: '💣', color: '#1e293b', type: 'bomb', points: 0 },
+      { emoji: '❄️', color: '#67e8f9', type: 'freeze', points: 0 }
+    ];
+    try {
+      const saved = JSON.parse(localStorage.getItem('topwebtool-slicer'));
+      if (saved) {
+        highScore = saved.highScore || 0;
+        stats.totalSlices = saved.totalSlices || 0;
+        stats.combos = saved.combos || 0;
+      }
+    } catch(e){}
+    document.getElementById('highScore').textContent = highScore;
+    function saveStats() {
+      try {
+        localStorage.setItem('topwebtool-slicer', JSON.stringify({ highScore, totalSlices: stats.totalSlices, combos: stats.combos }));
+      } catch(e){}
+    }
+    function playSound(type) {
+      try {
+        const ac = new (window.AudioContext || window.webkitAudioContext)();
+        const osc = ac.createOscillator();
+        const gain = ac.createGain();
+        osc.connect(gain);
+        gain.connect(ac.destination);
+        const now = ac.currentTime;
+        if (type === 'slice') {
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(800, now);
+          osc.frequency.exponentialRampToValueAtTime(200, now + 0.1);
+          gain.gain.setValueAtTime(0.08, now);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.1);
+          osc.start(now);
+          osc.stop(now + 0.1);
+        } else if (type === 'bomb') {
+          osc.type = 'sawtooth';
+          osc.frequency.setValueAtTime(150, now);
+          osc.frequency.exponentialRampToValueAtTime(30, now + 0.3);
+          gain.gain.setValueAtTime(0.15, now);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.3);
+          osc.start(now);
+          osc.stop(now + 0.3);
+        } else if (type === 'freeze') {
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(1200, now);
+          osc.frequency.exponentialRampToValueAtTime(600, now + 0.15);
+          gain.gain.setValueAtTime(0.08, now);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.15);
+          osc.start(now);
+          osc.stop(now + 0.15);
+        } else if (type === 'miss') {
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(80, now);
+          gain.gain.setValueAtTime(0.05, now);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.08);
+          osc.start(now);
+          osc.stop(now + 0.08);
+        } else if (type === 'combo') {
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(600, now);
+          osc.frequency.setValueAtTime(900, now + 0.05);
+          gain.gain.setValueAtTime(0.08, now);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.12);
+          osc.start(now);
+          osc.stop(now + 0.12);
+        }
+      } catch(e){}
+    }
+    function spawnFruit() {
+      const isBad = Math.random() < 0.15 + difficulty * 0.02;
+      const template = isBad ? BAD_FRUITS[Math.floor(Math.random() * BAD_FRUITS.length)] : GOOD_FRUITS[Math.floor(Math.random() * GOOD_FRUITS.length)];
+      const x = 60 + Math.random() * (W - 120);
+      const baseSpeed = 180 + difficulty * 30;
+      const speed = baseSpeed + Math.random() * 120;
+      const angle = -Math.PI / 2 + (Math.random() - 0.5) * 0.8;
+      fruits.push({
+        x, y: H + 40,
+        vx: Math.cos(angle) * speed * 0.6,
+        vy: -speed,
+        radius: 22,
+        emoji: template.emoji,
+        color: template.color,
+        points: template.points,
+        type: template.type || 'good',
+        rotation: Math.random() * Math.PI * 2,
+        rotSpeed: (Math.random() - 0.5) * 4,
+        sliced: false
+      });
+    }
+    function createParticles(x, y, color, count) {
+      for (let i = 0; i < count; i++) {
+        const angle = Math.random() * Math.PI * 2;
+        const speed = 100 + Math.random() * 200;
+        particles.push({
+          x, y,
+          vx: Math.cos(angle) * speed,
+          vy: Math.sin(angle) * speed,
+          life: 0.4 + Math.random() * 0.3,
+          color,
+          size: 2 + Math.random() * 3
+        });
+      }
+    }
+    function lineIntersectsCircle(x1, y1, x2, y2, cx, cy, r) {
+      const dx = x2 - x1;
+      const dy = y2 - y1;
+      const fx = x1 - cx;
+      const fy = y1 - cy;
+      const a = dx * dx + dy * dy;
+      const b = 2 * (fx * dx + fy * dy);
+      const c = (fx * fx + fy * fy) - r * r;
+      let discriminant = b * b - 4 * a * c;
+      if (discriminant < 0) return false;
+      discriminant = Math.sqrt(discriminant);
+      const t1 = (-b - discriminant) / (2 * a);
+      const t2 = (-b + discriminant) / (2 * a);
+      if (t1 >= 0 && t1 <= 1) return true;
+      if (t2 >= 0 && t2 <= 1) return true;
+      return false;
+    }
+    function checkSlice() {
+      if (sliceTrail.length < 2) return;
+      const x1 = sliceTrail[sliceTrail.length - 2].x;
+      const y1 = sliceTrail[sliceTrail.length - 2].y;
+      const x2 = sliceTrail[sliceTrail.length - 1].x;
+      const y2 = sliceTrail[sliceTrail.length - 1].y;
+      let slicedAny = false;
+      fruits.forEach(f => {
+        if (f.sliced) return;
+        if (lineIntersectsCircle(x1, y1, x2, y2, f.x, f.y, f.radius)) {
+          f.sliced = true;
+          slicedAny = true;
+          if (f.type === 'bomb') {
+            playSound('bomb');
+            createParticles(f.x, f.y, '#1e293b', 15);
+            lives--;
+            updateLives();
+            if (lives <= 0) {
+              endGame();
+            }
+          } else if (f.type === 'freeze') {
+            playSound('freeze');
+            createParticles(f.x, f.y, '#67e8f9', 12);
+            score = Math.max(0, score - 5);
+            document.getElementById('score').textContent = score;
+          } else {
+            combo++;
+            const points = f.points * combo;
+            score += points;
+            document.getElementById('score').textContent = score;
+            stats.totalSlices++;
+            if (combo > 1) {
+              stats.combos++;
+              playSound('combo');
+            } else {
+              playSound('slice');
+            }
+            createParticles(f.x, f.y, f.color, 10);
+            showCombo();
+          }
+        }
+      });
+      if (!slicedAny && isSlicing) {
+        playSound('miss');
+      }
+    }
+    function showCombo() {
+      const el = document.getElementById('comboText');
+      if (combo > 1) {
+        el.textContent = `Combo x${combo}`;
+        el.classList.add('active');
+        clearTimeout(comboTimer);
+        comboTimer = setTimeout(() => {
+          el.classList.remove('active');
+          combo = 0;
+        }, 800);
+      }
+    }
+    function updateLives() {
+      document.getElementById('livesText').textContent = '❤️'.repeat(Math.max(0, lives));
+    }
+    function update(dt) {
+      if (paused || gameOver) return;
+      const speedMul = 1 + difficulty * 0.15;
+      fruits.forEach(f => {
+        f.x += f.vx * dt;
+        f.y += f.vy * dt;
+        f.rotation += f.rotSpeed * dt;
+        if (f.y < -60 && !f.sliced) {
+          if (f.type === 'good') {
+            combo = 0;
+            document.getElementById('comboText').classList.remove('active');
+          }
+        }
+      });
+      fruits = fruits.filter(f => f.y > -80);
+      particles.forEach(p => {
+        p.x += p.vx * dt;
+        p.y += p.vy * dt;
+        p.life -= dt;
+      });
+      particles = particles.filter(p => p.life > 0);
+      sliceTrail = sliceTrail.filter(p => Date.now() - p.t < 120);
+    }
+    function draw() {
+      ctx.fillStyle = '#0f172a';
+      ctx.fillRect(0, 0, W, H);
+      ctx.strokeStyle = '#1e293b';
+      ctx.lineWidth = 1;
+      for (let i = 0; i < H; i += 40) {
+        ctx.beginPath(); ctx.moveTo(0, i); ctx.lineTo(W, i); ctx.stroke();
+      }
+      fruits.forEach(f => {
+        if (f.sliced) return;
+        ctx.save();
+        ctx.translate(f.x, f.y);
+        ctx.rotate(f.rotation);
+        ctx.font = '36px Inter, sans-serif';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText(f.emoji, 0, 2);
+        ctx.restore();
+      });
+      particles.forEach(p => {
+        ctx.globalAlpha = Math.max(0, p.life / 0.5);
+        ctx.fillStyle = p.color;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        ctx.fill();
+      });
+      ctx.globalAlpha = 1;
+      if (sliceTrail.length > 1) {
+        ctx.beginPath();
+        ctx.moveTo(sliceTrail[0].x, sliceTrail[0].y);
+        for (let i = 1; i < sliceTrail.length; i++) {
+          ctx.lineTo(sliceTrail[i].x, sliceTrail[i].y);
+        }
+        ctx.strokeStyle = '#fbbf24';
+        ctx.lineWidth = 4;
+        ctx.lineCap = 'round';
+        ctx.shadowColor = '#fbbf24';
+        ctx.shadowBlur = 12;
+        ctx.stroke();
+        ctx.shadowBlur = 0;
+      }
+      if (!gameOver && fruits.length === 0 && particles.length === 0) {
+        ctx.fillStyle = 'rgba(0,0,0,0.4)';
+        ctx.fillRect(0, H/2 - 30, W, 60);
+        ctx.fillStyle = '#fbbf24';
+        ctx.font = 'bold 20px Inter, sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText('Get Ready...', W/2, H/2 + 7);
+      }
+    }
+    function loop(timestamp) {
+      if (!lastTime) lastTime = timestamp;
+      const dt = Math.min((timestamp - lastTime) / 1000, 0.05);
+      lastTime = timestamp;
+      update(dt);
+      draw();
+      animFrame = requestAnimationFrame(loop);
+    }
+    function startGame() {
+      gameOver = false;
+      paused = false;
+      score = 0;
+      lives = 3;
+      combo = 0;
+      difficulty = 1;
+      fruits = [];
+      particles = [];
+      sliceTrail = [];
+      document.getElementById('score').textContent = '0';
+      updateLives();
+      document.getElementById('overlay').classList.remove('active');
+      document.getElementById('pauseOverlay').classList.remove('active');
+      clearInterval(spawnTimer);
+      spawnTimer = setInterval(() => {
+        if (!paused && !gameOver) {
+          spawnFruit();
+          if (Math.random() < 0.3) spawnFruit();
+        }
+      }, 900);
+      difficulty = 1;
+      setInterval(() => {
+        if (!paused && !gameOver) {
+          difficulty = Math.min(10, difficulty + 0.3);
+        }
+      }, 5000);
+      lastTime = 0;
+      if (animFrame) cancelAnimationFrame(animFrame);
+      animFrame = requestAnimationFrame(loop);
+    }
+    function endGame() {
+      gameOver = true;
+      clearInterval(spawnTimer);
+      playSound('bomb');
+      if (score > highScore) {
+        highScore = score;
+        document.getElementById('highScore').textContent = highScore;
+      }
+      saveStats();
+      document.getElementById('overlayTitle').textContent = 'Game Over';
+      document.getElementById('overlayScore').textContent = `Score: ${score}`;
+      document.getElementById('overlay').classList.add('active');
+    }
+    function togglePause() {
+      paused = !paused;
+      document.getElementById('pauseOverlay').classList.toggle('active', paused);
+    }
+    function exitGame() {
+      gameOver = true;
+      clearInterval(spawnTimer);
+      if (animFrame) cancelAnimationFrame(animFrame);
+      fruits = [];
+      particles = [];
+      sliceTrail = [];
+      paused = false;
+      document.getElementById('overlay').classList.remove('active');
+      document.getElementById('pauseOverlay').classList.remove('active');
+      draw();
+    }
+    function restart() {
+      startGame();
+    }
+    function getPos(e) {
+      const rect = canvas.getBoundingClientRect();
+      const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+      const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+      return {
+        x: (clientX - rect.left) * (W / rect.width),
+        y: (clientY - rect.top) * (H / rect.height)
+      };
+    }
+    canvas.addEventListener('mousedown', (e) => {
+      isSlicing = true;
+      const pos = getPos(e);
+      mouseX = prevMouseX = pos.x;
+      mouseY = prevMouseY = pos.y;
+      sliceTrail = [{ x: pos.x, y: pos.y, t: Date.now() }];
+    });
+    canvas.addEventListener('mousemove', (e) => {
+      if (!isSlicing) return;
+      const pos = getPos(e);
+      prevMouseX = mouseX;
+      prevMouseY = mouseY;
+      mouseX = pos.x;
+      mouseY = pos.y;
+      sliceTrail.push({ x: mouseX, y: mouseY, t: Date.now() });
+      if (sliceTrail.length > 12) sliceTrail.shift();
+      checkSlice();
+    });
+    canvas.addEventListener('mouseup', () => { isSlicing = false; });
+    canvas.addEventListener('mouseleave', () => { isSlicing = false; });
+    canvas.addEventListener('touchstart', (e) => {
+      e.preventDefault();
+      isSlicing = true;
+      const pos = getPos(e);
+      mouseX = prevMouseX = pos.x;
+      mouseY = prevMouseY = pos.y;
+      sliceTrail = [{ x: pos.x, y: pos.y, t: Date.now() }];
+    }, { passive: false });
+    canvas.addEventListener('touchmove', (e) => {
+      e.preventDefault();
+      if (!isSlicing) return;
+      const pos = getPos(e);
+      prevMouseX = mouseX;
+      prevMouseY = mouseY;
+      mouseX = pos.x;
+      mouseY = pos.y;
+      sliceTrail.push({ x: mouseX, y: mouseY, t: Date.now() });
+      if (sliceTrail.length > 12) sliceTrail.shift();
+      checkSlice();
+    }, { passive: false });
+    canvas.addEventListener('touchend', () => { isSlicing = false; });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') { e.preventDefault(); togglePause(); return; }
+      if (e.key === ' ') { e.preventDefault(); togglePause(); return; }
+    });
+    draw();
+    setTimeout(() => {
+      if (!gameOver) startGame();
+    }, 600);
+  </script>
+</body>
+</html>
