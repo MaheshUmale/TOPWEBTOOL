@@ -23,3 +23,8 @@ opencode.json
 .session-state.json
 package-lock.json
 package.json
+
+node_modules/
+*.zip
+*.tar.gz
+*.rar
