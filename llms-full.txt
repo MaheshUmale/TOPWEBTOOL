@@ -902,7 +902,7 @@ Professional Insights & Guide Learn critical professional use cases, dynamic ste
 
 ### Privacy Policy
 
-- URL: https://topwebtool.com/privacy.html
+- URL: https://topwebtool.com/privacy/
 - Heading: Privacy Policy
 - Description: Learn how TopWebTool handles your data, cookies, and privacy. We are 100% client-side — no data leaves your browser.
 
@@ -912,7 +912,7 @@ TopWebTool is committed to protecting your privacy. This Privacy Policy explains
 
 ### Terms and Conditions
 
-- URL: https://topwebtool.com/terms.html
+- URL: https://topwebtool.com/terms/
 - Heading: Terms and Conditions
 - Description: Read the Terms and Conditions for using TopWebTool's free online calculators and web utilities.
 
@@ -922,7 +922,7 @@ Welcome to TopWebTool. By accessing or using our free online calculators and uti
 
 ### Contact Us
 
-- URL: https://topwebtool.com/contact.html
+- URL: https://topwebtool.com/contact/
 - Heading: Contact Us
 - Description: Get in touch with TopWebTool. Contact us for support, feedback, or partnership inquiries.
 
@@ -932,7 +932,7 @@ The fastest way to reach us is by email: contact@topwebtool.com. We typically re
 
 ### About Us
 
-- URL: https://topwebtool.com/about.html
+- URL: https://topwebtool.com/about/
 - Heading: About TopWebTool
 - Description: Learn about TopWebTool — a free, 100% client-side web utility directory built for developers, marketers, finance experts, and everyday users.
 

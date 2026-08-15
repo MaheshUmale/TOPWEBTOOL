@@ -6,10 +6,10 @@ PR,URL,Title,Content type,Is rendered page,HTTP status code,Organic traffic,Dept
 0,https://topwebtool.com/mortgage-calculator/amortization-schedule-explained/extra-payments-savings/,,text/html,FALSE,404,0,1,FALSE,1,https://topwebtool.com/mortgage-calculator/amortization-schedule-explained/,FALSE
 0,https://topwebtool.com/mortgage-calculator/understanding-pmi/extra-payments-savings/,,text/html,FALSE,404,0,1,FALSE,1,https://topwebtool.com/mortgage-calculator/understanding-pmi/,FALSE
 0,https://topwebtool.com/number-base-converter/,,text/html,FALSE,404,0,1,FALSE,1,https://topwebtool.com/unit-converter/,FALSE
-0,https://topwebtool.com/contact.html,,,FALSE,307,0,0,FALSE,4,,TRUE
-0,https://topwebtool.com/about.html,,,FALSE,307,0,0,FALSE,1,,TRUE
-0,https://topwebtool.com/terms.html,,,FALSE,307,0,0,FALSE,2,,TRUE
-0,https://topwebtool.com/privacy.html,,,FALSE,307,0,0,FALSE,2,,TRUE
+0,https://topwebtool.com/contact/,,,FALSE,200,0,0,FALSE,4,,TRUE
+0,https://topwebtool.com/about/,,,FALSE,200,0,0,FALSE,1,,TRUE
+0,https://topwebtool.com/terms/,,,FALSE,200,0,0,FALSE,2,,TRUE
+0,https://topwebtool.com/privacy/,,,FALSE,200,0,0,FALSE,2,,TRUE
 0,http://www.topwebtool.com/,,text/html; charset=utf-8,FALSE,301,0,0,FALSE,0,,FALSE
 0,http://topwebtool.com/,,text/html; charset=utf-8,FALSE,301,0,0,FALSE,0,,FALSE
 0,https://www.topwebtool.com/sheet-metal-unfolder/,Sheet Metal Bend Allowance Calculator | TopWebTool,text/html,FALSE,200,0,1,FALSE,6,https://www.topwebtool.com/,FALSE
@@ -172,7 +172,7 @@ PR,URL,Title,Content type,Is rendered page,HTTP status code,Organic traffic,Dept
 0,https://www.topwebtool.com/playwright-script-generator/playwright-script-generator-optimization-tips/,Optimization Tips for Playwright Scripts | TopWebTool,text/html,FALSE,200,0,2,FALSE,1,https://www.topwebtool.com/playwright-script-generator/,FALSE
 0,https://www.topwebtool.com/acoustic-room-analyzer/acoustic-room-analyzer-guide/,Guide to Acoustic Room Mode Analysis | TopWebTool,text/html,FALSE,200,0,2,FALSE,1,https://www.topwebtool.com/acoustic-room-analyzer/,FALSE
 1,https://www.topwebtool.com/fortune-wheel/,Free Online Fortune Wheel | TopWebTool,text/html,FALSE,200,0,1,FALSE,28,https://www.topwebtool.com/,FALSE
-0,https://topwebtool.com/terms,Terms and Conditions | TopWebTool,text/html,FALSE,200,0,1,FALSE,1,https://topwebtool.com/terms.html,FALSE
+0,https://topwebtool.com/terms,Terms and Conditions | TopWebTool,text/html,FALSE,200,0,1,FALSE,1,https://topwebtool.com/terms/,FALSE
 0,https://www.topwebtool.com/w2-vs-1099-comparator/true-cost-of-1099-contractor/,True Cost of 1099 Contractor | TopWebTool,text/html,FALSE,200,0,2,FALSE,5,https://www.topwebtool.com/w2-vs-1099-comparator/,FALSE
 0,https://www.topwebtool.com/refinance-break-even/mortgage-closing-costs-breakdown/,Mortgage Closing Costs Explained | TopWebTool,text/html,FALSE,200,0,2,FALSE,1,https://www.topwebtool.com/refinance-break-even/,FALSE
 0,https://www.topwebtool.com/credit-card-payoff-planner/credit-card-payoff-planner-common-errors/,Common Errors in Credit Card Payoff Planner| TopWebTool,text/html,FALSE,200,0,2,FALSE,1,https://www.topwebtool.com/credit-card-payoff-planner/,FALSE
@@ -231,7 +231,7 @@ PR,URL,Title,Content type,Is rendered page,HTTP status code,Organic traffic,Dept
 0,https://www.topwebtool.com/midjourney-command-builder/midjourney-command-builder-future-trends/,Future Trends in Midjourney Prompt Builder| TopWebTool,text/html,FALSE,200,0,2,FALSE,1,https://www.topwebtool.com/midjourney-command-builder/,FALSE
 0,https://www.topwebtool.com/openapi-tool-converter/openapi-tool-converter-best-practices/,OpenAPI Tool Converter Best Practices | TopWebTool,text/html,FALSE,200,0,2,FALSE,1,https://www.topwebtool.com/openapi-tool-converter/,FALSE
 0,https://www.topwebtool.com/prompt-chain-debugger/prompt-chain-debugger-future-trends/,Future Trends in Prompt Chain Debugging | TopWebTool,text/html,FALSE,200,0,2,FALSE,1,https://www.topwebtool.com/prompt-chain-debugger/,FALSE
-0,https://topwebtool.com/about,About Us | TopWebTool,text/html,FALSE,200,0,1,FALSE,1,https://topwebtool.com/about.html,FALSE
+0,https://topwebtool.com/about,About Us | TopWebTool,text/html,FALSE,200,0,1,FALSE,1,https://topwebtool.com/about/,FALSE
 0,https://www.topwebtool.com/connector-pinout-mapper/connector-pinout-mapper-best-practices/,Best Practices for Mil-Spec Pinout Mapping | TopWebTool,text/html,FALSE,200,0,2,FALSE,1,https://www.topwebtool.com/connector-pinout-mapper/,FALSE
 0,https://www.topwebtool.com/home-affordability-calculator/28-36-rule-guide/,The 28/36 Rule | TopWebTool,text/html,FALSE,200,0,2,FALSE,1,https://www.topwebtool.com/home-affordability-calculator/,FALSE
 0,https://www.topwebtool.com/property-tax-projector/how-property-taxes-are-calculated/,How Property Taxes Are Calculated | TopWebTool,text/html,FALSE,200,0,2,FALSE,1,https://www.topwebtool.com/property-tax-projector/,FALSE
@@ -315,7 +315,7 @@ PR,URL,Title,Content type,Is rendered page,HTTP status code,Organic traffic,Dept
 0,https://www.topwebtool.com/crypto-position-size/crypto-trading-risk-reward-ratio/,Crypto Trading Risk Reward Ratio | TopWebTool,text/html,FALSE,200,0,2,FALSE,1,https://www.topwebtool.com/crypto-position-size/,FALSE
 0,https://www.topwebtool.com/playwright-script-generator/playwright-script-generator-best-practices/,Best Practices for Playwright/Puppeteer Scripts | TopWebTool,text/html,FALSE,200,0,2,FALSE,1,https://www.topwebtool.com/playwright-script-generator/,FALSE
 0,https://www.topwebtool.com/autogen-yaml-designer/autogen-yaml-designer-guide/,Guide to CrewAI/AutoGen YAML | TopWebTool,text/html,FALSE,200,0,2,FALSE,1,https://www.topwebtool.com/autogen-yaml-designer/,FALSE
-0,https://topwebtool.com/privacy,Privacy Policy | TopWebTool,text/html,FALSE,200,0,1,FALSE,1,https://topwebtool.com/privacy.html,FALSE
+0,https://topwebtool.com/privacy,Privacy Policy | TopWebTool,text/html,FALSE,200,0,1,FALSE,1,https://topwebtool.com/privacy/,FALSE
 0,https://www.topwebtool.com/rigging-tension-solver/,Rigging & Bridle Sling Tension Calculator | TopWebTool,text/html,FALSE,200,0,1,FALSE,6,https://www.topwebtool.com/,FALSE
 1,https://www.topwebtool.com/mortgage-calculator/,Mortgage Calculator | TopWebTool,text/html,FALSE,200,0,1,FALSE,33,https://www.topwebtool.com/,FALSE
 0,https://www.topwebtool.com/utm-generator/utm-generator-optimization-tips/,Optimization Tips for UTM Campaign Link Builder| TopWebTool,text/html,FALSE,200,0,2,FALSE,1,https://www.topwebtool.com/utm-generator/,FALSE
@@ -329,7 +329,7 @@ PR,URL,Title,Content type,Is rendered page,HTTP status code,Organic traffic,Dept
 0,https://www.topwebtool.com/hex-rgba-converter/hex-rgba-converter-best-practices/,Best Practices for HEX to RGBA Color Work | TopWebTool,text/html,FALSE,200,0,2,FALSE,1,https://www.topwebtool.com/hex-rgba-converter/,FALSE
 0,https://www.topwebtool.com/agent-hitl-planner/agent-hitl-planner-optimization-tips/,Optimization Tips for HITL Planner | TopWebTool,text/html,FALSE,200,0,2,FALSE,1,https://www.topwebtool.com/agent-hitl-planner/,FALSE
 0,https://www.topwebtool.com/student-loan-idr/how-to-calculate-idr-payment/,How to Calculate Your IDR Student Loan Payment | TopWebTool,text/html,FALSE,200,0,2,FALSE,1,https://www.topwebtool.com/student-loan-idr/,FALSE
-0,https://topwebtool.com/contact,Contact Us | TopWebTool,text/html,FALSE,200,0,1,FALSE,1,https://topwebtool.com/contact.html,FALSE
+0,https://topwebtool.com/contact,Contact Us | TopWebTool,text/html,FALSE,200,0,1,FALSE,1,https://topwebtool.com/contact/,FALSE
 0,https://www.topwebtool.com/hex-rgba-converter/hex-rgba-converter-future-trends/,Future Trends in Color & Conversion | TopWebTool,text/html,FALSE,200,0,2,FALSE,1,https://www.topwebtool.com/hex-rgba-converter/,FALSE
 0,https://www.topwebtool.com/openapi-tool-converter/openapi-tool-converter-future-trends/,Future Trends in OpenAPI Tool Converter | TopWebTool,text/html,FALSE,200,0,2,FALSE,1,https://www.topwebtool.com/openapi-tool-converter/,FALSE
 0,https://www.topwebtool.com/battery-busbar-calculator/battery-busbar-calculator-guide/,Guide to Busbar Heat Dissipation | TopWebTool,text/html,FALSE,200,0,2,FALSE,1,https://www.topwebtool.com/battery-busbar-calculator/,FALSE

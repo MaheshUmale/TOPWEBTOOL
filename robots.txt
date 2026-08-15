@@ -53,4 +53,7 @@ Allow: /
 User-agent: Applebot-Extended
 Allow: /
 
+User-agent: Mediapartners-Google
+Allow: /
+
 Sitemap: https://topwebtool.com/sitemap.xml

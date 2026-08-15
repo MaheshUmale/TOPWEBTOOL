@@ -51,7 +51,7 @@ def validate():
     # llms.txt
     llms = (ROOT / "llms.txt").read_text(encoding='utf-8')
     missing = [s for s in slugs if f"https://topwebtool.com/{s}/" not in llms]
-    for page in ('privacy.html', 'terms.html', 'contact.html', 'about.html'):
+    for page in ('privacy/', 'terms/', 'contact/', 'about/'):
         if f"https://topwebtool.com/{page}" not in llms:
             missing.append(page)
     if missing:
@@ -86,10 +86,10 @@ def validate():
 
     sitemap_urls = re.findall(r'<loc>(https://topwebtool\.com/[^<]+)</loc>', sitemap)
     allowed_html = {
-        'https://topwebtool.com/privacy.html',
-        'https://topwebtool.com/terms.html',
-        'https://topwebtool.com/contact.html',
-        'https://topwebtool.com/about.html',
+        'https://topwebtool.com/privacy/',
+        'https://topwebtool.com/terms/',
+        'https://topwebtool.com/contact/',
+        'https://topwebtool.com/about/',
     }
     html_urls = [u for u in sitemap_urls if '.html' in u and u not in allowed_html]
     if html_urls:

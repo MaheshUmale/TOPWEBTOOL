@@ -100,7 +100,7 @@ TopWebTool is a 100% client-side web utility directory offering 85 free online t
 
 ## Legal & Info Pages
 
-- [Privacy Policy](https://topwebtool.com/privacy.html) — Learn how TopWebTool handles your data, cookies, and privacy. We are 100% client-side — no data leaves your browser.
-- [Terms and Conditions](https://topwebtool.com/terms.html) — Read the Terms and Conditions for using TopWebTool's free online calculators and web utilities.
-- [Contact Us](https://topwebtool.com/contact.html) — Get in touch with TopWebTool. Contact us for support, feedback, or partnership inquiries.
-- [About Us](https://topwebtool.com/about.html) — Learn about TopWebTool — a free, 100% client-side web utility directory built for developers, marketers, finance experts, and everyday users.
+- [Privacy Policy](https://topwebtool.com/privacy/) — Learn how TopWebTool handles your data, cookies, and privacy. We are 100% client-side — no data leaves your browser.
+- [Terms and Conditions](https://topwebtool.com/terms/) — Read the Terms and Conditions for using TopWebTool's free online calculators and web utilities.
+- [Contact Us](https://topwebtool.com/contact/) — Get in touch with TopWebTool. Contact us for support, feedback, or partnership inquiries.
+- [About Us](https://topwebtool.com/about/) — Learn about TopWebTool — a free, 100% client-side web utility directory built for developers, marketers, finance experts, and everyday users.
