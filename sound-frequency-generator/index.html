@@ -668,17 +668,17 @@
     </main>
 
     <script>
-      let audioCtx = null;
+      let generatorCtx = null;
       let osc = null;
       let gain = null;
       let isPlaying = false;
 
       function ensureCtx() {
-        if (!audioCtx) {
-          audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        if (!generatorCtx) {
+          generatorCtx = new (window.AudioContext || window.webkitAudioContext)();
         }
-        if (audioCtx.state === "suspended") {
-          audioCtx.resume();
+        if (generatorCtx.state === "suspended") {
+          generatorCtx.resume();
         }
       }
 
@@ -705,20 +705,20 @@
         if (osc) return;
 
         const type = document.getElementById("waveform").value;
-        osc = audioCtx.createOscillator();
+        osc = generatorCtx.createOscillator();
         osc.type = type;
-        osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+        osc.frequency.setValueAtTime(freq, generatorCtx.currentTime);
 
-        gain = audioCtx.createGain();
+        gain = generatorCtx.createGain();
         const vol = currentVolume();
-        gain.gain.setValueAtTime(0.0001, audioCtx.currentTime);
+        gain.gain.setValueAtTime(0.0001, generatorCtx.currentTime);
         gain.gain.exponentialRampToValueAtTime(
           Math.max(vol, 0.0001),
-          audioCtx.currentTime + 0.03,
+          generatorCtx.currentTime + 0.03,
         );
 
         osc.connect(gain);
-        gain.connect(audioCtx.destination);
+        gain.connect(generatorCtx.destination);
         osc.start();
         isPlaying = true;
         updateStatus();
@@ -726,7 +726,7 @@
 
       function stopTone() {
         if (!osc) return;
-        const t = audioCtx.currentTime;
+        const t = generatorCtx.currentTime;
         gain.gain.cancelScheduledValues(t);
         gain.gain.setValueAtTime(Math.max(gain.gain.value, 0.0001), t);
         gain.gain.exponentialRampToValueAtTime(0.0001, t + 0.05);
@@ -872,7 +872,7 @@
         const formatted = f % 1 === 0 ? f.toFixed(0) : f.toFixed(2);
         document.getElementById("freq-value").textContent = formatted + " Hz";
         if (isPlaying && osc) {
-          osc.frequency.setTargetAtTime(f, audioCtx.currentTime, 0.01);
+          osc.frequency.setTargetAtTime(f, generatorCtx.currentTime, 0.01);
         }
         drawWave();
         drawSpectrum();
@@ -889,7 +889,7 @@
         if (isPlaying && gain) {
           gain.gain.setTargetAtTime(
             Math.max(vol, 0.0001),
-            audioCtx.currentTime,
+            generatorCtx.currentTime,
             0.01,
           );
         }

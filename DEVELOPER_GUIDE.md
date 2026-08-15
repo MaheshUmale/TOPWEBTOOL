@@ -67,16 +67,11 @@ Add entry to `UTILITIES_REGISTRY` array (before the closing `];`):
 ```
 
 **Valid categories:**
-- `Finance & Real Estate`
-- `Digital Marketing`
-- `AI Prompt Engineering`
-- `Developer Utilities`
-- `Everyday & Niche Utilities`
-- `Health & Lifestyle`
-- `AI & Automation`
-- `Industrial & Engineering`
-- `B2B Business`
-- `Trading & Crypto`
+- `Finance & Trading`
+- `Business & Marketing`
+- `AI Tools`
+- `Dev & Tech Tools`
+- `Everyday & Health`
 
 ### Step 5: Update SEO Files
 

@@ -76,16 +76,11 @@ const UTILITIES_REGISTRY = [
 ```
 
 **Categories used:**
-- `Finance & Real Estate`
-- `Digital Marketing`
-- `AI Prompt Engineering`
-- `Developer Utilities`
-- `Everyday & Niche Utilities`
-- `Health & Lifestyle`
-- `AI & Automation`
-- `Industrial & Engineering`
-- `B2B Business`
-- `Trading & Crypto`
+- `Finance & Trading`
+- `Business & Marketing`
+- `AI Tools`
+- `Dev & Tech Tools`
+- `Everyday & Health`
 
 ### Consumers of `UTILITIES_REGISTRY`
 

@@ -265,7 +265,23 @@
             data-filter="dev"
             aria-pressed="false"
           >
-            Developer
+            Dev
+          </button>
+          <button
+            type="button"
+            class="filter-chip"
+            data-filter="unit"
+            aria-pressed="false"
+          >
+            Unit Converter
+          </button>
+          <button
+            type="button"
+            class="filter-chip"
+            data-filter="industrial"
+            aria-pressed="false"
+          >
+            Industrial
           </button>
           <button
             type="button"
@@ -273,7 +289,7 @@
             data-filter="niche"
             aria-pressed="false"
           >
-            Niche
+            Everyday & Health
           </button>
         </div>
 
@@ -1107,40 +1123,40 @@
             </div>
           </section>
 
-          <!-- Category 4: Everyday Web & Developer Utilities -->
-          <section
-            class="category-section"
-            data-cat="dev"
-            aria-labelledby="category-title-dev"
-          >
-            <div class="flex items-center space-x-3 mb-4">
-              <div
-                class="p-2 bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-lg"
-              >
-                <svg
-                  class="w-6 h-6"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  aria-hidden="true"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2.5"
-                    d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
-                  ></path>
-                </svg>
-              </div>
-              <h2
-                id="category-title-dev"
-                class="text-xl font-bold text-slate-900 dark:text-white"
-              >
-                Developer & Everyday Utilities
-              </h2>
-            </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              <!-- Tool 17 -->
+                     <!-- Category 4: Developer Utilities -->
+           <section
+             class="category-section"
+             data-cat="dev"
+             aria-labelledby="category-title-dev"
+           >
+             <div class="flex items-center space-x-3 mb-4">
+               <div
+                 class="p-2 bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-lg"
+               >
+                 <svg
+                   class="w-6 h-6"
+                   fill="none"
+                   stroke="currentColor"
+                   viewBox="0 0 24 24"
+                   aria-hidden="true"
+                 >
+                   <path
+                     stroke-linecap="round"
+                     stroke-linejoin="round"
+                     stroke-width="2.5"
+                     d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
+                   ></path>
+                 </svg>
+               </div>
+               <h2
+                 id="category-title-dev"
+                 class="text-xl font-bold text-slate-900 dark:text-white"
+               >
+                 Developer Utilities
+               </h2>
+             </div>
+             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+<!-- Tool 17 -->
               <a
                 href="./json-formatter-validator/"
                 class="tool-card block p-5 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 hover:border-indigo-500 dark:hover:border-indigo-500 hover:shadow-md focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:outline-none transition duration-200 group"
@@ -1165,7 +1181,7 @@
                   >Use Tool &rarr;</span
                 >
               </a>
-              <!-- Tool 18 -->
+<!-- Tool 18 -->
               <a
                 href="./password-generator/"
                 class="tool-card block p-5 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 hover:border-indigo-500 dark:hover:border-indigo-500 hover:shadow-md focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:outline-none transition duration-200 group"
@@ -1190,7 +1206,7 @@
                   >Use Tool &rarr;</span
                 >
               </a>
-              <!-- Tool 19 -->
+<!-- Tool 19 -->
               <a
                 href="./lorem-ipsum-generator/"
                 class="tool-card block p-5 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 hover:border-indigo-500 dark:hover:border-indigo-500 hover:shadow-md focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:outline-none transition duration-200 group"
@@ -1215,7 +1231,7 @@
                   >Use Tool &rarr;</span
                 >
               </a>
-              <!-- Tool 20 -->
+<!-- Tool 20 -->
               <a
                 href="./base64-encoder-decoder/"
                 class="tool-card block p-5 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 hover:border-indigo-500 dark:hover:border-indigo-500 hover:shadow-md focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:outline-none transition duration-200 group"
@@ -1240,7 +1256,7 @@
                   >Use Tool &rarr;</span
                 >
               </a>
-              <!-- Tool 21 -->
+<!-- Tool 21 -->
               <a
                 href="./word-character-counter/"
                 class="tool-card block p-5 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 hover:border-indigo-500 dark:hover:border-indigo-500 hover:shadow-md focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:outline-none transition duration-200 group sm:col-span-2"
@@ -1265,60 +1281,121 @@
                   >Use Tool &rarr;</span
                 >
               </a>
-              <!-- Tool -->
-              <a
-                href="./binary-decimal-converter/"
-                class="tool-card block p-5 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 hover:border-indigo-500 dark:hover:border-indigo-500 hover:shadow-md focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:outline-none transition duration-200 group"
-                data-tags="binary decimal converter octal hex bigint math"
-              >
-                <div class="flex items-center space-x-2">
-                  <span class="text-2xl" aria-hidden="true">💻</span>
-                  <h3
-                    class="text-base font-bold text-slate-800 dark:text-slate-200 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors"
-                  >
-                    Free Binary to Decimal Converter
-                  </h3>
-                </div>
-                <p
-                  class="text-xs text-slate-500 dark:text-slate-400 mt-2 leading-relaxed"
-                >
-                  Convert binary, octal, decimal, and hex numbers in real time
-                  with exact BigInt math. Free.
-                </p>
-                <span
-                  class="inline-flex items-center text-xs font-semibold text-indigo-600 dark:text-indigo-400 mt-4 group-hover:translate-x-1 transition-transform"
-                  >Use Tool &rarr;</span
-                >
-              </a>
-              <!-- Tool -->
-              <a
-                href="./hex-rgba-converter/"
-                class="tool-card block p-5 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 hover:border-indigo-500 dark:hover:border-indigo-500 hover:shadow-md focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:outline-none transition duration-200 group"
-                data-tags="hex rgba color converter hsl wcag contrast"
-              >
-                <div class="flex items-center space-x-2">
-                  <span class="text-2xl" aria-hidden="true">💻</span>
-                  <h3
-                    class="text-base font-bold text-slate-800 dark:text-slate-200 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors"
-                  >
-                    HEX to RGBA Color Converter
-                  </h3>
-                </div>
-                <p
-                  class="text-xs text-slate-500 dark:text-slate-400 mt-2 leading-relaxed"
-                >
-                  Parse HEX, RGB, RGBA, HSL, or named colors instantly. Live
-                  swatch preview and WCAG contrast. Free.
-                </p>
-                <span
-                  class="inline-flex items-center text-xs font-semibold text-indigo-600 dark:text-indigo-400 mt-4 group-hover:translate-x-1 transition-transform"
-                  >Use Tool &rarr;</span
-                >
-              </a>
-            </div>
-          </section>
+             </div>
+           </section>
 
-          <!-- Category 5: Everyday & Niche Utilities -->
+           <!-- Category 4b: Unit Converter -->
+           <section
+             class="category-section"
+             data-cat="unit"
+             aria-labelledby="category-title-unit"
+           >
+             <div class="flex items-center space-x-3 mb-4">
+               <div
+                 class="p-2 bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-lg"
+               >
+                 <svg
+                   class="w-6 h-6"
+                   fill="none"
+                   stroke="currentColor"
+                   viewBox="0 0 24 24"
+                   aria-hidden="true"
+                 >
+                   <path
+                     stroke-linecap="round"
+                     stroke-linejoin="round"
+                     stroke-width="2.5"
+                     d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"
+                   ></path>
+                 </svg>
+               </div>
+               <h2
+                 id="category-title-unit"
+                 class="text-xl font-bold text-slate-900 dark:text-white"
+               >
+                 Unit Converter
+               </h2>
+             </div>
+             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+               <!-- Tool -->
+               <a
+                 href="./unit-converter/"
+                 class="tool-card block p-5 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 hover:border-indigo-500 dark:hover:border-indigo-500 hover:shadow-md focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:outline-none transition duration-200 group"
+                 data-tags="unit converter length weight volume temperature area time"
+               >
+                 <div class="flex items-center space-x-2">
+                   <span class="text-2xl" aria-hidden="true">🔄</span>
+                   <h3
+                     class="text-base font-bold text-slate-800 dark:text-slate-200 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors"
+                   >
+                     Unit Converter
+                   </h3>
+                 </div>
+                 <p
+                   class="text-xs text-slate-500 dark:text-slate-400 mt-2 leading-relaxed"
+                 >
+                   Convert between length, weight, volume, temperature, area, and
+                   more. Instant results, fully offline.
+                 </p>
+                 <span
+                   class="inline-flex items-center text-xs font-semibold text-indigo-600 dark:text-indigo-400 mt-4 group-hover:translate-x-1 transition-transform"
+                   >Use Tool &rarr;</span
+                 >
+               </a>
+               <!-- Tool -->
+               <a
+                 href="./binary-decimal-converter/"
+                 class="tool-card block p-5 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 hover:border-indigo-500 dark:hover:border-indigo-500 hover:shadow-md focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:outline-none transition duration-200 group"
+                 data-tags="binary decimal converter octal hex bigint math"
+               >
+                 <div class="flex items-center space-x-2">
+                   <span class="text-2xl" aria-hidden="true">💻</span>
+                   <h3
+                     class="text-base font-bold text-slate-800 dark:text-slate-200 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors"
+                   >
+                     Free Binary to Decimal Converter
+                   </h3>
+                 </div>
+                 <p
+                   class="text-xs text-slate-500 dark:text-slate-400 mt-2 leading-relaxed"
+                 >
+                   Convert binary, octal, decimal, and hex numbers in real time
+                   with exact BigInt math. Free.
+                 </p>
+                 <span
+                   class="inline-flex items-center text-xs font-semibold text-indigo-600 dark:text-indigo-400 mt-4 group-hover:translate-x-1 transition-transform"
+                   >Use Tool &rarr;</span
+                 >
+               </a>
+               <!-- Tool -->
+               <a
+                 href="./hex-rgba-converter/"
+                 class="tool-card block p-5 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 hover:border-indigo-500 dark:hover:border-indigo-500 hover:shadow-md focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:outline-none transition duration-200 group"
+                 data-tags="hex rgba color converter hsl wcag contrast"
+               >
+                 <div class="flex items-center space-x-2">
+                   <span class="text-2xl" aria-hidden="true">💻</span>
+                   <h3
+                     class="text-base font-bold text-slate-800 dark:text-slate-200 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors"
+                   >
+                     HEX to RGBA Color Converter
+                   </h3>
+                 </div>
+                 <p
+                   class="text-xs text-slate-500 dark:text-slate-400 mt-2 leading-relaxed"
+                 >
+                   Parse HEX, RGB, RGBA, HSL, or named colors instantly. Live
+                   swatch preview and WCAG contrast. Free.
+                 </p>
+                 <span
+                   class="inline-flex items-center text-xs font-semibold text-indigo-600 dark:text-indigo-400 mt-4 group-hover:translate-x-1 transition-transform"
+                   >Use Tool &rarr;</span
+                 >
+               </a>
+             </div>
+           </section>
+
+<!-- Category 5: Everyday & Niche Utilities -->
           <section
             class="category-section"
             data-cat="niche"
@@ -2292,11 +2369,11 @@
             </div>
           </section>
 
-          <!-- Category: Industrial & Engineering -->
+          <!-- Category: Industrial -->
           <section
             class="category-section"
-            data-cat="industrial-engineering"
-            aria-labelledby="category-title-industrial-engineering"
+            data-cat="industrial"
+             aria-labelledby="category-title-industrial"
           >
             <div class="flex items-center space-x-3 mb-4">
               <div
@@ -2324,7 +2401,7 @@
                 </svg>
               </div>
               <h2
-                id="category-title-industrial-engineering"
+                id="category-title-industrial"
                 class="text-xl font-bold text-slate-900 dark:text-white"
               >
                 Industrial & Engineering
