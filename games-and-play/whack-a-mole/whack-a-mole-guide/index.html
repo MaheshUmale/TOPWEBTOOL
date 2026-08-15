@@ -1,6 +1,21 @@
 <!doctype html>
 <html lang="en">
   <head>
+  <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
+  <script>
+    (function () {
+      try {
+        const theme = localStorage.getItem("theme");
+        if (theme === "dark") {
+          document.documentElement.classList.add("dark");
+          document.documentElement.classList.remove("light");
+        } else {
+          document.documentElement.classList.remove("dark");
+          document.documentElement.classList.add("light");
+        }
+      } catch (e) {}
+    })();
+  </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Whack A Mole Guide | TopWebTool</title>
@@ -51,7 +66,35 @@
         ]
       }
     </script>
-  </head>
+    <style>
+    html {
+      background-color: #fff;
+    }
+    html.dark {
+      background-color: #090d16;
+    }
+    body {
+      padding-bottom: 6rem;
+    }
+    #global-header {
+      min-height: 65px;
+    }
+    #global-footer {
+      min-height: 85px;
+    }
+    #trending-sidebar {
+      min-height: 700px;
+    }
+    @media (max-width: 767px) {
+      #global-header {
+        min-height: 200px;
+      }
+      #global-footer {
+        min-height: 120px;
+      }
+    }
+  </style>
+</head>
   <body class="bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 min-h-screen flex flex-col">
     <header id="global-header"></header>
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex-grow">

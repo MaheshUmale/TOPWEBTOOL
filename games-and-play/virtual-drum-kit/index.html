@@ -1,6 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
+  <script>
+    (function () {
+      try {
+        const theme = localStorage.getItem("theme");
+        if (theme === "dark") {
+          document.documentElement.classList.add("dark");
+          document.documentElement.classList.remove("light");
+        } else {
+          document.documentElement.classList.remove("dark");
+          document.documentElement.classList.add("light");
+        }
+      } catch (e) {}
+    })();
+  </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Virtual Drum Kit | TopWebTool</title>
@@ -53,10 +68,36 @@
   <link rel="stylesheet" href="../../styles.css">
   <link rel="stylesheet" href="../../site.min.css">
   <style>
+    html {
+      background-color: #fff;
+    }
+    html.dark {
+      background-color: #090d16;
+    }
+    body {
+      padding-bottom: 6rem;
+    }
+    #global-header {
+      min-height: 65px;
+    }
+    #global-footer {
+      min-height: 85px;
+    }
+    #trending-sidebar {
+      min-height: 700px;
+    }
+    @media (max-width: 767px) {
+      #global-header {
+        min-height: 200px;
+      }
+      #global-footer {
+        min-height: 120px;
+      }
+    }
     .drum-container { max-width: 700px; margin: 0 auto; }
     .drum-controls { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: center; margin-bottom: 1.5rem; }
     .drum-controls label { font-size: 0.875rem; font-weight: 600; color: #475569; }
-    .drum-pad { aspect-ratio: 1; border-radius: 16px; border: 2px solid #e2e8f0; background: linear-gradient(135deg, #f8fafc, #f1f5f9); display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer; transition: all 80ms; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }
+    .drum-pad { border-radius: 16px; border: 2px solid #e2e8f0; background: linear-gradient(135deg, #f8fafc, #f1f5f9); display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer; transition: all 80ms; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); min-height: 100px; }
     .drum-pad:hover { border-color: #4f46e5; transform: translateY(-2px); }
     .drum-pad:active, .drum-pad.hit { border-color: #4f46e5; background: linear-gradient(135deg, #e0e7ff, #c7d2fe); transform: scale(0.95); box-shadow: 0 0 20px rgba(79,70,229,0.3); }
     .dark .drum-pad { background: linear-gradient(135deg, #1e293b, #0f172a); border-color: #334155; }

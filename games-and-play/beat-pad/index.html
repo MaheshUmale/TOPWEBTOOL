@@ -1,6 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
+  <script>
+    (function () {
+      try {
+        const theme = localStorage.getItem("theme");
+        if (theme === "dark") {
+          document.documentElement.classList.add("dark");
+          document.documentElement.classList.remove("light");
+        } else {
+          document.documentElement.classList.remove("dark");
+          document.documentElement.classList.add("light");
+        }
+      } catch (e) {}
+    })();
+  </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Beat Pad | TopWebTool</title>
@@ -53,6 +68,32 @@
   <link rel="stylesheet" href="../../styles.css">
   <link rel="stylesheet" href="../../site.min.css">
   <style>
+    html {
+      background-color: #fff;
+    }
+    html.dark {
+      background-color: #090d16;
+    }
+    body {
+      padding-bottom: 6rem;
+    }
+    #global-header {
+      min-height: 65px;
+    }
+    #global-footer {
+      min-height: 85px;
+    }
+    #trending-sidebar {
+      min-height: 700px;
+    }
+    @media (max-width: 767px) {
+      #global-header {
+        min-height: 200px;
+      }
+      #global-footer {
+        min-height: 120px;
+      }
+    }
     .beatpad-container { max-width: 700px; margin: 0 auto; }
     .pad-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
     .pad { aspect-ratio: 1; border-radius: 16px; border: 2px solid #e2e8f0; background: #f8fafc; cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; transition: transform 80ms ease-out, background-color 80ms ease-out, border-color 80ms ease-out, box-shadow 80ms ease-out; user-select: none; -webkit-tap-highlight-color: transparent; touch-action: manipulation; min-width: 48px; min-height: 48px; }

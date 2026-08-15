@@ -1,6 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
+  <script>
+    (function () {
+      try {
+        const theme = localStorage.getItem("theme");
+        if (theme === "dark") {
+          document.documentElement.classList.add("dark");
+          document.documentElement.classList.remove("light");
+        } else {
+          document.documentElement.classList.remove("dark");
+          document.documentElement.classList.add("light");
+        }
+      } catch (e) {}
+    })();
+  </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tetris | TopWebTool</title>
@@ -53,6 +68,32 @@
   <link rel="stylesheet" href="../../styles.css">
   <link rel="stylesheet" href="../../site.min.css">
   <style>
+    html {
+      background-color: #fff;
+    }
+    html.dark {
+      background-color: #090d16;
+    }
+    body {
+      padding-bottom: 6rem;
+    }
+    #global-header {
+      min-height: 65px;
+    }
+    #global-footer {
+      min-height: 85px;
+    }
+    #trending-sidebar {
+      min-height: 700px;
+    }
+    @media (max-width: 767px) {
+      #global-header {
+        min-height: 200px;
+      }
+      #global-footer {
+        min-height: 120px;
+      }
+    }
     .tetris-container { max-width: 500px; margin: 0 auto; display: flex; gap: 20px; justify-content: center; align-items: flex-start; }
     canvas { border-radius: 8px; border: 2px solid #e2e8f0; }
     .dark canvas { border-color: #1e293b; }
@@ -116,7 +157,7 @@
       current = { shape: SHAPES[type], color: COLORS[type-1], x: Math.floor(COLS/2) - Math.floor(SHAPES[type][0].length/2), y: 0 };
     }
     function nextPiece() { const type = Math.floor(Math.random() * 7) + 1; next = { shape: SHAPES[type], color: COLORS[type-1] }; }
-    function collide(shape, offsetX, offsetY) { for (let r = 0; r < shape.length; r++) for (let c = 0; c < shape[r].length; c++) if (shape[r][c]) { const newX = offsetX + c, newY = offsetY + r; if (newX < 0 || newX >= COLS || newY >= ROWS) return true; if (newY >= 0 && board[newY][newX]) return true; } } return false; }
+    function collide(shape, offsetX, offsetY) { for (let r = 0; r < shape.length; r++) for (let c = 0; c < shape[r].length; c++) if (shape[r][c]) { const newX = offsetX + c, newY = offsetY + r; if (newX < 0 || newX >= COLS || newY >= ROWS) return true; if (newY >= 0 && board[newY][newX]) return true; } return false; }
     function merge() { for (let r = 0; r < current.shape.length; r++) for (let c = 0; c < current.shape[r].length; c++) if (current.shape[r][c]) { const y = current.y + r, x = current.x + c; if (y >= 0) board[y][x] = current.color; } }
     function clearLines() { let cleared = 0; for (let r = ROWS - 1; r >= 0; r--) { if (board[r].every(c => c)) { board.splice(r, 1); board.unshift(Array(COLS).fill('')); cleared++; r++; } } if (cleared) { lines += cleared; score += cleared * 100 * level; level = Math.floor(lines / 10) + 1; document.getElementById('score').textContent = score; document.getElementById('level').textContent = level; document.getElementById('lines').textContent = lines; playBeep(cleared > 1 ? 1000 : 600, 'sine', 0.15); } }
     function rotate() { const shape = current.shape[0].map((_, i) => current.shape.map(row => row[i]).reverse()); if (!collide(shape, current.x, current.y)) current.shape = shape; }

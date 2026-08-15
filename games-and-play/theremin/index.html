@@ -1,6 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
+  <script>
+    (function () {
+      try {
+        const theme = localStorage.getItem("theme");
+        if (theme === "dark") {
+          document.documentElement.classList.add("dark");
+          document.documentElement.classList.remove("light");
+        } else {
+          document.documentElement.classList.remove("dark");
+          document.documentElement.classList.add("light");
+        }
+      } catch (e) {}
+    })();
+  </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Theremin | TopWebTool</title>
@@ -53,6 +68,32 @@
   <link rel="stylesheet" href="../../styles.css">
   <link rel="stylesheet" href="../../site.min.css">
   <style>
+    html {
+      background-color: #fff;
+    }
+    html.dark {
+      background-color: #090d16;
+    }
+    body {
+      padding-bottom: 6rem;
+    }
+    #global-header {
+      min-height: 65px;
+    }
+    #global-footer {
+      min-height: 85px;
+    }
+    #trending-sidebar {
+      min-height: 700px;
+    }
+    @media (max-width: 767px) {
+      #global-header {
+        min-height: 200px;
+      }
+      #global-footer {
+        min-height: 120px;
+      }
+    }
     .theremin-container { max-width: 900px; margin: 0 auto; }
     .theremin-canvas-wrap { position: relative; border-radius: 16px; overflow: hidden; border: 2px solid #e2e8f0; background: #0f172a; cursor: crosshair; }
     .dark .theremin-canvas-wrap { border-color: #1e293b; }
@@ -97,11 +138,12 @@
                 <button class="wave-btn" data-wave="triangle" onclick="setWaveform('triangle')">Triangle</button>
                 <button class="wave-btn" data-wave="sawtooth" onclick="setWaveform('sawtooth')">Sawtooth</button>
               </div>
+              <button class="btn btn-secondary" onclick="stopSound()" style="padding:6px 16px;font-size:0.875rem;">Stop</button>
               <div class="theremin-display text-sm text-slate-600 dark:text-slate-400">
                 Pitch: <span id="pitchDisplay" class="pitch-val font-semibold">--</span> Hz &nbsp;|&nbsp; Volume: <span id="volDisplay" class="vol-val font-semibold">--</span>%
               </div>
             </div>
-            <div class="start-hint">Move mouse to play, click to start sound</div>
+            <div class="start-hint">Move mouse to play, click canvas or press Space to start • Press Stop or ESC to silence</div>
           </div>
         </div>
       </div>
@@ -178,6 +220,15 @@
       if (osc) osc.type = w;
       saveSettings();
     }
+    function stopSound() {
+      if (gainNode && audioCtx) {
+        gainNode.gain.setTargetAtTime(0, audioCtx.currentTime, 0.05);
+      }
+      started = false;
+      targetVol = 0;
+      document.getElementById('pitchDisplay').textContent = '--';
+      document.getElementById('volDisplay').textContent = '--';
+    }
     setWaveform(waveform);
 
     function freqFromX(x) { return 65 + (x / W) * 1560; }
@@ -206,7 +257,18 @@
 
     document.addEventListener('keydown', e => {
       if (e.key in keysDown) keysDown[e.key] = true;
-      if (e.key === ' ') { e.preventDefault(); if (!started) initAudio(); else if (audioCtx && audioCtx.state === 'suspended') audioCtx.resume(); }
+      if (e.key === ' ') {
+        e.preventDefault();
+        if (started && (!gainNode || (audioCtx && gainNode.gain.value < 0.01))) {
+          initAudio();
+          if (audioCtx.state === 'suspended') audioCtx.resume();
+        } else if (started) {
+          stopSound();
+        } else {
+          initAudio();
+          if (audioCtx.state === 'suspended') audioCtx.resume();
+        }
+      }
     });
     document.addEventListener('keyup', e => { if (e.key in keysDown) keysDown[e.key] = false; });
 

@@ -1,6 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
+  <script>
+    (function () {
+      try {
+        const theme = localStorage.getItem("theme");
+        if (theme === "dark") {
+          document.documentElement.classList.add("dark");
+          document.documentElement.classList.remove("light");
+        } else {
+          document.documentElement.classList.remove("dark");
+          document.documentElement.classList.add("light");
+        }
+      } catch (e) {}
+    })();
+  </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ukulele | TopWebTool</title>
@@ -53,9 +68,35 @@
   <link rel="stylesheet" href="../../styles.css">
   <link rel="stylesheet" href="../../site.min.css">
   <style>
+    html {
+      background-color: #fff;
+    }
+    html.dark {
+      background-color: #090d16;
+    }
+    body {
+      padding-bottom: 6rem;
+    }
+    #global-header {
+      min-height: 65px;
+    }
+    #global-footer {
+      min-height: 85px;
+    }
+    #trending-sidebar {
+      min-height: 700px;
+    }
+    @media (max-width: 767px) {
+      #global-header {
+        min-height: 200px;
+      }
+      #global-footer {
+        min-height: 120px;
+      }
+    }
     .ukulele-container { max-width: 700px; margin: 0 auto; }
     .ukulele-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem; }
-    .ukulele-chord { font-size: 2rem; font-weight: 800; color: #fbbf24; min-height: 2.5rem; text-align: center; }
+    .ukulele-chord { font-size: 2rem; font-weight: 800; color: #fbbf24; min-height: 2.5rem; min-width: 3rem; text-align: center; line-height: 2.5rem; }
     .dark .ukulele-chord { color: #f59e0b; }
     .ukulele-volume { font-size: 0.875rem; color: #64748b; }
     .dark .ukulele-volume { color: #94a3b8; }
