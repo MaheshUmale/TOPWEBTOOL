@@ -131,6 +131,11 @@ TopWebTool is a 100% client-side web utility directory offering 85 free online t
 - [Soundboard](https://topwebtool.com/games-and-play/soundboard/) — Trigger 9 sound effects with keys Q-C. Categories include SFX, animals, nature, and comedy sounds.
 - [Beat Sequencer](https://topwebtool.com/games-and-play/beat-sequencer/) — 16-step drum sequencer with 4 instruments. Click to program beats, Space to play, presets included.
 - [Theremin](https://topwebtool.com/games-and-play/theremin/) — Play a theremin by moving your mouse. X controls pitch, Y controls volume. Weird and wonderful.
+- [Shape Clicker](https://topwebtool.com/games-and-play/shape-clicker/) — Test your reflexes! Click the target shape before time runs out. 60-second arcade challenge.
+- [Emoji Catcher](https://topwebtool.com/games-and-play/emoji-catcher/) — Catch falling emojis with your basket. Avoid bombs! Arcade fun with combos and lives.
+- [Quiz Game](https://topwebtool.com/games-and-play/quiz-game/) — Test your knowledge with multiple choice questions. 10 rounds across General Knowledge, Science, History, Geography.
+- [Flappy Bird](https://topwebtool.com/games-and-play/flappy-bird/) — Classic flappy bird endless runner. Tap or press Space to fly through pipes. How high can you score?
+- [Sliding Puzzle](https://topwebtool.com/games-and-play/sliding-puzzle/) — Solve the number sliding puzzle. 3x3 to 5x5 grids. Click or use arrow keys to slide tiles.
 
 ## Legal & Info Pages
 

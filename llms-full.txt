@@ -1142,3 +1142,38 @@ TopWebTool is a curated directory of 84+ free, 100% client-side web utilities de
 - Heading: Theremin
 - Description: Play a theremin by moving your mouse. X controls pitch, Y controls volume. Weird and wonderful.
 - Sections: Mouse X Pitch; Mouse Y Volume; Continuous Sound
+
+### Shape Clicker
+
+- URL: https://topwebtool.com/games-and-play/shape-clicker/
+- Heading: Shape Clicker
+- Description: Test your reflexes! Click the target shape before time runs out. 60-second arcade challenge.
+- Sections: Target Shape Display; Timer; Score & Accuracy; Difficulty Ramp; Sound Effects
+
+### Emoji Catcher
+
+- URL: https://topwebtool.com/games-and-play/emoji-catcher/
+- Heading: Emoji Catcher
+- Description: Catch falling emojis with your basket. Avoid bombs! Arcade fun with combos and lives.
+- Sections: Falling Emojis; Basket Controls; Combo System; Lives & Bombs; High Score
+
+### Quiz Game
+
+- URL: https://topwebtool.com/games-and-play/quiz-game/
+- Heading: Quiz Game
+- Description: Test your knowledge with multiple choice questions. 10 rounds across General Knowledge, Science, History, Geography.
+- Sections: Question Display; 4 Answer Choices; Score & Streak; 10 Rounds; Category Mix
+
+### Flappy Bird
+
+- URL: https://topwebtool.com/games-and-play/flappy-bird/
+- Heading: Flappy Bird
+- Description: Classic flappy bird endless runner. Tap or press Space to fly through pipes. How high can you score?
+- Sections: Bird Physics; Pipe Generation; Score Tracking; Tap/Space Controls; Collision Detection
+
+### Sliding Puzzle
+
+- URL: https://topwebtool.com/games-and-play/sliding-puzzle/
+- Heading: Sliding Puzzle
+- Description: Solve the number sliding puzzle. 3x3 to 5x5 grids. Click or use arrow keys to slide tiles.
+- Sections: Numbered Tile Grid; Grid Size Selector; Move Counter; Click/Keyboard Controls; Win Detection
