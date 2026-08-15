@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
+  <script>
+    (function () {
+      try {
+        const theme = localStorage.getItem("theme");
+        if (theme === "dark") {
+          document.documentElement.classList.add("dark");
+          document.documentElement.classList.remove("light");
+        } else {
+          document.documentElement.classList.remove("dark");
+          document.documentElement.classList.add("light");
+        }
+      } catch (e) {}
+    })();
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dice Roll Simulator | TopWebTool</title>
+  <meta name="description" content="Roll virtual dice online. Choose 1 or 2 dice, click or press Space to roll with 3D animation, see totals and roll history." />
+  <link rel="canonical" href="https://topwebtool.com/games-and-play/dice-roll-simulator/" />
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+  <link rel="apple-touch-icon" href="../../apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png" />
+  <link rel="manifest" href="../../site.webmanifest" />
+  <meta name="theme-color" content="#090d16" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="TopWebTool" />
+  <meta property="og:title" content="Dice Roll Simulator | TopWebTool" />
+  <meta property="og:description" content="Roll virtual dice online. Choose 1 or 2 dice, click or press Space to roll with 3D animation, see totals and roll history." />
+  <meta property="og:url" content="https://topwebtool.com/games-and-play/dice-roll-simulator/" />
+  <meta property="og:image" content="https://topwebtool.com/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Dice Roll Simulator | TopWebTool" />
+  <meta name="twitter:description" content="Roll virtual dice online. Choose 1 or 2 dice, click or press Space to roll with 3D animation, see totals and roll history." />
+  <meta name="twitter:image" content="https://topwebtool.com/og-image.png" />
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Dice Roll Simulator | TopWebTool",
+      "url": "https://topwebtool.com/games-and-play/dice-roll-simulator/",
+      "applicationCategory": "GameApplication",
+      "operatingSystem": "Windows, macOS, Linux, Android, iOS",
+      "browserRequirements": "Requires HTML5 compatible web browser",
+      "description": "Roll virtual dice online. Choose 1 or 2 dice, click or press Space to roll with 3D animation, see totals and roll history.",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://topwebtool.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Games & Play", "item": "https://topwebtool.com/games-and-play/" },
+        { "@type": "ListItem", "position": 3, "name": "Dice Roll Simulator", "item": "https://topwebtool.com/games-and-play/dice-roll-simulator/" }
+      ]
+    }
+  </script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="../../site.min.css">
+  <style>
+    html {
+      background-color: #fff;
+    }
+    html.dark {
+      background-color: #090d16;
+    }
+    body {
+      padding-bottom: 6rem;
+    }
+    #global-header {
+      min-height: 65px;
+    }
+    #global-footer {
+      min-height: 85px;
+    }
+    #trending-sidebar {
+      min-height: 700px;
+    }
+    @media (max-width: 767px) {
+      #global-header {
+        min-height: 200px;
+      }
+      #global-footer {
+        min-height: 120px;
+      }
+    }
+    .dice-container { max-width: 560px; margin: 0 auto; }
+    .dice-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem; }
+    .dice-total { font-size: 1.5rem; font-weight: 700; color: #4f46e5; }
+    .dark .dice-total { color: #818cf8; }
+    .dice-count-selector { display: flex; gap: 8px; }
+    .count-btn { padding: 6px 14px; border-radius: 9999px; font-size: 0.8rem; font-weight: 600; border: 1px solid #e2e8f0; background: white; color: #475569; cursor: pointer; }
+    .dark .count-btn { background: #0f172a; border-color: #1e293b; color: #94a3b8; }
+    .count-btn.active { background: #4f46e5; color: white; border-color: #4f46e5; }
+    .roll-btn { padding: 12px 32px; border-radius: 12px; font-size: 1rem; font-weight: 700; border: 2px solid transparent; background: linear-gradient(135deg, #4f46e5, #0ea5e9); color: white; cursor: pointer; transition: transform .1s; }
+    .roll-btn:hover { transform: translateY(-1px); }
+    .roll-btn:active { transform: scale(0.97); }
+    .roll-btn:disabled { opacity: .6; cursor: not-allowed; }
+    .controls-hint { text-align: center; margin-top: 1rem; font-size: 0.875rem; color: #94a3b8; }
+    .dice-display { display: flex; justify-content: center; align-items: center; gap: 34px; margin: 1.5rem 0; perspective: 900px; }
+    .die-wrapper { perspective: 900px; }
+    .die {
+      width: 90px; height: 90px;
+      transform-style: preserve-3d;
+      transform: rotateX(0deg) rotateY(0deg);
+      transition: transform 0.45s cubic-bezier(.17,.67,.83,.57);
+    }
+    .die.rolling { transition: transform 0.55s linear; }
+    .die-face {
+      position: absolute; inset: 0;
+      backface-visibility: hidden;
+      border-radius: 14px;
+      background: white;
+      box-shadow: 0 8px 22px rgba(0,0,0,0.18);
+      display: flex; flex-wrap: wrap; align-content: space-around; justify-content: space-around;
+      padding: 22px; box-sizing: border-box;
+    }
+    .dark .die-face { background: #f1f5f9; }
+    .pip { width: 14px; height: 14px; border-radius: 50%; background: #0f172a; box-shadow: inset 0 1px 2px rgba(0,0,0,.25); }
+    .pip.pos-tl { align-self: flex-start; justify-self: flex-start; }
+    .pip.pos-tr { align-self: flex-start; justify-self: flex-end; }
+    .pip.pos-bl { align-self: flex-end; justify-self: flex-start; }
+    .pip.pos-br { align-self: flex-end; justify-self: flex-end; }
+    .pip.pos-center { align-self: center; justify-self: center; }
+    .pip.pos-ml { align-self: center; justify-self: flex-start; }
+    .pip.pos-mr { align-self: center; justify-self: flex-end; }
+    .dice-history { margin-top: 1rem; }
+    .dice-history h3 { font-size: 0.9rem; color: #64748b; margin-bottom: 0.5rem; }
+    .dark .dice-history h3 { color: #94a3b8; }
+    .history-list { list-style: none; padding: 0; margin: 0; max-height: 220px; overflow-y: auto; }
+    .history-item { padding: 6px 10px; border-bottom: 1px solid #e2e8f0; font-size: 0.85rem; color: #475569; display: flex; justify-content: space-between; }
+    .dark .history-item { border-color: #1e293b; color: #94a3b8; }
+    .history-vals { font-family: ui-monospace, monospace; }
+    .stats-row { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+    .star-toggle { background: none; border: none; cursor: pointer; font-size: 1.1rem; color: #d4d4d4; }
+    .star-toggle.favorited { color: #fbbf24; }
+  </style>
+</head>
+<body>
+  <header id="global-header"></header>
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <div class="grid grid-cols-1 lg:grid-cols-4 gap-4">
+      <div class="lg:col-span-3">
+        <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+          <h1 class="text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">Dice Roll Simulator</h1>
+          <p class="mt-2 text-base text-slate-500 dark:text-slate-400">Roll one or two virtual dice with a 3D animation. Press Space or click to roll and track your history.</p>
+        </div>
+        <div class="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-xl p-4 mt-4">
+          <p class="text-sm text-amber-800 dark:text-amber-200"><strong>How to Play:</strong> Objective: Roll dice and read the result. Controls: Click the Roll button or press Spacebar to roll. Choose 1 or 2 dice via the selector. Total is shown for two-dice mode.</p>
+        </div>
+        <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm mt-4">
+          <div class="dice-container">
+            <div class="dice-header">
+              <div class="stats-row">
+                <div class="dice-total">Total: <span id="diceTotal">0</span></div>
+                <div class="text-sm text-slate-500 dark:text-slate-400">Rolls: <span id="diceRolls">0</span></div>
+                <button class="star-toggle" id="favToggle" title="Favorite this roll">&#9733;</button>
+              </div>
+              <div class="dice-count-selector">
+                <button class="count-btn active" data-count="1" onclick="setDiceCount(1)">1 Die</button>
+                <button class="count-btn" data-count="2" onclick="setDiceCount(2)">2 Dice</button>
+              </div>
+            </div>
+            <div class="dice-display" id="diceDisplay"></div>
+            <div class="controls-hint">Press Space or click to roll</div>
+            <button class="roll-btn" id="rollBtn" onclick="rollDice()">Roll</button>
+            <div class="dice-history">
+              <h3>Recent Rolls</h3>
+              <ul class="history-list" id="historyList"></ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="lg:col-span-1">
+        <div id="trending-sidebar"></div>
+      </div>
+    </div>
+  </main>
+  <footer id="global-footer"></footer>
+  <script src="../../global.js" defer></script>
+  <script src="../../twt-shell.js" defer></script>
+  <script src="../../js/context-engine.js" defer></script>
+  <script>
+    const DIE_ROTATIONS = {
+      1: 'rotateX(0deg) rotateY(0deg)',
+      2: 'rotateY(-90deg)',
+      3: 'rotateX(-90deg)',
+      4: 'rotateX(90deg)',
+      5: 'rotateY(90deg)',
+      6: 'rotateY(180deg)'
+    };
+    const PIP_LAYOUTS = {
+      1: ['center'],
+      2: ['tl', 'br'],
+      3: ['tl', 'center', 'br'],
+      4: ['tl', 'tr', 'bl', 'br'],
+      5: ['tl', 'tr', 'bl', 'br', 'center'],
+      6: ['tl', 'ml', 'bl', 'tr', 'mr', 'br']
+    };
+    const STORAGE_KEY = 'topwebtool-dice';
+    let diceCount = 2;
+    let lastRoll = [];
+    let totalRolls = 0;
+    let favorites = [];
+    const storage = {
+      load() {
+        try {
+          const d = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+          totalRolls = d.totalRolls || 0;
+          favorites = d.favorites || [];
+        } catch (e) {}
+      },
+      save() {
+        try { localStorage.setItem(STORAGE_KEY, JSON.stringify({ totalRolls, favorites })); } catch (e) {}
+      }
+    };
+    function rand(min, max) {
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+    function buildDie() {
+      const die = document.createElement('div');
+      die.className = 'die';
+      die.setAttribute('data-rolling', 'false');
+      die.style.transform = 'rotateX(0deg) rotateY(0deg)';
+      for (let n = 1; n <= 6; n++) {
+        const face = document.createElement('div');
+        face.className = 'die-face face-' + n;
+        face.setAttribute('data-value', n);
+        const layout = PIP_LAYOUTS[n];
+        const posMap = { tl: 'pos-tl', tr: 'pos-tr', bl: 'pos-bl', br: 'pos-br', center: 'pos-center', ml: 'pos-ml', mr: 'pos-mr' };
+        layout.forEach(code => {
+          const pip = document.createElement('div');
+          pip.className = 'pip ' + posMap[code];
+          face.appendChild(pip);
+        });
+        die.appendChild(face);
+      }
+      return die;
+    }
+    function renderDice() {
+      const display = document.getElementById('diceDisplay');
+      display.innerHTML = '';
+      display.className = 'dice-display';
+      const count = parseInt(diceCount);
+      for (let i = 0; i < count; i++) {
+        const wrapper = document.createElement('div');
+        wrapper.className = 'die-wrapper';
+        const die = buildDie();
+        die.setAttribute('data-die', i);
+        wrapper.appendChild(die);
+        display.appendChild(wrapper);
+      }
+      updateTotal();
+    }
+    function setDieValue(dieEl, value) {
+      dieEl.style.transform = DIE_ROTATIONS[value];
+      dieEl.setAttribute('data-value', value);
+      dieEl.setAttribute('data-rolling', 'false');
+      dieEl.classList.remove('rolling');
+    }
+    function updateTotal() {
+      const total = lastRoll.reduce((a, b) => a + b, 0);
+      document.getElementById('diceTotal').textContent = total;
+      document.getElementById('diceRolls').textContent = totalRolls;
+      const fav = document.getElementById('favToggle');
+      if (lastRoll.length && favorites.includes(lastRoll.join(','))) {
+        fav.classList.add('favorited');
+      } else {
+        fav.classList.remove('favorited');
+      }
+    }
+    function addToHistory() {
+      const list = document.getElementById('historyList');
+      const entry = document.createElement('li');
+      entry.className = 'history-item';
+      const vals = lastRoll.map(v => '<span class="history-vals">' + v + '</span>').join(' + ');
+      const total = lastRoll.reduce((a, b) => a + b, 0);
+      entry.innerHTML = vals + ' <span class="history-vals">= ' + total + '</span>';
+      list.prepend(entry);
+      while (list.children.length > 12) list.removeChild(list.lastChild);
+    }
+    function playRollSound() {
+      try {
+        const ctx = new (window.AudioContext || window.webkitAudioContext)();
+        const bufLen = ctx.sampleRate * 0.06;
+        const buf = ctx.createBuffer(1, bufLen, ctx.sampleRate);
+        const data = buf.getChannelData(0);
+        for (let i = 0; i < bufLen; i++) {
+          data[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / bufLen, 3);
+        }
+        const src = ctx.createBufferSource();
+        src.buffer = buf;
+        const gain = ctx.createGain();
+        gain.gain.setValueAtTime(0.18, ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.06);
+        src.connect(gain); gain.connect(ctx.destination);
+        src.start(); src.stop(ctx.currentTime + 0.06);
+      } catch (e) {}
+    }
+    function rollDice() {
+      const rollBtn = document.getElementById('rollBtn');
+      rollBtn.disabled = true;
+      const display = document.getElementById('diceDisplay');
+      const dice = display.querySelectorAll('.die');
+      dice.forEach((die, i) => {
+        die.classList.add('rolling');
+        die.setAttribute('data-rolling', 'true');
+        const spinX = 360 + Math.floor(Math.random() * 360);
+        const spinY = 360 + Math.floor(Math.random() * 360);
+        die.style.transform = 'rotateX(' + spinX + 'deg) rotateY(' + spinY + 'deg)';
+      });
+      setTimeout(() => {
+        lastRoll = [];
+        dice.forEach((die, i) => {
+          const val = rand(1, 6);
+          lastRoll.push(val);
+          setTimeout(() => { setDieValue(die, val); }, i * 80);
+          if (i === dice.length - 1) {
+            setTimeout(() => {
+              totalRolls += 1;
+              storage.save();
+              addToHistory();
+              updateTotal();
+              rollBtn.disabled = false;
+            }, 120);
+          }
+        });
+      }, 250);
+      playRollSound();
+    }
+    function setDiceCount(n) {
+      diceCount = n;
+      document.querySelectorAll('.count-btn').forEach(b => b.classList.toggle('active', parseInt(b.dataset.count) === n));
+      renderDice();
+    }
+    function toggleFav() {
+      if (!lastRoll.length) return;
+      const key = lastRoll.join(',');
+      const idx = favorites.indexOf(key);
+      if (idx >= 0) {
+        favorites.splice(idx, 1);
+      } else {
+        favorites.push(key);
+      }
+      storage.save();
+      updateTotal();
+    }
+    document.addEventListener('keydown', (e) => {
+      if (document.activeElement && (document.activeElement.tagName === 'BUTTON' || /input|textarea/i.test(document.activeElement.tagName))) return;
+      if (e.code === 'Space') {
+        e.preventDefault();
+        if (!document.getElementById('rollBtn').disabled) rollDice();
+        return;
+      }
+    });
+    window.addEventListener('load', () => {
+      storage.load();
+      document.getElementById('diceRolls').textContent = totalRolls;
+      document.getElementById('favToggle').addEventListener('click', toggleFav);
+      setDiceCount(diceCount);
+      const urlCount = parseInt(new URLSearchParams(window.location.search).get('dice') || '0');
+      if (urlCount === 1 || urlCount === 2) setDiceCount(urlCount);
+    });
+  </script>
+</body>
+</html>

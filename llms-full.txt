@@ -1018,6 +1018,13 @@ TopWebTool is a curated directory of 84+ free, 100% client-side web utilities de
 - Description: Classic 3x3 strategy game. Play against a friend or challenge the AI.
 - Sections: Game Board; Score Tracking; AI Mode; Confetti Win Animation; Sound Effects
 
+### Dice Roll Simulator
+
+- URL: https://topwebtool.com/games-and-play/dice-roll-simulator/
+- Heading: Dice Roll Simulator
+- Description: Roll virtual dice with a CSS 3D animation. Choose 1 or 2 dice, click or press Space to roll, and track your roll history with localStorage.
+- Sections: 3D Dice Display; 1 or 2 Dice Mode; Space/Click Roll; Random Result Animation; Total Score; Roll History; Sound Effect; localStorage Favorites
+
 ### Snake Game
 
 - URL: https://topwebtool.com/games-and-play/snake-game/

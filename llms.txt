@@ -102,6 +102,7 @@ TopWebTool is a 100% client-side web utility directory offering 85 free online t
 ## Games & Play
 
 - [Tic Tac Toe](https://topwebtool.com/games-and-play/tic-tac-toe/) — Classic 3x3 strategy game. Play against a friend or challenge the AI.
+- [Dice Roll Simulator](https://topwebtool.com/games-and-play/dice-roll-simulator/) — Roll virtual dice with 3D animation. Choose 1 or 2 dice, click or press Space to roll, and track your roll history.
 - [Snake Game](https://topwebtool.com/games-and-play/snake-game/) — Guide the snake to eat food, grow longer, and beat your high score.
 - [Memory Card Game](https://topwebtool.com/games-and-play/memory-card/) — Flip cards and match pairs. Train your memory with emoji pairs.
 - [Whack A Mole](https://topwebtool.com/games-and-play/whack-a-mole/) — Classic whack-a-mole arcade game with combo multipliers, difficulty ramp, and high score tracking.
