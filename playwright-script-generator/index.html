@@ -140,11 +140,7 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
     <link rel="stylesheet" href="../styles.css">
     <link rel="stylesheet" href="../site.min.css">
-    <noscript>
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
-      <link rel="stylesheet" href="../styles.css">
-      <link rel="stylesheet" href="../site.min.css">
-    </noscript>
+    
       <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3901061173891576" crossorigin="anonymous"></script>
       <script type="application/ld+json">
     {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Why are my tests flaky?", "acceptedAnswer": {"@type": "Answer", "text": "Usually sleeps racing slow responses or brittle CSS. Auto-waiting assertions plus role-based selectors remove the races."}}, {"@type": "Question", "name": "Which selector should I prefer?", "acceptedAnswer": {"@type": "Answer", "text": "getByRole and getByLabel first - they test accessibility too. testid when text is volatile. Avoid nth-child chains."}}, {"@type": "Question", "name": "CSS or Playwright locators?", "acceptedAnswer": {"@type": "Answer", "text": "Playwright locators auto-wait and survive refactors; raw CSS is the fallback, not the default."}}]}
@@ -521,6 +517,13 @@
   </div>
 
           </section>
+
+      <div class="mt-8 p-5 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800"><h2 class="text-lg font-bold text-slate-900 dark:text-white">Deep-dive guides</h2><ul class="mt-3 list-disc pl-6 space-y-1 text-sm text-slate-600 dark:text-slate-300">
+        <li><a href="https://topwebtool.com/playwright-script-generator/playwright-script-generator-best-practices/" class="text-indigo-600 dark:text-indigo-400 underline">Best Practices for Playwright & Puppeteer Script Generator
+              Workflows</a></li>
+        <li><a href="https://topwebtool.com/playwright-script-generator/playwright-script-generator-common-errors/" class="text-indigo-600 dark:text-indigo-400 underline">Common Errors in Playwright & Puppeteer Script Generator Output</a></li>
+        <li><a href="https://topwebtool.com/playwright-script-generator/playwright-script-generator-guide/" class="text-indigo-600 dark:text-indigo-400 underline">The Ultimate Guide to Playwright & Puppeteer Script Generator</a></li>
+      </ul></div>
     </main>
 
     <footer id="global-footer"></footer>

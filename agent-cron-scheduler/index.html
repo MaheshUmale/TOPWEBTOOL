@@ -137,11 +137,7 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
     <link rel="stylesheet" href="../styles.css">
     <link rel="stylesheet" href="../site.min.css">
-    <noscript>
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
-      <link rel="stylesheet" href="../styles.css">
-      <link rel="stylesheet" href="../site.min.css">
-    </noscript>
+    
       <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3901061173891576" crossorigin="anonymous"></script>
       <script type="application/ld+json">
     {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How do I run a job every 15 minutes?", "acceptedAnswer": {"@type": "Answer", "text": "*/15 * * * * - fires at :00,:15,:30,:45. Note */N restarts each hour, so */45 is NOT every 45 minutes."}}, {"@type": "Question", "name": "Day of month and day of week together?", "acceptedAnswer": {"@type": "Answer", "text": "Standard cron ORs them: 0 0 1 * 1 fires Mondays AND the 1st. Set one field, star the other."}}, {"@type": "Question", "name": "Why did my cron job not run?", "acceptedAnswer": {"@type": "Answer", "text": "Minimal environment: use absolute paths, log output, check the daemon. The silent failure is the classic."}}]}
@@ -683,6 +679,10 @@
   </div>
 
           </section>
+
+      <div class="mt-8 p-5 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800"><h2 class="text-lg font-bold text-slate-900 dark:text-white">Deep-dive guides</h2><ul class="mt-3 list-disc pl-6 space-y-1 text-sm text-slate-600 dark:text-slate-300">
+        <li><a href="https://topwebtool.com/agent-cron-scheduler/agent-cron-scheduler-future-trends/" class="text-indigo-600 dark:text-indigo-400 underline">Future Trends in the Cron-Job & Automation Scheduler Space</a></li>
+      </ul></div>
     </main>
 
     <footer id="global-footer"></footer>
