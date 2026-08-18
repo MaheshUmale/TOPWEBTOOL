@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
   <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
   <script>
     (function () {
@@ -16,7 +17,7 @@
       } catch (e) {}
     })();
   </script>
-  <meta charset="UTF-8">
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Chord Progression Player | TopWebTool</title>
   <meta name="description" content="Play common chord progressions with a built-in metronome. Use keys 1-9 to trigger chords or press Space to loop a progression." />
@@ -122,8 +123,27 @@
       .chord-grid { grid-template-columns: repeat(3, 1fr); }
     }
   </style>
+<style>
+    .game-guide h2{font-size:1.05rem;font-weight:800;color:#0f172a;margin-top:1.25rem}
+    html.dark .game-guide h2{color:#fff}
+    .game-guide p,.game-guide li{font-size:.875rem;line-height:1.6;color:#475569}
+    html.dark .game-guide p,html.dark .game-guide li{color:#cbd5e1}
+    .game-guide ul{list-style:disc;padding-left:1.25rem;margin:.5rem 0}
+    .game-guide details{border:1px solid #e2e8f0;border-radius:.75rem;padding:.75rem 1rem;margin-top:.5rem;background:#fff}
+    html.dark .game-guide details{background:#0f172a;border-color:#1e293b}
+    .game-guide summary{font-size:.85rem;font-weight:700;cursor:pointer;color:#0f172a}
+    html.dark .game-guide summary{color:#e2e8f0}
+    .game-guide .gg-title{font-size:1.25rem;font-weight:800;color:#0f172a}
+    html.dark .game-guide .gg-title{color:#fff}
+  </style>
+  <style>
+.twt-game-exit{position:fixed;top:0.6rem;right:0.6rem;z-index:2147483647;display:inline-flex;align-items:center;gap:.4rem;background:#0f172a;color:#fff;border:1px solid #334155;border-radius:9999px;padding:.45rem .85rem;font-size:.8rem;font-weight:700;text-decoration:none;box-shadow:0 4px 14px rgba(0,0,0,.35)}
+.twt-game-exit:hover{background:#4f46e5}
+</style>
 </head>
 <body>
+<a class="twt-game-exit" href="https://topwebtool.com/games-and-play/" aria-label="Exit game and return to all games">&#10005; All games</a>
+
   <header id="global-header"></header>
   <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
     <div class="grid grid-cols-1 lg:grid-cols-4 gap-4">
@@ -138,7 +158,7 @@
         <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm mt-4">
           <div class="chord-container">
             <div class="chord-controls">
-              <select id="progressionSelect" class="chord-select">
+              <select id="progressionSelect" class="chord-select" aria-label="ProgressionSelect">
                 <option value="I-IV-V-I">I - IV - V - I (Classic)</option>
                 <option value="ii-V-I">ii - V - I (Jazz turnaround)</option>
                 <option value="I-V-vi-IV">I - V - vi - IV (Pop)</option>
@@ -151,10 +171,10 @@
                 <option value="I-IV-V-vi">I - IV - V - vi</option>
               </select>
               <label style="font-size: 0.875rem; font-weight: 600; color: #475569;">BPM</label>
-              <input type="range" id="bpmSlider" class="chord-slider" min="40" max="200" value="100">
+              <input type="range" id="bpmSlider" class="chord-slider" min="40" max="200" value="100" aria-label="BpmSlider">
               <span id="bpmValue" style="font-weight:700;color:#4f46e5;min-width:48px;">100</span>
               <label style="font-size: 0.875rem; font-weight: 600; color: #475569;">Vol</label>
-              <input type="range" id="volumeSlider" class="chord-slider" min="0" max="100" value="60">
+              <input type="range" id="volumeSlider" class="chord-slider" min="0" max="100" value="60" aria-label="VolumeSlider">
               <button id="playBtn" class="play-btn" onclick="toggleLoop()">▶ Play</button>
             </div>
             <div class="metronome" id="metronome"></div>
@@ -168,6 +188,12 @@
         <div id="trending-sidebar"></div>
       </div>
     </div>
+    <section class="game-guide max-w-3xl mx-auto mt-8 mb-4 p-5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900" aria-label="How to play and tips">
+    <h2 class="gg-title">Chord Progression Player — How to Use It</h2>
+<p><strong>What you have:</strong> an on-screen player for common chord progressions — pick a key, tap a progression like I–V–vi–IV, and hear it played back instantly, synthesized in your browser.</p>
+<h2>Three ways to use it</h2><ul><li><strong>Train your ear:</strong> play the same progression in two keys back-to-back; recognizing the <em>relationships</em> (not the pitches) is the core skill of playing by ear.</li><li><strong>Write songs:</strong> loop a progression, hum over it, and note where your melody wants the chords to change — that tension map is a song skeleton.</li><li><strong>Learn theory painlessly:</strong> compare I–IV–V (classic folk) with ii–V–I (jazz cadence) in the same key and hear what a "cadence" actually is.</li></ul>
+<h2>FAQ</h2><details><summary>What do the Roman numerals mean?</summary><p>They name chords by their scale position: I is the home chord, V the dominant, vi the relative minor. The same numerals work in every key — that is why musicians use them.</p></details><details><summary>Why is I–V–vi–IV everywhere?</summary><p>It balances departure and return perfectly; thousands of hits from "Let It Be" to "Someone Like You" ride some version of it.</p></details>
+  </section>
   </main>
   <div class="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-xl p-4 mt-4">
     <p class="text-sm text-amber-800 dark:text-amber-200"><strong>Instructions:</strong> Use the dropdown to pick a progression. Drag the BPM slider to set tempo. Click Play (or press Space) to loop through the progression automatically. Keys 1 through 9 play each chord individually. Amber highlights show the active chord and current beat.</p>
@@ -397,5 +423,6 @@
     renderProgression();
   })();
   </script>
+<script>document.addEventListener("keydown",function(e){if(e.key==="Escape"){window.location.href="https://topwebtool.com/games-and-play/";}});</script>
 </body>
 </html>

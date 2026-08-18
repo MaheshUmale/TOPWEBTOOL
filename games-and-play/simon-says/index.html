@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
   <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
   <script>
     (function () {
@@ -16,9 +17,9 @@
       } catch (e) {}
     })();
   </script>
-  <meta charset="UTF-8">
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Simon Says | TopWebTool</title>
+  <title>Simon Says Game — Play Free Online Memory Game | TopWebTool</title>
   <meta name="description" content="Test your memory with Simon Says. Repeat the color sequence to advance through increasingly challenging levels." />
   <link rel="canonical" href="https://topwebtool.com/games-and-play/simon-says/" />
   <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
@@ -30,14 +31,14 @@
   <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="TopWebTool" />
-  <meta property="og:title" content="Simon Says | TopWebTool" />
+  <meta property="og:title" content="Simon Says Game — Play Free Online Memory Game | TopWebTool" />
   <meta property="og:description" content="Test your memory with Simon Says. Repeat the color sequence to advance through increasingly challenging levels." />
   <meta property="og:url" content="https://topwebtool.com/games-and-play/simon-says/" />
   <meta property="og:image" content="https://topwebtool.com/og-image.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Simon Says | TopWebTool" />
+  <meta name="twitter:title" content="Simon Says Game — Play Free Online Memory Game | TopWebTool" />
   <meta name="twitter:description" content="Test your memory with Simon Says. Repeat the color sequence to advance through increasingly challenging levels." />
   <meta name="twitter:image" content="https://topwebtool.com/og-image.png" />
   <script type="application/ld+json">
@@ -116,8 +117,27 @@
     .btn-primary { background: #4f46e5; color: white; }
     .btn-primary:hover { background: #4338ca; }
   </style>
+<style>
+    .game-guide h2{font-size:1.05rem;font-weight:800;color:#0f172a;margin-top:1.25rem}
+    html.dark .game-guide h2{color:#fff}
+    .game-guide p,.game-guide li{font-size:.875rem;line-height:1.6;color:#475569}
+    html.dark .game-guide p,html.dark .game-guide li{color:#cbd5e1}
+    .game-guide ul{list-style:disc;padding-left:1.25rem;margin:.5rem 0}
+    .game-guide details{border:1px solid #e2e8f0;border-radius:.75rem;padding:.75rem 1rem;margin-top:.5rem;background:#fff}
+    html.dark .game-guide details{background:#0f172a;border-color:#1e293b}
+    .game-guide summary{font-size:.85rem;font-weight:700;cursor:pointer;color:#0f172a}
+    html.dark .game-guide summary{color:#e2e8f0}
+    .game-guide .gg-title{font-size:1.25rem;font-weight:800;color:#0f172a}
+    html.dark .game-guide .gg-title{color:#fff}
+  </style>
+  <style>
+.twt-game-exit{position:fixed;top:0.6rem;right:0.6rem;z-index:2147483647;display:inline-flex;align-items:center;gap:.4rem;background:#0f172a;color:#fff;border:1px solid #334155;border-radius:9999px;padding:.45rem .85rem;font-size:.8rem;font-weight:700;text-decoration:none;box-shadow:0 4px 14px rgba(0,0,0,.35)}
+.twt-game-exit:hover{background:#4f46e5}
+</style>
 </head>
 <body>
+<a class="twt-game-exit" href="https://topwebtool.com/games-and-play/" aria-label="Exit game and return to all games">&#10005; All games</a>
+
   <header id="global-header"></header>
   <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
     <div class="grid grid-cols-1 lg:grid-cols-4 gap-4">
@@ -149,6 +169,12 @@
       </div>
       <div class="lg:col-span-1"><div id="trending-sidebar"></div></div>
     </div>
+    <section class="game-guide max-w-3xl mx-auto mt-8 mb-4 p-5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900" aria-label="How to play and tips">
+    <h2 class="gg-title">Simon Says — How to Play & Train Your Memory</h2>
+<p><strong>Goal:</strong> watch the sequence of flashing pads, then repeat it in the same order. Each round adds one step, and the game ends at your first mistake — your score is the length of your longest run.</p>
+<h2>Three tips for longer runs</h2><ul><li><strong>Say the colors out loud</strong> as they flash ("blue, red, yellow") — verbal encoding survives longer than visual memory alone.</li><li><strong>Chunk in groups of three or four.</strong> Recall "B-R-Y / G-B-R" as two chunks, not six items.</li><li><strong>Use positions, not colors.</strong> Remembering the physical path (left, top, right) gives your hand a motor plan, which is more reliable under pressure.</li></ul>
+<h2>FAQ</h2><details><summary>What is a good Simon score?</summary><p>Most players reach 6–9 steps; chunking reliably pushes runs past 12. Working-memory research places typical adult span at 5–9 items, so every point beyond 10 is technique.</p></details><details><summary>Does speed increase?</summary><p>In classic Simon the flash tempo quickens as the sequence grows, adding time pressure to memory load.</p></details>
+  </section>
   </main>
   <footer id="global-footer"></footer>
   <script src="../../global.js" defer></script>
@@ -217,5 +243,6 @@
     });
     startBtn.addEventListener('click', () => { startBtn.disabled = true; startGame(); });
   </script>
+<script>document.addEventListener("keydown",function(e){if(e.key==="Escape"){window.location.href="https://topwebtool.com/games-and-play/";}});</script>
 </body>
 </html>

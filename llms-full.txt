@@ -944,12 +944,10 @@ The fastest way to reach us is by email: contact@topwebtool.com. We typically re
 - Description: Play virtual drums with mouse, touch, or keyboard. 8 pads with synthesized sounds and loop recording.
 - Sections: 8 Drum Pads; Kit Selector; Loop Recorder; Keyboard Mapping; Velocity Sensitivity
 ### Rock Paper Scissors
-- URL: https://topwebtool.com/games-and-play/rock-paper-scissors/
 - Heading: Rock Paper Scissors
 - Description: Classic hand game against computer. First to 5 wins the match.
 - Sections: Player vs CPU; Score Tracking; Win Streaks; Keyboard Controls; Sound Effects
 ### Number Guessing Game
-- URL: https://topwebtool.com/games-and-play/number-guessing/
 - Heading: Number Guessing Game
 - Description: Guess the secret number between 1 and 100 with hints and streak tracking.
 - Sections: Secret Number Logic; Guess History; High Score Tracking; Streak System; Input Validation
@@ -975,7 +973,6 @@ The fastest way to reach us is by email: contact@topwebtool.com. We typically re
 - Sections: Canvas Rendering; Paddle Physics; Ball Bounce; Brick Collision; Score and Lives
 
 ### Metronome
-- URL: https://topwebtool.com/games-and-play/metronome/
 - Heading: Metronome
 - Description: Precision online metronome with adjustable BPM, time signatures, and visual beat indicator.
 - Sections: BPM Slider; Time Signature; Tap Tempo; Visual Beats; Sound Modes
@@ -1006,7 +1003,6 @@ TopWebTool is a curated directory of 84+ free, 100% client-side web utilities de
 
 ### Whack A Mole
 
-- URL: https://topwebtool.com/games-and-play/whack-a-mole/
 - Heading: Whack A Mole
 - Description: Classic whack-a-mole arcade game with combo multipliers, difficulty ramp, and high score tracking.
 - Sections: Game HUD; 3x3 Grid; Combo System; Difficulty Ramp; High Score & Persistence
@@ -1020,7 +1016,6 @@ TopWebTool is a curated directory of 84+ free, 100% client-side web utilities de
 
 ### Dice Roll Simulator
 
-- URL: https://topwebtool.com/games-and-play/dice-roll-simulator/
 - Heading: Dice Roll Simulator
 - Description: Roll virtual dice with a CSS 3D animation. Choose 1 or 2 dice, click or press Space to roll, and track your roll history with localStorage.
 - Sections: 3D Dice Display; 1 or 2 Dice Mode; Space/Click Roll; Random Result Animation; Total Score; Roll History; Sound Effect; localStorage Favorites
@@ -1062,42 +1057,36 @@ TopWebTool is a curated directory of 84+ free, 100% client-side web utilities de
 
 ### Beat Pad
 
-- URL: https://topwebtool.com/games-and-play/beat-pad/
 - Heading: Beat Pad
 - Description: 16-pad MPC-style beat maker. Tap pads or use keys A-I and Q-I to trigger drums, percussion, and synth sounds.
 - Sections: 16-Pad Grid; Key Mapping; Sound Engine; Recording
 
 ### Xylophone
 
-- URL: https://topwebtool.com/games-and-play/xylophone/
 - Heading: Xylophone
 - Description: Play a 2-octave xylophone online. Use keys A-; and W E T Y U O P for realistic mallet percussion sounds.
 - Sections: 2-Octave Keys; Mallet Sounds; Visual Feedback
 
 ### Kalimba
 
-- URL: https://topwebtool.com/games-and-play/kalimba/
 - Heading: Kalimba
 - Description: Virtual kalimba (thumb piano) with 8 tines. Pluck notes with keys A-H for relaxing African instrument sounds.
 - Sections: 8 Tines; Key Mapping; Relaxing Tones
 
 ### Trumpet
 
-- URL: https://topwebtool.com/games-and-play/trumpet/
 - Heading: Trumpet
 - Description: Play trumpet online with 3 valves. Press 1/2/3 valves and Space to buzz notes from E4 to C6.
 - Sections: 3 Valves; Space to Buzz; Note Range E4-C6
 
 ### Ukulele
 
-- URL: https://topwebtool.com/games-and-play/ukulele/
 - Heading: Ukulele
 - Description: Virtual ukulele with 4 strings. Pluck with keys A S D F, strum chords, and record your island vibe.
 - Sections: 4 Strings; Key Mapping; Chord Strumming; Recording
 
 ### Online Flute
 
-- URL: https://topwebtool.com/games-and-play/online-flute/
 - Heading: Online Flute
 - Description: Play flute online. Cover holes 1-6 and blow with Space to produce notes from D4 to C6.
 - Sections: 6 Holes; Space to Blow; Note Range D4-C6
@@ -1105,7 +1094,6 @@ TopWebTool is a curated directory of 84+ free, 100% client-side web utilities de
 
 ### Bell Set
 
-- URL: https://topwebtool.com/games-and-play/bell-set/
 - Heading: Bell Set
 - Description: Play a set of 8 bells online. Ring bright bell tones with keys A-H or mouse click.
 - Sections: 8 Bells; Keys A-H; Mouse Click
@@ -1113,7 +1101,6 @@ TopWebTool is a curated directory of 84+ free, 100% client-side web utilities de
 
 ### Bongos
 
-- URL: https://topwebtool.com/games-and-play/bongos/
 - Heading: Bongos
 - Description: Virtual bongos with high and low drums. Hit with keys A/S or mouse for Latin rhythm sounds.
 - Sections: High/Low Drums; Keys A/S; Latin Sounds
@@ -1129,7 +1116,6 @@ TopWebTool is a curated directory of 84+ free, 100% client-side web utilities de
 
 ### Soundboard
 
-- URL: https://topwebtool.com/games-and-play/soundboard/
 - Heading: Soundboard
 - Description: Trigger 9 sound effects with keys Q-C. Categories include SFX, animals, nature, and comedy sounds.
 - Sections: 9 Sound Pads; Keys Q-C; Categories
@@ -1137,7 +1123,6 @@ TopWebTool is a curated directory of 84+ free, 100% client-side web utilities de
 
 ### Beat Sequencer
 
-- URL: https://topwebtool.com/games-and-play/beat-sequencer/
 - Heading: Beat Sequencer
 - Description: 16-step drum sequencer with 4 instruments. Click to program beats, Space to play, presets included.
 - Sections: 16 Steps; 4 Instruments; Space to Play; Presets
@@ -1145,28 +1130,24 @@ TopWebTool is a curated directory of 84+ free, 100% client-side web utilities de
 
 ### Theremin
 
-- URL: https://topwebtool.com/games-and-play/theremin/
 - Heading: Theremin
 - Description: Play a theremin by moving your mouse. X controls pitch, Y controls volume. Weird and wonderful.
 - Sections: Mouse X Pitch; Mouse Y Volume; Continuous Sound
 
 ### Shape Clicker
 
-- URL: https://topwebtool.com/games-and-play/shape-clicker/
 - Heading: Shape Clicker
 - Description: Test your reflexes! Click the target shape before time runs out. 60-second arcade challenge.
 - Sections: Target Shape Display; Timer; Score & Accuracy; Difficulty Ramp; Sound Effects
 
 ### Emoji Catcher
 
-- URL: https://topwebtool.com/games-and-play/emoji-catcher/
 - Heading: Emoji Catcher
 - Description: Catch falling emojis with your basket. Avoid bombs! Arcade fun with combos and lives.
 - Sections: Falling Emojis; Basket Controls; Combo System; Lives & Bombs; High Score
 
 ### Quiz Game
 
-- URL: https://topwebtool.com/games-and-play/quiz-game/
 - Heading: Quiz Game
 - Description: Test your knowledge with multiple choice questions. 10 rounds across General Knowledge, Science, History, Geography.
 - Sections: Question Display; 4 Answer Choices; Score & Streak; 10 Rounds; Category Mix
@@ -1187,56 +1168,48 @@ TopWebTool is a curated directory of 84+ free, 100% client-side web utilities de
 
 ### Ping Pong
 
-- URL: https://topwebtool.com/games-and-play/ping-pong/
 - Heading: Ping Pong
 - Description: Classic paddle vs AI. First to 5 wins. Mouse or keyboard controls.
 - Sections: Paddle vs AI; First to 5 Wins; Mouse/Keyboard Controls; Score Tracking
 
 ### Tilting Maze
 
-- URL: https://topwebtool.com/games-and-play/tilting-maze/
 - Heading: Tilting Maze
 - Description: Roll a ball through the maze by tilting. Avoid holes, reach the goal.
 - Sections: Ball Physics; Maze Tilting; Hole Hazards; Goal Detection
 
 ### Fruit Slicer
 
-- URL: https://topwebtool.com/games-and-play/fruit-slicer/
 - Heading: Fruit Slicer
 - Description: Slice flying fruits, avoid bombs. Swipe or click for combo points.
 - Sections: Flying Fruits; Slice Gestures; Bomb Avoidance; Combo System
 
 ### Archery
 
-- URL: https://topwebtool.com/games-and-play/archery/
 - Heading: Archery
 - Description: Hit the bullseye against wind and distance. 10 arrows per round.
 - Sections: Wind Simulation; Distance Scaling; 10 Arrows Per Round; Bullseye Scoring
 
 ### Tower Blocks
 
-- URL: https://topwebtool.com/games-and-play/tower-blocks/
 - Heading: Tower Blocks
 - Description: Stack blocks as high as you can. Time your drops perfectly. Precision stacking arcade.
 - Sections: Tower Stacking; Perfect Drops; Score Tracking; Game Over
 
 ### Insect Catch
 
-- URL: https://topwebtool.com/games-and-play/insect-catch/
 - Heading: Insect Catch
 - Description: Catch target insects before time runs out. 60-second reflex challenge.
 - Sections: Target Insects; Timer; Combo System; High Score
 
 ### Speak Number Guessing
 
-- URL: https://topwebtool.com/games-and-play/speak-number-guessing/
 - Heading: Speak Number Guessing
 - Description: Guess the secret number using your voice. Say it out loud, get Higher/Lower hints.
 - Sections: Voice Input; Higher/Lower Hints; Attempt Tracking; Best Score
 
 ### Doodle Jump
 
-- URL: https://topwebtool.com/games-and-play/doodle-jump/
 - Heading: Doodle Jump
 - Description: Classic endless jumper. Bounce on platforms, go higher, avoid falling.
 - Sections: Platform Jumping; Moving Platforms; Score Climbing; Game Over
@@ -1288,3 +1261,13 @@ TopWebTool is a curated directory of 84+ free, 100% client-side web utilities de
 - URL: https://topwebtool.com/games-and-play/music-games-benefits/
 - Heading: The Benefits of Music Games for Learning and Fun
 - Description: Discover how music games improve cognitive skills, coordination, and provide educational fun.
+
+## Money Answer Pages
+- [How Much House Can I Afford on a $70K Salary?](https://topwebtool.com/how-much-house-can-i-afford/70k-salary/) — Direct answer with transparent 28/36 vs 43% DTI math, interactive calculator, scenario tables.
+
+## Money Answer Pages
+- [House Affordability by Salary — the ladder](https://topwebtool.com/how-much-house-can-i-afford/) — $50k to $100k: comfortable vs lender-max prices, computed.
+- [Afford on $50k salary](https://topwebtool.com/how-much-house-can-i-afford/50k-salary/) — $145k-$199k with FHA/state-program strategy.
+- [Afford on $60k salary](https://topwebtool.com/how-much-house-can-i-afford/60k-salary/) — $177k-$243k, the first-time-buyer sweet spot.
+- [Afford on $80k salary](https://topwebtool.com/how-much-house-can-i-afford/80k-salary/) — $243k-$330k, duplex and PMI strategy.
+- [Afford on $100k salary](https://topwebtool.com/how-much-house-can-i-afford/100k-salary/) — $311k-$419k, geography and house-hacking.

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
   <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
   <script>
     (function () {
@@ -16,7 +17,7 @@
       } catch (e) {}
     })();
   </script>
-  <meta charset="UTF-8">
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Virtual Drum Kit | TopWebTool</title>
   <meta name="description" content="Play virtual drums with mouse, touch, or keyboard. 8 pads with electronic, acoustic, and hip-hop kits. Record and loop your beats." />
@@ -113,8 +114,27 @@
     .btn-secondary { background: #f1f5f9; color: #475569; }
     .dark .btn-secondary { background: #1e293b; color: #94a3b8; }
   </style>
+  <style>
+    .game-guide h2{font-size:1.05rem;font-weight:800;color:#0f172a;margin-top:1.25rem}
+    html.dark .game-guide h2{color:#fff}
+    .game-guide p,.game-guide li{font-size:.875rem;line-height:1.6;color:#475569}
+    html.dark .game-guide p,html.dark .game-guide li{color:#cbd5e1}
+    .game-guide ul{list-style:disc;padding-left:1.25rem;margin:.5rem 0}
+    .game-guide details{border:1px solid #e2e8f0;border-radius:.75rem;padding:.75rem 1rem;margin-top:.5rem;background:#fff}
+    html.dark .game-guide details{background:#0f172a;border-color:#1e293b}
+    .game-guide summary{font-size:.85rem;font-weight:700;cursor:pointer;color:#0f172a}
+    html.dark .game-guide summary{color:#e2e8f0}
+    .game-guide .gg-title{font-size:1.25rem;font-weight:800;color:#0f172a}
+    html.dark .game-guide .gg-title{color:#fff}
+  </style>
+<style>
+.twt-game-exit{position:fixed;top:0.6rem;right:0.6rem;z-index:2147483647;display:inline-flex;align-items:center;gap:.4rem;background:#0f172a;color:#fff;border:1px solid #334155;border-radius:9999px;padding:.45rem .85rem;font-size:.8rem;font-weight:700;text-decoration:none;box-shadow:0 4px 14px rgba(0,0,0,.35)}
+.twt-game-exit:hover{background:#4f46e5}
+</style>
 </head>
 <body>
+<a class="twt-game-exit" href="https://topwebtool.com/games-and-play/" aria-label="Exit game and return to all games">&#10005; All games</a>
+
   <header id="global-header"></header>
   <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
     <div class="grid grid-cols-1 lg:grid-cols-4 gap-4">
@@ -130,13 +150,13 @@
           <div class="drum-container">
             <div class="drum-controls">
               <label>Kit:</label>
-              <select id="kit" onchange="updateKit()">
+              <select id="kit" onchange="updateKit()" aria-label="Kit">
                 <option value="electronic">Electronic</option>
                 <option value="acoustic">Acoustic</option>
                 <option value="hiphop">Hip-Hop</option>
               </select>
               <label>Volume:</label>
-              <input type="range" id="volume" min="0" max="100" value="70" style="width:120px;">
+              <input type="range" id="volume" min="0" max="100" value="70" style="width:120px;" aria-label="Volume">
               <button class="btn btn-primary" id="recBtn" onclick="toggleRecord()">● Record</button>
               <button class="btn btn-secondary" onclick="playLoop()" id="playBtn" disabled>▶ Play Loop</button>
               <button class="btn btn-secondary" onclick="clearLoop()">Clear</button>
@@ -148,6 +168,13 @@
       </div>
       <div class="lg:col-span-1"><div id="trending-sidebar"></div></div>
     </div>
+    <section class="game-guide max-w-3xl mx-auto mt-8 mb-4 p-5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900" aria-label="How to play and tips">
+    <h2 class="gg-title">Virtual Drum Kit — How to Play & Build Beats</h2>
+<p><strong>What you have:</strong> an on-screen drum kit playable by tapping pads or pressing keys — snare, kick, toms, hi-hat, and cymbals, all synthesized live in your browser.</p>
+<h2>Your first beat in 3 steps</h2><ul><li><strong>Count 1-2-3-4 out loud</strong> at a comfortable speed — that's your tempo.</li><li><strong>Kick on 1 and 3, snare on 2 and 4.</strong> That skeleton is the backbone of rock and pop.</li><li><strong>Add hi-hat on every count</strong> (or every half-count) to glue it together.</li></ul>
+<h2>FAQ</h2><details><summary>How do I get tighter timing?</summary><p>Practice with a metronome and record yourself — the gap between what you think you played and what you played is the lesson.</p></details><details><summary>What is a fill?</summary><p>A short pattern (usually 1–2 counts at the end of a phrase) using toms and snare that transitions between sections.</p></details>
+<p>More patterns and coordination exercises: <a href="https://topwebtool.com/games-and-play/drum-kit-tips/" class="text-indigo-600 dark:text-indigo-400 underline">drum kit tips and techniques</a>.</p>
+  </section>
   </main>
   <footer id="global-footer"></footer>
   <script src="../../global.js" defer></script>
@@ -311,5 +338,6 @@
     buildPads();
   })();
   </script>
+<script>document.addEventListener("keydown",function(e){if(e.key==="Escape"){window.location.href="https://topwebtool.com/games-and-play/";}});</script>
 </body>
 </html>

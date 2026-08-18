@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <meta charset="UTF-8" />
     <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
     <script>
       (function () {
@@ -24,7 +25,7 @@
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
         
     
-    <meta charset="UTF-8" />
+    
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mortgage Calculator | TopWebTool</title>
@@ -176,7 +177,20 @@
       <link rel="stylesheet" href="../site.min.css">
     </noscript>
       <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3901061173891576" crossorigin="anonymous"></script>
-  </head>
+      <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type":"Question","name":"How much house can I afford on my salary?","acceptedAnswer":{"@type":"Answer","text":"The 28/36 rule caps housing costs at 28% of gross monthly income. On a $70,000 salary, that is roughly $1,630/mo for housing, or about a $220k-$340k home depending on rate, taxes, and debts."}},
+        {"@type":"Question","name":"What is PMI and when does it go away?","acceptedAnswer":{"@type":"Answer","text":"Private Mortgage Insurance applies when your down payment is under 20%, typically costing 0.3%-1.5% of the loan per year. Conventional loans drop it automatically at 78% loan-to-value."}},
+        {"@type":"Question","name":"How much does one extra mortgage payment a year save?","acceptedAnswer":{"@type":"Answer","text":"On a $300,000 30-year loan at 6.5%, one extra payment per year cuts roughly 5-6 years off the term and saves over $70,000 in interest."}},
+        {"@type":"Question","name":"Does this calculator include taxes, insurance, and HOA?","acceptedAnswer":{"@type":"Answer","text":"Yes. It estimates full PITI (principal, interest, taxes, insurance) plus HOA dues and PMI, with every field editable."}},
+        {"@type":"Question","name":"Is my information private?","acceptedAnswer":{"@type":"Answer","text":"Completely. Every calculation runs 100% in your browser; the site operates no servers that receive your inputs."}}
+      ]
+    }
+    </script>
+</head>
   <body
     class="bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 min-h-screen flex flex-col"
   >
@@ -190,6 +204,11 @@
       <div class="grid grid-cols-1 lg:grid-cols-4 gap-4">
         <!-- Column 1, 2, 3: Interactive Functional Core (Wide Column) -->
         <div class="lg:col-span-3 space-y-8">
+          <div class="mt-1 flex flex-wrap items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
+            <label for="twt-state-select" class="font-semibold">State defaults:</label>
+            <select id="twt-state-select" class="px-2 py-1.5 border border-slate-300 dark:border-slate-700 rounded-lg bg-white dark:bg-slate-800 text-slate-900 dark:text-white"></select>
+          </div>
+          <p id="twt-state-note" class="mb-2 text-xs text-slate-500 dark:text-slate-400" style="display:none"></p>
           <!-- Header & Description -->
           <div
             class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm"
@@ -284,7 +303,7 @@
                     step="5000"
                     value="400000"
                     oninput="syncSliderToInput('home-price')"
-                  />
+                   aria-label="Slider home price"/>
                 </div>
 
                 <!-- Down Payment Input -->
@@ -328,7 +347,7 @@
                         max="100"
                         step="0.5"
                         oninput="onDownPaymentPctChange()"
-                      />
+                       aria-label="Input down payment pct"/>
                       <div
                         class="absolute inset-y-0 right-0 pr-2.5 flex items-center pointer-events-none"
                       >
@@ -345,7 +364,7 @@
                     step="1000"
                     value="80000"
                     oninput="syncSliderToInput('down-payment')"
-                  />
+                   aria-label="Slider down payment"/>
                 </div>
               </div>
 
@@ -391,7 +410,7 @@
                     step="0.1"
                     value="6.5"
                     oninput="syncSliderToInput('interest-rate')"
-                  />
+                   aria-label="Slider interest rate"/>
                 </div>
 
                 <!-- Loan Term Selector -->
@@ -696,7 +715,7 @@
                         min="1"
                         max="360"
                         oninput="validateAndRecalculate()"
-                      />
+                       aria-label="Input onetime month"/>
                     </div>
                     <p class="text-[11px] text-slate-400 mt-1">
                       Single payout on specified month
@@ -1427,98 +1446,80 @@
               Informative Guides & Helper Articles
             </h2>
             <div class="articles-guides-grid">
-              <a
-                
-                class="block p-4 rounded-xl border border-slate-100 dark:border-slate-800 hover:border-brand-500 dark:hover:border-brand-500 hover:bg-slate-50/50 dark:hover:bg-slate-950/30 transition-all group"
-              >
-                <h3
-                  class="text-sm font-bold text-slate-800 dark:text-slate-200 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors"
-                >
-                  Manual Mortgage Calculation Guide
-                </h3>
-                <p class="text-xs text-slate-400 dark:text-slate-500 mt-1">
-                  Learn how to calculate mortgage payments manually using
-                  standard financial formulas.
-                </p>
-                <span
-                  class="text-xs font-semibold text-brand-600 dark:text-brand-400 mt-3 inline-block group-hover:translate-x-1 transition-transform"
-                  >Read Article &rarr;</span
-                >
-              </a>
-              <a
-                
-                class="block p-4 rounded-xl border border-slate-100 dark:border-slate-800 hover:border-brand-500 dark:hover:border-brand-500 hover:bg-slate-50/50 dark:hover:bg-slate-950/30 transition-all group"
-              >
-                <h3
-                  class="text-sm font-bold text-slate-800 dark:text-slate-200 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors"
-                >
-                  Understanding Private Mortgage Insurance (PMI)
-                </h3>
-                <p class="text-xs text-slate-400 dark:text-slate-500 mt-1">
-                  What is Private Mortgage Insurance (PMI)? Learn how to avoid
-                  or cancel it.
-                </p>
-                <span
-                  class="text-xs font-semibold text-brand-600 dark:text-brand-400 mt-3 inline-block group-hover:translate-x-1 transition-transform"
-                  >Read Article &rarr;</span
-                >
-              </a>
-              <a
-                
-                class="block p-4 rounded-xl border border-slate-100 dark:border-slate-800 hover:border-brand-500 dark:hover:border-brand-500 hover:bg-slate-50/50 dark:hover:bg-slate-950/30 transition-all group"
-              >
-                <h3
-                  class="text-sm font-bold text-slate-800 dark:text-slate-200 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors"
-                >
-                  The Amortization Schedule Explained
-                </h3>
-                <p class="text-xs text-slate-400 dark:text-slate-500 mt-1">
-                  Learn how principal and interest ratios shift over your
-                  mortgage term.
-                </p>
-                <span
-                  class="text-xs font-semibold text-brand-600 dark:text-brand-400 mt-3 inline-block group-hover:translate-x-1 transition-transform"
-                  >Read Article &rarr;</span
-                >
-              </a>
-              <a
-                
-                class="block p-4 rounded-xl border border-slate-100 dark:border-slate-800 hover:border-brand-500 dark:hover:border-brand-500 hover:bg-slate-50/50 dark:hover:bg-slate-950/30 transition-all group"
-              >
-                <h3
-                  class="text-sm font-bold text-slate-800 dark:text-slate-200 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors"
-                >
-                  How Extra Principal Payments Save Thousands
-                </h3>
-                <p class="text-xs text-slate-400 dark:text-slate-500 mt-1">
-                  Learn how extra payments slash your term and save interest.
-                </p>
-                <span
-                  class="text-xs font-semibold text-brand-600 dark:text-brand-400 mt-3 inline-block group-hover:translate-x-1 transition-transform"
-                  >Read Article &rarr;</span
-                >
-              </a>
-              <a
-                
-                class="block p-4 rounded-xl border border-slate-100 dark:border-slate-800 hover:border-brand-500 dark:hover:border-brand-500 hover:bg-slate-50/50 dark:hover:bg-slate-950/30 transition-all group"
-              >
-                <h3
-                  class="text-sm font-bold text-slate-800 dark:text-slate-200 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors"
-                >
-                  Property Taxes & Homeowners Insurance Guide
-                </h3>
-                <p class="text-xs text-slate-400 dark:text-slate-500 mt-1">
-                  Understanding escrow assessments and how they affect your
-                  payment.
-                </p>
-                <span
-                  class="text-xs font-semibold text-brand-600 dark:text-brand-400 mt-3 inline-block group-hover:translate-x-1 transition-transform"
-                  >Read Article &rarr;</span
-                >
-              </a>
+              
+              
+              
+              
+              
             </div>
           </div>
 
+
+          <!-- ================= TOOL PAGE BLUEPRINT CONTENT ================= -->
+          <section class="mt-12 space-y-10" aria-label="Mortgage calculator guide">
+
+            <div>
+              <h2 class="text-2xl font-extrabold text-slate-900 dark:text-white tracking-tight">How to Use This Mortgage Calculator</h2>
+              <ol class="mt-4 list-decimal pl-6 space-y-2 text-sm text-slate-600 dark:text-slate-300">
+                <li><strong>Enter your home price and down payment.</strong> Type a dollar amount, a percentage, or both — the calculator fills the other side automatically.</li>
+                <li><strong>Set your interest rate and term.</strong> Use your quoted rate, or the national average as a starting point. Term options run from 10 to 30 years.</li>
+                <li><strong>Add the true cost of ownership:</strong> annual property tax rate, home insurance, HOA dues, and PMI. PMI auto-applies when your down payment is under 20% — the rate is adjustable.</li>
+                <li><strong>Model extra payments.</strong> Add a monthly extra, an annual lump sum, or a one-time prepayment at a chosen month, and watch the interest saved and years shaved update live.</li>
+                <li><strong>Read your results:</strong> estimated monthly payment (P&amp;I, taxes, insurance, PMI, HOA broken out), the payoff timeline, and the lifetime interest cost.</li>
+              </ol>
+              <p class="mt-3 text-xs text-slate-500 dark:text-slate-400">Everything computes in your browser — your salary, loan amount, and debts never touch a server.</p>
+            </div>
+
+            <div>
+              <h2 class="text-2xl font-extrabold text-slate-900 dark:text-white tracking-tight">How the Math Works</h2>
+              <p class="mt-3 text-sm text-slate-600 dark:text-slate-300">Principal and interest use the standard amortization formula that lenders use:</p>
+              <div class="mt-3 p-4 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-center font-mono text-sm text-slate-800 dark:text-slate-200 overflow-x-auto">
+                M = P &middot; [ r(1+r)<sup>n</sup> / ((1+r)<sup>n</sup> &minus; 1) ]
+              </div>
+              <ul class="mt-3 list-disc pl-6 space-y-1 text-sm text-slate-600 dark:text-slate-300">
+                <li><strong>M</strong> — monthly principal &amp; interest payment</li>
+                <li><strong>P</strong> — loan principal (home price minus down payment)</li>
+                <li><strong>r</strong> — monthly interest rate (annual rate &divide; 12)</li>
+                <li><strong>n</strong> — total number of payments (years &times; 12)</li>
+              </ul>
+              <p class="mt-4 text-sm text-slate-600 dark:text-slate-300"><strong>Worked example:</strong> a $300,000 loan at 6.5% for 30 years gives r = 0.0054167 and n = 360, so M &asymp; <strong>$1,896</strong> per month in principal and interest. Add ~$250/mo property tax, ~$100/mo insurance, and PMI if your down payment is under 20%, and the true monthly cost comes into focus. Early payments are mostly interest; by year 15 of a 30-year loan, the balance has barely moved — which is exactly why the extra-payments simulator above matters.</p>
+            </div>
+
+            <div>
+              <h2 class="text-2xl font-extrabold text-slate-900 dark:text-white tracking-tight">What Changes Your Payment Most</h2>
+              <div class="mt-4 overflow-x-auto">
+                <table class="w-full text-sm border-collapse">
+                  <thead>
+                    <tr class="text-left text-xs uppercase tracking-wide text-slate-400 dark:text-slate-500">
+                      <th class="py-2 pr-4">Scenario ($300k loan, 30-yr)</th>
+                      <th class="py-2 pr-4">Rate</th>
+                      <th class="py-2 pr-4">P&amp;I / month</th>
+                      <th class="py-2">Lifetime interest</th>
+                    </tr>
+                  </thead>
+                  <tbody class="text-slate-600 dark:text-slate-300">
+                    <tr class="border-t border-slate-200 dark:border-slate-800"><td class="py-2 pr-4">Rate-cutter era</td><td class="py-2 pr-4">4.0%</td><td class="py-2 pr-4 font-semibold">$1,432</td><td class="py-2">$215,608</td></tr>
+                    <tr class="border-t border-slate-200 dark:border-slate-800"><td class="py-2 pr-4">Mid-market</td><td class="py-2 pr-4">6.5%</td><td class="py-2 pr-4 font-semibold">$1,896</td><td class="py-2">$382,633</td></tr>
+                    <tr class="border-t border-slate-200 dark:border-slate-800"><td class="py-2 pr-4">High-rate environment</td><td class="py-2 pr-4">8.0%</td><td class="py-2 pr-4 font-semibold">$2,201</td><td class="py-2">$492,466</td></tr>
+                    <tr class="border-t border-slate-200 dark:border-slate-800"><td class="py-2 pr-4">15-year term @ 6.0%</td><td class="py-2 pr-4">6.0%</td><td class="py-2 pr-4 font-semibold">$2,532</td><td class="py-2">$155,692</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <p class="mt-3 text-xs text-slate-500 dark:text-slate-400">One percentage point of rate moves a 30-year payment by roughly 10%. A 15-year term roughly halves lifetime interest at the cost of ~$600/mo more on this loan size. Sources for rate context: Freddie Mac Primary Mortgage Market Survey.</p>
+            </div>
+
+            <div>
+              <h2 class="text-2xl font-extrabold text-slate-900 dark:text-white tracking-tight">Mortgage Calculator FAQ</h2>
+              <div class="mt-4 space-y-3">
+                <details class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-5"><summary class="cursor-pointer text-sm font-bold text-slate-900 dark:text-white">How much house can I afford on my salary?</summary><p class="mt-3 text-sm text-slate-600 dark:text-slate-300">A common guideline (the 28/36 rule) caps housing costs at 28% of gross monthly income and total debt at 36%. On a $70,000 salary, that's roughly $1,630/mo for housing — about a $220k–$340k home depending on rate, taxes, and debts. Run your exact numbers in our <a href="https://topwebtool.com/home-affordability-calculator/" class="text-indigo-600 dark:text-indigo-400 underline">home affordability calculator</a>.</p></details>
+                <details class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-5"><summary class="cursor-pointer text-sm font-bold text-slate-900 dark:text-white">What is PMI and when does it go away?</summary><p class="mt-3 text-sm text-slate-600 dark:text-slate-300">Private Mortgage Insurance protects the lender when your down payment is under 20% — typically 0.3%–1.5% of the loan per year. Conventional loans drop PMI automatically at 78% LTV, and you can request removal at 80%.</p></details>
+                <details class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-5"><summary class="cursor-pointer text-sm font-bold text-slate-900 dark:text-white">How much does one extra payment a year save?</summary><p class="mt-3 text-sm text-slate-600 dark:text-slate-300">On a $300k, 30-year loan at 6.5%, one extra payment per year cuts roughly 5–6 years off the term and saves $70,000+ in interest. Model your own numbers with the extra-payments panel above.</p></details>
+                <details class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-5"><summary class="cursor-pointer text-sm font-bold text-slate-900 dark:text-white">Does this calculator include taxes, insurance, and HOA?</summary><p class="mt-3 text-sm text-slate-600 dark:text-slate-300">Yes — it estimates full PITI (principal, interest, taxes, insurance) plus HOA dues and PMI, not just principal and interest. Every field is editable because averages vary wildly by state and metro.</p></details>
+                <details class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-5"><summary class="cursor-pointer text-sm font-bold text-slate-900 dark:text-white">Is my information private?</summary><p class="mt-3 text-sm text-slate-600 dark:text-slate-300">Completely. This page is static HTML and JavaScript — every calculation runs on your device, and we operate no servers that could receive your inputs. See our <a href="https://topwebtool.com/privacy/" class="text-indigo-600 dark:text-indigo-400 underline">privacy policy</a>.</p></details>
+                <details class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-5"><summary class="cursor-pointer text-sm font-bold text-slate-900 dark:text-white">Are these numbers exact?</summary><p class="mt-3 text-sm text-slate-600 dark:text-slate-300">They are planning estimates using the standard amortization formula and your inputs. Lenders also factor escrow adjustments, fees, and rounding. Treat results as decision-grade approximations, and confirm final figures with your loan estimate.</p></details>
+              </div>
+            </div>
+          </section>
     </main>
 
     <!-- JavaScript calculation and UI interaction core -->
@@ -2204,6 +2205,12 @@
     <script src="../global.js" defer></script>
     <script src="../twt-shell.js" defer></script>
     <script src="../js/context-engine.js" defer></script>
+      <script src="../js/state-data.js" defer></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        if (window.TWT_STATE) TWT_STATE.mount(document.getElementById("twt-state-select"), { tax: "input-tax-rate", ins: "input-insurance" });
+      });
+    </script>
   </body>
 </html>
 

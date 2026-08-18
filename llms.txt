@@ -95,56 +95,28 @@ TopWebTool is a 100% client-side web utility directory offering 85 free online t
 - [Free Online Unit Converter](https://topwebtool.com/unit-converter/) — Convert between length, weight, volume, temperature, area, and time units instantly. 100% client-side, no sign-up required.
 - [Free UTM Campaign Link Builder | Google Analytics Tracking URL Builder](https://topwebtool.com/utm-generator/) — Build flawless promotional tracking links using Google Analytics UTM parameters with copy-to-clipboard actions. 100% Free, No Sign-Up, No Registration.
 - [W2 vs 1099 Calculator - Compare Employee vs Contractor Pay](https://topwebtool.com/w2-vs-1099-comparator/) — Compare W2 employee take-home pay versus 1099 independent contractor earnings. Calculate taxes, benefits, and hourly rates side by side.
-- [Whack A Mole](https://topwebtool.com/games-and-play/whack-a-mole/) — Classic whack-a-mole arcade game with combo multipliers, difficulty ramp, and high score tracking.
 - [Free Word & Character Copy Counter | Real-Time Reading & Speaking Times](https://topwebtool.com/word-character-counter/) — Dynamically track words, characters, sentence structures, paragraph metrics, estimated reading, and speaking times. 100% Free offline utility with No Sign-Up.
 - [Free Word Unscrambler | Unscramble Scrambled Letters & Wildcards Solver](https://topwebtool.com/word-unscrambler/) — Unscramble letters into high-scoring words. Supports length limits, prefixes, suffixes, wildcards, and blank tiles. 100% Free, No Registration Required.
 
 ## Games & Play
 
 - [Tic Tac Toe](https://topwebtool.com/games-and-play/tic-tac-toe/) — Classic 3x3 strategy game. Play against a friend or challenge the AI.
-- [Dice Roll Simulator](https://topwebtool.com/games-and-play/dice-roll-simulator/) — Roll virtual dice with 3D animation. Choose 1 or 2 dice, click or press Space to roll, and track your roll history.
 - [Snake Game](https://topwebtool.com/games-and-play/snake-game/) — Guide the snake to eat food, grow longer, and beat your high score.
 - [Memory Card Game](https://topwebtool.com/games-and-play/memory-card/) — Flip cards and match pairs. Train your memory with emoji pairs.
-- [Whack A Mole](https://topwebtool.com/games-and-play/whack-a-mole/) — Classic whack-a-mole arcade game with combo multipliers, difficulty ramp, and high score tracking.
 - [Simon Says](https://topwebtool.com/games-and-play/simon-says/) — Repeat the color sequence to advance through increasingly challenging levels.
 - [2048](https://topwebtool.com/games-and-play/2048/) — Slide tiles to merge numbers. Reach 2048 to win!
 - [Sudoku](https://topwebtool.com/games-and-play/sudoku/) — Fill the 9x9 grid so each row, column, and 3x3 box contains 1-9.
 - [Online Piano](https://topwebtool.com/games-and-play/online-piano/) — Play online piano with mouse or keyboard. 2 octaves, sustain, recording, and multiple waveforms.
 - [Virtual Drum Kit](https://topwebtool.com/games-and-play/virtual-drum-kit/) — Play virtual drums with mouse, touch, or keyboard. 8 pads with synthesized sounds and loop recording.
-- [Rock Paper Scissors](https://topwebtool.com/games-and-play/rock-paper-scissors/) — Classic hand game against computer. First to 5 wins the match.
-- [Number Guessing Game](https://topwebtool.com/games-and-play/number-guessing/) — Guess the secret number between 1 and 100 with hints and streak tracking.
 - [Speed Typing Test](https://topwebtool.com/games-and-play/speed-typing/) — Test typing speed and accuracy. Free WPM test with real-time results.
 - [Hangman](https://topwebtool.com/games-and-play/hangman/) — Guess the hidden word letter by letter. Classic word puzzle with 6 wrong guesses.
 - [Minesweeper](https://topwebtool.com/games-and-play/minesweeper/) — Classic Minesweeper puzzle. Clear the board without hitting a mine. Multiple difficulties.
 - [Breakout](https://topwebtool.com/games-and-play/breakout/) — Classic brick breaker arcade game. Destroy all bricks with the ball and paddle.
-- [Metronome](https://topwebtool.com/games-and-play/metronome/) — Precision online metronome with adjustable BPM, time signatures, and visual beat indicator.
 - [Wordle](https://topwebtool.com/games-and-play/wordle/) — Guess the 5-letter word in 6 tries. Color hints show correct letters and positions.
 - [Tetris](https://topwebtool.com/games-and-play/tetris/) — Classic block puzzle game. Rotate and stack falling blocks to clear lines.
-- [Beat Pad](https://topwebtool.com/games-and-play/beat-pad/) — 16-pad MPC-style beat maker. Tap pads or use keys A-I and Q-I to trigger drums, percussion, and synth sounds.
-- [Xylophone](https://topwebtool.com/games-and-play/xylophone/) — Play a 2-octave xylophone online. Use keys A-; and W E T Y U O P for realistic mallet percussion sounds.
-- [Kalimba](https://topwebtool.com/games-and-play/kalimba/) — Virtual kalimba (thumb piano) with 8 tines. Pluck notes with keys A-H for relaxing African instrument sounds.
-- [Trumpet](https://topwebtool.com/games-and-play/trumpet/) — Play trumpet online with 3 valves. Press 1/2/3 valves and Space to buzz notes from E4 to C6.
-- [Ukulele](https://topwebtool.com/games-and-play/ukulele/) — Virtual ukulele with 4 strings. Pluck with keys A S D F, strum chords, and record your island vibe.
-- [Online Flute](https://topwebtool.com/games-and-play/online-flute/) — Play flute online. Cover holes 1-6 and blow with Space to produce notes from D4 to C6.
-- [Bell Set](https://topwebtool.com/games-and-play/bell-set/) — Play a set of 8 bells online. Ring bright bell tones with keys A-H or mouse click.
-- [Bongos](https://topwebtool.com/games-and-play/bongos/) — Virtual bongos with high and low drums. Hit with keys A/S or mouse for Latin rhythm sounds.
 - [Chord Progression Player](https://topwebtool.com/games-and-play/chord-progression-player/) — Hear common chord progressions. Play chords with keys 1-9, loop progressions at adjustable tempo.
-- [Soundboard](https://topwebtool.com/games-and-play/soundboard/) — Trigger 9 sound effects with keys Q-C. Categories include SFX, animals, nature, and comedy sounds.
-- [Beat Sequencer](https://topwebtool.com/games-and-play/beat-sequencer/) — 16-step drum sequencer with 4 instruments. Click to program beats, Space to play, presets included.
-- [Theremin](https://topwebtool.com/games-and-play/theremin/) — Play a theremin by moving your mouse. X controls pitch, Y controls volume. Weird and wonderful.
-- [Shape Clicker](https://topwebtool.com/games-and-play/shape-clicker/) — Test your reflexes! Click the target shape before time runs out. 60-second arcade challenge.
-- [Emoji Catcher](https://topwebtool.com/games-and-play/emoji-catcher/) — Catch falling emojis with your basket. Avoid bombs! Arcade fun with combos and lives.
-- [Quiz Game](https://topwebtool.com/games-and-play/quiz-game/) — Test your knowledge with multiple choice questions. 10 rounds across General Knowledge, Science, History, Geography.
 - [Flappy Bird](https://topwebtool.com/games-and-play/flappy-bird/) — Classic flappy bird endless runner. Tap or press Space to fly through pipes. How high can you score?
 - [Sliding Puzzle](https://topwebtool.com/games-and-play/sliding-puzzle/) — Solve the number sliding puzzle. 3x3 to 5x5 grids. Click or use arrow keys to slide tiles.
-- [Ping Pong](https://topwebtool.com/games-and-play/ping-pong/) — Classic paddle vs AI. First to 5 wins. Mouse or keyboard controls.
-- [Tilting Maze](https://topwebtool.com/games-and-play/tilting-maze/) — Roll a ball through the maze by tilting. Avoid holes, reach the goal.
-- [Fruit Slicer](https://topwebtool.com/games-and-play/fruit-slicer/) — Slice flying fruits, avoid bombs. Swipe or click for combo points.
-- [Archery](https://topwebtool.com/games-and-play/archery/) — Hit the bullseye against wind and distance. 10 arrows per round.
-- [Tower Blocks](https://topwebtool.com/games-and-play/tower-blocks/) — Stack blocks as high as you can. Time your drops perfectly. Precision stacking arcade.
-- [Insect Catch](https://topwebtool.com/games-and-play/insect-catch/) — Catch target insects before time runs out. 60-second reflex challenge.
-- [Speak Number Guessing](https://topwebtool.com/games-and-play/speak-number-guessing/) — Guess the secret number using your voice. Say it out loud, get Higher/Lower hints.
-- [Doodle Jump](https://topwebtool.com/games-and-play/doodle-jump/) — Classic endless jumper. Bounce on platforms, go higher, avoid falling.
 - [The Ultimate Guide to Browser Games](https://topwebtool.com/games-and-play/how-to-play-browser-games/) — Discover the best browser games, how to play them, and tips for getting started with online gaming.
 - [Best Brain Games to Improve Memory and Focus](https://topwebtool.com/games-and-play/best-brain-games/) — Explore top brain games that sharpen memory, boost focus, and enhance cognitive skills.
 - [Online Piano for Beginners](https://topwebtool.com/games-and-play/piano-beginners-guide/) — Learn to play piano online with our beginner-friendly guide and interactive virtual keyboard.
@@ -160,3 +132,9 @@ TopWebTool is a 100% client-side web utility directory offering 85 free online t
 - [Terms and Conditions](https://topwebtool.com/terms/) — Read the Terms and Conditions for using TopWebTool's free online calculators and web utilities.
 - [Contact Us](https://topwebtool.com/contact/) — Get in touch with TopWebTool. Contact us for support, feedback, or partnership inquiries.
 - [About Us](https://topwebtool.com/about/) — Learn about TopWebTool — a free, 100% client-side web utility directory built for developers, marketers, finance experts, and everyday users.
+- [How Much House Can I Afford on a $70K Salary?](https://topwebtool.com/how-much-house-can-i-afford/70k-salary/) — 2026 answer + interactive calculator: $210k comfortable, $285k lender max, math shown.
+- [House Affordability by Salary — the ladder](https://topwebtool.com/how-much-house-can-i-afford/) — $50k to $100k: comfortable vs lender-max prices, computed.
+- [Afford on $50k salary](https://topwebtool.com/how-much-house-can-i-afford/50k-salary/) — $145k-$199k with FHA/state-program strategy.
+- [Afford on $60k salary](https://topwebtool.com/how-much-house-can-i-afford/60k-salary/) — $177k-$243k, the first-time-buyer sweet spot.
+- [Afford on $80k salary](https://topwebtool.com/how-much-house-can-i-afford/80k-salary/) — $243k-$330k, duplex and PMI strategy.
+- [Afford on $100k salary](https://topwebtool.com/how-much-house-can-i-afford/100k-salary/) — $311k-$419k, geography and house-hacking.

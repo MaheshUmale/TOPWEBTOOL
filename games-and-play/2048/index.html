@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
   <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
   <script>
     (function () {
@@ -16,9 +17,9 @@
       } catch (e) {}
     })();
   </script>
-  <meta charset="UTF-8">
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>2048 | TopWebTool</title>
+  <title>2048 Game — Play Free Online 2048, No Download | TopWebTool</title>
   <meta name="description" content="Play 2048 online. Slide tiles, merge numbers, and reach the 2048 tile in this addictive puzzle game." />
   <link rel="canonical" href="https://topwebtool.com/games-and-play/2048/" />
   <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
@@ -30,14 +31,14 @@
   <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="TopWebTool" />
-  <meta property="og:title" content="2048 | TopWebTool" />
+  <meta property="og:title" content="2048 Game — Play Free Online 2048, No Download | TopWebTool" />
   <meta property="og:description" content="Play 2048 online. Slide tiles, merge numbers, and reach the 2048 tile in this addictive puzzle game." />
   <meta property="og:url" content="https://topwebtool.com/games-and-play/2048/" />
   <meta property="og:image" content="https://topwebtool.com/og-image.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="2048 | TopWebTool" />
+  <meta name="twitter:title" content="2048 Game — Play Free Online 2048, No Download | TopWebTool" />
   <meta name="twitter:description" content="Play 2048 online. Slide tiles, merge numbers, and reach the 2048 tile in this addictive puzzle game." />
   <meta name="twitter:image" content="https://topwebtool.com/og-image.png" />
   <script type="application/ld+json">
@@ -119,8 +120,27 @@
     .btn-secondary { background: #f1f5f9; color: #475569; }
     .dark .btn-secondary { background: #1e293b; color: #94a3b8; }
   </style>
+  <style>
+    .game-guide h2{font-size:1.05rem;font-weight:800;color:#0f172a;margin-top:1.25rem}
+    html.dark .game-guide h2{color:#fff}
+    .game-guide p,.game-guide li{font-size:.875rem;line-height:1.6;color:#475569}
+    html.dark .game-guide p,html.dark .game-guide li{color:#cbd5e1}
+    .game-guide ul{list-style:disc;padding-left:1.25rem;margin:.5rem 0}
+    .game-guide details{border:1px solid #e2e8f0;border-radius:.75rem;padding:.75rem 1rem;margin-top:.5rem;background:#fff}
+    html.dark .game-guide details{background:#0f172a;border-color:#1e293b}
+    .game-guide summary{font-size:.85rem;font-weight:700;cursor:pointer;color:#0f172a}
+    html.dark .game-guide summary{color:#e2e8f0}
+    .game-guide .gg-title{font-size:1.25rem;font-weight:800;color:#0f172a}
+    html.dark .game-guide .gg-title{color:#fff}
+  </style>
+<style>
+.twt-game-exit{position:fixed;top:0.6rem;right:0.6rem;z-index:2147483647;display:inline-flex;align-items:center;gap:.4rem;background:#0f172a;color:#fff;border:1px solid #334155;border-radius:9999px;padding:.45rem .85rem;font-size:.8rem;font-weight:700;text-decoration:none;box-shadow:0 4px 14px rgba(0,0,0,.35)}
+.twt-game-exit:hover{background:#4f46e5}
+</style>
 </head>
 <body>
+<a class="twt-game-exit" href="https://topwebtool.com/games-and-play/" aria-label="Exit game and return to all games">&#10005; All games</a>
+
   <header id="global-header"></header>
   <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
     <div class="grid grid-cols-1 lg:grid-cols-4 gap-4">
@@ -155,6 +175,13 @@
       </div>
       <div class="lg:col-span-1"><div id="trending-sidebar"></div></div>
     </div>
+    <section class="game-guide max-w-3xl mx-auto mt-8 mb-4 p-5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900" aria-label="How to play and tips">
+    <h2 class="gg-title">2048 — How to Play, Score & Win</h2>
+<p><strong>Goal:</strong> slide numbered tiles to merge equal values until you create the 2048 tile. Every move shifts all tiles in one direction; when two equal tiles collide, they merge into their sum and a new 2 or 4 appears in a random empty cell.</p>
+<h2>Scoring</h2><p>Each merge adds the value of the new tile to your score (merging two 64s earns 64 points). Keeping the board uncrowded matters more than chasing individual merges.</p>
+<h2>Three tips that actually work</h2><ul><li><strong>Lock one corner.</strong> Pick a corner (most players choose bottom-left) and never let your biggest tile leave it.</li><li><strong>Build in order.</strong> Keep a chain of descending values (512-256-128-64) snaking along the bottom row so merges cascade.</li><li><strong>Avoid up-swipes.</strong> If your stack lives in the bottom row, swiping up is almost always the move that ends the run.</li></ul>
+<h2>FAQ</h2><details><summary>Can you beat 2048 without luck?</summary><p>Most games are winnable with disciplined corner strategy; skilled players reach 2048 in well over 90% of runs.</p></details><details><summary>What is the highest tile possible?</summary><p>On the standard 4×4 board the theoretical maximum tile is 131,072, though runs beyond 8192 are exceptional.</p></details><details><summary>Does the game ever run out of moves?</summary><p>Yes — when no empty cells exist and no adjacent tiles match, the game is over.</p></details>
+  </section>
   </main>
   <footer id="global-footer"></footer>
   <script src="../../global.js" defer></script>
@@ -220,5 +247,6 @@
     });
     newGame();
   </script>
+<script>document.addEventListener("keydown",function(e){if(e.key==="Escape"){window.location.href="https://topwebtool.com/games-and-play/";}});</script>
 </body>
 </html>

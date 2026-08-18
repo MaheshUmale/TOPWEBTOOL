@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
   <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
   <script>
     (function () {
@@ -16,9 +17,9 @@
       } catch (e) {}
     })();
   </script>
-  <meta charset="UTF-8">
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tetris | TopWebTool</title>
+  <title>Tetris — Play Free Online Classic Tetris Game | TopWebTool</title>
   <meta name="description" content="Play Tetris online. Classic block puzzle game. Rotate and stack falling blocks to clear lines. Free, no sign-up." />
   <link rel="canonical" href="https://topwebtool.com/games-and-play/tetris/" />
   <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
@@ -30,14 +31,14 @@
   <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="TopWebTool" />
-  <meta property="og:title" content="Tetris | TopWebTool" />
+  <meta property="og:title" content="Tetris — Play Free Online Classic Tetris Game | TopWebTool" />
   <meta property="og:description" content="Play Tetris online. Classic block puzzle game. Rotate and stack falling blocks to clear lines." />
   <meta property="og:url" content="https://topwebtool.com/games-and-play/tetris/" />
   <meta property="og:image" content="https://topwebtool.com/og-image.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Tetris | TopWebTool" />
+  <meta name="twitter:title" content="Tetris — Play Free Online Classic Tetris Game | TopWebTool" />
   <meta name="twitter:description" content="Play Tetris online. Classic block puzzle game. Rotate and stack falling blocks to clear lines." />
   <meta name="twitter:image" content="https://topwebtool.com/og-image.png" />
   <script type="application/ld+json">
@@ -108,8 +109,27 @@
     .btn-secondary { background: #f1f5f9; color: #475569; }
     .dark .btn-secondary { background: #1e293b; color: #94a3b8; }
   </style>
+  <style>
+    .game-guide h2{font-size:1.05rem;font-weight:800;color:#0f172a;margin-top:1.25rem}
+    html.dark .game-guide h2{color:#fff}
+    .game-guide p,.game-guide li{font-size:.875rem;line-height:1.6;color:#475569}
+    html.dark .game-guide p,html.dark .game-guide li{color:#cbd5e1}
+    .game-guide ul{list-style:disc;padding-left:1.25rem;margin:.5rem 0}
+    .game-guide details{border:1px solid #e2e8f0;border-radius:.75rem;padding:.75rem 1rem;margin-top:.5rem;background:#fff}
+    html.dark .game-guide details{background:#0f172a;border-color:#1e293b}
+    .game-guide summary{font-size:.85rem;font-weight:700;cursor:pointer;color:#0f172a}
+    html.dark .game-guide summary{color:#e2e8f0}
+    .game-guide .gg-title{font-size:1.25rem;font-weight:800;color:#0f172a}
+    html.dark .game-guide .gg-title{color:#fff}
+  </style>
+<style>
+.twt-game-exit{position:fixed;top:0.6rem;right:0.6rem;z-index:2147483647;display:inline-flex;align-items:center;gap:.4rem;background:#0f172a;color:#fff;border:1px solid #334155;border-radius:9999px;padding:.45rem .85rem;font-size:.8rem;font-weight:700;text-decoration:none;box-shadow:0 4px 14px rgba(0,0,0,.35)}
+.twt-game-exit:hover{background:#4f46e5}
+</style>
 </head>
 <body>
+<a class="twt-game-exit" href="https://topwebtool.com/games-and-play/" aria-label="Exit game and return to all games">&#10005; All games</a>
+
   <header id="global-header"></header>
   <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
     <div class="grid grid-cols-1 lg:grid-cols-4 gap-4">
@@ -139,6 +159,14 @@
       </div>
       <div class="lg:col-span-1"><div id="trending-sidebar"></div></div>
     </div>
+    <section class="game-guide max-w-3xl mx-auto mt-8 mb-4 p-5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900" aria-label="How to play and tips">
+    <h2 class="gg-title">Tetris — How to Play & Score Higher</h2>
+<p><strong>Goal:</strong> rotate and place falling tetrominoes to complete horizontal rows, which clear and score. The game ends when stacked pieces reach the top.</p>
+<h2>Scoring</h2><p>Single, double, and triple line clears score progressively more; a four-line clear (a "Tetris") is the biggest single move in classic scoring. Keep the stack flat to stay alive.</p>
+<h2>Three tips that raise your score fast</h2><ul><li><strong>Stay flat, dig clean.</strong> A level stack gives you options; one bad hole can cost the game.</li><li><strong>Save the I-piece column.</strong> Keep one clean column at the edge for I-pieces so a Tetris is always available.</li><li><strong>Use hard drop and hold.</strong> Speed comes from hard drops and pre-planning the held piece, not from moving faster at the last moment.</li></ul>
+<h2>FAQ</h2><details><summary>What is a T-spin?</summary><p>Rotating a T-piece into a slot in the final moment of its drop — it scores big in modern rules and enables crazy combos.</p></details><details><summary>How do I get faster?</summary><p>Learn to place pieces without correcting: look at the NEXT queue, not the falling piece.</p></details><details><summary>Does the speed keep increasing?</summary><p>Yes — gravity speeds up with level; most runs end between levels 10 and 15.</p></details>
+<p>More depth: our <a href="https://topwebtool.com/games-and-play/tetris-tips-and-tricks/" class="text-indigo-600 dark:text-indigo-400 underline">Tetris tips and tricks guide</a> covers stacking systems and speed handling.</p>
+  </section>
   </main>
   <footer id="global-footer"></footer>
   <script src="../../global.js" defer></script>
@@ -192,5 +220,6 @@
     });
     resetGame();
   </script>
+<script>document.addEventListener("keydown",function(e){if(e.key==="Escape"){window.location.href="https://topwebtool.com/games-and-play/";}});</script>
 </body>
 </html>

@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <meta charset="UTF-8" />
     <!-- Early Blocking Theme Loader: Eliminates Light/Dark Flashing/Flickering -->
     <script>
       (function () {
@@ -24,7 +25,7 @@
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
         
     
-    <meta charset="UTF-8" />
+    
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>System Prompt &amp; Tool-Calling Builder | TopWebTool</title>
@@ -141,6 +142,9 @@
       <link rel="stylesheet" href="../site.min.css">
     </noscript>
       <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3901061173891576" crossorigin="anonymous"></script>
+      <script type="application/ld+json">
+    {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What belongs in a system vs user message?", "acceptedAnswer": {"@type": "Answer", "text": "Durable rules and persona in system; per-run data in user. System messages carry persistent weight across turns."}}, {"@type": "Question", "name": "Why do tool calls arrive with wrong arguments?", "acceptedAnswer": {"@type": "Answer", "text": "Schema descriptions are instructions the model reads literally. Specify formats, units, and examples in each parameter description."}}, {"@type": "Question", "name": "How long can a system prompt be?", "acceptedAnswer": {"@type": "Answer", "text": "Under ~2k tokens practically. Every token costs every call, and instruction-following degrades as rules pile up."}}]}
+    </script>
   </head>
   <body
     class="bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 min-h-screen flex flex-col"
@@ -510,45 +514,9 @@ format_contract: Markdown | XML | JSON</pre>
               Informative Guides & Helper Articles
             </h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <a
-                
-                class="block p-4 rounded-xl border border-slate-100 dark:border-slate-800 hover:border-brand-500 dark:hover:border-brand-500 hover:bg-slate-50/50 dark:hover:bg-slate-950/30 transition-all group"
-              >
-                <h3
-                  class="text-sm font-bold text-slate-800 dark:text-slate-200 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors"
-                >
-                  Ultimate Guide to System Prompt Engineering
-                </h3>
-                <p class="text-xs text-slate-400 dark:text-slate-500 mt-1">
-                  Anatomy of a strong agent system prompt: role, goal, context,
-                  constraints, output contract.
-                </p>
-                <span
-                  class="text-xs font-semibold text-brand-600 dark:text-brand-400 mt-3 inline-block group-hover:translate-x-1 transition-transform"
-                  >Read Article &rarr;</span
-                >
-              </a>
-              <a
-                
-                class="block p-4 rounded-xl border border-slate-100 dark:border-slate-800 hover:border-brand-500 dark:hover:border-brand-500 hover:bg-slate-50/50 dark:hover:bg-slate-950/30 transition-all group"
-              >
-                <h3
-                  class="text-sm font-bold text-slate-800 dark:text-slate-200 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors"
-                >
-                  Best Practices for Agent System Prompts
-                </h3>
-                <p class="text-xs text-slate-400 dark:text-slate-500 mt-1">
-                  Be explicit, constrain tool usage, and define output schemas
-                  to stabilize tool-calling agents.
-                </p>
-                <span
-                  class="text-xs font-semibold text-brand-600 dark:text-brand-400 mt-3 inline-block group-hover:translate-x-1 transition-transform"
-                  >Read Article &rarr;</span
-                >
-              </a>
-              <a
-                
-                class="block p-4 rounded-xl border border-slate-100 dark:border-slate-800 hover:border-brand-500 dark:hover:border-brand-500 hover:bg-slate-50/50 dark:hover:bg-slate-950/30 transition-all group"
+              
+              
+              <a href="https://topwebtool.com/agent-prompt-builder/agent-prompt-builder-common-errors/" class="block p-4 rounded-xl border border-slate-100 dark:border-slate-800 hover:border-brand-500 dark:hover:border-brand-500 hover:bg-slate-50/50 dark:hover:bg-slate-950/30 transition-all group"
               >
                 <h3
                   class="text-sm font-bold text-slate-800 dark:text-slate-200 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors"
@@ -564,48 +532,31 @@ format_contract: Markdown | XML | JSON</pre>
                   >Read Article &rarr;</span
                 >
               </a>
-              <a
-                
-                class="block p-4 rounded-xl border border-slate-100 dark:border-slate-800 hover:border-brand-500 dark:hover:border-brand-500 hover:bg-slate-50/50 dark:hover:bg-slate-950/30 transition-all group"
-              >
-                <h3
-                  class="text-sm font-bold text-slate-800 dark:text-slate-200 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors"
-                >
-                  Top Optimization Tips for Tool-Calling Prompts
-                </h3>
-                <p class="text-xs text-slate-400 dark:text-slate-500 mt-1">
-                  Sharpen function descriptions, tune parameter schemas, and
-                  trim prompt length to cut token cost.
-                </p>
-                <span
-                  class="text-xs font-semibold text-brand-600 dark:text-brand-400 mt-3 inline-block group-hover:translate-x-1 transition-transform"
-                  >Read Article &rarr;</span
-                >
-              </a>
-              <a
-                
-                class="block p-4 rounded-xl border border-slate-100 dark:border-slate-800 hover:border-brand-500 dark:hover:border-brand-500 hover:bg-slate-50/50 dark:hover:bg-slate-950/30 transition-all group"
-              >
-                <h3
-                  class="text-sm font-bold text-slate-800 dark:text-slate-200 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors"
-                >
-                  Future Trends in Tool-Calling Agents
-                </h3>
-                <p class="text-xs text-slate-400 dark:text-slate-500 mt-1">
-                  Native function-calling protocols, structured outputs, and
-                  model-agnostic tool registries.
-                </p>
-                <span
-                  class="text-xs font-semibold text-brand-600 dark:text-brand-400 mt-3 inline-block group-hover:translate-x-1 transition-transform"
-                  >Read Article &rarr;</span
-                >
-              </a>
+              
+              
             </div>
           </div>
 
           <!-- Semantic SEO Instructional Hub -->
 
       </div>
+
+          <!-- ================= TOOL PAGE BLUEPRINT CONTENT ================= -->
+          <section class="mt-12 space-y-10" aria-label="agent prompt builder guide">
+
+  <div><h2 class="text-xl font-extrabold text-slate-900 dark:text-white tracking-tight">How to Use the System Prompt & Tool-Calling Builder</h2>
+    <p class="mt-3 text-sm text-slate-600 dark:text-slate-300">Composes production agent prompts - persona, goal, context, constraints, output format - and emits JSON tool schemas for function calling.</p>
+    <ol class="mt-3 list-decimal pl-6 space-y-2 text-sm text-slate-600 dark:text-slate-300"><li>Define the agent role, goal, hard constraints.</li><li>Add the output contract: format, length, refusal behavior.</li><li>Generate the prompt plus function-calling schemas.</li></ol>
+  </div>
+  <div><h2 class="text-xl font-extrabold text-slate-900 dark:text-white tracking-tight">System Prompts Are APIs</h2>
+    <div class="mt-3 p-4 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-center font-mono text-sm text-slate-800 dark:text-slate-200 overflow-x-auto">Identity, Capabilities, Rules, I/O contract, Examples</div>
+    <p class="mt-3 text-sm text-slate-600 dark:text-slate-300">Treat the system prompt as an interface spec: sections in fixed order (identity, capabilities, rules, I/O contract, examples) test better than prose paragraphs. For tool-calling, the JSON schema <em>is</em> the UX: parameter descriptions get read literally - "zip_code: string" gets extensions; "5-digit US ZIP, no extension" gets compliance. Version prompts like code, keep a small eval set, and specify refusal/edge behavior - unspecified failures are the ones you get.</p>
+  </div>
+  <div><h2 class="text-xl font-extrabold text-slate-900 dark:text-white tracking-tight">System Prompt & Tool-Calling Builder FAQ</h2>
+    <div class="mt-4 space-y-3"><details class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-5"><summary class="cursor-pointer text-sm font-bold text-slate-900 dark:text-white">What belongs in a system vs user message?</summary><p class="mt-3 text-sm text-slate-600 dark:text-slate-300">Durable rules and persona in system; per-run data in user. System messages carry persistent weight across turns.</p></details><details class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-5"><summary class="cursor-pointer text-sm font-bold text-slate-900 dark:text-white">Why do tool calls arrive with wrong arguments?</summary><p class="mt-3 text-sm text-slate-600 dark:text-slate-300">Schema descriptions are instructions the model reads literally. Specify formats, units, and examples in each parameter description.</p></details><details class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-5"><summary class="cursor-pointer text-sm font-bold text-slate-900 dark:text-white">How long can a system prompt be?</summary><p class="mt-3 text-sm text-slate-600 dark:text-slate-300">Under ~2k tokens practically. Every token costs every call, and instruction-following degrades as rules pile up.</p></details></div>
+  </div>
+
+          </section>
     </main>
 
     <script>
